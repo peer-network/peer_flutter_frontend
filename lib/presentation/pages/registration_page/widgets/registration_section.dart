@@ -4,14 +4,14 @@ import 'package:peer_app/presentation/whitelabel/components/buttons/link_button.
 import 'package:peer_app/presentation/whitelabel/components/buttons/primary_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/input/input_field_component.dart';
 
-class LoginSection extends StatefulWidget {
-  const LoginSection({super.key});
+class RegisterSection extends StatefulWidget {
+  const RegisterSection({super.key});
 
   @override
-  State<LoginSection> createState() => _LoginSectionState();
+  State<RegisterSection> createState() => _RegisterSectionState();
 }
 
-class _LoginSectionState extends State<LoginSection> {
+class _RegisterSectionState extends State<RegisterSection> {
   final _formKey = GlobalKey<FormState>();
   String error = '';
   String errorEmail = "";
@@ -64,8 +64,9 @@ class _LoginSectionState extends State<LoginSection> {
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
               labelText: 'E-Mail ...',
-              validator: (val) =>
-                  (val == null || val.isEmpty) ? 'Enter an E-Mail Adress' : null,
+              validator: (val) => (val == null || val.isEmpty)
+                  ? 'Enter an E-Mail Adress'
+                  : null,
               // footnoteText: 'footnoteText',
             ),
             const SizedBox(height: 20),
@@ -76,8 +77,9 @@ class _LoginSectionState extends State<LoginSection> {
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
               labelText: 'E-Mail bestätigen ...',
-              validator: (val) =>
-                  (val == null || val.isEmpty) ? 'Enter E-Mail Adress again to confirm' : null,
+              validator: (val) => (val == null || val.isEmpty)
+                  ? 'Enter E-Mail Adress again to confirm'
+                  : null,
               // footnoteText: 'footnoteText',
             ),
             const SizedBox(height: 20),
@@ -100,8 +102,9 @@ class _LoginSectionState extends State<LoginSection> {
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.done,
               labelText: 'Passwort bestätigen ...',
-              validator: (val) =>
-                  (val == null || val.isEmpty) ? 'Enter a Password again to confirm' : null,
+              validator: (val) => (val == null || val.isEmpty)
+                  ? 'Enter a Password again to confirm'
+                  : null,
               // footnoteText: 'footnoteText',
             ),
             const SizedBox(height: 20),
