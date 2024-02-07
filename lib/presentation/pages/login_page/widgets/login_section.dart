@@ -33,6 +33,13 @@ class _LoginSectionState extends State<LoginSection> {
   }
 
   @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,

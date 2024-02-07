@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/domain/provider/auth_provider.dart';
+import 'package:peer_app/data/provider/auth_provider.dart';
 import 'package:peer_app/presentation/pages/login_page/login_page.dart';
 import 'package:peer_app/presentation/whitelabel/theme.dart';
 import 'package:provider/provider.dart';
