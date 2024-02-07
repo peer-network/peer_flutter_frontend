@@ -3,6 +3,7 @@ import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/link_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/primary_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/input/input_field_component.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class LoginSection extends StatefulWidget {
   const LoginSection({super.key});
@@ -50,7 +51,7 @@ class _LoginSectionState extends State<LoginSection> {
                   (val == null || val.isEmpty) ? 'Enter an email' : null,
               // footnoteText: 'footnoteText',
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: AppPaddings.large),
             InputFieldComponent(
               controller: passwordController,
               obscureText: true,
@@ -62,17 +63,19 @@ class _LoginSectionState extends State<LoginSection> {
                   (val == null || val.isEmpty) ? 'Enter an Password' : null,
               // footnoteText: 'footnoteText',
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: AppPaddings.large),
             PrimaryButtonComponent(
               text: 'Login',
               onPressed: () {
                 Navigator.of(context).push(PeerPageRoute());
               },
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: AppPaddings.large),
             LinkButtonComponent(
               text: 'Register',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(RegistrationPageRoute());
+              },
             ),
           ],
         ),
