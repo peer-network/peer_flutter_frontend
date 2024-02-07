@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
-import 'package:peer_app/presentation/pages/login_page/widgets/footer_section.dart';
+import 'package:peer_app/presentation/pages/registration_page/widgets/footer_section.dart';
+import 'package:peer_app/presentation/pages/registration_page/widgets/registration_section.dart';
 import 'package:peer_app/presentation/whitelabel/config.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-import 'widgets/login_section.dart';
-
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class RegistrationPage extends StatelessWidget {
+  const RegistrationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,21 +21,24 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 //Logo
-                Image.asset(Config.logo, height: Config.logoHeight),
+                if (!isKeyboardVisible)
+                  Image.asset(Config.logo, height: Config.logoHeight),
 
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: AppPaddings.large),
-                  child: LoginSection(),
+                  child: RegisterSection(),
                 ),
 
                 //FooterSection
               ],
             ),
           ),
-          SizedBox(
-              height: AppPaddings.extraLarge,
-              child:
-                  !isKeyboardVisible ? const FooterSectionLogin() : Container())
+          !isKeyboardVisible
+              ? const SizedBox(
+                  height: AppPaddings.extraLarge,
+                  child: FooterSectionRegistrieren(),
+                )
+              : const SizedBox(height: AppPaddings.extraLarge),
         ],
       ),
     );
