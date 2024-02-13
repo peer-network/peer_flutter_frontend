@@ -18,7 +18,7 @@ class CustomColors {
   static const Color lightTextColor = _white;
   static const Color disabledTextColor = _lightGreyColor;
   static const Color secondaryTextColor = _grey;
-
   static const Color primaryTextColor = _black;
+  static const Color primaryIconColor = _black;
   static const Color backgroundColor = _white;
 }

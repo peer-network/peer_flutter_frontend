@@ -74,7 +74,7 @@ class _LoginSectionState extends State<LoginSection> {
             PrimaryButtonComponent(
               text: 'Login',
               onPressed: () {
-                Navigator.of(context).push(PeerPageRoute());
+                Navigator.of(context).push(PeerPageExtendedRoute());
               },
             ),
             const SizedBox(height: AppPaddings.large),
