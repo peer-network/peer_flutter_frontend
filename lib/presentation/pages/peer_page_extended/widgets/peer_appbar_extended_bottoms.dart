@@ -10,17 +10,15 @@ class SearchelementContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        margin: const EdgeInsets.symmetric(
-          horizontal: AppPaddings.small,
-          vertical: AppPaddings.tiny,
-        ),
-        child: SizedBox(
-          width: kSearchElementContainerWidth,
-          height: kSearchElementContainerHeight,
-          child: searchElement,
-        ),
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        horizontal: AppPaddings.small,
+        vertical: AppPaddings.tiny,
+      ),
+      child: SizedBox(
+        width: SearchElementDimensions.SearchElementContainerWidth,
+        height: SearchElementDimensions.SearchElementContainerHight,
+        child: searchElement,
       ),
     );
   }
@@ -78,14 +76,13 @@ class _PeerDropdownState extends State<PeerDropdown> {
               child: Text(item.text),
             ),
           )
-          .toList()
-      // Add more items as needed
-      ,
+          .toList(),
       onChanged: widget.onChanged,
       icon: const Icon(
         Icons.keyboard_arrow_down_outlined,
         color: CustomColors.primaryIconColor,
       ),
+      dropdownColor: Colors.blueGrey, // dropdownDecoration is not defined
     );
   }
 }

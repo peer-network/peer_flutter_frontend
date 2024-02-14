@@ -6,7 +6,8 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class PeerAppbarExtended extends StatefulWidget implements PreferredSizeWidget {
   const PeerAppbarExtended({super.key})
-      : preferredSize = const Size.fromHeight(kToolbarExtenedHeight);
+      : preferredSize =
+            const Size.fromHeight(ExtendedToolbar.ToolbarExtendedHight);
 
   @override
   final Size preferredSize;
@@ -41,6 +42,7 @@ class _PeerAppbarExtendedState extends State<PeerAppbarExtended> {
         Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SearchelementContainer(searchElement: const SearchBubble()),
                 SearchelementContainer(

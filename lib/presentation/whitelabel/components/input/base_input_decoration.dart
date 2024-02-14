@@ -19,6 +19,7 @@ class BaseInputDecoration {
         borderRadius: AppBorders.defaultRadius,
         borderSide: const BorderSide(color: CustomColors.primaryColor),
       ),
+
       suffixIcon: suffixIcon, // Allows for optional customization
     );
   }
