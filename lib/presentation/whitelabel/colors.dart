@@ -10,15 +10,21 @@ const Color _red = Color(0xFFAD3B3B);
 
 // Color aliases
 class CustomColors {
-  static const Color primaryColor = _blueColor;
-  static const Color inactiveBorderColor = _lightGreyColor;
-  static const Color activeBorderColor = _black;
-  static const Color errorBorderColor = _red;
-  static const Color errorTextColor = _red;
+  // Text Colors
+  static const Color primaryTextColor = _black;
+  static const Color secondaryTextColor = _grey;
+  static const Color tertiaryTextColor = _blueColor;
   static const Color lightTextColor = _white;
   static const Color disabledTextColor = _lightGreyColor;
-  static const Color secondaryTextColor = _grey;
-  static const Color primaryTextColor = _black;
+  static const Color errorTextColor = _red;
+
+  // Border Colors
+  static const Color activeBorderColor = _black;
+  static const Color inactiveBorderColor = _lightGreyColor;
+  static const Color errorBorderColor = _red;
+
+  // Unassigned Colors
+  static const Color primaryColor = _blueColor;
   static const Color primaryIconColor = _black;
   static const Color backgroundColor = _white;
 }

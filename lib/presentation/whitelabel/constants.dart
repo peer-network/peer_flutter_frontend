@@ -26,13 +26,7 @@ class AppDimensions {
   static const double iconSizeLarge = 32.0;
   static const double iconSizeExtreLarge = 48.0;
   static const double iconSizeMedium = 24.0;
-}
 
-class SearchElementDimensions {
   static const double SearchElementContainerWidth = 113;
   static const double SearchElementContainerHight = 30;
-}
-
-class ExtendedToolbar {
-  static const double ToolbarExtendedHight = 95;
 }

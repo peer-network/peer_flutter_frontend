@@ -1,53 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/input/base_input_decoration.dart';
-import 'package:peer_app/presentation/whitelabel/constants.dart';
-
-class SearchelementContainer extends StatelessWidget {
-  SearchelementContainer({super.key, required this.searchElement});
-
-  Widget searchElement;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(
-        horizontal: AppPaddings.small,
-        vertical: AppPaddings.tiny,
-      ),
-      child: SizedBox(
-        width: SearchElementDimensions.SearchElementContainerWidth,
-        height: SearchElementDimensions.SearchElementContainerHight,
-        child: searchElement,
-      ),
-    );
-  }
-}
-
-class SearchBubble extends StatelessWidget {
-  const SearchBubble({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        hintText: 'Suchen ...',
-        suffixIcon: const Icon(Icons.search),
-        border: OutlineInputBorder(
-          borderRadius: AppBorders.defaultRadius,
-          borderSide: const BorderSide(color: CustomColors.primaryColor),
-        ),
-        alignLabelWithHint: true,
-        contentPadding: const EdgeInsets.fromLTRB(
-          AppPaddings.medium,
-          AppPaddings.tiny,
-          AppPaddings.small,
-          AppPaddings.tiny,
-        ), // Adjust padding to center the text and icon
-      ),
-    );
-  }
-}
 
 class PeerDropdown extends StatefulWidget {
   const PeerDropdown(
