@@ -22,7 +22,10 @@ class BasePage extends StatelessWidget {
             ? SingleChildScrollView(
                 child: SizedBox(
                     height: MediaQuery.of(context).size.height -
-                        kBottomNavigationBarHeight,
+                        (appBar != null ? appBar!.preferredSize.height : 0) -
+                        (bottomNavigationBar != null
+                            ? kBottomNavigationBarHeight
+                            : 0),
                     child: child),
               )
             : child,

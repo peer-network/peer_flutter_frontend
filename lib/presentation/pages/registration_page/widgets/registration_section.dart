@@ -108,11 +108,14 @@ class _RegisterSectionState extends State<RegisterSection> {
               // footnoteText: 'footnoteText',
             ),
             const SizedBox(height: 20),
-            PrimaryButtonComponent(
-              text: 'Registrieren',
-              onPressed: () {
-                Navigator.of(context).push(PeerPageRoute());
-              },
+            SizedBox(
+              width: double.infinity,
+              child: PrimaryButton(
+                text: 'Registrieren',
+                onPressed: () {
+                  Navigator.of(context).push(PeerPageRoute());
+                },
+              ),
             ),
             const SizedBox(height: 20),
             LinkButtonComponent(

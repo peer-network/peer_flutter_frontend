@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // Colors
 const Color _blueColor = Color(0xFF004CFF);
 const Color _lightGreyColor = Color(0xFFB3B3B3);
+const Color _lightestGreyColor = Color.fromARGB(255, 226, 226, 226);
 const Color _black = Color(0xFF000000);
 const Color _grey = Color(0xFF707070);
 const Color _white = Color(0xFFFFFFFF);
@@ -29,4 +30,7 @@ class CustomColors {
   static const Color backgroundColor = _white;
   static const Color backgroundCardColor = _white;
   static const Color cardBorderColor = _lightGreyColor;
+  static const Color secondaryBackgroundColor = _lightestGreyColor;
+
+  static const Color secondaryButtonColor = _lightGreyColor;
 }

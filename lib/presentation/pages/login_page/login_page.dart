@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           SizedBox(
-              height: AppPaddings.extraLarge,
+              height: AppPaddings.gigaLarge,
               child:
                   !isKeyboardVisible ? const FooterSectionLogin() : Container())
         ],
