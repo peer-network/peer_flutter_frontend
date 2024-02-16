@@ -73,13 +73,6 @@ class _LoginSectionState extends State<LoginSection> {
               // footnoteText: 'footnoteText',
             ),
             const SizedBox(height: AppPaddings.large),
-<<<<<<< HEAD
-            PrimaryButtonComponent(
-              text: 'Login',
-              onPressed: () {
-                Navigator.of(context).push(PeerPageExtendedRoute());
-              },
-=======
             SizedBox(
               width: double.infinity,
               child: PrimaryButton(
@@ -103,7 +96,6 @@ class _LoginSectionState extends State<LoginSection> {
                   // Navigator.of(context).push(PeerPageRoute());
                 },
               ),
->>>>>>> main
             ),
             const SizedBox(height: AppPaddings.large),
             LinkButtonComponent(
