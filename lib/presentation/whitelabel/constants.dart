@@ -27,6 +27,8 @@ class AppDimensions {
   static const double iconSizeExtreLarge = 48.0;
   static const double iconSizeMedium = 24.0;
 
-  static const double SearchElementContainerWidth = 113;
-  static const double SearchElementContainerHight = 30;
+  static const double notificationIndicator = 20;
+
+  static const double searchElementContainerWidth = 113;
+  static const double searchElementContainerHight = 30;
 }

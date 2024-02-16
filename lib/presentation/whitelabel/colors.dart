@@ -27,4 +27,6 @@ class CustomColors {
   static const Color primaryColor = _blueColor;
   static const Color primaryIconColor = _black;
   static const Color backgroundColor = _white;
+  static const Color backgroundCardColor = _white;
+  static const Color cardBorderColor = _lightGreyColor;
 }

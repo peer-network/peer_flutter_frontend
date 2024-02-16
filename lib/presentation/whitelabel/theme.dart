@@ -46,4 +46,9 @@ ThemeData theme = ThemeData(
       background: CustomColors.backgroundColor,
       primary: CustomColors.primaryColor,
       error: CustomColors.errorTextColor),
+  cardTheme: const CardTheme(
+      elevation: 0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+      surfaceTintColor: Colors.white,
+      margin: EdgeInsets.symmetric(vertical: 1)),
 );

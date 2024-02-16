@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
+import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_contacts_list_contacts.dart';
+import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_contacts_notification_search_bar.dart';
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
+import 'package:peer_app/presentation/whitelabel/components/buttons/link_button.dart';
+import 'package:peer_app/presentation/whitelabel/components/buttons/link_button_variable.dart';
 import 'package:peer_app/presentation/whitelabel/components/navbars/primary_bottom_navbar.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ChatContactsPage extends StatelessWidget {
   const ChatContactsPage({super.key});
@@ -9,9 +14,26 @@ class ChatContactsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BasePage(
-        appBar: const SecondaryAppbar(
-            leftText: 'Zurück', mainText: 'Chat', rightText: '       '),
+        appBar: SecondaryAppbar(title: 'Chat', actions: [
+          LinkButtonVariableComponent(
+            text: "post",
+            onPressed: () {},
+            underline: false,
+          )
+        ]),
         bottomNavigationBar: PrimaryBottomNavbar(),
-        child: Container());
+        child: const Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
+              child: Column(
+                children: [
+                  NotificationAndSearchBar(),
+                  ListContacts(),
+                ],
+              ),
+            ),
+          ],
+        ));
   }
 }
