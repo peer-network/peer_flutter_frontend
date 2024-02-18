@@ -77,23 +77,23 @@ class _LoginSectionState extends State<LoginSection> {
               width: double.infinity,
               child: PrimaryButton(
                 text: 'Login',
-                onPressed: () async {
-                  await Provider.of<AuthProvider>(context, listen: false)
+                onPressed: () {
+                  final authProvider =
+                      Provider.of<AuthProvider>(context, listen: false);
+                  authProvider
                       .loginWithCredentials(
                     emailController.text,
                     passwordController.text,
-                  );
-
-                  if (Provider.of<AuthProvider>(context, listen: false)
-                          .authState ==
-                      AuthStates.authenticated) {
-                    Navigator.of(context).push(PeerPageRoute());
-                  } else {
-                    setState(() {
-                      error = 'Invalid email or password';
-                    });
-                  }
-                  // Navigator.of(context).push(PeerPageRoute());
+                  )
+                      .then((value) {
+                    if (authProvider.authState == AuthStates.authenticated) {
+                      Navigator.of(context).push(PeerPageRoute());
+                    } else {
+                      setState(() {
+                        error = 'Invalid email or password';
+                      });
+                    }
+                  });
                 },
               ),
             ),
