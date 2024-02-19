@@ -26,8 +26,8 @@ class LinkButtonVariableComponent extends StatelessWidget {
                 decoration: textDecoration,
                 decorationColor: textColor ?? Theme.of(context).primaryColor,
                 color: textColor ?? Theme.of(context).primaryColor,
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
               )),
     );
   }

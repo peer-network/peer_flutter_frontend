@@ -5,6 +5,10 @@ class AppBorders {
   static BorderRadius defaultRadius = BorderRadius.circular(20.0);
 }
 
+class AppMargins {
+  static const double tiny = 4.0;
+}
+
 class AppPaddings {
   static const double tiny = 4.0;
   static const double small = 8.0;

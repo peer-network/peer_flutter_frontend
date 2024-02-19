@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/components/appbars/logo_appbar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
@@ -19,7 +20,9 @@ class PeerAppbar extends StatelessWidget implements PreferredSizeWidget {
             IconLibrary.message.icon,
             size: AppDimensions.iconSizeLarge,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(ChatContactsPageRoute());
+          },
         ),
         IconButton(
           icon: ImageIcon(
