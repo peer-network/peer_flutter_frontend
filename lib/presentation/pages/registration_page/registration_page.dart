@@ -21,8 +21,14 @@ class RegistrationPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 //Logo
-                if (!isKeyboardVisible)
-                  Image.asset(Config.logo, height: Config.logoHeight),
+                AnimatedOpacity(
+                  // If keyboard is visible, fade out the widget; otherwise, make it fully visible instantly.
+                  opacity: isKeyboardVisible ? 0.0 : 1.0,
+                  duration: isKeyboardVisible
+                      ? const Duration(milliseconds: 500)
+                      : const Duration(milliseconds: 500),
+                  child: Image.asset(Config.logo, height: Config.logoHeight),
+                ),
 
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: AppPaddings.large),
@@ -38,7 +44,7 @@ class RegistrationPage extends StatelessWidget {
                   height: AppPaddings.extraLarge,
                   child: FooterSectionRegistrieren(),
                 )
-              : const SizedBox(height: AppPaddings.extraLarge),
+              : const SizedBox(height: AppPaddings.tiny),
         ],
       ),
     );

@@ -15,6 +15,7 @@ class BaseAppbar extends StatelessWidget implements PreferredSizeWidget {
       leading: leading,
       title: title,
       actions: actions,
+      centerTitle: true,
     );
   }
 
