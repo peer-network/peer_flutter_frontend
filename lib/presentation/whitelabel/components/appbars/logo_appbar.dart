@@ -18,7 +18,7 @@ class LogoAppbar extends StatelessWidget implements PreferredSizeWidget {
         padding: const EdgeInsets.only(left: AppPaddings.medium),
         child: Image.asset(
           Config.secondaryLogo,
-          height: 27,
+          height: Config.secondaryLogoHeight,
         ),
       ),
       actions: actions,
