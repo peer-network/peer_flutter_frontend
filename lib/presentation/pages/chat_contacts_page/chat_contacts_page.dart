@@ -28,7 +28,7 @@ class ChatContactsPage extends StatelessWidget {
               child: Column(
                 children: [
                   NotificationAndSearchBar(),
-                  ListContacts(),
+                  ListContactsView(),
                 ],
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/provider/auth_provider.dart';
+import 'package:peer_app/data/provider/chat_provider.dart';
 import 'package:peer_app/data/provider/feed_provider.dart';
 import 'package:peer_app/presentation/whitelabel/theme.dart';
 import 'package:peer_app/presentation/wrapper/auth_wrapper.dart';
@@ -19,7 +20,8 @@ class MainApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
-        ChangeNotifierProvider(create: (_) => NewsFeedProvider())
+        ChangeNotifierProvider(create: (_) => NewsFeedProvider()),
+        ChangeNotifierProvider(create: (_) => ChatProvider()),
       ],
       child: MaterialApp(
         theme: theme,

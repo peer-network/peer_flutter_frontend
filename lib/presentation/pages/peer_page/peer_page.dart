@@ -14,11 +14,11 @@ class PeerPage extends StatelessWidget {
     return BasePage(
         appBar: const PeerAppbar(),
         bottomNavigationBar: PrimaryBottomNavbar(),
-        child: Column(
+        child: const Column(
           children: [
             SelectionBar(),
             SizedBox(height: AppPaddings.medium),
-            const FeedView(),
+            FeedView(),
           ],
         ));
   }

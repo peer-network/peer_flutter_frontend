@@ -1,158 +1,97 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/chat_contacts.dart';
+import 'package:peer_app/data/models/chat_messages.dart';
+import 'package:peer_app/data/provider/chat_provider.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/contacts_card.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/notification_indicator.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/text_constants.dart';
-import 'dart:convert';
-import 'package:peer_app/data/dummy_response/dummy_contacts.dart';
+import 'package:provider/provider.dart';
 
-// Function to parse JSON string and return a list of Contacts
-List<Contact> parseContacts(String jsonString) {
-  final parsed = json.decode(jsonString).cast<Map<String, dynamic>>();
-  return parsed.map<Contact>((json) => Contact.fromJson(json)).toList();
-}
-
-class ListContacts extends StatefulWidget {
-  const ListContacts({
+class ListContactsView extends StatelessWidget {
+  const ListContactsView({
     super.key,
   });
 
   @override
-  State<ListContacts> createState() => _ListContactsState();
+  Widget build(BuildContext context) {
+    // chatProvider
+    ChatProvider chatProvider = Provider.of<ChatProvider>(context);
+
+    // If the chat provider is loading, show a loading indicator
+    // If the chat provider has an error, show an error message
+    // If the chat provider has data, show the chat contacts;
+    return Container();
+  }
 }
 
-class _ListContactsState extends State<ListContacts> {
+class ChatCardComponent extends StatelessWidget {
+  const ChatCardComponent({
+    super.key,
+    required this.chatMessagesModel,
+  });
+
+  final ChatMessagesModel chatMessagesModel;
+
   @override
   Widget build(BuildContext context) {
-    String message =
-        "Hallo! Was geht? Wollte dir nur sagen dass ich Aids habe :(";
-
-    return Container(
-      width: double.infinity,
-      child: Column(
-        children: [
-          DecoratedBox(
-            decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: CustomColors.cardBorderColor,
-                  width: 1,
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: CustomColors.cardBorderColor,
+            width: 1,
+          ),
+        ),
+      ),
+      child: ContactsCard(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: AppPaddings.small),
+          child: Row(
+            children: [
+              ClipOval(
+                child: Image.network(
+                  chatMessagesModel.contact
+                      .profileImageUrl, // Replace with your actual image URL
+                  width: 50, // Caspar // avoid conflict
+                  height: 50, // Caspar // avoid conflict
+                  fit: BoxFit.cover,
                 ),
               ),
-            ),
-            child: ContactsCard(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: AppPaddings.small),
-                child: Row(
+              Padding(
+                padding: const EdgeInsets.fromLTRB(AppPaddings.medium,
+                    AppPaddings.small, AppPaddings.medium, AppPaddings.small),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ClipOval(
-                      child: Image.network(
-                        'https://as2.ftcdn.net/v2/jpg/05/78/61/63/1000_F_578616383_rjew0ajZan1XZ9uqaRGgw7AMLHVihzy3.jpg', // Replace with your actual image URL
-                        width: 50, // Caspar // avoid conflict
-                        height: 50, // Caspar // avoid conflict
-                        fit: BoxFit.cover,
-                      ),
+                    // TODO replace with actual name
+                    Text(
+                      'Pamela Jones',
+                      style:
+                          headlineSmallTextStyle(CustomColors.primaryTextColor),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                          AppPaddings.medium,
-                          AppPaddings.small,
-                          AppPaddings.medium,
-                          AppPaddings.small),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Pamela Jones',
-                            style: headlineSmallTextStyle(
-                                CustomColors.primaryTextColor),
-                          ),
-                          Text(
-                            message.length > 20
-                                ? '${message.substring(0, 20)}...'
-                                : message,
-                            style: bodyMediumTextStyle(
-                                CustomColors.secondaryTextColor),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Spacer(),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          'Freitag, 23:56',
-                          style: bodySmallTextStyle(
-                              CustomColors.secondaryTextColor),
-                        ),
-                        const NotificationIndicator(notificationCount: 5)
-                      ],
+                    Text(
+                      "sd".length > 20 ? '${"dsf".substring(0, 20)}...' : "dsf",
+                      style:
+                          bodyMediumTextStyle(CustomColors.secondaryTextColor),
                     ),
                   ],
                 ),
               ),
-            ),
-          ),
-          ///////////////////////////////////////////////// Card 2
-          DecoratedBox(
-            decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: CustomColors.cardBorderColor,
-                  width: 1,
-                ),
+              const Spacer(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    'Freitag, 23:56',
+                    style: bodySmallTextStyle(CustomColors.secondaryTextColor),
+                  ),
+                  const NotificationIndicator(notificationCount: 5)
+                ],
               ),
-            ),
-            child: ContactsCard(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: AppPaddings.small),
-                child: Row(
-                  children: [
-                    ClipOval(
-                      child: Image.network(
-                        'https://img.freepik.com/premium-photo/beautiful-hot-young-girl-bikini-beach-side-sexy-hot-image-generated-midjourney-ai_921835-123.jpg?w=740', // Replace with your actual image URL
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                          AppPaddings.medium,
-                          AppPaddings.small,
-                          AppPaddings.medium,
-                          AppPaddings.small),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Pamela Jones',
-                            style: headlineSmallTextStyle(
-                                CustomColors.primaryTextColor),
-                          ),
-                          const Text('Message'),
-                        ],
-                      ),
-                    ),
-                    const Spacer(),
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text('Date'),
-                        NotificationIndicator(notificationCount: 5)
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
