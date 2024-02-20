@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/data/models/chat_contacts.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/contacts_card.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/notification_indicator.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/text_constants.dart';
+import 'dart:convert';
+import 'package:peer_app/data/dummy_response/dummy_contacts.dart';
+
+// Function to parse JSON string and return a list of Contacts
+List<Contact> parseContacts(String jsonString) {
+  final parsed = json.decode(jsonString).cast<Map<String, dynamic>>();
+  return parsed.map<Contact>((json) => Contact.fromJson(json)).toList();
+}
 
 class ListContacts extends StatefulWidget {
-  const ListContacts({super.key});
+  const ListContacts({
+    super.key,
+  });
 
   @override
   State<ListContacts> createState() => _ListContactsState();
