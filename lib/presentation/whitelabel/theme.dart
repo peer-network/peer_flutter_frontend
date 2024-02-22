@@ -34,6 +34,11 @@ ThemeData theme = ThemeData(
         ),
       ),
     ),
+    // cardTheme: const CardTheme(
+    //     elevation: 0,
+    //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+    //     surfaceTintColor: Colors.white,
+    //     margin: EdgeInsets.symmetric(vertical: 1)),
     iconTheme: const IconThemeData(
         color: CustomColors.primaryTextColor,
         size: AppDimensions.iconSizeLarge),

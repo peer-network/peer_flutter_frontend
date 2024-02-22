@@ -1,16 +1,16 @@
 import 'package:peer_app/data/models/user.dart';
 
-class FeedComment {
+class FeedCommentModel {
   final String id;
   final String creatorId;
   final UserModel creator;
   final String contentText;
   final DateTime createdAt;
   final num likeCount;
-  final List<FeedComment> comments;
+  final List<FeedCommentModel> comments;
   bool isLiked;
 
-  FeedComment({
+  FeedCommentModel({
     required this.id,
     required this.creatorId,
     required this.creator,
@@ -25,17 +25,17 @@ class FeedComment {
     isLiked = !isLiked;
   }
 
-  factory FeedComment.fromJson(Map<String, dynamic> json) {
+  factory FeedCommentModel.fromJson(Map<String, dynamic> json) {
     // create comments object
-    List<FeedComment> comments = [];
+    List<FeedCommentModel> comments = [];
 
     if (json['comments'] != null) {
       json['comments'].forEach((comment) {
-        comments.add(FeedComment.fromJson(comment));
+        comments.add(FeedCommentModel.fromJson(comment));
       });
     }
 
-    return FeedComment(
+    return FeedCommentModel(
       id: json['id'],
       creatorId: json['creatorId'],
       creator: UserModel.fromJson(json['creator']),

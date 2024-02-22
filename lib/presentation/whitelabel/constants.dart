@@ -5,6 +5,10 @@ class AppBorders {
   static BorderRadius defaultRadius = BorderRadius.circular(20.0);
 }
 
+class AppMargins {
+  static const double tiny = 4.0;
+}
+
 class AppPaddings {
   static const double tiny = 4.0;
   static const double small = 8.0;
@@ -28,6 +32,10 @@ class AppDimensions {
   static const double iconSizeExtreLarge = 48.0;
   static const double iconSizeMedium = 24.0;
 
+  static const double notificationIndicator = 20;
+
+  static const double searchElementContainerWidth = 113;
+  static const double searchElementContainerHight = 30;
   static const double avatarSize = 60.0;
   static const double newsFeedImageHeight = 200.0;
   static const double newsFeedTextHeight = 300.0;

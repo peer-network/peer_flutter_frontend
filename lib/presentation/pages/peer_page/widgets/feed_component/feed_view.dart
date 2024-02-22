@@ -25,7 +25,11 @@ class FeedView extends StatelessWidget {
       return ErrorComponent(error: newsFeedProvider.error!);
     } else {
       // TODO implement pagination
+      // height to be the height of the screen minus the height of the app bar and the bottom nav bar
       return Container(
+        height: MediaQuery.of(context).size.height -
+            kToolbarHeight -
+            kBottomNavigationBarHeight,
         color: CustomColors.secondaryBackgroundColor,
         child: ListView.builder(
           itemCount: newsFeedProvider.newsFeed.length,

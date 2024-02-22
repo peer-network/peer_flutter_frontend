@@ -11,7 +11,7 @@ class FeedModel {
   final num likeCount;
   final num viewCount;
   final DateTime createdAt;
-  List<FeedComment> comments;
+  List<FeedCommentModel> comments;
   bool isLiked;
 
   FeedModel({
@@ -34,11 +34,11 @@ class FeedModel {
 
   factory FeedModel.fromJson(Map<String, dynamic> json) {
     // create comments object
-    List<FeedComment> comments = [];
+    List<FeedCommentModel> comments = [];
 
     if (json['comments'] != null) {
       json['comments'].forEach((comment) {
-        comments.add(FeedComment.fromJson(comment));
+        comments.add(FeedCommentModel.fromJson(comment));
       });
     }
 
