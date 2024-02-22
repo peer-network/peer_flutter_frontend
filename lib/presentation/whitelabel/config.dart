@@ -5,4 +5,5 @@ class Config {
   static const String secondaryLogo = 'assets/logos/sec_logo.png';
 
   static const double logoHeight = 75;
+  static const double secondaryLogoHeight = 27;
 }

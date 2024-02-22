@@ -86,11 +86,7 @@ class FeedContentImageWidget extends StatelessWidget {
             viewportFraction:
                 1), // Adjust the viewportFraction for partially visible next image
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 8.0), // Adjust the space between images
-            child: Image.network(imageUrls[index], fit: BoxFit.fitWidth),
-          );
+          return Image.network(imageUrls[index], fit: BoxFit.fitWidth);
         },
       ),
     );

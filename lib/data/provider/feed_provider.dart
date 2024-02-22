@@ -32,10 +32,11 @@ class NewsFeedProvider with ChangeNotifier {
       // final response = await _dioClient.get(ApiEndpoints.newsFeed);
       // TODO replace trough real api call
       await Future.delayed(const Duration(seconds: 2));
-      const response = dummyFeeds;
+      Map<String, dynamic> responseFeed =
+          dummyFeeds["data"] as Map<String, dynamic>;
       // Model the response
       _newsFeed = List<FeedModel>.from(
-          response["feeds"]!.map((x) => FeedModel.fromJson(x)));
+          responseFeed["feeds"]!.map((x) => FeedModel.fromJson(x)));
     } catch (e) {
       error = e.toString();
     }
