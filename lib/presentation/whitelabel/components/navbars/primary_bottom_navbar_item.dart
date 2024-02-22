@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class PrimaryBottomNavbarItem extends StatelessWidget {
   const PrimaryBottomNavbarItem(
@@ -10,12 +9,9 @@ class PrimaryBottomNavbarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onPressed,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppPaddings.medium),
-        child: icon,
-      ),
+      child: icon,
     );
   }
 }

@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class SearchElementContainer extends StatelessWidget {
-  SearchElementContainer({super.key, required this.searchElement});
+  const SearchElementContainer({super.key, required this.searchElement});
 
-  Widget searchElement;
+  final Widget searchElement;
 
   @override
   Widget build(BuildContext context) {

@@ -13,34 +13,30 @@ class SelectionBar extends StatefulWidget {
 class _SelectionBarState extends State<SelectionBar> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            SearchElementContainer(
-              searchElement: const SearchBubble(),
-            ),
-            SearchElementContainer(
-              searchElement: PeerDropdown(
-                placeholderText: 'Alle Posts',
-                items: [
-                  DropDownItemModel(value: 'Item 1', text: 'Item 1'),
-                  DropDownItemModel(value: 'Item 1', text: 'Item 1'),
-                ],
-                onChanged: (_) {},
-              ),
-            ),
-            SearchElementContainer(
-              searchElement: PeerDropdown(
-                placeholderText: 'Neuste',
-                items: [
-                  DropDownItemModel(value: 'bob 1', text: 'bob 1'),
-                ],
-                onChanged: (_) {},
-              ),
-            ),
-          ],
+        const SearchElementContainer(
+          searchElement: SearchBubble(),
+        ),
+        SearchElementContainer(
+          searchElement: PeerDropdown(
+            placeholderText: 'Alle Posts',
+            items: [
+              DropDownItemModel(value: 'Item 1', text: 'Item 1'),
+              DropDownItemModel(value: 'Item 1', text: 'Item 1'),
+            ],
+            onChanged: (_) {},
+          ),
+        ),
+        SearchElementContainer(
+          searchElement: PeerDropdown(
+            placeholderText: 'Neuste',
+            items: [
+              DropDownItemModel(value: 'bob 1', text: 'bob 1'),
+            ],
+            onChanged: (_) {},
+          ),
         ),
       ],
     );

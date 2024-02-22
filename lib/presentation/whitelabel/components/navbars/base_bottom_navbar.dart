@@ -19,16 +19,16 @@ class BaseBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
 
-    return Padding(
-      padding: adjustForKeyboard
-          ? EdgeInsets.only(bottom: keyboardHeight)
-          : EdgeInsets.zero,
-      child: SizedBox(
-        height: height,
-        child: SafeArea(
+    return SafeArea(
+      child: Padding(
+        padding: adjustForKeyboard
+            ? EdgeInsets.only(bottom: keyboardHeight)
+            : EdgeInsets.zero,
+        child: SizedBox(
+          height: height,
           child: Padding(
               padding: const EdgeInsets.symmetric(
-                  horizontal: AppPaddings.medium, vertical: 2),
+                  horizontal: AppPaddings.extraLarge),
               child: child),
         ),
       ),

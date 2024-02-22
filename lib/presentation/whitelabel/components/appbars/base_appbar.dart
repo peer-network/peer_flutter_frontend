@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class BaseAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
@@ -20,5 +21,5 @@ class BaseAppbar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => AppDimensions.appbarHeightSize;
 }

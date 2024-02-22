@@ -25,7 +25,10 @@ enum IconLibrary {
   shop,
   plusBox,
   notifications,
-  message
+  message,
+  comment,
+  view,
+  heart,
 }
 
 extension IconExtension on IconLibrary {
@@ -81,6 +84,12 @@ extension IconExtension on IconLibrary {
         return const AssetImage("assets/icons/notifications.png");
       case IconLibrary.message:
         return const AssetImage("assets/icons/message.png");
+      case IconLibrary.comment:
+        return const AssetImage("assets/icons/comment.png");
+      case IconLibrary.view:
+        return const AssetImage("assets/icons/view.png");
+      case IconLibrary.heart:
+        return const AssetImage("assets/icons/heart.png");
 
       default:
         throw Exception("Icon not found");

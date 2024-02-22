@@ -26,11 +26,13 @@ class AppDimensions {
   static const double buttonWidthLarge = double.infinity;
   static const double buttonWidthNavbar = 257.2;
 
-  static const double bottomNavBarHeight = 100.0;
+  static const double bottomNavBarHeight = kBottomNavigationBarHeight;
+  static const Size appbarHeightSize = Size.fromHeight(kToolbarHeight);
 
   static const double iconSizeLarge = 32.0;
   static const double iconSizeExtreLarge = 48.0;
   static const double iconSizeMedium = 24.0;
+  static const double iconSizeSmall = 18.0;
 
   static const double notificationIndicator = 20;
 

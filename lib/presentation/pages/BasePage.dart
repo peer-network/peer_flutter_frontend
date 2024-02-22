@@ -20,13 +20,7 @@ class BasePage extends StatelessWidget {
       body: SafeArea(
         child: makeScrollable
             ? SingleChildScrollView(
-                child: SizedBox(
-                    height: MediaQuery.of(context).size.height -
-                        (appBar != null ? appBar!.preferredSize.height : 0) -
-                        (bottomNavigationBar != null
-                            ? kBottomNavigationBarHeight
-                            : 0),
-                    child: child),
+                child: child,
               )
             : child,
       ),

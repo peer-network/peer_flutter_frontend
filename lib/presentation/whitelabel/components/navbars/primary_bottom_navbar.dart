@@ -51,13 +51,10 @@ class PrimaryBottomNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseBottomNavigationBar(
-        child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppPaddings.medium),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: items,
-      ),
+        child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: items,
     ));
   }
 }

@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_model.dart';
 import 'package:peer_app/data/models/user.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_content_text_widget.dart';
+import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/secondary_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
 import 'package:peer_app/presentation/whitelabel/components/tiles/feed_tile.dart';
+import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
 class FeedCardComponent extends StatelessWidget {
   const FeedCardComponent({super.key, required this.feed});
@@ -21,7 +24,44 @@ class FeedCardComponent extends StatelessWidget {
           FeedContentComponent(
             feed: feed,
           ),
+          const FeedActionsComponent(),
+          const SizedBox(height: AppPaddings.small),
           const FeedStatsWithCommentsComponent(),
+        ],
+      ),
+    );
+  }
+}
+
+class FeedActionsComponent extends StatelessWidget {
+  const FeedActionsComponent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+          horizontal: AppPaddings.large, vertical: AppPaddings.small),
+      child: Row(
+        children: [
+          CustomIconButton(
+            onPressed: () {},
+            sizeType: SizeType.medium,
+            icon: IconLibrary.heart,
+          ),
+          const SizedBox(width: AppPaddings.small),
+          CustomIconButton(
+            onPressed: () {},
+            sizeType: SizeType.medium,
+            icon: IconLibrary.comment,
+          ),
+          const SizedBox(width: AppPaddings.small),
+          CustomIconButton(
+            onPressed: () {},
+            sizeType: SizeType.medium,
+            icon: IconLibrary.share,
+          ),
+          const Spacer(),
+          Text("3. August", style: Theme.of(context).textTheme.bodySmall),
         ],
       ),
     );
@@ -98,6 +138,71 @@ class FeedStatsWithCommentsComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: AppPaddings.large, vertical: AppPaddings.small),
+      child: Row(
+        children: [
+          LikeCountComponent(),
+          SizedBox(width: AppPaddings.small),
+          ViewCountComponent(),
+          Spacer(),
+          CommentCountComponent(),
+        ],
+      ),
+    );
+  }
+}
+
+class LikeCountComponent extends StatelessWidget {
+  const LikeCountComponent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        CustomIconButton(
+          onPressed: () {},
+          sizeType: SizeType.small,
+          icon: IconLibrary.heart,
+        ),
+        const SizedBox(width: AppPaddings.small),
+        Text("12", style: Theme.of(context).textTheme.titleLarge),
+      ],
+    );
+  }
+}
+
+class ViewCountComponent extends StatelessWidget {
+  const ViewCountComponent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        CustomIconButton(
+          onPressed: () {},
+          sizeType: SizeType.small,
+          icon: IconLibrary.view,
+        ),
+        const SizedBox(width: AppPaddings.small),
+        Text("12", style: Theme.of(context).textTheme.titleLarge),
+      ],
+    );
+  }
+}
+
+class CommentCountComponent extends StatelessWidget {
+  const CommentCountComponent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text("12", style: Theme.of(context).textTheme.titleLarge),
+        const SizedBox(width: AppPaddings.small),
+        Text("Kommentare", style: Theme.of(context).textTheme.titleLarge),
+      ],
+    );
   }
 }

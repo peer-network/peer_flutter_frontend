@@ -24,6 +24,7 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ChatProvider()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: theme,
         home: const AuthWrapper(),
       ),
