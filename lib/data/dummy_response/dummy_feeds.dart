@@ -11,7 +11,8 @@ const dummyFeeds = {
           "profileImageUrl":
               "https://img.freepik.com/fotos-premium/ein-sexy-heisses-model-im-bikini-fuer-frauen-foto-ai-generated_980993-1026.jpg"
         },
-        "imageDescription": "A beautiful sunset",
+        "imageDescription":
+            "It has survived not only five centuries. #historyinthemakin #survivalofthefittest",
         "contentText":
             """Once upon a time, in bustling Tokyo, there lived a quirky fellow named Keanu, who had a passion for designing T-shirts that expressed his offbeat sense of humor. Keanu had always dreamed of starting his own clothing line, but fate took a strange turn when he unwittingly found himself working for a rather dubious company called Peer, known for its less-than-savory reputation in the fashion world.
           
