@@ -2,12 +2,12 @@ import 'package:peer_app/data/models/user.dart';
 
 class ChatMessagesModel {
   // user
-  final String id;
-  final String contactId;
+  final String? id;
+  final String? contactId;
   final UserModel contact;
-  final String lastMessage;
-  final DateTime lastMessageTime;
-  final int notificationCount;
+  final String? lastMessage;
+  final DateTime? lastMessageTime;
+  final int? notificationCount;
 
   ChatMessagesModel({
     required this.lastMessage,

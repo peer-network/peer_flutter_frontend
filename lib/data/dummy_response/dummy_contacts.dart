@@ -18,7 +18,19 @@ const Map<String, dynamic> dummyChatMessenges = {
       "contact": {
         "id": "2",
         "username": "Another Name",
-        "profileImageUrl": "https://example.com/another-image.jpg"
+        "profileImageUrl":
+            "https://images.paramount.tech/uri/mgid:arc:imageassetref:shared.southpark.us.en:871078f4-35f8-4ffd-9b26-156124e12e7d?quality=0.7&gen=ntrn&legacyStatusCode=true&format=jpg&width=1200&height=630&crop=true"
+      }
+    },
+    {
+      "message": "Ich bin ein Berliner",
+      "time": "2022-01-02T12:34:00.000Z",
+      "notificationCount": 0,
+      "contact": {
+        "id": "3",
+        "username": "Florian Schneider",
+        "profileImageUrl":
+            "https://images-ng.pixai.art/images/orig/eda76502-b4b2-402e-a2f9-e32bd61a0de6"
       }
     }
   ]

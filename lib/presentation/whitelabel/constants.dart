@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class AppBorders {
   static BorderRadius defaultRadius = BorderRadius.circular(20.0);
+  static BorderRadius noRadius = BorderRadius.zero;
 }
 
 class AppMargins {
