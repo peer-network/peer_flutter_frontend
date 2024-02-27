@@ -3,11 +3,8 @@ import 'package:peer_app/data/models/chat_messages.dart';
 import 'package:peer_app/data/models/user.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_tile.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
-import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
-import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
-import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 import 'package:peer_app/presentation/whitelabel/text_constants.dart';
 import 'package:intl/intl.dart';
 
