@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
-import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_contacts_list_contacts.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_contacts_notification_search_bar.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chats_view.dart';
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
@@ -29,8 +28,7 @@ class ChatContactsPage extends StatelessWidget {
               child: Column(
                 children: [
                   NotificationAndSearchBar(),
-                  // ListContactsView(),
-                  ChatsView()
+                  ChatsView(),
                 ],
               ),
             ),

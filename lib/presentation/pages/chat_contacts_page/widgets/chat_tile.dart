@@ -23,8 +23,8 @@ class ChatTile extends StatelessWidget {
               2, // The divider's vertical space it occupies in the parent. Includes the divider's thickness.
           thickness: 1, // The thickness of the line itself.
           color: CustomColors.cardBorderColor, // Color of the divider.
-          indent: 20, // Empty space to the leading edge of the divider.
-          endIndent: 20, // Empty space to the trailing edge of the divider.
+          indent: 15, // Empty space to the leading edge of the divider.
+          endIndent: 15, // Empty space to the trailing edge of the divider.
         )
       ],
     );

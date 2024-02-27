@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/provider/chat_provider.dart';
-import 'package:peer_app/data/provider/feed_provider.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chats_card_component.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_card_component.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
@@ -24,8 +22,6 @@ class ChatsView extends StatelessWidget {
         onRefresh: () => chatMessengesProvider.fetchChatMessenges(),
       );
     } else if (chatMessengesProvider.error != null) {
-      print("PROBLEM HERE");
-      print(chatMessengesProvider.error!);
       return ErrorComponent(error: chatMessengesProvider.error!);
     } else {
       // TODO implement pagination
@@ -40,8 +36,6 @@ class ChatsView extends StatelessWidget {
           itemBuilder: (context, index) {
             return ChatsCardComponent(
                 chats: chatMessengesProvider.chatMessenges[index]);
-            // return Text(
-            //     chatMessengesProvider.chatMessenges[index].contact.username);
           },
         ),
       );
