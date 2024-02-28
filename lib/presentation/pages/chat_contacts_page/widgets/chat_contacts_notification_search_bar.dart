@@ -14,14 +14,13 @@ class NotificationAndSearchBar extends StatefulWidget {
 class _NotificationAndSearchState extends State<NotificationAndSearchBar> {
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       children: [
-        const Expanded(
+        Expanded(
           child: Text('neue Nachricht',
               style: TextStyle(color: CustomColors.primaryColor)),
         ),
-        Expanded(
-            child: SearchElementContainer(searchElement: const SearchBubble())),
+        Expanded(child: SearchElementContainer(searchElement: SearchBubble())),
       ],
     );
   }
