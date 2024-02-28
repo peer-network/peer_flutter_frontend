@@ -17,7 +17,10 @@ class AuthProvider extends ChangeNotifier {
     _authState = AuthStates.loading;
     notifyListeners();
 
-    bool authSucces = await AuthService().loginWithCredentials(email, password);
+    // bool authSucces = await AuthService().loginWithCredentials(email, password);
+    //wait 2 seconds to simulate a real login
+    await Future.delayed(const Duration(seconds: 2));
+    bool authSucces = true;
     if (authSucces) {
       _authState = AuthStates.authenticated;
     } else {
