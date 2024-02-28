@@ -1,5 +1,5 @@
 class ApiEndpoints {
-  static const String baseUrl = 'https://heygold.com';
+  static const String baseUrl = '';
 
   // Auth
   static const String login = '/api/token';
