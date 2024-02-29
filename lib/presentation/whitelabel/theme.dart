@@ -13,18 +13,25 @@ ThemeData theme = ThemeData(
       style: ButtonStyle(),
     ),
     textTheme: TextTheme(
+      // Display
       displayLarge: displayLargeTextStyle(CustomColors.primaryTextColor),
       displayMedium: displayMediumTextStyle(CustomColors.primaryTextColor),
       displaySmall: displaySmallTextStyle(CustomColors.primaryTextColor),
+      // Headline
+      headlineLarge: headlineLargeTextStyle(CustomColors.primaryTextColor),
       headlineMedium: headlineMediumTextStyle(CustomColors.primaryTextColor),
       headlineSmall: headlineSmallTextStyle(CustomColors.primaryTextColor),
+      // Title
       titleLarge: titleLargeTextStyle(CustomColors.primaryTextColor),
       titleMedium: titleMediumTextStyle(CustomColors.primaryTextColor),
       titleSmall: titleSmallTextStyle(CustomColors.primaryTextColor),
+      // Body
       bodyLarge: bodyLargeTextStyle(CustomColors.primaryTextColor),
       bodyMedium: bodyMediumTextStyle(CustomColors.primaryTextColor),
-      labelLarge: labelLargeTextStyle(CustomColors.primaryTextColor),
       bodySmall: bodySmallTextStyle(CustomColors.primaryTextColor),
+      // Label
+      labelLarge: labelLargeTextStyle(CustomColors.primaryTextColor),
+      labelMedium: labelMediumTextStyle(CustomColors.primaryTextColor),
       labelSmall: labelSmallTextStyle(CustomColors.primaryTextColor),
     ),
     inputDecorationTheme: const InputDecorationTheme(
@@ -34,11 +41,6 @@ ThemeData theme = ThemeData(
         ),
       ),
     ),
-    // cardTheme: const CardTheme(
-    //     elevation: 0,
-    //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-    //     surfaceTintColor: Colors.white,
-    //     margin: EdgeInsets.symmetric(vertical: 1)),
     iconTheme: const IconThemeData(
         color: CustomColors.primaryTextColor,
         size: AppDimensions.iconSizeLarge),

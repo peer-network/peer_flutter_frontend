@@ -4,6 +4,7 @@ import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/notificat
 import 'package:peer_app/presentation/whitelabel/components/date/formatted_date_text_widget.dart';
 import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/whitelabel/colors.dart';
 
 class ChatsCardContentComponent extends StatelessWidget {
   const ChatsCardContentComponent({
@@ -34,10 +35,12 @@ class ChatsCardContentComponent extends StatelessWidget {
                   Text(chat.contact.username,
                       style: Theme.of(context).textTheme.titleLarge,
                       maxLines: 1,
-                      overflow: TextOverflow
-                          .ellipsis), // Custom widget to display the username
+                      overflow: TextOverflow.ellipsis),
                   Text(chat.lastMessage ?? "",
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyLarge!
+                          .copyWith(color: CustomColors.secondaryTextColor),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis),
                 ],
@@ -54,7 +57,10 @@ class ChatsCardContentComponent extends StatelessWidget {
                 child: chat.lastMessageTime != null
                     ? FormattedDateTextWidget(
                         dateTime: chat.lastMessageTime!,
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge!
+                            .copyWith(color: CustomColors.secondaryTextColor),
                       )
                     : Container(),
               ),

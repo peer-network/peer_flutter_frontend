@@ -19,11 +19,14 @@ class NotificationCircle extends StatelessWidget {
     // Determine the font size based on the length of displayText
     final double fontSize;
     if (displayText.length > 2) {
-      fontSize = 9.0; // For text length greater than 2 (e.g., "99+")
+      // For text length greater than 2 (e.g., "99+")
+      fontSize = Theme.of(context).textTheme.bodySmall!.fontSize!;
     } else if (displayText.length > 1) {
-      fontSize = 12.0; // For text length greater than 1 (e.g., "10" to "99")
+      // For text length greater than 1 (e.g., "10" to "99")
+      fontSize = Theme.of(context).textTheme.bodyMedium!.fontSize!;
     } else {
-      fontSize = 14.0; // For text length of 1 (e.g., "0" to "9")
+      // For text length of 1 (e.g., "0" to "9")
+      fontSize = Theme.of(context).textTheme.bodyLarge!.fontSize!;
     }
 
     return Container(
