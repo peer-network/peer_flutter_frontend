@@ -1,6 +1,10 @@
 // file: constants.dart
 import 'package:flutter/material.dart';
 
+class AppConstants {
+  static const int maxLastMessageLength = 20;
+}
+
 class AppBorders {
   static BorderRadius defaultRadius = BorderRadius.circular(20.0);
   static BorderRadius noRadius = BorderRadius.zero;
@@ -29,6 +33,9 @@ class AppDimensions {
 
   static const double bottomNavBarHeight = kBottomNavigationBarHeight;
   static const Size appbarHeightSize = Size.fromHeight(kToolbarHeight);
+
+  static const double modalControllerWidth = 50;
+  static const double modalControllerHeight = 5;
 
   static const double iconSizeLarge = 32.0;
   static const double iconSizeExtreLarge = 48.0;

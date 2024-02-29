@@ -6,7 +6,7 @@ import 'package:peer_app/data/services/dio_client.dart';
 
 class ChatProvider with ChangeNotifier {
   final DioClient _dioClient = DioClient();
-  List<dynamic> _chatMessenges = [];
+  List<ChatMessagesModel> _chatMessenges = [];
   bool isLoading = false;
   String? error;
 
@@ -17,7 +17,7 @@ class ChatProvider with ChangeNotifier {
     fetchChatMessenges();
   }
 
-  List<dynamic> get chatMessenges => _chatMessenges;
+  List<ChatMessagesModel> get chatMessenges => _chatMessenges;
 
   // TODO: implement caching
   // caching options

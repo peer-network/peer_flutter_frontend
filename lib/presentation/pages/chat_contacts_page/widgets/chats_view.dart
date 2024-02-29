@@ -35,7 +35,7 @@ class ChatsView extends StatelessWidget {
           itemCount: chatMessengesProvider.chatMessenges.length,
           itemBuilder: (context, index) {
             return ChatsCardComponent(
-                chats: chatMessengesProvider.chatMessenges[index]);
+                chat: chatMessengesProvider.chatMessenges[index]);
           },
         ),
       );

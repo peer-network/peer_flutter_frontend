@@ -14,18 +14,14 @@ class ChatContactsPage extends StatelessWidget {
     return BasePage(
         appBar: const SecondaryAppbar(title: 'Chat'),
         bottomNavigationBar: PrimaryBottomNavbar(),
-        child: const Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
-              child: Column(
-                children: [
-                  NotificationAndSearchBar(),
-                  ChatsView(),
-                ],
-              ),
-            ),
-          ],
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
+          child: Column(
+            children: [
+              NotificationAndSearchBar(),
+              ChatsView(),
+            ],
+          ),
         ));
   }
 }

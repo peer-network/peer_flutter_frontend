@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/user.dart';
-import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chats_card_component.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/notification_circle.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
+import 'package:peer_app/presentation/whitelabel/components/dates/formatted_date_widget.dart';
 import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/text_constants.dart';
@@ -23,9 +23,10 @@ class ChatsCardContentComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // if notificationCount is null, display an epmty text widget instead
-    Widget theCircle = (notificationCount == 0
-        ? const Text("")
-        : NotificationCircle(notificationCount: notificationCount!));
+    Widget notificationCircle =
+        (notificationCount == 0 || notificationCount == null
+            ? const Text("")
+            : NotificationCircle(notificationCount: notificationCount!));
 
     // if lastMessageTime is null, display an empty text widget instead, otherwise display the formatted time
     Widget lastMessageTimeWidget = lastMessageTime == null
@@ -55,8 +56,8 @@ class ChatsCardContentComponent extends StatelessWidget {
                 ),
                 // text output of last message, truncated to 20 characters
                 Text(
-                  lastMessage.length > 20
-                      ? '${lastMessage.substring(0, 20)}...'
+                  lastMessage.length > AppConstants.maxLastMessageLength
+                      ? '${lastMessage.substring(0, AppConstants.maxLastMessageLength)}...'
                       : lastMessage,
                   style:
                       const TextStyle(color: CustomColors.secondaryTextColor),
@@ -73,7 +74,7 @@ class ChatsCardContentComponent extends StatelessWidget {
                 child:
                     lastMessageTimeWidget, // Custom widget to display the formatted date
               ),
-              theCircle, // Custom widget to display the notification count
+              notificationCircle, // Custom widget to display the notification count
             ],
           ),
         ],
