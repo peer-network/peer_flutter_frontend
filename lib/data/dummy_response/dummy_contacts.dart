@@ -44,6 +44,28 @@ const Map<String, dynamic> dummyChatMessenges = {
         "profileImageUrl":
             "https://external-preview.redd.it/g2LTo4JLv6KCT5oeoVPm-FcWVLmSi76i6aWK-S5vRAU.jpg?auto=webp&s=a0021b9985bc5822370ecdf61f22ad1b8d3b7882"
       }
-    }
+    },
+    {
+      "message": "We write diversity with a capital D",
+      "time": "1985-09-13T12:34:00.000Z",
+      "notificationCount": 69,
+      "contact": {
+        "id": "5",
+        "username": "Astolfo",
+        "profileImageUrl":
+            "https://cdn.myminifactory.com/assets/object-assets/5a87156690514/images/resize-i6jnn7b.jpg"
+      }
+    },
+    {
+      "message": "We write diversity with a capital D",
+      "time": "1985-09-13T12:34:00.000Z",
+      "notificationCount": 0,
+      "contact": {
+        "id": "6",
+        "username": "Super Long Name Johny Sins",
+        "profileImageUrl":
+            "https://images.cgames.de/images/gsgp/290/highlightbild-one-punch-man-kolumne-darum-drohen-die-videospiel-adaptionen-zu-scheitern_6072256.jpg"
+      }
+    },
   ]
 };
