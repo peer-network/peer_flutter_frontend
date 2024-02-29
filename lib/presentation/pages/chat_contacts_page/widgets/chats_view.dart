@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/provider/chat_provider.dart';
-import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chats_card_component.dart';
+import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_card_component.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
@@ -34,7 +34,7 @@ class ChatsView extends StatelessWidget {
         child: ListView.builder(
           itemCount: chatMessengesProvider.chatMessenges.length,
           itemBuilder: (context, index) {
-            return ChatsCardComponent(
+            return ChatCardComponent(
                 chat: chatMessengesProvider.chatMessenges[index]);
           },
         ),

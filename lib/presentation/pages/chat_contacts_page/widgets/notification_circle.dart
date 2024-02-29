@@ -2,23 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-class NotificationCircle extends StatefulWidget {
+class NotificationCircle extends StatelessWidget {
+  const NotificationCircle({
+    super.key,
+    required this.notificationCount,
+  });
   final int notificationCount;
 
-  const NotificationCircle({Key? key, required this.notificationCount})
-      : super(key: key);
-
-  @override
-  _NotificationCircleState createState() => _NotificationCircleState();
-}
-
-class _NotificationCircleState extends State<NotificationCircle> {
   @override
   Widget build(BuildContext context) {
     // Determine the text to display based on the notificationCount
-    final String displayText = widget.notificationCount > 99
+    final String displayText = notificationCount > 99
         ? "99+" // Currently not working becuase of the fixed size of the container
-        : widget.notificationCount.toString();
+        : notificationCount.toString();
 
     // Determine the font size based on the length of displayText
     final double fontSize;
@@ -31,9 +27,9 @@ class _NotificationCircleState extends State<NotificationCircle> {
     }
 
     return Container(
-      width:
-          AppDimensions.notificationIndicator, // Keep the circle size constant
-      height: AppDimensions.notificationIndicator,
+      width: AppDimensions
+          .notificationIndicatorCicleSize, // Keep the circle size constant
+      height: AppDimensions.notificationIndicatorCicleSize,
       decoration: const BoxDecoration(
         color: CustomColors.primaryColor,
         shape: BoxShape.circle,
@@ -41,11 +37,10 @@ class _NotificationCircleState extends State<NotificationCircle> {
       alignment: Alignment.center,
       child: Text(
         displayText,
-        style: TextStyle(
-          color: CustomColors.lightTextColor,
-          fontWeight: FontWeight.bold,
-          fontSize: fontSize, // Use the dynamically determined font size
-        ),
+        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+              color: CustomColors.lightTextColor,
+              fontSize: fontSize,
+            ),
         textAlign: TextAlign.center,
       ),
     );

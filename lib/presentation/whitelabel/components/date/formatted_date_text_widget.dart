@@ -21,13 +21,13 @@ class FormattedDateTextWidget extends StatelessWidget {
 
     if (dateTime.isAfter(aWeekAgo)) {
       // If the message is less than a week ago, format as "Friday, 23:56"
-      formattedDate = DateFormat('EEEE, HH:mm').format(dateTime);
+      formattedDate = DateFormat('EE, HH:mm').format(dateTime);
     } else if (dateTime.isAfter(startOfThisYear)) {
       // If it's longer than a week ago, but it's still within the same year, format as "March, 11"
-      formattedDate = DateFormat('MMMM, dd').format(dateTime);
+      formattedDate = DateFormat('MM, dd').format(dateTime);
     } else {
       // If the message was delivered last year or an earlier year, format as "April 20, 2022"
-      formattedDate = DateFormat('MMMM dd, yyyy').format(dateTime);
+      formattedDate = DateFormat('MM dd, yyyy').format(dateTime);
     }
 
     // Use the provided style if available, otherwise default to the bodyLarge style of the current theme
