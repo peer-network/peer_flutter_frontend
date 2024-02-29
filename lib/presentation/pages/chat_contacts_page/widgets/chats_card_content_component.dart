@@ -10,34 +10,34 @@ import 'package:peer_app/presentation/whitelabel/text_constants.dart';
 class ChatsCardContentComponent extends StatelessWidget {
   const ChatsCardContentComponent({
     super.key,
-    required this.chats,
+    required this.chat,
   });
 
-  final ChatMessagesModel chats;
+  final ChatMessagesModel chat;
 
   @override
   Widget build(BuildContext context) {
     // if notificationCount is null, display an epmty text widget instead
     Widget notificationCircle =
-        (chats.notificationCount == 0 || chats.notificationCount == null
+        (chat.notificationCount == 0 || chat.notificationCount == null
             ? const Text("")
-            : NotificationCircle(notificationCount: chats.notificationCount!));
+            : NotificationCircle(notificationCount: chat.notificationCount!));
 
     // if lastMessageTime is null, display an empty text widget instead, otherwise display the formatted time
-    Widget lastMessageTimeWidget = chats.lastMessageTime == null
+    Widget lastMessageTimeWidget = chat.lastMessageTime == null
         ? const Text("")
         : FormattedDateTextWidget(
-            dateTime: chats.lastMessageTime!,
+            dateTime: chat.lastMessageTime!,
             style: const TextStyle(color: CustomColors.secondaryTextColor));
 
     // if username is longer than 15 characters, display the first 15 characters followed by '...', otherwise display the username
-    Widget displayedUsername = chats.contact.username.length > 15
+    Widget displayedUsername = chat.contact.username.length > 15
         ? Text(
-            '${chats.contact.username.substring(0, 15)}...',
+            '${chat.contact.username.substring(0, 15)}...',
             style: titleLargeTextStyle(CustomColors.primaryTextColor),
           )
         : Text(
-            chats.contact.username,
+            chat.contact.username,
             style: titleLargeTextStyle(CustomColors.primaryTextColor),
           );
 
@@ -45,16 +45,16 @@ class ChatsCardContentComponent extends StatelessWidget {
     // else if the last message is longer than 20 characters, display the first 20 characters followed by '...'
     // else display the last message
     displayLastMessage() {
-      if (chats.lastMessage == null) {
+      if (chat.lastMessage == null) {
         return const Text("");
-      } else if (chats.lastMessage!.length > 20) {
+      } else if (chat.lastMessage!.length > 20) {
         return Text(
-          '${chats.lastMessage!.substring(0, 20)}...',
+          '${chat.lastMessage!.substring(0, 20)}...',
           style: const TextStyle(color: CustomColors.secondaryTextColor),
         );
       } else {
         return Text(
-          chats.lastMessage!,
+          chat.lastMessage!,
           style: const TextStyle(color: CustomColors.secondaryTextColor),
         );
       }
@@ -67,7 +67,7 @@ class ChatsCardContentComponent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Display the user avatar (profile image)
-          AvatarComponent(imageUrl: chats.contact.profileImageUrl),
+          AvatarComponent(imageUrl: chat.contact.profileImageUrl),
           Padding(
             padding: const EdgeInsets.only(left: AppPaddings.small),
             child: Column(
