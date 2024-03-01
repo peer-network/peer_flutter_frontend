@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/chat_messages_model.dart';
-import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_tile.dart';
-import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chats_card_content_component.dart';
+import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_card_with_content_component.dart';
 
 class ChatCardComponent extends StatelessWidget {
   const ChatCardComponent({super.key, required this.chat});
@@ -10,10 +9,6 @@ class ChatCardComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChatTile(
-      child: ChatsCardContentComponent(
-        chat: chat,
-      ),
-    );
+    return ChatCardWithContentComponent(chat: chat);
   }
 }
