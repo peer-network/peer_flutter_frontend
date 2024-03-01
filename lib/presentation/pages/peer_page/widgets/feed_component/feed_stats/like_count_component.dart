@@ -5,7 +5,12 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
 class LikeCountComponent extends StatelessWidget {
-  const LikeCountComponent({super.key});
+  const LikeCountComponent({
+    super.key,
+    required this.likeCount,
+  });
+
+  final num likeCount;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,9 @@ class LikeCountComponent extends StatelessWidget {
           icon: IconLibrary.heart,
         ),
         const SizedBox(width: AppPaddings.small),
-        Text("12", style: Theme.of(context).textTheme.titleLarge),
+        // Text("12", style: Theme.of(context).textTheme.titleLarge),
+        Text(likeCount.toString(),
+            style: Theme.of(context).textTheme.titleLarge),
       ],
     );
   }

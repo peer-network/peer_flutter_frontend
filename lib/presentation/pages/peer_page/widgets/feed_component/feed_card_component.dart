@@ -5,6 +5,7 @@ import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/fee
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_content/feed_content_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_header_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_image_description_component.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/feed_stats_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/tiles/feed_tile.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
@@ -34,6 +35,8 @@ class _FeedCardComponentState extends State<FeedCardComponent> {
           // Feed image description
           if (widget.feed.imageDescription != null)
             FeedImageDescriptionComponent(text: widget.feed.imageDescription!),
+          const SizedBox(height: AppPaddings.small),
+          FeedStatsComponent(feed: widget.feed),
           const SizedBox(height: AppPaddings.small),
           // Feed stats
           showComments
