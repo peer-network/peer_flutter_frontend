@@ -8,6 +8,7 @@ class PrimaryButton extends BaseButton {
     required VoidCallback onPressed,
     Color? backgroundColor,
     Color? textColor,
+    double? height,
     bool isDisabled = false,
     bool isLoading = false,
     bool isFilled = true,
@@ -21,5 +22,6 @@ class PrimaryButton extends BaseButton {
           isDisabled: isDisabled,
           isLoading: isLoading,
           isFilled: isFilled,
+          height: height,
         );
 }

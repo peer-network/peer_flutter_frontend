@@ -34,6 +34,9 @@ class FeedView extends StatelessWidget {
         child: ListView.builder(
           itemCount: newsFeedProvider.newsFeed.length,
           itemBuilder: (context, index) {
+            if (newsFeedProvider.newsFeed[index].creator == null) {
+              return Container();
+            }
             return FeedCardComponent(feed: newsFeedProvider.newsFeed[index]);
           },
         ),

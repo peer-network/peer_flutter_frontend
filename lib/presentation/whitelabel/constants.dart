@@ -1,5 +1,6 @@
 // file: constants.dart
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/whitelabel/components/types/aspect_ratios.dart';
 
 class AppBorders {
   static BorderRadius defaultRadius = BorderRadius.circular(20.0);
@@ -41,4 +42,12 @@ class AppDimensions {
   static const double avatarSize = 60.0;
   static const double newsFeedImageHeight = 200.0;
   static const double newsFeedTextHeight = 300.0;
+
+  static const double profileTextPostsSliderCardWidth = 290.0;
+  static const double profileTextPostsSliderCardMaxHeight = 500.0;
+}
+
+// aspect ratios
+class AppAspectRatios {
+  static double profileImageAspectRatio = AspectRatios.ar_19_9.doubleValue();
 }

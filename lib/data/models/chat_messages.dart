@@ -21,11 +21,11 @@ class ChatMessagesModel {
   factory ChatMessagesModel.fromJson(Map<String, dynamic> json) {
     return ChatMessagesModel(
       id: json['id'],
-      contactId: json['contactId'],
+      contactId: json['contact_id'],
       contact: UserModel.fromJson(json['contact']),
       lastMessage: json['message'],
       lastMessageTime: DateTime.parse(json['time']),
-      notificationCount: json['notificationCount'],
+      notificationCount: json['notification_count'],
     );
   }
 }

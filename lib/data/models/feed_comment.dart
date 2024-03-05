@@ -37,13 +37,13 @@ class FeedCommentModel {
 
     return FeedCommentModel(
       id: json['id'],
-      creatorId: json['creatorId'],
+      creatorId: json['creator_id'],
       creator: UserModel.fromJson(json['creator']),
-      contentText: json['contentText'],
-      createdAt: DateTime.parse(json['createdAt']),
-      likeCount: json['likeCount'],
+      contentText: json['content_text'],
+      createdAt: DateTime.parse(json['created_at']),
+      likeCount: json['like_count'],
       comments: comments,
-      isLiked: json['isLiked'],
+      isLiked: json['is_liked'],
     );
   }
 }
