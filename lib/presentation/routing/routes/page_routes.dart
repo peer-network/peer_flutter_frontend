@@ -35,3 +35,11 @@ class ChatContactsPageRoute extends BaseRoute {
           guards: [],
         );
 }
+
+class ChatPageRoute extends BaseRoute {
+  ChatPageRoute(String chatId)
+      : super(
+          ChatPage(chatId: chatId),
+          guards: [],
+        );
+}
