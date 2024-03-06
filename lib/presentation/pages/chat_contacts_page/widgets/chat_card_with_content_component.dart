@@ -7,7 +7,7 @@ import 'package:peer_app/presentation/whitelabel/components/image_container/avat
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ChatCardWithContentComponent extends StatelessWidget {
-  final ChatMessagesModel chat;
+  final ChatMessage chat;
   //   final ChatMessage chat;
 
   const ChatCardWithContentComponent({

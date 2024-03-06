@@ -5,7 +5,7 @@ import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_card
 class ChatCardComponent extends StatelessWidget {
   const ChatCardComponent({super.key, required this.chat});
 
-  final ChatMessagesModel chat;
+  final ChatMessage chat;
 
   @override
   Widget build(BuildContext context) {

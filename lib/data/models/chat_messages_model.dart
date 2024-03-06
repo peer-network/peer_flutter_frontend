@@ -1,6 +1,6 @@
 import 'package:peer_app/data/models/user.dart';
 
-class ChatMessagesModel {
+class ChatMessage {
   // user
   final String? id;
   final String? contactId;
@@ -9,7 +9,7 @@ class ChatMessagesModel {
   final DateTime? lastMessageTime;
   final int? notificationCount;
 
-  ChatMessagesModel({
+  ChatMessage({
     required this.lastMessage,
     required this.contact,
     required this.id,
@@ -18,8 +18,8 @@ class ChatMessagesModel {
     required this.notificationCount,
   });
 
-  factory ChatMessagesModel.fromJson(Map<String, dynamic> json) {
-    return ChatMessagesModel(
+  factory ChatMessage.fromJson(Map<String, dynamic> json) {
+    return ChatMessage(
       id: json['id'],
       contactId: json['contactId'],
       contact: UserModel.fromJson(json['contact']),
