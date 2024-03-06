@@ -37,7 +37,7 @@ class ChatHistoryView extends StatelessWidget {
           itemBuilder: (context, index) {
             // return ChatContactCardComponent(
             //     chat: singleChatMessengesProvider.chatMessenges[index]);
-            return ChatPage(
+            return ChatPageBottom(
                 chatMsg: singleChatMessengesProvider.chatHistorie[index]);
           },
         ),

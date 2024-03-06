@@ -3,6 +3,7 @@ import 'package:peer_app/presentation/pages/login_page/login_page.dart';
 import 'package:peer_app/presentation/pages/peer_page/peer_page.dart';
 import 'package:peer_app/presentation/pages/registration_page/registration_page.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/single_chat_page.dart';
+import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_page.dart';
 import 'package:peer_app/presentation/routing/routes/base_route.dart';
 
 class LoginPageRoute extends BaseRoute {
@@ -40,7 +41,7 @@ class ChatContactsPageRoute extends BaseRoute {
 class ChatPageRoute extends BaseRoute {
   ChatPageRoute(String chatId)
       : super(
-          ChatPage(chatId: chatId),
+          ChatPageBottom(chatId: chatId),
           guards: [],
         );
 }

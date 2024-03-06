@@ -8,7 +8,6 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ChatCardWithContentComponent extends StatelessWidget {
   final ChatMessage chat;
-  //   final ChatMessage chat;
 
   const ChatCardWithContentComponent({
     super.key,
