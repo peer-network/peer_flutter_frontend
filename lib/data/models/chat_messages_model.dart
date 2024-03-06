@@ -2,7 +2,7 @@ import 'package:peer_app/data/models/user.dart';
 
 class ChatMessage {
   // user
-  final String? id;
+  final String id;
   final String? contactId;
   final UserModel contact;
   final String? lastMessage;

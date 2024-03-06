@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/data/provider/auth_provider.dart';
 import 'package:peer_app/data/provider/chat_provider.dart';
 import 'package:peer_app/data/provider/feed_provider.dart';
+import 'package:peer_app/data/provider/single_chat_provider.dart';
 import 'package:peer_app/presentation/whitelabel/theme.dart';
 import 'package:peer_app/presentation/wrapper/auth_wrapper.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +23,7 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => NewsFeedProvider()),
         ChangeNotifierProvider(create: (_) => ChatProvider()),
-        ChangeNotifierProvider(create: (_) => ChatProvider()),
+        ChangeNotifierProvider(create: (_) => SingleChatProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

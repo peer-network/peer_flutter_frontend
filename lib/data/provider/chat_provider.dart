@@ -1,6 +1,6 @@
 // news_provider.dart
 import 'package:flutter/foundation.dart';
-import 'package:peer_app/data/dummy_response/dummy_contacts.dart';
+import 'package:peer_app/data/dummy_response/dummy_chat_contacts.dart';
 import 'package:peer_app/data/models/chat_messages_model.dart';
 import 'package:peer_app/data/services/dio_client.dart';
 
@@ -31,7 +31,7 @@ class ChatProvider with ChangeNotifier {
     try {
       // final response = await _dioClient.get(ApiEndpoints.chatMessenges);
       // TODO replace trough real api call
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 1));
       const response = dummyChatMessenges;
       // Model the response
       _chatMessenges = List<ChatMessage>.from(

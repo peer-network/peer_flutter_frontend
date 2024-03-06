@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/chat_message_model.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_contacts_notification_search_bar.dart';
-import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chats_view.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_page.dart';
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
 import 'package:peer_app/presentation/whitelabel/components/navbars/primary_bottom_navbar.dart';
@@ -24,8 +23,7 @@ class ChatPageTop extends StatelessWidget {
           child: Column(
             children: [
               const NotificationAndSearchBar(),
-              // ChatsView(), // xchange
-              ChatPageBottom(chatId: chatId, chatMsg: chatMsg),
+              ChatPage(chatId: chatId, chatMsg: chatMsg),
             ],
           ),
         ));
