@@ -2,6 +2,7 @@ import 'package:peer_app/presentation/pages/chat_contacts_page/chat_contacts_pag
 import 'package:peer_app/presentation/pages/login_page/login_page.dart';
 import 'package:peer_app/presentation/pages/peer_page/peer_page.dart';
 import 'package:peer_app/presentation/pages/registration_page/registration_page.dart';
+import 'package:peer_app/presentation/pages/single_chat_page/single_chat_page.dart';
 import 'package:peer_app/presentation/routing/routes/base_route.dart';
 
 class LoginPageRoute extends BaseRoute {
