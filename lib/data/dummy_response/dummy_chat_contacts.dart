@@ -1,4 +1,4 @@
-const Map<String, dynamic> dummyChatMessenges = {
+const Map<String, dynamic> dummyContacts = {
   "messeges": [
     {
       "id": "1",

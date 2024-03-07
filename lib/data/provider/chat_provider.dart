@@ -32,7 +32,7 @@ class ChatProvider with ChangeNotifier {
       // final response = await _dioClient.get(ApiEndpoints.chatMessenges);
       // TODO replace trough real api call
       await Future.delayed(const Duration(seconds: 1));
-      const response = dummyChatMessenges;
+      const response = dummyContacts;
       // Model the response
       _chatMessenges = List<ChatMessage>.from(
           response["messeges"]!.map((x) => ChatMessage.fromJson(x)));
