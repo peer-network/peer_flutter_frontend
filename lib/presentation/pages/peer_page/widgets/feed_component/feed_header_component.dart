@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/user.dart';
+import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/secondary_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
@@ -16,15 +17,29 @@ class FeedHeaderComponent extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
           horizontal: AppPaddings.large, vertical: AppPaddings.small),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // Avatar
-          AvatarComponent(imageUrl: user.profileImageUrl),
-          const SizedBox(width: AppPaddings.small),
-          // Title
-          Text(user.username, style: Theme.of(context).textTheme.titleLarge!),
-          const Spacer(),
+          InkWell(
+            onTap: () =>
+                Navigator.of(context).push(UserProfilePageRoute(user.id)),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                AvatarComponent(imageUrl: user.profileImageUrl),
+                const SizedBox(width: AppPaddings.small),
+                // Title
+                Text(user.username,
+                    style: Theme.of(context).textTheme.titleLarge!),
+              ],
+            ),
+          ),
+
           // Follow button
-          SecondaryButton(text: 'Follow', onPressed: () => print('Follow')),
+          SecondaryButton(
+            text: 'Follow',
+            onPressed: () => print('Follow'),
+          ),
         ],
       ),
     );

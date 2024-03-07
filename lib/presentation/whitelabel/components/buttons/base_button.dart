@@ -53,9 +53,13 @@ class BaseButton extends StatelessWidget {
               horizontal: AppPaddings.large, vertical: 0.0),
         ),
         child: isLoading
-            ? const CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(
-                    CustomColors.primaryTextColor),
+            ? SizedBox(
+                height: (height ?? AppDimensions.buttonHeightLarge) / 2,
+                width: (height ?? AppDimensions.buttonHeightLarge) / 2,
+                child: const CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                      CustomColors.primaryTextColor),
+                ),
               )
             : Text(
                 text,
