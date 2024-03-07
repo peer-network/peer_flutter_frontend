@@ -7,10 +7,10 @@ import 'package:peer_app/presentation/whitelabel/components/date/formatted_date_
 import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-class ChatCardWithContentComponent extends StatelessWidget {
+class ContactsCardComponent extends StatelessWidget {
   final ContactsModel chat;
 
-  const ChatCardWithContentComponent({
+  const ContactsCardComponent({
     super.key,
     required this.chat,
   });

@@ -14,7 +14,7 @@ class ChatProvider with ChangeNotifier {
 
   // init with fetchChatMessenges
   ChatProvider() {
-    fetchChatMessenges();
+    fetchContacts();
   }
 
   List<ContactsModel> get chatMessenges => _chatMessenges;
@@ -25,7 +25,7 @@ class ChatProvider with ChangeNotifier {
   // cache only
   // cache and network
 
-  Future<void> fetchChatMessenges() async {
+  Future<void> fetchContacts() async {
     isLoading = true;
     notifyListeners();
     try {
