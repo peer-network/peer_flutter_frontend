@@ -1,5 +1,5 @@
 const Map<String, dynamic> dummyContacts = {
-  "messeges": [
+  "contactsSummary": [
     {
       "id": "1",
       "lastMessage":

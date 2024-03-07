@@ -35,7 +35,7 @@ class ContactsProvider with ChangeNotifier {
       const response = dummyContacts;
       // Model the response
       _contacts = List<ContactsModel>.from(
-          response["messeges"]!.map((x) => ContactsModel.fromJson(x)));
+          response["contactsSummary"]!.map((x) => ContactsModel.fromJson(x)));
     } catch (e) {
       error = e.toString();
     }
