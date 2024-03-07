@@ -6,8 +6,8 @@ import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_ap
 import 'package:peer_app/presentation/whitelabel/components/navbars/primary_bottom_navbar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-class ChatContactsPage extends StatelessWidget {
-  const ChatContactsPage({super.key});
+class ContactsPage extends StatelessWidget {
+  const ContactsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

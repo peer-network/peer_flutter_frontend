@@ -17,7 +17,7 @@ class _SelectionBarState extends State<SelectionBar> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         const SearchElementContainer(
-          searchElement: SearchBubble(),
+          searchElement: SearchField(),
         ),
         SearchElementContainer(
           searchElement: PeerDropdown(

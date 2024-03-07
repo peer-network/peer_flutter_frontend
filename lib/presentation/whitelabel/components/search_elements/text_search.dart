@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-class SearchBubble extends StatelessWidget {
-  const SearchBubble({super.key});
+class SearchField extends StatelessWidget {
+  const SearchField({super.key});
 
   @override
   Widget build(BuildContext context) {

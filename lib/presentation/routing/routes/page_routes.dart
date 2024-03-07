@@ -32,7 +32,7 @@ class RegistrationPageRoute extends BaseRoute {
 class ChatContactsPageRoute extends BaseRoute {
   ChatContactsPageRoute()
       : super(
-          const ChatContactsPage(),
+          const ContactsPage(),
           guards: [],
         );
 }

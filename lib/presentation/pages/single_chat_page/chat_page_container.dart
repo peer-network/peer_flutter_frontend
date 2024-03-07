@@ -7,8 +7,8 @@ import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_ap
 import 'package:peer_app/presentation/whitelabel/components/navbars/primary_bottom_navbar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-class ChatPageTop extends StatelessWidget {
-  const ChatPageTop({super.key, this.chatId, this.chatMsg});
+class ChatPageContainer extends StatelessWidget {
+  const ChatPageContainer({super.key, this.chatId, this.chatMsg});
 
   final String? chatId;
   final ChatMsg? chatMsg;

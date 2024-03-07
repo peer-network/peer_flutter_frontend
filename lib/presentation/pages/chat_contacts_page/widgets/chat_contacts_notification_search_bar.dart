@@ -19,7 +19,7 @@ class NotificationAndSearchBar extends StatelessWidget {
           ),
         ),
         const Expanded(
-            child: SearchElementContainer(searchElement: SearchBubble())),
+            child: SearchElementContainer(searchElement: SearchField())),
       ],
     );
   }
