@@ -23,7 +23,7 @@ class ContactsModel {
       id: json['id'],
       contactId: json['contactId'],
       contact: UserModel.fromJson(json['contact']),
-      lastMessage: json['message'],
+      lastMessage: json['lastMessage'],
       lastMessageTime: DateTime.parse(json['time']),
       notificationCount: json['notificationCount'],
     );

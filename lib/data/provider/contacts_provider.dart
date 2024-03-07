@@ -4,20 +4,20 @@ import 'package:peer_app/data/dummy_response/dummy_contacts.dart';
 import 'package:peer_app/data/models/contacts_model.dart';
 import 'package:peer_app/data/services/dio_client.dart';
 
-class ChatProvider with ChangeNotifier {
+class ContactsProvider with ChangeNotifier {
   final DioClient _dioClient = DioClient();
-  List<ContactsModel> _chatMessenges = [];
+  List<ContactsModel> _contacts = [];
   bool isLoading = false;
   String? error;
 
   // TODO: implement pagination
 
   // init with fetchChatMessenges
-  ChatProvider() {
+  ContactsProvider() {
     fetchContacts();
   }
 
-  List<ContactsModel> get chatMessenges => _chatMessenges;
+  List<ContactsModel> get contacts => _contacts;
 
   // TODO: implement caching
   // caching options
@@ -34,7 +34,7 @@ class ChatProvider with ChangeNotifier {
       await Future.delayed(const Duration(seconds: 1));
       const response = dummyContacts;
       // Model the response
-      _chatMessenges = List<ContactsModel>.from(
+      _contacts = List<ContactsModel>.from(
           response["messeges"]!.map((x) => ContactsModel.fromJson(x)));
     } catch (e) {
       error = e.toString();
