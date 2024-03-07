@@ -1,12 +1,12 @@
 // news_provider.dart
 import 'package:flutter/foundation.dart';
-import 'package:peer_app/data/dummy_response/dummy_chat_contacts.dart';
-import 'package:peer_app/data/models/chat_messages_model.dart';
+import 'package:peer_app/data/dummy_response/dummy_contacts.dart';
+import 'package:peer_app/data/models/contacts_model.dart';
 import 'package:peer_app/data/services/dio_client.dart';
 
 class ChatProvider with ChangeNotifier {
   final DioClient _dioClient = DioClient();
-  List<ChatMessage> _chatMessenges = [];
+  List<ContactsModel> _chatMessenges = [];
   bool isLoading = false;
   String? error;
 
@@ -17,7 +17,7 @@ class ChatProvider with ChangeNotifier {
     fetchChatMessenges();
   }
 
-  List<ChatMessage> get chatMessenges => _chatMessenges;
+  List<ContactsModel> get chatMessenges => _chatMessenges;
 
   // TODO: implement caching
   // caching options
@@ -34,8 +34,8 @@ class ChatProvider with ChangeNotifier {
       await Future.delayed(const Duration(seconds: 1));
       const response = dummyContacts;
       // Model the response
-      _chatMessenges = List<ChatMessage>.from(
-          response["messeges"]!.map((x) => ChatMessage.fromJson(x)));
+      _chatMessenges = List<ContactsModel>.from(
+          response["messeges"]!.map((x) => ContactsModel.fromJson(x)));
     } catch (e) {
       error = e.toString();
     }

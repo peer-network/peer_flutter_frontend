@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/chat_messages_model.dart';
+import 'package:peer_app/data/models/contacts_model.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/notification_circle.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
@@ -8,7 +8,7 @@ import 'package:peer_app/presentation/whitelabel/components/image_container/avat
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ChatCardWithContentComponent extends StatelessWidget {
-  final ChatMessage chat;
+  final ContactsModel chat;
 
   const ChatCardWithContentComponent({
     super.key,
