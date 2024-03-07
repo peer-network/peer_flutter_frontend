@@ -4,7 +4,7 @@ const Map<String, dynamic> dummyContacts = {
       "id": "1",
       "lastMessage":
           "Hallo! Was geht?\nWollte dir nur \nsagen dass ich Aids habe :(",
-      "time": "2024-02-26T23:56:00.000Z",
+      "lastMessageTime": "2024-02-26T23:56:00.000Z",
       "notificationCount": 5,
       "contact": {
         "id": "1",
@@ -16,7 +16,7 @@ const Map<String, dynamic> dummyContacts = {
     {
       "id": "1",
       "lastMessage": "Hey,\nshow boobs pls",
-      "time": "2024-02-06T23:56:00.000Z",
+      "lastMessageTime": "2024-02-06T23:56:00.000Z",
       "notificationCount": 17,
       "contact": {
         "id": "2",
@@ -28,7 +28,7 @@ const Map<String, dynamic> dummyContacts = {
     {
       "id": "1",
       "lastMessage": "Ich bin ein Berliner",
-      "time": "1945-01-02T12:34:00.000Z",
+      "lastMessageTime": "1945-01-02T12:34:00.000Z",
       "notificationCount": 0,
       "contact": {
         "id": "3",
@@ -40,7 +40,7 @@ const Map<String, dynamic> dummyContacts = {
     {
       "id": "1",
       "lastMessage": "it's a me, Mario!",
-      "time": "1985-09-13T12:34:00.000Z",
+      "lastMessageTime": "1985-09-13T12:34:00.000Z",
       "notificationCount": 120,
       "contact": {
         "id": "4",
@@ -52,7 +52,7 @@ const Map<String, dynamic> dummyContacts = {
     {
       "id": "1",
       "lastMessage": "We write diversity with a capital D",
-      "time": "1985-09-13T12:34:00.000Z",
+      "lastMessageTime": "1985-09-13T12:34:00.000Z",
       "notificationCount": 69,
       "contact": {
         "id": "5",
@@ -64,7 +64,7 @@ const Map<String, dynamic> dummyContacts = {
     {
       "id": "1",
       "lastMessage": "We write diversity with a capital D",
-      "time": "1985-09-13T12:34:00.000Z",
+      "lastMessageTime": "1985-09-13T12:34:00.000Z",
       "notificationCount": 0,
       "contact": {
         "id": "6",
