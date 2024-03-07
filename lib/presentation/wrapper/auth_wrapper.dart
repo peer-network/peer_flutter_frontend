@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/data/provider/auth_provider.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/pages/login_page/login_page.dart';
-import 'package:peer_app/presentation/pages/peer_page/peer_page.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +26,7 @@ class AuthWrapper extends StatelessWidget {
         } else {
           if (Provider.of<AuthProvider>(context, listen: false).authState ==
               AuthStates.authenticated) {
-            return const PeerPage(); // User is logged in
+            return const LoginPage(); // User is logged in
           } else {
             return const LoginPage(); // User is not logged in
           }
