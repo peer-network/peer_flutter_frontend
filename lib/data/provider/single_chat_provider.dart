@@ -6,6 +6,7 @@ import 'package:peer_app/data/models/contacts_model.dart';
 import 'package:peer_app/data/services/dio_client.dart';
 
 class SingleChatProvider with ChangeNotifier {
+  final String currentUserId;
   final DioClient _dioClient = DioClient();
   List<ChatMsg> _chatHistory = [];
   bool isLoading = false;
@@ -14,7 +15,7 @@ class SingleChatProvider with ChangeNotifier {
   // TODO: implement pagination
 
   // init with fetchChatMessenges
-  SingleChatProvider() {
+  SingleChatProvider({required this.currentUserId}) {
     fetchChatHistorie();
   }
 
@@ -24,18 +25,19 @@ class SingleChatProvider with ChangeNotifier {
     isLoading = true;
     notifyListeners();
     try {
-      // final response = await _dioClient.get(ApiEndpoints.chatMessenges);
-      // TODO replace trough real api call
-      await Future.delayed(const Duration(seconds: 2));
-      const response = dummyChat;
-      // Model the response
-      _chatHistory = List<ChatMsg>.from(response[0]["messages"]
-          .map((x) => ChatMsg.fromJson(x as Map<String, dynamic>)));
+      await Future.delayed(
+          const Duration(seconds: 2)); // Simulating network delay for now
+      const response =
+          dummyChat; // Your dummy data or eventually real API response
+      _chatHistory = response[0]["messages"].map<ChatMsg>((x) {
+        return ChatMsg.fromJson(x as Map<String, dynamic>,
+            currentUserId); // Pass currentUserId here
+      }).toList();
     } catch (e) {
       error = e.toString();
+    } finally {
+      isLoading = false;
+      notifyListeners();
     }
-    isLoading = false;
-
-    notifyListeners();
   }
 }

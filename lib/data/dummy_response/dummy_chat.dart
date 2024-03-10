@@ -1,6 +1,8 @@
 const List<Map<String, dynamic>> dummyChat = [
   {
     "chatSessionId": "session_1",
+    "currentUserId":
+        "user_123", // Later needs to be provided in a global app state by provider
     "participants": {"userId": "user_123", "contactId": "1"},
     "messages": [
       {

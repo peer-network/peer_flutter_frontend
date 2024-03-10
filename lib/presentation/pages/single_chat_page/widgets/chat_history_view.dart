@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/provider/single_chat_provider.dart';
+import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_bubbles_and_date.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
@@ -34,15 +35,14 @@ class ChatHistoryView extends StatelessWidget {
         child: ListView.builder(
           itemCount: singleChatMessengesProvider.chatHistorie.length,
           itemBuilder: (context, index) {
-            // return ChatContactCardComponent(
-            //     chat: singleChatMessengesProvider.chatMessenges[index]);
-
-            // return Text("ChatHistoryView");
-            return Text(
-                singleChatMessengesProvider.chatHistorie[index].content);
-
-            // ChatPage(
-            //     chatMsg: singleChatMessengesProvider.chatHistorie[index]);
+            // return Text(
+            //     singleChatMessengesProvider.chatHistorie[index].content);
+            // instead return a widget that displays the chat messages in bubbles
+            // return ChatBubblesAndDate(
+            //     dataCollection:
+            //         singleChatMessengesProvider.chatHistorie[index]);
+            return ChatBubble(
+                message: singleChatMessengesProvider.chatHistorie[index]);
           },
         ),
       );
