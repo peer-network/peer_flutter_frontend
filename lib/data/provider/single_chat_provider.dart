@@ -20,12 +20,6 @@ class SingleChatProvider with ChangeNotifier {
 
   List<ChatMsg> get chatHistorie => _chatHistory;
 
-  // TODO: implement caching
-  // caching options
-  // network only
-  // cache only
-  // cache and network
-
   Future<void> fetchChatHistorie() async {
     isLoading = true;
     notifyListeners();

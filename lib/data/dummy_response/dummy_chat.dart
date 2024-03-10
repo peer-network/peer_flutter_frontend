@@ -23,8 +23,56 @@ const List<Map<String, dynamic>> dummyChat = [
         "recipientId": "1",
         "content": "Wollte dir nur sagen dass ich Aids habe :(",
         "timestamp": "2024-02-26T23:57:00Z"
+      },
+      {
+        "messageId": "msg_1004",
+        "senderId": "1",
+        "recipientId": "user_123",
+        "content": "Oh, das ist schade",
+        "timestamp": "2024-02-26T23:58:00Z"
+      },
+      {
+        "messageId": "msg_1005",
+        "senderId": "user_123",
+        "recipientId": "1",
+        "content": "Ja, ich weiß",
+        "timestamp": "2024-02-26T23:59:00Z"
+      },
+      {
+        "messageId": "msg_1006",
+        "senderId": "1",
+        "recipientId": "user_123",
+        "content": "Kann ich dir helfen?",
+        "timestamp": "2024-02-27T00:00:00Z"
+      },
+      {
+        "messageId": "msg_1007",
+        "senderId": "user_123",
+        "recipientId": "1",
+        "content": "Nein, ich wollte es dir nur sagen",
+        "timestamp": "2024-02-27T00:01:00Z"
+      },
+      {
+        "messageId": "msg_1008",
+        "senderId": "1",
+        "recipientId": "user_123",
+        "content": "Ok, danke",
+        "timestamp": "2024-02-27T00:02:00Z"
+      },
+      {
+        "messageId": "msg_1009",
+        "senderId": "user_123",
+        "recipientId": "1",
+        "content": "Tschüss",
+        "timestamp": "2024-02-27T00:03:00Z"
+      },
+      {
+        "messageId": "msg_1010",
+        "senderId": "1",
+        "recipientId": "user_123",
+        "content": "Tschüss",
+        "timestamp": "2024-02-27T00:04:00Z"
       }
-      // More messages as needed
     ]
   }
 ];
