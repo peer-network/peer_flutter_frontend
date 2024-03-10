@@ -1,30 +1,30 @@
-class ChatSession {
-  final String chatSessionId;
-  final String currentUserId;
-  final Map<String, String> participants;
-  final List<ChatMsg> messages;
+// class ChatSession {
+//   final String chatSessionId;
+//   final String currentUserId;
+//   final Map<String, String> participants;
+//   final List<ChatMsg> messages;
 
-  ChatSession({
-    required this.chatSessionId,
-    required this.currentUserId,
-    required this.participants,
-    required this.messages,
-  });
+//   ChatSession({
+//     required this.chatSessionId,
+//     required this.currentUserId,
+//     required this.participants,
+//     required this.messages,
+//   });
 
-  factory ChatSession.fromJson(Map<String, dynamic> json) {
-    var messageList = json['messages'] as List;
-    List<ChatMsg> messages = messageList
-        .map((messageJson) =>
-            ChatMsg.fromJson(messageJson, json['currentUserId']))
-        .toList();
-    return ChatSession(
-      chatSessionId: json['chatSessionId'],
-      currentUserId: json['currentUserId'],
-      participants: Map<String, String>.from(json['participants']),
-      messages: messages,
-    );
-  }
-}
+//   factory ChatSession.fromJson(Map<String, dynamic> json) {
+//     var messageList = json['messages'] as List;
+//     List<ChatMsg> messages = messageList
+//         .map((messageJson) =>
+//             ChatMsg.fromJson(messageJson, json['currentUserId']))
+//         .toList();
+//     return ChatSession(
+//       chatSessionId: json['chatSessionId'],
+//       currentUserId: json['currentUserId'],
+//       participants: Map<String, String>.from(json['participants']),
+//       messages: messages,
+//     );
+//   }
+// }
 
 class ChatMsg {
   final String messageId;
