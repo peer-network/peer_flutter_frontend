@@ -26,7 +26,7 @@
 //   }
 // }
 
-class ChatMsg {
+class ChatMessageModel {
   final String messageId;
   final String senderId;
   final String recipientId;
@@ -34,7 +34,7 @@ class ChatMsg {
   final DateTime timestamp;
   final bool isSender;
 
-  ChatMsg({
+  ChatMessageModel({
     required this.messageId,
     required this.senderId,
     required this.recipientId,
@@ -43,8 +43,9 @@ class ChatMsg {
     required this.isSender,
   });
 
-  factory ChatMsg.fromJson(Map<String, dynamic> json, String currentUserId) {
-    return ChatMsg(
+  factory ChatMessageModel.fromJson(
+      Map<String, dynamic> json, String currentUserId) {
+    return ChatMessageModel(
       messageId: json['messageId'],
       senderId: json['senderId'],
       recipientId: json['recipientId'],

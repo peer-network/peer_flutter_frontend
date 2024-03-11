@@ -8,7 +8,7 @@ class ChatPage extends StatelessWidget {
   const ChatPage({Key? key, this.chatId, this.chatMsg}) : super(key: key);
 
   final String? chatId;
-  final ChatMsg? chatMsg;
+  final ChatMessageModel? chatMsg;
 
   @override
   Widget build(BuildContext context) {

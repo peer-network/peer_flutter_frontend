@@ -34,7 +34,8 @@ class ChatHistoryView extends StatelessWidget {
     }
   }
 
-  Widget _buildChatList(List<ChatMsg> chatHistory, BuildContext context) {
+  Widget _buildChatList(
+      List<ChatMessageModel> chatHistory, BuildContext context) {
     List<Widget> children = [];
     DateTime? lastDate;
 

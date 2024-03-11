@@ -75,3 +75,24 @@ const Map<String, dynamic> dummyContacts = {
     },
   ]
 };
+
+
+
+// const Map<String, dynamic> dummyContacts = {
+//   "contactsSummary": [
+//     {
+//       "id": "1",
+//       "last_chat_message": {
+//         "messageId": "msg_1001",
+//         "senderId": "user_123",
+//         "recipientId": "1",
+//         "content": "Hallo! Was geht?\nWollte dir nur \nsagen dass ich Aids habe :(",
+//         "timestamp": "2024-02-26T23:55:00Z"
+//       },
+//       "notificationCount": 5,
+//       "contact": {
+//         "id": "1",
+//         "username": "Pamela Jones",
+//         "profileImageUrl":
+//             "https://as2.ftcdn.net/v2/jpg/05/78/61/63/1000_F_578616383_rjew0ajZan1XZ9uqaRGgw7AMLHVihzy3.jpg"
+//       }

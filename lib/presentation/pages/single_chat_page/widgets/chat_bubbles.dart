@@ -6,7 +6,7 @@ import 'package:peer_app/presentation/whitelabel/constants.dart'; // Adjust if n
 class ChatBubble extends StatelessWidget {
   const ChatBubble({Key? key, required this.chatData}) : super(key: key);
 
-  final ChatMsg chatData;
+  final ChatMessageModel chatData;
 
   @override
   Widget build(BuildContext context) {
