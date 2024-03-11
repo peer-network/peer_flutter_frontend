@@ -97,7 +97,7 @@ class WalletSheet extends StatelessWidget {
                           ? Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 80),
-                              //TODO: make this production ready appwide
+                              //TODO: make this production ready appwide (skeleton loadin)
                               child: AnimatedContainer(
                                 duration: const Duration(seconds: 1),
                                 width: AppDimensions.avatarSize +
