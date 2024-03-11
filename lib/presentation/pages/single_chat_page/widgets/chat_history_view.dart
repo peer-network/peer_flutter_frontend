@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/provider/single_chat_provider.dart';
-import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_bubbles_and_date.dart';
+import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_bubbles.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';

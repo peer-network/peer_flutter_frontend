@@ -8,6 +8,7 @@ const Color _black = Color(0xFF000000);
 const Color _grey = Color(0xFF707070);
 const Color _white = Color(0xFFFFFFFF);
 const Color _red = Color(0xFFAD3B3B);
+const Color _lightBlueColor = Color(0xFFCDDBFF);
 
 // Color aliases
 class CustomColors {
@@ -31,6 +32,8 @@ class CustomColors {
   static const Color backgroundCardColor = _white;
   static const Color cardBorderColor = _lightGreyColor;
   static const Color secondaryBackgroundColor = _lightestGreyColor;
-
   static const Color secondaryButtonColor = _lightGreyColor;
+
+  static const Color primaryChatBubbleColor = _lightBlueColor;
+  static const Color secondaryChatBubbleColor = _lightGreyColor;
 }
