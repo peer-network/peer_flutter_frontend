@@ -21,6 +21,10 @@ class SingleChatProvider with ChangeNotifier {
 
   List<ChatMsg> get chatHistorie => _chatHistory;
 
+  get fetchChatHistory => null;
+
+  List<ChatMsg> get chatHistory => _chatHistory;
+
   Future<void> fetchChatHistorie() async {
     isLoading = true;
     notifyListeners();
