@@ -68,7 +68,6 @@ class ChatBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     // Determine the alignment based on whether the message is sent by the user
     bool isSender = chatData.isSender;
-    DateTime? dateAndTime = chatData.timestamp;
     Alignment alignment =
         isSender ? Alignment.centerRight : Alignment.centerLeft;
 
