@@ -60,14 +60,15 @@ import 'package:peer_app/data/models/chat_message_model.dart'; // Make sure this
 import 'package:peer_app/presentation/whitelabel/colors.dart'; // Adjust if necessary
 
 class ChatBubble extends StatelessWidget {
-  const ChatBubble({Key? key, required this.message}) : super(key: key);
+  const ChatBubble({Key? key, required this.chatData}) : super(key: key);
 
-  final ChatMsg message;
+  final ChatMsg chatData;
 
   @override
   Widget build(BuildContext context) {
     // Determine the alignment based on whether the message is sent by the user
-    bool isSender = message.isSender;
+    bool isSender = chatData.isSender;
+    DateTime? dateAndTime = chatData.timestamp;
     Alignment alignment =
         isSender ? Alignment.centerRight : Alignment.centerLeft;
 
@@ -87,7 +88,7 @@ class ChatBubble extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         child: Text(
-          message.content,
+          chatData.content,
           style: TextStyle(
             color: textColor,
           ),

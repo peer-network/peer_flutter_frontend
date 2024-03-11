@@ -42,7 +42,7 @@ class ChatHistoryView extends StatelessWidget {
             //     dataCollection:
             //         singleChatMessengesProvider.chatHistorie[index]);
             return ChatBubble(
-                message: singleChatMessengesProvider.chatHistorie[index]);
+                chatData: singleChatMessengesProvider.chatHistorie[index]);
           },
         ),
       );
