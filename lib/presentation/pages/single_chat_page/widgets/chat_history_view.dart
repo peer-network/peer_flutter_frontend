@@ -4,6 +4,7 @@ import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_bubble
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../data/models/chat_message_model.dart';
@@ -28,12 +29,12 @@ class ChatHistoryView extends StatelessWidget {
             kToolbarHeight -
             kBottomNavigationBarHeight,
         color: CustomColors.backgroundColor,
-        child: _buildChatList(singleChatMessagesProvider.chatHistory),
+        child: _buildChatList(singleChatMessagesProvider.chatHistory, context),
       );
     }
   }
 
-  Widget _buildChatList(List<ChatMsg> chatHistory) {
+  Widget _buildChatList(List<ChatMsg> chatHistory, BuildContext context) {
     List<Widget> children = [];
     DateTime? lastDate;
 
@@ -46,12 +47,13 @@ class ChatHistoryView extends StatelessWidget {
         // Use FormattedDateTextWidget for date headers
         children.add(
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
             child: Center(
               child: FormattedWrittenOutDateTextWidget(
                 dateTime: messageDate,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold), // Customize as needed
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color:
+                        CustomColors.secondaryTextColor), // Customize as needed
               ),
             ),
           ),

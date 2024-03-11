@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/chat_message_model.dart'; // Make sure this path matches your project structure
-import 'package:peer_app/presentation/whitelabel/colors.dart'; // Adjust if necessary
+import 'package:peer_app/presentation/whitelabel/colors.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart'; // Adjust if necessary
 
 class ChatBubble extends StatelessWidget {
   const ChatBubble({Key? key, required this.chatData}) : super(key: key);
@@ -24,8 +25,10 @@ class ChatBubble extends StatelessWidget {
     return Align(
       alignment: alignment,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-        margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+        padding: const EdgeInsets.symmetric(
+            horizontal: AppPaddings.medium, vertical: AppPaddings.small),
+        margin: const EdgeInsets.symmetric(
+            horizontal: AppPaddings.medium, vertical: AppPaddings.tiny),
         decoration: BoxDecoration(
           color: bubbleColor,
           // borderRadius: BorderRadius.circular(8),

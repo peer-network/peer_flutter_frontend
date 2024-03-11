@@ -87,8 +87,22 @@ const List<Map<String, dynamic>> dummyChat = [
         "messageId": "msg_1012",
         "senderId": "1",
         "recipientId": "user_123",
-        "content": "Sitze gerade auf dem Klo",
+        "content": "Oh, du lebst noch",
         "timestamp": "2024-03-11T00:06:00Z"
+      },
+      {
+        "messageId": "msg_1013",
+        "senderId": "user_123",
+        "recipientId": "1",
+        "content": "Ja, ich habe mich geirrt",
+        "timestamp": "2024-03-11T00:07:00Z"
+      },
+      {
+        "messageId": "msg_1014",
+        "senderId": "1",
+        "recipientId": "user_123",
+        "content": "Warum hast du das gesagt?",
+        "timestamp": "2024-03-11T00:08:00Z"
       }
     ]
   }
