@@ -6,8 +6,8 @@ import 'package:peer_app/presentation/whitelabel/components/loading_and_error/er
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
 import 'package:provider/provider.dart';
 
-class ContactsView extends StatelessWidget {
-  const ContactsView({super.key});
+class ChatContactsView extends StatelessWidget {
+  const ChatContactsView({super.key});
 
   @override
   Widget build(BuildContext context) {
