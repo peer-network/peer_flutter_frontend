@@ -4,7 +4,7 @@ import 'package:peer_app/data/dummy_response/dummy_contacts.dart';
 import 'package:peer_app/data/models/contacts_model.dart';
 import 'package:peer_app/data/services/dio_client.dart';
 
-class ContactsProvider with ChangeNotifier {
+class ChatContactsProvider with ChangeNotifier {
   final DioClient _dioClient = DioClient();
   List<ContactsModel> _contacts = [];
   bool isLoading = false;
@@ -13,7 +13,7 @@ class ContactsProvider with ChangeNotifier {
   // TODO: implement pagination
 
   // init with fetchChatMessenges
-  ContactsProvider() {
+  ChatContactsProvider() {
     fetchContacts();
   }
 
