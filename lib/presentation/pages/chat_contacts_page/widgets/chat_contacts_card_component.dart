@@ -9,17 +9,17 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ChatContactCardComponent extends StatelessWidget {
   //chatContact
-  final ChatContactModel chatContact;
+  final ChatContactModel chat;
 
   const ChatContactCardComponent({
     super.key,
-    required this.chatContact,
+    required this.chat,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).push(ChatPageRoute(chatContact.id)),
+      onTap: () => Navigator.of(context).push(ChatPageRoute(chat.id)),
       child: Padding(
         padding: const EdgeInsets.symmetric(
             horizontal: AppPaddings.small, vertical: AppPaddings.small),
@@ -28,7 +28,7 @@ class ChatContactCardComponent extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AvatarComponent(imageUrl: chatContact.contact.profileImageUrl),
+                AvatarComponent(imageUrl: chat.contact.profileImageUrl),
                 Expanded(
                   flex: 95,
                   child: Padding(
@@ -37,11 +37,12 @@ class ChatContactCardComponent extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(chatContact.contact.username,
+                        Text(chat.contact.username,
                             style: Theme.of(context).textTheme.titleLarge,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis),
-                        Text(chatContact.lastMessage ?? "",
+                        // Update to display lastChatMessage content
+                        Text(chat.lastChatMessage?.content ?? "",
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyLarge!
@@ -60,9 +61,10 @@ class ChatContactCardComponent extends StatelessWidget {
                     Padding(
                       padding:
                           const EdgeInsets.only(bottom: AppPaddings.medium),
-                      child: chatContact.lastMessageTime != null
+                      // Update to display lastChatMessage timestamp
+                      child: chat.lastChatMessage != null
                           ? FormattedDateTextWidget(
-                              dateTime: chatContact.lastMessageTime!,
+                              dateTime: chat.lastChatMessage!.timestamp,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge!
@@ -71,11 +73,11 @@ class ChatContactCardComponent extends StatelessWidget {
                             )
                           : Container(),
                     ),
-                    chatContact.notificationCount == 0 ||
-                            chatContact.notificationCount == null
+                    chat.notificationCount == 0 ||
+                            chat.notificationCount == null
                         ? Container()
                         : NewMessageCountComponent(
-                            notificationCount: chatContact.notificationCount!),
+                            notificationCount: chat.notificationCount!),
                   ],
                 ),
               ],

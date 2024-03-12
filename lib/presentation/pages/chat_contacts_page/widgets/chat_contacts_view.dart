@@ -36,7 +36,7 @@ class ChatContactsView extends StatelessWidget {
           itemCount: chatContactsProvider.chatContacts.length,
           itemBuilder: (context, index) {
             return ChatContactCardComponent(
-                chatContact: chatContactsProvider.chatContacts[index]);
+                chat: chatContactsProvider.chatContacts[index]);
           },
         ),
       );
