@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-class NotificationCircle extends StatelessWidget {
-  const NotificationCircle({
+// newMessageCountComponent
+class NewMessageCountComonent extends StatelessWidget {
+  const NewMessageCountComonent({
     super.key,
     required this.notificationCount,
   });

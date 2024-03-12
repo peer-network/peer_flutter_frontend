@@ -1,5 +1,6 @@
 import 'package:peer_app/data/models/user.dart';
 
+// chatContactModel
 class ChatContactsModel {
   // first level depth
   final String id;

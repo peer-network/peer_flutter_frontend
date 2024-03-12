@@ -7,7 +7,9 @@ import 'package:peer_app/presentation/whitelabel/components/date/formatted_date_
 import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
+// chat ContactCardComponent
 class ChatContactsCardComponent extends StatelessWidget {
+  //chatContact
   final ChatContactsModel chat;
 
   const ChatContactsCardComponent({
@@ -73,7 +75,7 @@ class ChatContactsCardComponent extends StatelessWidget {
                     chat.notificationCount == 0 ||
                             chat.notificationCount == null
                         ? Container()
-                        : NotificationCircle(
+                        : NewMessageCountComonent(
                             notificationCount: chat.notificationCount!),
                   ],
                 ),

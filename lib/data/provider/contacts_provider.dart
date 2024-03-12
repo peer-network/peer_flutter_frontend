@@ -1,6 +1,6 @@
 // news_provider.dart
 import 'package:flutter/foundation.dart';
-import 'package:peer_app/data/dummy_response/dummy_contacts.dart';
+import 'package:peer_app/data/dummy_response/dummy_chat_contacts.dart';
 import 'package:peer_app/data/models/contacts_model.dart';
 import 'package:peer_app/data/services/dio_client.dart';
 
