@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-// newMessageCountComponent
-class NewMessageCountComonent extends StatelessWidget {
-  const NewMessageCountComonent({
+class NewMessageCountComponent extends StatelessWidget {
+  const NewMessageCountComponent({
     super.key,
     required this.notificationCount,
   });

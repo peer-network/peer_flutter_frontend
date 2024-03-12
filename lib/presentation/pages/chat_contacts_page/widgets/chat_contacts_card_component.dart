@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/contacts_model.dart';
-import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/notification_circle.dart';
+import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/new_message_count_component.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/date/formatted_date_text_widget.dart';
@@ -8,11 +8,11 @@ import 'package:peer_app/presentation/whitelabel/components/image_container/avat
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 // chat ContactCardComponent
-class ChatContactsCardComponent extends StatelessWidget {
+class ChatContactCardComponent extends StatelessWidget {
   //chatContact
   final ChatContactsModel chat;
 
-  const ChatContactsCardComponent({
+  const ChatContactCardComponent({
     super.key,
     required this.chat,
   });
@@ -75,7 +75,7 @@ class ChatContactsCardComponent extends StatelessWidget {
                     chat.notificationCount == 0 ||
                             chat.notificationCount == null
                         ? Container()
-                        : NewMessageCountComonent(
+                        : NewMessageCountComponent(
                             notificationCount: chat.notificationCount!),
                   ],
                 ),
