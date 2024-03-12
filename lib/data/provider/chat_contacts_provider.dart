@@ -33,8 +33,8 @@ class ChatContactsProvider with ChangeNotifier {
       await Future.delayed(const Duration(seconds: 1));
       const response = dummyChatContacts;
       // Model the response
-      _chatContacts = List<ChatContactModel>.from(response["contactsSummary"]!
-          .map((x) => ChatContactModel.fromJson(x)));
+      _chatContacts = List<ChatContactModel>.from(
+          response["chat_contacts"]!.map((x) => ChatContactModel.fromJson(x)));
     } catch (e) {
       error = e.toString();
     }
