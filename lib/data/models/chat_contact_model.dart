@@ -1,37 +1,5 @@
+import 'package:peer_app/data/models/chat_message_model.dart';
 import 'package:peer_app/data/models/user.dart';
-
-// class ChatContactModel {
-//   // first level depth
-//   final String id;
-//   final String? lastMessage;
-//   final DateTime? lastMessageTime;
-//   final int? notificationCount;
-//   // second level depth
-//   final UserModel contact; // id, username, profileImageUrl
-
-//   ChatContactModel({
-//     // first level depth
-//     required this.id,
-//     required this.lastMessage,
-//     required this.lastMessageTime,
-//     required this.notificationCount,
-//     // second level depth
-//     required this.contact, // id, username, profileImageUrl
-//   });
-
-//   factory ChatContactModel.fromJson(Map<String, dynamic> json) {
-//     return ChatContactModel(
-//       // first level depth
-//       id: json['id'],
-//       lastMessage: json['lastMessage'],
-//       lastMessageTime: DateTime.parse(json['lastMessageTime']),
-//       notificationCount: json['notificationCount'],
-//       // second level depth
-//       contact:
-//           UserModel.fromJson(json['contact']), // id, username, profileImageUrl
-//     );
-//   }
-// }
 
 class LastChatMessageModel {
   final String messageId;
@@ -61,7 +29,7 @@ class LastChatMessageModel {
 
 class ChatContactModel {
   final String id;
-  final LastChatMessageModel? lastChatMessage; // Replaced fields
+  final ChatMessageModel? lastChatMessage; // Replaced fields
   final int? notificationCount;
   final UserModel contact;
 
@@ -76,7 +44,7 @@ class ChatContactModel {
     return ChatContactModel(
       id: json['id'],
       lastChatMessage: json['last_chat_message'] != null
-          ? LastChatMessageModel.fromJson(json['last_chat_message'])
+          ? ChatMessageModel.fromJson(json['last_chat_message'], json['id'])
           : null, // Conditionally parse the new structure
       notificationCount: json['notificationCount'],
       contact: UserModel.fromJson(json['contact']),
