@@ -7,20 +7,19 @@ import 'package:peer_app/presentation/whitelabel/components/date/formatted_date_
 import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-// chat ContactCardComponent
 class ChatContactCardComponent extends StatelessWidget {
   //chatContact
-  final ChatContactModel chat;
+  final ChatContactModel chatContact;
 
   const ChatContactCardComponent({
     super.key,
-    required this.chat,
+    required this.chatContact,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).push(ChatPageRoute(chat.id)),
+      onTap: () => Navigator.of(context).push(ChatPageRoute(chatContact.id)),
       child: Padding(
         padding: const EdgeInsets.symmetric(
             horizontal: AppPaddings.small, vertical: AppPaddings.small),
@@ -29,7 +28,7 @@ class ChatContactCardComponent extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AvatarComponent(imageUrl: chat.contact.profileImageUrl),
+                AvatarComponent(imageUrl: chatContact.contact.profileImageUrl),
                 Expanded(
                   flex: 95,
                   child: Padding(
@@ -38,11 +37,11 @@ class ChatContactCardComponent extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(chat.contact.username,
+                        Text(chatContact.contact.username,
                             style: Theme.of(context).textTheme.titleLarge,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis),
-                        Text(chat.lastMessage ?? "",
+                        Text(chatContact.lastMessage ?? "",
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyLarge!
@@ -61,9 +60,9 @@ class ChatContactCardComponent extends StatelessWidget {
                     Padding(
                       padding:
                           const EdgeInsets.only(bottom: AppPaddings.medium),
-                      child: chat.lastMessageTime != null
+                      child: chatContact.lastMessageTime != null
                           ? FormattedDateTextWidget(
-                              dateTime: chat.lastMessageTime!,
+                              dateTime: chatContact.lastMessageTime!,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge!
@@ -72,11 +71,11 @@ class ChatContactCardComponent extends StatelessWidget {
                             )
                           : Container(),
                     ),
-                    chat.notificationCount == 0 ||
-                            chat.notificationCount == null
+                    chatContact.notificationCount == 0 ||
+                            chatContact.notificationCount == null
                         ? Container()
                         : NewMessageCountComponent(
-                            notificationCount: chat.notificationCount!),
+                            notificationCount: chatContact.notificationCount!),
                   ],
                 ),
               ],
