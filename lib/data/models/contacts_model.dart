@@ -1,6 +1,6 @@
 import 'package:peer_app/data/models/user.dart';
 
-class ContactsModel {
+class ChatContactsModel {
   // first level depth
   final String id;
   final String? lastMessage;
@@ -9,7 +9,7 @@ class ContactsModel {
   // second level depth
   final UserModel contact; // id, username, profileImageUrl
 
-  ContactsModel({
+  ChatContactsModel({
     // first level depth
     required this.id,
     required this.lastMessage,
@@ -19,8 +19,8 @@ class ContactsModel {
     required this.contact, // id, username, profileImageUrl
   });
 
-  factory ContactsModel.fromJson(Map<String, dynamic> json) {
-    return ContactsModel(
+  factory ChatContactsModel.fromJson(Map<String, dynamic> json) {
+    return ChatContactsModel(
       // first level depth
       id: json['id'],
       lastMessage: json['lastMessage'],

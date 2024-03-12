@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/provider/auth_provider.dart';
-import 'package:peer_app/data/provider/chat_contacts_provider.dart';
+import 'package:peer_app/data/provider/contacts_provider.dart';
 import 'package:peer_app/data/provider/feed_provider.dart';
 import 'package:peer_app/data/provider/single_chat_provider.dart';
 import 'package:peer_app/presentation/whitelabel/theme.dart';

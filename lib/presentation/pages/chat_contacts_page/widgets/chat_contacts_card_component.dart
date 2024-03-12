@@ -8,7 +8,7 @@ import 'package:peer_app/presentation/whitelabel/components/image_container/avat
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ChatContactsCardComponent extends StatelessWidget {
-  final ContactsModel chat;
+  final ChatContactsModel chat;
 
   const ChatContactsCardComponent({
     super.key,

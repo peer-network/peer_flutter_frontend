@@ -6,7 +6,7 @@ import 'package:peer_app/data/services/dio_client.dart';
 
 class ChatContactsProvider with ChangeNotifier {
   final DioClient _dioClient = DioClient();
-  List<ContactsModel> _contacts = [];
+  List<ChatContactsModel> _chatContacts = [];
   bool isLoading = false;
   String? error;
 
@@ -14,10 +14,10 @@ class ChatContactsProvider with ChangeNotifier {
 
   // init with fetchChatMessenges
   ChatContactsProvider() {
-    fetchContacts();
+    fetchChatContacts();
   }
 
-  List<ContactsModel> get contacts => _contacts;
+  List<ChatContactsModel> get chatContacts => _chatContacts;
 
   // TODO: implement caching
   // caching options
@@ -25,17 +25,17 @@ class ChatContactsProvider with ChangeNotifier {
   // cache only
   // cache and network
 
-  Future<void> fetchContacts() async {
+  Future<void> fetchChatContacts() async {
     isLoading = true;
     notifyListeners();
     try {
       // final response = await _dioClient.get(ApiEndpoints.chatMessenges);
       // TODO replace trough real api call
       await Future.delayed(const Duration(seconds: 1));
-      const response = dummyContacts;
+      const response = dummyChatContacts;
       // Model the response
-      _contacts = List<ContactsModel>.from(
-          response["contactsSummary"]!.map((x) => ContactsModel.fromJson(x)));
+      _chatContacts = List<ChatContactsModel>.from(response["contactsSummary"]!
+          .map((x) => ChatContactsModel.fromJson(x)));
     } catch (e) {
       error = e.toString();
     }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/provider/chat_contacts_provider.dart';
+import 'package:peer_app/data/provider/contacts_provider.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_contacts_card_component.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
@@ -20,7 +20,7 @@ class ChatContactsView extends StatelessWidget {
     // If the news feed provider has data, show the feed;
     if (contactsProvider.isLoading) {
       return LoadingComponent(
-        onRefresh: () => contactsProvider.fetchContacts(),
+        onRefresh: () => contactsProvider.fetchChatContacts(),
       );
     } else if (contactsProvider.error != null) {
       return ErrorComponent(error: contactsProvider.error!);
@@ -33,10 +33,10 @@ class ChatContactsView extends StatelessWidget {
             kBottomNavigationBarHeight,
         color: CustomColors.backgroundColor,
         child: ListView.builder(
-          itemCount: contactsProvider.contacts.length,
+          itemCount: contactsProvider.chatContacts.length,
           itemBuilder: (context, index) {
             return ChatContactsCardComponent(
-                chat: contactsProvider.contacts[index]);
+                chat: contactsProvider.chatContacts[index]);
           },
         ),
       );
