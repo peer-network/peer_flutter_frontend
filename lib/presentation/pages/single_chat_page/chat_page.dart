@@ -5,9 +5,10 @@ import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_histor
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
 
 class ChatPage extends StatelessWidget {
-  const ChatPage({Key? key, this.chatId, this.chatMsg}) : super(key: key);
+  const ChatPage({Key? key, required this.chatId, this.chatMsg})
+      : super(key: key);
 
-  final String? chatId;
+  final String chatId;
   final ChatMessageModel? chatMsg;
 
   @override
