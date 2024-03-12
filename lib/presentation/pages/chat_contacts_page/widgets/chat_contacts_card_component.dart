@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/contact_model.dart';
+import 'package:peer_app/data/models/chat_contact_model.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/new_message_count_component.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';

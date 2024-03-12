@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:peer_app/data/dummy_response/dummy_chat_contacts.dart';
-import 'package:peer_app/data/models/contact_model.dart';
+import 'package:peer_app/data/models/chat_contact_model.dart';
 import 'package:peer_app/data/services/dio_client.dart';
 
 class ChatContactsProvider with ChangeNotifier {
