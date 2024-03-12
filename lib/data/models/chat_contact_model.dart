@@ -1,32 +1,6 @@
 import 'package:peer_app/data/models/chat_message_model.dart';
 import 'package:peer_app/data/models/user.dart';
 
-class LastChatMessageModel {
-  final String messageId;
-  final String senderId;
-  final String recipientId;
-  final String content;
-  final DateTime timestamp;
-
-  LastChatMessageModel({
-    required this.messageId,
-    required this.senderId,
-    required this.recipientId,
-    required this.content,
-    required this.timestamp,
-  });
-
-  factory LastChatMessageModel.fromJson(Map<String, dynamic> json) {
-    return LastChatMessageModel(
-      messageId: json['messageId'],
-      senderId: json['senderId'],
-      recipientId: json['recipientId'],
-      content: json['content'],
-      timestamp: DateTime.parse(json['timestamp']),
-    );
-  }
-}
-
 class ChatContactModel {
   final String id;
   final ChatMessageModel? lastChatMessage; // Replaced fields
