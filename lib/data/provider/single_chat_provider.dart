@@ -33,7 +33,7 @@ class SingleChatProvider with ChangeNotifier {
           const Duration(seconds: 2)); // Simulating network delay for now
       const response =
           dummyChat; // Your dummy data or eventually real API response
-      _chatHistory = response[2]["messages"].map<ChatMessageModel>((x) {
+      _chatHistory = response[0]["messages"].map<ChatMessageModel>((x) {
         return ChatMessageModel.fromJson(x as Map<String, dynamic>,
             currentUserId); // Pass currentUserId here
       }).toList();
