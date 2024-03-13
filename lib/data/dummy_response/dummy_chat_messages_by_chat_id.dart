@@ -65,3 +65,17 @@ Map<String, dynamic> dummyChatMessagesByChatId1 = {
     },
   ]
 };
+
+
+// Map<String, dynamic> dummy_get_chat_by_chatId(String chatId) {
+//    if (chatId == "1") {
+//     return dummyChatMessagesByChatId1;
+//   } else if (chatId == "2") {
+//     return dummyChatMessagesByChatId2;
+//   } else if (chatId == "3") {
+//     return dummyChatMessagesByChatId3;
+  
+//   }
+//   return {};
+
+// }

@@ -23,9 +23,9 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => NewsFeedProvider()),
         ChangeNotifierProvider(create: (_) => ChatContactsProvider()),
-        ChangeNotifierProvider(
-            create: (_) => SingleChatProvider(
-                currentUserId: 'user_123')), // Hardcoded, needs to be removed
+        // ChangeNotifierProvider(
+        //     create: (_) => SingleChatProvider(
+        //         currentUserId: 'user_123')), // Hardcoded, needs to be removed
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

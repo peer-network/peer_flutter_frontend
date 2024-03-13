@@ -11,6 +11,8 @@ class ChatBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Determine the alignment based on whether the message is sent by the user
+    // final currentUserId = Provider.of<UserProvider>(context).user?.id;
+    // isSender = chatData.senderId == currentUserId;
     bool isSender = chatData.isSender;
     Alignment alignment =
         isSender ? Alignment.centerRight : Alignment.centerLeft;
