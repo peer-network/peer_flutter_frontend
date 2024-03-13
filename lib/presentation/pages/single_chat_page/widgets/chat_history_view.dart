@@ -95,7 +95,7 @@ class ChatRepository {
       // and you are interested in the first session's messages for the sake of this example.
 
       // response = _dioClient.get(ApiEndpoints.chat, queryParameters: {'chatId': chatId});
-      // respomse = dummy_get_chat_by_chatId(chatId);
+      // response = dummy_get_chat_by_chatId(chatId);
       const response = dummyChat; // Replace with actual network call if needed
       List<ChatMessageModel> chatHistory =
           response[0]["messages"].map<ChatMessageModel>((x) {
