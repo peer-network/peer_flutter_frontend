@@ -124,12 +124,14 @@ import 'package:peer_app/data/dummy_response/dummy_chat.dart';
 import 'package:peer_app/data/services/dio_client.dart';
 
 class ChatHistoryView extends StatelessWidget {
-  const ChatHistoryView({super.key});
+  const ChatHistoryView({super.key, required this.chatId});
+
+  final String chatId;
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<ChatMessageModel>>(
-      future: ChatRepository(currentUserId: '1').fetchChatHistory("3"),
+      future: ChatRepository(currentUserId: '1').fetchChatHistory(chatId),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingComponent(); // Show loading while the future is incomplete

@@ -19,7 +19,10 @@ class ChatContactCardComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).push(ChatPageRoute(chatContact.id)),
+      onTap: () {
+        Navigator.of(context).push(ChatPageRoute(chatContact.id));
+        print('chatContact.id: ${chatContact.id}');
+      },
       child: Padding(
         padding: const EdgeInsets.symmetric(
             horizontal: AppPaddings.small, vertical: AppPaddings.small),

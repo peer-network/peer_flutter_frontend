@@ -14,8 +14,8 @@ class ChatBubble extends StatelessWidget {
     // final currentUserId = Provider.of<UserProvider>(context).user?.id;
     // isSender = chatData.senderId == currentUserId;
     bool isSender = chatData.isSender;
-    print('isSender: $isSender');
-    print('chatData.senderId: ${chatData.senderId}');
+    // print('isSender: $isSender');
+    // print('chatData.senderId: ${chatData.senderId}');
     Alignment alignment =
         isSender ? Alignment.centerRight : Alignment.centerLeft;
 

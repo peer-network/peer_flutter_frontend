@@ -13,12 +13,12 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const BasePage(
-      appBar: SecondaryAppbar(
+    return BasePage(
+      appBar: const SecondaryAppbar(
         title: 'Pamela Jones',
         // title: const Text('Chat'),
       ),
-      child: ChatHistoryView(),
+      child: ChatHistoryView(chatId: chatId),
     );
   }
 }
