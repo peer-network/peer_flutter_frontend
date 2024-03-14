@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/peer_appbar.dart';
-import 'package:peer_app/presentation/pages/profile_pages/user_profile_page/user_profile_wrapper_id.dart';
+import 'package:peer_app/presentation/pages/profile_pages/user_profile_page/user_profile_body_wrapper_id.dart';
 import 'package:peer_app/presentation/whitelabel/components/navbars/primary_bottom_navbar.dart';
 
 class UserProfilePage extends StatelessWidget {
@@ -13,7 +13,7 @@ class UserProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BasePage(
         appBar: const PeerAppbar(),
-        bottomNavigationBar: PrimaryBottomNavbar(),
-        child: UserProfileWrapperID(userId: userId));
+        bottomNavigationBar: const PrimaryBottomNavbar(),
+        child: UserProfileBodyWrapperID(userId: userId));
   }
 }

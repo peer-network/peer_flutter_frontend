@@ -23,8 +23,8 @@ ThemeData theme = ThemeData(
       titleSmall: titleSmallTextStyle(CustomColors.primaryTextColor),
       bodyLarge: bodyLargeTextStyle(CustomColors.primaryTextColor),
       bodyMedium: bodyMediumTextStyle(CustomColors.primaryTextColor),
-      labelLarge: labelLargeTextStyle(CustomColors.primaryTextColor),
       bodySmall: bodySmallTextStyle(CustomColors.primaryTextColor),
+      labelLarge: labelLargeTextStyle(CustomColors.primaryTextColor),
       labelSmall: labelSmallTextStyle(CustomColors.primaryTextColor),
     ),
     inputDecorationTheme: const InputDecorationTheme(

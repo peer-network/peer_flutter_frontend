@@ -24,7 +24,6 @@ class AppDimensions {
   static const double buttonHeightSmall = 30.0;
   static const double buttonWidthSmall = 120.0;
   static const double buttonHeightLarge = 53.0;
-  static const double buttonWidthLarge = double.infinity;
   static const double buttonWidthNavbar = 257.2;
 
   static const double bottomNavBarHeight = kBottomNavigationBarHeight;
