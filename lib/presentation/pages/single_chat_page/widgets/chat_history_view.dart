@@ -123,6 +123,7 @@ import 'package:peer_app/presentation/whitelabel/components/date/formatted_writt
 import 'package:peer_app/data/dummy_response/dummy_chat.dart';
 import 'package:peer_app/data/services/dio_client.dart';
 
+// unterteilen in ChatHistoryView und ChatHistoryViewFutureBuilder
 class ChatHistoryView extends StatelessWidget {
   const ChatHistoryView({super.key, required this.chatId});
 
@@ -191,6 +192,7 @@ class ChatHistoryView extends StatelessWidget {
   }
 }
 
+// ChatBuilderRepository
 class ChatRepository {
   // TODO keine userId
   final String currentUserId;

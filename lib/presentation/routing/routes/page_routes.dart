@@ -38,6 +38,7 @@ class ChatContactsPageRoute extends BaseRoute {
 }
 
 class ChatPageRoute extends BaseRoute {
+  // change to chatContact
   ChatPageRoute(String chatId)
       : super(
           ChatPage(chatId: chatId),

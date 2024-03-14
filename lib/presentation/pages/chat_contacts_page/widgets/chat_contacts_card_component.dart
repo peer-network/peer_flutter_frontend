@@ -20,6 +20,8 @@ class ChatContactCardComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        // Navigate to the chat page with the chatContact.chatId
+        // pass the whole chatContact object to the chat page
         Navigator.of(context).push(ChatPageRoute(chatContact.id));
         print('chatContact.id: ${chatContact.id}');
       },

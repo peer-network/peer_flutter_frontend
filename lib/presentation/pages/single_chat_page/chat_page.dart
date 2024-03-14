@@ -5,6 +5,7 @@ import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_histor
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
 
 class ChatPage extends StatelessWidget {
+  // only chatcontact model
   const ChatPage({Key? key, required this.chatId, this.chatMsg})
       : super(key: key);
 
@@ -15,6 +16,7 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BasePage(
       appBar: const SecondaryAppbar(
+        // title : chatMsg?.sender.username,
         title: 'Pamela Jones',
         // title: const Text('Chat'),
       ),
