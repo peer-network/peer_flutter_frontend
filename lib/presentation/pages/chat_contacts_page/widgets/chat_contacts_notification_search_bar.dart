@@ -3,8 +3,8 @@ import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/search_elements/search_element_container.dart';
 import 'package:peer_app/presentation/whitelabel/components/search_elements/text_search.dart';
 
-class NotificationAndSearchBar extends StatelessWidget {
-  const NotificationAndSearchBar({super.key});
+class ChatContactsSearchBar extends StatelessWidget {
+  const ChatContactsSearchBar({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -18,8 +18,7 @@ class ChatContactsPage extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
           child: Column(
             children: [
-              // chat contacts search bar UMBENENNEN
-              NotificationAndSearchBar(),
+              ChatContactsSearchBar(),
               ChatContactsView(),
             ],
           ),
