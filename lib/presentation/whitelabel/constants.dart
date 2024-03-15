@@ -31,6 +31,10 @@ class AppDimensions {
   static const double buttonWidthLarge = double.infinity;
   static const double buttonWidthNavbar = 257.2;
 
+  // Avatar dimensions
+  static const double avatarSize = 60.0;
+  static const double avatarSizeSmall = 16.0;
+
   static const double bottomNavBarHeight = kBottomNavigationBarHeight;
   static const Size appbarHeightSize = Size.fromHeight(kToolbarHeight);
 
@@ -46,7 +50,6 @@ class AppDimensions {
 
   static const double searchElementContainerWidth = 113;
   static const double searchElementContainerHight = 30;
-  static const double avatarSize = 60.0;
   static const double newsFeedImageHeight = 200.0;
   static const double newsFeedTextHeight = 300.0;
 }
