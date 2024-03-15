@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/chat_message_model.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
-import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_history_view.dart';
+import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_history_view_future_builder.dart';
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
 
 class ChatPage extends StatelessWidget {
@@ -20,7 +20,7 @@ class ChatPage extends StatelessWidget {
         title: 'Pamela Jones',
         // title: const Text('Chat'),
       ),
-      child: ChatHistoryView(chatId: chatId),
+      child: ChatHistoryViewFutureBuilder(chatId: chatId),
     );
   }
 }

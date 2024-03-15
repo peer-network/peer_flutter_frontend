@@ -1,52 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/dummy_response/dummy_chat_messages_by_chat_id.dart';
+import 'package:peer_app/data/models/chat_message_model.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_bubbles.dart';
-import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_builder_repository.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
-import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
-import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
-import 'package:peer_app/presentation/whitelabel/constants.dart';
-import '../../../../data/models/chat_message_model.dart';
 import 'package:peer_app/presentation/whitelabel/components/date/formatted_written_out_date_text_widget.dart';
-import 'package:peer_app/data/services/dio_client.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-// unterteilen in ChatHistoryView und ChatHistoryViewFutureBuilder
 class ChatHistoryView extends StatelessWidget {
-  const ChatHistoryView({super.key, required this.chatId});
+  const ChatHistoryView({
+    super.key,
+    required this.chatHistory,
+    required this.context,
+  });
 
-  final String chatId;
+  final List<ChatMessageModel> chatHistory;
+  final BuildContext context;
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<ChatMessageModel>>(
-      future:
-          ChatBuilderRepository(currentUserId: '1').fetchChatHistory(chatId),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const LoadingComponent(); // Show loading while the future is incomplete
-        } else if (snapshot.hasError) {
-          return ErrorComponent(
-              error: snapshot.error
-                  .toString()); // Show error if something went wrong
-        } else if (snapshot.hasData) {
-          // Data is loaded, build your list
-          return Container(
-            height: MediaQuery.of(context).size.height -
-                kToolbarHeight -
-                kBottomNavigationBarHeight,
-            color: CustomColors.backgroundColor,
-            child: _buildChatList(snapshot.data!, context),
-          );
-        } else {
-          // Handle the case where snapshot.data is null
-          return const ErrorComponent(error: 'No data available');
-        }
-      },
-    );
-  }
-
-  Widget _buildChatList(
-      List<ChatMessageModel> chatHistory, BuildContext context) {
     List<Widget> children = [];
     DateTime? lastDate;
 
