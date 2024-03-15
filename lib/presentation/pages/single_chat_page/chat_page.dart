@@ -18,7 +18,6 @@ class ChatPage extends StatelessWidget {
       appBar: const SecondaryAppbar(
         // title : chatMsg?.sender.username,
         title: 'Pamela Jones',
-        // title: const Text('Chat'),
       ),
       child: ChatHistoryViewFutureBuilder(chatId: chatId),
     );
