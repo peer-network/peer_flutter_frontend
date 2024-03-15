@@ -9,10 +9,12 @@ class SecondaryAppbar extends StatefulWidget implements PreferredSizeWidget {
     super.key,
     required this.title,
     this.actions = const [],
+    this.profileImageUrl,
   }) : preferredSize = const Size.fromHeight(kToolbarHeight);
 
   final String title;
   final List<Widget> actions;
+  final String? profileImageUrl; // Optional profile image URL
 
   @override
   final Size preferredSize;
@@ -25,9 +27,29 @@ class _SecondaryAppbarState extends State<SecondaryAppbar> {
   @override
   Widget build(BuildContext context) {
     return BaseAppbar(
-      title: Text(
-        widget.title,
-        style: headlineMediumTextStyle(CustomColors.primaryTextColor),
+      title: Row(
+        children: [
+          // Display a CircleAvatar or an empty container of the same size if no profile image is provided
+          if (widget.profileImageUrl != null)
+            Padding(
+              padding: const EdgeInsets.only(right: AppPaddings.small),
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(widget.profileImageUrl!),
+                radius: 16, // Adjust the size to fit your design
+              ),
+            )
+          else
+            const SizedBox(
+                width:
+                    32 + AppPaddings.small), // Width of CircleAvatar + padding
+          Expanded(
+            child: Text(
+              widget.title,
+              style: headlineMediumTextStyle(CustomColors.primaryTextColor),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
       ),
       leading: GestureDetector(
         onTap: () {

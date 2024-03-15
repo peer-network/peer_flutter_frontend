@@ -15,6 +15,7 @@ class ChatPage extends StatelessWidget {
     return BasePage(
       appBar: SecondaryAppbar(
         title: chatContact.contact.username.toString(),
+        profileImageUrl: chatContact.contact.profileImageUrl.toString(),
       ),
       child: ChatHistoryViewFutureBuilder(chatContact: chatContact),
     );
