@@ -22,8 +22,7 @@ class ChatContactCardComponent extends StatelessWidget {
       onTap: () {
         // Navigate to the chat page with the chatContact.chatId
         // pass the whole chatContact object to the chat page
-        Navigator.of(context).push(ChatPageRoute(chatContact.id));
-        print('chatContact.id: ${chatContact.id}');
+        Navigator.of(context).push(ChatPageRoute(chatContact));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(

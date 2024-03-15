@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/data/models/chat_contact_model.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_builder_repository.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_history_view.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
@@ -7,15 +8,15 @@ import 'package:peer_app/presentation/whitelabel/components/loading_and_error/lo
 import '../../../../data/models/chat_message_model.dart';
 
 class ChatHistoryViewFutureBuilder extends StatelessWidget {
-  const ChatHistoryViewFutureBuilder({super.key, required this.chatId});
+  const ChatHistoryViewFutureBuilder({super.key, required this.chatContact});
 
-  final String chatId;
+  final ChatContactModel chatContact;
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<ChatMessageModel>>(
-      future:
-          ChatBuilderRepository(currentUserId: '1').fetchChatHistory(chatId),
+      future: ChatBuilderRepository(currentUserId: '1')
+          .fetchChatHistory(chatContact.id),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingComponent(); // Show loading while the future is incomplete

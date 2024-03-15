@@ -1,3 +1,4 @@
+import 'package:peer_app/data/models/chat_contact_model.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/chat_contacts_page.dart';
 import 'package:peer_app/presentation/pages/login_page/login_page.dart';
 import 'package:peer_app/presentation/pages/peer_page/peer_page.dart';
@@ -38,10 +39,9 @@ class ChatContactsPageRoute extends BaseRoute {
 }
 
 class ChatPageRoute extends BaseRoute {
-  // change to chatContact model
-  ChatPageRoute(String chatId)
+  ChatPageRoute(ChatContactModel chatContact)
       : super(
-          ChatPage(chatId: chatId),
+          ChatPage(chatContact: chatContact),
           guards: [],
         );
 }
