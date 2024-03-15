@@ -18,7 +18,8 @@ class ChatHistoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<ChatMessageModel>>(
-      future: ChatRepository(currentUserId: '1').fetchChatHistory(chatId),
+      future:
+          ChatBuilderRepository(currentUserId: '1').fetchChatHistory(chatId),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingComponent(); // Show loading while the future is incomplete
@@ -78,13 +79,12 @@ class ChatHistoryView extends StatelessWidget {
   }
 }
 
-// ChatBuilderRepository
-class ChatRepository {
+class ChatBuilderRepository {
   // TODO keine userId
   final String currentUserId;
   final DioClient _dioClient = DioClient();
 
-  ChatRepository({required this.currentUserId});
+  ChatBuilderRepository({required this.currentUserId});
 
   Future<List<ChatMessageModel>> fetchChatHistory(
     String chatId, // e.g. "1", "2", "3"
