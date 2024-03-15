@@ -6,7 +6,6 @@ import 'package:peer_app/presentation/whitelabel/components/loading_and_error/er
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
 import '../../../../data/models/chat_message_model.dart';
 
-// unterteilen in ChatHistoryView und ChatHistoryViewFutureBuilder
 class ChatHistoryViewFutureBuilder extends StatelessWidget {
   const ChatHistoryViewFutureBuilder({super.key, required this.chatId});
 
