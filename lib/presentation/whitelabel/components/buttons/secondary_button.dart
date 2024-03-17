@@ -1,7 +1,6 @@
 // secondary_button.dart
 
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart'; // Adjust the import path
 import 'package:peer_app/presentation/whitelabel/components/buttons/base_button.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
@@ -11,18 +10,19 @@ class SecondaryButton extends BaseButton {
     required String text,
     required VoidCallback onPressed,
     Color? textColor,
+    bool isFilled = true,
     bool isDisabled = false,
     bool isLoading = false,
+    Color? backgroundColor,
   }) : super(
           key: key,
           text: text,
           onPressed: onPressed,
-          backgroundColor: CustomColors
-              .secondaryButtonColor, // Specify your secondary color here
+          backgroundColor: backgroundColor, // Specify your secondary color here
           textColor: textColor,
           isDisabled: isDisabled,
           isLoading: isLoading,
           height: AppDimensions.buttonHeightSmall,
-          isFilled: true, // Always filled for secondary button
+          isFilled: isFilled, // Always filled for secondary button
         );
 }

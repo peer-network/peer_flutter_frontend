@@ -25,7 +25,9 @@ class PrimaryBottomNavbar extends StatelessWidget {
           IconLibrary.plusBox.icon,
           size: AppDimensions.iconSizeLarge,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(CreatePostPageRoute());
+        },
       ),
       PrimaryBottomNavbarItem(
         icon: Image.asset(

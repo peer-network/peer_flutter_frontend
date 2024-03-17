@@ -26,9 +26,11 @@ class AppDimensions {
   static const double buttonHeightLarge = 53.0;
   static const double buttonWidthNavbar = 257.2;
 
+  // App and Navbar dimensions
   static const double bottomNavBarHeight = kBottomNavigationBarHeight;
   static const Size appbarHeightSize = Size.fromHeight(kToolbarHeight);
 
+  // Icon dimensions
   static const double iconSizeLarge = 32.0;
   static const double iconSizeExtreLarge = 48.0;
   static const double iconSizeMedium = 24.0;
@@ -44,6 +46,8 @@ class AppDimensions {
 
   static const double profileTextPostsSliderCardWidth = 290.0;
   static const double profileTextPostsSliderCardMaxHeight = 500.0;
+
+  static const double createPostEmptyImageHeight = 144;
 }
 
 // aspect ratios

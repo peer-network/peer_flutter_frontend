@@ -41,7 +41,7 @@ class BaseButton extends StatelessWidget {
               CustomColors.primaryTextColor,
           backgroundColor: isFilled
               ? backgroundColor ?? Theme.of(context).primaryColor
-              : Colors.transparent,
+              : CustomColors.backgroundColor,
           side: isFilled
               ? null
               : const BorderSide(

@@ -9,9 +9,12 @@ class InputFieldComponent extends StatelessWidget {
   final TextInputAction? textInputAction;
   final List<String>? autofillHints;
   final String? labelText;
+  final String? hintText;
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final void Function(String?)? onFieldSubmitted;
+  final int? minLines;
+  final int? maxLines;
 
   const InputFieldComponent(
       {super.key,
@@ -23,7 +26,10 @@ class InputFieldComponent extends StatelessWidget {
       this.onFieldSubmitted,
       this.labelText,
       this.validator,
-      required this.controller})
+      this.hintText,
+      required this.controller,
+      this.minLines,
+      this.maxLines})
       : super();
 
   @override
@@ -37,10 +43,14 @@ class InputFieldComponent extends StatelessWidget {
           autofillHints: autofillHints,
           keyboardType: keyboardType,
           textInputAction: textInputAction,
+          minLines: minLines,
+          maxLines: maxLines,
           validator: validator,
           cursorColor: CustomColors.primaryTextColor,
           onFieldSubmitted: onFieldSubmitted,
           decoration: InputDecoration(
+            hintText: hintText,
+
             labelText: labelText,
             labelStyle: const TextStyle(color: CustomColors.primaryTextColor),
             alignLabelWithHint: true,

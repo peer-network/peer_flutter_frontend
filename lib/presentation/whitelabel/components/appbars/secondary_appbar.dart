@@ -5,6 +5,7 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/text_constants.dart';
 
 class SecondaryAppbar extends StatefulWidget implements PreferredSizeWidget {
+  // This Appbar has a backbutton ("zurück") and a title and can have actions
   const SecondaryAppbar({
     super.key,
     required this.title,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/user.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
+import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/secondary_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
@@ -39,6 +40,8 @@ class FeedHeaderComponent extends StatelessWidget {
           SecondaryButton(
             text: 'Follow',
             onPressed: () => print('Follow'),
+            backgroundColor: CustomColors.secondaryButtonColor,
+            isFilled: true,
           ),
         ],
       ),
