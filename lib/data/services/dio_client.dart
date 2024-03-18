@@ -2,6 +2,7 @@
 
 import 'package:dio/dio.dart';
 import 'package:flutter_dio_http_cache/dio_http_cache.dart';
+import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/presentation/whitelabel/endpoints.dart';
 
 class DioClient {
@@ -12,6 +13,7 @@ class DioClient {
     connectTimeout: 5000,
     receiveTimeout: 3000,
   );
+  String? error;
 
   factory DioClient() {
     return _instance;
@@ -48,7 +50,9 @@ class DioClient {
         options: buildCacheOptions(const Duration(days: 7)),
       );
       return response;
-    } catch (e) {
+    } catch (e, s) {
+      error = e.toString();
+      CustomException(e.toString(), s).handleError();
       rethrow;
     }
   }
@@ -61,8 +65,9 @@ class DioClient {
         options: buildCacheOptions(const Duration(days: 7)),
       );
       return response;
-    } catch (e) {
-      print("error in post request: $e");
+    } catch (e, s) {
+      error = e.toString();
+      CustomException(e.toString(), s).handleError();
       rethrow;
     }
   }

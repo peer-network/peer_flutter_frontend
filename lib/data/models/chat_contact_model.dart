@@ -5,7 +5,7 @@ class ChatContactModel {
   final String id;
   final ChatMessageModel? lastChatMessage; // Replaced fields
   final int? notificationCount;
-  final UserModel? contact;
+  final UserModel contact;
 
   ChatContactModel({
     required this.id,
@@ -20,7 +20,7 @@ class ChatContactModel {
       lastChatMessage: json['last_chat_message'] != null
           ? ChatMessageModel.fromJson(json['last_chat_message'], json['id'])
           : null, // Conditionally parse the new structure
-      notificationCount: json['notificationCount'],
+      notificationCount: json['notification_count'],
       contact: UserModel.fromJson(json['contact']),
     );
   }

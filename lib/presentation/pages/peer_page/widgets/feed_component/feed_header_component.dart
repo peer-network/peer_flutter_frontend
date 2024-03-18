@@ -30,7 +30,7 @@ class FeedHeaderComponent extends StatelessWidget {
                 AvatarComponent(imageUrl: user.profileImageUrl),
                 const SizedBox(width: AppPaddings.small),
                 // Title
-                Text(user.username,
+                Text(user.username ?? "",
                     style: Theme.of(context).textTheme.titleLarge!),
               ],
             ),

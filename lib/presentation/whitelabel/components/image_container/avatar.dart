@@ -5,13 +5,13 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 class AvatarComponent extends StatelessWidget {
   const AvatarComponent({super.key, required this.imageUrl});
 
-  final String imageUrl;
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
         fit: BoxFit.cover,
-        imageUrl: imageUrl,
+        imageUrl: imageUrl ?? "",
         imageBuilder: (context, imageProvider) => Container(
               width: AppDimensions.avatarSize,
               height: AppDimensions.avatarSize,

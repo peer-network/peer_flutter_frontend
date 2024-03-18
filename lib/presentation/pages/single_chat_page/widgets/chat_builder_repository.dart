@@ -1,3 +1,4 @@
+import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/data/dummy_response/dummy_chat_messages_by_chat_id.dart';
 import 'package:peer_app/data/models/chat_message_model.dart';
 import 'package:peer_app/data/services/dio_client.dart';
@@ -6,6 +7,7 @@ class ChatBuilderRepository {
   // TODO keine userId
   final String currentUserId;
   final DioClient _dioClient = DioClient();
+  String? error;
 
   ChatBuilderRepository({required this.currentUserId});
 
@@ -27,7 +29,9 @@ class ChatBuilderRepository {
             x as Map<String, dynamic>, currentUserId);
       }).toList();
       return chatHistory;
-    } catch (e) {
+    } catch (e, s) {
+      error = e.toString();
+      CustomException(e.toString(), s).handleError();
       throw Exception('Failed to fetch chat history: $e');
     }
   }

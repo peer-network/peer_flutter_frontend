@@ -18,13 +18,13 @@ class ChatMessageModel {
   factory ChatMessageModel.fromJson(
       Map<String, dynamic> json, String currentUserId) {
     return ChatMessageModel(
-      messageId: json['messageId'],
-      senderId: json['senderId'],
-      recipientId: json['recipientId'],
+      messageId: json['message_id'],
+      senderId: json['sender_id'],
+      recipientId: json['recipient_id'],
       content: json['content'],
       timestamp: DateTime.parse(json['timestamp']),
-      isSender:
-          json['senderId'] == currentUserId, // Determine based on currentUserId
+      isSender: json['sender_id'] ==
+          currentUserId, // Determine based on currentUserId
     );
   }
 }

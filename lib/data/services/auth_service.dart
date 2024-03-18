@@ -2,11 +2,13 @@
 
 import 'package:peer_app/presentation/whitelabel/endpoints.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:peer_app/core/exceptions/base_exception.dart';
 
 import 'dio_client.dart';
 
 class AuthService {
   final DioClient _dioClient = DioClient();
+  String? error;
 
   Future<bool> loginWithCredentials(String email, String password) async {
     try {
@@ -22,9 +24,10 @@ class AuthService {
         return true;
       }
       return response.data;
-    } catch (e) {
-      print(e.toString());
-      // Handle exceptions or log error
+    } catch (e, s) {
+      error = e.toString();
+      CustomException(e.toString(), s).handleError();
+
       return false;
     }
   }

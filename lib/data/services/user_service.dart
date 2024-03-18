@@ -1,5 +1,6 @@
 // changenotifierprovider that safes a list of users to cache them.
 
+import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/data/dummy_response/dummy_user_by_id.dart';
 import 'package:peer_app/data/models/user.dart';
 import 'package:peer_app/data/services/dio_client.dart';
@@ -9,6 +10,7 @@ class UserService {
 
   final List<UserModel> _users = [];
   final DioClient _dioClient = DioClient();
+  String? error;
 
   // Private constructor
   factory UserService() {
@@ -36,7 +38,8 @@ class UserService {
       await Future.delayed(const Duration(seconds: 1));
       return true;
     } catch (e, s) {
-      print('Error toggling follow: $e, $s');
+      error = e.toString();
+      CustomException(e.toString(), s).handleError();
       return false;
     }
   }
@@ -52,7 +55,8 @@ class UserService {
       _users.add(user);
       return user;
     } catch (e, s) {
-      print('Error fetching user by id: $e, $s');
+      error = e.toString();
+      CustomException(e.toString(), s).handleError();
       return null;
     }
   }

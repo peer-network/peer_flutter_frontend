@@ -1,5 +1,6 @@
 // news_provider.dart
 import 'package:flutter/foundation.dart';
+import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/data/dummy_response/dummy_feeds.dart';
 import 'package:peer_app/data/models/feed_model.dart';
 import 'package:peer_app/data/services/dio_client.dart';
@@ -48,10 +49,11 @@ class NewsFeedProvider with ChangeNotifier {
         _newsFeed = List<FeedModel>.from(
             responseFeed["feeds"]!.map((x) => FeedModel.fromJson(x)));
       } catch (e, s) {
-        print('Error parsing news feed: $e, $s');
+        CustomException(e.toString(), s).handleError();
       }
-    } catch (e) {
+    } catch (e, s) {
       error = e.toString();
+      CustomException(e.toString(), s).handleError();
     }
     isLoading = false;
 
