@@ -1,5 +1,6 @@
 // file: constants.dart
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/whitelabel/components/types/aspect_ratios.dart';
 
 class AppConstants {
   static const int maxLastMessageLength = 20;
@@ -28,7 +29,6 @@ class AppDimensions {
   static const double buttonHeightSmall = 30.0;
   static const double buttonWidthSmall = 120.0;
   static const double buttonHeightLarge = 53.0;
-  static const double buttonWidthLarge = double.infinity;
   static const double buttonWidthNavbar = 257.2;
 
   // Avatar dimensions
@@ -52,4 +52,14 @@ class AppDimensions {
   static const double searchElementContainerHight = 30;
   static const double newsFeedImageHeight = 200.0;
   static const double newsFeedTextHeight = 300.0;
+
+  static const double profileTextPostsSliderCardWidth = 290.0;
+  static const double profileTextPostsSliderCardMaxHeight = 500.0;
+
+  static const double createPostEmptyImageHeight = 144;
+}
+
+// aspect ratios
+class AppAspectRatios {
+  static double profileImageAspectRatio = AspectRatios.ar_19_9.doubleValue();
 }

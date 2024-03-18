@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class FeedContentTextWidget extends StatelessWidget {
-  const FeedContentTextWidget({Key? key, required this.text}) : super(key: key);
+  const FeedContentTextWidget(
+      {Key? key, required this.text, this.isSmallText = false})
+      : super(key: key);
 
   final String text;
+  final bool isSmallText;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,9 @@ class FeedContentTextWidget extends StatelessWidget {
                       horizontal: AppPaddings.medium),
                   child: Text(
                     text,
-                    style: Theme.of(context).textTheme.headlineMedium,
+                    style: isSmallText
+                        ? Theme.of(context).textTheme.bodyLarge
+                        : Theme.of(context).textTheme.headlineSmall,
                   ),
                 ),
               ),

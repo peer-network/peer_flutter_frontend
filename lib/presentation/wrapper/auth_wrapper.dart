@@ -11,13 +11,13 @@ class AuthWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider =
+        Provider.of<AuthProvider>(context, listen: false);
     Future<void> validateAuthToken() async {
-      await Provider.of<AuthProvider>(context, listen: false).loginWithToken();
-      print("Auth state: ");
-      print(Provider.of<AuthProvider>(context, listen: false).authState);
+      await authProvider.loginWithToken();
     }
 
-    return FutureBuilder(
+    return FutureBuilder<void>(
       future: validateAuthToken(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -25,8 +25,7 @@ class AuthWrapper extends StatelessWidget {
               child:
                   LoadingComponent()); // Show loading indicator while checking login status
         } else {
-          if (Provider.of<AuthProvider>(context, listen: false).authState ==
-              AuthStates.authenticated) {
+          if (authProvider.authState == AuthStates.authenticated) {
             return const PeerPage(); // User is logged in
           } else {
             return const LoginPage(); // User is not logged in

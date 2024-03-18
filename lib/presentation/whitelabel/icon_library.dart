@@ -43,7 +43,7 @@ extension IconExtension on IconLibrary {
       case IconLibrary.coupon:
         return const AssetImage("assets/icons/coupon.png");
       case IconLibrary.plus:
-        return const AssetImage("assets/icons/plus.png");
+        return const AssetImage("assets/icons/add.png");
       case IconLibrary.minus:
         return const AssetImage("assets/icons/minus.png");
       case IconLibrary.home:
