@@ -6,6 +6,7 @@ class CommentCountComponent extends StatelessWidget {
   const CommentCountComponent({
     super.key,
     required this.commentCount,
+    this.isSmallText = false,
   });
 
   final num? commentCount;

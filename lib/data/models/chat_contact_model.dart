@@ -5,7 +5,7 @@ class ChatContactModel {
   final String id;
   final ChatMessageModel? lastChatMessage; // Replaced fields
   final int? notificationCount;
-  final UserModel contact;
+  final UserModel? contact;
 
   ChatContactModel({
     required this.id,

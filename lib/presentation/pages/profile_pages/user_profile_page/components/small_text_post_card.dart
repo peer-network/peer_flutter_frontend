@@ -49,8 +49,8 @@ class SmallTextPostCard extends StatelessWidget {
                   isSmallText: true,
                 ),
                 const SizedBox(height: AppPaddings.small),
-                const FeedStatsComponent(
-                  isSmallText: true,
+                FeedStatsComponent(
+                  feed: post,
                 )
               ],
             ),
