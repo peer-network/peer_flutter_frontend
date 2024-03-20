@@ -57,6 +57,8 @@ class AppDimensions {
   static const double profileTextPostsSliderCardMaxHeight = 500.0;
 
   static const double createPostEmptyImageHeight = 144;
+
+  static const double textInputCornerRaidus = 30.0;
 }
 
 // aspect ratios

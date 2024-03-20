@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/whitelabel/components/input/input_field_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/navbars/base_bottom_navbar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
@@ -33,38 +34,25 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    // Determine the text field's line height to estimate initial height.
-    final double lineHeight =
-        Theme.of(context).textTheme.bodyMedium!.fontSize! *
-            1.2; // Approximate line height
-    final double initialHeight = lineHeight * 4; // Initial height for 4 lines
-
     return BaseBottomNavigationBar(
       height: null,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+        padding: const EdgeInsets.symmetric(
+            horizontal: AppPaddings.small, vertical: AppPaddings.tiny),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
-              child: TextField(
+              child: InputFieldComponent(
                 controller: _controller,
                 minLines: 1,
                 maxLines: 4,
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                      vertical: AppPaddings.tiny,
-                      horizontal: AppPaddings.small),
-                  hintText: "Type a message",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
+                hintText: "Type a message",
               ),
             ),
             if (_isSendButtonVisible)
               IconButton(
-                icon: const Icon(Icons.send),
+                icon: Icon(Icons.send, color: Theme.of(context).primaryColor),
                 onPressed: () {
                   // Implement your send functionality here
                   print("Sending: ${_controller.text}");
