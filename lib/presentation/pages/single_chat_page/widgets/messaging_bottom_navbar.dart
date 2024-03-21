@@ -3,6 +3,7 @@ import 'package:peer_app/presentation/whitelabel/components/input/input_field_co
 import 'package:peer_app/presentation/whitelabel/components/navbars/base_bottom_navbar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
+// Rename into MessagingBottomNavBar
 class CustomBottomNavBar extends StatefulWidget {
   const CustomBottomNavBar({Key? key}) : super(key: key);
 
