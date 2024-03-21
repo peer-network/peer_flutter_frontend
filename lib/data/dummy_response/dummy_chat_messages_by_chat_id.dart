@@ -86,6 +86,28 @@ Map<String, dynamic> dummyChatMessagesByChatId1 = {
           "No time. Corp drones on your tail. Exfil now. We'll choose sides when we're not in the line of fire.",
       "timestamp": "2077-11-05T22:22:00",
     },
+    {
+      "message_id": "12",
+      "sender_id": "2",
+      "recipient_id": "1",
+      "content":
+          "Copy that. I'm out. Meet you at the drop point. Stay safe, Runner.",
+      "timestamp": "2077-11-05T22:25:00",
+    },
+    {
+      "message_id": "13",
+      "sender_id": "1",
+      "recipient_id": "2",
+      "content": "You too, Netrunner. Stay sharp.",
+      "timestamp": "2077-11-05T22:27:00",
+    },
+    {
+      "message_id": "14",
+      "sender_id": "2",
+      "recipient_id": "1",
+      "content": "Always.",
+      "timestamp": "2077-11-05T22:30:00",
+    }
   ]
 };
 

@@ -1,3 +1,8 @@
+// Displays DateTime in format:
+// - "Friday, 23:56" if the message is less than a week ago
+// - "March, 11" if it's longer than a week ago, but it's still within the same year
+// - "April 20, 2022" if the message was delivered last year or an earlier year
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
