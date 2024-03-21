@@ -1,17 +1,20 @@
+// Bottom navigation bar for messaging
+// This is a stateful widget that contains a text input field and a send button.
+
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/components/input/input_field_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/navbars/base_bottom_navbar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-// Rename into MessagingBottomNavBar
-class CustomBottomNavBar extends StatefulWidget {
-  const CustomBottomNavBar({Key? key}) : super(key: key);
+class MessagingBottomNavBar extends StatefulWidget {
+  const MessagingBottomNavBar.messagingBottomNavBar({Key? key})
+      : super(key: key);
 
   @override
-  State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
+  State<MessagingBottomNavBar> createState() => _MessagingBottomNavBarState();
 }
 
-class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
+class _MessagingBottomNavBarState extends State<MessagingBottomNavBar> {
   final TextEditingController _controller = TextEditingController();
   bool _isSendButtonVisible = false;
 

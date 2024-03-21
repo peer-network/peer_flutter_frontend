@@ -21,7 +21,7 @@ class ChatHistoryView extends StatelessWidget {
     DateTime? lastDate;
 
     double bottomPadding = MediaQuery.of(context).viewInsets.bottom +
-        60; // Assuming 60 is the height of your CustomBottomNavBar
+        60; // Assuming 60 as a placeholder height of the CustomBottomNavBar
 
     for (var i = 0; i < chatHistory.length; i++) {
       final message = chatHistory[i];
