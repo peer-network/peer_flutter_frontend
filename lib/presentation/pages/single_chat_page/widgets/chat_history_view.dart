@@ -1,6 +1,6 @@
 // ChatHistoryView
 // Checks the chat messages for their date and affectively
-// displays them gouped after date
+// displays them grouped after date
 
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/chat_message_model.dart';
