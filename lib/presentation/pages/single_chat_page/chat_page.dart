@@ -19,11 +19,7 @@ class ChatPage extends StatelessWidget {
       ),
       bottomNavigationBar:
           const SafeArea(child: MessagingBottomNavBar.messagingBottomNavBar()),
-      child: Column(
-        children: [
-          ChatHistoryViewFutureBuilder(chatContact: chatContact),
-        ],
-      ),
+      child: ChatHistoryViewFutureBuilder(chatContact: chatContact),
     );
   }
 }

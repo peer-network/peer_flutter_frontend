@@ -58,7 +58,7 @@ class _MessagingBottomNavBarState extends State<MessagingBottomNavBar> {
               IconButton(
                 icon: Icon(Icons.send, color: Theme.of(context).primaryColor),
                 onPressed: () {
-                  // Implement your send functionality here
+                  //TODO: Implement send functionality here
                   print("Sending: ${_controller.text}");
                 },
               ),

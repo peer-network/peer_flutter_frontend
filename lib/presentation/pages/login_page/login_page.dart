@@ -14,7 +14,6 @@ class LoginPage extends StatelessWidget {
     bool isKeyboardVisible = MediaQuery.of(context).viewInsets.bottom != 0;
 
     return BasePage(
-      makeScrollable: false,
       child: Column(
         children: [
           Expanded(

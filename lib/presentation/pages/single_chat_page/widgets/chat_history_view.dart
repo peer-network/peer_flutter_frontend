@@ -1,3 +1,7 @@
+// ChatHistoryView
+// Checks the chat messages for their date and affectively
+// displays them gouped after date
+
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/chat_message_model.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_bubbles.dart';
@@ -9,11 +13,9 @@ class ChatHistoryView extends StatelessWidget {
   const ChatHistoryView({
     super.key,
     required this.chatHistory,
-    required this.context,
   });
 
   final List<ChatMessageModel> chatHistory;
-  final BuildContext context;
 
   @override
   Widget build(BuildContext context) {
@@ -29,16 +31,16 @@ class ChatHistoryView extends StatelessWidget {
           message.timestamp.month, message.timestamp.day);
 
       if (lastDate == null || messageDate.isAfter(lastDate)) {
-        // Use FormattedDateTextWidget for date headers
         children.add(
           Padding(
             padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
             child: Center(
               child: FormattedWrittenOutDateTextWidget(
                 dateTime: messageDate,
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color:
-                        CustomColors.secondaryTextColor), // Customize as needed
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge!
+                    .copyWith(color: CustomColors.secondaryTextColor),
               ),
             ),
           ),
@@ -49,9 +51,10 @@ class ChatHistoryView extends StatelessWidget {
       children.add(ChatBubble(chatData: message));
     }
 
-    return ListView(
-      padding: EdgeInsets.only(bottom: bottomPadding),
-      children: children,
-    );
+    return ListView.builder(
+        itemBuilder: (context, index) {
+          return children[index];
+        },
+        itemCount: children.length);
   }
 }

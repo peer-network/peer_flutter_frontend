@@ -20,7 +20,6 @@ class CreateImagePostPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BasePage(
-      makeScrollable: false,
       appBar: SecondaryAppbar(
         title: "Beitrag teilen",
         actions: [

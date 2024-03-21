@@ -3,13 +3,13 @@ import 'package:peer_app/data/models/user.dart';
 
 class ChatContactModel {
   final String id;
-  final ChatMessageModel? lastChatMessage; // Replaced fields
+  final ChatMessageModel? lastChatMessage;
   final int? notificationCount;
   final UserModel contact;
 
   ChatContactModel({
     required this.id,
-    this.lastChatMessage, // Updated parameter
+    this.lastChatMessage,
     this.notificationCount,
     required this.contact,
   });

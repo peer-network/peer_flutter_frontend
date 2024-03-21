@@ -13,7 +13,6 @@ class PeerPage extends StatelessWidget {
     return BasePage(
       appBar: const PeerAppbar(),
       bottomNavigationBar: PrimaryBottomNavbar(),
-      makeScrollable: false,
       child: NestedScrollView(
         headerSliverBuilder: (context, _) {
           return [

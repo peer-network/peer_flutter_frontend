@@ -16,11 +16,13 @@ class ChatContactsPage extends StatelessWidget {
         bottomNavigationBar: PrimaryBottomNavbar(),
         child: const Padding(
           padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
-          child: Column(
-            children: [
-              ChatContactsSearchBar(),
-              ChatContactsView(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                ChatContactsSearchBar(),
+                ChatContactsView(),
+              ],
+            ),
           ),
         ));
   }

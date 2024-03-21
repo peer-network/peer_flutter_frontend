@@ -1,8 +1,13 @@
+// ChatHistoryViewFutureBuilder
+//tries to fetch the chat history between user and a chat contact
+// if waiting -> LoadingComponent
+// if error -> ErrorComponent
+// if data is loaded -> ChatHistoryView
+
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/chat_contact_model.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_builder_repository.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_history_view.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
 import '../../../../data/models/chat_message_model.dart';
@@ -15,6 +20,7 @@ class ChatHistoryViewFutureBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<ChatMessageModel>>(
+      // TODO: currentUserId should be dynamic
       future: ChatBuilderRepository(currentUserId: '1')
           .fetchChatHistory(chatContact.id),
       builder: (context, snapshot) {
@@ -30,9 +36,9 @@ class ChatHistoryViewFutureBuilder extends StatelessWidget {
             height: MediaQuery.of(context).size.height -
                 kToolbarHeight -
                 kBottomNavigationBarHeight,
-            color: CustomColors.backgroundColor,
-            child:
-                ChatHistoryView(chatHistory: snapshot.data!, context: context),
+            // color: CustomColors.backgroundColor,
+            color: Theme.of(context).scaffoldBackgroundColor,
+            child: ChatHistoryView(chatHistory: snapshot.data!),
           );
         } else {
           // Handle the case where snapshot.data is null

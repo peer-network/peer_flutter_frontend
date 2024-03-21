@@ -4,13 +4,12 @@ class BasePage extends StatelessWidget {
   final Widget child;
   final Widget? bottomNavigationBar;
   final PreferredSizeWidget? appBar;
-  final bool makeScrollable;
-  const BasePage(
-      {super.key,
-      required this.child,
-      this.bottomNavigationBar,
-      this.appBar,
-      this.makeScrollable = true});
+  const BasePage({
+    super.key,
+    required this.child,
+    this.bottomNavigationBar,
+    this.appBar,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +17,7 @@ class BasePage extends StatelessWidget {
       appBar: appBar,
       resizeToAvoidBottomInset: true,
       body: SafeArea(
-        child: makeScrollable
-            ? SingleChildScrollView(
-                child: child,
-              )
-            : child,
+        child: child,
       ),
       bottomNavigationBar: bottomNavigationBar,
     );

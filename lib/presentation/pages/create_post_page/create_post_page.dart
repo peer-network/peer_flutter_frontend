@@ -31,7 +31,6 @@ class _CreatePostPageState extends State<CreatePostPage> {
       appBar: const SecondaryAppbar(
         title: "Beitrag teilen",
       ),
-      makeScrollable: false,
       child: _buildCreatePostBody(),
     );
   }
