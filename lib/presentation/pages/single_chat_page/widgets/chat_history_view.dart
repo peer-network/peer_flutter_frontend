@@ -1,12 +1,13 @@
-// ChatHistoryView
-// Checks the chat messages for their date and affectively
-// displays them grouped after date
+// // ChatHistoryView
+// // Checks the chat messages for their date and affectively
+// // displays them grouped after date
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:peer_app/data/models/chat_message_model.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_bubbles.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
-import 'package:peer_app/presentation/whitelabel/components/date/formatted_written_out_date_text_widget.dart';
+import 'package:peer_app/presentation/whitelabel/components/date/formatted_date.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ChatHistoryView extends StatelessWidget {
@@ -20,20 +21,22 @@ class ChatHistoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> children = [];
-    DateTime? lastDate;
+    String? lastDateString;
 
     for (var i = 0; i < chatHistory.length; i++) {
       final message = chatHistory[i];
-      final messageDate = DateTime(message.timestamp.year,
-          message.timestamp.month, message.timestamp.day);
+      // Parse the timestamp to DateTime only for comparison
+      final messageDate = DateTime.parse(message.timestamp);
+      final messageDateString = DateFormat('yyyy-MM-dd').format(messageDate);
 
-      if (lastDate == null || messageDate.isAfter(lastDate)) {
+      if (lastDateString == null || messageDateString != lastDateString) {
         children.add(
           Padding(
             padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
             child: Center(
-              child: FormattedWrittenOutDateTextWidget(
-                dateTime: messageDate,
+              child: Text(
+                FormattedDate(message.timestamp)
+                    .getFormattedDate(formatType: 'no-time'),
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge!
@@ -42,7 +45,7 @@ class ChatHistoryView extends StatelessWidget {
             ),
           ),
         );
-        lastDate = messageDate;
+        lastDateString = messageDateString;
       }
 
       children.add(ChatBubble(chatData: message));

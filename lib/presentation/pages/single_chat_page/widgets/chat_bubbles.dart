@@ -1,10 +1,7 @@
-// ChatBubble
-// defines the UI for the chat bubbles
-
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/chat_message_model.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
-import 'package:peer_app/presentation/whitelabel/components/date/formatted_date_text_widget.dart';
+import 'package:peer_app/presentation/whitelabel/components/date/formatted_date.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ChatBubble extends StatelessWidget {
@@ -59,12 +56,12 @@ class ChatBubble extends StatelessWidget {
                 style: TextStyle(color: textColor),
               ),
             ),
-            FormattedDateTextWidget(
-              dateTime: chatData.timestamp,
-              style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                    color: CustomColors.secondaryTextColor,
-                  ),
-            ),
+            Text(
+                FormattedDate(chatData.timestamp)
+                    .getFormattedDate(formatType: 'only-time'),
+                style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                      color: CustomColors.secondaryTextColor,
+                    )),
           ],
         ),
       ),

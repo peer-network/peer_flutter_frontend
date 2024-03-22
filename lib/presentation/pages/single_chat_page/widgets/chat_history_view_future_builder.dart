@@ -36,7 +36,6 @@ class ChatHistoryViewFutureBuilder extends StatelessWidget {
             height: MediaQuery.of(context).size.height -
                 kToolbarHeight -
                 kBottomNavigationBarHeight,
-            // color: CustomColors.backgroundColor,
             color: Theme.of(context).scaffoldBackgroundColor,
             child: ChatHistoryView(chatHistory: snapshot.data!),
           );
