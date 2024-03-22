@@ -36,7 +36,7 @@ class ChatHistoryView extends StatelessWidget {
             child: Center(
               child: Text(
                 FormattedDate(message.timestamp)
-                    .getFormattedDate(formatType: 'no-time'),
+                    .getFormattedDate(formatType: DateFormatType.noTime),
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge!

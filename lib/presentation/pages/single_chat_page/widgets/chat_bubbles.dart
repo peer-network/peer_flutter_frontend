@@ -60,7 +60,7 @@ class ChatBubble extends StatelessWidget {
             ),
             Text(
                 FormattedDate(chatData.timestamp)
-                    .getFormattedDate(formatType: 'only-time'),
+                    .getFormattedDate(formatType: DateFormatType.onlyTime),
                 style: Theme.of(context).textTheme.labelMedium!.copyWith(
                       color: CustomColors.secondaryTextColor,
                     )),
