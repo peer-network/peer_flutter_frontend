@@ -7,21 +7,27 @@ class SearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        hintText: 'Suchen ...',
-        suffixIcon: const Icon(Icons.search),
-        border: OutlineInputBorder(
-          borderRadius: AppBorders.defaultRadius,
-          borderSide: const BorderSide(color: CustomColors.primaryColor),
+    return SizedBox(
+      height: AppDimensions.searchElementContainerHight,
+      width: double.infinity,
+      child: Expanded(
+        child: TextField(
+          decoration: InputDecoration(
+            hintText: 'Suchen ...',
+            suffixIcon: const Icon(Icons.search),
+            border: OutlineInputBorder(
+              borderRadius: AppBorders.defaultRadius,
+              borderSide: const BorderSide(color: CustomColors.primaryColor),
+            ),
+            alignLabelWithHint: true,
+            contentPadding: const EdgeInsets.fromLTRB(
+              AppPaddings.medium,
+              AppPaddings.tiny,
+              AppPaddings.small,
+              AppPaddings.tiny,
+            ), // Adjust padding to center the text and icon
+          ),
         ),
-        alignLabelWithHint: true,
-        contentPadding: const EdgeInsets.fromLTRB(
-          AppPaddings.medium,
-          AppPaddings.tiny,
-          AppPaddings.small,
-          AppPaddings.tiny,
-        ), // Adjust padding to center the text and icon
       ),
     );
   }

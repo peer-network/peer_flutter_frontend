@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
@@ -21,7 +22,10 @@ class FeedActionsComponent extends StatelessWidget {
           ),
           const SizedBox(width: AppPaddings.small),
           CustomIconButton(
-            onPressed: () {},
+            onPressed: () {
+              // temprarily route to SharePostContactsPage
+              Navigator.of(context).push(SharePostContactsRoute());
+            },
             sizeType: SizeType.medium,
             icon: IconLibrary.comment,
           ),

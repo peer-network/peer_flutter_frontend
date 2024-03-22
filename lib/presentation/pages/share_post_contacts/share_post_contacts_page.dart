@@ -4,6 +4,7 @@ import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_cont
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_contacts_view.dart';
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
 import 'package:peer_app/presentation/whitelabel/components/navbars/primary_bottom_navbar.dart';
+import 'package:peer_app/presentation/whitelabel/components/search_elements/text_search.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class SharePostContactsPage extends StatelessWidget {
@@ -20,7 +21,8 @@ class SharePostContactsPage extends StatelessWidget {
             child: Column(
               children: [
                 // ChatContactsSearchBar(),
-                // ChatContactsView(),
+                SearchField(),
+                ChatContactsView(),
               ],
             ),
           ),
