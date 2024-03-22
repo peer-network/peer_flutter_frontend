@@ -1,6 +1,10 @@
+// Formats the date based on the given format type. (enum)
+// The format type can be letters, noTime, onlyTime, numbers.
+// returns the formatted date as a string.
+
 import 'package:intl/intl.dart';
 
-// Define an enum for the format types
+// Enum to define the format of the date
 enum DateFormatType { letters, noTime, onlyTime, numbers }
 
 class FormattedDate {
@@ -8,7 +12,6 @@ class FormattedDate {
 
   FormattedDate(String timestamp) : dateTime = DateTime.parse(timestamp);
 
-  // Update the method signature to accept the enum
   String getFormattedDate(
       {DateFormatType formatType = DateFormatType.letters}) {
     DateTime now = DateTime.now();
