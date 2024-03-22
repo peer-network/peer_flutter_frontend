@@ -6,6 +6,7 @@ import 'package:peer_app/presentation/pages/login_page/login_page.dart';
 import 'package:peer_app/presentation/pages/peer_page/peer_page.dart';
 import 'package:peer_app/presentation/pages/profile_pages/user_profile_page/user_profile_page.dart';
 import 'package:peer_app/presentation/pages/registration_page/registration_page.dart';
+import 'package:peer_app/presentation/pages/share_post_contacts/share_post_contacts_page.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/chat_page.dart';
 import 'package:peer_app/presentation/routing/routes/base_route.dart';
 
@@ -69,6 +70,14 @@ class CreateImagePostPageRoute extends BaseRoute {
   CreateImagePostPageRoute()
       : super(
           const CreateImagePostPage(),
+          guards: [],
+        );
+}
+
+class SharePostContactsRoute extends BaseRoute {
+  SharePostContactsRoute()
+      : super(
+          const SharePostContactsPage(),
           guards: [],
         );
 }
