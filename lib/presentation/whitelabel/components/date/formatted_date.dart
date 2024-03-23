@@ -5,7 +5,7 @@
 import 'package:intl/intl.dart';
 
 // Enum to define the format of the date
-enum DateFormatType { letters, noTime, onlyTime, numbers }
+enum DateFormatType { spelledOut, noTime, onlyTime, numbers }
 
 class FormattedDate {
   final DateTime dateTime;
@@ -13,7 +13,7 @@ class FormattedDate {
   FormattedDate(String timestamp) : dateTime = DateTime.parse(timestamp);
 
   String getFormattedDate(
-      {DateFormatType formatType = DateFormatType.letters}) {
+      {DateFormatType formatType = DateFormatType.spelledOut}) {
     DateTime now = DateTime.now();
     DateTime today = DateTime(now.year, now.month, now.day);
     DateTime aWeekAgo = today.subtract(Duration(days: 7));
@@ -21,7 +21,7 @@ class FormattedDate {
     String formattedDate;
 
     switch (formatType) {
-      case DateFormatType.letters:
+      case DateFormatType.spelledOut:
         if (dateTime.isAfter(aWeekAgo)) {
           formattedDate = DateFormat('EEEE, HH:mm').format(dateTime);
         } else if (dateTime.isAfter(startOfThisYear)) {
