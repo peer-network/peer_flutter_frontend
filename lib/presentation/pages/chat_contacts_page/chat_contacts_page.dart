@@ -11,10 +11,10 @@ class ChatContactsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BasePage(
-        appBar: const SecondaryAppbar(title: 'Chat'),
+    return const BasePage(
+        appBar: SecondaryAppbar(title: 'Chat'),
         bottomNavigationBar: PrimaryBottomNavbar(),
-        child: const Padding(
+        child: Padding(
           padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
           child: SingleChildScrollView(
             child: Column(

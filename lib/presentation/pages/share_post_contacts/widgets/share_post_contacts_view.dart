@@ -1,3 +1,6 @@
+// SharePostContactsView uses ChatContactsProvider to fetch chat contacts
+// and then dislays a custom "SharePostContactCardComponent" for each chat contact.
+
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/provider/chat_contacts_provider.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_contacts_card_component.dart';
@@ -6,8 +9,8 @@ import 'package:peer_app/presentation/whitelabel/components/loading_and_error/er
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
 import 'package:provider/provider.dart';
 
-class ChatContactsView extends StatelessWidget {
-  const ChatContactsView({super.key});
+class SharePostContactsView extends StatelessWidget {
+  const SharePostContactsView({super.key});
 
   @override
   Widget build(BuildContext context) {
