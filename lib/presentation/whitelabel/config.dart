@@ -4,6 +4,9 @@ class Config {
   // secondary logo
   static const String secondaryLogo = 'assets/logos/sec_logo.png';
 
+  // gem icon
+  static const String gemIcon = 'assets/icons/diamond_wallet.png';
+
   static const double logoHeight = 75;
   static const double secondaryLogoHeight = 27;
 }

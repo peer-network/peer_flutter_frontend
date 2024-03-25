@@ -18,15 +18,13 @@ class CommentStatsComponent extends StatelessWidget {
         Container(
           constraints:
               BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 2.4),
-          child: Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("14 min", style: Theme.of(context).textTheme.bodySmall),
-                Text("12 Likes", style: Theme.of(context).textTheme.bodySmall),
-                Text("Antworten", style: Theme.of(context).textTheme.bodySmall),
-              ],
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("14 min", style: Theme.of(context).textTheme.bodySmall),
+              Text("12 Likes", style: Theme.of(context).textTheme.bodySmall),
+              Text("Antworten", style: Theme.of(context).textTheme.bodySmall),
+            ],
           ),
         ),
         SizedBox(
