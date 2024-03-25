@@ -3,8 +3,8 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 import 'package:peer_app/presentation/whitelabel/image_libary.dart';
 
-class CreateImagePostBody extends StatelessWidget {
-  const CreateImagePostBody({super.key, required this.onImageSelected});
+class EmptyCreateImagePostBody extends StatelessWidget {
+  const EmptyCreateImagePostBody({super.key, required this.onImageSelected});
 
   final Function() onImageSelected;
 

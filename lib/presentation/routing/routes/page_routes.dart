@@ -1,5 +1,4 @@
 import 'package:peer_app/presentation/pages/chat_contacts_page/chat_contacts_page.dart';
-import 'package:peer_app/presentation/pages/create_image_post_page/create_image_post_page.dart';
 import 'package:peer_app/presentation/pages/create_post_page/create_post_page.dart';
 import 'package:peer_app/presentation/pages/login_page/login_page.dart';
 import 'package:peer_app/presentation/pages/peer_page/peer_page.dart';
@@ -51,15 +50,6 @@ class CreatePostPageRoute extends BaseRoute {
   CreatePostPageRoute()
       : super(
           const CreatePostPage(),
-          guards: [],
-        );
-}
-
-//CreateImagePostPage
-class CreateImagePostPageRoute extends BaseRoute {
-  CreateImagePostPageRoute()
-      : super(
-          const CreateImagePostPage(),
           guards: [],
         );
 }
