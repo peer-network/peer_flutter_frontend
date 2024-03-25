@@ -47,6 +47,14 @@ class UserProfilePageRoute extends BaseRoute {
         );
 }
 
+class OwnProfilePageRoute extends BaseRoute {
+  OwnProfilePageRoute()
+      : super(
+          const OwnProfilePage(),
+          guards: [],
+        );
+}
+
 class CreatePostPageRoute extends BaseRoute {
   CreatePostPageRoute()
       : super(

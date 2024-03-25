@@ -3,7 +3,6 @@ import 'package:peer_app/data/provider/auth_provider.dart';
 import 'package:peer_app/data/provider/chat_provider.dart';
 import 'package:peer_app/data/provider/feed_provider.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/wallet_sheet.dart';
 import 'package:peer_app/presentation/whitelabel/theme.dart';
 import 'package:peer_app/presentation/wrapper/auth_wrapper.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +26,7 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => WalletSheetProvider())
       ],
       child: MaterialApp(
+        restorationScopeId: 'root',
         debugShowCheckedModeBanner: false,
         theme: theme,
         home: const AuthWrapper(),

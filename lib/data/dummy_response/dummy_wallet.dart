@@ -7,7 +7,12 @@ const dummyWallet = {
     "creditsCollectedToday": 924,
     "percentageOfTotalTokens": 0.03
   },
-  "creditsSource": {"interactions": 2890, "posts": 1797, "likes": 857},
+  "creditsSource": {
+    "comments": 2890,
+    "views": 1797,
+    "shares": 857,
+    "likes": 69
+  },
   "accountDevelopment": {
     "values": [0.0214, 0.0230, 0.0188, 0.0195, 0.0225],
     "timestamps": [
