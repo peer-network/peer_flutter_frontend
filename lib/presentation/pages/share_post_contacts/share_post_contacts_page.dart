@@ -16,6 +16,8 @@ class SharePostContactsPage extends StatefulWidget {
 class _SharePostContactsPageState extends State<SharePostContactsPage> {
   final Set<String> activeContacts = {};
 
+  // TextEditingController searchQueryController = TextEditingController();
+
   void toggleContact(String contactId) {
     setState(() {
       if (activeContacts.contains(contactId)) {
@@ -33,17 +35,21 @@ class _SharePostContactsPageState extends State<SharePostContactsPage> {
       bottomNavigationBar: activeContacts.isNotEmpty
           ? const SharePostContactBottomNavbar()
           : null,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppPaddings.medium),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SearchField(),
-              SharePostContactsView(
-                  toggleContact: toggleContact, activeContacts: activeContacts),
-            ],
+      child: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
+            child: SearchField(
+                // controller: searchQueryController,
+                ),
           ),
-        ),
+          Expanded(
+            child: SharePostContactsView(
+                // searchQuery: searchQueryController.text,
+                toggleContact: toggleContact,
+                activeContacts: activeContacts),
+          ),
+        ],
       ),
     );
   }

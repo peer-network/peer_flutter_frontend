@@ -7,6 +7,7 @@ import 'package:peer_app/presentation/pages/share_post_contacts/widgets/share_po
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:provider/provider.dart';
 
 class SharePostContactsView extends StatelessWidget {
@@ -31,22 +32,19 @@ class SharePostContactsView extends StatelessWidget {
     } else if (chatContactsProvider.error != null) {
       return ErrorComponent(error: chatContactsProvider.error!);
     } else {
-      return Container(
-        height: MediaQuery.of(context).size.height -
-            kToolbarHeight -
-            kBottomNavigationBarHeight,
-        color: CustomColors.backgroundColor,
-        child: ListView.builder(
-          itemCount: chatContactsProvider.chatContacts.length,
-          itemBuilder: (context, index) {
-            final chatContact = chatContactsProvider.chatContacts[index];
-            return SharePostContactCardComponent(
+      return ListView.builder(
+        itemCount: chatContactsProvider.chatContacts.length,
+        itemBuilder: (context, index) {
+          final chatContact = chatContactsProvider.chatContacts[index];
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: AppPaddings.medium),
+            child: SharePostContactCardComponent(
               chatContact: chatContact,
               isSelected: activeContacts.contains(chatContact.id),
               onSelect: toggleContact,
-            );
-          },
-        ),
+            ),
+          );
+        },
       );
     }
   }

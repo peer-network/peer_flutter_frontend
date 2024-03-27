@@ -5,6 +5,8 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 class SearchField extends StatelessWidget {
   const SearchField({super.key});
 
+  // takes in a controller to be able to access the search query and make use of it
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
