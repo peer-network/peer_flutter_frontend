@@ -16,9 +16,10 @@ class _SelectionBarState extends State<SelectionBar> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        const SearchElementContainer(
-          searchElement: SearchField(),
-        ),
+        // TODO: Reimplement
+        // const SearchElementContainer(
+        //   searchElement: SearchField(),
+        // ),
         SearchElementContainer(
           searchElement: PeerDropdown(
             placeholderText: 'Alle Posts',

@@ -16,7 +16,23 @@ class SharePostContactsPage extends StatefulWidget {
 class _SharePostContactsPageState extends State<SharePostContactsPage> {
   final Set<String> activeContacts = {};
 
-  // TextEditingController searchQueryController = TextEditingController();
+  TextEditingController searchQueryController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    searchQueryController.addListener(() {
+      setState(() {
+        // This will trigger a rebuild with the updated search query.
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    searchQueryController.dispose();
+    super.dispose();
+  }
 
   void toggleContact(String contactId) {
     setState(() {
@@ -37,17 +53,18 @@ class _SharePostContactsPageState extends State<SharePostContactsPage> {
           : null,
       child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: AppPaddings.medium),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: AppPaddings.medium),
             child: SearchField(
-                // controller: searchQueryController,
-                ),
+              controller: searchQueryController,
+            ),
           ),
           Expanded(
             child: SharePostContactsView(
-                // searchQuery: searchQueryController.text,
-                toggleContact: toggleContact,
-                activeContacts: activeContacts),
+              toggleContact: toggleContact,
+              activeContacts: activeContacts,
+              searchQuery: searchQueryController.text,
+            ),
           ),
         ],
       ),

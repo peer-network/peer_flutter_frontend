@@ -18,8 +18,9 @@ class ChatContactsSearchBar extends StatelessWidget {
                 ),
           ),
         ),
-        const Expanded(
-            child: SearchElementContainer(searchElement: SearchField())),
+        // TODO: Reimplement
+        // const Expanded(
+        //     child: SearchElementContainer(searchElement: SearchField())),
       ],
     );
   }

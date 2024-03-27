@@ -3,9 +3,9 @@ import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class SearchField extends StatelessWidget {
-  const SearchField({super.key});
+  final TextEditingController controller;
 
-  // takes in a controller to be able to access the search query and make use of it
+  const SearchField({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +14,7 @@ class SearchField extends StatelessWidget {
       width: double.infinity,
       child: Expanded(
         child: TextField(
+          controller: controller,
           decoration: InputDecoration(
             hintText: 'Suchen ...',
             suffixIcon: const Icon(Icons.search),
@@ -27,7 +28,7 @@ class SearchField extends StatelessWidget {
               AppPaddings.tiny,
               AppPaddings.small,
               AppPaddings.tiny,
-            ), // Adjust padding to center the text and icon
+            ),
           ),
         ),
       ),
