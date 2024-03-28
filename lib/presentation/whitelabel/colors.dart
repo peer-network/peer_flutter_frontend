@@ -33,6 +33,7 @@ class CustomColors {
   static const Color cardBorderColor = _lightGreyColor;
   static const Color secondaryBackgroundColor = _lightestGreyColor;
   static const Color secondaryButtonColor = _lightGreyColor;
+  static const Color searchHighlightColor = _lightBlueColor;
 
   static const Color primaryChatBubbleColor = _lightBlueColor;
   static const Color secondaryChatBubbleColor = _lightGreyColor;

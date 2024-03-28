@@ -129,11 +129,13 @@ class SharePostContactCardComponent extends StatelessWidget {
     //   backgroundColor: Colors.yellow, // Highlight style
     //   color: Colors.black,
     // );
-    final TextStyle highlightStyle =
-        Theme.of(context).textTheme.titleLarge!.copyWith(
-              backgroundColor: Colors.yellow, // Highlight style
-              color: Colors.black,
-            );
+    final TextStyle highlightStyle = Theme.of(context)
+        .textTheme
+        .titleLarge!
+        .copyWith(
+          backgroundColor: CustomColors.searchHighlightColor, // Highlight style
+          color: CustomColors.primaryTextColor,
+        );
 
     final TextStyle normalStyle = Theme.of(context).textTheme.titleLarge!;
 
