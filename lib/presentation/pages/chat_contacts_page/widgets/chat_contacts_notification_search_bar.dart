@@ -7,6 +7,10 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 class ChatContactsSearchBar extends StatelessWidget {
   const ChatContactsSearchBar({super.key});
 
+  // TODO implement search query controller
+  // therefore maybe make this a stateful widget
+  // implement search query controller
+
   @override
   Widget build(BuildContext context) {
     return Padding(
