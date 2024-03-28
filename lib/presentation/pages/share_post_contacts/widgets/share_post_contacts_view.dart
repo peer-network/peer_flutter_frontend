@@ -57,6 +57,7 @@ class SharePostContactsView extends StatelessWidget {
               chatContact: chatContact,
               isSelected: activeContacts.contains(chatContact.id),
               onSelect: toggleContact,
+              searchQuery: searchQuery,
             ),
           );
         },
