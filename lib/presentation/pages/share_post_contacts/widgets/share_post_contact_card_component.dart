@@ -125,10 +125,6 @@ class SharePostContactCardComponent extends StatelessWidget {
 
   TextSpan _highlightSearchResult(
       String text, String searchQuery, BuildContext context) {
-    // final TextStyle highlightStyle = TextStyle(
-    //   backgroundColor: Colors.yellow, // Highlight style
-    //   color: Colors.black,
-    // );
     final TextStyle highlightStyle = Theme.of(context)
         .textTheme
         .titleLarge!
