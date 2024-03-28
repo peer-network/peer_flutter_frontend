@@ -4,6 +4,7 @@ import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_cont
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:provider/provider.dart';
 
 class ChatContactsView extends StatelessWidget {
@@ -29,10 +30,15 @@ class ChatContactsView extends StatelessWidget {
             kBottomNavigationBarHeight,
         color: CustomColors.backgroundColor,
         child: ListView.builder(
+          // physics: const NeverScrollableScrollPhysics(),
           itemCount: chatContactsProvider.chatContacts.length,
           itemBuilder: (context, index) {
-            return ChatContactCardComponent(
-                chatContact: chatContactsProvider.chatContacts[index]);
+            return Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: AppPaddings.medium),
+              child: ChatContactCardComponent(
+                  chatContact: chatContactsProvider.chatContacts[index]),
+            );
           },
         ),
       );
