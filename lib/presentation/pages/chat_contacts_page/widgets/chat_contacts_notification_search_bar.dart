@@ -4,12 +4,31 @@ import 'package:peer_app/presentation/whitelabel/components/search_elements/sear
 import 'package:peer_app/presentation/whitelabel/components/search_elements/text_search.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-class ChatContactsSearchBar extends StatelessWidget {
+class ChatContactsSearchBar extends StatefulWidget {
   const ChatContactsSearchBar({super.key});
 
-  // TODO implement search query controller
-  // therefore maybe make this a stateful widget
-  // implement search query controller
+  @override
+  State<ChatContactsSearchBar> createState() => _ChatContactsSearchBarState();
+}
+
+class _ChatContactsSearchBarState extends State<ChatContactsSearchBar> {
+  TextEditingController searchQueryController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    searchQueryController.addListener(() {
+      setState(() {
+        // This will trigger a rebuild with the updated search query.
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    searchQueryController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +45,11 @@ class ChatContactsSearchBar extends StatelessWidget {
             ),
           ),
           // TODO: Reimplement
-          // const Expanded(
-          //     child: SearchElementContainer(searchElement: SearchField())),
+          Expanded(
+              child: SearchElementContainer(
+                  searchElement: SearchField(
+            controller: searchQueryController,
+          ))),
         ],
       ),
     );

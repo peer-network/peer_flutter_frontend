@@ -11,15 +11,34 @@ class SelectionBar extends StatefulWidget {
 }
 
 class _SelectionBarState extends State<SelectionBar> {
+  TextEditingController searchQueryController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    searchQueryController.addListener(() {
+      setState(() {
+        // This will trigger a rebuild with the updated search query.
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    searchQueryController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        // TODO: Reimplement
-        // const SearchElementContainer(
-        //   searchElement: SearchField(),
-        // ),
+        SearchElementContainer(
+          searchElement: SearchField(
+            controller: searchQueryController,
+          ),
+        ),
         SearchElementContainer(
           searchElement: PeerDropdown(
             placeholderText: 'Alle Posts',
