@@ -1,20 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/data/models/feed_model.dart';
+import 'package:peer_app/data/provider/feed_provider.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_card_component.dart';
 import 'package:peer_app/presentation/pages/share_post_contacts/widgets/share_post_contact_bottom_navbar.dart';
 import 'package:peer_app/presentation/pages/share_post_contacts/widgets/share_post_contacts_view.dart';
+import 'package:peer_app/presentation/pages/single_chat_page/widgets/messaging_bottom_nav_bar.dart';
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
 import 'package:peer_app/presentation/whitelabel/components/search_elements/text_search.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class SharePostPage extends StatefulWidget {
-  const SharePostPage({super.key});
+  const SharePostPage({super.key, required this.feed});
+  final FeedModel feed;
+
+  // Liste an Contacten an die geshared wird
+  // Feedmodel object dass geshared wird
 
   @override
-  _SharePostContactsPageState createState() => _SharePostContactsPageState();
+  _SharePostPageState createState() => _SharePostPageState();
 }
 
-class _SharePostContactsPageState extends State<SharePostPage> {
+class _SharePostPageState extends State<SharePostPage> {
+  // keine active contacts definieren hier
+  // kein newsfeedprovider definieren hier
+
+  // nur den textcontroller für beschreibung definieren
   final Set<String> activeContacts = {};
+  final NewsFeedProvider _newsFeedProvider = NewsFeedProvider();
 
   TextEditingController searchQueryController = TextEditingController();
 
@@ -46,16 +59,13 @@ class _SharePostContactsPageState extends State<SharePostPage> {
 
   @override
   Widget build(BuildContext context) {
+    // define NewsFeedProvider
+    // NewsFeedProvider newsFeedProvider = Provider.of<NewsFeedProvider>(context, listen: true);
     return BasePage(
       appBar: const SecondaryAppbar(title: 'Beitrag Verschicken'),
-      child: Column(
-        children: [
-          // TODO: Content
-          Container(),
-          // TODO: Text input and Send button
-          Container(),
-        ],
-      ),
+      bottomNavigationBar:
+          const SafeArea(child: MessagingBottomNavBar.messagingBottomNavBar()),
+      child: SingleChildScrollView(child: FeedCardComponent(feed: widget.feed)),
     );
   }
 }

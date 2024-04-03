@@ -3,7 +3,7 @@ class ChatMessageModel {
   final String senderId;
   final String recipientId;
   final String content;
-  final String timestamp;
+  final DateTime timestamp;
   final bool isSender;
 
   ChatMessageModel({
@@ -22,8 +22,8 @@ class ChatMessageModel {
       senderId: json['sender_id'],
       recipientId: json['recipient_id'],
       content: json['content'],
-      // timestamp: DateTime.parse(json['timestamp']),
-      timestamp: json['timestamp'],
+      timestamp: DateTime.parse(json['timestamp']),
+      // timestamp: json['timestamp'],
       isSender: json['sender_id'] ==
           currentUserId, // Determine based on currentUserId
     );

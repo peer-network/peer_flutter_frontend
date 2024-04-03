@@ -1,4 +1,5 @@
 import 'package:peer_app/data/models/chat_contact_model.dart';
+import 'package:peer_app/data/models/feed_model.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/chat_contacts_page.dart';
 import 'package:peer_app/presentation/pages/create_image_post_page/create_image_post_page.dart';
 import 'package:peer_app/presentation/pages/create_post_page/create_post_page.dart';
@@ -76,17 +77,17 @@ class CreateImagePostPageRoute extends BaseRoute {
 }
 
 class SharePostContactsRoute extends BaseRoute {
-  SharePostContactsRoute()
+  SharePostContactsRoute(FeedModel feed)
       : super(
-          const SharePostContactsPage(),
+          SharePostContactsPage(feed: feed),
           guards: [],
         );
 }
 
 class SharePostRoute extends BaseRoute {
-  SharePostRoute()
+  SharePostRoute(FeedModel feed)
       : super(
-          const SharePostPage(),
+          SharePostPage(feed: feed),
           guards: [],
         );
 }

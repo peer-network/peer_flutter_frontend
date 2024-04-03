@@ -26,7 +26,7 @@ class ChatHistoryView extends StatelessWidget {
     for (var i = 0; i < chatHistory.length; i++) {
       final message = chatHistory[i];
       // Parse the timestamp to DateTime only for comparison
-      final messageDate = DateTime.parse(message.timestamp);
+      final messageDate = DateTime.parse(message.timestamp as String);
       final messageDateString = DateFormat('yyyy-MM-dd').format(messageDate);
 
       if (lastDateString == null || messageDateString != lastDateString) {

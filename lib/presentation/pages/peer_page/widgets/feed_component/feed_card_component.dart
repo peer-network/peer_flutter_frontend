@@ -31,7 +31,8 @@ class _FeedCardComponentState extends State<FeedCardComponent> {
           // Feed content
           FeedContentComponent(feed: widget.feed),
           // Feed actions
-          const FeedActionsComponent(),
+          // Passing feed model to FeedActionsComponent
+          FeedActionsComponent(feed: widget.feed),
           // Feed image description
           if (widget.feed.imageDescription != null)
             FeedImageDescriptionComponent(text: widget.feed.imageDescription!),

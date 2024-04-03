@@ -10,7 +10,8 @@ enum DateFormatType { spelledOut, noTime, onlyTime, numbers }
 class FormattedDate {
   final DateTime dateTime;
 
-  FormattedDate(String timestamp) : dateTime = DateTime.parse(timestamp);
+  // FormattedDate(String timestamp) : dateTime = DateTime.parse(timestamp);
+  FormattedDate(this.dateTime);
 
   String getFormattedDate(
       {DateFormatType formatType = DateFormatType.spelledOut}) {

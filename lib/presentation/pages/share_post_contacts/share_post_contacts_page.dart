@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/data/models/feed_model.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/pages/share_post_contacts/widgets/share_post_contact_bottom_navbar.dart';
 import 'package:peer_app/presentation/pages/share_post_contacts/widgets/share_post_contacts_view.dart';
@@ -7,7 +8,10 @@ import 'package:peer_app/presentation/whitelabel/components/search_elements/text
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class SharePostContactsPage extends StatefulWidget {
-  const SharePostContactsPage({super.key});
+  const SharePostContactsPage({super.key, required this.feed});
+
+  // bekommt das feedmodel das geteilt werden soll
+  final FeedModel feed;
 
   @override
   _SharePostContactsPageState createState() => _SharePostContactsPageState();
@@ -49,7 +53,8 @@ class _SharePostContactsPageState extends State<SharePostContactsPage> {
     return BasePage(
       appBar: const SecondaryAppbar(title: 'Beitrag Verschicken'),
       bottomNavigationBar: activeContacts.isNotEmpty
-          ? const SharePostContactBottomNavbar()
+          //TODO: übergebe active contacts und feedmodel an bottomnavbar
+          ? SharePostContactBottomNavbar(feed: widget.feed)
           : null,
       child: Column(
         children: [
