@@ -6,8 +6,14 @@ import 'package:peer_app/presentation/pages/single_chat_page/widgets/messaging_b
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
 
 class SharePostPage extends StatefulWidget {
-  const SharePostPage({super.key, required this.feed});
+  const SharePostPage({
+    super.key,
+    required this.feed,
+    required this.activeContacts,
+  });
+
   final FeedModel feed;
+  final Set<String> activeContacts;
 
   // Liste an Contacten an die geshared wird
 
@@ -18,11 +24,6 @@ class SharePostPage extends StatefulWidget {
 }
 
 class _SharePostPageState extends State<SharePostPage> {
-  // keine active contacts definieren hier
-  // kein newsfeedprovider definieren hier
-
-  // nur den textcontroller für beschreibung definieren
-
   TextEditingController searchQueryController = TextEditingController();
 
   @override
@@ -46,10 +47,14 @@ class _SharePostPageState extends State<SharePostPage> {
     // define NewsFeedProvider
     // NewsFeedProvider newsFeedProvider = Provider.of<NewsFeedProvider>(context, listen: true);
     return BasePage(
-      appBar: const SecondaryAppbar(title: 'Beitrag Verschicken'),
-      bottomNavigationBar:
-          const SafeArea(child: MessagingBottomNavBar.messagingBottomNavBar()),
-      child: SingleChildScrollView(child: FeedCardComponent(feed: widget.feed)),
-    );
+        appBar: const SecondaryAppbar(title: 'Beitrag Verschicken'),
+        bottomNavigationBar: const SafeArea(
+            child: MessagingBottomNavBar.messagingBottomNavBar()),
+        // TODO: übergebe active contacts und feedmodel an bottomnavbar
+        child: ListView(children: <Widget>[
+          Text(widget.activeContacts.toString(),
+              textDirection: TextDirection.ltr),
+          FeedCardComponent(feed: widget.feed),
+        ]));
   }
 }

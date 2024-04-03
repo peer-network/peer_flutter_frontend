@@ -9,9 +9,11 @@ class SharePostContactBottomNavbar extends StatelessWidget {
   const SharePostContactBottomNavbar({
     super.key,
     required this.feed,
+    required this.activeContacts,
   });
 
   final FeedModel feed;
+  final Set<String> activeContacts;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class SharePostContactBottomNavbar extends StatelessWidget {
           onPressed: () {
             // TODO: pass data -> SharePostRoute( feed )
             // übergebe active contacts
-            Navigator.of(context).push(SharePostRoute(feed));
+            Navigator.of(context).push(SharePostRoute(feed, activeContacts));
           }),
     ];
     return BaseBottomNavigationBar(

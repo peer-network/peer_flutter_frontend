@@ -85,9 +85,9 @@ class SharePostContactsRoute extends BaseRoute {
 }
 
 class SharePostRoute extends BaseRoute {
-  SharePostRoute(FeedModel feed)
+  SharePostRoute(FeedModel feed, Set<String> activeContacts)
       : super(
-          SharePostPage(feed: feed),
+          SharePostPage(feed: feed, activeContacts: activeContacts),
           guards: [],
         );
 }

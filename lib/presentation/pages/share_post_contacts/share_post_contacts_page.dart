@@ -54,7 +54,10 @@ class _SharePostContactsPageState extends State<SharePostContactsPage> {
       appBar: const SecondaryAppbar(title: 'Beitrag Verschicken'),
       bottomNavigationBar: activeContacts.isNotEmpty
           //TODO: übergebe active contacts und feedmodel an bottomnavbar
-          ? SharePostContactBottomNavbar(feed: widget.feed)
+          ? SharePostContactBottomNavbar(
+              feed: widget.feed,
+              activeContacts: activeContacts,
+            )
           : null,
       child: Column(
         children: [
