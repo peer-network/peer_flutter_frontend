@@ -4,7 +4,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/provider/chat_contacts_provider.dart';
 import 'package:peer_app/presentation/pages/share_post_contacts/widgets/share_post_contact_card_component.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';

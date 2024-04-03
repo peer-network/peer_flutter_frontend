@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_model.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
-import 'package:peer_app/presentation/whitelabel/components/buttons/base_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/navbars/base_bottom_navbar.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
