@@ -16,8 +16,8 @@ class FeedContentComponent extends StatelessWidget {
                 imageUrls: feed.imageUrls,
               )
             : const SizedBox(),
-        feed.contentText != null
-            ? FeedContentTextWidget(text: feed.contentText!)
+        feed.content != null
+            ? FeedContentTextWidget(text: feed.content)
             : const SizedBox(),
       ],
     );

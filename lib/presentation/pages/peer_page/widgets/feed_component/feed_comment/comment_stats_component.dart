@@ -6,7 +6,7 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 class CommentStatsComponent extends StatelessWidget {
   const CommentStatsComponent({super.key, required this.comment});
 
-  final FeedCommentModel comment;
+  final CommentModel comment;
 
   @override
   Widget build(BuildContext context) {

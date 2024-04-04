@@ -49,10 +49,11 @@ class ChatCardComponent extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: AppPaddings.small),
           child: Row(
             children: [
+              // TODO replace with widget
               ClipOval(
                 child: Image.network(
-                  chatMessagesModel.contact
-                      .profileImageUrl, // Replace with your actual image URL
+                  chatMessagesModel.contact.imageUrl ??
+                      "", // Replace with your actual image URL
                   width: 50, // Caspar // avoid conflict
                   height: 50, // Caspar // avoid conflict
                   fit: BoxFit.cover,
