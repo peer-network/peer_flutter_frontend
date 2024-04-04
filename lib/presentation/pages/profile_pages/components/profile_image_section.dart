@@ -5,7 +5,7 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 class ProfileImageSection extends StatelessWidget {
   const ProfileImageSection({super.key, required this.imgUrl});
 
-  final String imgUrl;
+  final String? imgUrl;
 
   @override
   Widget build(BuildContext context) {

@@ -29,7 +29,7 @@ class ProfileStatsComponent extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(user.amountOfFollowing.toString(),
+            Text(user.amountOfFollowers.toString(),
                 style: Theme.of(context).textTheme.titleLarge),
             Text('Following',
                 style: Theme.of(context)

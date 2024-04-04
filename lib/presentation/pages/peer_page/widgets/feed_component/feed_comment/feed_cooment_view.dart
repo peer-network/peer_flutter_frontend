@@ -9,7 +9,7 @@ class FeedCoomentView extends StatelessWidget {
     required this.comments,
   });
 
-  final List<FeedCommentModel> comments;
+  final List<CommentModel> comments;
 
   @override
   Widget build(BuildContext context) {

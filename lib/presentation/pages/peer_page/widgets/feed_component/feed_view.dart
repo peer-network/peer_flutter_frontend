@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/provider/feed_provider.dart';
+import 'package:peer_app/data/provider/posts_provider.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_card_component.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
@@ -34,9 +34,6 @@ class FeedView extends StatelessWidget {
         child: ListView.builder(
           itemCount: newsFeedProvider.newsFeed.length,
           itemBuilder: (context, index) {
-            if (newsFeedProvider.newsFeed[index].creator == null) {
-              return Container();
-            }
             return FeedCardComponent(feed: newsFeedProvider.newsFeed[index]);
           },
         ),

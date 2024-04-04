@@ -22,12 +22,12 @@ class FeedHeaderComponent extends StatelessWidget {
         children: [
           // Avatar
           InkWell(
-            onTap: () =>
-                Navigator.of(context).push(UserProfilePageRoute(user.id)),
+            onTap: () => Navigator.of(context)
+                .push(UserProfilePageRoute(user.id.toString())),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                AvatarComponent(imageUrl: user.profileImageUrl),
+                AvatarComponent(imageUrl: user.imageUrl),
                 const SizedBox(width: AppPaddings.small),
                 // Title
                 Text(user.username,
