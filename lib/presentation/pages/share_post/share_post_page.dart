@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_model.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_card_component.dart';
+import 'package:peer_app/presentation/pages/share_post/share_to_listed_contacts_view.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/messaging_bottom_nav_bar.dart';
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
 
@@ -52,8 +53,9 @@ class _SharePostPageState extends State<SharePostPage> {
             child: MessagingBottomNavBar.messagingBottomNavBar()),
         // TODO: übergebe active contacts und feedmodel an bottomnavbar
         child: ListView(children: <Widget>[
-          Text(widget.activeContacts.toString(),
-              textDirection: TextDirection.ltr),
+          // Text(widget.activeContacts.toString(),
+          //     textDirection: TextDirection.ltr),
+          ShareToListedContactsView(activeContacts: widget.activeContacts),
           FeedCardComponent(feed: widget.feed),
         ]));
   }
