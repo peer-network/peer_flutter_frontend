@@ -47,28 +47,33 @@ class _ShareToListedContactsViewState extends State<ShareToListedContactsView> {
         for (int i = 0; i < filteredContacts.length; i++) {
           if (i < 2 || _showAllContacts) {
             contactWidgets.add(Text(filteredContacts[i].contact.username,
-                style: TextStyle(
-                    fontSize: 16, color: CustomColors.primaryTextColor)));
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(color: CustomColors.primaryTextColor)));
             if (i < filteredContacts.length - 1) {
               contactWidgets.add(Text(", ",
-                  style: TextStyle(
-                      fontSize: 16, color: CustomColors.primaryTextColor)));
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge!
+                      .copyWith(color: CustomColors.primaryTextColor)));
             }
           }
         }
 
         if (filteredContacts.length > 2 && !_showAllContacts) {
           int additionalContacts = filteredContacts.length - 2;
-          contactWidgets.add(GestureDetector(
-            onTap: () => setState(() => _showAllContacts = true),
-            child: Text(
-              "+$additionalContacts",
-              style: TextStyle(
-                  fontSize: 16,
-                  color: CustomColors.primaryTextColor,
-                  decoration: TextDecoration.underline),
+          contactWidgets.add(
+            GestureDetector(
+              onTap: () => setState(() => _showAllContacts = true),
+              child: Text(
+                "+$additionalContacts",
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    color: CustomColors.primaryTextColor,
+                    decoration: TextDecoration.underline),
+              ),
             ),
-          ));
+          );
         }
       }
 
