@@ -38,6 +38,7 @@ class NewsFeedProvider with ChangeNotifier {
 
     try {
       QueryResult<Object?> queryResult = await gqlClient.query(queryOption);
+      print(queryResult);
 
       // TODO: implement pagination
       // TODO implement error handling
@@ -51,6 +52,7 @@ class NewsFeedProvider with ChangeNotifier {
       }
     } catch (e) {
       error = e.toString();
+      print(error);
     }
     isLoading = false;
 
