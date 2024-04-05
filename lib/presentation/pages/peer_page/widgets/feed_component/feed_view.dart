@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/provider/posts_provider.dart';
+import 'package:peer_app/data/provider/news_feed_provider.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_card_component.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
