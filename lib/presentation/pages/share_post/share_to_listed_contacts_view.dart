@@ -41,8 +41,10 @@ class _ShareToListedContactsViewState extends State<ShareToListedContactsView> {
       if (filteredContacts.isEmpty) {
         displayText = "No contacts selected";
         contactWidgets.add(Text(displayText,
-            style:
-                TextStyle(fontSize: 16, color: CustomColors.primaryTextColor)));
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge!
+                .copyWith(color: CustomColors.primaryTextColor)));
       } else {
         for (int i = 0; i < filteredContacts.length; i++) {
           if (i < 2 || _showAllContacts) {
