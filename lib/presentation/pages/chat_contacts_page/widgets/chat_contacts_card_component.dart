@@ -29,7 +29,7 @@ class ChatContactCardComponent extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AvatarComponent(imageUrl: chatContact.contact.profileImageUrl),
+                AvatarComponent(imageUrl: chatContact.contact.imageUrl),
                 Expanded(
                   flex: 95,
                   child: Padding(
