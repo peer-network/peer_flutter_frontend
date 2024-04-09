@@ -8,6 +8,7 @@ const Color _black = Color(0xFF000000);
 const Color _grey = Color(0xFF707070);
 const Color _white = Color(0xFFFFFFFF);
 const Color _red = Color(0xFFAD3B3B);
+const Color _green = Color(0xFF00FF00);
 
 // Color aliases
 class CustomColors {
@@ -23,6 +24,7 @@ class CustomColors {
   static const Color activeBorderColor = _black;
   static const Color inactiveBorderColor = _lightGreyColor;
   static const Color errorBorderColor = _red;
+  static const Color successBorderColor = _green;
 
   // Unassigned Colors
   static const Color primaryColor = _blueColor;

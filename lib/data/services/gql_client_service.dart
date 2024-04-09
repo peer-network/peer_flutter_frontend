@@ -27,6 +27,8 @@ class GraphQLClientSingleton {
       'http://${ApiEndpoints.baseUrl}/v1/graphql',
     );
 
+    print("http://${ApiEndpoints.baseUrl}/v1/graphql");
+
     final Link link = authLink.concat(httpLink);
     _client = GraphQLClient(
       link: link,
