@@ -9,6 +9,7 @@ import 'package:peer_app/presentation/pages/create_post_page/text_body_create_po
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/link_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/custom_toast.dart';
+import 'package:peer_app/data/provider/news_feed_provider.dart';
 import 'package:provider/provider.dart';
 
 class CreatePostPage extends StatefulWidget {
