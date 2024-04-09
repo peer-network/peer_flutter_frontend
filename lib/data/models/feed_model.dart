@@ -17,6 +17,8 @@ class FeedModel {
   final List<String> imageUrls = [];
   final PostType postType = PostType.text;
   final DateTime createdAt = DateTime.now();
+  final num likeCount;
+  final num viewCount;
 
   FeedModel({
     required this.id,
@@ -29,6 +31,8 @@ class FeedModel {
     required this.comments,
     required this.amountClicks,
     required this.amountComments,
+    required this.likeCount,
+    required this.viewCount,
   });
 
   factory FeedModel.fromJson(Map<String, dynamic> json) {
@@ -48,6 +52,8 @@ class FeedModel {
       comments: comments,
       amountClicks: json['clicks_aggregate']?['aggregate']?['count'] ?? 0,
       amountComments: json['comments_aggregate']?['aggregate']?['count'] ?? 0,
+      likeCount: json['likes_aggregate']?['aggregate']?['count'] ?? 0,
+      viewCount: json['views_aggregate']?['aggregate']?['count'] ?? 0,
     );
   }
 }

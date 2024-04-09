@@ -75,14 +75,14 @@ class CreatePostPageRoute extends BaseRoute {
         );
 }
 
-//CreateImagePostPage
-class CreateImagePostPageRoute extends BaseRoute {
-  CreateImagePostPageRoute()
-      : super(
-          const CreateImagePostPage(),
-          guards: [],
-        );
-}
+// //CreateImagePostPage
+// class CreateImagePostPageRoute extends BaseRoute {
+//   CreateImagePostPageRoute()
+//       : super(
+//           const CreateImagePostPage(),
+//           guards: [],
+//         );
+// }
 
 class SharePostContactsRoute extends BaseRoute {
   SharePostContactsRoute(FeedModel feed)

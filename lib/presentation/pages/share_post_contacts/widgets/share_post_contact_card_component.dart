@@ -71,8 +71,7 @@ class SharePostContactCardComponent extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  AvatarComponent(
-                      imageUrl: chatContact.contact.profileImageUrl),
+                  AvatarComponent(imageUrl: chatContact.contact.imageUrl),
                   Expanded(
                     flex: 95,
                     child: Padding(

@@ -53,6 +53,8 @@ class CommentModel {
   final String content;
   final int postId;
   final int userId;
+  final num likeCount;
+  final DateTime createdAt;
   final UserModel user;
   // TODO implement
   final List<CommentModel> comments = [];
@@ -62,6 +64,8 @@ class CommentModel {
     required this.content,
     required this.postId,
     required this.userId,
+    required this.likeCount,
+    required this.createdAt,
     required this.user,
   });
 
@@ -71,6 +75,8 @@ class CommentModel {
       content: json['content'],
       postId: json['postId'],
       userId: json['userId'],
+      likeCount: json['likeCount'],
+      createdAt: DateTime.parse(json['createdAt']),
       user: UserModel.fromJson(json['user']),
     );
   }

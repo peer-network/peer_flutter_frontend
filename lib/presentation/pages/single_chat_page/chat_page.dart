@@ -15,7 +15,7 @@ class ChatPage extends StatelessWidget {
     return BasePage(
       appBar: SecondaryAppbar(
         title: chatContact.contact.username.toString(),
-        profileImageUrl: chatContact.contact.profileImageUrl.toString(),
+        profileImageUrl: chatContact.contact.imageUrl.toString(),
       ),
       bottomNavigationBar:
           const SafeArea(child: MessagingBottomNavBar.messagingBottomNavBar()),

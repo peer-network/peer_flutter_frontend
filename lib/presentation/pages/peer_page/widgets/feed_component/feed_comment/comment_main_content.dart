@@ -26,9 +26,9 @@ class CommentMainContent extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(comment.creator.username ?? "",
+              Text(comment.user.username ?? "",
                   style: Theme.of(context).textTheme.headlineMedium),
-              Text(comment.contentText,
+              Text(comment.content,
                   style: Theme.of(context).textTheme.bodyLarge),
             ],
           ),
