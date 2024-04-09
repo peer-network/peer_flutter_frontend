@@ -2,6 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/aspect_ratios.dart';
 
+class AppValues {
+  static const int defaultLimit = 50;
+}
+
+class AppDuration {
+  static const int toastDuration = 2;
+}
+
 class AppBorders {
   static BorderRadius defaultRadius = BorderRadius.circular(20.0);
 }

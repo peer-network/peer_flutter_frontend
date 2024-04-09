@@ -24,6 +24,7 @@ dependencies:
   fl_chart: ^0.66.2
 
   graphql_flutter: ^5.1.0
+  fluttertoast: ^8.2.4
 
 dev_dependencies:
   flutter_test:
