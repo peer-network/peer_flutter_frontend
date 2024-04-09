@@ -45,7 +45,7 @@ class SmallTextPostCard extends StatelessWidget {
                 SmallHeaderPostCard(creator: user, date: post.createdAt),
                 const SizedBox(height: AppPaddings.small),
                 FeedContentTextWidget(
-                  text: post.contentText.toString(),
+                  text: post.content.toString(),
                   isSmallText: true,
                 ),
                 const SizedBox(height: AppPaddings.small),

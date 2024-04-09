@@ -12,14 +12,14 @@ class CommentMainContent extends StatelessWidget {
     required this.comment,
   });
 
-  final FeedCommentModel comment;
+  final CommentModel comment;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         // Avatar
-        AvatarComponent(imageUrl: comment.creator.profileImageUrl),
+        AvatarComponent(imageUrl: comment.user.imageUrl),
         const SizedBox(width: AppPaddings.small),
         // Comment
         Expanded(

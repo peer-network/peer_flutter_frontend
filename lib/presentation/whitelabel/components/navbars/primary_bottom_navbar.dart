@@ -18,7 +18,7 @@ class PrimaryBottomNavbar extends StatelessWidget {
           IconLibrary.profile.icon,
           size: AppDimensions.iconSizeLarge,
         ),
-        onPressed: () {},
+        onPressed: () => Navigator.of(context).push(OwnProfilePageRoute()),
       ),
       PrimaryBottomNavbarItem(
         icon: ImageIcon(

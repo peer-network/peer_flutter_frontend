@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class AvatarComponent extends StatelessWidget {
@@ -9,6 +10,16 @@ class AvatarComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (imageUrl == null) {
+      return Container(
+        width: AppDimensions.avatarSize,
+        height: AppDimensions.avatarSize,
+        decoration: const BoxDecoration(
+          color: CustomColors.backgroundCardColor,
+          shape: BoxShape.circle,
+        ),
+      );
+    }
     return CachedNetworkImage(
         fit: BoxFit.cover,
         imageUrl: imageUrl ?? "",

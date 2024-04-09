@@ -33,7 +33,7 @@ class UserService {
   Future<bool> toggleFollow(String userId) async {
     try {
       final user = _users.firstWhere((user) => user.id == userId);
-      user.toogleFollow();
+      // user.toogleFollow();
       // await _dioClient.post(ApiEndpoints.follow, data: {"userId": userId});
       await Future.delayed(const Duration(seconds: 1));
       return true;
