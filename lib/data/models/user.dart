@@ -4,11 +4,11 @@ class UserModel {
   final String id;
   final String? imageUrl;
   final String username;
-  final String email;
-  final bool verified;
-  final String createdAt;
-  final String updatedAt;
-  final String verificationToken;
+  final String? email;
+  final bool? verified;
+  final String? createdAt;
+  final String? updatedAt;
+  final String? verificationToken;
   // TODO remove hardcode
   final String bio =
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt fermentum. Nullam nec purus nec nunc tincidunt fermentum.';
