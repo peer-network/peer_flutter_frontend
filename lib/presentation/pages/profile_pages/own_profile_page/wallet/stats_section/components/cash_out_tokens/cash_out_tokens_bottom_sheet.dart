@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/custom_button.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/config.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:provider/provider.dart';
 
 class CashOutTokensBottomSheet extends StatefulWidget {
   const CashOutTokensBottomSheet({super.key});
@@ -15,26 +17,92 @@ class CashOutTokensBottomSheet extends StatefulWidget {
 class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
   final PageController _horizontalTitlePageViewController = PageController();
   final PageController _verticalTitlePageViewController = PageController();
-  final PageController _buttonPageViewController = PageController();
+  final PageController _contentPageController = PageController();
+
+  final TextEditingController _cashOutAmountController =
+      TextEditingController();
+  final FocusNode _cashOutAmountFocusNode = FocusNode();
 
   bool _isPayPalSelected = false;
   bool _isBankSelected = false;
   bool _enterAmount = true;
 
   String _bottomSheetTitle = 'Betrag wählen';
+  String? _cashOutAmountError;
+
+  @override
+  void initState() {
+    super.initState();
+    awaitFocus();
+  }
+
+  Future awaitFocus() async {
+    _cashOutAmountController.addListener(() {
+      String text = _cashOutAmountController.text;
+      if (!text.endsWith('Tokens')) {
+        _cashOutAmountController.text = '$text Tokens';
+        _cashOutAmountController.selection = TextSelection.fromPosition(
+          TextPosition(offset: _cashOutAmountController.text.length - 7),
+        );
+      } else if (_cashOutAmountController.selection.start >
+          _cashOutAmountController.text.length - 7) {
+        _cashOutAmountController.selection = TextSelection.fromPosition(
+          TextPosition(offset: _cashOutAmountController.text.length - 7),
+        );
+      }
+
+      if (text.endsWith('Tokens')) {
+        text = text.substring(0, text.length - 7).trim();
+      }
+      if (text.isNotEmpty && double.tryParse(text) != null) {
+        setState(() {
+          _cashOutAmountError = null;
+        });
+      }
+    });
+    await Future.delayed(const Duration(milliseconds: 200));
+    _cashOutAmountFocusNode.requestFocus();
+  }
 
   @override
   void dispose() {
     _verticalTitlePageViewController.dispose();
     _horizontalTitlePageViewController.dispose();
-    _buttonPageViewController.dispose();
+    _contentPageController.dispose();
+    _cashOutAmountController.dispose();
+    _cashOutAmountFocusNode.dispose();
     super.dispose();
   }
 
-  void _onEuroTapped() {
+  void _onMaxAmountTapped() {
+    final tokenAmount = context.read<WalletSheetProvider>().wallet.totalCredits;
+    _cashOutAmountController.text = '$tokenAmount Tokens';
+  }
+
+  void _onAmountEnteredCompleted() {
+    String text = _cashOutAmountController.text;
+    if (text.endsWith('Tokens')) {
+      text = text.substring(0, text.length - 7).trim();
+    }
+    if (text.isEmpty || double.tryParse(text) == null) {
+      setState(() {
+        _cashOutAmountError = 'Please enter a valid number of tokens';
+      });
+      return;
+    }
+
+    _cashOutAmountFocusNode.unfocus();
+    setState(() {
+      _enterAmount = false;
+    });
     _horizontalTitlePageViewController.animateToPage(1,
         duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
-    _buttonPageViewController.animateToPage(1,
+    _contentPageController.animateToPage(1,
+        duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+  }
+
+  void _onEuroTapped() {
+    _contentPageController.animateToPage(2,
         duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
   }
 
@@ -64,8 +132,10 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
         height: (_enterAmount)
-            ? MediaQuery.of(context).size.height * 0.7
-            : MediaQuery.of(context).size.height * 0.25,
+            ? MediaQuery.of(context).size.height * 0.65
+            : (_isPayPalSelected || _isBankSelected)
+                ? MediaQuery.of(context).size.height * 0.4
+                : MediaQuery.of(context).size.height * 0.25,
         decoration: BoxDecoration(
             color: CustomColors.lightTextColor,
             borderRadius: BorderRadius.only(
@@ -83,7 +153,6 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                     height: MediaQuery.of(context).size.height * 0.02,
                     width: MediaQuery.of(context).size.width * 0.35,
                     child: PageView(
-                        scrollDirection: Axis.vertical,
                         controller: _verticalTitlePageViewController,
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
@@ -92,7 +161,7 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                             physics: const NeverScrollableScrollPhysics(),
                             children: const [
                               Text('Enter amount'),
-                              Text('Select payment method')
+                              Text('Select payout method')
                             ],
                           ),
                           Text(_bottomSheetTitle)
@@ -105,11 +174,52 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                         image: const AssetImage(Config.declineIcon)))
               ]),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.12,
+                height: (_enterAmount)
+                    ? MediaQuery.of(context).size.height * 0.3
+                    : MediaQuery.of(context).size.height * 0.12,
                 child: PageView(
-                    controller: _buttonPageViewController,
+                    controller: _contentPageController,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
+                      // enter amount
+                      Column(
+                        children: [
+                          TextField(
+                            textAlign: TextAlign.center,
+                            controller: _cashOutAmountController,
+                            focusNode: _cashOutAmountFocusNode,
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: AppBorders.defaultRadius,
+                                ),
+                                errorText: _cashOutAmountError,
+                                prefixIcon: TextButton(
+                                    onPressed: _onMaxAmountTapped,
+                                    child: const Text('MAX')),
+                                suffixIcon: IconButton(
+                                    onPressed: _onAmountEnteredCompleted,
+                                    icon: const Icon(Icons.arrow_forward))),
+                            onEditingComplete: _onAmountEnteredCompleted,
+                            onSubmitted: (amount) =>
+                                _onAmountEnteredCompleted(),
+                          ),
+                          const SizedBox(height: AppPaddings.small),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Consumer<WalletSheetProvider>(
+                              builder: (context, provider, child) {
+                                return Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: AppPaddings.small),
+                                    child: Text(
+                                        '1 Token = ${provider.currencyExchange.creditValue}'));
+                              },
+                            ),
+                          )
+                        ],
+                      ),
+
                       // euro and bitty buttons
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -124,14 +234,14 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                                 icon: const Icon(Icons.euro,
                                     color: Colors.white)),
                             CustomButton(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.08,
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                onPressed: () {},
-                                color: Colors.orange,
-                                isIcon: true,
-                                icon: const Icon(Icons.biotech,
-                                    color: Colors.white)),
+                              height: MediaQuery.of(context).size.height * 0.08,
+                              width: MediaQuery.of(context).size.width * 0.4,
+                              onPressed: () {},
+                              color: CustomColors.bitcoinColor,
+                              hasImage: true,
+                              isIcon: false,
+                              assetPath: Config.bitcoinIcon,
+                            )
                           ]),
                       // paypal and bank buttons
                       Row(
@@ -150,10 +260,10 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                                       : MediaQuery.of(context).size.width * 0.4,
                               child: CustomButton(
                                   onPressed: _onPayPalTapped,
-                                  color: Colors.blue,
-                                  isIcon: true,
-                                  icon: const Icon(Icons.payment,
-                                      color: Colors.white)),
+                                  color: CustomColors.tertiaryTextColor,
+                                  isIcon: false,
+                                  hasImage: true,
+                                  assetPath: Config.paypalIcon),
                             ),
                             AnimatedContainer(
                               duration: const Duration(milliseconds: 400),

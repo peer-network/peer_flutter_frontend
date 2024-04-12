@@ -5,8 +5,8 @@ import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-class TransferTokens extends StatelessWidget {
-  const TransferTokens({super.key});
+class TransferTokensButton extends StatelessWidget {
+  const TransferTokensButton({super.key});
 
   @override
   Widget build(BuildContext context) {

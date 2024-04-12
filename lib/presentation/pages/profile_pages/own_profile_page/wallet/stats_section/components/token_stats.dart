@@ -44,8 +44,7 @@ class TokenStats extends StatelessWidget {
                 .copyWith(color: CustomColors.lightTextColor)),
         Padding(
             padding: const EdgeInsets.symmetric(vertical: 5.0),
-            child: Text(
-                '${walletSheetProvider.wallet.percentageOfTotalTokens}%',
+            child: Text("gibt's gerade net",
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall

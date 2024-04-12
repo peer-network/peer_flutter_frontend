@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/cash_out_tokens/cash_out_tokens.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/transfer_tokens/transfer_tokens_button.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
@@ -7,25 +9,9 @@ class TransferTokens extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(height: AppPaddings.large),
-        TextButton(
-            style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all(CustomColors.lightTextColor),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)))),
-            onPressed: () {},
-            child: Padding(
-              padding: const EdgeInsets.all(AppPaddings.small),
-              child: Text('Tokens Überweisen',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .copyWith(color: CustomColors.tertiaryTextColor)),
-            ))
-      ],
+    return const Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [TransferTokensButton(), CashOutTokens()],
     );
   }
 }

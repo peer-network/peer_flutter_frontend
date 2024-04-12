@@ -9,6 +9,8 @@ const Color _grey = Color(0xFF707070);
 const Color _white = Color(0xFFFFFFFF);
 const Color _red = Color(0xFFAD3B3B);
 const Color _green = Color(0xFF00FF00);
+const Color _bitcoinColor = Color(0xFFF7931A);
+const Color _payPalColor = Color(0xFF009EE3);
 
 // Color aliases
 class CustomColors {
@@ -33,6 +35,8 @@ class CustomColors {
   static const Color backgroundCardColor = _white;
   static const Color cardBorderColor = _lightGreyColor;
   static const Color secondaryBackgroundColor = _lightestGreyColor;
+  static const Color bitcoinColor = _bitcoinColor;
+  static const Color payPalColor = _payPalColor;
 
   static const Color secondaryButtonColor = _lightGreyColor;
 }

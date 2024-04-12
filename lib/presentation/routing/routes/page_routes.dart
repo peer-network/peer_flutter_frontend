@@ -3,9 +3,11 @@ import 'package:peer_app/presentation/pages/create_post_page/create_post_page.da
 import 'package:peer_app/presentation/pages/login_page/login_page.dart';
 import 'package:peer_app/presentation/pages/peer_page/peer_page.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/own_profile_page.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/transfer_tokens/recipient_list_page.dart';
 import 'package:peer_app/presentation/pages/profile_pages/user_profile_page/user_profile_page.dart';
 import 'package:peer_app/presentation/pages/registration_page/registration_page.dart';
 import 'package:peer_app/presentation/routing/routes/base_route.dart';
+import 'package:peer_app/presentation/routing/routes/transitions.dart';
 
 class LoginPageRoute extends BaseRoute {
   LoginPageRoute()
@@ -51,6 +53,15 @@ class OwnProfilePageRoute extends BaseRoute {
   OwnProfilePageRoute()
       : super(
           const OwnProfilePage(),
+          guards: [],
+        );
+}
+
+class RecipientListPageRoute extends BaseRoute {
+  RecipientListPageRoute()
+      : super(
+          const RecipientListPage(),
+          transitionsBuilderFunction: Transitions.slideBottom,
           guards: [],
         );
 }

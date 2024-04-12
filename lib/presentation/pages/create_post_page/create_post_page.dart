@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:peer_app/core/types/create_post_type.dart';
-import 'package:peer_app/data/provider/posts_provider.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/pages/create_post_page/create_post_bottom_navbar.dart';
 import 'package:peer_app/presentation/pages/create_post_page/image_body_create_post.dart';

@@ -11,6 +11,8 @@ class CustomButton extends StatelessWidget {
   final Icon? icon;
   final double? width;
   final double? height;
+  final bool? hasImage;
+  final String? assetPath;
 
   const CustomButton(
       {Key? key,
@@ -21,7 +23,9 @@ class CustomButton extends StatelessWidget {
       required this.isIcon,
       this.icon,
       this.width,
-      this.height})
+      this.height,
+      this.hasImage,
+      this.assetPath})
       : super(key: key);
 
   @override
@@ -37,8 +41,17 @@ class CustomButton extends StatelessWidget {
         onPressed: onPressed,
         child: (isIcon)
             ? icon as Widget
-            : Text(text!,
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: textColor ?? CustomColors.tertiaryTextColor)));
+            : (hasImage ?? false)
+                ? Image(
+                    width: AppDimensions.avatarSize +
+                        MediaQuery.of(context).size.width * 0.15,
+                    height: AppDimensions.avatarSize +
+                        MediaQuery.of(context).size.height * 0.15,
+                    image: AssetImage(
+                      assetPath!,
+                    ))
+                : Text(text!,
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        color: textColor ?? CustomColors.tertiaryTextColor)));
   }
 }
