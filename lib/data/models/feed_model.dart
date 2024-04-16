@@ -1,6 +1,6 @@
 import 'package:peer_app/core/types/post_types.dart';
 import 'package:peer_app/data/models/feed_comment.dart';
-import 'package:peer_app/data/models/user.dart';
+import 'package:peer_app/data/models/user_model.dart';
 
 class FeedModel {
   final int id;

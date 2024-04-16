@@ -2,7 +2,7 @@
 
 import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/data/dummy_response/dummy_user_by_id.dart';
-import 'package:peer_app/data/models/user.dart';
+import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/data/services/dio_client.dart';
 
 class UserService {

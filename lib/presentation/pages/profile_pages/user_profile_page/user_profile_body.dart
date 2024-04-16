@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/core/types/post_types.dart';
-import 'package:peer_app/data/models/user.dart';
+import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/profile_image_post_section.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/profile_image_section.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/profile_info_section.dart';
