@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/user.dart';
+import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/user_profile_page/components/follower_button_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/primary_button.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';

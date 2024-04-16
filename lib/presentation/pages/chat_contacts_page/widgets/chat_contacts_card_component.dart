@@ -38,7 +38,7 @@ class ChatContactCardComponent extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(chatContact.contact.username,
+                        Text(chatContact.contact.name,
                             style: Theme.of(context).textTheme.titleLarge,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis),

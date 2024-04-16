@@ -14,7 +14,7 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BasePage(
       appBar: SecondaryAppbar(
-        title: chatContact.contact.username.toString(),
+        title: chatContact.contact.name.toString(),
         profileImageUrl: chatContact.contact.imageUrl.toString(),
       ),
       bottomNavigationBar:

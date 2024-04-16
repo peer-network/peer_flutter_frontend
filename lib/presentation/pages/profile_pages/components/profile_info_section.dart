@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/user.dart';
+import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/profile_stats_component.dart';
 import 'package:peer_app/presentation/pages/profile_pages/user_profile_page/components/user_profile_actions_component.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
@@ -18,7 +18,7 @@ class ProfileInfoSection extends StatelessWidget {
           // Username
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(user.username,
+            child: Text(user.name,
                 style: Theme.of(context).textTheme.displayMedium),
           ),
           const SizedBox(height: AppPaddings.medium),

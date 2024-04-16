@@ -32,7 +32,7 @@ class SharePostContactsView extends StatelessWidget {
         : chatContactsProvider.chatContacts.where((contact) {
             // Assuming each contact has a `name` property to search against
             // Adjust the property name as per your data model
-            return contact.contact.username
+            return contact.contact.name
                 .toLowerCase()
                 .contains(searchQuery.toLowerCase());
           }).toList();

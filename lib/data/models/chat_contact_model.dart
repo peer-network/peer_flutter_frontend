@@ -1,5 +1,5 @@
 import 'package:peer_app/data/models/chat_message_model.dart';
-import 'package:peer_app/data/models/user.dart';
+import 'package:peer_app/data/models/user_model.dart';
 
 class ChatContactModel {
   final String id;
