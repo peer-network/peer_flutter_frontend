@@ -64,7 +64,7 @@ class ChatContactCardComponent extends StatelessWidget {
                       child: chatContact.lastChatMessage != null
                           ? Text(
                               FormattedDate(
-                                      chatContact.lastChatMessage!.timestamp)
+                                      chatContact.lastChatMessage!.created_at)
                                   .getFormattedDate(
                                       formatType: DateFormatType.numbers),
                               style: Theme.of(context)

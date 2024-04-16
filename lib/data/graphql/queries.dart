@@ -9,4 +9,27 @@ query Posts(\$offset: Int, \$limit: Int) {
   }
 }
 """);
+
+  static final chat = gql("""
+query MyQuery {
+  peer2_users(where: {id: {_eq: "c05a6e6e-5365-40ca-b2d5-29af9f1cb1c6"}}) {
+    chat_participants {
+      chat {
+        id
+        image
+        chat_messages {
+          content
+          id
+        }
+        chat_participants {
+          user {
+            id
+            name
+          }
+        }
+      }
+    }
+  }
+}
+""");
 }

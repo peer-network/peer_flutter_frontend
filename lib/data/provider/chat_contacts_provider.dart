@@ -2,7 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/data/dummy_response/dummy_chat_contacts.dart';
 import 'package:peer_app/data/models/chat_contact_model.dart';
+import 'package:peer_app/data/models/chat_model.dart';
 import 'package:peer_app/data/services/dio_client.dart';
+import 'package:peer_app/data/services/gql_client_service.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:peer_app/data/graphql/queries.dart';
 
 class ChatContactsProvider with ChangeNotifier {
   final DioClient _dioClient = DioClient();
