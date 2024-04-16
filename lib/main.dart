@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:peer_app/data/provider/auth_provider.dart';
 import 'package:peer_app/data/provider/chat_contacts_provider.dart';
+import 'package:peer_app/data/provider/chat_provider.dart';
 import 'package:peer_app/data/provider/contacts_provider.dart';
 // import 'package:peer_app/data/provider/chat_provider.dart'; // ChatProvider is now ChatCpntactsProvider (is assume so)
 import 'package:peer_app/data/provider/news_feed_provider.dart';
@@ -31,7 +32,7 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ChatContactsProvider()),
         ChangeNotifierProvider(create: (_) => ContactsProvider()),
         // ChatProvider is now ChatCpntactsProvider (is assume so)
-        // ChangeNotifierProvider(create: (_) => ChatProvider()),
+        ChangeNotifierProvider(create: (_) => ChatProvider()),
         ChangeNotifierProvider(create: (_) => WalletSheetProvider())
       ],
       child: GraphQLProvider(

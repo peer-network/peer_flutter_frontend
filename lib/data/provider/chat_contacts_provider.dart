@@ -32,6 +32,7 @@ class ChatContactsProvider with ChangeNotifier {
   Future<void> fetchChatContacts() async {
     isLoading = true;
     notifyListeners();
+
     try {
       // final response = await _dioClient.get(ApiEndpoints.chatMessenges);
       // TODO replace trough real api call

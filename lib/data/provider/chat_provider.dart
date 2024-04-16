@@ -32,7 +32,7 @@ class ChatProvider with ChangeNotifier {
 
     try {
       QueryResult<Object?> queryResult = await gqlClient.query(queryOption);
-      print(queryResult);
+      print("queryResult: ${queryResult.toString()}");
 
       if (queryResult.hasException) {
         error = queryResult.exception.toString();
