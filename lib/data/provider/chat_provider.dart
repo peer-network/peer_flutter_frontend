@@ -28,7 +28,7 @@ class ChatProvider with ChangeNotifier {
     notifyListeners();
 
     final queryOption = QueryOptions(
-      document: Queries.chat,
+      document: Queries.chat, // Ensure Queries.chat matches your current query
       fetchPolicy: FetchPolicy.networkOnly,
     );
 
@@ -40,22 +40,26 @@ class ChatProvider with ChangeNotifier {
         error = queryResult.exception.toString();
         CustomException(queryResult.exception.toString(), StackTrace.current)
             .handleError();
+        isLoading = false;
+        notifyListeners();
+        return;
       }
 
       if (queryResult.data == null) {
         error = "No data found";
-        CustomException(queryResult.toString(), StackTrace.current)
-            .handleError();
+        CustomException("No data found", StackTrace.current).handleError();
+        isLoading = false;
+        notifyListeners();
+        return;
       }
 
-      final responseChat = queryResult.data!;
+      final responseChat = queryResult.data!["peer2_chats"] as List<dynamic>;
 
       try {
         _chats.clear();
-        _chats.addAll(List<ChatModel>.from(
-            responseChat["peer2_users"][0]["chat_participants"]
-                // .map((x) => ChatModel.fromJson(x["chat"], currentUserId))));
-                .map((x) => ChatModel.fromJson(x["chat"]))));
+        _chats.addAll(List<ChatModel>.from(responseChat.map((x) =>
+            ChatModel.fromJson(
+                x)))); // Assuming ChatModel.fromJson can handle the structure directly
       } catch (e, s) {
         error = e.toString();
         CustomException(e.toString(), s).handleError();
