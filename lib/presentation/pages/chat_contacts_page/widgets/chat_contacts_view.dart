@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/provider/chat_contacts_provider.dart';
+import 'package:peer_app/data/provider/chat_provider.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_contacts_card_component.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
@@ -12,15 +13,17 @@ class ChatContactsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ChatContactsProvider chatContactsProvider =
-        Provider.of<ChatContactsProvider>(context);
+    ChatProvider chatsProvider = Provider.of<ChatProvider>(context);
 
-    if (chatContactsProvider.isLoading) {
+    // ChatContactsProvider chatContactsProvider =
+    // Provider.of<ChatContactsProvider>(context);
+
+    if (chatsProvider.isLoading) {
       return LoadingComponent(
-        onRefresh: () => chatContactsProvider.fetchChatContacts(),
+        onRefresh: () => chatsProvider.fetchChats(),
       );
-    } else if (chatContactsProvider.error != null) {
-      return ErrorComponent(error: chatContactsProvider.error!);
+    } else if (chatsProvider.error != null) {
+      return ErrorComponent(error: chatsProvider.error!);
     } else {
       // TODO implement pagination
       // height to be the height of the screen minus the height of the app bar and the bottom nav bar
@@ -31,13 +34,13 @@ class ChatContactsView extends StatelessWidget {
         color: CustomColors.backgroundColor,
         child: ListView.builder(
           // physics: const NeverScrollableScrollPhysics(),
-          itemCount: chatContactsProvider.chatContacts.length,
+          itemCount: chatsProvider.chats.length,
           itemBuilder: (context, index) {
             return Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: AppPaddings.medium),
-              child: ChatContactCardComponent(
-                  chatContact: chatContactsProvider.chatContacts[index]),
+              child:
+                  ChatContactCardComponent(chats: chatsProvider.chats[index]),
             );
           },
         ),

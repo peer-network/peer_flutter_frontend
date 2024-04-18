@@ -15,7 +15,7 @@ class ChatContactModel {
   });
 
   factory ChatContactModel.fromJson(Map<String, dynamic> json) {
-    print("ChatContactModel.fromJson: $json");
+    // print("ChatContactModel.fromJson: $json");
     return ChatContactModel(
       id: json['id'],
       lastChatMessage: json['last_chat_message'] != null

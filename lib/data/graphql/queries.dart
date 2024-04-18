@@ -17,6 +17,7 @@ query MyQuery {
       chat {
         id
         image
+        name
         chat_messages {
           content
           id
