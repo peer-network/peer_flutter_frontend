@@ -6,6 +6,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/chat_contact_model.dart';
+import 'package:peer_app/data/models/chat_model.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_builder_repository.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_history_view.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
@@ -15,7 +16,7 @@ import '../../../../data/models/chat_message_model.dart';
 class ChatHistoryViewFutureBuilder extends StatelessWidget {
   const ChatHistoryViewFutureBuilder({super.key, required this.chatContact});
 
-  final ChatContactModel chatContact;
+  final ChatModel chatContact;
 
   @override
   Widget build(BuildContext context) {

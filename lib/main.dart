@@ -31,7 +31,9 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => NewsFeedProvider()),
         ChangeNotifierProvider(create: (_) => ChatContactsProvider()),
         ChangeNotifierProvider(create: (_) => ContactsProvider()),
-        // ChatProvider is now ChatCpntactsProvider (is assume so)
+        // ChangeNotifierProvider(
+        //     create: (_) => ChatProvider(
+        //         "c05a6e6e-5365-40ca-b2d5-29af9f1cb1c6")), // Simulating the CurrentUserId
         ChangeNotifierProvider(create: (_) => ChatProvider()),
         ChangeNotifierProvider(create: (_) => WalletSheetProvider())
       ],

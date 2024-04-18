@@ -1,4 +1,5 @@
 import 'package:peer_app/data/models/chat_contact_model.dart';
+import 'package:peer_app/data/models/chat_model.dart';
 import 'package:peer_app/data/models/feed_model.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/chat_contacts_page.dart';
 import 'package:peer_app/presentation/pages/create_post_page/create_post_page.dart';
@@ -45,7 +46,7 @@ class ChatContactsPageRoute extends BaseRoute {
 }
 
 class ChatPageRoute extends BaseRoute {
-  ChatPageRoute(ChatContactModel chatContact)
+  ChatPageRoute(ChatModel chatContact)
       : super(
           ChatPage(chatContact: chatContact),
         );

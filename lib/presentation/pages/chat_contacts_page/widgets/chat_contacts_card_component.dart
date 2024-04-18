@@ -20,7 +20,7 @@ class ChatContactCardComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.of(context).push(ChatPageRoute(chats.id));
+        Navigator.of(context).push(ChatPageRoute(chats));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -41,16 +41,15 @@ class ChatContactCardComponent extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // Text(chatContact.contact.name,
-
-                        // What do i want to do?
-                        // -> I want to display the name of the user
-                        // What have to do for that?
-                        // -> I have to get the
+                        // Where should the name of the chat be determined,
+                        // in case it is not a groupcaht but a chat with a single user?
+                        // >> In the backend?
                         Text(chats.name,
                             style: Theme.of(context).textTheme.titleLarge,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis),
+
+                        //
                         // Text(chatContact.lastChatMessage?.content ?? "",
                         //     style: Theme.of(context)
                         //         .textTheme
@@ -59,6 +58,20 @@ class ChatContactCardComponent extends StatelessWidget {
                         //             color: CustomColors.secondaryTextColor),
                         //     maxLines: 2,
                         //     overflow: TextOverflow.ellipsis),
+                        Text(
+                          chats.messages.isNotEmpty
+                              // ? chats.chat_messages.last.content
+                              ? chats.messages.last.content
+                              : "No messages",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(color: CustomColors.secondaryTextColor),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(chats.messages
+                            .toString()), // DEBUG LINE - CONTENTS OF CHAT MESSAGES
                       ],
                     ),
                   ),

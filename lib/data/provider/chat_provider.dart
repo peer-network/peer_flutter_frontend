@@ -13,9 +13,11 @@ class ChatProvider with ChangeNotifier {
   final List<ChatModel> _chats = [];
   bool isLoading = false;
   String? error;
+  // String currentUserId;
 
   List<ChatModel> get chats => _chats;
 
+  // ChatProvider(this.currentUserId) {
   ChatProvider() {
     fetchChats();
   }
@@ -50,9 +52,10 @@ class ChatProvider with ChangeNotifier {
 
       try {
         _chats.clear();
-        _chats.addAll(List<ChatModel>.from(responseChat["peer2_users"][0]
-                ["chat_participants"]
-            .map((x) => ChatModel.fromJson(x["chat"]))));
+        _chats.addAll(List<ChatModel>.from(
+            responseChat["peer2_users"][0]["chat_participants"]
+                // .map((x) => ChatModel.fromJson(x["chat"], currentUserId))));
+                .map((x) => ChatModel.fromJson(x["chat"]))));
       } catch (e, s) {
         error = e.toString();
         CustomException(e.toString(), s).handleError();
