@@ -40,10 +40,13 @@ query MyQuery {
     id
     image
     name
+    amount_unseen_messages
     chat_messages {
+      chat_id
       content
       id
       sender_id
+      created_at
     }
     chat_participants {
       user {
@@ -51,6 +54,7 @@ query MyQuery {
         name
       }
     }
+    
   }
 }
 """);

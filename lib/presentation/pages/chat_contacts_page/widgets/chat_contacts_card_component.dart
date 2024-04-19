@@ -49,18 +49,8 @@ class ChatContactCardComponent extends StatelessWidget {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis),
 
-                        //
-                        // Text(chatContact.lastChatMessage?.content ?? "",
-                        //     style: Theme.of(context)
-                        //         .textTheme
-                        //         .bodyLarge!
-                        //         .copyWith(
-                        //             color: CustomColors.secondaryTextColor),
-                        //     maxLines: 2,
-                        //     overflow: TextOverflow.ellipsis),
                         Text(
                           chats.messages.isNotEmpty
-                              // ? chats.chat_messages.last.content
                               ? chats.messages.last.content
                               : "No messages",
                           style: Theme.of(context)
@@ -70,40 +60,42 @@ class ChatContactCardComponent extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        Text(chats.messages
-                            .toString()), // DEBUG LINE - CONTENTS OF CHAT MESSAGES
                       ],
                     ),
                   ),
                 ),
                 const Spacer(flex: 5),
-                // Column(
-                //   crossAxisAlignment: CrossAxisAlignment.end,
-                //   children: [
-                //     Padding(
-                //       padding:
-                //           const EdgeInsets.only(bottom: AppPaddings.medium),
-                //       child: chatContact.lastChatMessage != null
-                //           ? Text(
-                //               FormattedDate(
-                //                       chatContact.lastChatMessage!.created_at)
-                //                   .getFormattedDate(
-                //                       formatType: DateFormatType.numbers),
-                //               style: Theme.of(context)
-                //                   .textTheme
-                //                   .bodyLarge!
-                //                   .copyWith(
-                //                       color: CustomColors.secondaryTextColor),
-                //             )
-                //           : Container(),
-                //     ),
-                //     chatContact.notificationCount == 0 ||
-                //             chatContact.notificationCount == null
-                //         ? Container()
-                //         : NewMessageCountComponent(
-                //             notificationCount: chatContact.notificationCount!),
-                //   ],
-                // ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(bottom: AppPaddings.medium),
+                      child: chats.messages.last.content.isNotEmpty
+                          ? Text(
+                              FormattedDate(
+                                      // chatContact.lastChatMessage!.created_at)
+                                      chats.messages.last.created_at)
+                                  .getFormattedDate(
+                                      formatType: DateFormatType.numbers),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(
+                                      color: CustomColors.secondaryTextColor),
+                            )
+                          : Container(),
+                    ),
+                    // chatContact.notificationCount == 0 ||
+                    chats.amountUnseenMessages == 0 ||
+                            // chatContact.notificationCount == null
+                            chats.amountUnseenMessages == null
+                        ? Container()
+                        : NewMessageCountComponent(
+                            // notificationCount: chatContact.notificationCount!),
+                            notificationCount: chats.amountUnseenMessages),
+                  ],
+                ),
               ],
             ),
             const SizedBox(height: AppPaddings.small),
