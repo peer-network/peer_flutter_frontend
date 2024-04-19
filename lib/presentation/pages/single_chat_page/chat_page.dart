@@ -7,22 +7,22 @@ import 'package:peer_app/presentation/pages/single_chat_page/widgets/messaging_b
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
 
 class ChatPage extends StatelessWidget {
-  const ChatPage({Key? key, required this.chatContact}) : super(key: key);
+  const ChatPage({Key? key, required this.chat}) : super(key: key);
 
-  final ChatModel chatContact;
+  final ChatModel chat;
 
   @override
   Widget build(BuildContext context) {
     return BasePage(
       appBar: SecondaryAppbar(
         // title: chatContact.contact.name.toString(),
-        title: chatContact.name.toString(),
+        title: chat.name.toString(),
         // profileImageUrl: chatContact.contact.imageUrl.toString(),
-        profileImageUrl: chatContact.image.toString(),
+        profileImageUrl: chat.image.toString(),
       ),
       bottomNavigationBar:
           const SafeArea(child: MessagingBottomNavBar.messagingBottomNavBar()),
-      child: ChatHistoryViewFutureBuilder(chatContact: chatContact),
+      child: ChatHistoryViewFutureBuilder(chatContact: chat),
     );
   }
 }

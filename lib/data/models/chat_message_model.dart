@@ -3,7 +3,7 @@ class ChatMessageModel {
   final String content;
   final String senderId;
   final String chatId;
-  final DateTime created_at;
+  final DateTime createdAt;
   final bool isSender;
 
   ChatMessageModel({
@@ -11,7 +11,7 @@ class ChatMessageModel {
     required this.content,
     required this.senderId,
     required this.chatId,
-    required this.created_at,
+    required this.createdAt,
     required this.isSender,
   });
 
@@ -22,7 +22,7 @@ class ChatMessageModel {
       content: json['content'],
       senderId: json['sender_id'],
       chatId: json['chat_id'],
-      created_at: DateTime.parse(json['created_at']),
+      createdAt: DateTime.parse(json['created_at']),
       // timestamp: json['timestamp'],
       isSender: json['sender_id'] ==
           currentUserId, // Determine based on currentUserId

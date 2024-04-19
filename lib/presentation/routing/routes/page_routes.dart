@@ -48,7 +48,7 @@ class ChatContactsPageRoute extends BaseRoute {
 class ChatPageRoute extends BaseRoute {
   ChatPageRoute(ChatModel chatContact)
       : super(
-          ChatPage(chatContact: chatContact),
+          ChatPage(chat: chatContact),
         );
 }
 
