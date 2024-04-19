@@ -14,16 +14,17 @@ import 'package:peer_app/presentation/whitelabel/components/loading_and_error/lo
 import '../../../../data/models/chat_message_model.dart';
 
 class ChatHistoryViewFutureBuilder extends StatelessWidget {
-  const ChatHistoryViewFutureBuilder({super.key, required this.chatContact});
+  const ChatHistoryViewFutureBuilder({super.key, required this.chat});
 
-  final ChatModel chatContact;
+  final ChatModel chat;
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<ChatMessageModel>>(
       // TODO: currentUserId should be dynamic
-      future: ChatBuilderRepository(currentUserId: '1')
-          .fetchChatHistory(chatContact.id),
+      future: ChatBuilderRepository(
+              currentUserId: 'c05a6e6e-5365-40ca-b2d5-29af9f1cb1c6', chat: chat)
+          .fetchChatHistory(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingComponent(); // Show loading while the future is incomplete
