@@ -7,7 +7,6 @@ mutation CreatePosts(\$content: String, \$userId: Int) {
   insert_posts_one(object: {title: "", content: \$content, userId: \$userId}) {
     
         ${Fragments.postFragment}
-    
    }
 }
   """);

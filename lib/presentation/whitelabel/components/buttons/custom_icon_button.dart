@@ -7,17 +7,20 @@ class CustomIconButton extends StatelessWidget {
       {super.key,
       required this.icon,
       required this.onPressed,
-      this.sizeType = SizeType.medium});
+      this.sizeType = SizeType.medium,
+      this.color});
 
   final IconLibrary icon;
   final Function() onPressed;
   final SizeType sizeType;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
       child: Image(
+        color: color,
         image: icon.icon,
         width: sizeType.iconSize(context),
         height: sizeType.iconSize(context),
