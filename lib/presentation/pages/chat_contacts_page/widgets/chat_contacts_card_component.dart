@@ -94,6 +94,14 @@ class ChatContactCardComponent extends StatelessWidget {
                         : NewMessageCountComponent(
                             // notificationCount: chatContact.notificationCount!),
                             notificationCount: chats.amountUnseenMessages),
+                    // FOR DEBUGGING
+                    // Display all messages in the chat (does not work)
+                    // ListView.builder(
+                    //   itemCount: chats.messages.length,
+                    //   itemBuilder: (context, index) {
+                    //     return Text(chats.messages[index].content);
+                    //   },
+                    // ),
                   ],
                 ),
               ],
