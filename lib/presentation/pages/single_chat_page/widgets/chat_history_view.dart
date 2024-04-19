@@ -30,10 +30,6 @@ class ChatHistoryView extends StatelessWidget {
       // print the message with description
       print('Message>>>>>>>>>>>>>>>>>>>>>: $chatMessage');
       // Parse the timestamp to DateTime only for comparison
-
-      //////// CHANGE THIS CODE //////// FOR SHOWING DATE POP UPS IN THE CHAT ////////
-      // final messageDate = DateTime.parse(chatMessage.createdAt as String);
-      // final messageDateString = DateFormat('yyyy-MM-dd').format(messageDate);
       final messageDateString =
           DateFormat('yyyy-MM-dd').format(chatMessage.createdAt);
 
@@ -55,7 +51,6 @@ class ChatHistoryView extends StatelessWidget {
         );
         lastDateString = messageDateString;
       }
-      /////////////////////////////////////////////////////////////////////////////
 
       children.add(ChatBubble(chatData: chatMessage));
     }
