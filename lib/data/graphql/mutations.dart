@@ -11,4 +11,29 @@ mutation CreatePosts(\$content: String, \$userId: Int) {
    }
 }
   """);
+
+// Old //////////////////////////////////////////////
+//   static final createChatMessage = gql("""
+// mutation createChatMessage(\$chatId: String, \$content: String, \$senderId: String){
+//   insert_peer2_chat_messages_one(object: {chat_id: "", content: "", sender_id: ""}) {
+//     chat_id
+//       content
+//       id
+//       sender_id
+//       created_at
+//   }
+// }
+//   """);
+
+  static final createChatMessage = gql("""
+mutation createChatMessage(\$chatId: uuid!, \$content: String!, \$senderId: uuid!){
+  insert_peer2_chat_messages_one(object: {chat_id: \$chatId, content: \$content, sender_id: \$senderId}) {
+    chat_id
+    content
+    id
+    sender_id
+    created_at
+  }
+}
+  """);
 }
