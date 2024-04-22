@@ -16,8 +16,8 @@ class ContactsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
-      decoration: const BoxDecoration(
-        color: CustomColors.backgroundCardColor,
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primaryContainer,
         borderRadius: BorderRadius.zero,
       ),
       child: child,

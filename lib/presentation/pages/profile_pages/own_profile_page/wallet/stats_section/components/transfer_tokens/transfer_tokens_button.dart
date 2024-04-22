@@ -19,7 +19,6 @@ class TransferTokensButton extends StatelessWidget {
           isIcon: false,
           text: 'Tokens Überweisen',
           onPressed: () => Navigator.of(context).push(RecipientListPageRoute()),
-          color: CustomColors.lightTextColor,
         )
       ],
     );

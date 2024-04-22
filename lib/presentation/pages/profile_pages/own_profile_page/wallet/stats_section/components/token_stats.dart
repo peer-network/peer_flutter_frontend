@@ -18,14 +18,14 @@ class TokenStats extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .bodySmall!
-                .copyWith(color: CustomColors.lightTextColor)),
+                .copyWith(color: Theme.of(context).colorScheme.secondary)),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 5.0),
           child: Text('Credits in deiner Wallet',
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge!
-                  .copyWith(color: CustomColors.lightTextColor)),
+                  .copyWith(color: Theme.of(context).colorScheme.secondary)),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 5.0),
@@ -34,26 +34,26 @@ class TokenStats extends StatelessWidget {
                   walletSheetProvider.wallet.creditsCollectedToday),
               style: Theme.of(context)
                   .textTheme
-                  .bodySmall
-                  ?.copyWith(color: CustomColors.lightTextColor)),
+                  .bodySmall!
+                  .copyWith(color: Theme.of(context).colorScheme.secondary)),
         ),
         Text('Credits heute gesammelt',
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge!
-                .copyWith(color: CustomColors.lightTextColor)),
+                .copyWith(color: Theme.of(context).colorScheme.secondary)),
         Padding(
             padding: const EdgeInsets.symmetric(vertical: 5.0),
             child: Text("gibt's gerade net",
                 style: Theme.of(context)
                     .textTheme
-                    .bodySmall
-                    ?.copyWith(color: CustomColors.lightTextColor))),
+                    .bodySmall!
+                    .copyWith(color: Theme.of(context).colorScheme.secondary))),
         Text('aller tokens gehören dir',
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge!
-                .copyWith(color: CustomColors.lightTextColor)),
+                .copyWith(color: Theme.of(context).colorScheme.secondary)),
       ],
     );
   }

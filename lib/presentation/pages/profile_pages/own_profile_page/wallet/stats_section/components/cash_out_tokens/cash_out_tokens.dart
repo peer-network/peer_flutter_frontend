@@ -17,13 +17,13 @@ class CashOutTokens extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.06,
           width: MediaQuery.of(context).size.width * 0.4,
           isIcon: false,
+          overrideDefaultColor: false,
           text: 'Tokens Auszahlen',
           onPressed: () => showModalBottomSheet(
               context: context,
               builder: (BuildContext context) {
                 return const CashOutTokensBottomSheet();
               }),
-          color: CustomColors.lightTextColor,
         )
       ],
     );

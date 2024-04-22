@@ -30,7 +30,7 @@ class FeedView extends StatelessWidget {
         height: MediaQuery.of(context).size.height -
             kToolbarHeight -
             kBottomNavigationBarHeight,
-        color: CustomColors.secondaryBackgroundColor,
+        color: Theme.of(context).colorScheme.surface,
         child: ListView.builder(
           itemCount: newsFeedProvider.newsFeed.length,
           itemBuilder: (context, index) {

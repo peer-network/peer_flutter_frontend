@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class SourceBar extends StatelessWidget {
   final String label;
@@ -23,36 +24,39 @@ class SourceBar extends StatelessWidget {
           child: Align(
               alignment: Alignment.centerLeft,
               child: Text(label,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall!
-                      .copyWith(color: CustomColors.lightTextColor))),
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                      color: Theme.of(context).colorScheme.secondary))),
         ),
         Align(
           alignment: Alignment.centerLeft,
           child: Container(
+              height: AppDimensions.buttonHeightSmall,
               width: width,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [
-                    Color.fromARGB(255, 255, 255, 255),
-                    Color.fromARGB(100, 255, 255, 255),
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: <Color>[
+                    Theme.of(context).colorScheme.secondary,
+                    Theme.of(context).colorScheme.secondary.withOpacity(0.2)
                   ],
                 ),
-                borderRadius: BorderRadius.only(
+                color: Theme.of(context).colorScheme.secondary,
+                borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(10),
                     bottomRight: Radius.circular(10)),
               ),
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: Text(amount.toString(),
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium!
-                          .copyWith(color: CustomColors.lightTextColor)),
-                ),
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Text(amount.toString(),
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium!
+                            .copyWith(
+                                color:
+                                    Theme.of(context).colorScheme.secondary))),
               )),
         ),
       ],

@@ -14,8 +14,8 @@ class AvatarComponent extends StatelessWidget {
       return Container(
         width: AppDimensions.avatarSize,
         height: AppDimensions.avatarSize,
-        decoration: const BoxDecoration(
-          color: CustomColors.backgroundCardColor,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.primaryContainer,
           shape: BoxShape.circle,
         ),
       );

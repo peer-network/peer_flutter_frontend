@@ -17,6 +17,7 @@ class BaseAppbar extends StatelessWidget implements PreferredSizeWidget {
       title: title,
       actions: actions,
       centerTitle: true,
+      backgroundColor: Theme.of(context).colorScheme.background,
     );
   }
 

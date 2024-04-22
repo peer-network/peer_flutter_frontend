@@ -23,20 +23,25 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
       TextEditingController();
   final FocusNode _cashOutAmountFocusNode = FocusNode();
 
+  final TextEditingController _paypalAddressConttroller =
+      TextEditingController();
+  final FocusNode _paypalAddressFocusNode = FocusNode();
+
   bool _isPayPalSelected = false;
   bool _isBankSelected = false;
   bool _enterAmount = true;
 
   String _bottomSheetTitle = 'Betrag wählen';
   String? _cashOutAmountError;
+  String? _paypalAddressError;
 
   @override
   void initState() {
     super.initState();
-    awaitFocus();
+    controllerSetup();
   }
 
-  Future awaitFocus() async {
+  Future controllerSetup() async {
     _cashOutAmountController.addListener(() {
       String text = _cashOutAmountController.text;
       if (!text.endsWith('Tokens')) {
@@ -62,6 +67,15 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
     });
     await Future.delayed(const Duration(milliseconds: 200));
     _cashOutAmountFocusNode.requestFocus();
+
+    _paypalAddressConttroller.addListener(() {
+      String text = _paypalAddressConttroller.text;
+      if (text.isNotEmpty) {
+        setState(() {
+          _paypalAddressError = null;
+        });
+      }
+    });
   }
 
   @override
@@ -71,6 +85,8 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
     _contentPageController.dispose();
     _cashOutAmountController.dispose();
     _cashOutAmountFocusNode.dispose();
+    _paypalAddressConttroller.dispose();
+    _paypalAddressFocusNode.dispose();
     super.dispose();
   }
 
@@ -108,12 +124,24 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
 
   void _onPayPalTapped() {
     setState(() {
-      _bottomSheetTitle = 'PayPal';
+      _bottomSheetTitle = 'Enter PayPal Email';
       _isPayPalSelected = true;
       _isBankSelected = false;
     });
     _verticalTitlePageViewController.animateToPage(1,
         duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+    _paypalAddressFocusNode.requestFocus();
+  }
+
+  void _onPayPalAdressEntered() {
+    final emailRegex = RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+');
+    if (!emailRegex.hasMatch(_paypalAddressConttroller.text) ||
+        _paypalAddressConttroller.text.isEmpty) {
+      setState(() {
+        _paypalAddressError = 'Please enter a valid email address';
+      });
+      return;
+    }
   }
 
   void _onBankTapped() {
@@ -134,10 +162,10 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
         height: (_enterAmount)
             ? MediaQuery.of(context).size.height * 0.65
             : (_isPayPalSelected || _isBankSelected)
-                ? MediaQuery.of(context).size.height * 0.4
+                ? MediaQuery.of(context).size.height * 0.7
                 : MediaQuery.of(context).size.height * 0.25,
         decoration: BoxDecoration(
-            color: CustomColors.lightTextColor,
+            color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.only(
               topLeft: AppBorders.defaultRadius.topLeft,
               topRight: AppBorders.defaultRadius.topRight,
@@ -153,6 +181,7 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                     height: MediaQuery.of(context).size.height * 0.02,
                     width: MediaQuery.of(context).size.width * 0.35,
                     child: PageView(
+                        scrollDirection: Axis.vertical,
                         controller: _verticalTitlePageViewController,
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
@@ -229,7 +258,12 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                                     MediaQuery.of(context).size.height * 0.08,
                                 width: MediaQuery.of(context).size.width * 0.4,
                                 onPressed: _onEuroTapped,
-                                color: Colors.green,
+                                overrideDefaultColor: true,
+                                customBackgroundColor:
+                                    Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? LightColors.iconSuccess
+                                        : DarkColors.iconSuccess,
                                 isIcon: true,
                                 icon: const Icon(Icons.euro,
                                     color: Colors.white)),
@@ -237,7 +271,12 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                               height: MediaQuery.of(context).size.height * 0.08,
                               width: MediaQuery.of(context).size.width * 0.4,
                               onPressed: () {},
-                              color: CustomColors.bitcoinColor,
+                              overrideDefaultColor: true,
+                              customBackgroundColor:
+                                  Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? LightColors.iconBtc
+                                      : DarkColors.iconBtc,
                               hasImage: true,
                               isIcon: false,
                               assetPath: Config.bitcoinIcon,
@@ -252,18 +291,40 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                           children: [
                             AnimatedContainer(
                               duration: const Duration(milliseconds: 400),
-                              height: MediaQuery.of(context).size.height * 0.08,
+                              height: (_isPayPalSelected)
+                                  ? MediaQuery.of(context).size.height * 0.2
+                                  : MediaQuery.of(context).size.height * 0.08,
                               width: (_isPayPalSelected)
                                   ? MediaQuery.of(context).size.width * 0.9
-                                  : (_isBankSelected)
-                                      ? 0
-                                      : MediaQuery.of(context).size.width * 0.4,
-                              child: CustomButton(
-                                  onPressed: _onPayPalTapped,
-                                  color: CustomColors.tertiaryTextColor,
-                                  isIcon: false,
-                                  hasImage: true,
-                                  assetPath: Config.paypalIcon),
+                                  : MediaQuery.of(context).size.width * 0.4,
+                              child: (_isPayPalSelected)
+                                  ? TextField(
+                                      controller: _paypalAddressConttroller,
+                                      focusNode: _paypalAddressFocusNode,
+                                      keyboardType: TextInputType.emailAddress,
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              AppBorders.defaultRadius,
+                                        ),
+                                        errorText: _paypalAddressError,
+                                        hintText: 'paypal.email@adress.com',
+                                        suffixIcon: IconButton(
+                                            onPressed: _onPayPalAdressEntered,
+                                            icon: const Icon(
+                                                Icons.arrow_forward)),
+                                      ))
+                                  : CustomButton(
+                                      onPressed: _onPayPalTapped,
+                                      overrideDefaultColor: true,
+                                      customBackgroundColor:
+                                          Theme.of(context).brightness ==
+                                                  Brightness.light
+                                              ? LightColors.paypalBackground
+                                              : DarkColors.paypalBackground,
+                                      isIcon: false,
+                                      hasImage: true,
+                                      assetPath: Config.paypalIcon),
                             ),
                             AnimatedContainer(
                               duration: const Duration(milliseconds: 400),
@@ -275,72 +336,21 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                                       : MediaQuery.of(context).size.width * 0.4,
                               child: CustomButton(
                                   onPressed: _onBankTapped,
-                                  color: Colors.lime,
+                                  overrideDefaultColor: true,
+                                  customBackgroundColor:
+                                      Theme.of(context).brightness ==
+                                              Brightness.light
+                                          ? LightColors.iconBtc
+                                          : DarkColors.iconBtc,
                                   isIcon: true,
                                   icon: const Icon(Icons.balance,
                                       color: Colors.white)),
                             ),
                           ]),
+                      // confirm cashout
+                      Column()
                     ]),
               )
             ])));
   }
 }
-
-/* 
-Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                const Text('Token auszahlen'),
-                GestureDetector(
-                    onTap: () => Navigator.of(context).pop(),
-                    child: Image(
-                        width: MediaQuery.of(context).size.width * 0.08,
-                        height: MediaQuery.of(context).size.height * 0.08,
-                        image: const AssetImage(Config.declineIcon)))
-              ]),
-              const SizedBox(height: AppPaddings.small),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                CustomButton(
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    onPressed: () {},
-                    color: Colors.green,
-                    isIcon: true,
-                    icon: const Icon(Icons.euro, color: Colors.white)),
-                CustomButton(
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    onPressed: () {},
-                    color: Colors.orange,
-                    isIcon: true,
-                    icon: const Icon(Icons.biotech, color: Colors.white)),
-              ])
-            ],
-          ),
-*/
-
-/*
-TextField(
-                restorationId: 'recipient_address',
-                minLines: 1,
-                maxLines: null,
-                controller: _recipientAdressConttroller,
-                decoration: InputDecoration(
-                  hintText: 'Empfängeradresse eingeben',
-                  suffixIcon: IconButton(
-                      onPressed: () async {
-                        ClipboardData? clipboardData =
-                            await Clipboard.getData('text/plain');
-                        if (clipboardData != null) {
-                          _recipientAdressConttroller.text =
-                              clipboardData.text ?? '';
-                        }
-                      },
-                      icon: const Icon(Icons.paste)),
-                  border: OutlineInputBorder(
-                    borderRadius: AppBorders.defaultRadius,
-                  ),
-                ),
-              ),*/

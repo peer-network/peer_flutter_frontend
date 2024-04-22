@@ -12,9 +12,8 @@ class SearchBubble extends StatelessWidget {
         hintText: 'Suchen ...',
         suffixIcon: const Icon(Icons.search),
         border: OutlineInputBorder(
-          borderRadius: AppBorders.defaultRadius,
-          borderSide: const BorderSide(color: CustomColors.primaryColor),
-        ),
+            borderRadius: AppBorders.defaultRadius,
+            borderSide: Theme.of(context).inputDecorationTheme.outlineBorder!),
         alignLabelWithHint: true,
         contentPadding: const EdgeInsets.fromLTRB(
           AppPaddings.medium,

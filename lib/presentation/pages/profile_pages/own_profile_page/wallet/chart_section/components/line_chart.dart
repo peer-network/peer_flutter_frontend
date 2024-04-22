@@ -38,22 +38,24 @@ class _CustomLineChartState extends State<CustomLineChart> {
   }
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
-    const style = TextStyle(
-      color: CustomColors.lightTextColor,
+    TextStyle style = TextStyle(
+      color: Theme.of(context).brightness == Brightness.light
+          ? LightColors.textBright
+          : DarkColors.textPrimary,
     );
     Widget text;
     switch (value.toInt()) {
       case 1:
-        text = const Padding(
+        text = Padding(
           padding: EdgeInsets.only(left: 8.0),
           child: Text('25.02.02023', style: style),
         );
         break;
       case 10:
-        text = const Text('15.03.2023', style: style);
+        text = Text('15.03.2023', style: style);
         break;
       default:
-        text = const Text('', style: style);
+        text = Text('', style: style);
         break;
     }
 
@@ -64,8 +66,10 @@ class _CustomLineChartState extends State<CustomLineChart> {
   }
 
   Widget leftTitleWidgets(double value, TitleMeta meta) {
-    const style = TextStyle(
-      color: CustomColors.lightTextColor,
+    TextStyle style = TextStyle(
+      color: Theme.of(context).brightness == Brightness.light
+          ? LightColors.textBright
+          : DarkColors.textPrimary,
     );
     String text;
     switch (value.toInt()) {
@@ -115,11 +119,8 @@ class _CustomLineChartState extends State<CustomLineChart> {
           axisNameWidget: Padding(
               padding: EdgeInsets.only(
                   left: MediaQuery.of(context).size.width * 0.08),
-              child: Text('Wert',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium!
-                      .copyWith(color: CustomColors.lightTextColor))),
+              child:
+                  Text('Wert', style: Theme.of(context).textTheme.bodyMedium!)),
           sideTitles: SideTitles(
               showTitles: true,
               getTitlesWidget: leftTitleWidgets,

@@ -12,9 +12,11 @@ class DragHandle extends StatelessWidget {
       Container(
         width: width,
         height: 6,
-        decoration: const BoxDecoration(
-          color: CustomColors.lightTextColor,
-          borderRadius: BorderRadius.all(Radius.circular(3)),
+        decoration: BoxDecoration(
+          color: Theme.of(context).brightness == Brightness.light
+              ? LightColors.iconBright
+              : DarkColors.iconBright,
+          borderRadius: const BorderRadius.all(Radius.circular(3)),
         ),
         margin: const EdgeInsets.symmetric(vertical: 8),
       ),
@@ -23,8 +25,8 @@ class DragHandle extends StatelessWidget {
           child: Text('Deine Wallet',
               style: Theme.of(context)
                   .textTheme
-                  .titleLarge
-                  ?.copyWith(color: CustomColors.lightTextColor))),
+                  .titleLarge!
+                  .copyWith(color: Theme.of(context).colorScheme.secondary))),
     ]);
   }
 }

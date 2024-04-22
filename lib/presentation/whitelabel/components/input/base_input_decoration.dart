@@ -17,7 +17,7 @@ class BaseInputDecoration {
       ),
       border: OutlineInputBorder(
         borderRadius: AppBorders.defaultRadius,
-        borderSide: const BorderSide(color: CustomColors.primaryColor),
+        borderSide: const BorderSide(color: LightColors.activeBorder),
       ),
 
       suffixIcon: suffixIcon, // Allows for optional customization

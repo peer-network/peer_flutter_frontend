@@ -30,6 +30,7 @@ class _RecipientListPageState extends State<RecipientListPage> {
         ),
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: Theme.of(context).colorScheme.background,
             leading: IconButton(
                 onPressed: () {
                   Navigator.of(context).pop();

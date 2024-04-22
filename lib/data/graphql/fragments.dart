@@ -33,6 +33,7 @@ class Fragments {
     
   """;
 
+  //TODO: remove unused fields
   static const String walletFragment = """
     id
     created_at

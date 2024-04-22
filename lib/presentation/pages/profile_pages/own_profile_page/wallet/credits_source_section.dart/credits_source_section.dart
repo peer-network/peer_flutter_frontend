@@ -10,14 +10,8 @@ class CreditsSourceSection extends StatelessWidget {
     return const Column(
       children: [
         SizedBox(height: AppPaddings.large),
-        SizedBox(
-          height: 200,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [SourceList()],
-          ),
-        ),
+        SizedBox(height: 200, child: SourceList()),
+        SizedBox(height: AppPaddings.large),
       ],
     );
   }

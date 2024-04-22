@@ -36,41 +36,34 @@ class WalletSheetProvider with ChangeNotifier {
     error = null;
     notifyListeners();
 
-    /*try {
+    try {
       // final response = await _dioClient.get(ApiEndpoints.wallet);
       // TODO replace with real api call
-      Future.delayed(const Duration(seconds: 2), () {
-        // dummy data for wallet
-        Map<String, dynamic> _dummyWallet =
-            dummyWallet["wallet"] as Map<String, dynamic>;
-        _wallet = WalletModel.fromJson(_dummyWallet);
+      // dummy data for currency exchange inside wallet
+      Map<String, dynamic> _dummyCurrencyExchange =
+          dummyWallet["currencyExchange"] as Map<String, dynamic>;
+      _currencyExchange =
+          CurrencyExchangeModel.fromJson(_dummyCurrencyExchange);
 
-        // dummy data for currency exchange inside wallet
-        Map<String, dynamic> _dummyCurrencyExchange =
-            dummyWallet["currencyExchange"] as Map<String, dynamic>;
-        _currencyExchange =
-            CurrencyExchangeModel.fromJson(_dummyCurrencyExchange);
+      // dummy data for source items inside wallet
+      Map<String, dynamic> _dummySourceItems =
+          dummyWallet["creditsSource"] as Map<String, dynamic>;
+      _creditsSource = CreditsSourceModel.fromJson(_dummySourceItems);
 
-        // dummy data for source items inside wallet
-        Map<String, dynamic> _dummySourceItems =
-            dummyWallet["creditsSource"] as Map<String, dynamic>;
-        _creditsSource = CreditsSourceModel.fromJson(_dummySourceItems);
+      _creditsSource = sortItems(_creditsSource);
 
-        _creditsSource = sortItems(_creditsSource);
-
-        _state = WalletState.loaded;
-        notifyListeners();
-      });
+      _state = WalletState.loaded;
+      notifyListeners();
     } catch (e) {
       _state = WalletState.error;
       notifyListeners();
-    }*/
+    }
 
     final queryOption = QueryOptions(
         document: Queries.wallet,
         fetchPolicy: FetchPolicy.networkOnly,
         variables: {
-          'user_id': 2,
+          'user_id': 2, //TODO fetch real user id
         });
 
     try {
@@ -90,12 +83,15 @@ class WalletSheetProvider with ChangeNotifier {
 
       final wallet = queryResult.data!;
       try {
-        _wallet = wallet["wallet"].map((x) => WalletModel.fromJson(x));
+        _wallet = WalletModel.fromJson(wallet["wallet"][0]);
+        //_wallet = wallet["wallet"].map((x) => WalletModel.fromJson(x)).first;
       } catch (e, s) {
+        _state = WalletState.error;
         error = e.toString();
         CustomException(e.toString(), s).handleError();
       }
     } catch (e) {
+      _state = WalletState.error;
       error = e.toString();
       CustomException(e.toString(), StackTrace.current).handleError();
     }

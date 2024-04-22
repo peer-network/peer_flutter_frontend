@@ -15,15 +15,15 @@ class NotificationIndicator extends StatelessWidget {
     return Container(
       width: AppDimensions.notificationIndicator, // Adjust size as needed
       height: AppDimensions.notificationIndicator, // Adjust size as needed
-      decoration: const BoxDecoration(
-        color: CustomColors.primaryColor, // Notification circle color
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColor, // Notification circle color
         shape: BoxShape.circle, // Makes the container circular
       ),
       child: Center(
         child: Text(
           notificationCount.toString(),
-          style: const TextStyle(
-            color: Colors.white, // Text color
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.secondary, // Text color
             fontSize: 12, // Adjust text size as needed
             fontWeight: FontWeight.bold, // Makes the text bold
           ),

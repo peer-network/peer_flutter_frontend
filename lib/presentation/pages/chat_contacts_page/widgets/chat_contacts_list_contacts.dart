@@ -36,11 +36,10 @@ class ChatCardComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            color: CustomColors.cardBorderColor,
-            width: 1,
+            color: Theme.of(context).disabledColor,
           ),
         ),
       ),
@@ -68,13 +67,11 @@ class ChatCardComponent extends StatelessWidget {
                     // TODO replace with actual name
                     Text(
                       'Pamela Jones',
-                      style:
-                          headlineSmallTextStyle(CustomColors.primaryTextColor),
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     Text(
                       "sd".length > 20 ? '${"dsf".substring(0, 20)}...' : "dsf",
-                      style:
-                          bodyMediumTextStyle(CustomColors.secondaryTextColor),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],
                 ),
@@ -85,7 +82,7 @@ class ChatCardComponent extends StatelessWidget {
                 children: [
                   Text(
                     'Freitag, 23:56',
-                    style: bodySmallTextStyle(CustomColors.secondaryTextColor),
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const NotificationIndicator(notificationCount: 5)
                 ],

@@ -4,8 +4,8 @@ class WalletModel {
   final int userId;
   final int totalCredits;
   final int creditsCollectedToday;
-  final DateTime createdAt;
-  final DateTime updatedAt;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
 
   WalletModel({
     //required this.user,
@@ -23,8 +23,12 @@ class WalletModel {
         totalCredits: json['total_credits'],
         creditsCollectedToday: json['credits_collected_today'],
         userId: json['user_id'],
-        createdAt: DateTime.parse(json['created_at']),
-        updatedAt: DateTime.parse(json['updated_at']),
+        createdAt: json['created_at'] != null
+            ? DateTime.parse(json['created_at'])
+            : null,
+        updatedAt: json['created_at'] != null
+            ? DateTime.parse(json['updated_at'])
+            : null,
         id: json['id']);
   }
 

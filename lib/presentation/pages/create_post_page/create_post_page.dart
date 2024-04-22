@@ -41,6 +41,13 @@ class _CreatePostPageState extends State<CreatePostPage> {
   }
 
   @override
+  void dispose() {
+    textController.dispose();
+    imageDescriptionController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BasePage(
       bottomNavigationBar: CreatePostBottomNavbar(

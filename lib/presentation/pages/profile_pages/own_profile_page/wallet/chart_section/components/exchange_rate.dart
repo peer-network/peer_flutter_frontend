@@ -19,10 +19,8 @@ class ExchangeRate extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 25.0),
               child: Text('Der Kurs',
-                  style: Theme.of(context)
-                      .textTheme
-                      .displayMedium!
-                      .copyWith(color: CustomColors.lightTextColor)),
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                      color: Theme.of(context).colorScheme.secondary)),
             )),
         const SizedBox(height: AppPaddings.small),
         Padding(
@@ -32,16 +30,15 @@ class ExchangeRate extends StatelessWidget {
                 child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     decoration: BoxDecoration(
-                        color: CustomColors.backgroundCardColor,
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? LightColors.textBright
+                            : DarkColors.textPrimary,
                         borderRadius: BorderRadius.circular(10)),
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
                           '1 Credit = ${walletSheetProvider.currencyExchange.creditValue}€',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall!
-                              .copyWith(color: CustomColors.tertiaryTextColor)),
+                          style: Theme.of(context).textTheme.titleSmall!),
                     )))),
         Padding(
             padding: const EdgeInsets.only(left: 25.0, top: 6.0),
@@ -50,17 +47,15 @@ class ExchangeRate extends StatelessWidget {
                 child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     decoration: BoxDecoration(
-                        color: CustomColors.backgroundCardColor,
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? LightColors.textBright
+                            : DarkColors.textPrimary,
                         borderRadius: BorderRadius.circular(10)),
                     child: FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(
                             'Gesamtzahl Credits = ${walletSheetProvider.formatDigits(walletSheetProvider.currencyExchange.totalCreditsInSystem)}',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall!
-                                .copyWith(
-                                    color: CustomColors.tertiaryTextColor)))))),
+                            style: Theme.of(context).textTheme.titleSmall!))))),
         CustomLineChart(),
       ],
     );

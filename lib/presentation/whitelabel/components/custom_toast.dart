@@ -11,9 +11,9 @@ class CustomToast {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: AppDuration.toastDuration,
-        backgroundColor: CustomColors.successBorderColor,
-        textColor: CustomColors.primaryTextColor,
-        fontSize: bodyLargeTextStyle(CustomColors.primaryColor).fontSize);
+        backgroundColor: LightColors.textBrightSubtle,
+        textColor: LightColors.textDark,
+        fontSize: bodyLargeTextStyle(LightColors.textCompany).fontSize);
   }
 
   // show error toast
@@ -23,8 +23,8 @@ class CustomToast {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: AppDuration.toastDuration,
-        backgroundColor: CustomColors.errorBorderColor,
-        textColor: CustomColors.primaryTextColor,
-        fontSize: bodyLargeTextStyle(CustomColors.primaryColor).fontSize);
+        backgroundColor: LightColors.textError,
+        textColor: LightColors.textDark,
+        fontSize: bodyLargeTextStyle(LightColors.textCompany).fontSize);
   }
 }

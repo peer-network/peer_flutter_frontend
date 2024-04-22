@@ -9,8 +9,9 @@ class GemIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: const BoxDecoration(
-            color: CustomColors.backgroundCardColor, shape: BoxShape.circle),
+        decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.secondary,
+            shape: BoxShape.circle),
         child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Padding(

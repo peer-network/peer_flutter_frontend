@@ -38,14 +38,18 @@ class BaseButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           foregroundColor: textColor ??
               Theme.of(context).textTheme.labelLarge?.color ??
-              CustomColors.primaryTextColor,
+              Theme.of(context).colorScheme.tertiary,
           backgroundColor: isFilled
               ? backgroundColor ?? Theme.of(context).primaryColor
-              : CustomColors.backgroundColor,
+              : Theme.of(context).colorScheme.primaryContainer,
           side: isFilled
               ? null
-              : const BorderSide(
-                  color: CustomColors.activeBorderColor, width: 1),
+              : BorderSide(
+                  color: Theme.of(context)
+                      .inputDecorationTheme
+                      .outlineBorder!
+                      .color,
+                  width: 1),
           shape: RoundedRectangleBorder(
             borderRadius: AppBorders.defaultRadius,
           ),
@@ -56,22 +60,20 @@ class BaseButton extends StatelessWidget {
             ? SizedBox(
                 height: (height ?? AppDimensions.buttonHeightLarge) / 2,
                 width: (height ?? AppDimensions.buttonHeightLarge) / 2,
-                child: const CircularProgressIndicator(
+                child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
-                      CustomColors.primaryTextColor),
+                      Theme.of(context).colorScheme.tertiary),
                 ),
               )
             : Text(
                 text,
                 style: TextStyle(
-                  color: isFilled
-                      ? CustomColors.lightTextColor
-                      : isDisabled
-                          ? CustomColors.disabledTextColor
-                          : textColor ??
-                              Theme.of(context).textTheme.labelLarge?.color ??
-                              CustomColors.primaryTextColor,
-                ),
+                    color: isFilled
+                        ? Theme.of(context).colorScheme.secondary
+                        : isDisabled
+                            ? Theme.of(context).disabledColor
+                            : textColor ??
+                                Theme.of(context).textTheme.labelLarge!.color),
               ),
       ),
     );

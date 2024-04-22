@@ -50,19 +50,24 @@ class SourceList extends StatelessWidget {
         Provider.of<WalletSheetProvider>(context);
     List<double> widthValues =
         calculateCreditSourcePercentage(walletSheetProvider.creditsSource);
-    return ListView.builder(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: walletSheetProvider.creditsSource.items.length,
-        itemBuilder: (context, index) {
-          return Align(
-            alignment: Alignment.centerLeft,
-            child: SourceBar(
-                label: walletSheetProvider.creditsSource.items[index].label,
-                amount: walletSheetProvider.creditsSource.items[index].amount,
-                // TODO: Idk this ain't it tbh there has to be another formula
-                width: widthValues[index] * 5 + 50),
-          );
-        });
+    return Column(
+      children: [
+        ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: walletSheetProvider.creditsSource.items.length,
+            itemBuilder: (context, index) {
+              return Align(
+                alignment: Alignment.centerLeft,
+                child: SourceBar(
+                    label: walletSheetProvider.creditsSource.items[index].label,
+                    amount:
+                        walletSheetProvider.creditsSource.items[index].amount,
+                    // TODO: Idk this ain't it tbh there has to be another formula
+                    width: widthValues[index] * 5 + 50),
+              );
+            }),
+      ],
+    );
   }
 }
