@@ -16,8 +16,7 @@ class PrimaryButton extends BaseButton {
           key: key,
           text: text,
           onPressed: onPressed,
-          backgroundColor:
-              backgroundColor, // Use the default or specified color
+          backgroundColor: backgroundColor,
           textColor: textColor,
           isDisabled: isDisabled,
           isLoading: isLoading,

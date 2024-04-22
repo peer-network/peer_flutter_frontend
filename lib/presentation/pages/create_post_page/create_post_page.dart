@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:peer_app/core/types/create_post_type.dart';
+import 'package:peer_app/data/provider/news_feed_provider.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/pages/create_post_page/create_post_bottom_navbar.dart';
 import 'package:peer_app/presentation/pages/create_post_page/image_body_create_post.dart';
@@ -8,7 +9,7 @@ import 'package:peer_app/presentation/pages/create_post_page/text_body_create_po
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/link_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/custom_toast.dart';
-import 'package:peer_app/data/provider/news_feed_provider.dart';
+import 'package:peer_app/presentation/whitelabel/components/types/aspect_ratios.dart';
 import 'package:provider/provider.dart';
 
 class CreatePostPage extends StatefulWidget {
@@ -20,6 +21,7 @@ class CreatePostPage extends StatefulWidget {
 
 class _CreatePostPageState extends State<CreatePostPage> {
   CreatePostType activeCreatePostType = CreatePostType.image;
+  ImageAspectRatios activeImageAspectRatio = ImageAspectRatios.square;
 
   // TEXT SECTION
   final TextEditingController textController = TextEditingController();
@@ -38,13 +40,6 @@ class _CreatePostPageState extends State<CreatePostPage> {
         images = List.from(selectedImages);
       });
     }
-  }
-
-  @override
-  void dispose() {
-    textController.dispose();
-    imageDescriptionController.dispose();
-    super.dispose();
   }
 
   @override
@@ -81,7 +76,17 @@ class _CreatePostPageState extends State<CreatePostPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ImageBodyCreatePost(
+              activeImageAspectRatio: activeImageAspectRatio,
+              onAspectRatioChanged: (aspectRatio) {
+                setState(() {
+                  activeImageAspectRatio = aspectRatio;
+                });
+              },
+              removeImage: (index) => setState(() {
+                images.removeAt(index);
+              }),
               pickImages: _pickImages,
+              addImages: _addImages,
               images: images,
               controller: imageDescriptionController,
             ),

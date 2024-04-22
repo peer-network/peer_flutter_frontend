@@ -22,3 +22,38 @@ extension AspectRatiosExtension on AspectRatios {
     }
   }
 }
+
+enum ImageAspectRatios {
+  portrait,
+  landscape,
+  square,
+}
+
+extension ImageAspectRatiosExtension on ImageAspectRatios {
+  double doubleValue() {
+    switch (this) {
+      case ImageAspectRatios.portrait:
+        return 16 / 9;
+      case ImageAspectRatios.landscape:
+        return 9 / 16;
+      case ImageAspectRatios.square:
+        return 1 / 1;
+      default:
+        return 1 / 1;
+    }
+  }
+}
+
+// get the name of image aspect ratio
+String getImageAspectRatioName(ImageAspectRatios aspectRatio) {
+  switch (aspectRatio) {
+    case ImageAspectRatios.portrait:
+      return "Portrait";
+    case ImageAspectRatios.landscape:
+      return "Landscape";
+    case ImageAspectRatios.square:
+      return "Square";
+    default:
+      return "Portrait";
+  }
+}
