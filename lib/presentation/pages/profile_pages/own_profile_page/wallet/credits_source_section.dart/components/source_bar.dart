@@ -20,7 +20,8 @@ class SourceBar extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 12.0),
+          padding:
+              const EdgeInsets.only(left: AppPaddings.small + AppPaddings.tiny),
           child: Align(
               alignment: Alignment.centerLeft,
               child: Text(label,
@@ -42,14 +43,14 @@ class SourceBar extends StatelessWidget {
                   ],
                 ),
                 color: Theme.of(context).colorScheme.secondary,
-                borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(10),
-                    bottomRight: Radius.circular(10)),
+                borderRadius: BorderRadius.only(
+                    topRight: AppBorders.creditsSourceBarRadius.topRight,
+                    bottomRight: AppBorders.creditsSourceBarRadius.bottomRight),
               ),
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
+                    padding: const EdgeInsets.only(right: AppPaddings.small),
                     child: Text(amount.toString(),
                         style: Theme.of(context)
                             .textTheme

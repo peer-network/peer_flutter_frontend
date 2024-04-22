@@ -11,14 +11,14 @@ class DragHandle extends StatelessWidget {
     return Column(children: [
       Container(
         width: width,
-        height: 6,
+        height: AppDimensions.dragHandleHeight,
         decoration: BoxDecoration(
           color: Theme.of(context).brightness == Brightness.light
               ? LightColors.iconBright
               : DarkColors.iconBright,
-          borderRadius: const BorderRadius.all(Radius.circular(3)),
+          borderRadius: AppBorders.dragHandleRadius,
         ),
-        margin: const EdgeInsets.symmetric(vertical: 8),
+        margin: const EdgeInsets.symmetric(vertical: AppPaddings.small),
       ),
       Align(
           alignment: Alignment.center,

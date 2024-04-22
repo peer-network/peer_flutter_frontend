@@ -16,14 +16,16 @@ class NotificationIndicator extends StatelessWidget {
       width: AppDimensions.notificationIndicator, // Adjust size as needed
       height: AppDimensions.notificationIndicator, // Adjust size as needed
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor, // Notification circle color
+        color: Theme.of(context).iconTheme.color, // Notification circle color
         shape: BoxShape.circle, // Makes the container circular
       ),
       child: Center(
         child: Text(
           notificationCount.toString(),
           style: TextStyle(
-            color: Theme.of(context).colorScheme.secondary, // Text color
+            color: Theme.of(context).brightness == Brightness.light
+                ? LightColors.iconBright
+                : DarkColors.iconBright, // Text color
             fontSize: 12, // Adjust text size as needed
             fontWeight: FontWeight.bold, // Makes the text bold
           ),

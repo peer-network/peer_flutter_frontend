@@ -13,11 +13,11 @@ class AccountDevelopment extends StatelessWidget {
         Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: const EdgeInsets.only(left: 25.0),
+              padding: const EdgeInsets.only(left: AppPaddings.large),
               child: Text('Entwicklung\ndeines Accounts',
                   style: Theme.of(context).textTheme.displayMedium!),
             )),
-        const SizedBox(height: AppPaddings.small + 10),
+        const SizedBox(height: AppPaddings.medium),
         CustomLineChart()
       ],
     );

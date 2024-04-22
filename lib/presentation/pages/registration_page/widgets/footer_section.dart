@@ -12,7 +12,7 @@ class FooterSectionRegistrieren extends StatelessWidget {
         LinkButtonComponent(
             text: "The PEER principle",
             onPressed: () {},
-            textColor: Theme.of(context).colorScheme.surface),
+            textColor: Theme.of(context).colorScheme.tertiary),
       ],
     );
   }

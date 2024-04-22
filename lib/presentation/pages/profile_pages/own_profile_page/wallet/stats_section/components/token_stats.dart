@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
@@ -20,7 +21,7 @@ class TokenStats extends StatelessWidget {
                 .bodySmall!
                 .copyWith(color: Theme.of(context).colorScheme.secondary)),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5.0),
+          padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
           child: Text('Credits in deiner Wallet',
               style: Theme.of(context)
                   .textTheme
@@ -28,7 +29,7 @@ class TokenStats extends StatelessWidget {
                   .copyWith(color: Theme.of(context).colorScheme.secondary)),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5.0),
+          padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
           child: Text(
               walletSheetProvider.formatDigits(
                   walletSheetProvider.wallet.creditsCollectedToday),
@@ -43,7 +44,7 @@ class TokenStats extends StatelessWidget {
                 .bodyLarge!
                 .copyWith(color: Theme.of(context).colorScheme.secondary)),
         Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5.0),
+            padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
             child: Text("gibt's gerade net",
                 style: Theme.of(context)
                     .textTheme

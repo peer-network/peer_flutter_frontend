@@ -40,7 +40,9 @@ class FeedHeaderComponent extends StatelessWidget {
           SecondaryButton(
             text: 'Follow',
             onPressed: () => print('Follow'),
-            backgroundColor: Theme.of(context).colorScheme.surface,
+            backgroundColor: Theme.of(context).brightness == Brightness.light
+                ? LightColors.followBackground
+                : DarkColors.followBackground,
             isFilled: true,
           ),
         ],

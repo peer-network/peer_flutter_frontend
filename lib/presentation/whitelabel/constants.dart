@@ -11,6 +11,8 @@ class AppDuration {
 }
 
 class AppBorders {
+  static BorderRadius creditsSourceBarRadius = BorderRadius.circular(8.0);
+  static BorderRadius dragHandleRadius = BorderRadius.circular(3);
   static BorderRadius defaultRadius = BorderRadius.circular(20.0);
 }
 
@@ -56,6 +58,8 @@ class AppDimensions {
   static const double profileTextPostsSliderCardMaxHeight = 500.0;
 
   static const double createPostEmptyImageHeight = 144;
+
+  static const double dragHandleHeight = 6.0;
 }
 
 // aspect ratios

@@ -25,6 +25,10 @@ ThemeData lightTheme = ThemeData(
       labelLarge: labelLargeTextStyle(LightColors.textPrimary),
       labelSmall: labelSmallTextStyle(LightColors.textPrimary),
     ),
+    cardTheme: CardTheme(
+      color: LightColors.backgroundContainer,
+      elevation: 0,
+    ),
     textSelectionTheme: const TextSelectionThemeData(
         cursorColor: LightColors.textDark,
         selectionColor: LightColors.textDark,
@@ -90,6 +94,10 @@ ThemeData darkTheme = ThemeData(
       bodySmall: bodySmallTextStyle(DarkColors.textPrimary),
       labelLarge: labelLargeTextStyle(DarkColors.textPrimary),
       labelSmall: labelSmallTextStyle(DarkColors.textPrimary),
+    ),
+    cardTheme: CardTheme(
+      color: DarkColors.backgroundContainer,
+      elevation: 0,
     ),
     textSelectionTheme: const TextSelectionThemeData(
         cursorColor: DarkColors.textBright,

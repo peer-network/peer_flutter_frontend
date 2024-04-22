@@ -29,7 +29,7 @@ class SmallTextPostCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: AppBorders.defaultRadius,
               // add shadow
-              color: Theme.of(context).colorScheme.secondary,
+              color: Theme.of(context).colorScheme.secondary, // to be changed
               boxShadow: [
                 BoxShadow(
                   color: Theme.of(context).disabledColor.withOpacity(0.5),

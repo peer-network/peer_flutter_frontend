@@ -39,7 +39,7 @@ class ChatCardComponent extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            color: Theme.of(context).disabledColor,
+            color: Theme.of(context).cardTheme.color!,
           ),
         ),
       ),

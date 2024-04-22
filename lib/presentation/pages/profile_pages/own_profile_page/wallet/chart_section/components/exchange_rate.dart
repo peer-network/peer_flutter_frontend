@@ -17,23 +17,24 @@ class ExchangeRate extends StatelessWidget {
         Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: const EdgeInsets.only(left: 25.0),
+              padding: const EdgeInsets.only(left: AppPaddings.large),
               child: Text('Der Kurs',
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                       color: Theme.of(context).colorScheme.secondary)),
             )),
         const SizedBox(height: AppPaddings.small),
         Padding(
-            padding: const EdgeInsets.only(left: 25.0),
+            padding: const EdgeInsets.only(left: AppPaddings.large),
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: AppPaddings.small),
                     decoration: BoxDecoration(
                         color: Theme.of(context).brightness == Brightness.light
                             ? LightColors.textBright
                             : DarkColors.textPrimary,
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: AppBorders.defaultRadius),
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
@@ -41,16 +42,18 @@ class ExchangeRate extends StatelessWidget {
                           style: Theme.of(context).textTheme.titleSmall!),
                     )))),
         Padding(
-            padding: const EdgeInsets.only(left: 25.0, top: 6.0),
+            padding: const EdgeInsets.only(
+                left: AppPaddings.large, top: AppPaddings.small),
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: AppPaddings.small),
                     decoration: BoxDecoration(
                         color: Theme.of(context).brightness == Brightness.light
                             ? LightColors.textBright
                             : DarkColors.textPrimary,
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: AppBorders.defaultRadius),
                     child: FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(

@@ -3,6 +3,7 @@ import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/text_constants.dart';
 
+//TODO: no access to context -> no dynamic theme
 class CustomToast {
   // show success toast
   static void showSuccessToast(String message) {

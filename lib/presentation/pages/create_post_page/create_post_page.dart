@@ -42,6 +42,16 @@ class _CreatePostPageState extends State<CreatePostPage> {
     }
   }
 
+  Future<void> _addImages() async {
+    final List<XFile> selectedImages = await _picker.pickMultiImage();
+
+    if (selectedImages.isNotEmpty) {
+      setState(() {
+        images.addAll(selectedImages);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BasePage(

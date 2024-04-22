@@ -17,7 +17,7 @@ class ContactsCard extends StatelessWidget {
     return Container(
       margin: margin,
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primaryContainer,
+        color: Theme.of(context).cardTheme.color,
         borderRadius: BorderRadius.zero,
       ),
       child: child,

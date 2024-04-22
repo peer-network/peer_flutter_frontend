@@ -188,7 +188,9 @@ class ChooseImageAspectRatioButton extends StatelessWidget {
       text: getImageAspectRatioName(imageAspectRatio),
       onPressed: () => onPressed(imageAspectRatio),
       isFilled: isActive,
-      backgroundColor: CustomColors.primaryColor,
+      backgroundColor: Theme.of(context).brightness == Brightness.light
+          ? LightColors.backgroundContainer
+          : DarkColors.backgroundContainer,
     );
   }
 }

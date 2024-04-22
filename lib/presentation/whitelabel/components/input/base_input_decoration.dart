@@ -17,10 +17,13 @@ class BaseInputDecoration {
       ),
       border: OutlineInputBorder(
         borderRadius: AppBorders.defaultRadius,
-        borderSide: const BorderSide(color: LightColors.activeBorder),
+        borderSide: BorderSide(
+            color: LightColors
+                .activeBorder), //TODO: no access to context -> not theme
       ),
 
       suffixIcon: suffixIcon, // Allows for optional customization
     );
   }
 }
+// 
