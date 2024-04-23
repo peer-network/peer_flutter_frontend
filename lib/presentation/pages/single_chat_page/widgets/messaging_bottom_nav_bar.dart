@@ -11,9 +11,8 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:provider/provider.dart';
 
 class MessagingBottomNavBar extends StatefulWidget {
-  final ChatModel? chat; // Field to hold ChatModel
+  final ChatModel? chat;
 
-  // Update the named constructor to accept the ChatModel
   const MessagingBottomNavBar.messagingBottomNavBar({Key? key, this.chat})
       : super(key: key);
 
@@ -75,7 +74,8 @@ class _MessagingBottomNavBarState extends State<MessagingBottomNavBar> {
   void sendTextMessage() {
     final chatProvider = Provider.of<ChatProvider>(context, listen: false);
     final creatorId = chatProvider.currentUserId;
-    final chatId = widget.chat!.id; // Does the Null needs to be handled here?
+    // TODO: Does the Null needs to be handled here?
+    final chatId = widget.chat!.id;
     chatProvider.createChatMessage(
       {"content": _controller.text, "chatId": chatId, "senderId": creatorId},
     ).then((_) {

@@ -11,12 +11,11 @@ class ChatProvider with ChangeNotifier {
   final List<ChatModel> _chats = [];
   bool isLoading = false;
   String? error;
-  final String currentUserId; // Added to store the current user's ID
+  final String currentUserId;
 
   List<ChatModel> get chats => _chats;
 
   ChatProvider(this.currentUserId) {
-    // Updated constructor
     fetchChats();
   }
 
