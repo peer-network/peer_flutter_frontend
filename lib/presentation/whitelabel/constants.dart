@@ -12,6 +12,8 @@ class AppDuration {
 }
 
 class AppBorders {
+  static BorderRadius creditsSourceBarRadius = BorderRadius.circular(8.0);
+  static BorderRadius dragHandleRadius = BorderRadius.circular(3);
   static BorderRadius defaultRadius = BorderRadius.circular(20.0);
   static BorderRadius noRadius = BorderRadius.zero;
 }
@@ -64,6 +66,8 @@ class AppDimensions {
   static const double createPostEmptyImageHeight = 144;
   static const double textInputCornerRaidus = 30.0;
   static const double chatBubbleRadius = 20.0;
+
+  static const double dragHandleHeight = 6.0;
 }
 
 // aspect ratios

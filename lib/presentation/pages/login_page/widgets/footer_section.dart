@@ -13,12 +13,14 @@ class FooterSectionLogin extends StatelessWidget {
         LinkButtonComponent(
             text: "forgot password?",
             onPressed: () {},
-            textColor: CustomColors.secondaryTextColor),
+            textColor: Theme.of(context).brightness == Brightness.light
+                ? LightColors.textBrightSubtle
+                : DarkColors.textBrightSubtle),
         const SizedBox(height: AppPaddings.medium),
         LinkButtonComponent(
             text: "The PEER principle",
             onPressed: () {},
-            textColor: CustomColors.secondaryTextColor)
+            textColor: Theme.of(context).colorScheme.tertiary)
       ],
     );
   }

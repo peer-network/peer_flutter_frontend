@@ -30,6 +30,9 @@ enum IconLibrary {
   view,
   heart,
   forward,
+  close,
+  trash,
+  edit,
 }
 
 extension IconExtension on IconLibrary {
@@ -93,6 +96,12 @@ extension IconExtension on IconLibrary {
         return const AssetImage("assets/icons/heart.png");
       case IconLibrary.forward:
         return const AssetImage("assets/icons/forward.png");
+      case IconLibrary.close:
+        return const AssetImage("assets/icons/close.png");
+      case IconLibrary.trash:
+        return const AssetImage("assets/icons/trash.png");
+      case IconLibrary.edit:
+        return const AssetImage("assets/icons/edit.png");
 
       default:
         throw Exception("Icon not found");

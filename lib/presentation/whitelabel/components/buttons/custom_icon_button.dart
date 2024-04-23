@@ -20,6 +20,7 @@ class CustomIconButton extends StatelessWidget {
     return InkWell(
       onTap: onPressed,
       child: Image(
+        color: color,
         image: icon.icon,
         width: sizeType.iconSize(context),
         height: sizeType.iconSize(context),

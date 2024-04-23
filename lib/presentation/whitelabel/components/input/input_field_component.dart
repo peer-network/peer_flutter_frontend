@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class InputFieldComponent extends StatelessWidget {
@@ -47,33 +46,38 @@ class InputFieldComponent extends StatelessWidget {
           minLines: obscureText == true ? 1 : minLines,
           maxLines: obscureText == true ? 1 : maxLines,
           validator: validator,
-          cursorColor: CustomColors.primaryTextColor,
           onFieldSubmitted: onFieldSubmitted,
+          cursorColor: Theme.of(context).textSelectionTheme.cursorColor,
           decoration: InputDecoration(
+            filled: true,
+            fillColor: Theme.of(context).inputDecorationTheme.fillColor,
             hintText: hintText,
-
             labelText: labelText,
-            labelStyle: const TextStyle(color: CustomColors.primaryTextColor),
+            labelStyle: Theme.of(context).inputDecorationTheme.labelStyle,
+            floatingLabelStyle:
+                Theme.of(context).inputDecorationTheme.floatingLabelStyle,
             alignLabelWithHint: true,
             // floatingLabelBehavior: FloatingLabelBehavior,
             errorBorder: OutlineInputBorder(
-              borderSide: const BorderSide(
-                  color: CustomColors.errorBorderColor, width: 1.0),
+              borderSide: Theme.of(context)
+                  .inputDecorationTheme
+                  .errorBorder!
+                  .borderSide,
               borderRadius: AppBorders.defaultRadius,
             ),
+            disabledBorder:
+                Theme.of(context).inputDecorationTheme.disabledBorder,
             focusedErrorBorder: OutlineInputBorder(
-              borderSide: const BorderSide(
-                  color: CustomColors.errorBorderColor, width: 1.0),
-              borderRadius: AppBorders.defaultRadius,
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(
-                  color: CustomColors.activeBorderColor, width: 1.0),
-              borderRadius: AppBorders.defaultRadius,
-            ),
+                borderSide: Theme.of(context)
+                    .inputDecorationTheme
+                    .errorBorder!
+                    .borderSide),
+            focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
             enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(
-                  width: 1.0, color: CustomColors.inactiveBorderColor),
+              borderSide: Theme.of(context)
+                  .inputDecorationTheme
+                  .enabledBorder!
+                  .borderSide,
               borderRadius: AppBorders.defaultRadius,
             ),
             contentPadding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
@@ -85,7 +89,7 @@ class InputFieldComponent extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 8.0, left: 10),
                 child: Text(footnoteText!,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          color: CustomColors.errorTextColor,
+                          color: Theme.of(context).colorScheme.onError,
                         )),
               )
             : const SizedBox(height: 0),

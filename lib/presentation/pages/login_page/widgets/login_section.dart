@@ -76,7 +76,11 @@ class _LoginSectionState extends State<LoginSection> {
             SizedBox(
               width: double.infinity,
               child: PrimaryButton(
+                isFilled: true,
+                backgroundColor:
+                    Theme.of(context).buttonTheme.colorScheme!.outline,
                 text: 'Login',
+                textColor: Theme.of(context).colorScheme.secondary,
                 onPressed: () {
                   final authProvider =
                       Provider.of<AuthProvider>(context, listen: false);
@@ -100,6 +104,7 @@ class _LoginSectionState extends State<LoginSection> {
             const SizedBox(height: AppPaddings.large),
             LinkButtonComponent(
               text: 'Register',
+              textColor: Theme.of(context).colorScheme.tertiary,
               onPressed: () {
                 Navigator.of(context).push(RegistrationPageRoute());
               },

@@ -42,9 +42,7 @@ class _SecondaryAppbarState extends State<SecondaryAppbar> {
               : Container(),
           Text(
             widget.title,
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  color: CustomColors.primaryTextColor,
-                ),
+            style: Theme.of(context).textTheme.headlineMedium,
             overflow: TextOverflow.ellipsis,
           ),
         ],
@@ -59,7 +57,7 @@ class _SecondaryAppbarState extends State<SecondaryAppbar> {
             alignment: Alignment.centerLeft,
             child: Text(
               'Zurück',
-              style: headlineSmallTextStyle(CustomColors.primaryTextColor),
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
           ),
         ),

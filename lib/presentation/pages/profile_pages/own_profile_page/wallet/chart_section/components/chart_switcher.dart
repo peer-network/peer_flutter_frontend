@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/exchange_rate.dart';
@@ -57,7 +58,7 @@ class _ChartSwitcherState extends State<ChartSwitcher> {
               onTap: () => changePage(index),
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
-                margin: const EdgeInsets.all(4.0),
+                margin: const EdgeInsets.all(AppPaddings.tiny),
                 height: 8,
                 width: 8,
                 decoration: BoxDecoration(

@@ -38,11 +38,25 @@ class WalletScrollSheet extends StatelessWidget {
                 },
                 child: Container(
                   decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Theme.of(context).brightness == Brightness.light
+                            ? LightColors.fadeDark
+                            : DarkColors.fadeDark,
+                        Theme.of(context).brightness == Brightness.light
+                            ? LightColors.fadeBright
+                            : DarkColors.fadeBright,
+                      ],
+                    ),
                     borderRadius: BorderRadius.only(
                       topLeft: AppBorders.defaultRadius.topLeft,
                       topRight: AppBorders.defaultRadius.topRight,
                     ),
-                    color: CustomColors.primaryColor,
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? LightColors.textCompany
+                        : DarkColors.textCompany,
                   ),
                   child: CustomScrollView(
                     controller: scrollController,

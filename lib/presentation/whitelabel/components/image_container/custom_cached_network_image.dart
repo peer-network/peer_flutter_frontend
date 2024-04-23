@@ -17,9 +17,8 @@ class CustomCachedNetworkImage extends StatelessWidget {
       return Container(
         width: width,
         height: height,
-        decoration: const BoxDecoration(
-          color: CustomColors.backgroundCardColor,
-        ),
+        decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.primaryContainer),
       );
     }
     return CachedNetworkImage(
@@ -33,19 +32,18 @@ class CustomCachedNetworkImage extends StatelessWidget {
         ),
       ),
       placeholder: (context, url) => Container(
-        width: width,
-        height: height,
-        color: CustomColors.backgroundCardColor,
-      ),
+          width: width,
+          height: height,
+          color: Theme.of(context).colorScheme.primaryContainer),
       errorWidget: (context, url, error) => Container(
         width: width,
         height: height,
-        decoration: const BoxDecoration(
-          color: CustomColors.backgroundCardColor,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.primaryContainer,
         ),
-        child: const Icon(
+        child: Icon(
           Icons.error,
-          color: CustomColors.errorTextColor,
+          color: Theme.of(context).colorScheme.onError,
           size: AppDimensions.iconSizeMedium,
         ),
       ),

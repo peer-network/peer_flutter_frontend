@@ -9,8 +9,6 @@ class UserService {
   static final UserService _instance = UserService._internal();
 
   final List<UserModel> _users = [];
-  final DioClient _dioClient = DioClient();
-  String? error;
 
   // Private constructor
   factory UserService() {
@@ -38,7 +36,6 @@ class UserService {
       await Future.delayed(const Duration(seconds: 1));
       return true;
     } catch (e, s) {
-      error = e.toString();
       CustomException(e.toString(), s).handleError();
       return false;
     }
@@ -55,7 +52,6 @@ class UserService {
       _users.add(user);
       return user;
     } catch (e, s) {
-      error = e.toString();
       CustomException(e.toString(), s).handleError();
       return null;
     }

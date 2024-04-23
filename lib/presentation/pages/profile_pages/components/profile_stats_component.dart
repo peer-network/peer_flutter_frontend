@@ -18,11 +18,7 @@ class ProfileStatsComponent extends StatelessWidget {
           children: [
             Text(user.amountOfFollowers.toString(),
                 style: Theme.of(context).textTheme.titleLarge),
-            Text('Followers',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
-                    .copyWith(color: CustomColors.secondaryTextColor)),
+            Text('Followers', style: Theme.of(context).textTheme.titleLarge),
           ],
         ),
         // Following
@@ -31,11 +27,7 @@ class ProfileStatsComponent extends StatelessWidget {
           children: [
             Text(user.amountOfFollowers.toString(),
                 style: Theme.of(context).textTheme.titleLarge),
-            Text('Following',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
-                    .copyWith(color: CustomColors.secondaryTextColor)),
+            Text('Following', style: Theme.of(context).textTheme.titleLarge),
           ],
         ),
         // Posts
@@ -44,11 +36,7 @@ class ProfileStatsComponent extends StatelessWidget {
           children: [
             Text(user.amountOfPosts.toString(),
                 style: Theme.of(context).textTheme.titleLarge),
-            Text('Posts',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
-                    .copyWith(color: CustomColors.secondaryTextColor)),
+            Text('Posts', style: Theme.of(context).textTheme.titleLarge),
           ],
         ),
       ],

@@ -22,7 +22,7 @@ class ChartSection extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .displaySmall!
-                  .copyWith(color: CustomColors.lightTextColor)),
+                  .copyWith(color: Theme.of(context).colorScheme.secondary)),
         ),
       ],
     );

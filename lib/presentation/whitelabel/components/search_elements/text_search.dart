@@ -14,21 +14,20 @@ class SearchField extends StatelessWidget {
       width: double.infinity,
       child: Expanded(
         child: TextField(
-          controller: controller,
           decoration: InputDecoration(
             hintText: 'Suchen ...',
             suffixIcon: const Icon(Icons.search),
             border: OutlineInputBorder(
-              borderRadius: AppBorders.defaultRadius,
-              borderSide: const BorderSide(color: CustomColors.primaryColor),
-            ),
+                borderRadius: AppBorders.defaultRadius,
+                borderSide:
+                    Theme.of(context).inputDecorationTheme.outlineBorder!),
             alignLabelWithHint: true,
             contentPadding: const EdgeInsets.fromLTRB(
               AppPaddings.medium,
               AppPaddings.tiny,
               AppPaddings.small,
               AppPaddings.tiny,
-            ),
+            ), // Adjust padding to center the text and icon
           ),
         ),
       ),

@@ -39,6 +39,16 @@ class _RegisterSectionState extends State<RegisterSection> {
   }
 
   @override
+  void dispose() {
+    usernameController.dispose();
+    emailController.dispose();
+    emailConfirmController.dispose();
+    passwordController.dispose();
+    passwordConfirmController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
@@ -120,7 +130,7 @@ class _RegisterSectionState extends State<RegisterSection> {
             const SizedBox(height: 20),
             LinkButtonComponent(
               text: 'Login',
-              onPressed: () {},
+              onPressed: () => Navigator.of(context).push(LoginPageRoute()),
             ),
           ],
         ),

@@ -39,9 +39,7 @@ class _ChatContactsSearchBarState extends State<ChatContactsSearchBar> {
           Expanded(
             child: Text(
               'neue Nachricht',
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: CustomColors.primaryColor,
-                  ),
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(),
             ),
           ),
           // TODO: Reimplement

@@ -3,6 +3,7 @@ import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/text_constants.dart';
 
+//TODO: no access to context -> no dynamic theme
 class CustomToast {
   // show success toast
   static void showSuccessToast(String message) {
@@ -11,9 +12,9 @@ class CustomToast {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: AppDuration.toastDuration,
-        backgroundColor: CustomColors.successBorderColor,
-        textColor: CustomColors.primaryTextColor,
-        fontSize: bodyLargeTextStyle(CustomColors.primaryColor).fontSize);
+        backgroundColor: LightColors.textBrightSubtle,
+        textColor: LightColors.textDark,
+        fontSize: bodyLargeTextStyle(LightColors.textCompany).fontSize);
   }
 
   // show error toast
@@ -23,8 +24,8 @@ class CustomToast {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: AppDuration.toastDuration,
-        backgroundColor: CustomColors.errorBorderColor,
-        textColor: CustomColors.primaryTextColor,
-        fontSize: bodyLargeTextStyle(CustomColors.primaryColor).fontSize);
+        backgroundColor: LightColors.textError,
+        textColor: LightColors.textDark,
+        fontSize: bodyLargeTextStyle(LightColors.textCompany).fontSize);
   }
 }
