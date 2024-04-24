@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
-import 'package:peer_app/presentation/whitelabel/text_constants.dart';
+import 'package:peer_app/presentation/whitelabel/text_themes.dart';
 
+final textTheme = TextTheme(
+  displayLarge: displayLargeTextStyle,
+  headlineLarge: headlineLargeTextStyle,
+  headlineMedium: headlineMediumTextStyle,
+  headlineSmall: headlineSmallTextStyle,
+  titleLarge: titleLargeTextStyle,
+  titleMedium: titleMediumTextStyle,
+  titleSmall: titleSmallTextStyle,
+  bodyLarge: bodyLargeTextStyle,
+  bodyMedium: bodyMediumTextStyle,
+  bodySmall: bodySmallTextStyle,
+  labelLarge: labelLargeTextStyle,
+  labelSmall: labelSmallTextStyle,
+);
 ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     buttonTheme: const ButtonThemeData(
@@ -10,21 +24,7 @@ ThemeData lightTheme = ThemeData(
             outline: LightColors.activeBorder,
             outlineVariant: LightColors.borderDisabled)),
     dividerColor: LightColors.divider,
-    textTheme: TextTheme(
-      displayLarge: displayLargeTextStyle(LightColors.textPrimary),
-      displayMedium: displayMediumTextStyle(LightColors.textPrimary),
-      displaySmall: displaySmallTextStyle(LightColors.textPrimary),
-      headlineMedium: headlineMediumTextStyle(LightColors.textPrimary),
-      headlineSmall: headlineSmallTextStyle(LightColors.textPrimary),
-      titleLarge: titleLargeTextStyle(LightColors.textPrimary),
-      titleMedium: titleMediumTextStyle(LightColors.textPrimary),
-      titleSmall: titleSmallTextStyle(LightColors.textPrimary),
-      bodyLarge: bodyLargeTextStyle(LightColors.textPrimary),
-      bodyMedium: bodyMediumTextStyle(LightColors.textPrimary),
-      bodySmall: bodySmallTextStyle(LightColors.textPrimary),
-      labelLarge: labelLargeTextStyle(LightColors.textPrimary),
-      labelSmall: labelSmallTextStyle(LightColors.textPrimary),
-    ),
+    textTheme: textTheme,
     cardTheme: CardTheme(
       color: LightColors.backgroundContainer,
       elevation: 0,
@@ -52,7 +52,8 @@ ThemeData lightTheme = ThemeData(
         errorBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: LightColors.errorBorder),
             borderRadius: AppBorders.defaultRadius),
-        errorStyle: labelSmallTextStyle(LightColors.textError)),
+        // errorStyle: labelSmallTextStyle(LightColors.textError)),
+        errorStyle: labelSmallTextStyle.copyWith(color: LightColors.textError)),
     primaryIconTheme: const IconThemeData(
         color: LightColors.iconDarkPrimary, size: AppDimensions.iconSizeLarge),
     iconTheme: const IconThemeData(
@@ -80,21 +81,7 @@ ThemeData darkTheme = ThemeData(
             outline: DarkColors.activeBorder,
             outlineVariant: DarkColors.borderDisabled)),
     dividerColor: DarkColors.divider,
-    textTheme: TextTheme(
-      displayLarge: displayLargeTextStyle(DarkColors.textPrimary),
-      displayMedium: displayMediumTextStyle(DarkColors.textPrimary),
-      displaySmall: displaySmallTextStyle(DarkColors.textPrimary),
-      headlineMedium: headlineMediumTextStyle(DarkColors.textPrimary),
-      headlineSmall: headlineSmallTextStyle(DarkColors.textPrimary),
-      titleLarge: titleLargeTextStyle(DarkColors.textPrimary),
-      titleMedium: titleMediumTextStyle(DarkColors.textPrimary),
-      titleSmall: titleSmallTextStyle(DarkColors.textPrimary),
-      bodyLarge: bodyLargeTextStyle(DarkColors.textPrimary),
-      bodyMedium: bodyMediumTextStyle(DarkColors.textPrimary),
-      bodySmall: bodySmallTextStyle(DarkColors.textPrimary),
-      labelLarge: labelLargeTextStyle(DarkColors.textPrimary),
-      labelSmall: labelSmallTextStyle(DarkColors.textPrimary),
-    ),
+    textTheme: textTheme,
     cardTheme: CardTheme(
       color: DarkColors.backgroundContainer,
       elevation: 0,
@@ -122,7 +109,7 @@ ThemeData darkTheme = ThemeData(
         errorBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: DarkColors.errorBorder),
             borderRadius: AppBorders.defaultRadius),
-        errorStyle: labelSmallTextStyle(DarkColors.textError)),
+        errorStyle: labelSmallTextStyle.copyWith(color: DarkColors.textError)),
     primaryIconTheme: const IconThemeData(
         color: DarkColors.iconDarkPrimary, size: AppDimensions.iconSizeLarge),
     iconTheme: const IconThemeData(

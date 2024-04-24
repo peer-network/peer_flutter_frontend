@@ -21,7 +21,7 @@ class ChartSection extends StatelessWidget {
           child: Text('Woher kommen deine Credits?',
               style: Theme.of(context)
                   .textTheme
-                  .displaySmall!
+                  .headlineLarge!
                   .copyWith(color: Theme.of(context).colorScheme.secondary)),
         ),
       ],
