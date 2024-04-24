@@ -21,18 +21,6 @@ TextStyle displayLargeTextStyle = const TextStyle(
   fontWeight: FontWeight.w600,
 );
 
-// TextStyle headlineLargeTextStyle = const TextStyle(
-//       fontSize: _fontSizeheadlineLarge,
-//       fontWeight: FontWeight.w600,
-//
-//     );
-
-// TextStyle headlineLargeTextStyle = const TextStyle(
-//       fontSize: _fontSizeheadlineLarge,
-//       fontWeight: FontWeight.w500,
-//
-//     );
-
 TextStyle headlineLargeTextStyle = const TextStyle(
   fontSize: _fontSizeHeadlineLarge,
   fontWeight: FontWeight.w600,
