@@ -20,7 +20,7 @@ class BaseModal extends StatelessWidget {
             const SizedBox(
               width: AppDimensions.modalControllerWidth,
               child: Divider(
-                color: CustomColors.inactiveBorderColor,
+                // No need for color definition (now over Theme)
                 thickness: AppDimensions.modalControllerHeight,
               ),
             ),

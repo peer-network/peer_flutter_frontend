@@ -41,24 +41,29 @@ class _ShareToListedContactsViewState extends State<ShareToListedContactsView> {
       if (filteredContacts.isEmpty) {
         displayText = "No contacts selected";
         contactWidgets.add(Text(displayText,
-            style: Theme.of(context)
-                .textTheme
-                .titleLarge!
-                .copyWith(color: CustomColors.primaryTextColor)));
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Theme.of(context).brightness == Brightness.light
+                    ? LightColors.textPrimary
+                    : DarkColors.textPrimary)));
       } else {
         for (int i = 0; i < filteredContacts.length; i++) {
           if (i < 2 || _showAllContacts) {
             contactWidgets.add(Text(filteredContacts[i].contact.name,
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
-                    .copyWith(color: CustomColors.primaryTextColor)));
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? LightColors.textPrimary
+                        : DarkColors.textPrimary)));
             if (i < filteredContacts.length - 1) {
               contactWidgets.add(Text(", ",
                   style: Theme.of(context)
                       .textTheme
                       .titleLarge!
-                      .copyWith(color: CustomColors.primaryTextColor)));
+                      // .copyWith(color: CustomColors.primaryTextColor)));
+                      .copyWith(
+                          color:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? LightColors.textPrimary
+                                  : DarkColors.textPrimary)));
             }
           }
         }
@@ -71,7 +76,9 @@ class _ShareToListedContactsViewState extends State<ShareToListedContactsView> {
               child: Text(
                 "+$additionalContacts",
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: CustomColors.primaryTextColor,
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? LightColors.textPrimary
+                        : DarkColors.textPrimary,
                     decoration: TextDecoration.underline),
               ),
             ),

@@ -39,7 +39,9 @@ class FeedActionsComponent extends StatelessWidget {
             },
             sizeType: SizeType.medium,
             icon: IconLibrary.share,
-            color: CustomColors.primaryColor,
+            color: Theme.of(context).brightness == Brightness.light
+                ? LightColors.iconBrightPrimary
+                : DarkColors.iconDarkPrimary,
           ),
           const Spacer(),
           Text(FormattedDate(feed.createdAt).getFormattedDate(),

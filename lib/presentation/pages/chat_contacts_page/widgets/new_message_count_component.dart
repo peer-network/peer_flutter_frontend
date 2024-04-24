@@ -33,15 +33,28 @@ class NewMessageCountComponent extends StatelessWidget {
       width: AppDimensions
           .notificationIndicatorCicleSize, // Keep the circle size constant
       height: AppDimensions.notificationIndicatorCicleSize,
-      decoration: const BoxDecoration(
-        color: CustomColors.primaryColor,
+      // decoration: BoxDecoration(
+      //   // color: CustomColors.primaryColor,
+      //   color: Theme.of(context).colorScheme.primary,
+      //   shape: BoxShape.circle,
+      // ),
+      decoration: BoxDecoration(
+        color: Theme.of(context).brightness == Brightness.light
+            ? LightColors.backgroundContainer
+            : DarkColors.backgroundContainer,
         shape: BoxShape.circle,
       ),
       alignment: Alignment.center,
       child: Text(
         displayText,
+        // style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+        //       color: CustomColors.lightTextColor,
+        //       fontSize: fontSize,
+        //     ),
         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-              color: CustomColors.lightTextColor,
+              color: Theme.of(context).brightness == Brightness.light
+                  ? LightColors.textDarkSubtle
+                  : DarkColors.textDarkSubtle,
               fontSize: fontSize,
             ),
         textAlign: TextAlign.center,

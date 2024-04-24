@@ -28,8 +28,11 @@ class SharePostContactCardComponent extends StatelessWidget {
         .textTheme
         .titleLarge!
         .copyWith(
-          backgroundColor: CustomColors.searchHighlightColor, // Highlight style
-          color: CustomColors.primaryTextColor,
+          // TODO: Make the matching text black and the other text grey (THIS IS JUST A PLACEHOLDER)
+          backgroundColor: LightColors.iconBtc, // Highlight color for search
+          color: Theme.of(context).brightness == Brightness.light
+              ? LightColors.textPrimary
+              : DarkColors.textPrimary,
         );
 
     final TextStyle normalStyle = Theme.of(context).textTheme.titleLarge!;
@@ -93,7 +96,12 @@ class SharePostContactCardComponent extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: AppPaddings.small),
-              const Divider(height: 2, color: CustomColors.cardBorderColor),
+              // const Divider(height: 2, color: CustomColors.cardBorderColor),
+              Divider(
+                  height: 2,
+                  color: Theme.of(context).brightness == Brightness.light
+                      ? LightColors.divider
+                      : DarkColors.divider),
             ],
           ),
         ),

@@ -17,9 +17,16 @@ class ChatBubble extends StatelessWidget {
         isSender ? Alignment.centerRight : Alignment.centerLeft;
 
     Color bubbleColor = isSender
-        ? CustomColors.primaryChatBubbleColor
-        : CustomColors.secondaryChatBubbleColor;
-    Color textColor = CustomColors.primaryTextColor;
+        ? (Theme.of(context).brightness == Brightness.light
+            ? LightColors.ownChatBubble // Light theme color for sender
+            : DarkColors.ownChatBubble) // Dark theme color for sender
+        : (Theme.of(context).brightness == Brightness.light
+            ? LightColors.theirChatBubble // Light theme color for receiver
+            : DarkColors.theirChatBubble); // Dark theme color for receiver
+
+    Color textColor = Theme.of(context).brightness == Brightness.light
+        ? LightColors.textDarkSubtle
+        : DarkColors.textDarkSubtle;
 
     return Align(
       alignment: alignment,
@@ -62,7 +69,9 @@ class ChatBubble extends StatelessWidget {
                 FormattedDate(chatData.createdAt)
                     .getFormattedDate(formatType: DateFormatType.onlyTime),
                 style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                      color: CustomColors.secondaryTextColor,
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? LightColors.textDarkSubtle
+                          : DarkColors.textDarkSubtle,
                     )),
           ],
         ),

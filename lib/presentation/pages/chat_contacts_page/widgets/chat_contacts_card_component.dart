@@ -55,8 +55,13 @@ class ChatContactCardComponent extends StatelessWidget {
                               : "No messages",
                           style: Theme.of(context)
                               .textTheme
-                              .bodyLarge!
-                              .copyWith(color: CustomColors.secondaryTextColor),
+                              .bodySmall!
+                              // .copyWith(color: CustomColors.secondaryTextColor),
+                              .copyWith(
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? LightColors.textDarkSubtle
+                                      : DarkColors.textDarkSubtle),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -80,9 +85,13 @@ class ChatContactCardComponent extends StatelessWidget {
                                       formatType: DateFormatType.numbers),
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyLarge!
+                                  .bodySmall!
                                   .copyWith(
-                                      color: CustomColors.secondaryTextColor),
+                                    color: Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? LightColors.textDarkSubtle
+                                        : DarkColors.textDarkSubtle,
+                                  ),
                             )
                           : Container(),
                     ),
@@ -109,7 +118,6 @@ class ChatContactCardComponent extends StatelessWidget {
             const SizedBox(height: AppPaddings.small),
             const Divider(
               height: 2,
-              color: CustomColors.cardBorderColor,
             )
           ],
         ),

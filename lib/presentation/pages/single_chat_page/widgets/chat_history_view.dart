@@ -41,10 +41,11 @@ class ChatHistoryView extends StatelessWidget {
               child: Text(
                 FormattedDate(chatMessage.createdAt)
                     .getFormattedDate(formatType: DateFormatType.noTime),
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyLarge!
-                    .copyWith(color: CustomColors.secondaryTextColor),
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? LightColors.textDarkSubtle
+                          : DarkColors.textDarkSubtle,
+                    ),
               ),
             ),
           ),

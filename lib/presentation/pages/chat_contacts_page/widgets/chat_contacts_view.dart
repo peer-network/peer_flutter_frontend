@@ -31,7 +31,10 @@ class ChatContactsView extends StatelessWidget {
         height: MediaQuery.of(context).size.height -
             kToolbarHeight -
             kBottomNavigationBarHeight,
-        color: CustomColors.backgroundColor,
+        // color: CustomColors.backgroundColor,
+        color: Theme.of(context).brightness == Brightness.light
+            ? LightColors.backgroundContainer
+            : DarkColors.backgroundContainer,
         child: ListView.builder(
           // physics: const NeverScrollableScrollPhysics(),
           itemCount: chatsProvider.chats.length,
