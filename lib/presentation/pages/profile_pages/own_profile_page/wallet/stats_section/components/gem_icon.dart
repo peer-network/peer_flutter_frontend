@@ -9,12 +9,13 @@ class GemIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: const BoxDecoration(
-            color: CustomColors.backgroundCardColor, shape: BoxShape.circle),
+        decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.secondary,
+            shape: BoxShape.circle),
         child: Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(AppPaddings.medium),
             child: Padding(
-                padding: const EdgeInsets.only(top: 8.0),
+                padding: const EdgeInsets.only(top: AppPaddings.small),
                 child: Image(
                     width: AppDimensions.avatarSize +
                         MediaQuery.of(context).size.width * 0.015,

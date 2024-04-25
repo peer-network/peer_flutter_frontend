@@ -48,7 +48,6 @@ class NewsFeedProvider with ChangeNotifier {
 
     try {
       QueryResult<Object?> queryResult = await gqlClient.query(queryOption);
-      print(queryResult);
 
       if (queryResult.hasException) {
         error = queryResult.exception.toString();

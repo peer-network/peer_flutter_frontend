@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
@@ -18,43 +19,42 @@ class TokenStats extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .bodySmall!
-                .copyWith(color: CustomColors.lightTextColor)),
+                .copyWith(color: Theme.of(context).colorScheme.secondary)),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5.0),
+          padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
           child: Text('Credits in deiner Wallet',
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge!
-                  .copyWith(color: CustomColors.lightTextColor)),
+                  .copyWith(color: Theme.of(context).colorScheme.secondary)),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5.0),
+          padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
           child: Text(
               walletSheetProvider.formatDigits(
                   walletSheetProvider.wallet.creditsCollectedToday),
               style: Theme.of(context)
                   .textTheme
-                  .bodySmall
-                  ?.copyWith(color: CustomColors.lightTextColor)),
+                  .bodySmall!
+                  .copyWith(color: Theme.of(context).colorScheme.secondary)),
         ),
         Text('Credits heute gesammelt',
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge!
-                .copyWith(color: CustomColors.lightTextColor)),
+                .copyWith(color: Theme.of(context).colorScheme.secondary)),
         Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5.0),
-            child: Text(
-                '${walletSheetProvider.wallet.percentageOfTotalTokens}%',
+            padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
+            child: Text("gibt's gerade net",
                 style: Theme.of(context)
                     .textTheme
-                    .bodySmall
-                    ?.copyWith(color: CustomColors.lightTextColor))),
+                    .bodySmall!
+                    .copyWith(color: Theme.of(context).colorScheme.secondary))),
         Text('aller tokens gehören dir',
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge!
-                .copyWith(color: CustomColors.lightTextColor)),
+                .copyWith(color: Theme.of(context).colorScheme.secondary)),
       ],
     );
   }

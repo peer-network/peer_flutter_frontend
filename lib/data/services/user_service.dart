@@ -8,7 +8,6 @@ class UserService {
   static final UserService _instance = UserService._internal();
 
   final List<UserModel> _users = [];
-  final DioClient _dioClient = DioClient();
 
   // Private constructor
   factory UserService() {

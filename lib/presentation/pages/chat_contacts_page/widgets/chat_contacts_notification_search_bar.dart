@@ -16,10 +16,9 @@ class _NotificationAndSearchState extends State<NotificationAndSearchBar> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Expanded(
-          child: Text('neue Nachricht',
-              style: TextStyle(color: CustomColors.primaryColor)),
-        ),
+        Expanded(
+            child: Text('neue Nachricht',
+                style: Theme.of(context).textTheme.titleLarge)),
         Expanded(
             child: SearchElementContainer(searchElement: const SearchBubble())),
       ],

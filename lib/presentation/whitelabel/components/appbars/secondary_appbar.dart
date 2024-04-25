@@ -28,7 +28,7 @@ class _SecondaryAppbarState extends State<SecondaryAppbar> {
     return BaseAppbar(
       title: Text(
         widget.title,
-        style: headlineMediumTextStyle(CustomColors.primaryTextColor),
+        style: Theme.of(context).textTheme.headlineMedium,
       ),
       leading: GestureDetector(
         onTap: () {
@@ -40,7 +40,7 @@ class _SecondaryAppbarState extends State<SecondaryAppbar> {
             alignment: Alignment.centerLeft,
             child: Text(
               'Zurück',
-              style: headlineSmallTextStyle(CustomColors.primaryTextColor),
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
           ),
         ),

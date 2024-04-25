@@ -16,6 +16,7 @@ class PrimaryBottomNavbar extends StatelessWidget {
       PrimaryBottomNavbarItem(
         icon: ImageIcon(
           IconLibrary.profile.icon,
+          color: Theme.of(context).primaryIconTheme.color,
           size: AppDimensions.iconSizeLarge,
         ),
         onPressed: () => Navigator.of(context).push(OwnProfilePageRoute()),
@@ -23,6 +24,7 @@ class PrimaryBottomNavbar extends StatelessWidget {
       PrimaryBottomNavbarItem(
         icon: ImageIcon(
           IconLibrary.plusBox.icon,
+          color: Theme.of(context).primaryIconTheme.color,
           size: AppDimensions.iconSizeLarge,
         ),
         onPressed: () {
@@ -40,6 +42,7 @@ class PrimaryBottomNavbar extends StatelessWidget {
       PrimaryBottomNavbarItem(
         icon: ImageIcon(
           IconLibrary.shop.icon,
+          color: Theme.of(context).primaryIconTheme.color,
           size: AppDimensions.iconSizeLarge,
         ),
         onPressed: () {},
@@ -47,6 +50,7 @@ class PrimaryBottomNavbar extends StatelessWidget {
       PrimaryBottomNavbarItem(
         icon: ImageIcon(
           IconLibrary.search.icon,
+          color: Theme.of(context).primaryIconTheme.color,
           size: AppDimensions.iconSizeLarge,
         ),
         onPressed: () {},

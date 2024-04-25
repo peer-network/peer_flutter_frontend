@@ -24,8 +24,9 @@ class GraphQLClientSingleton {
     );
 
     final HttpLink httpLink = HttpLink(
-      'http://${ApiEndpoints.baseUrl}/v1/graphql',
-    );
+      //'http://${ApiEndpoints.baseUrl}/v1/graphql',
+      'http://10.0.2.2:8080/v1/graphql',
+    ); // use when on emulator
 
     print("http://${ApiEndpoints.baseUrl}/v1/graphql");
 

@@ -31,9 +31,9 @@ class _PeerDropdownState extends State<PeerDropdown> {
           )
           .toList(),
       onChanged: widget.onChanged,
-      icon: const Icon(
+      icon: Icon(
         Icons.keyboard_arrow_down_outlined,
-        color: CustomColors.primaryIconColor,
+        color: Theme.of(context).iconTheme.color,
       ),
       dropdownColor: Colors.blueGrey, // dropdownDecoration is not defined
     );

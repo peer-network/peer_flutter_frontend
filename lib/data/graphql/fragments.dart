@@ -32,4 +32,14 @@ class Fragments {
       }
     
   """;
+
+  //TODO: remove unused fields
+  static const String walletFragment = """
+    id
+    created_at
+    updated_at
+    total_credits
+    credits_collected_today
+    user_id
+  """;
 }

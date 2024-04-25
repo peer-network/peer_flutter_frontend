@@ -11,20 +11,22 @@ class DragHandle extends StatelessWidget {
     return Column(children: [
       Container(
         width: width,
-        height: 6,
-        decoration: const BoxDecoration(
-          color: CustomColors.lightTextColor,
-          borderRadius: BorderRadius.all(Radius.circular(3)),
+        height: AppDimensions.dragHandleHeight,
+        decoration: BoxDecoration(
+          color: Theme.of(context).brightness == Brightness.light
+              ? LightColors.iconBright
+              : DarkColors.iconBright,
+          borderRadius: AppBorders.dragHandleRadius,
         ),
-        margin: const EdgeInsets.symmetric(vertical: 8),
+        margin: const EdgeInsets.symmetric(vertical: AppPaddings.small),
       ),
       Align(
           alignment: Alignment.center,
           child: Text('Deine Wallet',
               style: Theme.of(context)
                   .textTheme
-                  .titleLarge
-                  ?.copyWith(color: CustomColors.lightTextColor))),
+                  .titleLarge!
+                  .copyWith(color: Theme.of(context).colorScheme.secondary))),
     ]);
   }
 }
