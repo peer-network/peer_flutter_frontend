@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // Display
 const double _fontSizeDisplayLarge = 26.0;
-const double _fontSizeDisplayMedium = 24.0;
+// const double _fontSizeHeadlineLarge = 24.0;
 const double _fontSizeDisplaySmall = 22.0;
 
 // Headline
@@ -32,22 +32,15 @@ TextStyle displayLargeTextStyle(Color color) => TextStyle(
       color: color,
     );
 
-TextStyle displayMediumTextStyle(Color color) => TextStyle(
-      fontSize: _fontSizeDisplayMedium,
-      fontWeight: FontWeight.bold,
+TextStyle headlineLargeTextStyle(Color color) => TextStyle(
+      fontSize: _fontSizeHeadlineLarge,
+      fontWeight: FontWeight.w600,
       color: color,
     );
 
 TextStyle displaySmallTextStyle(Color color) => TextStyle(
       fontSize: _fontSizeDisplaySmall,
       fontWeight: FontWeight.bold,
-      color: color,
-    );
-
-// Headline
-TextStyle headlineLargeTextStyle(Color color) => TextStyle(
-      fontSize: _fontSizeHeadlineLarge,
-      fontWeight: FontWeight.w700,
       color: color,
     );
 

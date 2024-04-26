@@ -15,7 +15,7 @@ class AccountDevelopment extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: AppPaddings.large),
               child: Text('Entwicklung\ndeines Accounts',
-                  style: Theme.of(context).textTheme.displayMedium!),
+                  style: Theme.of(context).textTheme.headlineLarge!),
             )),
         const SizedBox(height: AppPaddings.medium),
         CustomLineChart()

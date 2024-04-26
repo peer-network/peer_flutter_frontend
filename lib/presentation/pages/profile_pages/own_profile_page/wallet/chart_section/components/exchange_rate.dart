@@ -19,7 +19,7 @@ class ExchangeRate extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: AppPaddings.large),
               child: Text('Der Kurs',
-                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                       color: Theme.of(context).colorScheme.secondary)),
             )),
         const SizedBox(height: AppPaddings.small),
