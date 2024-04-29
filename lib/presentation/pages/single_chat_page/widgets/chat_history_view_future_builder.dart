@@ -5,7 +5,6 @@
 // if data is loaded -> ChatHistoryView
 
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/chat_contact_model.dart';
 import 'package:peer_app/data/models/chat_model.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_builder_repository.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_history_view.dart';

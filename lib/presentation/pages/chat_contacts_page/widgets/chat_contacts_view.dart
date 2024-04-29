@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/provider/chat_contacts_provider.dart';
 import 'package:peer_app/data/provider/chat_provider.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/chat_contacts_card_component.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
