@@ -53,6 +53,8 @@ class UserService {
       return user;
     } catch (e, s) {
       CustomException(e.toString(), s).handleError();
+      print('Output _users: $_users');
+      print('Error in fetchNewUser: $e');
       return null;
     }
   }

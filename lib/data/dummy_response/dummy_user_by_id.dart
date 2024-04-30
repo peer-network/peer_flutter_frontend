@@ -120,3 +120,5 @@ const dummyUserById = {
   "amount_of_following": 200,
   "is_following": true
 };
+
+const dummyUserById2 = [];

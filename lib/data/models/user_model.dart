@@ -1,3 +1,50 @@
+// import 'package:peer_app/data/models/feed_model.dart';
+
+// class UserModel {
+//   final String id;
+//   final String? imageUrl;
+//   final String name;
+//   final String? email;
+//   final bool? verified;
+//   final String? createdAt;
+//   final String? updatedAt;
+//   final String? verificationToken;
+//   // TODO remove hardcode
+//   final String bio =
+//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt fermentum. Nullam nec purus nec nunc tincidunt fermentum.';
+//   final List<FeedModel> posts = [];
+//   final int amountOfPosts = 0;
+//   final int amountOfFollowers = 0;
+//   final bool isFollowing = false;
+//   final bool? isPrivate;
+
+//   UserModel({
+//     required this.id,
+//     required this.name,
+//     required this.email,
+//     required this.verified,
+//     required this.createdAt,
+//     required this.updatedAt,
+//     required this.verificationToken,
+//     this.imageUrl,
+//     required this.isPrivate,
+//   });
+
+//   factory UserModel.fromJson(Map<String, dynamic> json) {
+//     return UserModel(
+//       id: json['id'].toString(),
+//       name: json['name'],
+//       email: json['email'],
+//       verified: json['verified'],
+//       createdAt: json['created_at'],
+//       updatedAt: json['updated_at'],
+//       verificationToken: json['verification_token'],
+//       imageUrl: json['image_url'],
+//       isPrivate: json['is_private'],
+//     );
+//   }
+// }
+
 import 'package:peer_app/data/models/feed_model.dart';
 
 class UserModel {
@@ -15,8 +62,8 @@ class UserModel {
   final List<FeedModel> posts = [];
   final int amountOfPosts = 0;
   final int amountOfFollowers = 0;
-
   final bool isFollowing = false;
+  final bool? isPrivate;
 
   UserModel({
     required this.id,
@@ -27,69 +74,20 @@ class UserModel {
     required this.updatedAt,
     required this.verificationToken,
     this.imageUrl,
+    required this.isPrivate,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       id: json['id'].toString(),
-      name: json['name'],
+      name: json['name'] ?? 'Unknown Name',
       email: json['email'],
-      verified: json['verified'],
+      verified: json['verified'] ?? false,
       createdAt: json['created_at'],
       updatedAt: json['updated_at'],
-      verificationToken: json['verification_token'],
+      verificationToken: json['verification_token'] ?? '',
+      imageUrl: json['image_url'],
+      isPrivate: json['is_private'] ?? false,
     );
   }
 }
-
-
-// class UserModel {
-//   final String id;
-//   final String name;
-//   final String profileImageUrl;
-//   // additional fields
-//   final String? bio;
-//   final int? amountOfPosts;
-//   final int? amountOfFollowers;
-//   final int? amountOfFollowing;
-//   final List<FeedModel> posts;
-//   bool? isFollowing;
-
-//   toogleFollow() {
-//     if (isFollowing == null) {
-//       isFollowing = true;
-//     } else {
-//       isFollowing = !isFollowing!;
-//     }
-//   }
-
-//   UserModel({
-//     required this.id,
-//     required this.name,
-//     required this.profileImageUrl,
-//     this.bio,
-//     this.amountOfPosts,
-//     this.amountOfFollowers,
-//     this.amountOfFollowing,
-//     this.posts = const [],
-//     this.isFollowing,
-//   });
-
-//   factory UserModel.fromJson(Map<String, dynamic> json) {
-//     return UserModel(
-//       id: json['id'],
-//       name: json['name'],
-//       profileImageUrl: json['profile_image_url'],
-//       bio: json['bio'],
-//       amountOfPosts: json['amount_of_posts'],
-//       amountOfFollowers: json['amount_of_followers'],
-//       amountOfFollowing: json['amount_of_following'],
-//       isFollowing: json['is_following'],
-//       posts: json['posts'] != null
-//           ? json['posts']
-//               .map<FeedModel>((post) => FeedModel.fromJson(post))
-//               .toList()
-//           : [],
-//     );
-//   }
-// }

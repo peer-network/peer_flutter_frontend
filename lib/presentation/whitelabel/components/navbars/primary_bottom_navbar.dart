@@ -45,7 +45,9 @@ class PrimaryBottomNavbar extends StatelessWidget {
           color: Theme.of(context).primaryIconTheme.color,
           size: AppDimensions.iconSizeLarge,
         ),
-        onPressed: () {},
+        onPressed: () => Navigator.of(context)
+            // .push(UserProfilePageRoute('c05a6e6e-5365-40ca-b2d5-29af9f1cb1c6')),
+            .push(UserProfilePageRoute('user1')),
       ),
       PrimaryBottomNavbarItem(
         icon: ImageIcon(
