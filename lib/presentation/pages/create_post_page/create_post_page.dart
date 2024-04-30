@@ -74,7 +74,6 @@ class _CreatePostPageState extends State<CreatePostPage> {
           )
         ],
       ),
-      makeScrollable: false,
       child: _buildCreatePostBody(),
     );
   }

@@ -22,7 +22,7 @@ class AvatarComponent extends StatelessWidget {
     }
     return CachedNetworkImage(
         fit: BoxFit.cover,
-        imageUrl: imageUrl!,
+        imageUrl: imageUrl ?? "",
         imageBuilder: (context, imageProvider) => Container(
               width: AppDimensions.avatarSize,
               height: AppDimensions.avatarSize,

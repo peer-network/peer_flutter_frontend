@@ -13,39 +13,41 @@ class RegistrationPage extends StatelessWidget {
     bool isKeyboardVisible = MediaQuery.of(context).viewInsets.bottom != 0;
 
     return BasePage(
-      makeScrollable: false,
-      child: Column(
-        children: [
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                //Logo
-                AnimatedOpacity(
-                  // If keyboard is visible, fade out the widget; otherwise, make it fully visible instantly.
-                  opacity: isKeyboardVisible ? 0.0 : 1.0,
-                  duration: isKeyboardVisible
-                      ? const Duration(milliseconds: 500)
-                      : const Duration(milliseconds: 500),
-                  child: Image.asset(Config.logo, height: Config.logoHeight),
-                ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  //Logo
+                  AnimatedOpacity(
+                    // If keyboard is visible, fade out the widget; otherwise, make it fully visible instantly.
+                    opacity: isKeyboardVisible ? 0.0 : 1.0,
+                    duration: isKeyboardVisible
+                        ? const Duration(milliseconds: 500)
+                        : const Duration(milliseconds: 500),
+                    child: Image.asset(Config.logo, height: Config.logoHeight),
+                  ),
 
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: AppPaddings.large),
-                  child: RegisterSection(),
-                ),
+                  const Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: AppPaddings.large),
+                    child: RegisterSection(),
+                  ),
 
-                //FooterSection
-              ],
+                  //FooterSection
+                ],
+              ),
             ),
-          ),
-          !isKeyboardVisible
-              ? const SizedBox(
-                  height: AppPaddings.extraLarge,
-                  child: FooterSectionRegistrieren(),
-                )
-              : const SizedBox(height: AppPaddings.tiny),
-        ],
+            !isKeyboardVisible
+                ? const SizedBox(
+                    height: AppPaddings.extraLarge,
+                    child: FooterSectionRegistrieren(),
+                  )
+                : const SizedBox(height: AppPaddings.tiny),
+          ],
+        ),
       ),
     );
   }

@@ -29,6 +29,7 @@ enum IconLibrary {
   comment,
   view,
   heart,
+  forward,
   close,
   trash,
   edit,
@@ -93,6 +94,8 @@ extension IconExtension on IconLibrary {
         return const AssetImage("assets/icons/view.png");
       case IconLibrary.heart:
         return const AssetImage("assets/icons/heart.png");
+      case IconLibrary.forward:
+        return const AssetImage("assets/icons/forward.png");
       case IconLibrary.close:
         return const AssetImage("assets/icons/close.png");
       case IconLibrary.trash:

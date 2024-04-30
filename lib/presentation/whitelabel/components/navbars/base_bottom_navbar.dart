@@ -12,7 +12,7 @@ class BaseBottomNavigationBar extends StatelessWidget {
   });
 
   final Widget child;
-  final double height;
+  final double? height;
   final bool adjustForKeyboard;
 
   @override

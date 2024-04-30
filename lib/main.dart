@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:peer_app/data/provider/auth_provider.dart';
+import 'package:peer_app/data/provider/chat_contacts_provider.dart';
 import 'package:peer_app/data/provider/chat_provider.dart';
+import 'package:peer_app/data/provider/contacts_provider.dart';
+// import 'package:peer_app/data/provider/chat_provider.dart'; // ChatProvider is now ChatCpntactsProvider (is assume so)
 import 'package:peer_app/data/provider/news_feed_provider.dart';
 import 'package:peer_app/data/provider/theme_provider.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
@@ -27,7 +30,11 @@ class MainApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => NewsFeedProvider()),
-        ChangeNotifierProvider(create: (_) => ChatProvider()),
+        ChangeNotifierProvider(create: (_) => ChatContactsProvider()),
+        ChangeNotifierProvider(create: (_) => ContactsProvider()),
+        ChangeNotifierProvider(
+            create: (_) => ChatProvider(
+                "c05a6e6e-5365-40ca-b2d5-29af9f1cb1c6")), // Simulating the CurrentUserId
         ChangeNotifierProvider(create: (_) => WalletSheetProvider()),
         ChangeNotifierProvider(create: (_) => ThemeProvider())
       ],

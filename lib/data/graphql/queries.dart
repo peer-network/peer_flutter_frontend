@@ -10,6 +10,55 @@ query Posts(\$offset: Int, \$limit: Int) {
 }
 """);
 
+//   static final chat = gql("""
+// query MyQuery {
+//   peer2_users(where: {id: {_eq: "c05a6e6e-5365-40ca-b2d5-29af9f1cb1c6"}}) {
+//     chat_participants {
+//       chat {
+//         id
+//         image
+//         name
+//         chat_messages {
+//           content
+//           id
+//         }
+//         chat_participants {
+//           user {
+//             id
+//             name
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// """);
+
+  static final chat = gql("""
+query MyQuery {
+  peer2_chats(where: {chat_participants: {user_id: {_eq: "c05a6e6e-5365-40ca-b2d5-29af9f1cb1c6"}}}) {
+    id
+    image
+    name
+    amount_unseen_messages
+    chat_messages {
+      chat_id
+      content
+      id
+      sender_id
+      created_at
+    }
+    chat_participants {
+      user {
+        id
+        name
+      }
+    }
+
+  }
+}
+""");
+
   // erste Zeile: welche Variablen (+ datentyp) brauchst du um zu bekommen was du willst
   // zweite Zeile: was bekommst du zurück (was willst du genau haben aus welchem table)
   static final wallet = gql("""

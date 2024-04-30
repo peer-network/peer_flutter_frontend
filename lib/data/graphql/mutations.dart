@@ -10,4 +10,16 @@ mutation CreatePosts(\$content: String, \$userId: Int) {
    }
 }
   """);
+
+  static final createChatMessage = gql("""
+mutation createChatMessage(\$chatId: uuid!, \$content: String!, \$senderId: uuid!){
+  insert_peer2_chat_messages_one(object: {chat_id: \$chatId, content: \$content, sender_id: \$senderId}) {
+    chat_id
+    content
+    id
+    sender_id
+    created_at
+  }
+}
+  """);
 }

@@ -1,5 +1,5 @@
 class ApiEndpoints {
-  static const String baseUrl = 'localhost:8080';
+  static const String baseUrl = '10.0.2.2:8080'; //'localhost:8080';
 
   // Auth
   static const String login = '/api/token';

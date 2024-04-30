@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/user.dart';
+import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/data/services/user_service.dart';
 import 'package:peer_app/presentation/pages/profile_pages/user_profile_page/user_profile_body.dart';
 import 'package:peer_app/presentation/whitelabel/components/wrapper/generic_future_builder.dart';

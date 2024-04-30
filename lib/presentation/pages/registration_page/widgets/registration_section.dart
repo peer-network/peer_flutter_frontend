@@ -58,7 +58,7 @@ class _RegisterSectionState extends State<RegisterSection> {
             InputFieldComponent(
               controller: usernameController,
               obscureText: false,
-              autofillHints: const [AutofillHints.username],
+              autofillHints: const [AutofillHints.name],
               keyboardType: TextInputType.name,
               textInputAction: TextInputAction.next,
               labelText: 'Username ...',

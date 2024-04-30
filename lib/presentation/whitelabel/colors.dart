@@ -75,6 +75,9 @@ class LightColors {
   // fade colors
   static const Color fadeDark = _primaryDarkBlue; // changes between themes
   static const Color fadeBright = _primaryBlue; // changes between themes
+
+  // curcular notification indicator
+  static const Color notificationIndicator = _primaryBlue;
 }
 
 class DarkColors {
@@ -130,6 +133,9 @@ class DarkColors {
   // fade colors
   static const Color fadeDark = _primaryDarkestBlue; // changes between themes
   static const Color fadeBright = _primaryDarkBlue; // changes between themes
+
+  // curcular notification indicator
+  static const Color notificationIndicator = _primaryBlue;
 }
 
 /* light theme

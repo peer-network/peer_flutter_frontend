@@ -4,6 +4,7 @@ import 'package:peer_app/presentation/whitelabel/components/types/aspect_ratios.
 
 class AppValues {
   static const int defaultLimit = 50;
+  static const int maxLastMessageLength = 20;
 }
 
 class AppDuration {
@@ -14,6 +15,7 @@ class AppBorders {
   static BorderRadius creditsSourceBarRadius = BorderRadius.circular(8.0);
   static BorderRadius dragHandleRadius = BorderRadius.circular(3);
   static BorderRadius defaultRadius = BorderRadius.circular(20.0);
+  static BorderRadius noRadius = BorderRadius.zero;
 }
 
 class AppMargins {
@@ -36,21 +38,25 @@ class AppDimensions {
   static const double buttonHeightLarge = 53.0;
   static const double buttonWidthNavbar = 257.2;
 
-  // App and Navbar dimensions
+  // Avatar dimensions
+  static const double avatarSize = 60.0;
+  static const double avatarSizeSmall = 16.0;
+
   static const double bottomNavBarHeight = kBottomNavigationBarHeight;
   static const Size appbarHeightSize = Size.fromHeight(kToolbarHeight);
 
-  // Icon dimensions
+  static const double modalControllerWidth = 50;
+  static const double modalControllerHeight = 5;
+
   static const double iconSizeLarge = 32.0;
   static const double iconSizeExtreLarge = 48.0;
   static const double iconSizeMedium = 24.0;
   static const double iconSizeSmall = 18.0;
 
-  static const double notificationIndicator = 20;
+  static const double notificationIndicatorCicleSize = 25;
 
   static const double searchElementContainerWidth = 113;
   static const double searchElementContainerHight = 30;
-  static const double avatarSize = 60.0;
   static const double newsFeedImageHeight = 200.0;
   static const double newsFeedTextHeight = 300.0;
 
@@ -58,6 +64,8 @@ class AppDimensions {
   static const double profileTextPostsSliderCardMaxHeight = 500.0;
 
   static const double createPostEmptyImageHeight = 144;
+  static const double textInputCornerRaidus = 30.0;
+  static const double chatBubbleRadius = 20.0;
 
   static const double dragHandleHeight = 6.0;
 }

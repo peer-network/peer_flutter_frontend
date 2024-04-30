@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/data/models/feed_model.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/comment_count_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/like_count_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/view_count_component.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class FeedStatsComponent extends StatelessWidget {
-  const FeedStatsComponent({super.key, this.isSmallText = false});
+  const FeedStatsComponent({
+    super.key,
+    required this.feed,
+  });
 
-  final bool isSmallText;
+  // pass a variable that contains like count, view count and comment count
+  final FeedModel feed;
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +21,13 @@ class FeedStatsComponent extends StatelessWidget {
           horizontal: AppPaddings.large, vertical: AppPaddings.small),
       child: Row(
         children: [
-          LikeCountComponent(isSmallText: isSmallText),
+          LikeCountComponent(likeCount: feed.likeCount),
           const SizedBox(width: AppPaddings.small),
-          ViewCountComponent(isSmallText: isSmallText),
+          ViewCountComponent(viewCount: feed.viewCount),
           const Spacer(),
-          CommentCountComponent(isSmallText: isSmallText),
+          CommentCountComponent(
+            commentCount: feed.comments.length,
+          ),
         ],
       ),
     );

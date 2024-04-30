@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/user.dart';
+import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/secondary_button.dart';
@@ -30,7 +30,7 @@ class FeedHeaderComponent extends StatelessWidget {
                 AvatarComponent(imageUrl: user.imageUrl),
                 const SizedBox(width: AppPaddings.small),
                 // Title
-                Text(user.username,
+                Text(user.name ?? "",
                     style: Theme.of(context).textTheme.titleLarge!),
               ],
             ),

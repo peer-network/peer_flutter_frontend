@@ -5,8 +5,13 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
 class ViewCountComponent extends StatelessWidget {
-  const ViewCountComponent({super.key, this.isSmallText = false});
-  final bool isSmallText;
+  const ViewCountComponent({
+    super.key,
+    required this.viewCount,
+  });
+
+  final num viewCount;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -17,10 +22,8 @@ class ViewCountComponent extends StatelessWidget {
           icon: IconLibrary.view,
         ),
         const SizedBox(width: AppPaddings.small),
-        Text("12",
-            style: isSmallText
-                ? Theme.of(context).textTheme.bodyLarge
-                : Theme.of(context).textTheme.titleLarge),
+        Text(viewCount.toString(),
+            style: Theme.of(context).textTheme.titleLarge),
       ],
     );
   }
