@@ -29,6 +29,7 @@ class WalletSheetProvider with ChangeNotifier {
 
   WalletSheetProvider() {
     fetchWallet();
+    //TODO: fix _wallte late initialization error
   }
 
   Future<void> fetchWallet() async {
