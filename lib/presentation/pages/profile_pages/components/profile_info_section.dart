@@ -3,6 +3,7 @@ import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/profile_stats_component.dart';
 import 'package:peer_app/presentation/pages/profile_pages/user_profile_page/components/follower_button_component.dart';
 import 'package:peer_app/presentation/pages/profile_pages/user_profile_page/components/user_profile_actions_component.dart';
+import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ProfileInfoSection extends StatelessWidget {
@@ -23,7 +24,10 @@ class ProfileInfoSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(user.name,
-                    style: Theme.of(context).textTheme.headlineLarge),
+                    style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? LightColors.textPrimary
+                            : DarkColors.textPrimary)),
                 FollowerButtonComponent(user: user),
               ],
             ),
@@ -42,7 +46,7 @@ class ProfileInfoSection extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(user.bio!,
-                        style: Theme.of(context).textTheme.titleLarge!),
+                        style: Theme.of(context).textTheme.labelLarge!),
                   ),
                 )
               : Container(),
