@@ -64,15 +64,26 @@ class BaseButton extends StatelessWidget {
                       Theme.of(context).colorScheme.tertiary),
                 ),
               )
+            // : Text(
+            //     text,
+            //     style: TextStyle(
+            //         color: isFilled
+            //             ? Theme.of(context).colorScheme.secondary
+            //             : isDisabled
+            //                 ? Theme.of(context).disabledColor
+            //                 : textColor ??
+            //                     Theme.of(context).textTheme.labelLarge!.color),
+            //   ),
             : Text(
                 text,
                 style: TextStyle(
-                    color: isFilled
-                        ? Theme.of(context).colorScheme.secondary
-                        : isDisabled
-                            ? Theme.of(context).disabledColor
-                            : textColor ??
-                                Theme.of(context).textTheme.labelLarge!.color),
+                  color: textColor ??
+                      (isFilled
+                          ? Theme.of(context).colorScheme.secondary
+                          : isDisabled
+                              ? Theme.of(context).disabledColor
+                              : Theme.of(context).textTheme.labelLarge!.color),
+                ),
               ),
       ),
     );
