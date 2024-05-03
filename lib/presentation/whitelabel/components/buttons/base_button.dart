@@ -8,6 +8,7 @@ class BaseButton extends StatelessWidget {
   final VoidCallback onPressed;
   final Color? backgroundColor;
   final Color? textColor;
+  final TextStyle? textStyle;
   final bool isDisabled;
   final bool isLoading;
   final bool isFilled;
@@ -20,6 +21,7 @@ class BaseButton extends StatelessWidget {
     required this.onPressed,
     this.backgroundColor,
     this.textColor,
+    this.textStyle,
     this.width,
     this.height,
     this.isDisabled = false,
@@ -29,15 +31,22 @@ class BaseButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextStyle finalTextStyle = textStyle ?? const TextStyle();
+    if (textColor != null) {
+      // Ensure textColor has precedence by merging it into textStyle
+      finalTextStyle = finalTextStyle.copyWith(color: textColor);
+    } else if (textStyle?.color == null) {
+      // Apply default color if neither textColor nor textStyle.color is provided
+      finalTextStyle = finalTextStyle.copyWith(
+          color: Theme.of(context).textTheme.labelLarge!.color);
+    }
+
     return SizedBox(
       width: width,
       height: height ?? AppDimensions.buttonHeightLarge,
       child: ElevatedButton(
         onPressed: isDisabled || isLoading ? null : onPressed,
         style: ElevatedButton.styleFrom(
-          foregroundColor: textColor ??
-              Theme.of(context).textTheme.labelLarge?.color ??
-              Theme.of(context).colorScheme.tertiary,
           backgroundColor: isFilled
               ? backgroundColor ?? Theme.of(context).primaryColor
               : Theme.of(context).colorScheme.primaryContainer,
@@ -64,26 +73,9 @@ class BaseButton extends StatelessWidget {
                       Theme.of(context).colorScheme.tertiary),
                 ),
               )
-            // : Text(
-            //     text,
-            //     style: TextStyle(
-            //         color: isFilled
-            //             ? Theme.of(context).colorScheme.secondary
-            //             : isDisabled
-            //                 ? Theme.of(context).disabledColor
-            //                 : textColor ??
-            //                     Theme.of(context).textTheme.labelLarge!.color),
-            //   ),
             : Text(
                 text,
-                style: TextStyle(
-                  color: textColor ??
-                      (isFilled
-                          ? Theme.of(context).colorScheme.secondary
-                          : isDisabled
-                              ? Theme.of(context).disabledColor
-                              : Theme.of(context).textTheme.labelLarge!.color),
-                ),
+                style: finalTextStyle,
               ),
       ),
     );

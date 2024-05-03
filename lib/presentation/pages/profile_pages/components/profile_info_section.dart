@@ -28,7 +28,13 @@ class ProfileInfoSection extends StatelessWidget {
                         color: Theme.of(context).brightness == Brightness.light
                             ? LightColors.textPrimary
                             : DarkColors.textPrimary)),
-                FollowerButtonComponent(user: user),
+                FollowerButtonComponent(
+                  user: user,
+                  textStyle: Theme.of(context).textTheme.titleMedium!,
+                  textColor: Theme.of(context).brightness == Brightness.light
+                      ? LightColors.textDark
+                      : DarkColors.textDark,
+                ),
               ],
             ),
           ),
