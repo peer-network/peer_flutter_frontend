@@ -44,7 +44,13 @@ class _FollowerButtonComponentState extends State<FollowerButtonComponent> {
         );
       },
       text: isFollowing ? 'Unfollow' : 'Follow',
-      textColor: Colors.black,
+      textColor: isFollowing
+          ? Theme.of(context).brightness == Brightness.light
+              ? LightColors.textDark
+              : DarkColors.textDark
+          : Theme.of(context).brightness == Brightness.light
+              ? LightColors.textDark
+              : DarkColors.textDark,
       isFilled: true,
       backgroundColor: isFollowing
           ? Theme.of(context).brightness == Brightness.light
