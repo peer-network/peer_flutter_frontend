@@ -121,4 +121,65 @@ const dummyUserById = {
   "is_following": true
 };
 
-const dummyUserById2 = [];
+// const dummyUserById2 = {
+//   "data": {
+//     "peer2_users": [
+//       {
+//         "id": "a48b59b2-fa1d-4c68-8816-85f748d81315",
+//         "name": "Alex Smith",
+//         "image_url":
+//             "https://whyy.org/wp-content/uploads/2022/08/2022-08-15-e-lee-alex-smith-philadelphia-black-gay-comic-book-768x530.jpeg",
+//         "amount_follower": 500,
+//         "is_private": false,
+//         "bio": "Life is about making an impact, not an income.",
+//         "amount_followed": 430,
+//         "amount_posts": 120,
+//         "created_at": "2022-05-20T19:34:20.000Z",
+//         "updated_at": "2024-04-29T18:15:00.000Z"
+//       }
+//     ]
+//   }
+// };
+
+const dummyUserById2 = {
+  "data": {
+    "peer2_users": [
+      {
+        "id": "a48b59b2-fa1d-4c68-8816-85f748d81315",
+        "name": "Alex Smith",
+        "image_url":
+            "https://whyy.org/wp-content/uploads/2022/08/2022-08-15-e-lee-alex-smith-philadelphia-black-gay-comic-book-768x530.jpeg",
+        "amount_follower": 500,
+        "is_private": false,
+        "bio": "Life is about making an impact, not an income.",
+        "amount_followed": 430,
+        "amount_posts": 120,
+        "created_at": "2022-05-20T19:34:20.000Z",
+        "updated_at": "2024-04-29T18:15:00.000Z",
+        "posts": [
+          {
+            "id": "1",
+            "post_type": "image",
+            "content":
+                "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/45e2efd7-6e6c-464a-8ac5-54e4fcaef800/width=450/tmp2tfh58ws.jpeg",
+            "created_at": "2024-05-01T12:00:00.000Z"
+          },
+          {
+            "id": "2",
+            "post_type": "text",
+            "content": "Lorem ipsum dolor sit amet.",
+            "created_at": "2024-05-01T12:15:00.000Z"
+          },
+          {
+            "id": "3",
+            "post_type": "image",
+            "content":
+                "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/742cea05-5544-4b03-a826-4445631f9304/dfxhzfm-d8e8984d-d34b-41ab-ba8d-34ffa9896960.png/v1/fill/w_1600,h_2400,q_80,strp/widowmaker__overwatch_2__by_dantegonist_dfxhzfm-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjQwMCIsInBhdGgiOiJcL2ZcLzc0MmNlYTA1LTU1NDQtNGIwMy1hODI2LTQ0NDU2MzFmOTMwNFwvZGZ4aHpmbS1kOGU4OTg0ZC1kMzRiLTQxYWItYmE4ZC0zNGZmYTk4OTY5NjAucG5nIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.8RkSzdpXxKUB3XSSJYEVEjZCHEV-aM4Z0-IvTkN0cQQ",
+            "created_at": "2024-05-01T12:00:00.000Z"
+          },
+          // Add more posts as needed
+        ]
+      }
+    ]
+  }
+};

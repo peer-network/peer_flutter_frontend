@@ -23,7 +23,7 @@ class UserProfileActionsComponent extends StatelessWidget {
 
         const SizedBox(width: AppPaddings.medium),
         // Message Button
-        FollowerButtonComponent(user: user),
+        // FollowerButtonComponent(user: user),
       ],
     );
   }
