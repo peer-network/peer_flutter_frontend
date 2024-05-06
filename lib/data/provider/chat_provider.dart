@@ -27,6 +27,9 @@ class ChatProvider with ChangeNotifier {
     final queryOption = QueryOptions(
       document: Queries.chat,
       fetchPolicy: FetchPolicy.networkOnly,
+      variables: {
+        'userId': currentUserId,
+      },
     );
 
     try {
