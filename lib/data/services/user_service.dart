@@ -82,19 +82,21 @@ class UserService {
 
   List<UserModel> get users => _users;
 
-  // Future<UserModel?> getUser(String userId) async {
-  //   // Checks if user is already in cache
-  //   var user = _users.firstWhere((user) => user.id == userId, orElse: () => null);
-  //   if (user != null) {
-  //     return user;
-  //   } else {
-  //     // Fetches new user if not in cache
-  //     return await fetchNewUser(userId);
-  //   }
-  // }
-
-  Future<UserModel?> getUser(String userId) async {
-    return await fetchNewUser(userId);
+  Future<UserModel> getUser(String userId) async {
+    try {
+      // Attempts to find the user in the cache
+      UserModel user = _users.firstWhere((user) => user.id == userId);
+      return user;
+    } on StateError {
+      // If no user is found in cache, fetch new user
+      UserModel? newUser = await fetchNewUser(userId);
+      if (newUser != null) {
+        return newUser;
+      } else {
+        // If no user is fetched, throw an exception
+        throw Exception("User not found with ID: $userId");
+      }
+    }
   }
 
   Future<bool> toggleFollow(String userId) async {
