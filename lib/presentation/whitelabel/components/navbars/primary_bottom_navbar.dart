@@ -48,7 +48,7 @@ class PrimaryBottomNavbar extends StatelessWidget {
         onPressed: () => Navigator.of(context)
             // .push(UserProfilePageRoute('c05a6e6e-5365-40ca-b2d5-29af9f1cb1c6')),
             // .push(UserProfilePageRoute('user1'))
-            .push(UserProfilePageRoute('b58c10e3-fe2c-43e0-958f-2f2ea20f08f2')),
+            .push(UserProfilePageRoute('a48b59b2-fa1d-4c68-8816-85f748d81315')),
       ),
       PrimaryBottomNavbarItem(
         icon: ImageIcon(
