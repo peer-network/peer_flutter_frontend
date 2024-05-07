@@ -69,14 +69,6 @@ class OwnProfilePageRoute extends BaseRoute {
         );
 }
 
-// class ProfilePageRoute extends BaseRoute {
-//   ProfilePageRoute() //(String userId) pass userId to the page
-//       : super(
-//           const ProfilePage(), //(userId: userId) pass userId
-//           guards: [],
-//         );
-// }
-
 class RecipientListPageRoute extends BaseRoute {
   RecipientListPageRoute()
       : super(
