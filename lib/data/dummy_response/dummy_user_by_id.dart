@@ -121,6 +121,76 @@ const dummyUserById = {
   "is_following": true
 };
 
+// const dummyUserById2 = {
+//   "data": {
+//     "peer2_users": [
+//       {
+//         "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+//         "name": "Jane Doe",
+//         "image_url": "https://example.com/jane-doe-photo.jpg",
+//         "email": "JaneDoe@email.com",
+//         "amount_follower": 350,
+//         "is_private": true,
+//         "bio": "Just another explorer of life.",
+//         "amount_followed": 300,
+//         "amount_posts": 85,
+//         "created_at": "2021-10-30T14:20:10.000Z",
+//         "updated_at": "2024-05-01T10:00:00.000Z",
+//         "posts": [
+//           {
+//             "id": "1",
+//             "post_type": "image",
+//             "content": "https://example.com/image1.jpg",
+//             "created_at": "2024-04-29T11:00:00.000Z"
+//           },
+//           {
+//             "id": "2",
+//             "post_type": "text",
+//             "content": "Adventure begins where plans end.",
+//             "created_at": "2024-05-01T10:15:00.000Z"
+//           }
+//         ]
+//       },
+//       {
+//         "id": "a48b59b2-fa1d-4c68-8816-85f748d81315",
+//         "name": "Alex Smith",
+//         "image_url":
+//             "https://whyy.org/wp-content/uploads/2022/08/2022-08-15-e-lee-alex-smith-philadelphia-black-gay-comic-book-768x530.jpeg",
+//         "email": "AlexSmith@email.com",
+//         "amount_follower": 500,
+//         "is_private": false,
+//         "bio": "Life is about making an impact, not an income.",
+//         "amount_followed": 430,
+//         "amount_posts": 120,
+//         "created_at": "2022-05-20T19:34:20.000Z",
+//         "updated_at": "2024-04-29T18:15:00.000Z",
+//         "posts": [
+//           {
+//             "id": "1",
+//             "post_type": "image",
+//             "content":
+//                 "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/45e2efd7-6e6c-464a-8ac5-54e4fcaef800/width=450/tmp2tfh58ws.jpeg",
+//             "created_at": "2024-05-01T12:00:00.000Z"
+//           },
+//           {
+//             "id": "2",
+//             "post_type": "text",
+//             "content": "Lorem ipsum dolor sit amet.",
+//             "created_at": "2024-05-01T12:15:00.000Z"
+//           },
+//           {
+//             "id": "3",
+//             "post_type": "image",
+//             "content":
+//                 "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/742cea05-5544-4b03-a826-4445631f9304/dfxhzfm-d8e8984d-d34b-41ab-ba8d-34ffa9896960.png/v1/fill/w_1600,h_2400,q_80,strp/widowmaker__overwatch_2__by_dantegonist_dfxhzfm-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjQwMCIsInBhdGgiOiJcL2ZcLzc0MmNlYTA1LTU1NDQtNGIwMy1hODI2LTQ0NDU2MzFmOTMwNFwvZGZ4aHpmbS1kOGU4OTg0ZC1kMzRiLTQxYWItYmE4ZC0zNGZmYTk4OTY5NjAucG5nIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.8RkSzdpXxKUB3XSSJYEVEjZCHEV-aM4Z0-IvTkN0cQQ",
+//             "created_at": "2024-05-01T12:00:00.000Z"
+//           }
+//         ]
+//       },
+//     ]
+//   }
+// };
+
 const dummyUserById2 = {
   "data": {
     "peer2_users": [
@@ -128,6 +198,7 @@ const dummyUserById2 = {
         "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
         "name": "Jane Doe",
         "image_url": "https://example.com/jane-doe-photo.jpg",
+        "email": "JaneDoe@email.com",
         "amount_follower": 350,
         "is_private": true,
         "bio": "Just another explorer of life.",
@@ -138,15 +209,61 @@ const dummyUserById2 = {
         "posts": [
           {
             "id": "1",
-            "post_type": "image",
+            "active": true,
+            "title": "Post 1",
             "content": "https://example.com/image1.jpg",
-            "created_at": "2024-04-29T11:00:00.000Z"
+            "image_description": "Image 1",
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg",
+              // "email": "JaneDoe@email.com",
+              // "amount_follower": 350,
+              // "is_private": true,
+              // "bio": "Just another explorer of life.",
+              // "amount_followed": 300,
+              // "amount_posts": 85,
+              // "created_at": "2021-10-30T14:20:10.000Z",
+              // "updated_at": "2024-05-01T10:00:00.000Z"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": ["https://example.com/image1.jpg"],
+            "postType": "image",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
           },
           {
-            "id": "2",
-            "post_type": "text",
-            "content": "Adventure begins where plans end.",
-            "created_at": "2024-05-01T10:15:00.000Z"
+            "id": "1",
+            "active": true,
+            "title": "Post 1",
+            "content": "https://example.com/image1.jpg",
+            "image_description": "Image 1",
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg",
+              "email": "JaneDoe@email.com",
+              "amount_follower": 350,
+              "is_private": true,
+              "bio": "Just another explorer of life.",
+              "amount_followed": 300,
+              "amount_posts": 85,
+              "created_at": "2021-10-30T14:20:10.000Z",
+              "updated_at": "2024-05-01T10:00:00.000Z"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": ["https://example.com/image1.jpg"],
+            "postType": "image",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
           }
         ]
       },
@@ -155,6 +272,7 @@ const dummyUserById2 = {
         "name": "Alex Smith",
         "image_url":
             "https://whyy.org/wp-content/uploads/2022/08/2022-08-15-e-lee-alex-smith-philadelphia-black-gay-comic-book-768x530.jpeg",
+        "email": "AlexSmith@email.com",
         "amount_follower": 500,
         "is_private": false,
         "bio": "Life is about making an impact, not an income.",
@@ -165,23 +283,61 @@ const dummyUserById2 = {
         "posts": [
           {
             "id": "1",
-            "post_type": "image",
-            "content":
-                "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/45e2efd7-6e6c-464a-8ac5-54e4fcaef800/width=450/tmp2tfh58ws.jpeg",
-            "created_at": "2024-05-01T12:00:00.000Z"
+            "active": true,
+            "title": "Post 1",
+            "content": "https://example.com/image1.jpg",
+            "image_description": "Image 1",
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg",
+              "email": "JaneDoe@email.com",
+              "amount_follower": 350,
+              "is_private": true,
+              "bio": "Just another explorer of life.",
+              "amount_followed": 300,
+              "amount_posts": 85,
+              "created_at": "2021-10-30T14:20:10.000Z",
+              "updated_at": "2024-05-01T10:00:00.000Z"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": ["https://example.com/image1.jpg"],
+            "postType": "image",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
           },
           {
-            "id": "2",
-            "post_type": "text",
-            "content": "Lorem ipsum dolor sit amet.",
-            "created_at": "2024-05-01T12:15:00.000Z"
-          },
-          {
-            "id": "3",
-            "post_type": "image",
-            "content":
-                "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/742cea05-5544-4b03-a826-4445631f9304/dfxhzfm-d8e8984d-d34b-41ab-ba8d-34ffa9896960.png/v1/fill/w_1600,h_2400,q_80,strp/widowmaker__overwatch_2__by_dantegonist_dfxhzfm-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjQwMCIsInBhdGgiOiJcL2ZcLzc0MmNlYTA1LTU1NDQtNGIwMy1hODI2LTQ0NDU2MzFmOTMwNFwvZGZ4aHpmbS1kOGU4OTg0ZC1kMzRiLTQxYWItYmE4ZC0zNGZmYTk4OTY5NjAucG5nIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.8RkSzdpXxKUB3XSSJYEVEjZCHEV-aM4Z0-IvTkN0cQQ",
-            "created_at": "2024-05-01T12:00:00.000Z"
+            "id": "1",
+            "active": true,
+            "title": "Post 1",
+            "content": "https://example.com/image1.jpg",
+            "image_description": "Image 1",
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg",
+              "email": "JaneDoe@email.com",
+              "amount_follower": 350,
+              "is_private": true,
+              "bio": "Just another explorer of life.",
+              "amount_followed": 300,
+              "amount_posts": 85,
+              "created_at": "2021-10-30T14:20:10.000Z",
+              "updated_at": "2024-05-01T10:00:00.000Z"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": ["https://example.com/image1.jpg"],
+            "postType": "image",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
           }
         ]
       },
