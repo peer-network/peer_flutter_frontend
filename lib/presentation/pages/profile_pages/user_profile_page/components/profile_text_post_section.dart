@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_model.dart';
 import 'package:peer_app/data/models/user_model.dart';
+import 'package:peer_app/presentation/pages/profile_pages/user_profile_page/components/image_post_card.dart';
 import 'package:peer_app/presentation/pages/profile_pages/user_profile_page/components/small_text_post_card.dart';
 
 class ProfileTextPostSection extends StatelessWidget {

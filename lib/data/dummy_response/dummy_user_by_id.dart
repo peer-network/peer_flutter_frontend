@@ -211,7 +211,8 @@ const dummyUserById2 = {
             "id": "1",
             "active": true,
             "title": "Post 1",
-            "content": "https://example.com/image1.jpg",
+            "content":
+                "https://images.squarespace-cdn.com/content/v1/60f0902f72b8bf543ab817ff/1685958995490-416PQ3AYPE04CXO0OOJ4/Eugene-Theron_ISO100_Landscape-Photography_Filters.jpg",
             "image_description": "Image 1",
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
@@ -230,7 +231,9 @@ const dummyUserById2 = {
             "comments": [],
             "amountClicks": 0,
             "amountComments": 0,
-            "imageUrls": ["https://example.com/image1.jpg"],
+            "imageUrls": [
+              "https://images.squarespace-cdn.com/content/v1/60f0902f72b8bf543ab817ff/1685958995490-416PQ3AYPE04CXO0OOJ4/Eugene-Theron_ISO100_Landscape-Photography_Filters.jpg"
+            ],
             "postType": "image",
             "createdAt": "2024-04-29T11:00:00.000Z",
             "likeCount": 0,
@@ -239,8 +242,9 @@ const dummyUserById2 = {
           {
             "id": "1",
             "active": true,
-            "title": "Post 1",
-            "content": "https://example.com/image1.jpg",
+            "title": "Post 2",
+            "content":
+                "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600",
             "image_description": "Image 1",
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
@@ -259,7 +263,41 @@ const dummyUserById2 = {
             "comments": [],
             "amountClicks": 0,
             "amountComments": 0,
-            "imageUrls": ["https://example.com/image1.jpg"],
+            "imageUrls": [
+              "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600"
+            ],
+            "postType": "image",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "1",
+            "active": true,
+            "title": "Post 2",
+            "content":
+                "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600",
+            "image_description": "Image 1",
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg",
+              "email": "JaneDoe@email.com",
+              "amount_follower": 350,
+              "is_private": true,
+              "bio": "Just another explorer of life.",
+              "amount_followed": 300,
+              "amount_posts": 85,
+              "created_at": "2021-10-30T14:20:10.000Z",
+              "updated_at": "2024-05-01T10:00:00.000Z"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [
+              "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600"
+            ],
             "postType": "image",
             "createdAt": "2024-04-29T11:00:00.000Z",
             "likeCount": 0,
@@ -285,7 +323,8 @@ const dummyUserById2 = {
             "id": "1",
             "active": true,
             "title": "Post 1",
-            "content": "https://example.com/image1.jpg",
+            "content":
+                "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600",
             "image_description": "Image 1",
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
@@ -304,7 +343,9 @@ const dummyUserById2 = {
             "comments": [],
             "amountClicks": 0,
             "amountComments": 0,
-            "imageUrls": ["https://example.com/image1.jpg"],
+            "imageUrls": [
+              "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600"
+            ],
             "postType": "image",
             "createdAt": "2024-04-29T11:00:00.000Z",
             "likeCount": 0,
@@ -313,8 +354,9 @@ const dummyUserById2 = {
           {
             "id": "1",
             "active": true,
-            "title": "Post 1",
-            "content": "https://example.com/image1.jpg",
+            "title": "Post 2",
+            "content":
+                "https://images.squarespace-cdn.com/content/v1/60f0902f72b8bf543ab817ff/1685958995490-416PQ3AYPE04CXO0OOJ4/Eugene-Theron_ISO100_Landscape-Photography_Filters.jpg",
             "image_description": "Image 1",
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
@@ -333,7 +375,41 @@ const dummyUserById2 = {
             "comments": [],
             "amountClicks": 0,
             "amountComments": 0,
-            "imageUrls": ["https://example.com/image1.jpg"],
+            "imageUrls": [
+              "https://images.squarespace-cdn.com/content/v1/60f0902f72b8bf543ab817ff/1685958995490-416PQ3AYPE04CXO0OOJ4/Eugene-Theron_ISO100_Landscape-Photography_Filters.jpg"
+            ],
+            "postType": "image",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "1",
+            "active": true,
+            "title": "Post 2",
+            "content":
+                "https://www.originaltravel.co.uk/travel-blog/showphoto/3521/0",
+            "image_description": "Image 1",
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg",
+              "email": "JaneDoe@email.com",
+              "amount_follower": 350,
+              "is_private": true,
+              "bio": "Just another explorer of life.",
+              "amount_followed": 300,
+              "amount_posts": 85,
+              "created_at": "2021-10-30T14:20:10.000Z",
+              "updated_at": "2024-05-01T10:00:00.000Z"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [
+              "https://images.squarespace-cdn.com/content/v1/60f0902f72b8bf543ab817ff/1685958995490-416PQ3AYPE04CXO0OOJ4/Eugene-Theron_ISO100_Landscape-Photography_Filters.jpg"
+            ],
             "postType": "image",
             "createdAt": "2024-04-29T11:00:00.000Z",
             "likeCount": 0,
