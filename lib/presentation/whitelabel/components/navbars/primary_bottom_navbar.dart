@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/pages/hello-world.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/components/navbars/base_bottom_navbar.dart';
 import 'package:peer_app/presentation/whitelabel/components/navbars/primary_bottom_navbar_item.dart';
@@ -53,7 +54,11 @@ class PrimaryBottomNavbar extends StatelessWidget {
           color: Theme.of(context).primaryIconTheme.color,
           size: AppDimensions.iconSizeLarge,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+            return const HelloWorldPage();
+          }));
+        },
       ),
     ];
     return BaseBottomNavigationBar(

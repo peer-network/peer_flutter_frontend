@@ -25,10 +25,10 @@ class GraphQLClientSingleton {
 
     final HttpLink httpLink = HttpLink(
       //'http://${ApiEndpoints.baseUrl}/v1/graphql',
-      'http://10.0.2.2:8080/v1/graphql',
+      'http://192.168.32.92:81',
     ); // use when on emulator
 
-    print("http://${ApiEndpoints.baseUrl}/v1/graphql");
+    print("http://${ApiEndpoints.baseUrl}");
 
     final Link link = authLink.concat(httpLink);
     _client = GraphQLClient(
