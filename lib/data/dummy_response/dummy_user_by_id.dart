@@ -465,7 +465,7 @@ const dummyUserById2 = {
             "active": true,
             "title": "Beautiful Landscape",
             "content":
-                "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600",
+                "https://img.freepik.com/fotos-kostenlos/sonnige-tropische-landschaft_23-2150466874.jpg?size=626&ext=jpg",
             "image_description":
                 "A beautiful landscape of a Greenland ice sheet.",
             "user": {
