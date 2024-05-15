@@ -16,6 +16,7 @@ class AppBorders {
   static BorderRadius dragHandleRadius = BorderRadius.circular(3);
   static BorderRadius defaultRadius = BorderRadius.circular(20.0);
   static BorderRadius noRadius = BorderRadius.zero;
+  static BorderRadius profileTextPostCardRadius = BorderRadius.circular(5);
 }
 
 class AppMargins {

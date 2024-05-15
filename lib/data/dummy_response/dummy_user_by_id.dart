@@ -482,9 +482,9 @@ const dummyUserById2 = {
           {
             "id": "1",
             "active": true,
-            "title": "Thoughts on Traveling",
+            "title": "Mediocre life is still life",
             "content":
-                "Traveling opens your mind to new cultures, experiences, and perspectives. It allows you to step out of your comfort zone and see the world from a different angle. Whether you travel for adventure, relaxation, or learning, each journey adds to your personal growth.",
+                "Mediocricy is a state of mind, not a state of being. I am a mediocre person, follow me for more mediocre stuff. My channels are @mediocrechannels and all my posts are mediocre? Whatever lets get drunk and have fun.",
             "image_description": null,
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
@@ -512,9 +512,8 @@ const dummyUserById2 = {
           {
             "id": "1",
             "active": true,
-            "title": "Thoughts on Traveling",
-            "content":
-                "Traveling opens your mind to new cultures, experiences, and perspectives. It allows you to step out of your comfort zone and see the world from a different angle. Whether you travel for adventure, relaxation, or learning, each journey adds to your personal growth.",
+            "title": "Thoughts on Trampeling",
+            "content": "Trampeling opens you up to embrace the pain.",
             "image_description": null,
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
@@ -536,6 +535,36 @@ const dummyUserById2 = {
             "imageUrls": [],
             "postType": "text",
             "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "2",
+            "active": true,
+            "title": "Reflections on Solitude",
+            "content":
+                "Solitude can be a powerful teacher. It helps you discover inner peace and clarity. It can also help you connect with your inner self.",
+            "image_description": null,
+            "user": {
+              "id": "a79b21d5-6c3a-48a6-a39e-45e8b24b1348",
+              "name": "John Smith",
+              "image_url": "https://example.com/john-smith-photo.jpg",
+              "email": "JohnSmith@email.com",
+              "amount_follower": 500,
+              "is_private": false,
+              "bio": "Lover of quiet moments.",
+              "amount_followed": 150,
+              "amount_posts": 120,
+              "created_at": "2022-01-15T09:30:00.000Z",
+              "updated_at": "2024-05-01T11:00:00.000Z"
+            },
+            "catId": "2",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [],
+            "postType": "text",
+            "createdAt": "2024-04-30T12:00:00.000Z",
             "likeCount": 0,
             "viewCount": 0
           }

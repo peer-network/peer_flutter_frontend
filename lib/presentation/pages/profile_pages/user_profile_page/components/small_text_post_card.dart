@@ -94,7 +94,7 @@ class SmallTextPostCard extends StatelessWidget {
           Container(
             margin: const EdgeInsets.all(AppPaddings.small).copyWith(right: 0),
             decoration: BoxDecoration(
-              borderRadius: AppBorders.defaultRadius,
+              borderRadius: AppBorders.profileTextPostCardRadius,
               color: Theme.of(context).brightness == Brightness.light
                   ? LightColors.backgroundContainer
                   : DarkColors.backgroundContainer,
@@ -112,7 +112,7 @@ class SmallTextPostCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SmallHeaderPostCard(creator: user, date: post.createdAt),
+                  // SmallHeaderPostCard(creator: user, date: post.createdAt),
                   const SizedBox(height: AppPaddings.small),
                   Text(
                     post.title,
@@ -166,10 +166,10 @@ class SmallTextPostCard extends StatelessWidget {
                       );
                     },
                   ),
-                  const SizedBox(height: AppPaddings.small),
-                  FeedStatsComponent(
-                    feed: post,
-                  ),
+                  // const SizedBox(height: AppPaddings.small),
+                  // FeedStatsComponent(
+                  //   feed: post,
+                  // ),
                 ],
               ),
             ),
