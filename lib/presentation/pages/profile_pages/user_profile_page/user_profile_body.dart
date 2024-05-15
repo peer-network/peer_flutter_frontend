@@ -55,7 +55,7 @@ class UserProfileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('Number of user posts: ${user.posts.length}');
+    // print('Number of user posts: ${user.posts.length}');
 
     return SingleChildScrollView(
       child: Column(
@@ -64,7 +64,7 @@ class UserProfileBody extends StatelessWidget {
           const SizedBox(height: AppPaddings.large),
           ProfileInfoSection(user: user),
           const SizedBox(height: AppPaddings.large),
-          Text('user.posts: ${user.posts}'), // Debugging only
+          // Text('user.posts: ${user.posts}'), // Debugging only
           ProfileImagePostSection(
             posts: user.posts
                 .where((post) => post.postType == PostType.image)

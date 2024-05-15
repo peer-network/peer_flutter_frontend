@@ -135,8 +135,7 @@ class SmallTextPostCard extends StatelessWidget {
 
                       bool isOverflowing = textPainter.didExceedMaxLines;
 
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      return Stack(
                         children: [
                           RichText(
                             text: TextSpan(
@@ -147,18 +146,30 @@ class SmallTextPostCard extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                           ),
                           if (isOverflowing)
-                            Container(
+                            Positioned(
+                              bottom: 0,
+                              left: 0,
+                              right: 0,
                               height: 20,
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Theme.of(context)
-                                        .scaffoldBackgroundColor
-                                        .withOpacity(0.0),
-                                    Theme.of(context).scaffoldBackgroundColor,
-                                  ],
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    // colors: [
+                                    //   Colors.transparent,
+                                    //   Colors.grey.withOpacity(0.7),
+                                    // ],
+                                    colors: [
+                                      Colors.transparent,
+                                      Theme.of(context).brightness ==
+                                              Brightness.light
+                                          ? LightColors.backgroundContainer
+                                              .withOpacity(0.7)
+                                          : DarkColors.backgroundContainer
+                                              .withOpacity(0.7),
+                                    ],
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                  ),
                                 ),
                               ),
                             ),

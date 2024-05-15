@@ -139,15 +139,91 @@ const dummyUserById = {
 //         "posts": [
 //           {
 //             "id": "1",
-//             "post_type": "image",
-//             "content": "https://example.com/image1.jpg",
-//             "created_at": "2024-04-29T11:00:00.000Z"
+//             "active": true,
+//             "title": "Post 1",
+//             "content":
+//                 "https://images.squarespace-cdn.com/content/v1/60f0902f72b8bf543ab817ff/1685958995490-416PQ3AYPE04CXO0OOJ4/Eugene-Theron_ISO100_Landscape-Photography_Filters.jpg",
+//             "image_description": "Image 1",
+//             "user": {
+//               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+//               "name": "Jane Doe",
+//               "image_url": "https://example.com/jane-doe-photo.jpg",
+//             },
+//             "catId": "1",
+//             "comments": [],
+//             "amountClicks": 0,
+//             "amountComments": 0,
+//             "imageUrls": [
+//               "https://images.squarespace-cdn.com/content/v1/60f0902f72b8bf543ab817ff/1685958995490-416PQ3AYPE04CXO0OOJ4/Eugene-Theron_ISO100_Landscape-Photography_Filters.jpg"
+//             ],
+//             "postType": "image",
+//             "createdAt": "2024-04-29T11:00:00.000Z",
+//             "likeCount": 0,
+//             "viewCount": 0
 //           },
 //           {
-//             "id": "2",
-//             "post_type": "text",
-//             "content": "Adventure begins where plans end.",
-//             "created_at": "2024-05-01T10:15:00.000Z"
+//             "id": "1",
+//             "active": true,
+//             "title": "Post 2",
+//             "content":
+//                 "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600",
+//             "image_description": "Image 1",
+//             "user": {
+//               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+//               "name": "Jane Doe",
+//               "image_url": "https://example.com/jane-doe-photo.jpg",
+//               "email": "JaneDoe@email.com",
+//               "amount_follower": 350,
+//               "is_private": true,
+//               "bio": "Just another explorer of life.",
+//               "amount_followed": 300,
+//               "amount_posts": 85,
+//               "created_at": "2021-10-30T14:20:10.000Z",
+//               "updated_at": "2024-05-01T10:00:00.000Z"
+//             },
+//             "catId": "1",
+//             "comments": [],
+//             "amountClicks": 0,
+//             "amountComments": 0,
+//             "imageUrls": [
+//               "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600"
+//             ],
+//             "postType": "image",
+//             "createdAt": "2024-04-29T11:00:00.000Z",
+//             "likeCount": 0,
+//             "viewCount": 0
+//           },
+//           {
+//             "id": "1",
+//             "active": true,
+//             "title": "Post 2",
+//             "content":
+//                 "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600",
+//             "image_description": "Image 1",
+//             "user": {
+//               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+//               "name": "Jane Doe",
+//               "image_url": "https://example.com/jane-doe-photo.jpg",
+//               "email": "JaneDoe@email.com",
+//               "amount_follower": 350,
+//               "is_private": true,
+//               "bio": "Just another explorer of life.",
+//               "amount_followed": 300,
+//               "amount_posts": 85,
+//               "created_at": "2021-10-30T14:20:10.000Z",
+//               "updated_at": "2024-05-01T10:00:00.000Z"
+//             },
+//             "catId": "1",
+//             "comments": [],
+//             "amountClicks": 0,
+//             "amountComments": 0,
+//             "imageUrls": [
+//               "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600"
+//             ],
+//             "postType": "image",
+//             "createdAt": "2024-04-29T11:00:00.000Z",
+//             "likeCount": 0,
+//             "viewCount": 0
 //           }
 //         ]
 //       },
@@ -167,23 +243,252 @@ const dummyUserById = {
 //         "posts": [
 //           {
 //             "id": "1",
-//             "post_type": "image",
+//             "active": true,
+//             "title": "Post 1",
 //             "content":
-//                 "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/45e2efd7-6e6c-464a-8ac5-54e4fcaef800/width=450/tmp2tfh58ws.jpeg",
-//             "created_at": "2024-05-01T12:00:00.000Z"
+//                 "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600",
+//             "image_description": "Image 1",
+//             "user": {
+//               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+//               "name": "Jane Doe",
+//               "image_url": "https://example.com/jane-doe-photo.jpg",
+//               "email": "JaneDoe@email.com",
+//               "amount_follower": 350,
+//               "is_private": true,
+//               "bio": "Just another explorer of life.",
+//               "amount_followed": 300,
+//               "amount_posts": 85,
+//               "created_at": "2021-10-30T14:20:10.000Z",
+//               "updated_at": "2024-05-01T10:00:00.000Z"
+//             },
+//             "catId": "1",
+//             "comments": [],
+//             "amountClicks": 0,
+//             "amountComments": 0,
+//             "imageUrls": [
+//               "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600"
+//             ],
+//             "postType": "image",
+//             "createdAt": "2024-04-29T11:00:00.000Z",
+//             "likeCount": 0,
+//             "viewCount": 0
+//           },
+//           {
+//             "id": "1",
+//             "active": true,
+//             "title": "Post 2",
+//             "content":
+//                 "https://images.squarespace-cdn.com/content/v1/60f0902f72b8bf543ab817ff/1685958995490-416PQ3AYPE04CXO0OOJ4/Eugene-Theron_ISO100_Landscape-Photography_Filters.jpg",
+//             "image_description": "Image 1",
+//             "user": {
+//               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+//               "name": "Jane Doe",
+//               "image_url": "https://example.com/jane-doe-photo.jpg",
+//               "email": "JaneDoe@email.com",
+//               "amount_follower": 350,
+//               "is_private": true,
+//               "bio": "Just another explorer of life.",
+//               "amount_followed": 300,
+//               "amount_posts": 85,
+//               "created_at": "2021-10-30T14:20:10.000Z",
+//               "updated_at": "2024-05-01T10:00:00.000Z"
+//             },
+//             "catId": "1",
+//             "comments": [],
+//             "amountClicks": 0,
+//             "amountComments": 0,
+//             "imageUrls": [
+//               "https://images.squarespace-cdn.com/content/v1/60f0902f72b8bf543ab817ff/1685958995490-416PQ3AYPE04CXO0OOJ4/Eugene-Theron_ISO100_Landscape-Photography_Filters.jpg"
+//             ],
+//             "postType": "image",
+//             "createdAt": "2024-04-29T11:00:00.000Z",
+//             "likeCount": 0,
+//             "viewCount": 0
+//           },
+//           {
+//             "id": "1",
+//             "active": true,
+//             "title": "Post 2",
+//             "content":
+//                 "https://www.originaltravel.co.uk/travel-blog/showphoto/3521/0",
+//             "image_description": "Image 1",
+//             "user": {
+//               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+//               "name": "Jane Doe",
+//               "image_url": "https://example.com/jane-doe-photo.jpg",
+//               "email": "JaneDoe@email.com",
+//               "amount_follower": 350,
+//               "is_private": true,
+//               "bio": "Just another explorer of life.",
+//               "amount_followed": 300,
+//               "amount_posts": 85,
+//               "created_at": "2021-10-30T14:20:10.000Z",
+//               "updated_at": "2024-05-01T10:00:00.000Z"
+//             },
+//             "catId": "1",
+//             "comments": [],
+//             "amountClicks": 0,
+//             "amountComments": 0,
+//             "imageUrls": [
+//               "https://www.originaltravel.co.uk/travel-blog/showphoto/3521/0"
+//             ],
+//             "postType": "image",
+//             "createdAt": "2024-04-29T11:00:00.000Z",
+//             "likeCount": 0,
+//             "viewCount": 0
+//           },
+//           {
+//             "id": "1",
+//             "active": true,
+//             "title": "Post 3",
+//             "content":
+//                 "https://i0.wp.com/silent-water.de/wp-content/uploads/2022/09/Wreck2-6UsBuplg.jpg?w=1235&ssl=1",
+//             "image_description": "Image 1",
+//             "user": {
+//               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+//               "name": "Jane Doe",
+//               "image_url": "https://example.com/jane-doe-photo.jpg",
+//               "email": "JaneDoe@email.com",
+//               "amount_follower": 350,
+//               "is_private": true,
+//               "bio": "Just another explorer of life.",
+//               "amount_followed": 300,
+//               "amount_posts": 85,
+//               "created_at": "2021-10-30T14:20:10.000Z",
+//               "updated_at": "2024-05-01T10:00:00.000Z"
+//             },
+//             "catId": "1",
+//             "comments": [],
+//             "amountClicks": 0,
+//             "amountComments": 0,
+//             "imageUrls": [
+//               "https://i0.wp.com/silent-water.de/wp-content/uploads/2022/09/Wreck2-6UsBuplg.jpg?w=1235&ssl=1"
+//             ],
+//             "postType": "image",
+//             "createdAt": "2024-04-29T11:00:00.000Z",
+//             "likeCount": 0,
+//             "viewCount": 0
+//           },
+//           {
+//             "id": "1",
+//             "active": true,
+//             "title": "Post 3",
+//             "content":
+//                 "https://img.freepik.com/fotos-kostenlos/sonnige-tropische-landschaft_23-2150466874.jpg?size=626&ext=jpg",
+//             "image_description": "Image 1",
+//             "user": {
+//               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+//               "name": "Jane Doe",
+//               "image_url": "https://example.com/jane-doe-photo.jpg",
+//               "email": "JaneDoe@email.com",
+//               "amount_follower": 350,
+//               "is_private": true,
+//               "bio": "Just another explorer of life.",
+//               "amount_followed": 300,
+//               "amount_posts": 85,
+//               "created_at": "2021-10-30T14:20:10.000Z",
+//               "updated_at": "2024-05-01T10:00:00.000Z"
+//             },
+//             "catId": "1",
+//             "comments": [],
+//             "amountClicks": 0,
+//             "amountComments": 0,
+//             "imageUrls": [
+//               "https://img.freepik.com/fotos-kostenlos/sonnige-tropische-landschaft_23-2150466874.jpg?size=626&ext=jpg"
+//             ],
+//             "postType": "image",
+//             "createdAt": "2024-04-29T11:00:00.000Z",
+//             "likeCount": 0,
+//             "viewCount": 0
+//           },
+//           {
+//             "id": "1",
+//             "active": true,
+//             "title": "Mediocre life is still life",
+//             "content":
+//                 "Mediocricy is a state of mind, not a state of being. I am a mediocre person, follow me for more mediocre stuff. My channels are @mediocrechannels and all my posts are mediocre? Whatever lets get drunk and have fun.",
+//             "image_description": null,
+//             "user": {
+//               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+//               "name": "Jane Doe",
+//               "image_url": "https://example.com/jane-doe-photo.jpg",
+//               "email": "JaneDoe@email.com",
+//               "amount_follower": 350,
+//               "is_private": true,
+//               "bio": "Just another explorer of life.",
+//               "amount_followed": 300,
+//               "amount_posts": 85,
+//               "created_at": "2021-10-30T14:20:10.000Z",
+//               "updated_at": "2024-05-01T10:00:00.000Z"
+//             },
+//             "catId": "1",
+//             "comments": [],
+//             "amountClicks": 0,
+//             "amountComments": 0,
+//             "imageUrls": [],
+//             "postType": "text",
+//             "createdAt": "2024-04-29T11:00:00.000Z",
+//             "likeCount": 0,
+//             "viewCount": 0
+//           },
+//           {
+//             "id": "1",
+//             "active": true,
+//             "title": "Thoughts on Trampeling",
+//             "content": "Trampeling opens you up to embrace the pain.",
+//             "image_description": null,
+//             "user": {
+//               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+//               "name": "Jane Doe",
+//               "image_url": "https://example.com/jane-doe-photo.jpg",
+//               "email": "JaneDoe@email.com",
+//               "amount_follower": 350,
+//               "is_private": true,
+//               "bio": "Just another explorer of life.",
+//               "amount_followed": 300,
+//               "amount_posts": 85,
+//               "created_at": "2021-10-30T14:20:10.000Z",
+//               "updated_at": "2024-05-01T10:00:00.000Z"
+//             },
+//             "catId": "1",
+//             "comments": [],
+//             "amountClicks": 0,
+//             "amountComments": 0,
+//             "imageUrls": [],
+//             "postType": "text",
+//             "createdAt": "2024-04-29T11:00:00.000Z",
+//             "likeCount": 0,
+//             "viewCount": 0
 //           },
 //           {
 //             "id": "2",
-//             "post_type": "text",
-//             "content": "Lorem ipsum dolor sit amet.",
-//             "created_at": "2024-05-01T12:15:00.000Z"
-//           },
-//           {
-//             "id": "3",
-//             "post_type": "image",
+//             "active": true,
+//             "title": "Reflections on Solitude",
 //             "content":
-//                 "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/742cea05-5544-4b03-a826-4445631f9304/dfxhzfm-d8e8984d-d34b-41ab-ba8d-34ffa9896960.png/v1/fill/w_1600,h_2400,q_80,strp/widowmaker__overwatch_2__by_dantegonist_dfxhzfm-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjQwMCIsInBhdGgiOiJcL2ZcLzc0MmNlYTA1LTU1NDQtNGIwMy1hODI2LTQ0NDU2MzFmOTMwNFwvZGZ4aHpmbS1kOGU4OTg0ZC1kMzRiLTQxYWItYmE4ZC0zNGZmYTk4OTY5NjAucG5nIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.8RkSzdpXxKUB3XSSJYEVEjZCHEV-aM4Z0-IvTkN0cQQ",
-//             "created_at": "2024-05-01T12:00:00.000Z"
+//                 "Solitude can be a powerful teacher. It helps you discover inner peace and clarity. It can also help you connect with your inner self.",
+//             "image_description": null,
+//             "user": {
+//               "id": "a79b21d5-6c3a-48a6-a39e-45e8b24b1348",
+//               "name": "John Smith",
+//               "image_url": "https://example.com/john-smith-photo.jpg",
+//               "email": "JohnSmith@email.com",
+//               "amount_follower": 500,
+//               "is_private": false,
+//               "bio": "Lover of quiet moments.",
+//               "amount_followed": 150,
+//               "amount_posts": 120,
+//               "created_at": "2022-01-15T09:30:00.000Z",
+//               "updated_at": "2024-05-01T11:00:00.000Z"
+//             },
+//             "catId": "2",
+//             "comments": [],
+//             "amountClicks": 0,
+//             "amountComments": 0,
+//             "imageUrls": [],
+//             "postType": "text",
+//             "createdAt": "2024-04-30T12:00:00.000Z",
+//             "likeCount": 0,
+//             "viewCount": 0
 //           }
 //         ]
 //       },
@@ -217,15 +522,7 @@ const dummyUserById2 = {
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
               "name": "Jane Doe",
-              "image_url": "https://example.com/jane-doe-photo.jpg",
-              // "email": "JaneDoe@email.com",
-              // "amount_follower": 350,
-              // "is_private": true,
-              // "bio": "Just another explorer of life.",
-              // "amount_followed": 300,
-              // "amount_posts": 85,
-              // "created_at": "2021-10-30T14:20:10.000Z",
-              // "updated_at": "2024-05-01T10:00:00.000Z"
+              "image_url": "https://example.com/jane-doe-photo.jpg"
             },
             "catId": "1",
             "comments": [],
@@ -240,24 +537,16 @@ const dummyUserById2 = {
             "viewCount": 0
           },
           {
-            "id": "1",
+            "id": "2",
             "active": true,
             "title": "Post 2",
             "content":
                 "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600",
-            "image_description": "Image 1",
+            "image_description": "Image 2",
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
               "name": "Jane Doe",
-              "image_url": "https://example.com/jane-doe-photo.jpg",
-              "email": "JaneDoe@email.com",
-              "amount_follower": 350,
-              "is_private": true,
-              "bio": "Just another explorer of life.",
-              "amount_followed": 300,
-              "amount_posts": 85,
-              "created_at": "2021-10-30T14:20:10.000Z",
-              "updated_at": "2024-05-01T10:00:00.000Z"
+              "image_url": "https://example.com/jane-doe-photo.jpg"
             },
             "catId": "1",
             "comments": [],
@@ -272,33 +561,117 @@ const dummyUserById2 = {
             "viewCount": 0
           },
           {
-            "id": "1",
+            "id": "3",
             "active": true,
-            "title": "Post 2",
+            "title": "Post 3",
             "content":
-                "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600",
-            "image_description": "Image 1",
+                "https://www.originaltravel.co.uk/travel-blog/showphoto/3521/0",
+            "image_description": "Image 3",
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
               "name": "Jane Doe",
-              "image_url": "https://example.com/jane-doe-photo.jpg",
-              "email": "JaneDoe@email.com",
-              "amount_follower": 350,
-              "is_private": true,
-              "bio": "Just another explorer of life.",
-              "amount_followed": 300,
-              "amount_posts": 85,
-              "created_at": "2021-10-30T14:20:10.000Z",
-              "updated_at": "2024-05-01T10:00:00.000Z"
+              "image_url": "https://example.com/jane-doe-photo.jpg"
             },
             "catId": "1",
             "comments": [],
             "amountClicks": 0,
             "amountComments": 0,
             "imageUrls": [
-              "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600"
+              "https://www.originaltravel.co.uk/travel-blog/showphoto/3521/0"
             ],
             "postType": "image",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "4",
+            "active": true,
+            "title": "Post 4",
+            "content":
+                "https://i0.wp.com/silent-water.de/wp-content/uploads/2022/09/Wreck2-6UsBuplg.jpg?w=1235&ssl=1",
+            "image_description": "Image 4",
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [
+              "https://i0.wp.com/silent-water.de/wp-content/uploads/2022/09/Wreck2-6UsBuplg.jpg?w=1235&ssl=1"
+            ],
+            "postType": "image",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "5",
+            "active": true,
+            "title": "Post 5",
+            "content":
+                "https://img.freepik.com/fotos-kostenlos/sonnige-tropische-landschaft_23-2150466874.jpg?size=626&ext=jpg",
+            "image_description": "Image 5",
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [
+              "https://img.freepik.com/fotos-kostenlos/sonnige-tropische-landschaft_23-2150466874.jpg?size=626&ext=jpg"
+            ],
+            "postType": "image",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "6",
+            "active": true,
+            "title": "Mediocre life is still life",
+            "content":
+                "Mediocricy is a state of mind, not a state of being. I am a mediocre person, follow me for more mediocre stuff. My channels are @mediocrechannels and all my posts are mediocre? Whatever lets get drunk and have fun.",
+            "image_description": null,
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [],
+            "postType": "text",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "7",
+            "active": true,
+            "title": "Thoughts on Traveling",
+            "content":
+                "Traveling opens your mind to new cultures, experiences, and perspectives. It allows you to step out of your comfort zone and see the world from a different angle. Whether you travel for adventure, relaxation, or learning, each journey adds to your personal growth.",
+            "image_description": null,
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [],
+            "postType": "text",
             "createdAt": "2024-04-29T11:00:00.000Z",
             "likeCount": 0,
             "viewCount": 0
@@ -327,19 +700,12 @@ const dummyUserById2 = {
                 "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600",
             "image_description": "Image 1",
             "user": {
-              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
-              "name": "Jane Doe",
-              "image_url": "https://example.com/jane-doe-photo.jpg",
-              "email": "JaneDoe@email.com",
-              "amount_follower": 350,
-              "is_private": true,
-              "bio": "Just another explorer of life.",
-              "amount_followed": 300,
-              "amount_posts": 85,
-              "created_at": "2021-10-30T14:20:10.000Z",
-              "updated_at": "2024-05-01T10:00:00.000Z"
+              "id": "a48b59b2-fa1d-4c68-8816-85f748d81315",
+              "name": "Alex Smith",
+              "image_url":
+                  "https://whyy.org/wp-content/uploads/2022/08/2022-08-15-e-lee-alex-smith-philadelphia-black-gay-comic-book-768x530.jpeg"
             },
-            "catId": "1",
+            "catId": "2",
             "comments": [],
             "amountClicks": 0,
             "amountComments": 0,
@@ -352,26 +718,19 @@ const dummyUserById2 = {
             "viewCount": 0
           },
           {
-            "id": "1",
+            "id": "2",
             "active": true,
             "title": "Post 2",
             "content":
                 "https://images.squarespace-cdn.com/content/v1/60f0902f72b8bf543ab817ff/1685958995490-416PQ3AYPE04CXO0OOJ4/Eugene-Theron_ISO100_Landscape-Photography_Filters.jpg",
-            "image_description": "Image 1",
+            "image_description": "Image 2",
             "user": {
-              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
-              "name": "Jane Doe",
-              "image_url": "https://example.com/jane-doe-photo.jpg",
-              "email": "JaneDoe@email.com",
-              "amount_follower": 350,
-              "is_private": true,
-              "bio": "Just another explorer of life.",
-              "amount_followed": 300,
-              "amount_posts": 85,
-              "created_at": "2021-10-30T14:20:10.000Z",
-              "updated_at": "2024-05-01T10:00:00.000Z"
+              "id": "a48b59b2-fa1d-4c68-8816-85f748d81315",
+              "name": "Alex Smith",
+              "image_url":
+                  "https://whyy.org/wp-content/uploads/2022/08/2022-08-15-e-lee-alex-smith-philadelphia-black-gay-comic-book-768x530.jpeg"
             },
-            "catId": "1",
+            "catId": "2",
             "comments": [],
             "amountClicks": 0,
             "amountComments": 0,
@@ -384,26 +743,19 @@ const dummyUserById2 = {
             "viewCount": 0
           },
           {
-            "id": "1",
+            "id": "3",
             "active": true,
-            "title": "Post 2",
+            "title": "Post 3",
             "content":
                 "https://www.originaltravel.co.uk/travel-blog/showphoto/3521/0",
-            "image_description": "Image 1",
+            "image_description": "Image 3",
             "user": {
-              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
-              "name": "Jane Doe",
-              "image_url": "https://example.com/jane-doe-photo.jpg",
-              "email": "JaneDoe@email.com",
-              "amount_follower": 350,
-              "is_private": true,
-              "bio": "Just another explorer of life.",
-              "amount_followed": 300,
-              "amount_posts": 85,
-              "created_at": "2021-10-30T14:20:10.000Z",
-              "updated_at": "2024-05-01T10:00:00.000Z"
+              "id": "a48b59b2-fa1d-4c68-8816-85f748d81315",
+              "name": "Alex Smith",
+              "image_url":
+                  "https://whyy.org/wp-content/uploads/2022/08/2022-08-15-e-lee-alex-smith-philadelphia-black-gay-comic-book-768x530.jpeg"
             },
-            "catId": "1",
+            "catId": "2",
             "comments": [],
             "amountClicks": 0,
             "amountComments": 0,
@@ -416,147 +768,17 @@ const dummyUserById2 = {
             "viewCount": 0
           },
           {
-            "id": "1",
-            "active": true,
-            "title": "Post 3",
-            "content":
-                "https://i0.wp.com/silent-water.de/wp-content/uploads/2022/09/Wreck2-6UsBuplg.jpg?w=1235&ssl=1",
-            "image_description": "Image 1",
-            "user": {
-              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
-              "name": "Jane Doe",
-              "image_url": "https://example.com/jane-doe-photo.jpg",
-              "email": "JaneDoe@email.com",
-              "amount_follower": 350,
-              "is_private": true,
-              "bio": "Just another explorer of life.",
-              "amount_followed": 300,
-              "amount_posts": 85,
-              "created_at": "2021-10-30T14:20:10.000Z",
-              "updated_at": "2024-05-01T10:00:00.000Z"
-            },
-            "catId": "1",
-            "comments": [],
-            "amountClicks": 0,
-            "amountComments": 0,
-            "imageUrls": [
-              "https://i0.wp.com/silent-water.de/wp-content/uploads/2022/09/Wreck2-6UsBuplg.jpg?w=1235&ssl=1"
-            ],
-            "postType": "image",
-            "createdAt": "2024-04-29T11:00:00.000Z",
-            "likeCount": 0,
-            "viewCount": 0
-          },
-          {
-            "id": "1",
-            "active": true,
-            "title": "Post 3",
-            "content":
-                "https://img.freepik.com/fotos-kostenlos/sonnige-tropische-landschaft_23-2150466874.jpg?size=626&ext=jpg",
-            "image_description": "Image 1",
-            "user": {
-              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
-              "name": "Jane Doe",
-              "image_url": "https://example.com/jane-doe-photo.jpg",
-              "email": "JaneDoe@email.com",
-              "amount_follower": 350,
-              "is_private": true,
-              "bio": "Just another explorer of life.",
-              "amount_followed": 300,
-              "amount_posts": 85,
-              "created_at": "2021-10-30T14:20:10.000Z",
-              "updated_at": "2024-05-01T10:00:00.000Z"
-            },
-            "catId": "1",
-            "comments": [],
-            "amountClicks": 0,
-            "amountComments": 0,
-            "imageUrls": [
-              "https://img.freepik.com/fotos-kostenlos/sonnige-tropische-landschaft_23-2150466874.jpg?size=626&ext=jpg"
-            ],
-            "postType": "image",
-            "createdAt": "2024-04-29T11:00:00.000Z",
-            "likeCount": 0,
-            "viewCount": 0
-          },
-          {
-            "id": "1",
-            "active": true,
-            "title": "Mediocre life is still life",
-            "content":
-                "Mediocricy is a state of mind, not a state of being. I am a mediocre person, follow me for more mediocre stuff. My channels are @mediocrechannels and all my posts are mediocre? Whatever lets get drunk and have fun.",
-            "image_description": null,
-            "user": {
-              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
-              "name": "Jane Doe",
-              "image_url": "https://example.com/jane-doe-photo.jpg",
-              "email": "JaneDoe@email.com",
-              "amount_follower": 350,
-              "is_private": true,
-              "bio": "Just another explorer of life.",
-              "amount_followed": 300,
-              "amount_posts": 85,
-              "created_at": "2021-10-30T14:20:10.000Z",
-              "updated_at": "2024-05-01T10:00:00.000Z"
-            },
-            "catId": "1",
-            "comments": [],
-            "amountClicks": 0,
-            "amountComments": 0,
-            "imageUrls": [],
-            "postType": "text",
-            "createdAt": "2024-04-29T11:00:00.000Z",
-            "likeCount": 0,
-            "viewCount": 0
-          },
-          {
-            "id": "1",
-            "active": true,
-            "title": "Thoughts on Trampeling",
-            "content": "Trampeling opens you up to embrace the pain.",
-            "image_description": null,
-            "user": {
-              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
-              "name": "Jane Doe",
-              "image_url": "https://example.com/jane-doe-photo.jpg",
-              "email": "JaneDoe@email.com",
-              "amount_follower": 350,
-              "is_private": true,
-              "bio": "Just another explorer of life.",
-              "amount_followed": 300,
-              "amount_posts": 85,
-              "created_at": "2021-10-30T14:20:10.000Z",
-              "updated_at": "2024-05-01T10:00:00.000Z"
-            },
-            "catId": "1",
-            "comments": [],
-            "amountClicks": 0,
-            "amountComments": 0,
-            "imageUrls": [],
-            "postType": "text",
-            "createdAt": "2024-04-29T11:00:00.000Z",
-            "likeCount": 0,
-            "viewCount": 0
-          },
-          {
-            "id": "2",
+            "id": "4",
             "active": true,
             "title": "Reflections on Solitude",
             "content":
                 "Solitude can be a powerful teacher. It helps you discover inner peace and clarity. It can also help you connect with your inner self.",
             "image_description": null,
             "user": {
-              "id": "a79b21d5-6c3a-48a6-a39e-45e8b24b1348",
-              "name": "John Smith",
-              "image_url": "https://example.com/john-smith-photo.jpg",
-              "email": "JohnSmith@email.com",
-              "amount_follower": 500,
-              "is_private": false,
-              "bio": "Lover of quiet moments.",
-              "amount_followed": 150,
-              "amount_posts": 120,
-              "created_at": "2022-01-15T09:30:00.000Z",
-              "updated_at": "2024-05-01T11:00:00.000Z"
+              "id": "a48b59b2-fa1d-4c68-8816-85f748d81315",
+              "name": "Alex Smith",
+              "image_url":
+                  "https://whyy.org/wp-content/uploads/2022/08/2022-08-15-e-lee-alex-smith-philadelphia-black-gay-comic-book-768x530.jpeg"
             },
             "catId": "2",
             "comments": [],
@@ -564,12 +786,56 @@ const dummyUserById2 = {
             "amountComments": 0,
             "imageUrls": [],
             "postType": "text",
-            "createdAt": "2024-04-30T12:00:00.000Z",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "8",
+            "active": true,
+            "title": "The Joy of Reading",
+            "content":
+                "Reading opens up new worlds and perspectives. It allows you to explore different cultures and ideas from the comfort of your home. Whether it's fiction or non-fiction, every book has the potential to teach you something new and exciting.",
+            "image_description": null,
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [],
+            "postType": "text",
+            "createdAt": "2024-04-30T09:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "9",
+            "active": true,
+            "title": "A Day in the Life",
+            "content":
+                "A typical day in my life involves waking up early, going for a run, and spending the day working on various projects. In the evening, I enjoy cooking a nice meal and relaxing with a good book or a movie. Every day brings its own unique challenges and joys.",
+            "image_description": null,
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [],
+            "postType": "text",
+            "createdAt": "2024-04-30T10:00:00.000Z",
             "likeCount": 0,
             "viewCount": 0
           }
         ]
-      },
+      }
     ]
   }
 };
