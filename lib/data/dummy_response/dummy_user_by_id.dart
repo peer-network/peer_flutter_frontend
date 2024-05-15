@@ -127,7 +127,8 @@ const dummyUserById2 = {
       {
         "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
         "name": "Jane Doe",
-        "image_url": "https://example.com/jane-doe-photo.jpg",
+        "image_url":
+            "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/45e2efd7-6e6c-464a-8ac5-54e4fcaef800/width=450/tmp2tfh58ws.jpeg",
         "email": "JaneDoe@email.com",
         "amount_follower": 350,
         "is_private": true,
@@ -142,7 +143,7 @@ const dummyUserById2 = {
             "active": true,
             "title": "Post 1",
             "content":
-                "https://images.squarespace-cdn.com/content/v1/60f0902f72b8bf543ab817ff/1685958995490-416PQ3AYPE04CXO0OOJ4/Eugene-Theron_ISO100_Landscape-Photography_Filters.jpg",
+                "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
             "image_description": "Image 1",
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
@@ -154,7 +155,7 @@ const dummyUserById2 = {
             "amountClicks": 0,
             "amountComments": 0,
             "imageUrls": [
-              "https://images.squarespace-cdn.com/content/v1/60f0902f72b8bf543ab817ff/1685958995490-416PQ3AYPE04CXO0OOJ4/Eugene-Theron_ISO100_Landscape-Photography_Filters.jpg"
+              "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
             ],
             "postType": "image",
             "createdAt": "2024-04-29T11:00:00.000Z",
@@ -190,7 +191,7 @@ const dummyUserById2 = {
             "active": true,
             "title": "Post 3",
             "content":
-                "https://www.originaltravel.co.uk/travel-blog/showphoto/3521/0",
+                "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
             "image_description": "Image 3",
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
