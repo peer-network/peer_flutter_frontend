@@ -128,7 +128,7 @@ const dummyUserById2 = {
         "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
         "name": "Jane Doe",
         "image_url":
-            "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/45e2efd7-6e6c-464a-8ac5-54e4fcaef800/width=450/tmp2tfh58ws.jpeg",
+            "https://storage.googleapis.com/wnr-ai/uploads/chat/ai/avatar/c3de9b8b4ea5836aaff8e88b362d5ce4/v512_c3de9b8b4ea5836aaff8e88b362d5ce4.png",
         "email": "JaneDoe@email.com",
         "amount_follower": 350,
         "is_private": true,
@@ -143,7 +143,7 @@ const dummyUserById2 = {
             "active": true,
             "title": "Post 1",
             "content":
-                "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
+                "https://content.osgnetworks.tv/northamericanwhitetail/content/photos/how-to-find-big-buck-sanctuaries-spring-1200x800.jpg",
             "image_description": "Image 1",
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
@@ -167,7 +167,7 @@ const dummyUserById2 = {
             "active": true,
             "title": "Post 2",
             "content":
-                "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600",
+                "https://cdn.vox-cdn.com/thumbor/xYSUaNbrtoz-HUrW5CIStGurgWk=/0x0:4987x3740/1200x800/filters:focal(0x0:4987x3740)/cdn.vox-cdn.com/uploads/chorus_image/image/45503430/453801468.0.0.jpg",
             "image_description": "Image 2",
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
@@ -215,7 +215,7 @@ const dummyUserById2 = {
             "active": true,
             "title": "Post 4",
             "content":
-                "https://i0.wp.com/silent-water.de/wp-content/uploads/2022/09/Wreck2-6UsBuplg.jpg?w=1235&ssl=1",
+                "https://i.guim.co.uk/img/media/2ca456112697f2b069935a554b806b535bda68ef/0_202_5175_3103/master/5175.jpg?width=1200&quality=85&auto=format&fit=max&s=81e61df3d7e8d3148cb9762a74d51bb7",
             "image_description": "Image 4",
             "user": {
               "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",

@@ -10,7 +10,6 @@ class ProfileImagePostSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('Posts Output >>>>>>>>>>>> Type Image: $posts ');
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -21,7 +20,8 @@ class ProfileImagePostSection extends StatelessWidget {
         mainAxisSpacing: AppMargins.tiny,
       ),
       itemBuilder: (context, index) {
-        return CustomCachedNetworkImage(imageUrl: posts[index].imageUrls[0]);
+        // return CustomCachedNetworkImage(imageUrl: posts[index].imageUrls[0]);
+        return CustomCachedNetworkImage(imageUrl: posts[index].content);
       },
     );
   }
