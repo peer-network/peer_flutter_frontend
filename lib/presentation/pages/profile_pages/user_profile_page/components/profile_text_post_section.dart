@@ -13,6 +13,7 @@ class ProfileTextPostSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('Posts Output >>>>>>>>>>>> Type Text: $posts ');
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(

@@ -408,9 +408,133 @@ const dummyUserById2 = {
             "amountClicks": 0,
             "amountComments": 0,
             "imageUrls": [
-              "https://images.squarespace-cdn.com/content/v1/60f0902f72b8bf543ab817ff/1685958995490-416PQ3AYPE04CXO0OOJ4/Eugene-Theron_ISO100_Landscape-Photography_Filters.jpg"
+              "https://www.originaltravel.co.uk/travel-blog/showphoto/3521/0"
             ],
             "postType": "image",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "1",
+            "active": true,
+            "title": "Post 3",
+            "content":
+                "https://i0.wp.com/silent-water.de/wp-content/uploads/2022/09/Wreck2-6UsBuplg.jpg?w=1235&ssl=1",
+            "image_description": "Image 1",
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg",
+              "email": "JaneDoe@email.com",
+              "amount_follower": 350,
+              "is_private": true,
+              "bio": "Just another explorer of life.",
+              "amount_followed": 300,
+              "amount_posts": 85,
+              "created_at": "2021-10-30T14:20:10.000Z",
+              "updated_at": "2024-05-01T10:00:00.000Z"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [
+              "https://i0.wp.com/silent-water.de/wp-content/uploads/2022/09/Wreck2-6UsBuplg.jpg?w=1235&ssl=1"
+            ],
+            "postType": "image",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "1",
+            "active": true,
+            "title": "Post 3",
+            "content":
+                "https://img.freepik.com/fotos-kostenlos/sonnige-tropische-landschaft_23-2150466874.jpg?size=626&ext=jpg",
+            "image_description": "Image 1",
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg",
+              "email": "JaneDoe@email.com",
+              "amount_follower": 350,
+              "is_private": true,
+              "bio": "Just another explorer of life.",
+              "amount_followed": 300,
+              "amount_posts": 85,
+              "created_at": "2021-10-30T14:20:10.000Z",
+              "updated_at": "2024-05-01T10:00:00.000Z"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [
+              "https://img.freepik.com/fotos-kostenlos/sonnige-tropische-landschaft_23-2150466874.jpg?size=626&ext=jpg"
+            ],
+            "postType": "image",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "1",
+            "active": true,
+            "title": "Thoughts on Traveling",
+            "content":
+                "Traveling opens your mind to new cultures, experiences, and perspectives. It allows you to step out of your comfort zone and see the world from a different angle. Whether you travel for adventure, relaxation, or learning, each journey adds to your personal growth.",
+            "image_description": null,
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg",
+              "email": "JaneDoe@email.com",
+              "amount_follower": 350,
+              "is_private": true,
+              "bio": "Just another explorer of life.",
+              "amount_followed": 300,
+              "amount_posts": 85,
+              "created_at": "2021-10-30T14:20:10.000Z",
+              "updated_at": "2024-05-01T10:00:00.000Z"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [],
+            "postType": "text",
+            "createdAt": "2024-04-29T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "1",
+            "active": true,
+            "title": "Thoughts on Traveling",
+            "content":
+                "Traveling opens your mind to new cultures, experiences, and perspectives. It allows you to step out of your comfort zone and see the world from a different angle. Whether you travel for adventure, relaxation, or learning, each journey adds to your personal growth.",
+            "image_description": null,
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg",
+              "email": "JaneDoe@email.com",
+              "amount_follower": 350,
+              "is_private": true,
+              "bio": "Just another explorer of life.",
+              "amount_followed": 300,
+              "amount_posts": 85,
+              "created_at": "2021-10-30T14:20:10.000Z",
+              "updated_at": "2024-05-01T10:00:00.000Z"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [],
+            "postType": "text",
             "createdAt": "2024-04-29T11:00:00.000Z",
             "likeCount": 0,
             "viewCount": 0
