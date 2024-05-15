@@ -833,6 +833,55 @@ const dummyUserById2 = {
             "createdAt": "2024-04-30T10:00:00.000Z",
             "likeCount": 0,
             "viewCount": 0
+          },
+          {
+            "id": "10",
+            "active": true,
+            "title": "Beautiful Landscape",
+            "content":
+                "https://images.csmonitor.com/csm/2012/11/1129-Greenland-ice-sheet.jpg?alias=standard_900x600",
+            "image_description":
+                "A beautiful landscape of a Greenland ice sheet.",
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [
+              "https://img.freepik.com/fotos-kostenlos/sonnige-tropische-landschaft_23-2150466874.jpg?size=626&ext=jpg"
+            ],
+            "postType": "image",
+            "createdAt": "2024-04-30T11:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
+          },
+          {
+            "id": "11",
+            "active": true,
+            "title": "Silent Water",
+            "content":
+                "https://i0.wp.com/silent-water.de/wp-content/uploads/2022/09/Wreck2-6UsBuplg.jpg?w=1235&ssl=1",
+            "image_description": "A serene underwater wreck.",
+            "user": {
+              "id": "b58c10e3-fe2c-43e0-958f-2f2ea20f08f2",
+              "name": "Jane Doe",
+              "image_url": "https://example.com/jane-doe-photo.jpg"
+            },
+            "catId": "1",
+            "comments": [],
+            "amountClicks": 0,
+            "amountComments": 0,
+            "imageUrls": [
+              "https://i0.wp.com/silent-water.de/wp-content/uploads/2022/09/Wreck2-6UsBuplg.jpg?w=1235&ssl=1"
+            ],
+            "postType": "image",
+            "createdAt": "2024-04-30T12:00:00.000Z",
+            "likeCount": 0,
+            "viewCount": 0
           }
         ]
       }

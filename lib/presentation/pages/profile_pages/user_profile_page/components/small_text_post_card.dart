@@ -112,7 +112,6 @@ class SmallTextPostCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // SmallHeaderPostCard(creator: user, date: post.createdAt),
                   const SizedBox(height: AppPaddings.small),
                   Text(
                     post.title,
@@ -154,10 +153,6 @@ class SmallTextPostCard extends StatelessWidget {
                               child: Container(
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
-                                    // colors: [
-                                    //   Colors.transparent,
-                                    //   Colors.grey.withOpacity(0.7),
-                                    // ],
                                     colors: [
                                       Colors.transparent,
                                       Theme.of(context).brightness ==
@@ -177,10 +172,6 @@ class SmallTextPostCard extends StatelessWidget {
                       );
                     },
                   ),
-                  // const SizedBox(height: AppPaddings.small),
-                  // FeedStatsComponent(
-                  //   feed: post,
-                  // ),
                 ],
               ),
             ),
