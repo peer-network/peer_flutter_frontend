@@ -11,8 +11,6 @@ class UserProfileBodyWrapperID extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // print out the current user id to the console, i an nice format
-    print('User ID <<<<<>>>><<<<<>>>>>>><<<<<<>>>>>: $userId');
     return GenericFutureBuilder<UserModel?>(
       futureFunction: UserService().fetchNewUser(userId),
       dataBuilder: (context, UserModel? data) => UserProfileBody(user: data!),

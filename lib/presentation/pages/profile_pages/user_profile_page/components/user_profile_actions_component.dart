@@ -20,10 +20,6 @@ class UserProfileActionsComponent extends StatelessWidget {
           onPressed: () {},
           text: 'Send Message',
         ),
-
-        const SizedBox(width: AppPaddings.medium),
-        // Message Button
-        // FollowerButtonComponent(user: user),
       ],
     );
   }
