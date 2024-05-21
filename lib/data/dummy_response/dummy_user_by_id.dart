@@ -332,7 +332,70 @@ const dummyUserById2 = {
                   "https://whyy.org/wp-content/uploads/2022/08/2022-08-15-e-lee-alex-smith-philadelphia-black-gay-comic-book-768x530.jpeg"
             },
             "catId": "2",
-            "comments": [],
+            "comments": [
+              {
+                "id": 1,
+                "content": "This is a fantastic view!",
+                "postId": 1,
+                "userId": 2,
+                "likeCount": 10,
+                "createdAt": "2024-04-30T09:00:00.000Z",
+                "user": {
+                  "id": 2,
+                  "username": "John Doe",
+                  "profilePictureUrl":
+                      "https://randomuser.me/api/portraits/men/1.jpg"
+                },
+                "comments": [
+                  {
+                    "id": 2,
+                    "content": "Absolutely breathtaking!",
+                    "postId": 1,
+                    "userId": 3,
+                    "likeCount": 3,
+                    "createdAt": "2024-04-30T10:00:00.000Z",
+                    "user": {
+                      "id": 3,
+                      "username": "Jane Doe",
+                      "profilePictureUrl":
+                          "https://randomuser.me/api/portraits/women/1.jpg"
+                    },
+                    "comments": []
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "content": "Love this place!",
+                "postId": 1,
+                "userId": 4,
+                "likeCount": 5,
+                "createdAt": "2024-04-30T11:00:00.000Z",
+                "user": {
+                  "id": 4,
+                  "username": "Emily Smith",
+                  "profilePictureUrl":
+                      "https://randomuser.me/api/portraits/women/2.jpg"
+                },
+                "comments": [
+                  {
+                    "id": 4,
+                    "content": "Me too! Visited last summer.",
+                    "postId": 1,
+                    "userId": 5,
+                    "likeCount": 2,
+                    "createdAt": "2024-04-30T12:00:00.000Z",
+                    "user": {
+                      "id": 5,
+                      "username": "Chris Johnson",
+                      "profilePictureUrl":
+                          "https://randomuser.me/api/portraits/men/2.jpg"
+                    },
+                    "comments": []
+                  }
+                ]
+              }
+            ],
             "amountClicks": 0,
             "amountComments": 0,
             "imageUrls": [

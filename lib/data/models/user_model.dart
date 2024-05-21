@@ -95,14 +95,14 @@ class UserModel {
 
     return UserModel(
       id: json['id'].toString(),
-      name: json['name'],
+      name: json['name'] ?? 'JSON receiced NULL',
       email: json[
           'email'], // Ensure your JSON has this or handle it if it's optional
       verified: json['verified'] ?? false,
       createdAt: json['created_at'],
       updatedAt: json['updated_at'],
       verificationToken: json['verification_token'] ?? '',
-      imageUrl: json['image_url'],
+      imageUrl: json['image_url'] ?? 'JSON receiced NULL',
       isPrivate: json['is_private'] ?? false,
       bio: json['bio'] ?? 'No biography provided.',
       amountOfPosts: json['amount_posts'] ?? 0,
