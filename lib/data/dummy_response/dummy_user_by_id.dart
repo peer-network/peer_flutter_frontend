@@ -318,6 +318,7 @@ const dummyUserById2 = {
         "created_at": "2022-05-20T19:34:20.000Z",
         "updated_at": "2024-04-29T18:15:00.000Z",
         "posts": [
+          // HERE IS POST 1
           {
             "id": "1",
             "active": true,
@@ -342,9 +343,8 @@ const dummyUserById2 = {
                 "createdAt": "2024-04-30T09:00:00.000Z",
                 "user": {
                   "id": 2,
-                  "username": "John Doe",
-                  "profilePictureUrl":
-                      "https://randomuser.me/api/portraits/men/1.jpg"
+                  "name": "John Doe",
+                  "image_url": "https://randomuser.me/api/portraits/men/1.jpg"
                 },
                 "comments": [
                   {
@@ -356,9 +356,9 @@ const dummyUserById2 = {
                     "createdAt": "2024-04-30T10:00:00.000Z",
                     "user": {
                       "id": 3,
-                      "username": "Jane Doe",
-                      "profilePictureUrl":
-                          "https://randomuser.me/api/portraits/women/1.jpg"
+                      "name": "Jane Doe",
+                      "image_url":
+                          "https://storage.googleapis.com/wnr-ai/uploads/chat/ai/avatar/c3de9b8b4ea5836aaff8e88b362d5ce4/v512_c3de9b8b4ea5836aaff8e88b362d5ce4.png"
                     },
                     "comments": []
                   }
@@ -373,9 +373,8 @@ const dummyUserById2 = {
                 "createdAt": "2024-04-30T11:00:00.000Z",
                 "user": {
                   "id": 4,
-                  "username": "Emily Smith",
-                  "profilePictureUrl":
-                      "https://randomuser.me/api/portraits/women/2.jpg"
+                  "name": "Emily Smith",
+                  "image_url": "https://randomuser.me/api/portraits/women/2.jpg"
                 },
                 "comments": [
                   {
@@ -387,8 +386,8 @@ const dummyUserById2 = {
                     "createdAt": "2024-04-30T12:00:00.000Z",
                     "user": {
                       "id": 5,
-                      "username": "Chris Johnson",
-                      "profilePictureUrl":
+                      "name": "Chris Johnson",
+                      "image_url":
                           "https://randomuser.me/api/portraits/men/2.jpg"
                     },
                     "comments": []
