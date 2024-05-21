@@ -20,6 +20,8 @@ class ProfileImagePostSection extends StatelessWidget {
         mainAxisSpacing: AppMargins.tiny,
       ),
       itemBuilder: (context, index) {
+        // print the id of the post
+        print(posts[index].id);
         return CustomCachedNetworkImage(imageUrl: posts[index].imageUrls[0]);
         // return CustomCachedNetworkImage(imageUrl: posts[index].content);
       },
