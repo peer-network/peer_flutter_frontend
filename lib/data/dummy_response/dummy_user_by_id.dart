@@ -378,7 +378,24 @@ const dummyUserById2 = {
                           "image_url":
                               "https://storage.googleapis.com/wnr-ai/uploads/chat/ai/avatar/c3de9b8b4ea5836aaff8e88b362d5ce4/v512_c3de9b8b4ea5836aaff8e88b362d5ce4.png"
                         },
-                        "comments": [] // Layer 4
+                        "comments": [
+                          // Layer 4
+                          {
+                            "id": 2,
+                            "content": "Comment Layer 4.",
+                            "postId": 1,
+                            "userId": 3,
+                            "likeCount": 3,
+                            "createdAt": "2024-04-30T10:00:00.000Z",
+                            "user": {
+                              "id": 3,
+                              "name": "Jane Doe",
+                              "image_url":
+                                  "https://storage.googleapis.com/wnr-ai/uploads/chat/ai/avatar/c3de9b8b4ea5836aaff8e88b362d5ce4/v512_c3de9b8b4ea5836aaff8e88b362d5ce4.png"
+                            },
+                            "comments": [] // Layer 5
+                          }
+                        ]
                       }
                     ]
                   }
