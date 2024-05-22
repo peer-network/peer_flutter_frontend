@@ -5,6 +5,9 @@ import 'package:peer_app/data/models/feed_comment.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/whitelabel/components/custom_toast.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
+import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
+import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
 class DetailedImagePage extends StatelessWidget {
   final FeedModel post;
@@ -141,12 +144,50 @@ class CommentComment extends StatelessWidget {
               CircleAvatar(
                 backgroundImage:
                     NetworkImage(comment.user.imageUrl ?? "FALLBACK VALUE"),
-                radius: 16,
+                radius: AppDimensions.iconSizeSmall,
               ),
               const SizedBox(width: 8),
-              Text(
-                comment.user.name,
-                style: const TextStyle(fontWeight: FontWeight.bold),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    comment.user.name,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        '${comment.createdAt}',
+                        style:
+                            const TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        'Likes: ${comment.likeCount}',
+                        style:
+                            const TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
+                      CustomIconButton(
+                        onPressed: () {},
+                        sizeType: SizeType.small,
+                        icon: IconLibrary.heart,
+                      ),
+                      const Icon(
+                        Icons.favorite,
+                        size: 16, // Adjust the size as needed
+                        color: Colors.grey,
+                      ),
+                      const SizedBox(
+                          width:
+                              4), // Adding some spacing between the icon and the text
+                      Text(
+                        '${comment.likeCount}', // Display only the like count
+                        style:
+                            const TextStyle(fontSize: 12, color: Colors.grey),
+                      )
+                    ],
+                  ),
+                ],
               ),
             ],
           ),
@@ -175,19 +216,6 @@ class CommentComment extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 4),
-          Row(
-            children: [
-              Text(
-                '${comment.createdAt}',
-                style: const TextStyle(fontSize: 12, color: Colors.grey),
-              ),
-              const SizedBox(width: 8),
-              Text(
-                'Likes: ${comment.likeCount}',
-                style: const TextStyle(fontSize: 12, color: Colors.grey),
-              ),
-            ],
-          ),
         ],
       ),
     );
