@@ -27,8 +27,6 @@ class ChatHistoryView extends StatelessWidget {
 
     for (var i = 0; i < chatHistory.length; i++) {
       final chatMessage = chatHistory[i];
-      // print the message with description
-      print('Message>>>>>>>>>>>>>>>>>>>>>: $chatMessage');
       // Parse the timestamp to DateTime only for comparison
       final messageDateString =
           DateFormat('yyyy-MM-dd').format(chatMessage.createdAt);

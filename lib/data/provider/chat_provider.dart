@@ -27,11 +27,14 @@ class ChatProvider with ChangeNotifier {
     final queryOption = QueryOptions(
       document: Queries.chat,
       fetchPolicy: FetchPolicy.networkOnly,
+      variables: {
+        'userId': currentUserId,
+      },
     );
 
     try {
       QueryResult<Object?> queryResult = await gqlClient.query(queryOption);
-      print("queryResult: ${queryResult.data.toString()}");
+      // print("queryResult: ${queryResult.data.toString()}");
 
       if (queryResult.hasException) {
         error = queryResult.exception.toString();

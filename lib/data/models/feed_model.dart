@@ -13,10 +13,9 @@ class FeedModel {
   final List<CommentModel> comments;
   final int amountClicks;
   final int amountComments;
-  // TODO remove hardcode
-  final List<String> imageUrls = [];
-  final PostType postType = PostType.text;
-  final DateTime createdAt = DateTime.now();
+  final List<String> imageUrls;
+  final PostType postType;
+  final DateTime createdAt;
   final num likeCount;
   final num viewCount;
 
@@ -25,107 +24,80 @@ class FeedModel {
     required this.active,
     required this.title,
     required this.content,
-    required this.imageDescription,
+    this.imageDescription,
     required this.user,
     required this.catId,
     required this.comments,
     required this.amountClicks,
     required this.amountComments,
+    required this.imageUrls,
+    required this.postType,
+    required this.createdAt,
     required this.likeCount,
     required this.viewCount,
   });
 
   factory FeedModel.fromJson(Map<String, dynamic> json) {
     var commentsList = json['comments'] as List?;
-    List<CommentModel> comments = commentsList == null
-        ? []
-        : commentsList.map((i) => CommentModel.fromJson(i)).toList();
+    List<CommentModel> comments = commentsList
+            ?.map((i) => CommentModel.fromJson(i as Map<String, dynamic>))
+            .toList() ??
+        [];
+
+    UserModel user;
+    try {
+      user = UserModel.fromJson(json['user'] as Map<String, dynamic>);
+    } catch (e) {
+      print('Failed to parse UserModel from JSON: $e');
+      throw const FormatException(
+          'Failed to parse UserModel, invalid or null user data');
+    }
+    if (json['user'] == null) {
+      throw const FormatException('User data is missing');
+    }
+
+    PostType postType;
+    switch (json['postType']) {
+      case 'image':
+        postType = PostType.image;
+        break;
+      case 'video':
+        postType = PostType.video;
+        break;
+      default:
+        postType = PostType.text;
+    }
+
+    List<String> imageUrls =
+        (json['imageUrls'] as List?)?.map((item) => item as String).toList() ??
+            [];
 
     return FeedModel(
-      id: json['id'],
-      active: json['active'],
-      imageDescription: null,
-      title: json['title'],
-      content: json['content'],
-      user: UserModel.fromJson(json['user']),
-      catId: json['catId'],
+      id: json['id'] != null ? int.tryParse(json['id'].toString()) ?? 0 : 0,
+      active: json['active'] ?? false,
+      title: json['title'] ?? '',
+      content: json['content'] ?? '',
+      imageDescription: json['image_description'],
+      user: user,
+      catId: json['catId'] != null
+          ? int.tryParse(json['catId'].toString()) ?? 0
+          : 0,
       comments: comments,
-      amountClicks: json['clicks_aggregate']?['aggregate']?['count'] ?? 0,
-      amountComments: json['comments_aggregate']?['aggregate']?['count'] ?? 0,
-      likeCount: json['likes_aggregate']?['aggregate']?['count'] ?? 0,
-      viewCount: json['views_aggregate']?['aggregate']?['count'] ?? 0,
+      amountClicks: int.tryParse(
+              json['clicks_aggregate']?['aggregate']?['count']?.toString() ??
+                  "0") ??
+          0,
+      amountComments: int.tryParse(
+              json['comments_aggregate']?['aggregate']?['count']?.toString() ??
+                  "0") ??
+          0,
+      likeCount: json['likes_aggregate']?['aggregate']?['count'] as num? ?? 0,
+      viewCount: json['views_aggregate']?['aggregate']?['count'] as num? ?? 0,
+      createdAt: json['createdAt'] != null
+          ? DateTime.parse(json['createdAt']!)
+          : DateTime.now(),
+      postType: postType,
+      imageUrls: imageUrls,
     );
   }
 }
-
-// class FeedModel {
-//   final String id;
-//   final DateTime createdAt;
-//   final num likeCount;
-//   final num viewCount;
-//   // additional fields
-//   String creatorId;
-//   UserModel? creator;
-//   final String? imageDescription;
-//   final List<String> imageUrls;
-//   final PostType postType;
-//   List<FeedCommentModel> comments;
-//   final String? contentText;
-//   bool? isLiked;
-
-//   FeedModel({
-//     required this.id,
-//     required this.creatorId,
-//     this.creator,
-//     required this.imageDescription,
-//     this.imageUrls = const [],
-//     required this.contentText,
-//     required this.postType,
-//     required this.likeCount,
-//     required this.viewCount,
-//     required this.createdAt,
-//     this.comments = const [],
-//     this.isLiked,
-//   });
-
-//   toggleLike() {
-//     if (isLiked == null) {
-//       isLiked = true;
-//     } else {
-//       isLiked = !isLiked!;
-//     }
-//   }
-
-//   factory FeedModel.fromJson(Map<String, dynamic> json) {
-//     // create comments object
-//     List<FeedCommentModel> comments = [];
-
-//     if (json['comments'] != null) {
-//       json['comments'].forEach((comment) {
-//         comments.add(FeedCommentModel.fromJson(comment));
-//       });
-//     }
-
-//     // the posttype is determined by the presence of imageUrls or contentText
-//     PostType postType = PostType.text;
-//     if (json['image_urls'] != null) {
-//       postType = PostType.image;
-//     }
-
-//     return FeedModel(
-//       id: json['id'],
-//       creatorId: json['creator_id'],
-//       creator:
-//           json['creator'] != null ? UserModel.fromJson(json['creator']) : null,
-//       imageDescription: json['image_description'],
-//       imageUrls: json['image_urls'] ?? [],
-//       contentText: json['content_text'],
-//       likeCount: json['like_count'],
-//       viewCount: json['view_count'],
-//       createdAt: DateTime.parse(json['created_at']),
-//       comments: comments,
-//       isLiked: json['is_liked'],
-//       postType: postType,
-//     );
-//   }
-// }

@@ -33,6 +33,7 @@ class UserProfileBody extends StatelessWidget {
                 .toList(),
             user: user,
           ),
+          // TODO: Add ProfileVideoPostSection
         ],
       ),
     );

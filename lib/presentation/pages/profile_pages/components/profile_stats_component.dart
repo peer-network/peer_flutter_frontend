@@ -17,8 +17,8 @@ class ProfileStatsComponent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(user.amountOfFollowers.toString(),
-                style: Theme.of(context).textTheme.titleLarge),
-            Text('Followers', style: Theme.of(context).textTheme.titleLarge),
+                style: Theme.of(context).textTheme.labelLarge),
+            Text('Followers', style: Theme.of(context).textTheme.labelSmall),
           ],
         ),
         // Following
@@ -26,8 +26,8 @@ class ProfileStatsComponent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(user.amountOfFollowers.toString(),
-                style: Theme.of(context).textTheme.titleLarge),
-            Text('Following', style: Theme.of(context).textTheme.titleLarge),
+                style: Theme.of(context).textTheme.labelLarge),
+            Text('Following', style: Theme.of(context).textTheme.labelSmall),
           ],
         ),
         // Posts
@@ -35,8 +35,8 @@ class ProfileStatsComponent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(user.amountOfPosts.toString(),
-                style: Theme.of(context).textTheme.titleLarge),
-            Text('Posts', style: Theme.of(context).textTheme.titleLarge),
+                style: Theme.of(context).textTheme.labelLarge),
+            Text('Posts', style: Theme.of(context).textTheme.labelSmall),
           ],
         ),
       ],

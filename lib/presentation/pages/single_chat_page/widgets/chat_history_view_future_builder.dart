@@ -5,13 +5,14 @@
 // if data is loaded -> ChatHistoryView
 
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/chat_contact_model.dart';
 import 'package:peer_app/data/models/chat_model.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_builder_repository.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_history_view.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
+import 'package:provider/provider.dart';
 import '../../../../data/models/chat_message_model.dart';
+import '../../../../data/provider/chat_provider.dart';
 
 class ChatHistoryViewFutureBuilder extends StatelessWidget {
   const ChatHistoryViewFutureBuilder({super.key, required this.chat});
@@ -20,10 +21,11 @@ class ChatHistoryViewFutureBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final chatProvider = Provider.of<ChatProvider>(context, listen: false);
+    final userId = chatProvider.currentUserId;
+
     return FutureBuilder<List<ChatMessageModel>>(
-      // TODO: currentUserId should be dynamic
-      future: ChatBuilderRepository(
-              currentUserId: 'c05a6e6e-5365-40ca-b2d5-29af9f1cb1c6', chat: chat)
+      future: ChatBuilderRepository(currentUserId: userId, chat: chat)
           .fetchChatHistory(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
