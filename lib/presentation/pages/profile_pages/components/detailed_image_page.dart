@@ -34,6 +34,12 @@ class FirstLayerComment extends StatelessWidget {
 
   final List<CommentModel> comments;
 
+  // Was tut diese widget?
+  // 1. create a Column and use the spreading operator on the comments list.
+  // For each comment that got spreaded, create a Column widget with a list of children.
+  // 2. The children list contains a CommentComment widget (which is a single comment) and a SecondLayerComment widget.
+  // In case the comment has no comments, the SecondLayerComment widget is not shown.
+
   @override
   Widget build(BuildContext context) {
     // for each comment build a first layer comment
@@ -61,6 +67,11 @@ class SecondLayerComment extends StatelessWidget {
 
   final List<CommentModel> comments;
 
+  // Was tut diese widget?
+  // Everything is the same as in the FirstLayerComment widget,
+  // but it is still needed to later determine the padding of it and it uses the ThirdLayerComment widget.
+  // the boolean isThirdLayerOrMore is still set to false, because there is no refering to other comments.
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -81,6 +92,13 @@ class ThirdLayerComment extends StatelessWidget {
   const ThirdLayerComment({super.key, required this.comments});
 
   final List<CommentModel> comments;
+
+  // Was tut diese widget?
+  // Everything is the same as in the SecondLayerComment widget and
+  // deeper levels also build a ThirdLayerComment widget.
+  // isThirdLayerOrMore is now set to true.
+  // Also a referenceName is passed to the CommentComment widget.
+  // The referenceName is the name of the user of the current comment.
 
   @override
   Widget build(BuildContext context) {
