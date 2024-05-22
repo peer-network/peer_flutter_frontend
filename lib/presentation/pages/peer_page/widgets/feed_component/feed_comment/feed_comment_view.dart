@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_comment.dart';
+import 'package:peer_app/data/models/feed_comment_model.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_comment/comment_component.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-class FeedCoomentView extends StatelessWidget {
-  const FeedCoomentView({
+class FeedCommentView extends StatelessWidget {
+  const FeedCommentView({
     super.key,
     required this.comments,
   });

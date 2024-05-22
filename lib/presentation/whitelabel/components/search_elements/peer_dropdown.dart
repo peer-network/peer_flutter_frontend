@@ -20,22 +20,26 @@ class PeerDropdown extends StatefulWidget {
 class _PeerDropdownState extends State<PeerDropdown> {
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonFormField<String>(
-      decoration: BaseInputDecoration.get(hintText: widget.placeholderText),
-      items: widget.items
-          .map(
-            (item) => DropdownMenuItem(
-              value: item.value,
-              child: Text(item.text),
-            ),
-          )
-          .toList(),
-      onChanged: widget.onChanged,
-      icon: Icon(
-        Icons.keyboard_arrow_down_outlined,
-        color: Theme.of(context).iconTheme.color,
+    return SizedBox(
+      width: 100,
+      child: DropdownButton<String>(
+        value: widget.placeholderText,
+        icon: Icon(Icons.arrow_drop_down, color: Colors.white),
+        iconSize: 24,
+        elevation: 16,
+        style: TextStyle(color: Colors.white),
+        underline: Container(
+          height: 2,
+          color: Colors.blueAccent,
+        ),
+        onChanged: widget.onChanged,
+        items: widget.items.map<DropdownMenuItem<String>>((item) {
+          return DropdownMenuItem<String>(
+            value: item.value,
+            child: Text(item.text),
+          );
+        }).toList(),
       ),
-      dropdownColor: Colors.blueGrey, // dropdownDecoration is not defined
     );
   }
 }

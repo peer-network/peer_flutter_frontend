@@ -1,42 +1,52 @@
 // news_provider.dart
 import 'package:flutter/foundation.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:peer_app/core/exceptions/base_exception.dart';
-import 'package:peer_app/data/graphql/mutations.dart';
-import 'package:peer_app/data/graphql/queries.dart';
-import 'package:peer_app/data/models/feed_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
+import 'package:peer_app/data/new_dummy_response/new_dummy_feed_data.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
-import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-class NewsFeedProvider with ChangeNotifier {
+class PostProvider with ChangeNotifier {
   final gqlClient = GraphQLClientSingleton();
-  final List<FeedModel> _newsFeed = [];
+  final List<PostModel> _posts = [];
   bool isLoading = false;
   String? error;
   int page = 0;
 
-  List<FeedModel> get newsFeed => _newsFeed;
 
-  NewsFeedProvider() {
-    fetchNews();
+
+  List<PostModel> get newsFeed => List.unmodifiable(_posts);
+
+  PostProvider() {
+    fetchPosts();
   }
-
+  /*
   void fetchMore() {
-    page++;
+    page++
     fetchNews();
   }
+  */
 
   void refresh() {
     page = 0;
-    _newsFeed.clear();
-    fetchNews();
+    _posts.clear();
+    fetchPosts();
   }
 
-  Future<void> fetchNews() async {
+  Future<void> fetchPosts() async {
     isLoading = true;
     error = null;
     notifyListeners();
 
+    List<Map<String, dynamic>> dummyPosts = dummyFeedData;
+
+    for (var postJson in dummyPosts) {
+      var postModel = PostModel.fromJson(postJson);
+      _posts.add(postModel);
+    }
+
+    isLoading = false;
+    notifyListeners();
+
+    /*
     final queryOption = QueryOptions(
       document: Queries.posts,
       fetchPolicy: FetchPolicy.networkOnly,
@@ -81,9 +91,11 @@ class NewsFeedProvider with ChangeNotifier {
     isLoading = false;
 
     notifyListeners();
+    */
   }
 
   Future<void> createPost(Map<String, dynamic> newPost) async {
+    /*
     MutationOptions mutationOptions = MutationOptions(
       document: Mutations.createPost,
       variables: newPost,
@@ -116,5 +128,6 @@ class NewsFeedProvider with ChangeNotifier {
       CustomException(e.toString(), StackTrace.current).handleError();
     }
     notifyListeners();
+    */
   }
 }

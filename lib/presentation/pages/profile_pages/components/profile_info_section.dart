@@ -18,7 +18,7 @@ class ProfileInfoSection extends StatelessWidget {
           // Username
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(user.name,
+            child: Text(user.name!,
                 style: Theme.of(context).textTheme.headlineLarge),
           ),
           const SizedBox(height: AppPaddings.medium),

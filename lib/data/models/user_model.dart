@@ -1,95 +1,27 @@
-import 'package:peer_app/data/models/feed_model.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:peer_app/data/models/post_model.dart'; // Assuming FeedModel is also converted to a Freezed model
 
-class UserModel {
-  final String id;
-  final String? imageUrl;
-  final String name;
-  final String? email;
-  final bool? verified;
-  final String? createdAt;
-  final String? updatedAt;
-  final String? verificationToken;
-  // TODO remove hardcode
-  final String bio =
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt fermentum. Nullam nec purus nec nunc tincidunt fermentum.';
-  final List<FeedModel> posts = [];
-  final int amountOfPosts = 0;
-  final int amountOfFollowers = 0;
+part 'user_model.freezed.dart';
+part 'user_model.g.dart';
 
-  final bool isFollowing = false;
+@freezed
+class UserModel with _$UserModel {
+  const factory UserModel({
+    required String id,
+    String? imageUrl,
+    String? name,
+    String? email,
+    bool? verified,
+    String? createdAt,
+    String? updatedAt,
+    String? verificationToken,
+    String? bio,
+    int? amountOfPosts,
+    int? amountOfFollowers,
+    @Default([]) List<PostModel> posts,
+    @Default(false) bool isFollowing,
+  }) = _UserModel;
 
-  UserModel({
-    required this.id,
-    required this.name,
-    required this.email,
-    required this.verified,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.verificationToken,
-    this.imageUrl,
-  });
-
-  factory UserModel.fromJson(Map<String, dynamic> json) {
-    return UserModel(
-      id: json['id'].toString(),
-      name: json['name'],
-      email: json['email'],
-      verified: json['verified'],
-      createdAt: json['created_at'],
-      updatedAt: json['updated_at'],
-      verificationToken: json['verification_token'],
-    );
-  }
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
 }
-
-
-// class UserModel {
-//   final String id;
-//   final String name;
-//   final String profileImageUrl;
-//   // additional fields
-//   final String? bio;
-//   final int? amountOfPosts;
-//   final int? amountOfFollowers;
-//   final int? amountOfFollowing;
-//   final List<FeedModel> posts;
-//   bool? isFollowing;
-
-//   toogleFollow() {
-//     if (isFollowing == null) {
-//       isFollowing = true;
-//     } else {
-//       isFollowing = !isFollowing!;
-//     }
-//   }
-
-//   UserModel({
-//     required this.id,
-//     required this.name,
-//     required this.profileImageUrl,
-//     this.bio,
-//     this.amountOfPosts,
-//     this.amountOfFollowers,
-//     this.amountOfFollowing,
-//     this.posts = const [],
-//     this.isFollowing,
-//   });
-
-//   factory UserModel.fromJson(Map<String, dynamic> json) {
-//     return UserModel(
-//       id: json['id'],
-//       name: json['name'],
-//       profileImageUrl: json['profile_image_url'],
-//       bio: json['bio'],
-//       amountOfPosts: json['amount_of_posts'],
-//       amountOfFollowers: json['amount_of_followers'],
-//       amountOfFollowing: json['amount_of_following'],
-//       isFollowing: json['is_following'],
-//       posts: json['posts'] != null
-//           ? json['posts']
-//               .map<FeedModel>((post) => FeedModel.fromJson(post))
-//               .toList()
-//           : [],
-//     );
-//   }
-// }

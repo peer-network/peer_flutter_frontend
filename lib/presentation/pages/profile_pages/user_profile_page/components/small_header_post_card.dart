@@ -28,7 +28,7 @@ class SmallHeaderPostCard extends StatelessWidget {
             // Title
             Column(
               children: [
-                Text(creator.name,
+                Text(creator.name!,
                     style: Theme.of(context).textTheme.bodyLarge!),
                 const SizedBox(height: AppPaddings.tiny),
                 // datetime as "23. January" with formatted date

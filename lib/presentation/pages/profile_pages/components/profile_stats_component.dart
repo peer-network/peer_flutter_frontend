@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/user_model.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
 
 class ProfileStatsComponent extends StatelessWidget {
   const ProfileStatsComponent({super.key, required this.user});
