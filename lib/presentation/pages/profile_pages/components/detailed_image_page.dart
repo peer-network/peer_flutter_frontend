@@ -1,36 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'package:peer_app/data/models/feed_model.dart';
-
-// class DetailedImagePage extends StatelessWidget {
-//   final FeedModel post;
-
-//   const DetailedImagePage({super.key, required this.post});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Image Details'),
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.all(16.0),
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             Image.network(post.imageUrls[0]),
-//             const SizedBox(height: 16),
-//             // Text(
-//             //   'Description: ${post.description}',
-//             //   style: const TextStyle(fontSize: 16),
-//             // ),
-//             // Add more details here
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_model.dart';
 import 'package:peer_app/data/models/feed_comment.dart';
@@ -58,13 +25,6 @@ class DetailedImagePage extends StatelessWidget {
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            // Text(
-            //   'Description: ${post.content}',
-            //   style: const TextStyle(fontSize: 16),
-            // ),
-            // const SizedBox(height: 16),
-            // const Text('Comments:',
-            //     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             _buildComments(post.comments),
           ],
         ),

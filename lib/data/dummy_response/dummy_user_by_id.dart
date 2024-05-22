@@ -334,6 +334,7 @@ const dummyUserById2 = {
             },
             "catId": "2",
             "comments": [
+              // Layer 1
               {
                 "id": 1,
                 "content": "This is a fantastic view!",
@@ -347,6 +348,7 @@ const dummyUserById2 = {
                   "image_url": "https://randomuser.me/api/portraits/men/1.jpg"
                 },
                 "comments": [
+                  // Layer 2
                   {
                     "id": 2,
                     "content": "Absolutely breathtaking!",
@@ -360,7 +362,25 @@ const dummyUserById2 = {
                       "image_url":
                           "https://storage.googleapis.com/wnr-ai/uploads/chat/ai/avatar/c3de9b8b4ea5836aaff8e88b362d5ce4/v512_c3de9b8b4ea5836aaff8e88b362d5ce4.png"
                     },
-                    "comments": []
+                    //
+                    "comments": [
+                      // Layer 3
+                      {
+                        "id": 2,
+                        "content": "Comment Layer 3.",
+                        "postId": 1,
+                        "userId": 3,
+                        "likeCount": 3,
+                        "createdAt": "2024-04-30T10:00:00.000Z",
+                        "user": {
+                          "id": 3,
+                          "name": "Jane Doe",
+                          "image_url":
+                              "https://storage.googleapis.com/wnr-ai/uploads/chat/ai/avatar/c3de9b8b4ea5836aaff8e88b362d5ce4/v512_c3de9b8b4ea5836aaff8e88b362d5ce4.png"
+                        },
+                        "comments": [] // Layer 4
+                      }
+                    ]
                   }
                 ]
               },
