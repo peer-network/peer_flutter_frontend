@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/data/dummy_response/dummy_contacts.dart'; // Adjust the import to your correct path
+// import 'package:peer_app/data/models/user_model.dart'; // Ensure this is correctly imported for UserModel
 import 'package:peer_app/data/models/contact_model.dart'; // Adjust if necessary
 // No need for DioClient in this example, but you might use it for real API calls
 

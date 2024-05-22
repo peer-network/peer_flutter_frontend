@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/input/base_input_decoration.dart';
 
 class PeerDropdown extends StatefulWidget {

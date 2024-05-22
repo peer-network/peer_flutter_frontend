@@ -1,4 +1,3 @@
-import 'package:peer_app/data/models/chat_contact_model.dart';
 import 'package:peer_app/data/models/chat_model.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/chat_contacts_page.dart';

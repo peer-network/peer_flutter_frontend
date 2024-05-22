@@ -1,6 +1,5 @@
 // File: search_field.dart
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class SearchField extends StatelessWidget {
@@ -15,7 +14,7 @@ class SearchField extends StatelessWidget {
       width: double.infinity,
       child: TextField(
         controller: controller,
-        style: TextStyle(height: 1.0),
+        style: const TextStyle(height: 1.0),
         decoration: InputDecoration(
           hintText: 'Suchen ...',
           suffixIcon: const Icon(Icons.search),

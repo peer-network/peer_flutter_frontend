@@ -30,6 +30,7 @@ class UserProfileBody extends StatelessWidget {
             posts: user.posts.whereType<TextPost>().toList(),
             user: user,
           ),
+          // TODO: Add ProfileVideoPostSection
         ],
       ),
     );
