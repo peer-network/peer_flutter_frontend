@@ -318,6 +318,7 @@ const dummyUserById2 = {
         "created_at": "2022-05-20T19:34:20.000Z",
         "updated_at": "2024-04-29T18:15:00.000Z",
         "posts": [
+          // HERE IS POST 1
           {
             "id": "1",
             "active": true,
@@ -332,7 +333,105 @@ const dummyUserById2 = {
                   "https://whyy.org/wp-content/uploads/2022/08/2022-08-15-e-lee-alex-smith-philadelphia-black-gay-comic-book-768x530.jpeg"
             },
             "catId": "2",
-            "comments": [],
+            "comments": [
+              // Layer 1
+              {
+                "id": 1,
+                "content": "This is a fantastic view!",
+                "postId": 1,
+                "userId": 2,
+                "likeCount": 10,
+                "createdAt": "2024-04-30T09:00:00.000Z",
+                "user": {
+                  "id": 2,
+                  "name": "John Doe",
+                  "image_url": "https://randomuser.me/api/portraits/men/1.jpg"
+                },
+                "comments": [
+                  // Layer 2
+                  {
+                    "id": 2,
+                    "content": "Absolutely breathtaking!",
+                    "postId": 1,
+                    "userId": 3,
+                    "likeCount": 3,
+                    "createdAt": "2024-04-30T10:00:00.000Z",
+                    "user": {
+                      "id": 3,
+                      "name": "Jane Doe",
+                      "image_url":
+                          "https://storage.googleapis.com/wnr-ai/uploads/chat/ai/avatar/c3de9b8b4ea5836aaff8e88b362d5ce4/v512_c3de9b8b4ea5836aaff8e88b362d5ce4.png"
+                    },
+                    //
+                    "comments": [
+                      // Layer 3
+                      {
+                        "id": 2,
+                        "content": "Comment Layer 3.",
+                        "postId": 1,
+                        "userId": 3,
+                        "likeCount": 3,
+                        "createdAt": "2024-04-30T10:00:00.000Z",
+                        "user": {
+                          "id": 3,
+                          "name": "Jane Doe",
+                          "image_url":
+                              "https://storage.googleapis.com/wnr-ai/uploads/chat/ai/avatar/c3de9b8b4ea5836aaff8e88b362d5ce4/v512_c3de9b8b4ea5836aaff8e88b362d5ce4.png"
+                        },
+                        "comments": [
+                          // Layer 4
+                          {
+                            "id": 2,
+                            "content": "Comment Layer 4.",
+                            "postId": 1,
+                            "userId": 3,
+                            "likeCount": 3,
+                            "createdAt": "2024-04-30T10:00:00.000Z",
+                            "user": {
+                              "id": 3,
+                              "name": "Jane Doe",
+                              "image_url":
+                                  "https://storage.googleapis.com/wnr-ai/uploads/chat/ai/avatar/c3de9b8b4ea5836aaff8e88b362d5ce4/v512_c3de9b8b4ea5836aaff8e88b362d5ce4.png"
+                            },
+                            "comments": [] // Layer 5
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "content": "Love this place!",
+                "postId": 1,
+                "userId": 4,
+                "likeCount": 5,
+                "createdAt": "2024-04-30T11:00:00.000Z",
+                "user": {
+                  "id": 4,
+                  "name": "Emily Smith",
+                  "image_url": "https://randomuser.me/api/portraits/women/2.jpg"
+                },
+                "comments": [
+                  {
+                    "id": 4,
+                    "content": "Me too! Visited last summer.",
+                    "postId": 1,
+                    "userId": 5,
+                    "likeCount": 2,
+                    "createdAt": "2024-04-30T12:00:00.000Z",
+                    "user": {
+                      "id": 5,
+                      "name": "Chris Johnson",
+                      "image_url":
+                          "https://randomuser.me/api/portraits/men/2.jpg"
+                    },
+                    "comments": []
+                  }
+                ]
+              }
+            ],
             "amountClicks": 0,
             "amountComments": 0,
             "imageUrls": [
