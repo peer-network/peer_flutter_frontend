@@ -250,7 +250,6 @@ class CommentComment extends StatelessWidget {
                                   onPressed: () {},
                                   sizeType: SizeType.tiny,
                                   icon: IconLibrary.heart,
-                                  thickness: 7.0,
                                 ),
                                 Text(
                                   '${comment.likeCount}',
