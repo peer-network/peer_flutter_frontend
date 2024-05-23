@@ -57,12 +57,7 @@ class FirstLayerComment extends StatelessWidget {
                         isThirdLayerOrMore: false,
                         isSecondLayerOrMore: false),
                     comment.comments.isNotEmpty
-                        ? Padding(
-                            padding:
-                                const EdgeInsets.only(left: AppPaddings.large),
-                            child:
-                                SecondLayerComment(comments: comment.comments),
-                          )
+                        ? SecondLayerComment(comments: comment.comments)
                         : Container(),
                   ],
                 ))
@@ -146,115 +141,125 @@ class CommentComment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        top: AppPaddings.small,
-        left: isSecondLayerOrMore ? AppPaddings.gigaLarge : 0,
+      padding: const EdgeInsets.only(
+        top: AppPaddings.tiny,
+        // left: isSecondLayerOrMore ? AppPaddings.gigaLarge : 0,
       ),
       child: Container(
         color: Theme.of(context).brightness == Brightness.light
             ? LightColors.backgroundContainer
             : DarkColors.backgroundContainer,
-        child: SizedBox(
-          height: 70,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                    backgroundImage:
-                        NetworkImage(comment.user.imageUrl ?? "FALLBACK VALUE"),
-                    radius: AppDimensions.iconSizeSmall,
-                  ),
-                  const SizedBox(width: AppPaddings.small),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          RichText(
-                            text: TextSpan(
-                              children: <TextSpan>[
-                                // make clickable
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+            height: 57,
+            child: Row(
+              children: [
+                isSecondLayerOrMore
+                    ? const SizedBox(width: AppPaddings.large)
+                    : Container(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: NetworkImage(
+                              comment.user.imageUrl ?? "FALLBACK VALUE"),
+                          radius: AppDimensions.iconSizeSmall,
+                        ),
+                        const SizedBox(width: AppPaddings.small),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                RichText(
+                                  text: TextSpan(
+                                    children: <TextSpan>[
+                                      // make clickable
 
-                                TextSpan(
-                                  text: isThirdLayerOrMore
-                                      ? '@$referenceName '
-                                      : "",
-                                  style: const TextStyle(
-                                          fontWeight: FontWeight.bold)
-                                      .copyWith(
-                                    color: Colors.blue,
+                                      TextSpan(
+                                        text: isThirdLayerOrMore
+                                            ? '@$referenceName '
+                                            : "",
+                                        style: const TextStyle(
+                                                fontWeight: FontWeight.bold)
+                                            .copyWith(
+                                          color: Colors.blue,
+                                        ),
+                                        recognizer: TapGestureRecognizer()
+                                          ..onTap = () {
+                                            CustomToast.showSuccessToast(
+                                                "jump to post");
+                                            // navigate to the profile page
+                                          },
+                                      ),
+                                    ],
                                   ),
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () {
-                                      CustomToast.showSuccessToast(
-                                          "jump to post");
-                                      // navigate to the profile page
-                                    },
+                                ),
+                                Text(
+                                  comment.user.name,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                          color: Theme.of(context).brightness ==
+                                                  Brightness.light
+                                              ? LightColors.textPrimary
+                                              : DarkColors.textPrimary),
                                 ),
                               ],
                             ),
-                          ),
-                          Text(
-                            comment.user.name,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall!
-                                .copyWith(
-                                    color: Theme.of(context).brightness ==
-                                            Brightness.light
-                                        ? LightColors.textPrimary
-                                        : DarkColors.textPrimary),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            comment.content,
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          CustomIconButton(
-                            onPressed: () {},
-                            sizeType: SizeType.small,
-                            icon: IconLibrary.heart,
-                            color:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? LightColors.iconCompany
-                                    : DarkColors.iconCompany,
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          TimePassedSinceTextWidget(
-                              dateTime: comment.createdAt),
-                          const SizedBox(width: AppPaddings.small),
-                          CustomIconButton(
-                            onPressed: () {},
-                            sizeType: SizeType.small,
-                            icon: IconLibrary.heart,
-                          ),
-                          Text(
-                            '${comment.likeCount}', // Display only the like count
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall!
-                                .copyWith(
-                                    color: Theme.of(context).brightness ==
-                                            Brightness.light
-                                        ? LightColors.textPrimary
-                                        : DarkColors.textPrimary),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
+                            Row(
+                              children: [
+                                Text(
+                                  comment.content,
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                                CustomIconButton(
+                                  onPressed: () {},
+                                  sizeType: SizeType.small,
+                                  icon: IconLibrary.heart,
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? LightColors.iconCompany
+                                      : DarkColors.iconCompany,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                TimePassedSinceTextWidget(
+                                    dateTime: comment.createdAt),
+                                const SizedBox(width: AppPaddings.small),
+                                CustomIconButton(
+                                  onPressed: () {},
+                                  sizeType: SizeType.small,
+                                  icon: IconLibrary.heart,
+                                ),
+                                Text(
+                                  '${comment.likeCount}', // Display only the like count
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                          color: Theme.of(context).brightness ==
+                                                  Brightness.light
+                                              ? LightColors.textPrimary
+                                              : DarkColors.textPrimary),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
