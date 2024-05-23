@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_model.dart';
 import 'package:peer_app/data/models/feed_comment.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
+import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/custom_toast.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
@@ -140,19 +141,54 @@ class CommentComment extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CircleAvatar(
                 backgroundImage:
                     NetworkImage(comment.user.imageUrl ?? "FALLBACK VALUE"),
                 radius: AppDimensions.iconSizeSmall,
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: AppPaddings.small),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Row(
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          children: <TextSpan>[
+                            // make clickable
+
+                            TextSpan(
+                              text:
+                                  isThirdLayerOrMore ? '@$referenceName ' : "",
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold)
+                                      .copyWith(
+                                color: Colors.blue,
+                              ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  CustomToast.showSuccessToast("jump to post");
+                                  // navigate to the profile page
+                                },
+                            ),
+                          ],
+                        ),
+                      ),
+                      Text(
+                        comment.user.name,
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? LightColors.textPrimary
+                                    : DarkColors.textPrimary),
+                      ),
+                    ],
+                  ),
                   Text(
-                    comment.user.name,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                    comment.content,
+                    style: const TextStyle(fontSize: 16),
                   ),
                   Row(
                     children: [
@@ -161,11 +197,14 @@ class CommentComment extends StatelessWidget {
                         style:
                             const TextStyle(fontSize: 12, color: Colors.grey),
                       ),
-                      const SizedBox(width: 8),
+                      const SizedBox(width: AppPaddings.small),
                       Text(
                         'Likes: ${comment.likeCount}',
-                        style:
-                            const TextStyle(fontSize: 12, color: Colors.grey),
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? LightColors.textPrimary
+                                    : DarkColors.textPrimary),
                       ),
                       CustomIconButton(
                         onPressed: () {},
@@ -174,7 +213,7 @@ class CommentComment extends StatelessWidget {
                       ),
                       const Icon(
                         Icons.favorite,
-                        size: 16, // Adjust the size as needed
+                        size: AppDimensions.iconSizeSmall,
                         color: Colors.grey,
                       ),
                       const SizedBox(
@@ -192,29 +231,6 @@ class CommentComment extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 4),
-          RichText(
-            text: TextSpan(
-              children: <TextSpan>[
-                // make clickable
-
-                TextSpan(
-                  text: isThirdLayerOrMore ? '@$referenceName ' : "",
-                  style: const TextStyle(fontWeight: FontWeight.bold).copyWith(
-                    color: Colors.blue,
-                  ),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      CustomToast.showSuccessToast("jump to post");
-                      // navigate to the profile page
-                    },
-                ),
-                TextSpan(
-                  text: comment.content,
-                  style: const TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
-          ),
           const SizedBox(height: 4),
         ],
       ),
