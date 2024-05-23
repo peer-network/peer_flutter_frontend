@@ -235,11 +235,20 @@ class CommentComment extends StatelessWidget {
                             Row(
                               children: [
                                 TimePassedSinceTextWidget(
-                                    dateTime: comment.createdAt),
+                                    dateTime: comment.createdAt,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall!
+                                        .copyWith(
+                                            color:
+                                                Theme.of(context).brightness ==
+                                                        Brightness.light
+                                                    ? LightColors.textPrimary
+                                                    : DarkColors.textPrimary)),
                                 const SizedBox(width: AppPaddings.small),
                                 CustomIconButton(
                                   onPressed: () {},
-                                  sizeType: SizeType.small,
+                                  sizeType: SizeType.tiny,
                                   icon: IconLibrary.heart,
                                 ),
                                 Text(

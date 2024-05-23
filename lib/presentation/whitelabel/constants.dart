@@ -53,6 +53,7 @@ class AppDimensions {
   static const double iconSizeExtreLarge = 48.0;
   static const double iconSizeMedium = 24.0;
   static const double iconSizeSmall = 18.0;
+  static const double iconSizeTiny = 10.0;
 
   static const double notificationIndicatorCicleSize = 25;
 
