@@ -52,7 +52,10 @@ class FirstLayerComment extends StatelessWidget {
         children: comments
             .map((comment) => Column(
                   children: [
-                    CommentComment(comment: comment, isThirdLayerOrMore: false),
+                    CommentComment(
+                        comment: comment,
+                        isThirdLayerOrMore: false,
+                        isSecondLayerOrMore: false),
                     comment.comments.isNotEmpty
                         ? Padding(
                             padding:
@@ -83,7 +86,10 @@ class SecondLayerComment extends StatelessWidget {
         children: comments
             .map((comment) => Column(
                   children: [
-                    CommentComment(comment: comment, isThirdLayerOrMore: false),
+                    CommentComment(
+                        comment: comment,
+                        isThirdLayerOrMore: false,
+                        isSecondLayerOrMore: true),
                     comment.comments.isNotEmpty
                         ? ThirdLayerComment(comments: comment.comments)
                         : Container(),
@@ -114,6 +120,7 @@ class ThirdLayerComment extends StatelessWidget {
                     CommentComment(
                         comment: comment,
                         isThirdLayerOrMore: true,
+                        isSecondLayerOrMore: true,
                         referenceName: comment.user.name),
                     comment.comments.isNotEmpty
                         ? ThirdLayerComment(comments: comment.comments)
@@ -129,23 +136,26 @@ class CommentComment extends StatelessWidget {
       {super.key,
       required this.comment,
       required this.isThirdLayerOrMore,
+      required this.isSecondLayerOrMore,
       this.referenceName});
 
   final CommentModel comment;
   final bool isThirdLayerOrMore;
+  final bool isSecondLayerOrMore;
   final String? referenceName;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
+      padding: EdgeInsets.only(
         top: AppPaddings.small,
+        left: isSecondLayerOrMore ? AppPaddings.gigaLarge : 0,
       ),
       child: Container(
         color: Theme.of(context).brightness == Brightness.light
             ? LightColors.backgroundContainer
             : DarkColors.backgroundContainer,
         child: SizedBox(
-          height: 80,
+          height: 70,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
