@@ -187,7 +187,10 @@ class CommentComment extends StatelessWidget {
                                         style: const TextStyle(
                                                 fontWeight: FontWeight.bold)
                                             .copyWith(
-                                          color: Colors.blue,
+                                          color: Theme.of(context).brightness ==
+                                                  Brightness.light
+                                              ? LightColors.textCompany
+                                              : DarkColors.textCompany,
                                         ),
                                         recognizer: TapGestureRecognizer()
                                           ..onTap = () {
@@ -240,7 +243,7 @@ class CommentComment extends StatelessWidget {
                                   icon: IconLibrary.heart,
                                 ),
                                 Text(
-                                  '${comment.likeCount}', // Display only the like count
+                                  '${comment.likeCount}',
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodySmall!
