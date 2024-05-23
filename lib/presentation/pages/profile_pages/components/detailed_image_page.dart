@@ -5,6 +5,7 @@ import 'package:peer_app/data/models/feed_comment.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/custom_toast.dart';
+import 'package:peer_app/presentation/whitelabel/components/date/time_passed_since_text_widget.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
@@ -135,104 +136,117 @@ class CommentComment extends StatelessWidget {
   final String? referenceName;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 80,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: AppPaddings.small,
+      ),
+      child: Container(
+        color: Theme.of(context).brightness == Brightness.light
+            ? LightColors.backgroundContainer
+            : DarkColors.backgroundContainer,
+        child: SizedBox(
+          height: 80,
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CircleAvatar(
-                backgroundImage:
-                    NetworkImage(comment.user.imageUrl ?? "FALLBACK VALUE"),
-                radius: AppDimensions.iconSizeSmall,
-              ),
-              const SizedBox(width: AppPaddings.small),
-              Column(
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  CircleAvatar(
+                    backgroundImage:
+                        NetworkImage(comment.user.imageUrl ?? "FALLBACK VALUE"),
+                    radius: AppDimensions.iconSizeSmall,
+                  ),
+                  const SizedBox(width: AppPaddings.small),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      RichText(
-                        text: TextSpan(
-                          children: <TextSpan>[
-                            // make clickable
+                      Row(
+                        children: [
+                          RichText(
+                            text: TextSpan(
+                              children: <TextSpan>[
+                                // make clickable
 
-                            TextSpan(
-                              text:
-                                  isThirdLayerOrMore ? '@$referenceName ' : "",
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.bold)
+                                TextSpan(
+                                  text: isThirdLayerOrMore
+                                      ? '@$referenceName '
+                                      : "",
+                                  style: const TextStyle(
+                                          fontWeight: FontWeight.bold)
                                       .copyWith(
-                                color: Colors.blue,
-                              ),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  CustomToast.showSuccessToast("jump to post");
-                                  // navigate to the profile page
-                                },
+                                    color: Colors.blue,
+                                  ),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      CustomToast.showSuccessToast(
+                                          "jump to post");
+                                      // navigate to the profile page
+                                    },
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                          Text(
+                            comment.user.name,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(
+                                    color: Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? LightColors.textPrimary
+                                        : DarkColors.textPrimary),
+                          ),
+                        ],
                       ),
-                      Text(
-                        comment.user.name,
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                      Row(
+                        children: [
+                          Text(
+                            comment.content,
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                          CustomIconButton(
+                            onPressed: () {},
+                            sizeType: SizeType.small,
+                            icon: IconLibrary.heart,
                             color:
                                 Theme.of(context).brightness == Brightness.light
-                                    ? LightColors.textPrimary
-                                    : DarkColors.textPrimary),
+                                    ? LightColors.iconCompany
+                                    : DarkColors.iconCompany,
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  Text(
-                    comment.content,
-                    style: const TextStyle(fontSize: 16),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        '${comment.createdAt}',
-                        style:
-                            const TextStyle(fontSize: 12, color: Colors.grey),
+                      Row(
+                        children: [
+                          TimePassedSinceTextWidget(
+                              dateTime: comment.createdAt),
+                          const SizedBox(width: AppPaddings.small),
+                          CustomIconButton(
+                            onPressed: () {},
+                            sizeType: SizeType.small,
+                            icon: IconLibrary.heart,
+                          ),
+                          Text(
+                            '${comment.likeCount}', // Display only the like count
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(
+                                    color: Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? LightColors.textPrimary
+                                        : DarkColors.textPrimary),
+                          )
+                        ],
                       ),
-                      const SizedBox(width: AppPaddings.small),
-                      Text(
-                        'Likes: ${comment.likeCount}',
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            color:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? LightColors.textPrimary
-                                    : DarkColors.textPrimary),
-                      ),
-                      CustomIconButton(
-                        onPressed: () {},
-                        sizeType: SizeType.small,
-                        icon: IconLibrary.heart,
-                      ),
-                      const Icon(
-                        Icons.favorite,
-                        size: AppDimensions.iconSizeSmall,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(
-                          width:
-                              4), // Adding some spacing between the icon and the text
-                      Text(
-                        '${comment.likeCount}', // Display only the like count
-                        style:
-                            const TextStyle(fontSize: 12, color: Colors.grey),
-                      )
                     ],
                   ),
                 ],
               ),
             ],
           ),
-          const SizedBox(height: 4),
-          const SizedBox(height: 4),
-        ],
+        ),
       ),
     );
   }
