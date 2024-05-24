@@ -1,28 +1,20 @@
-import 'package:peer_app/data/models/chat_message_model.dart';
-import 'package:peer_app/data/models/user_model.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'chat_message_model.dart'; // Adjust path as necessary
+import 'user_model.dart'; // Adjust path as necessary
 
-class ChatContactModel {
-  final String id;
-  final ChatMessageModel? lastChatMessage;
-  final int? notificationCount;
-  final UserModel contact;
+part 'chat_contact_model.freezed.dart';
+part 'chat_contact_model.g.dart';
 
-  ChatContactModel({
-    required this.id,
-    this.lastChatMessage,
-    this.notificationCount,
-    required this.contact,
-  });
+@freezed
+class ChatContactModel with _$ChatContactModel {
+  @JsonSerializable(explicitToJson: true)
+  const factory ChatContactModel({
+    required String id,
+    required UserModel contact,
+    ChatMessageModel? lastChatMessage,
+    int? notificationCount,
+  }) = _ChatContactModel;
 
-  factory ChatContactModel.fromJson(Map<String, dynamic> json) {
-    // print("ChatContactModel.fromJson: $json");
-    return ChatContactModel(
-      id: json['id'],
-      lastChatMessage: json['last_chat_message'] != null
-          ? ChatMessageModel.fromJson(json['last_chat_message'], json['id'])
-          : null, // Conditionally parse the new structure
-      notificationCount: json['notification_count'],
-      contact: UserModel.fromJson(json['contact']),
-    );
-  }
+  factory ChatContactModel.fromJson(Map<String, dynamic> json) =>
+      _$ChatContactModelFromJson(json);
 }

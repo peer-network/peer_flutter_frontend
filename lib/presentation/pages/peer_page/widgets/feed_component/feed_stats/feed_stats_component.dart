@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/comment_count_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/like_count_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/view_count_component.dart';
@@ -12,7 +12,7 @@ class FeedStatsComponent extends StatelessWidget {
   });
 
   // pass a variable that contains like count, view count and comment count
-  final FeedModel feed;
+  final PostModel feed;
 
   @override
   Widget build(BuildContext context) {

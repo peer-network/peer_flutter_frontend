@@ -1,31 +1,19 @@
-class ChatMessageModel {
-  final String id;
-  final String content;
-  final String senderId;
-  final String chatId;
-  final DateTime createdAt;
-  final bool isSender;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  ChatMessageModel({
-    required this.id,
-    required this.content,
-    required this.senderId,
-    required this.chatId,
-    required this.createdAt,
-    required this.isSender,
-  });
+part 'chat_message_model.freezed.dart';
+part 'chat_message_model.g.dart';
 
-  factory ChatMessageModel.fromJson(
-      Map<String, dynamic> json, String currentUserId) {
-    return ChatMessageModel(
-      id: json['id'],
-      content: json['content'],
-      senderId: json['sender_id'],
-      chatId: json['chat_id'],
-      createdAt: DateTime.parse(json['created_at']),
-      // timestamp: json['timestamp'],
-      isSender: json['sender_id'] ==
-          currentUserId, // Determine based on currentUserId
-    );
-  }
+@freezed
+class ChatMessageModel with _$ChatMessageModel {
+  factory ChatMessageModel({
+    required String id,
+    required String content,
+    required String senderId,
+    required String chatId,
+    required DateTime createdAt,
+    bool? isSender,
+  }) = _ChatMessageModel;
+
+  factory ChatMessageModel.fromJson(Map<String, dynamic> json) =>
+      _$ChatMessageModelFromJson(json);
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
@@ -7,12 +7,11 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 class SmallTextPostCard extends StatelessWidget {
   const SmallTextPostCard({super.key, required this.post, required this.user});
 
-  final FeedModel post;
+  final PostModel post;
   final UserModel user;
 
   @override
   Widget build(BuildContext context) {
-    print(post.postType);
     return Container(
       alignment: Alignment.topCenter,
       width: AppDimensions.profileTextPostsSliderCardWidth,
@@ -45,7 +44,7 @@ class SmallTextPostCard extends StatelessWidget {
                 children: [
                   const SizedBox(height: AppPaddings.small),
                   Text(
-                    post.title,
+                    (post as TextPost).title,
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(height: AppPaddings.small),

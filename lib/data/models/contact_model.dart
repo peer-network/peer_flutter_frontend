@@ -1,18 +1,16 @@
-import 'package:peer_app/data/models/user_model.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'user_model.dart'; // Make sure UserModel is also properly set up for serialization
 
-class ContactModel {
-  final String id;
-  final UserModel contact;
+part 'contact_model.freezed.dart';
+part 'contact_model.g.dart';
 
-  ContactModel({
-    required this.id,
-    required this.contact,
-  });
+@freezed
+class ContactModel with _$ContactModel {
+  const factory ContactModel({
+    required String id,
+    required UserModel contact,
+  }) = _ContactModel;
 
-  factory ContactModel.fromJson(Map<String, dynamic> json) {
-    return ContactModel(
-      id: json['id'],
-      contact: UserModel.fromJson(json['contact']),
-    );
-  }
+  factory ContactModel.fromJson(Map<String, dynamic> json) =>
+      _$ContactModelFromJson(json);
 }

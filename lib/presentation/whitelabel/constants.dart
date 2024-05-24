@@ -70,6 +70,8 @@ class AppDimensions {
   static const double chatBubbleRadius = 20.0;
 
   static const double dragHandleHeight = 6.0;
+
+  static const double dropDownBorderWidth = 2.0;
 }
 
 // aspect ratios

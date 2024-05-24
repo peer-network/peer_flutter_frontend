@@ -15,6 +15,7 @@ class BasePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar,
+      backgroundColor: Theme.of(context).colorScheme.background,
       resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: child,

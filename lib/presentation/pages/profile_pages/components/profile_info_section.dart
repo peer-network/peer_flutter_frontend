@@ -22,7 +22,7 @@ class ProfileInfoSection extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(user.name,
+                Text(user.name!,
                     style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                         color: Theme.of(context).brightness == Brightness.light
                             ? LightColors.textPrimary

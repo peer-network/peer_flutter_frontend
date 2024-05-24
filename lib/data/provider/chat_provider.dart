@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/data/graphql/mutations.dart';
+import 'package:peer_app/data/models/chat_message_model.dart';
 import 'package:peer_app/data/models/chat_model.dart';
+import 'package:peer_app/data/new_dummy_response/new_dummy_chat_data.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:peer_app/data/graphql/queries.dart';
@@ -24,6 +28,29 @@ class ChatProvider with ChangeNotifier {
     error = null;
     notifyListeners();
 
+    List<Map<String, dynamic>> dummyChats = dummyChatMessagesData;
+
+    // Assuming 'responseChat' is a List<Map<String, dynamic>> containing the JSON data for chats
+    for (var chatJson in dummyChats) {
+      // Deserialize the ChatModel without custom user logic
+      var chatModel = ChatModel.fromJson(chatJson);
+
+      // Apply the custom user logic to the messages after initial deserialization
+      var processedMessages = chatModel.messages
+          .map((msg) => msg.copyWith(isSender: msg.senderId == currentUserId))
+          .toList();
+
+      // Update the ChatModel with the processed messages
+      var updatedChatModel = chatModel.copyWith(messages: processedMessages);
+
+      // Add the updated chat model to your chats list
+      _chats.add(updatedChatModel);
+
+      isLoading = false;
+      notifyListeners();
+    }
+
+    /*
     final queryOption = QueryOptions(
       document: Queries.chat,
       fetchPolicy: FetchPolicy.networkOnly,
@@ -57,7 +84,7 @@ class ChatProvider with ChangeNotifier {
 
       try {
         _chats.clear();
-        _chats.addAll(List<ChatModel>.from(
+        _chats.addAll(List<ChatModel>.fromJson(
             responseChat.map((x) => ChatModel.fromJson(x, currentUserId))));
       } catch (e, s) {
         error = e.toString();
@@ -69,11 +96,11 @@ class ChatProvider with ChangeNotifier {
     }
 
     isLoading = false;
-    notifyListeners();
+    notifyListeners();*/
   }
 
   Future<void> createChatMessage(Map<String, dynamic> newChatMessage) async {
-    MutationOptions mutationOptions = MutationOptions(
+    /*MutationOptions mutationOptions = MutationOptions(
       document: Mutations.createChatMessage,
       variables: newChatMessage,
     );
@@ -105,6 +132,6 @@ class ChatProvider with ChangeNotifier {
       error = e.toString();
       CustomException(e.toString(), StackTrace.current).handleError();
     }
-    notifyListeners();
+    notifyListeners();*/
   }
 }

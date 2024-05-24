@@ -5,7 +5,7 @@ import 'package:peer_app/data/provider/chat_contacts_provider.dart';
 import 'package:peer_app/data/provider/chat_provider.dart';
 import 'package:peer_app/data/provider/contacts_provider.dart';
 // import 'package:peer_app/data/provider/chat_provider.dart'; // ChatProvider is now ChatCpntactsProvider (is assume so)
-import 'package:peer_app/data/provider/news_feed_provider.dart';
+import 'package:peer_app/data/provider/post_provider.dart';
 import 'package:peer_app/data/provider/theme_provider.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
@@ -29,7 +29,7 @@ class MainApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
-        ChangeNotifierProvider(create: (_) => NewsFeedProvider()),
+        ChangeNotifierProvider(create: (_) => PostProvider()),
         ChangeNotifierProvider(create: (_) => ChatContactsProvider()),
         ChangeNotifierProvider(create: (_) => ContactsProvider()),
         ChangeNotifierProvider(

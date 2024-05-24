@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_comment.dart';
+import 'package:peer_app/data/models/feed_comment_model.dart';
 import 'package:peer_app/presentation/whitelabel/components/date/time_passed_since_text_widget.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';

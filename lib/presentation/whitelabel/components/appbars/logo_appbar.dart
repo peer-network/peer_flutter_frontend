@@ -19,6 +19,7 @@ class LogoAppbar extends StatelessWidget implements PreferredSizeWidget {
         child: Image.asset(
           Config.secondaryLogo,
           height: Config.secondaryLogoHeight,
+          color: Theme.of(context).appBarTheme.foregroundColor,
         ),
       ),
       actions: actions,

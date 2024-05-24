@@ -83,7 +83,7 @@ class SharePostContactCardComponent extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         child: RichText(
                           text: _highlightSearchResult(
-                              chatContact.contact.name, searchQuery, context),
+                              chatContact.contact.name!, searchQuery, context),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),

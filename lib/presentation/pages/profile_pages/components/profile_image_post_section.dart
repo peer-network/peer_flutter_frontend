@@ -69,7 +69,7 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/whitelabel/components/image_container/custom_cached_network_image.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page.dart'; // Import the detailed image page
@@ -77,7 +77,7 @@ import 'package:peer_app/presentation/pages/profile_pages/components/detailed_im
 class ProfileImagePostSection extends StatelessWidget {
   const ProfileImagePostSection({super.key, required this.posts});
 
-  final List<FeedModel> posts;
+  final List<PostModel> posts;
 
   @override
   Widget build(BuildContext context) {

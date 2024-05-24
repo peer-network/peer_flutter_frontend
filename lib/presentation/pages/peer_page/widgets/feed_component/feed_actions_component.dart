@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
@@ -11,7 +11,7 @@ import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 class FeedActionsComponent extends StatelessWidget {
   const FeedActionsComponent({super.key, required this.feed});
   // DONE: muss feed model bekommen
-  final FeedModel feed;
+  final PostModel feed;
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +24,14 @@ class FeedActionsComponent extends StatelessWidget {
             onPressed: () {},
             sizeType: SizeType.medium,
             icon: IconLibrary.heart,
+            color: Theme.of(context).primaryIconTheme.color,
           ),
           const SizedBox(width: AppPaddings.small),
           CustomIconButton(
             onPressed: () {},
             sizeType: SizeType.medium,
             icon: IconLibrary.comment,
+            color: Theme.of(context).primaryIconTheme.color,
           ),
           const SizedBox(width: AppPaddings.small),
           CustomIconButton(
@@ -38,10 +40,14 @@ class FeedActionsComponent extends StatelessWidget {
               Navigator.of(context).push(SharePostContactsRoute(feed));
             },
             sizeType: SizeType.medium,
-            icon: IconLibrary.share,
-            color: Theme.of(context).brightness == Brightness.light
-                ? LightColors.iconBrightPrimary
-                : DarkColors.iconDarkPrimary,
+            icon: IconLibrary.forward,
+            color: Theme.of(context).primaryIconTheme.color,
+          ),
+          const SizedBox(width: AppPaddings.small),
+          CustomIconButton(
+            icon: IconLibrary.horizontalMenu,
+            onPressed: () {},
+            color: Theme.of(context).primaryIconTheme.color,
           ),
           const Spacer(),
           Text(FormattedDate(feed.createdAt).getFormattedDate(),

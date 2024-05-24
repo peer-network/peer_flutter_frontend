@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_comment.dart';
+import 'package:peer_app/data/models/feed_comment_model.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
@@ -19,14 +19,14 @@ class CommentMainContent extends StatelessWidget {
     return Row(
       children: [
         // Avatar
-        AvatarComponent(imageUrl: comment.user.imageUrl),
+        AvatarComponent(imageUrl: comment.creator.imageUrl),
         const SizedBox(width: AppPaddings.small),
         // Comment
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(comment.user.name ?? "",
+              Text(comment.creator.name!,
                   style: Theme.of(context).textTheme.headlineMedium),
               Text(comment.content,
                   style: Theme.of(context).textTheme.bodyLarge),
