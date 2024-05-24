@@ -22,6 +22,7 @@ dependencies:
   image_picker: ^1.0.7
   intl: ^0.19.0
   fl_chart: ^0.66.2
+  flutter_launcher_icons: ^0.13.1
 
   graphql_flutter: ^5.1.0
   fluttertoast: ^8.2.4
@@ -31,6 +32,12 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/peer_logo.png"
+  min_sdk_android: 21
 
 flutter:
   uses-material-design: true
