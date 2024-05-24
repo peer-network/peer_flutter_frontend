@@ -1,7 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_model.dart';
-import 'package:peer_app/data/models/feed_comment.dart';
+import 'package:peer_app/data/models/feed_comment_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
+
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/custom_toast.dart';
@@ -12,7 +13,7 @@ import 'package:peer_app/presentation/whitelabel/components/types/size_types.dar
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
 class DetailedImagePage extends StatelessWidget {
-  final FeedModel post;
+  final PostModel post;
 
   const DetailedImagePage({super.key, required this.post});
 
@@ -25,7 +26,7 @@ class DetailedImagePage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Image.network(post.imageUrls[0]),
+              Image.network((post as ImagePost).imageUrls[0]),
               const SizedBox(height: AppPaddings.extraLarge),
               FirstLayerComment(comments: post.comments),
             ],
@@ -52,7 +53,7 @@ class FirstLayerComment extends StatelessWidget {
         children: comments
             .map((comment) => Column(
                   children: [
-                    CommentComment(
+                    CasparComment(
                         comment: comment,
                         isThirdLayerOrMore: false,
                         isSecondLayerOrMore: false),
@@ -81,7 +82,7 @@ class SecondLayerComment extends StatelessWidget {
         children: comments
             .map((comment) => Column(
                   children: [
-                    CommentComment(
+                    CasparComment(
                         comment: comment,
                         isThirdLayerOrMore: false,
                         isSecondLayerOrMore: true),
@@ -110,13 +111,16 @@ class ThirdLayerComment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
         children: comments
-            .map((comment) => Column(
+            .map((CommentModel comment) => Column(
                   children: [
-                    CommentComment(
-                        comment: comment,
-                        isThirdLayerOrMore: true,
-                        isSecondLayerOrMore: true,
-                        referenceName: comment.user.name),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 38.0),
+                      child: CommentComment(
+                          comment: comment,
+                          isThirdLayerOrMore: true,
+                          isSecondLayerOrMore: true,
+                          referenceName: comment.creator.name ?? "HERE"),
+                    ),
                     comment.comments.isNotEmpty
                         ? ThirdLayerComment(comments: comment.comments)
                         : Container(),
@@ -155,57 +159,126 @@ class CommentComment extends StatelessWidget {
               isSecondLayerOrMore
                   ? const SizedBox(width: AppPaddings.extraLarge)
                   : Container(),
-              Flexible(
-                child: Column(
-                  // Comment top section
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              comment.user.imageUrl ?? "FALLBACK VALUE"),
-                          radius: AppDimensions.iconSizeSmall,
-                        ),
-                        const SizedBox(width: AppPaddings.small),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(comment.creator.imageUrl ??
+                        "https://randomuser.me/api/portraits/men/1.jpg"),
+                    radius: AppDimensions.iconSizeSmall,
+                  ),
+                  const SizedBox(width: AppPaddings.small),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          RichText(
+                            text: TextSpan(
+                              children: <TextSpan>[
+                                // make clickable
+
+                                TextSpan(
+                                  text: isThirdLayerOrMore
+                                      ? '@$referenceName '
+                                      : "",
+                                  style: const TextStyle(
+                                          fontWeight: FontWeight.bold)
+                                      .copyWith(
+                                    color: Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? LightColors.textCompany
+                                        : DarkColors.textCompany,
+                                  ),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      CustomToast.showSuccessToast(
+                                          "jump to post");
+                                      // navigate to the profile page
+                                    },
+                                ),
+                              ],
+                            ),
+                          ),
+                          Text(
+                            comment.creator.name ?? "HERE",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(
+                                    color: Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? LightColors.textPrimary
+                                        : DarkColors.textPrimary),
+                          ),
+                        ],
+                      ),
+                      // Comment mid section
+                      SizedBox(
+                        width: isSecondLayerOrMore
+                            ? MediaQuery.of(context).size.width * 0.695
+                            : MediaQuery.of(context).size.width * 0.75,
+                        child: Row(
                           children: [
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.6,
+                              child: Text(
+                                comment.content,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .copyWith(
+                                        color: Theme.of(context).brightness ==
+                                                Brightness.light
+                                            ? LightColors.textPrimary
+                                            : DarkColors.textPrimary),
+                              ),
+                            ),
+                            const Spacer(),
+                            // This is the Button that i want to display at the verry right of the comment
+                            CustomIconButton(
+                              onPressed: () {},
+                              sizeType: SizeType.small,
+                              icon: IconLibrary.heart,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? LightColors.iconCompany
+                                  : DarkColors.iconCompany,
+                            ),
+                          ],
+                        ),
+                      ),
+                      // Comment bottom section
+                      SizedBox(
+                        width: isSecondLayerOrMore
+                            ? MediaQuery.of(context).size.width * 0.495
+                            : MediaQuery.of(context).size.width * 0.6,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            TimePassedSinceTextWidget(
+                                dateTime: comment.createdAt,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(
+                                        color: Theme.of(context).brightness ==
+                                                Brightness.light
+                                            ? LightColors.textPrimary
+                                            : DarkColors.textPrimary)),
+                            const SizedBox(width: AppPaddings.small),
                             Row(
                               children: [
-                                RichText(
-                                  text: TextSpan(
-                                    children: <TextSpan>[
-                                      // make clickable
-
-                                      TextSpan(
-                                        text: isThirdLayerOrMore
-                                            ? '@$referenceName '
-                                            : "",
-                                        style: const TextStyle(
-                                                fontWeight: FontWeight.bold)
-                                            .copyWith(
-                                          color: Theme.of(context).brightness ==
-                                                  Brightness.light
-                                              ? LightColors.textCompany
-                                              : DarkColors.textCompany,
-                                        ),
-                                        recognizer: TapGestureRecognizer()
-                                          ..onTap = () {
-                                            CustomToast.showSuccessToast(
-                                                "jump to post");
-                                            // navigate to the profile page
-                                          },
-                                      ),
-                                    ],
-                                  ),
+                                CustomIconButton(
+                                  onPressed: () {},
+                                  sizeType: SizeType.tiny,
+                                  icon: IconLibrary.heart,
                                 ),
                                 Text(
-                                  comment.user.name,
+                                  '${comment.likeCount}',
                                   style: Theme.of(context)
                                       .textTheme
-                                      .titleMedium!
+                                      .bodySmall!
                                       .copyWith(
                                           color: Theme.of(context).brightness ==
                                                   Brightness.light
@@ -214,99 +287,140 @@ class CommentComment extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            // Comment mid section
-                            SizedBox(
-                              width: isSecondLayerOrMore
-                                  ? MediaQuery.of(context).size.width * 0.695
-                                  : MediaQuery.of(context).size.width * 0.75,
-                              child: Row(
-                                children: [
-                                  SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.6,
-                                    child: Text(
-                                      comment.content,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium!
-                                          .copyWith(
-                                              color: Theme.of(context)
-                                                          .brightness ==
-                                                      Brightness.light
-                                                  ? LightColors.textPrimary
-                                                  : DarkColors.textPrimary),
-                                    ),
-                                  ),
-                                  const Spacer(),
-                                  // This is the Button that i want to display at the verry right of the comment
-                                  CustomIconButton(
-                                    onPressed: () {},
-                                    sizeType: SizeType.small,
-                                    icon: IconLibrary.heart,
-                                    color: Theme.of(context).brightness ==
-                                            Brightness.light
-                                        ? LightColors.iconCompany
-                                        : DarkColors.iconCompany,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            // Comment bottom section
-                            SizedBox(
-                              width: isSecondLayerOrMore
-                                  ? MediaQuery.of(context).size.width * 0.495
-                                  : MediaQuery.of(context).size.width * 0.6,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  TimePassedSinceTextWidget(
-                                      dateTime: comment.createdAt,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .copyWith(
-                                              color: Theme.of(context)
-                                                          .brightness ==
-                                                      Brightness.light
-                                                  ? LightColors.textPrimary
-                                                  : DarkColors.textPrimary)),
-                                  const SizedBox(width: AppPaddings.small),
-                                  Row(
-                                    children: [
-                                      CustomIconButton(
-                                        onPressed: () {},
-                                        sizeType: SizeType.tiny,
-                                        icon: IconLibrary.heart,
-                                      ),
-                                      Text(
-                                        '${comment.likeCount}',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodySmall!
-                                            .copyWith(
-                                                color: Theme.of(context)
-                                                            .brightness ==
-                                                        Brightness.light
-                                                    ? LightColors.textPrimary
-                                                    : DarkColors.textPrimary),
-                                      ),
-                                    ],
-                                  ),
-                                  const Text("Comment"),
-                                ],
-                              ),
-                            ),
+                            const Text("Comment"),
                           ],
                         ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CasparComment extends StatelessWidget {
+  const CasparComment(
+      {super.key,
+      required this.comment,
+      required this.isThirdLayerOrMore,
+      required this.isSecondLayerOrMore,
+      this.referenceName});
+
+  final CommentModel comment;
+  final bool isThirdLayerOrMore;
+  final bool isSecondLayerOrMore;
+  final String? referenceName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        CasparImage(
+          imageUrl: comment.creator.imageUrl,
+        ),
+        CasparContent(
+          comment: comment,
+          isThirdLayerOrMore: isThirdLayerOrMore,
+          isSecondLayerOrMore: isSecondLayerOrMore,
+          referenceName: referenceName,
+        ),
+        const Spacer(),
+        const CasparHeart()
+      ],
+    );
+  }
+}
+
+class CasparImage extends StatelessWidget {
+  const CasparImage({super.key, required this.imageUrl});
+
+  final String? imageUrl;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(
+        AppPaddings.medium,
+      ),
+      alignment: Alignment.topCenter,
+      child: CircleAvatar(
+        backgroundImage: NetworkImage(imageUrl!),
+        radius: AppDimensions.iconSizeSmall,
+      ),
+    );
+  }
+}
+
+class CasparContent extends StatelessWidget {
+  const CasparContent(
+      {super.key,
+      required this.comment,
+      required this.isThirdLayerOrMore,
+      required this.isSecondLayerOrMore,
+      this.referenceName});
+
+  final CommentModel comment;
+  final bool isThirdLayerOrMore;
+  final bool isSecondLayerOrMore;
+  final String? referenceName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: RichText(
+        text: TextSpan(
+          children: <TextSpan>[
+            // make clickable
+
+            TextSpan(
+              text: isThirdLayerOrMore ? '@$referenceName ' : "",
+              style: const TextStyle(fontWeight: FontWeight.bold).copyWith(
+                color: Theme.of(context).brightness == Brightness.light
+                    ? LightColors.textCompany
+                    : DarkColors.textCompany,
+              ),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  CustomToast.showSuccessToast("jump to post");
+                  // navigate to the profile page
+                },
+            ),
+            TextSpan(
+              text: comment.content,
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: Theme.of(context).brightness == Brightness.light
+                      ? LightColors.textPrimary
+                      : DarkColors.textPrimary),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CasparHeart extends StatelessWidget {
+  const CasparHeart({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.amber,
+      alignment: Alignment.centerRight,
+      padding: const EdgeInsets.all(8.0),
+      child: CustomIconButton(
+        onPressed: () {},
+        sizeType: SizeType.small,
+        icon: IconLibrary.heart,
+        color: Theme.of(context).brightness == Brightness.light
+            ? LightColors.iconCompany
+            : DarkColors.iconCompany,
       ),
     );
   }

@@ -14,6 +14,7 @@ class CommentModel with _$CommentModel {
     required int userId,
     required UserModel creator,
     required DateTime createdAt,
+    required UserModel? user,
     @Default([]) List<CommentModel> comments,
     int? likeCount,
   }) = _CommentModel;

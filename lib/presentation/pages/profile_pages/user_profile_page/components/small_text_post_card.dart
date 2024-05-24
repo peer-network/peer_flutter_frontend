@@ -44,14 +44,14 @@ class SmallTextPostCard extends StatelessWidget {
                 children: [
                   const SizedBox(height: AppPaddings.small),
                   Text(
-                    (post as TextPost).title,
+                    (post as TextPost).caption,
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(height: AppPaddings.small),
                   LayoutBuilder(
                     builder: (context, constraints) {
                       final textSpan = TextSpan(
-                        text: post.content,
+                        text: (post as TextPost).content,
                         style: Theme.of(context).textTheme.bodyMedium,
                       );
                       final textPainter = TextPainter(
@@ -68,7 +68,7 @@ class SmallTextPostCard extends StatelessWidget {
                         children: [
                           RichText(
                             text: TextSpan(
-                              text: post.content,
+                              text: (post as TextPost).content,
                               style: Theme.of(context).textTheme.bodyMedium,
                             ),
                             maxLines: 5,

@@ -26,6 +26,7 @@ mixin _$CommentModel {
   int get userId => throw _privateConstructorUsedError;
   UserModel get creator => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  UserModel? get user => throw _privateConstructorUsedError;
   List<CommentModel> get comments => throw _privateConstructorUsedError;
   int? get likeCount => throw _privateConstructorUsedError;
 
@@ -48,10 +49,12 @@ abstract class $CommentModelCopyWith<$Res> {
       int userId,
       UserModel creator,
       DateTime createdAt,
+      UserModel? user,
       List<CommentModel> comments,
       int? likeCount});
 
   $UserModelCopyWith<$Res> get creator;
+  $UserModelCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -73,6 +76,7 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
     Object? userId = null,
     Object? creator = null,
     Object? createdAt = null,
+    Object? user = freezed,
     Object? comments = null,
     Object? likeCount = freezed,
   }) {
@@ -101,6 +105,10 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
       comments: null == comments
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
@@ -117,6 +125,18 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
   $UserModelCopyWith<$Res> get creator {
     return $UserModelCopyWith<$Res>(_value.creator, (value) {
       return _then(_value.copyWith(creator: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserModelCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
     });
   }
 }
@@ -136,11 +156,14 @@ abstract class _$$CommentModelImplCopyWith<$Res>
       int userId,
       UserModel creator,
       DateTime createdAt,
+      UserModel? user,
       List<CommentModel> comments,
       int? likeCount});
 
   @override
   $UserModelCopyWith<$Res> get creator;
+  @override
+  $UserModelCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -160,6 +183,7 @@ class __$$CommentModelImplCopyWithImpl<$Res>
     Object? userId = null,
     Object? creator = null,
     Object? createdAt = null,
+    Object? user = freezed,
     Object? comments = null,
     Object? likeCount = freezed,
   }) {
@@ -188,6 +212,10 @@ class __$$CommentModelImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
       comments: null == comments
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
@@ -211,6 +239,7 @@ class _$CommentModelImpl implements _CommentModel {
       required this.userId,
       required this.creator,
       required this.createdAt,
+      required this.user,
       final List<CommentModel> comments = const [],
       this.likeCount})
       : _comments = comments;
@@ -230,6 +259,8 @@ class _$CommentModelImpl implements _CommentModel {
   final UserModel creator;
   @override
   final DateTime createdAt;
+  @override
+  final UserModel? user;
   final List<CommentModel> _comments;
   @override
   @JsonKey()
@@ -244,7 +275,7 @@ class _$CommentModelImpl implements _CommentModel {
 
   @override
   String toString() {
-    return 'CommentModel(id: $id, content: $content, postId: $postId, userId: $userId, creator: $creator, createdAt: $createdAt, comments: $comments, likeCount: $likeCount)';
+    return 'CommentModel(id: $id, content: $content, postId: $postId, userId: $userId, creator: $creator, createdAt: $createdAt, user: $user, comments: $comments, likeCount: $likeCount)';
   }
 
   @override
@@ -259,6 +290,7 @@ class _$CommentModelImpl implements _CommentModel {
             (identical(other.creator, creator) || other.creator == creator) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            (identical(other.user, user) || other.user == user) &&
             const DeepCollectionEquality().equals(other._comments, _comments) &&
             (identical(other.likeCount, likeCount) ||
                 other.likeCount == likeCount));
@@ -274,6 +306,7 @@ class _$CommentModelImpl implements _CommentModel {
       userId,
       creator,
       createdAt,
+      user,
       const DeepCollectionEquality().hash(_comments),
       likeCount);
 
@@ -299,6 +332,7 @@ abstract class _CommentModel implements CommentModel {
       required final int userId,
       required final UserModel creator,
       required final DateTime createdAt,
+      required final UserModel? user,
       final List<CommentModel> comments,
       final int? likeCount}) = _$CommentModelImpl;
 
@@ -317,6 +351,8 @@ abstract class _CommentModel implements CommentModel {
   UserModel get creator;
   @override
   DateTime get createdAt;
+  @override
+  UserModel? get user;
   @override
   List<CommentModel> get comments;
   @override

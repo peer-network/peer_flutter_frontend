@@ -14,6 +14,9 @@ _$CommentModelImpl _$$CommentModelImplFromJson(Map<String, dynamic> json) =>
       userId: (json['userId'] as num).toInt(),
       creator: UserModel.fromJson(json['creator'] as Map<String, dynamic>),
       createdAt: DateTime.parse(json['createdAt'] as String),
+      user: json['user'] == null
+          ? null
+          : UserModel.fromJson(json['user'] as Map<String, dynamic>),
       comments: (json['comments'] as List<dynamic>?)
               ?.map((e) => CommentModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -29,6 +32,7 @@ Map<String, dynamic> _$$CommentModelImplToJson(_$CommentModelImpl instance) =>
       'userId': instance.userId,
       'creator': instance.creator.toJson(),
       'createdAt': instance.createdAt.toIso8601String(),
+      'user': instance.user?.toJson(),
       'comments': instance.comments.map((e) => e.toJson()).toList(),
       'likeCount': instance.likeCount,
     };

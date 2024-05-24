@@ -104,7 +104,7 @@ class SharePostRoute extends BaseRoute {
 }
 
 class DetailedImagePageRoute extends BaseRoute {
-  DetailedImagePageRoute(FeedModel post)
+  DetailedImagePageRoute(PostModel post)
       : super(
           DetailedImagePage(post: post),
           guards: [],
