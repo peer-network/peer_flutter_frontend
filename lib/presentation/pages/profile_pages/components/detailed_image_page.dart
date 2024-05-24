@@ -149,11 +149,11 @@ class CommentComment extends StatelessWidget {
             ? LightColors.backgroundContainer
             : DarkColors.backgroundContainer,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(AppPaddings.small),
           child: Row(
             children: [
               isSecondLayerOrMore
-                  ? const SizedBox(width: AppPaddings.large)
+                  ? const SizedBox(width: AppPaddings.extraLarge)
                   : Container(),
               Flexible(
                 child: Column(
@@ -205,7 +205,7 @@ class CommentComment extends StatelessWidget {
                                   comment.user.name,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodySmall!
+                                      .titleMedium!
                                       .copyWith(
                                           color: Theme.of(context).brightness ==
                                                   Brightness.light
@@ -215,60 +215,87 @@ class CommentComment extends StatelessWidget {
                               ],
                             ),
                             // Comment mid section
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.7,
-                                  child: Text(
-                                    comment.content,
-                                    style: const TextStyle(fontSize: 16),
+                            SizedBox(
+                              width: isSecondLayerOrMore
+                                  ? MediaQuery.of(context).size.width * 0.695
+                                  : MediaQuery.of(context).size.width * 0.75,
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.6,
+                                    child: Text(
+                                      comment.content,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium!
+                                          .copyWith(
+                                              color: Theme.of(context)
+                                                          .brightness ==
+                                                      Brightness.light
+                                                  ? LightColors.textPrimary
+                                                  : DarkColors.textPrimary),
+                                    ),
                                   ),
-                                ),
-                                // This is the Button that i want to display at the verry right of the comment
-                                CustomIconButton(
-                                  onPressed: () {},
-                                  sizeType: SizeType.small,
-                                  icon: IconLibrary.heart,
-                                  color: Theme.of(context).brightness ==
-                                          Brightness.light
-                                      ? LightColors.iconCompany
-                                      : DarkColors.iconCompany,
-                                ),
-                              ],
+                                  const Spacer(),
+                                  // This is the Button that i want to display at the verry right of the comment
+                                  CustomIconButton(
+                                    onPressed: () {},
+                                    sizeType: SizeType.small,
+                                    icon: IconLibrary.heart,
+                                    color: Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? LightColors.iconCompany
+                                        : DarkColors.iconCompany,
+                                  ),
+                                ],
+                              ),
                             ),
                             // Comment bottom section
-                            Row(
-                              children: [
-                                TimePassedSinceTextWidget(
-                                    dateTime: comment.createdAt,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall!
-                                        .copyWith(
-                                            color:
-                                                Theme.of(context).brightness ==
+                            SizedBox(
+                              width: isSecondLayerOrMore
+                                  ? MediaQuery.of(context).size.width * 0.495
+                                  : MediaQuery.of(context).size.width * 0.6,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  TimePassedSinceTextWidget(
+                                      dateTime: comment.createdAt,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                              color: Theme.of(context)
+                                                          .brightness ==
+                                                      Brightness.light
+                                                  ? LightColors.textPrimary
+                                                  : DarkColors.textPrimary)),
+                                  const SizedBox(width: AppPaddings.small),
+                                  Row(
+                                    children: [
+                                      CustomIconButton(
+                                        onPressed: () {},
+                                        sizeType: SizeType.tiny,
+                                        icon: IconLibrary.heart,
+                                      ),
+                                      Text(
+                                        '${comment.likeCount}',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall!
+                                            .copyWith(
+                                                color: Theme.of(context)
+                                                            .brightness ==
                                                         Brightness.light
                                                     ? LightColors.textPrimary
-                                                    : DarkColors.textPrimary)),
-                                const SizedBox(width: AppPaddings.small),
-                                CustomIconButton(
-                                  onPressed: () {},
-                                  sizeType: SizeType.tiny,
-                                  icon: IconLibrary.heart,
-                                ),
-                                Text(
-                                  '${comment.likeCount}',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall!
-                                      .copyWith(
-                                          color: Theme.of(context).brightness ==
-                                                  Brightness.light
-                                              ? LightColors.textPrimary
-                                              : DarkColors.textPrimary),
-                                )
-                              ],
+                                                    : DarkColors.textPrimary),
+                                      ),
+                                    ],
+                                  ),
+                                  const Text("Comment"),
+                                ],
+                              ),
                             ),
                           ],
                         ),
