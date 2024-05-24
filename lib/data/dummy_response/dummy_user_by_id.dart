@@ -12,7 +12,7 @@
 // posts (list of post with id, imageUrl/content_text, like_count, comment_count, created_at, view_count)
 
 const dummyUserById = {
-  "id": "user1",
+  "id": "a48b59b2-fa1d-4c68-8816-85f748d81315",
   "imageUrl":
       "https://img.freepik.com/fotos-premium/ein-sexy-heisses-model-im-bikini-fuer-frauen-foto-ai-generated_980993-1026.jpg",
   "name": "UserOne",
