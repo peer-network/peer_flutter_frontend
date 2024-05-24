@@ -96,11 +96,13 @@ class ProfileImagePostSection extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => DetailedImagePage(post: posts[index]),
+                builder: (context) =>
+                    DetailedImagePage(post: (posts as List<ImagePost>)[index]),
               ),
             );
           },
-          child: CustomCachedNetworkImage(imageUrl: posts[index].imageUrls[0]),
+          child: CustomCachedNetworkImage(
+              imageUrl: (posts[index] as ImagePost).imageUrls[0]),
         );
       },
     );

@@ -1,4 +1,5 @@
 import 'package:peer_app/data/models/chat_model.dart';
+import 'package:peer_app/data/models/feed_model.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/chat_contacts_page.dart';
 import 'package:peer_app/presentation/pages/create_post_page/create_post_page.dart';
@@ -104,7 +105,7 @@ class SharePostRoute extends BaseRoute {
 }
 
 class DetailedImagePageRoute extends BaseRoute {
-  DetailedImagePageRoute(FeedModel post)
+  DetailedImagePageRoute(PostModel post)
       : super(
           DetailedImagePage(post: post),
           guards: [],

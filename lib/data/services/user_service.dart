@@ -114,16 +114,12 @@ class UserService {
 
   Future<UserModel?> fetchNewUser(String userId) async {
     await Future.delayed(const Duration(seconds: 1));
-    const data = dummyUserById2; // Assuming this constant holds dummy data
+    const data = dummyUserById; // Assuming this constant holds dummy data
 
     try {
-      // Filter the dummy data to find the specific user by ID
-      final userData = data['data']?['peer2_users']
-          ?.where((user) => user['id'] == userId)
-          .toList()
-          .first;
-      if (userData != null) {
-        final user = UserModel.fromJson(userData);
+      // Check if the user ID matches the dummy data
+      if (data['id'] == userId) {
+        final user = UserModel.fromJson(data);
         _users.add(user);
         print('User added: $user');
         return user;

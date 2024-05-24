@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:peer_app/data/models/feed_comment_model.dart';
 import 'package:peer_app/data/models/feed_model.dart';
-import 'package:peer_app/data/models/feed_comment.dart';
+import 'package:peer_app/data/models/feed_comment_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/custom_toast.dart';
@@ -12,7 +14,7 @@ import 'package:peer_app/presentation/whitelabel/components/types/size_types.dar
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
 class DetailedImagePage extends StatelessWidget {
-  final FeedModel post;
+  final PostModel post;
 
   const DetailedImagePage({super.key, required this.post});
 
@@ -25,7 +27,7 @@ class DetailedImagePage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Image.network(post.imageUrls[0]),
+              Image.network((post as ImagePost).imageUrls[0]),
               const SizedBox(height: AppPaddings.extraLarge),
               FirstLayerComment(comments: post.comments),
             ],
@@ -116,7 +118,7 @@ class ThirdLayerComment extends StatelessWidget {
                         comment: comment,
                         isThirdLayerOrMore: true,
                         isSecondLayerOrMore: true,
-                        referenceName: comment.user.name),
+                        referenceName: comment.creator.name),
                     comment.comments.isNotEmpty
                         ? ThirdLayerComment(comments: comment.comments)
                         : Container(),
@@ -166,7 +168,7 @@ class CommentComment extends StatelessWidget {
                       children: [
                         CircleAvatar(
                           backgroundImage: NetworkImage(
-                              comment.user.imageUrl ?? "FALLBACK VALUE"),
+                              comment.creator.imageUrl ?? "FALLBACK VALUE"),
                           radius: AppDimensions.iconSizeSmall,
                         ),
                         const SizedBox(width: AppPaddings.small),
@@ -200,7 +202,7 @@ class CommentComment extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  comment.user.name,
+                                  comment.creator.name!,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodySmall!
