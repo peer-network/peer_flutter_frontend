@@ -143,7 +143,6 @@ class CommentComment extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(
         top: AppPaddings.tiny,
-        // left: isSecondLayerOrMore ? AppPaddings.gigaLarge : 0,
       ),
       child: Container(
         color: Theme.of(context).brightness == Brightness.light
@@ -151,14 +150,14 @@ class CommentComment extends StatelessWidget {
             : DarkColors.backgroundContainer,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: SizedBox(
-            height: 57,
-            child: Row(
-              children: [
-                isSecondLayerOrMore
-                    ? const SizedBox(width: AppPaddings.large)
-                    : Container(),
-                Column(
+          child: Row(
+            children: [
+              isSecondLayerOrMore
+                  ? const SizedBox(width: AppPaddings.large)
+                  : Container(),
+              Flexible(
+                child: Column(
+                  // Comment top section
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
@@ -215,12 +214,18 @@ class CommentComment extends StatelessWidget {
                                 ),
                               ],
                             ),
+                            // Comment mid section
                             Row(
                               children: [
-                                Text(
-                                  comment.content,
-                                  style: const TextStyle(fontSize: 16),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.7,
+                                  child: Text(
+                                    comment.content,
+                                    style: const TextStyle(fontSize: 16),
+                                  ),
                                 ),
+                                // This is the Button that i want to display at the verry right of the comment
                                 CustomIconButton(
                                   onPressed: () {},
                                   sizeType: SizeType.small,
@@ -232,6 +237,7 @@ class CommentComment extends StatelessWidget {
                                 ),
                               ],
                             ),
+                            // Comment bottom section
                             Row(
                               children: [
                                 TimePassedSinceTextWidget(
@@ -270,8 +276,8 @@ class CommentComment extends StatelessWidget {
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
