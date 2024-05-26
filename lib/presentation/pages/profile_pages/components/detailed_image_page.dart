@@ -617,9 +617,18 @@ class CommentFooter extends StatelessWidget {
                   : DarkColors.textPrimary),
         ),
         const SizedBox(width: 8), // 9: SizedBox for spacing
-        SecondaryButton(
-          onPressed: () {},
-          text: "Comment",
+
+        GestureDetector(
+          onTap: () {
+            CustomToast.showSuccessToast("Write a comment");
+          },
+          child: Text(
+            "Comment",
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                color: Theme.of(context).brightness == Brightness.light
+                    ? LightColors.textPrimary
+                    : DarkColors.textPrimary),
+          ),
         )
       ],
     );
