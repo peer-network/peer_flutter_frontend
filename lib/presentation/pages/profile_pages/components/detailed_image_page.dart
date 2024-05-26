@@ -62,10 +62,13 @@ class FirstLayerComment extends StatelessWidget {
                         color: Theme.of(context).brightness == Brightness.light
                             ? LightColors.backgroundContainer
                             : DarkColors.backgroundContainer,
-                        child: CommentComment(
-                            comment: comment,
-                            isThirdLayerOrMore: false,
-                            isSecondLayerOrMore: false),
+                        child: Padding(
+                          padding: const EdgeInsets.all(AppPaddings.tiny),
+                          child: CommentComment(
+                              comment: comment,
+                              isThirdLayerOrMore: false,
+                              isSecondLayerOrMore: false),
+                        ),
                       ),
                     ),
                     comment.comments.isNotEmpty
@@ -100,7 +103,10 @@ class SecondLayerComment extends StatelessWidget {
                             ? LightColors.backgroundContainer
                             : DarkColors.backgroundContainer,
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 38.0),
+                          padding: const EdgeInsets.only(
+                              left: 38.0,
+                              top: AppPaddings.tiny,
+                              bottom: AppPaddings.tiny),
                           child: CommentComment(
                               comment: comment,
                               isThirdLayerOrMore: false,
@@ -142,7 +148,10 @@ class ThirdLayerComment extends StatelessWidget {
                             ? LightColors.backgroundContainer
                             : DarkColors.backgroundContainer,
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 38.0),
+                          padding: const EdgeInsets.only(
+                              left: 38.0,
+                              top: AppPaddings.tiny,
+                              bottom: AppPaddings.tiny),
                           child: CommentComment(
                               comment: comment,
                               isThirdLayerOrMore: true,
