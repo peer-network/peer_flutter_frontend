@@ -56,10 +56,18 @@ class FirstLayerComment extends StatelessWidget {
         children: comments
             .map((comment) => Column(
                   children: [
-                    CommentComment(
-                        comment: comment,
-                        isThirdLayerOrMore: false,
-                        isSecondLayerOrMore: false),
+                    Padding(
+                      padding: const EdgeInsets.only(top: AppPaddings.tiny),
+                      child: Container(
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? LightColors.backgroundContainer
+                            : DarkColors.backgroundContainer,
+                        child: CommentComment(
+                            comment: comment,
+                            isThirdLayerOrMore: false,
+                            isSecondLayerOrMore: false),
+                      ),
+                    ),
                     comment.comments.isNotEmpty
                         ? SecondLayerComment(comments: comment.comments)
                         : Container(),
@@ -86,11 +94,19 @@ class SecondLayerComment extends StatelessWidget {
             .map((comment) => Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 38.0),
-                      child: CommentComment(
-                          comment: comment,
-                          isThirdLayerOrMore: false,
-                          isSecondLayerOrMore: true),
+                      padding: const EdgeInsets.only(top: AppPaddings.tiny),
+                      child: Container(
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? LightColors.backgroundContainer
+                            : DarkColors.backgroundContainer,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 38.0),
+                          child: CommentComment(
+                              comment: comment,
+                              isThirdLayerOrMore: false,
+                              isSecondLayerOrMore: true),
+                        ),
+                      ),
                     ),
                     comment.comments.isNotEmpty
                         ? ThirdLayerComment(comments: comment.comments)
@@ -120,12 +136,20 @@ class ThirdLayerComment extends StatelessWidget {
             .map((CommentModel comment) => Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 38.0),
-                      child: CommentComment(
-                          comment: comment,
-                          isThirdLayerOrMore: true,
-                          isSecondLayerOrMore: true,
-                          referenceName: comment.creator.name ?? "HERE"),
+                      padding: const EdgeInsets.only(top: AppPaddings.tiny),
+                      child: Container(
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? LightColors.backgroundContainer
+                            : DarkColors.backgroundContainer,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 38.0),
+                          child: CommentComment(
+                              comment: comment,
+                              isThirdLayerOrMore: true,
+                              isSecondLayerOrMore: true,
+                              referenceName: comment.creator.name ?? "HERE"),
+                        ),
+                      ),
                     ),
                     comment.comments.isNotEmpty
                         ? ThirdLayerComment(comments: comment.comments)
@@ -136,179 +160,105 @@ class ThirdLayerComment extends StatelessWidget {
   }
 }
 
-class OldCommentComment extends StatelessWidget {
-  const OldCommentComment(
-      {super.key,
-      required this.comment,
-      required this.isThirdLayerOrMore,
-      required this.isSecondLayerOrMore,
-      this.referenceName});
+// class FirstLayerComment extends StatelessWidget {
+//   const FirstLayerComment({super.key, required this.comments});
 
-  final CommentModel comment;
-  final bool isThirdLayerOrMore;
-  final bool isSecondLayerOrMore;
-  final String? referenceName;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: AppPaddings.tiny,
-      ),
-      child: Container(
-        color: Theme.of(context).brightness == Brightness.light
-            ? LightColors.backgroundContainer
-            : DarkColors.backgroundContainer,
-        child: Padding(
-          padding: const EdgeInsets.all(AppPaddings.small),
-          child: Row(
-            children: [
-              isSecondLayerOrMore
-                  ? const SizedBox(width: AppPaddings.extraLarge)
-                  : Container(),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                    backgroundImage: NetworkImage(comment.creator.imageUrl ??
-                        "https://randomuser.me/api/portraits/men/1.jpg"),
-                    radius: AppDimensions.iconSizeSmall,
-                  ),
-                  const SizedBox(width: AppPaddings.small),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          RichText(
-                            text: TextSpan(
-                              children: <TextSpan>[
-                                // make clickable
+//   final List<CommentModel> comments;
 
-                                TextSpan(
-                                  text: isThirdLayerOrMore
-                                      ? '@$referenceName '
-                                      : "",
-                                  style: const TextStyle(
-                                          fontWeight: FontWeight.bold)
-                                      .copyWith(
-                                    color: Theme.of(context).brightness ==
-                                            Brightness.light
-                                        ? LightColors.textCompany
-                                        : DarkColors.textCompany,
-                                  ),
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () {
-                                      CustomToast.showSuccessToast(
-                                          "jump to post");
-                                      // navigate to the profile page
-                                    },
-                                ),
-                              ],
-                            ),
-                          ),
-                          Text(
-                            comment.creator.name ?? "HERE",
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium!
-                                .copyWith(
-                                    color: Theme.of(context).brightness ==
-                                            Brightness.light
-                                        ? LightColors.textPrimary
-                                        : DarkColors.textPrimary),
-                          ),
-                        ],
-                      ),
-                      // Comment mid section
-                      SizedBox(
-                        width: isSecondLayerOrMore
-                            ? MediaQuery.of(context).size.width * 0.695
-                            : MediaQuery.of(context).size.width * 0.75,
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.6,
-                              child: Text(
-                                comment.content,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                        color: Theme.of(context).brightness ==
-                                                Brightness.light
-                                            ? LightColors.textPrimary
-                                            : DarkColors.textPrimary),
-                              ),
-                            ),
-                            const Spacer(),
-                            // This is the Button that i want to display at the verry right of the comment
-                            CustomIconButton(
-                              onPressed: () {},
-                              sizeType: SizeType.small,
-                              icon: IconLibrary.heart,
-                              color: Theme.of(context).brightness ==
-                                      Brightness.light
-                                  ? LightColors.iconCompany
-                                  : DarkColors.iconCompany,
-                            ),
-                          ],
-                        ),
-                      ),
-                      // Comment bottom section
-                      SizedBox(
-                        width: isSecondLayerOrMore
-                            ? MediaQuery.of(context).size.width * 0.495
-                            : MediaQuery.of(context).size.width * 0.6,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            TimePassedSinceTextWidget(
-                                dateTime: comment.createdAt,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall!
-                                    .copyWith(
-                                        color: Theme.of(context).brightness ==
-                                                Brightness.light
-                                            ? LightColors.textPrimary
-                                            : DarkColors.textPrimary)),
-                            const SizedBox(width: AppPaddings.small),
-                            Row(
-                              children: [
-                                CustomIconButton(
-                                  onPressed: () {},
-                                  sizeType: SizeType.tiny,
-                                  icon: IconLibrary.heart,
-                                ),
-                                Text(
-                                  '${comment.likeCount}',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall!
-                                      .copyWith(
-                                          color: Theme.of(context).brightness ==
-                                                  Brightness.light
-                                              ? LightColors.textPrimary
-                                              : DarkColors.textPrimary),
-                                ),
-                              ],
-                            ),
-                            const Text("Comment"),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+//   // Was tut diese widget?
+//   // 1. create a Column and use the spreading operator on the comments list.
+//   // For each comment that got spreaded, create a Column widget with a list of children.
+//   // 2. The children list contains a CommentComment widget (which is a single comment) and a SecondLayerComment widget.
+//   // In case the comment has no comments, the SecondLayerComment widget is not shown.
 
+//   @override
+//   Widget build(BuildContext context) {
+//     // for each comment build a first layer comment
+//     return Column(
+//         children: comments
+//             .map((comment) => Column(
+//                   children: [
+//                     CommentComment(
+//                         comment: comment,
+//                         isThirdLayerOrMore: false,
+//                         isSecondLayerOrMore: false),
+//                     comment.comments.isNotEmpty
+//                         ? SecondLayerComment(comments: comment.comments)
+//                         : Container(),
+//                   ],
+//                 ))
+//             .toList());
+//   }
+// }
+
+// class SecondLayerComment extends StatelessWidget {
+//   const SecondLayerComment({super.key, required this.comments});
+
+//   final List<CommentModel> comments;
+
+//   // Was tut diese widget?
+//   // Everything is the same as in the FirstLayerComment widget,
+//   // but it is still needed to later determine the padding of it and it uses the ThirdLayerComment widget.
+//   // the boolean isThirdLayerOrMore is still set to false, because there is no refering to other comments.
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//         children: comments
+//             .map((comment) => Column(
+//                   children: [
+//                     Padding(
+//                       padding: const EdgeInsets.only(left: 38.0),
+//                       child: CommentComment(
+//                           comment: comment,
+//                           isThirdLayerOrMore: false,
+//                           isSecondLayerOrMore: true),
+//                     ),
+//                     comment.comments.isNotEmpty
+//                         ? ThirdLayerComment(comments: comment.comments)
+//                         : Container(),
+//                   ],
+//                 ))
+//             .toList());
+//   }
+// }
+
+// class ThirdLayerComment extends StatelessWidget {
+//   const ThirdLayerComment({super.key, required this.comments});
+
+//   final List<CommentModel> comments;
+
+//   // Was tut diese widget?
+//   // Everything is the same as in the SecondLayerComment widget and
+//   // deeper levels also build a ThirdLayerComment widget.
+//   // isThirdLayerOrMore is now set to true.
+//   // Also a referenceName is passed to the CommentComment widget.
+//   // The referenceName is the name of the user of the current comment.
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//         children: comments
+//             .map((CommentModel comment) => Column(
+//                   children: [
+//                     Padding(
+//                       padding: const EdgeInsets.only(left: 38.0),
+//                       child: CommentComment(
+//                           comment: comment,
+//                           isThirdLayerOrMore: true,
+//                           isSecondLayerOrMore: true,
+//                           referenceName: comment.creator.name ?? "HERE"),
+//                     ),
+//                     comment.comments.isNotEmpty
+//                         ? ThirdLayerComment(comments: comment.comments)
+//                         : Container(),
+//                   ],
+//                 ))
+//             .toList());
+//   }
+// }
+
+/////////////////////////////////////////////////////////////
 // class CommentComment extends StatelessWidget {
 //   const CommentComment(
 //       {super.key,
