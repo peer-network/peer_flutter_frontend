@@ -641,7 +641,7 @@ class CommentComment extends StatelessWidget {
             referenceName: referenceName,
           ),
         ),
-        const Spacer(),
+        // const Spacer(),
         const CasparHeart(),
       ],
     );
