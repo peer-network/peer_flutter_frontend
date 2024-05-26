@@ -502,12 +502,13 @@ class CommentMiddleSection extends StatelessWidget {
     return Column(
       children: [
         CommentHeader(user: comment.creator),
-        // CommentContent(
-        //   comment: comment,
-        //   isThirdLayerOrMore: isThirdLayerOrMore,
-        //   isSecondLayerOrMore: isSecondLayerOrMore,
-        //   referenceName: referenceName,
-        // ),
+        CommentContent(
+          comment: comment,
+          isThirdLayerOrMore: isThirdLayerOrMore,
+          isSecondLayerOrMore: isSecondLayerOrMore,
+          referenceName: referenceName,
+        ),
+        const CommentFooter(),
       ],
     );
   }
@@ -568,6 +569,21 @@ class CommentContent extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class CommentFooter extends StatelessWidget {
+  const CommentFooter({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      children: [
+        Text("Time"),
+        Text("Likes"),
+        Text("Comment"),
+      ],
     );
   }
 }
