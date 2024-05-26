@@ -608,7 +608,7 @@ class CommentFooter extends StatelessWidget {
                 color: Theme.of(context).brightness == Brightness.light
                     ? LightColors.textPrimary
                     : DarkColors.textPrimary)),
-        const SizedBox(width: 8), // 8: SizedBox for spacing
+        const Spacer(),
         CustomIconButton(
           onPressed: () {},
           sizeType: SizeType.tiny,
@@ -621,8 +621,7 @@ class CommentFooter extends StatelessWidget {
                   ? LightColors.textPrimary
                   : DarkColors.textPrimary),
         ),
-        const SizedBox(width: 8), // 9: SizedBox for spacing
-
+        const Spacer(),
         GestureDetector(
           onTap: () {
             CustomToast.showSuccessToast("Write a comment");
@@ -634,7 +633,10 @@ class CommentFooter extends StatelessWidget {
                     ? LightColors.textPrimary
                     : DarkColors.textPrimary),
           ),
-        )
+        ),
+        const Spacer(
+          flex: 5,
+        ),
       ],
     );
   }
