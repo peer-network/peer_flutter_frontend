@@ -430,6 +430,189 @@ class OldCommentComment extends StatelessWidget {
 //   }
 // }
 
+////////////////////////////////////////////////////
+// class CommentComment extends StatelessWidget {
+//   const CommentComment(
+//       {super.key,
+//       required this.comment,
+//       required this.isThirdLayerOrMore,
+//       required this.isSecondLayerOrMore,
+//       this.referenceName});
+
+//   final CommentModel comment;
+//   final bool isThirdLayerOrMore;
+//   final bool isSecondLayerOrMore;
+//   final String? referenceName;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       mainAxisSize: MainAxisSize.max,
+//       children: [
+//         UserImage(
+//           imageUrl: comment.creator.imageUrl,
+//         ),
+//         CommentMiddleSection(
+//           comment: comment,
+//           isThirdLayerOrMore: isThirdLayerOrMore,
+//           isSecondLayerOrMore: isSecondLayerOrMore,
+//           referenceName: referenceName,
+//         ),
+//         const Spacer(),
+//         const CasparHeart()
+//       ],
+//     );
+//   }
+// }
+
+// class UserImage extends StatelessWidget {
+//   const UserImage({super.key, required this.imageUrl});
+
+//   final String? imageUrl;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       padding: const EdgeInsets.all(
+//         AppPaddings.medium,
+//       ),
+//       alignment: Alignment.topCenter,
+//       child: CircleAvatar(
+//         backgroundImage: NetworkImage(imageUrl!),
+//         radius: AppDimensions.iconSizeSmall,
+//       ),
+//     );
+//   }
+// }
+
+// class CommentMiddleSection extends StatelessWidget {
+//   const CommentMiddleSection(
+//       {super.key,
+//       required this.comment,
+//       required this.isThirdLayerOrMore,
+//       required this.isSecondLayerOrMore,
+//       this.referenceName});
+
+//   final CommentModel comment;
+//   final bool isThirdLayerOrMore;
+//   final bool isSecondLayerOrMore;
+//   final String? referenceName;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       children: [
+//         CommentHeader(user: comment.creator),
+//         CommentContent(
+//           comment: comment,
+//           isThirdLayerOrMore: isThirdLayerOrMore,
+//           isSecondLayerOrMore: isSecondLayerOrMore,
+//           referenceName: referenceName,
+//         ),
+//         const CommentFooter(),
+//       ],
+//     );
+//   }
+// }
+
+// class CommentHeader extends StatelessWidget {
+//   const CommentHeader({super.key, required this.user});
+
+//   final UserModel user;
+
+//   @override
+//   Widget build(BuildContext) {
+//     return Text(user.name ?? "");
+//   }
+// }
+
+// class CommentContent extends StatelessWidget {
+//   const CommentContent(
+//       {super.key,
+//       required this.comment,
+//       required this.isThirdLayerOrMore,
+//       required this.isSecondLayerOrMore,
+//       this.referenceName});
+
+//   final CommentModel comment;
+//   final bool isThirdLayerOrMore;
+//   final bool isSecondLayerOrMore;
+//   final String? referenceName;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Expanded(
+//       child: RichText(
+//         text: TextSpan(
+//           children: <TextSpan>[
+//             // make clickable
+
+//             TextSpan(
+//               text: isThirdLayerOrMore ? '@$referenceName ' : "",
+//               style: const TextStyle(fontWeight: FontWeight.bold).copyWith(
+//                 color: Theme.of(context).brightness == Brightness.light
+//                     ? LightColors.textCompany
+//                     : DarkColors.textCompany,
+//               ),
+//               recognizer: TapGestureRecognizer()
+//                 ..onTap = () {
+//                   CustomToast.showSuccessToast("jump to post");
+//                   // navigate to the profile page
+//                 },
+//             ),
+//             TextSpan(
+//               text: comment.content,
+//               style: Theme.of(context).textTheme.titleMedium!.copyWith(
+//                   color: Theme.of(context).brightness == Brightness.light
+//                       ? LightColors.textPrimary
+//                       : DarkColors.textPrimary),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class CommentFooter extends StatelessWidget {
+//   const CommentFooter({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Row(
+//       children: [
+//         Text("Time"),
+//         Text("Likes"),
+//         Text("Comment"),
+//       ],
+//     );
+//   }
+// }
+
+// class CasparHeart extends StatelessWidget {
+//   const CasparHeart({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       color: Colors.amber,
+//       alignment: Alignment.centerRight,
+//       padding: const EdgeInsets.all(8.0),
+//       child: CustomIconButton(
+//         onPressed: () {},
+//         sizeType: SizeType.small,
+//         icon: IconLibrary.heart,
+//         color: Theme.of(context).brightness == Brightness.light
+//             ? LightColors.iconCompany
+//             : DarkColors.iconCompany,
+//       ),
+//     );
+//   }
+// }
+
+/////////////////////////////////////////////////////////////
+// comment_comment.dart
+
 class CommentComment extends StatelessWidget {
   const CommentComment(
       {super.key,
@@ -448,21 +631,24 @@ class CommentComment extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.max,
       children: [
-        UserImage(
-          imageUrl: comment.creator.imageUrl,
-        ),
-        CommentMiddleSection(
-          comment: comment,
-          isThirdLayerOrMore: isThirdLayerOrMore,
-          isSecondLayerOrMore: isSecondLayerOrMore,
-          referenceName: referenceName,
+        UserImage(imageUrl: comment.creator.imageUrl),
+        Expanded(
+          // 1: Expanded
+          child: CommentMiddleSection(
+            comment: comment,
+            isThirdLayerOrMore: isThirdLayerOrMore,
+            isSecondLayerOrMore: isSecondLayerOrMore,
+            referenceName: referenceName,
+          ),
         ),
         const Spacer(),
-        const CasparHeart()
+        const CasparHeart(),
       ],
     );
   }
 }
+
+// user_image.dart
 
 class UserImage extends StatelessWidget {
   const UserImage({super.key, required this.imageUrl});
@@ -472,17 +658,21 @@ class UserImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(
-        AppPaddings.medium,
-      ),
+      padding: const EdgeInsets.all(AppPaddings.medium),
       alignment: Alignment.topCenter,
       child: CircleAvatar(
-        backgroundImage: NetworkImage(imageUrl!),
+        backgroundImage:
+            imageUrl != null ? NetworkImage(imageUrl!) : null, // 2: Null Safety
         radius: AppDimensions.iconSizeSmall,
+        child: imageUrl == null
+            ? const Icon(Icons.person)
+            : null, // 3: Placeholder Icon
       ),
     );
   }
 }
+
+// comment_middle_section.dart
 
 class CommentMiddleSection extends StatelessWidget {
   const CommentMiddleSection(
@@ -500,6 +690,7 @@ class CommentMiddleSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start, // 4: CrossAxisAlignment
       children: [
         CommentHeader(user: comment.creator),
         CommentContent(
@@ -514,16 +705,20 @@ class CommentMiddleSection extends StatelessWidget {
   }
 }
 
+// comment_header.dart
+
 class CommentHeader extends StatelessWidget {
   const CommentHeader({super.key, required this.user});
 
   final UserModel user;
 
   @override
-  Widget build(BuildContext) {
-    return Text(user.name ?? "");
+  Widget build(BuildContext context) {
+    return Text(user.name ?? 'Anonymous'); // 5: Fallback Value
   }
 }
+
+// comment_content.dart
 
 class CommentContent extends StatelessWidget {
   const CommentContent(
@@ -540,38 +735,41 @@ class CommentContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: RichText(
-        text: TextSpan(
-          children: <TextSpan>[
-            // make clickable
+    final theme = Theme.of(context); // 6: Cached Theme Data
+    final textStyle = theme.textTheme.titleMedium!.copyWith(
+      color: theme.brightness == Brightness.light
+          ? LightColors.textPrimary
+          : DarkColors.textPrimary,
+    );
 
+    return RichText(
+      text: TextSpan(
+        children: <TextSpan>[
+          if (isThirdLayerOrMore)
             TextSpan(
-              text: isThirdLayerOrMore ? '@$referenceName ' : "",
+              text: '@$referenceName ',
               style: const TextStyle(fontWeight: FontWeight.bold).copyWith(
-                color: Theme.of(context).brightness == Brightness.light
+                color: theme.brightness == Brightness.light
                     ? LightColors.textCompany
                     : DarkColors.textCompany,
               ),
-              recognizer: TapGestureRecognizer()
+              recognizer: TapGestureRecognizer() // 7: TapGestureRecognizer
                 ..onTap = () {
                   CustomToast.showSuccessToast("jump to post");
                   // navigate to the profile page
                 },
             ),
-            TextSpan(
-              text: comment.content,
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  color: Theme.of(context).brightness == Brightness.light
-                      ? LightColors.textPrimary
-                      : DarkColors.textPrimary),
-            ),
-          ],
-        ),
+          TextSpan(
+            text: comment.content,
+            style: textStyle,
+          ),
+        ],
       ),
     );
   }
 }
+
+// comment_footer.dart
 
 class CommentFooter extends StatelessWidget {
   const CommentFooter({super.key});
@@ -581,12 +779,16 @@ class CommentFooter extends StatelessWidget {
     return const Row(
       children: [
         Text("Time"),
+        SizedBox(width: 8), // 8: SizedBox for spacing
         Text("Likes"),
+        SizedBox(width: 8), // 9: SizedBox for spacing
         Text("Comment"),
       ],
     );
   }
 }
+
+// caspar_heart.dart
 
 class CasparHeart extends StatelessWidget {
   const CasparHeart({super.key});
@@ -596,7 +798,7 @@ class CasparHeart extends StatelessWidget {
     return Container(
       color: Colors.amber,
       alignment: Alignment.centerRight,
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(AppPaddings.tiny),
       child: CustomIconButton(
         onPressed: () {},
         sizeType: SizeType.small,
