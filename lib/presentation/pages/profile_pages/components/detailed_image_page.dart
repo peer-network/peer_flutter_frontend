@@ -602,7 +602,12 @@ class CommentFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Text("Time"),
+        TimePassedSinceTextWidget(
+            dateTime: comment.createdAt,
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                color: Theme.of(context).brightness == Brightness.light
+                    ? LightColors.textPrimary
+                    : DarkColors.textPrimary)),
         const SizedBox(width: 8), // 8: SizedBox for spacing
         CustomIconButton(
           onPressed: () {},
