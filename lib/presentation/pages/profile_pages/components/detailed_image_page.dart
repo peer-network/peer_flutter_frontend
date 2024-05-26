@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_comment_model.dart';
 import 'package:peer_app/data/models/post_model.dart';
+import 'package:peer_app/data/models/user_model.dart';
 
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
@@ -53,7 +54,7 @@ class FirstLayerComment extends StatelessWidget {
         children: comments
             .map((comment) => Column(
                   children: [
-                    CasparComment(
+                    CommentComment(
                         comment: comment,
                         isThirdLayerOrMore: false,
                         isSecondLayerOrMore: false),
@@ -82,10 +83,13 @@ class SecondLayerComment extends StatelessWidget {
         children: comments
             .map((comment) => Column(
                   children: [
-                    CasparComment(
-                        comment: comment,
-                        isThirdLayerOrMore: false,
-                        isSecondLayerOrMore: true),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 38.0),
+                      child: CommentComment(
+                          comment: comment,
+                          isThirdLayerOrMore: false,
+                          isSecondLayerOrMore: true),
+                    ),
                     comment.comments.isNotEmpty
                         ? ThirdLayerComment(comments: comment.comments)
                         : Container(),
@@ -130,8 +134,8 @@ class ThirdLayerComment extends StatelessWidget {
   }
 }
 
-class CommentComment extends StatelessWidget {
-  const CommentComment(
+class OldCommentComment extends StatelessWidget {
+  const OldCommentComment(
       {super.key,
       required this.comment,
       required this.isThirdLayerOrMore,
@@ -303,8 +307,131 @@ class CommentComment extends StatelessWidget {
   }
 }
 
-class CasparComment extends StatelessWidget {
-  const CasparComment(
+// class CommentComment extends StatelessWidget {
+//   const CommentComment(
+//       {super.key,
+//       required this.comment,
+//       required this.isThirdLayerOrMore,
+//       required this.isSecondLayerOrMore,
+//       this.referenceName});
+
+//   final CommentModel comment;
+//   final bool isThirdLayerOrMore;
+//   final bool isSecondLayerOrMore;
+//   final String? referenceName;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       mainAxisSize: MainAxisSize.max,
+//       children: [
+//         UserImage(
+//           imageUrl: comment.creator.imageUrl,
+//         ),
+//         CommentContent(
+//           comment: comment,
+//           isThirdLayerOrMore: isThirdLayerOrMore,
+//           isSecondLayerOrMore: isSecondLayerOrMore,
+//           referenceName: referenceName,
+//         ),
+//         const Spacer(),
+//         const CasparHeart()
+//       ],
+//     );
+//   }
+// }
+
+// class UserImage extends StatelessWidget {
+//   const UserImage({super.key, required this.imageUrl});
+
+//   final String? imageUrl;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       padding: const EdgeInsets.all(
+//         AppPaddings.medium,
+//       ),
+//       alignment: Alignment.topCenter,
+//       child: CircleAvatar(
+//         backgroundImage: NetworkImage(imageUrl!),
+//         radius: AppDimensions.iconSizeSmall,
+//       ),
+//     );
+//   }
+// }
+
+// class CommentContent extends StatelessWidget {
+//   const CommentContent(
+//       {super.key,
+//       required this.comment,
+//       required this.isThirdLayerOrMore,
+//       required this.isSecondLayerOrMore,
+//       this.referenceName});
+
+//   final CommentModel comment;
+//   final bool isThirdLayerOrMore;
+//   final bool isSecondLayerOrMore;
+//   final String? referenceName;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Expanded(
+//       child: RichText(
+//         text: TextSpan(
+//           children: <TextSpan>[
+//             // make clickable
+
+//             TextSpan(
+//               text: isThirdLayerOrMore ? '@$referenceName ' : "",
+//               style: const TextStyle(fontWeight: FontWeight.bold).copyWith(
+//                 color: Theme.of(context).brightness == Brightness.light
+//                     ? LightColors.textCompany
+//                     : DarkColors.textCompany,
+//               ),
+//               recognizer: TapGestureRecognizer()
+//                 ..onTap = () {
+//                   CustomToast.showSuccessToast("jump to post");
+//                   // navigate to the profile page
+//                 },
+//             ),
+//             TextSpan(
+//               text: comment.content,
+//               style: Theme.of(context).textTheme.titleMedium!.copyWith(
+//                   color: Theme.of(context).brightness == Brightness.light
+//                       ? LightColors.textPrimary
+//                       : DarkColors.textPrimary),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class CasparHeart extends StatelessWidget {
+//   const CasparHeart({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       color: Colors.amber,
+//       alignment: Alignment.centerRight,
+//       padding: const EdgeInsets.all(8.0),
+//       child: CustomIconButton(
+//         onPressed: () {},
+//         sizeType: SizeType.small,
+//         icon: IconLibrary.heart,
+//         color: Theme.of(context).brightness == Brightness.light
+//             ? LightColors.iconCompany
+//             : DarkColors.iconCompany,
+//       ),
+//     );
+//   }
+// }
+
+class CommentComment extends StatelessWidget {
+  const CommentComment(
       {super.key,
       required this.comment,
       required this.isThirdLayerOrMore,
@@ -321,10 +448,10 @@ class CasparComment extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.max,
       children: [
-        CasparImage(
+        UserImage(
           imageUrl: comment.creator.imageUrl,
         ),
-        CasparContent(
+        CommentMiddleSection(
           comment: comment,
           isThirdLayerOrMore: isThirdLayerOrMore,
           isSecondLayerOrMore: isSecondLayerOrMore,
@@ -337,8 +464,8 @@ class CasparComment extends StatelessWidget {
   }
 }
 
-class CasparImage extends StatelessWidget {
-  const CasparImage({super.key, required this.imageUrl});
+class UserImage extends StatelessWidget {
+  const UserImage({super.key, required this.imageUrl});
 
   final String? imageUrl;
 
@@ -357,8 +484,48 @@ class CasparImage extends StatelessWidget {
   }
 }
 
-class CasparContent extends StatelessWidget {
-  const CasparContent(
+class CommentMiddleSection extends StatelessWidget {
+  const CommentMiddleSection(
+      {super.key,
+      required this.comment,
+      required this.isThirdLayerOrMore,
+      required this.isSecondLayerOrMore,
+      this.referenceName});
+
+  final CommentModel comment;
+  final bool isThirdLayerOrMore;
+  final bool isSecondLayerOrMore;
+  final String? referenceName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CommentHeader(user: comment.creator),
+        // CommentContent(
+        //   comment: comment,
+        //   isThirdLayerOrMore: isThirdLayerOrMore,
+        //   isSecondLayerOrMore: isSecondLayerOrMore,
+        //   referenceName: referenceName,
+        // ),
+      ],
+    );
+  }
+}
+
+class CommentHeader extends StatelessWidget {
+  const CommentHeader({super.key, required this.user});
+
+  final UserModel user;
+
+  @override
+  Widget build(BuildContext) {
+    return Text(user.name ?? "");
+  }
+}
+
+class CommentContent extends StatelessWidget {
+  const CommentContent(
       {super.key,
       required this.comment,
       required this.isThirdLayerOrMore,
