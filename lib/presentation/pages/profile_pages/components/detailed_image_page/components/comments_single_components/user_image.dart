@@ -9,7 +9,11 @@ class UserImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(AppPaddings.tiny),
+      padding: const EdgeInsets.only(
+          left: AppPaddings.tiny,
+          top: AppPaddings.tiny,
+          bottom: AppPaddings.tiny,
+          right: AppPaddings.small),
       alignment: Alignment.topCenter,
       child: CircleAvatar(
         backgroundImage:
