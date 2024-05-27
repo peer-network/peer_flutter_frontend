@@ -169,6 +169,241 @@ class ThirdLayerComment extends StatelessWidget {
   }
 }
 
+/////////////////////////////////////////////////////////////
+// comment_comment.dart
+
+class CommentComment extends StatelessWidget {
+  const CommentComment(
+      {super.key,
+      required this.comment,
+      required this.isThirdLayerOrMore,
+      required this.isSecondLayerOrMore,
+      this.referenceName});
+
+  final CommentModel comment;
+  final bool isThirdLayerOrMore;
+  final bool isSecondLayerOrMore;
+  final String? referenceName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        UserImage(imageUrl: comment.creator.imageUrl),
+
+        Expanded(
+          // 1: Expanded
+          child: CommentMiddleSection(
+            comment: comment,
+            isThirdLayerOrMore: isThirdLayerOrMore,
+            isSecondLayerOrMore: isSecondLayerOrMore,
+            referenceName: referenceName,
+          ),
+        ),
+        // const Spacer(),
+        const CasparHeart(),
+      ],
+    );
+  }
+}
+
+// user_image.dart
+
+class UserImage extends StatelessWidget {
+  const UserImage({super.key, required this.imageUrl});
+
+  final String? imageUrl;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(AppPaddings.tiny),
+      alignment: Alignment.topCenter,
+      child: CircleAvatar(
+        backgroundImage:
+            imageUrl != null ? NetworkImage(imageUrl!) : null, // 2: Null Safety
+        radius: AppDimensions.iconSizeSmall,
+        child: imageUrl == null
+            ? const Icon(Icons.person)
+            : null, // 3: Placeholder Icon
+      ),
+    );
+  }
+}
+
+// comment_middle_section.dart
+
+class CommentMiddleSection extends StatelessWidget {
+  const CommentMiddleSection(
+      {super.key,
+      required this.comment,
+      required this.isThirdLayerOrMore,
+      required this.isSecondLayerOrMore,
+      this.referenceName});
+
+  final CommentModel comment;
+  final bool isThirdLayerOrMore;
+  final bool isSecondLayerOrMore;
+  final String? referenceName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start, // 4: CrossAxisAlignment
+      children: [
+        CommentHeader(user: comment.creator),
+        CommentContent(
+          comment: comment,
+          isThirdLayerOrMore: isThirdLayerOrMore,
+          isSecondLayerOrMore: isSecondLayerOrMore,
+          referenceName: referenceName,
+        ),
+        CommentFooter(comment: comment),
+      ],
+    );
+  }
+}
+
+// comment_header.dart
+
+class CommentHeader extends StatelessWidget {
+  const CommentHeader({super.key, required this.user});
+
+  final UserModel user;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(user.name ?? 'Anonymous'); // 5: Fallback Value
+  }
+}
+
+// comment_content.dart
+
+class CommentContent extends StatelessWidget {
+  const CommentContent(
+      {super.key,
+      required this.comment,
+      required this.isThirdLayerOrMore,
+      required this.isSecondLayerOrMore,
+      this.referenceName});
+
+  final CommentModel comment;
+  final bool isThirdLayerOrMore;
+  final bool isSecondLayerOrMore;
+  final String? referenceName;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context); // 6: Cached Theme Data
+    final textStyle = theme.textTheme.titleMedium!.copyWith(
+      color: theme.brightness == Brightness.light
+          ? LightColors.textPrimary
+          : DarkColors.textPrimary,
+    );
+
+    return RichText(
+      text: TextSpan(
+        children: <TextSpan>[
+          if (isThirdLayerOrMore)
+            TextSpan(
+              text: '@$referenceName ',
+              style: const TextStyle(fontWeight: FontWeight.bold).copyWith(
+                color: theme.brightness == Brightness.light
+                    ? LightColors.textCompany
+                    : DarkColors.textCompany,
+              ),
+              recognizer: TapGestureRecognizer() // 7: TapGestureRecognizer
+                ..onTap = () {
+                  CustomToast.showSuccessToast("jump to post");
+                  // navigate to the profile page
+                },
+            ),
+          TextSpan(
+            text: comment.content,
+            style: textStyle,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// comment_footer.dart
+
+class CommentFooter extends StatelessWidget {
+  const CommentFooter({super.key, required this.comment});
+
+  final CommentModel comment;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        TimePassedSinceTextWidget(
+            dateTime: comment.createdAt,
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                color: Theme.of(context).brightness == Brightness.light
+                    ? LightColors.textPrimary
+                    : DarkColors.textPrimary)),
+        const Spacer(),
+        CustomIconButton(
+          onPressed: () {},
+          sizeType: SizeType.tiny,
+          icon: IconLibrary.heart,
+        ),
+        Text(
+          '${comment.likeCount}',
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+              color: Theme.of(context).brightness == Brightness.light
+                  ? LightColors.textPrimary
+                  : DarkColors.textPrimary),
+        ),
+        const Spacer(),
+        GestureDetector(
+          onTap: () {
+            CustomToast.showSuccessToast("Write a comment");
+          },
+          child: Text(
+            "Comment",
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                color: Theme.of(context).brightness == Brightness.light
+                    ? LightColors.textPrimary
+                    : DarkColors.textPrimary),
+          ),
+        ),
+        const Spacer(
+          flex: 5,
+        ),
+      ],
+    );
+  }
+}
+
+// caspar_heart.dart
+
+class CasparHeart extends StatelessWidget {
+  const CasparHeart({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.amber,
+      alignment: Alignment.centerRight,
+      padding: const EdgeInsets.all(AppPaddings.tiny),
+      child: CustomIconButton(
+        onPressed: () {},
+        sizeType: SizeType.small,
+        icon: IconLibrary.heart,
+        color: Theme.of(context).brightness == Brightness.light
+            ? LightColors.iconCompany
+            : DarkColors.iconCompany,
+      ),
+    );
+  }
+}
+
+
 // class FirstLayerComment extends StatelessWidget {
 //   const FirstLayerComment({super.key, required this.comments});
 
@@ -390,236 +625,3 @@ class ThirdLayerComment extends StatelessWidget {
 //     );
 //   }
 // }
-
-/////////////////////////////////////////////////////////////
-// comment_comment.dart
-
-class CommentComment extends StatelessWidget {
-  const CommentComment(
-      {super.key,
-      required this.comment,
-      required this.isThirdLayerOrMore,
-      required this.isSecondLayerOrMore,
-      this.referenceName});
-
-  final CommentModel comment;
-  final bool isThirdLayerOrMore;
-  final bool isSecondLayerOrMore;
-  final String? referenceName;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        UserImage(imageUrl: comment.creator.imageUrl),
-        Expanded(
-          // 1: Expanded
-          child: CommentMiddleSection(
-            comment: comment,
-            isThirdLayerOrMore: isThirdLayerOrMore,
-            isSecondLayerOrMore: isSecondLayerOrMore,
-            referenceName: referenceName,
-          ),
-        ),
-        // const Spacer(),
-        const CasparHeart(),
-      ],
-    );
-  }
-}
-
-// user_image.dart
-
-class UserImage extends StatelessWidget {
-  const UserImage({super.key, required this.imageUrl});
-
-  final String? imageUrl;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(AppPaddings.tiny),
-      alignment: Alignment.topCenter,
-      child: CircleAvatar(
-        backgroundImage:
-            imageUrl != null ? NetworkImage(imageUrl!) : null, // 2: Null Safety
-        radius: AppDimensions.iconSizeSmall,
-        child: imageUrl == null
-            ? const Icon(Icons.person)
-            : null, // 3: Placeholder Icon
-      ),
-    );
-  }
-}
-
-// comment_middle_section.dart
-
-class CommentMiddleSection extends StatelessWidget {
-  const CommentMiddleSection(
-      {super.key,
-      required this.comment,
-      required this.isThirdLayerOrMore,
-      required this.isSecondLayerOrMore,
-      this.referenceName});
-
-  final CommentModel comment;
-  final bool isThirdLayerOrMore;
-  final bool isSecondLayerOrMore;
-  final String? referenceName;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start, // 4: CrossAxisAlignment
-      children: [
-        CommentHeader(user: comment.creator),
-        CommentContent(
-          comment: comment,
-          isThirdLayerOrMore: isThirdLayerOrMore,
-          isSecondLayerOrMore: isSecondLayerOrMore,
-          referenceName: referenceName,
-        ),
-        CommentFooter(comment: comment),
-      ],
-    );
-  }
-}
-
-// comment_header.dart
-
-class CommentHeader extends StatelessWidget {
-  const CommentHeader({super.key, required this.user});
-
-  final UserModel user;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(user.name ?? 'Anonymous'); // 5: Fallback Value
-  }
-}
-
-// comment_content.dart
-
-class CommentContent extends StatelessWidget {
-  const CommentContent(
-      {super.key,
-      required this.comment,
-      required this.isThirdLayerOrMore,
-      required this.isSecondLayerOrMore,
-      this.referenceName});
-
-  final CommentModel comment;
-  final bool isThirdLayerOrMore;
-  final bool isSecondLayerOrMore;
-  final String? referenceName;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context); // 6: Cached Theme Data
-    final textStyle = theme.textTheme.titleMedium!.copyWith(
-      color: theme.brightness == Brightness.light
-          ? LightColors.textPrimary
-          : DarkColors.textPrimary,
-    );
-
-    return RichText(
-      text: TextSpan(
-        children: <TextSpan>[
-          if (isThirdLayerOrMore)
-            TextSpan(
-              text: '@$referenceName ',
-              style: const TextStyle(fontWeight: FontWeight.bold).copyWith(
-                color: theme.brightness == Brightness.light
-                    ? LightColors.textCompany
-                    : DarkColors.textCompany,
-              ),
-              recognizer: TapGestureRecognizer() // 7: TapGestureRecognizer
-                ..onTap = () {
-                  CustomToast.showSuccessToast("jump to post");
-                  // navigate to the profile page
-                },
-            ),
-          TextSpan(
-            text: comment.content,
-            style: textStyle,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-// comment_footer.dart
-
-class CommentFooter extends StatelessWidget {
-  const CommentFooter({super.key, required this.comment});
-
-  final CommentModel comment;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        TimePassedSinceTextWidget(
-            dateTime: comment.createdAt,
-            style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                color: Theme.of(context).brightness == Brightness.light
-                    ? LightColors.textPrimary
-                    : DarkColors.textPrimary)),
-        const Spacer(),
-        CustomIconButton(
-          onPressed: () {},
-          sizeType: SizeType.tiny,
-          icon: IconLibrary.heart,
-        ),
-        Text(
-          '${comment.likeCount}',
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-              color: Theme.of(context).brightness == Brightness.light
-                  ? LightColors.textPrimary
-                  : DarkColors.textPrimary),
-        ),
-        const Spacer(),
-        GestureDetector(
-          onTap: () {
-            CustomToast.showSuccessToast("Write a comment");
-          },
-          child: Text(
-            "Comment",
-            style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                color: Theme.of(context).brightness == Brightness.light
-                    ? LightColors.textPrimary
-                    : DarkColors.textPrimary),
-          ),
-        ),
-        const Spacer(
-          flex: 5,
-        ),
-      ],
-    );
-  }
-}
-
-// caspar_heart.dart
-
-class CasparHeart extends StatelessWidget {
-  const CasparHeart({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.amber,
-      alignment: Alignment.centerRight,
-      padding: const EdgeInsets.all(AppPaddings.tiny),
-      child: CustomIconButton(
-        onPressed: () {},
-        sizeType: SizeType.small,
-        icon: IconLibrary.heart,
-        color: Theme.of(context).brightness == Brightness.light
-            ? LightColors.iconCompany
-            : DarkColors.iconCompany,
-      ),
-    );
-  }
-}
