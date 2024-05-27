@@ -13,7 +13,7 @@ import 'package:peer_app/presentation/pages/share_post_contacts/share_post_conta
 import 'package:peer_app/presentation/pages/single_chat_page/chat_page.dart';
 import 'package:peer_app/presentation/routing/routes/base_route.dart';
 import 'package:peer_app/presentation/routing/routes/transitions.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/detailed_image_page.dart';
 
 class LoginPageRoute extends BaseRoute {
   LoginPageRoute()
