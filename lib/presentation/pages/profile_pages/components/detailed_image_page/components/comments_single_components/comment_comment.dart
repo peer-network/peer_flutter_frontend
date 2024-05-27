@@ -23,10 +23,42 @@ class CommentComment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.max,
       children: [
         UserImage(imageUrl: comment.creator.imageUrl),
+        Expanded(
+          child: CommentAndHeartRow(
+              comment: comment,
+              isThirdLayerOrMore: isThirdLayerOrMore,
+              isSecondLayerOrMore: isSecondLayerOrMore,
+              referenceName: referenceName),
+        ),
+        // const Spacer(),
+      ],
+    );
+  }
+}
 
+class CommentAndHeartRow extends StatelessWidget {
+  const CommentAndHeartRow({
+    super.key,
+    required this.comment,
+    required this.isThirdLayerOrMore,
+    required this.isSecondLayerOrMore,
+    required this.referenceName,
+  });
+
+  final CommentModel comment;
+  final bool isThirdLayerOrMore;
+  final bool isSecondLayerOrMore;
+  final String? referenceName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      children: [
         Expanded(
           // 1: Expanded
           child: CommentMiddleSection(
@@ -36,7 +68,6 @@ class CommentComment extends StatelessWidget {
             referenceName: referenceName,
           ),
         ),
-        // const Spacer(),
         const CasparHeart(),
       ],
     );
