@@ -8,15 +8,19 @@ class FeedTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: AppPaddings.small),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
-          borderRadius: AppBorders.defaultRadius,
-        ),
-        child: child,
+    return Container(
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primaryContainer,
+        borderRadius: AppBorders.noRadius,
+        boxShadow: [
+          BoxShadow(
+            color: Theme.of(context).shadowColor,
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
+      child: child,
     );
   }
 }

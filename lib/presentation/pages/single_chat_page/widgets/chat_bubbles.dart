@@ -11,7 +11,7 @@ class ChatBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isSender = chatData.isSender;
+    bool isSender = chatData.isSender!;
 
     Alignment alignment =
         isSender ? Alignment.centerRight : Alignment.centerLeft;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 enum SizeType {
+  tiny,
   small,
   medium,
   large,
@@ -13,6 +14,8 @@ enum SizeType {
 extension IconSizeTypeExtension on SizeType {
   double iconSize(BuildContext context) {
     switch (this) {
+      case SizeType.tiny:
+        return AppDimensions.iconSizeTiny;
       case SizeType.small:
         return AppDimensions.iconSizeSmall;
       case SizeType.medium:

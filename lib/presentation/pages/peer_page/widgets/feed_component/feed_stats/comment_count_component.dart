@@ -24,7 +24,8 @@ class CommentCountComponent extends StatelessWidget {
                 IconLibrary.comment.icon,
                 size: AppDimensions.iconSizeSmall,
               )
-            : Text("Kommentare", style: Theme.of(context).textTheme.titleLarge),
+            : Text((commentCount! > 1) ? "Comments" : "Comment",
+                style: Theme.of(context).textTheme.titleLarge),
       ],
     );
   }

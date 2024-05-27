@@ -48,7 +48,7 @@ class _ShareToListedContactsViewState extends State<ShareToListedContactsView> {
       } else {
         for (int i = 0; i < filteredContacts.length; i++) {
           if (i < 2 || _showAllContacts) {
-            contactWidgets.add(Text(filteredContacts[i].contact.name,
+            contactWidgets.add(Text(filteredContacts[i].contact.name!,
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     color: Theme.of(context).brightness == Brightness.light
                         ? LightColors.textPrimary

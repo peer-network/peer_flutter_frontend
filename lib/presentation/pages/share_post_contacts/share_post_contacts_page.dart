@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/pages/share_post_contacts/widgets/share_post_contact_bottom_navbar.dart';
 import 'package:peer_app/presentation/pages/share_post_contacts/widgets/share_post_contacts_view.dart';
@@ -11,7 +11,7 @@ class SharePostContactsPage extends StatefulWidget {
   const SharePostContactsPage({super.key, required this.feed});
 
   // bekommt das feedmodel das geteilt werden soll
-  final FeedModel feed;
+  final PostModel feed;
 
   @override
   _SharePostContactsPageState createState() => _SharePostContactsPageState();

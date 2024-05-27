@@ -1,5 +1,5 @@
 import 'package:peer_app/data/models/chat_model.dart';
-import 'package:peer_app/data/models/feed_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/chat_contacts_page.dart';
 import 'package:peer_app/presentation/pages/create_post_page/create_post_page.dart';
 import 'package:peer_app/presentation/pages/login_page/login_page.dart';
@@ -13,6 +13,7 @@ import 'package:peer_app/presentation/pages/share_post_contacts/share_post_conta
 import 'package:peer_app/presentation/pages/single_chat_page/chat_page.dart';
 import 'package:peer_app/presentation/routing/routes/base_route.dart';
 import 'package:peer_app/presentation/routing/routes/transitions.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/detailed_image_page.dart';
 
 class LoginPageRoute extends BaseRoute {
   LoginPageRoute()
@@ -87,7 +88,7 @@ class CreatePostPageRoute extends BaseRoute {
 }
 
 class SharePostContactsRoute extends BaseRoute {
-  SharePostContactsRoute(FeedModel feed)
+  SharePostContactsRoute(PostModel feed)
       : super(
           SharePostContactsPage(feed: feed),
           guards: [],
@@ -95,9 +96,17 @@ class SharePostContactsRoute extends BaseRoute {
 }
 
 class SharePostRoute extends BaseRoute {
-  SharePostRoute(FeedModel feed, Set<String> activeContacts)
+  SharePostRoute(PostModel feed, Set<String> activeContacts)
       : super(
           SharePostPage(feed: feed, activeContacts: activeContacts),
+          guards: [],
+        );
+}
+
+class DetailedImagePageRoute extends BaseRoute {
+  DetailedImagePageRoute(PostModel post)
+      : super(
+          DetailedImagePage(post: post),
           guards: [],
         );
 }

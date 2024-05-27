@@ -39,6 +39,8 @@ class AppDimensions {
   static const double buttonHeightLarge = 53.0;
   static const double buttonWidthNavbar = 257.2;
 
+  static const double footerHeight = 76.0;
+
   // Avatar dimensions
   static const double avatarSize = 60.0;
   static const double avatarSizeSmall = 16.0;
@@ -53,6 +55,7 @@ class AppDimensions {
   static const double iconSizeExtreLarge = 48.0;
   static const double iconSizeMedium = 24.0;
   static const double iconSizeSmall = 18.0;
+  static const double iconSizeTiny = 10.0;
 
   static const double notificationIndicatorCicleSize = 25;
 
@@ -69,6 +72,8 @@ class AppDimensions {
   static const double chatBubbleRadius = 20.0;
 
   static const double dragHandleHeight = 6.0;
+
+  static const double dropDownBorderWidth = 2.0;
 }
 
 // aspect ratios
