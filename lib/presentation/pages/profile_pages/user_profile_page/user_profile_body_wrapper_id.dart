@@ -12,7 +12,7 @@ class UserProfileBodyWrapperID extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GenericFutureBuilder<UserModel?>(
-      futureFunction: UserService().fetchNewUser(userId),
+      futureFunction: UserService().getUser(userId),
       dataBuilder: (context, UserModel? data) => UserProfileBody(user: data!),
       name: 'User Profile Wrapper ID',
     );
