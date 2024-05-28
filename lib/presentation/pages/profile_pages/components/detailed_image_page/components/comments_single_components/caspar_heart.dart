@@ -6,7 +6,9 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
 class CasparHeart extends StatelessWidget {
-  const CasparHeart({super.key});
+  const CasparHeart({super.key, this.isLiked});
+
+  final bool? isLiked;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class CasparHeart extends StatelessWidget {
       child: CustomIconButton(
         onPressed: () {},
         sizeType: SizeType.small,
-        icon: IconLibrary.heart,
+        icon: isLiked! ? IconLibrary.star : IconLibrary.heart,
         color: Theme.of(context).brightness == Brightness.light
             ? LightColors.iconCompany
             : DarkColors.iconCompany,

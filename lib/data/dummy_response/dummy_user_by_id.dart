@@ -151,7 +151,6 @@ const dummyUserById = {
       "created_at": "2022-05-20T19:34:20.000Z",
       "updated_at": "2024-04-29T18:15:00.000Z",
       "posts": [
-        // HERE IS POST 1
         {
           "runtimeType": "image",
           "id": "1",
@@ -168,7 +167,6 @@ const dummyUserById = {
           },
           "catId": "2",
           "comments": [
-            // Layer 1
             {
               "id": "1",
               "content": "This is a fantastic view!",
@@ -176,13 +174,13 @@ const dummyUserById = {
               "userId": 2,
               "likeCount": 10,
               "createdAt": "2024-04-30T09:00:00.000Z",
+              "isLiked": false,
               "creator": {
                 "id": "2",
                 "name": "John Doe",
                 "imageUrl": "https://randomuser.me/api/portraits/men/1.jpg"
               },
               "comments": [
-                // Layer 2
                 {
                   "id": "2",
                   "content": "Absolutely breathtaking!",
@@ -190,15 +188,14 @@ const dummyUserById = {
                   "userId": 3,
                   "likeCount": 3,
                   "createdAt": "2024-04-30T10:00:00.000Z",
+                  "isLiked": true,
                   "creator": {
                     "id": "3",
                     "name": "Jane Doe",
                     "imageUrl":
                         "https://storage.googleapis.com/wnr-ai/uploads/chat/ai/avatar/c3de9b8b4ea5836aaff8e88b362d5ce4/v512_c3de9b8b4ea5836aaff8e88b362d5ce4.png"
                   },
-                  //
                   "comments": [
-                    // Layer 3
                     {
                       "id": "2",
                       "content": "Comment Layer 3.",
@@ -206,6 +203,7 @@ const dummyUserById = {
                       "userId": 3,
                       "likeCount": 3,
                       "createdAt": "2024-04-30T10:00:00.000Z",
+                      "isLiked": false,
                       "creator": {
                         "id": "3",
                         "name": "Jane Doe",
@@ -213,7 +211,6 @@ const dummyUserById = {
                             "https://storage.googleapis.com/wnr-ai/uploads/chat/ai/avatar/c3de9b8b4ea5836aaff8e88b362d5ce4/v512_c3de9b8b4ea5836aaff8e88b362d5ce4.png"
                       },
                       "comments": [
-                        // Layer 4
                         {
                           "id": "2",
                           "content":
@@ -222,13 +219,14 @@ const dummyUserById = {
                           "userId": 3,
                           "likeCount": 3,
                           "createdAt": "2024-04-30T10:00:00.000Z",
+                          "isLiked": false,
                           "creator": {
                             "id": "3",
                             "name": "Jane Doe",
                             "imageUrl":
                                 "https://storage.googleapis.com/wnr-ai/uploads/chat/ai/avatar/c3de9b8b4ea5836aaff8e88b362d5ce4/v512_c3de9b8b4ea5836aaff8e88b362d5ce4.png"
                           },
-                          "comments": [] // Layer 5
+                          "comments": []
                         }
                       ]
                     }
@@ -243,6 +241,7 @@ const dummyUserById = {
               "userId": 4,
               "likeCount": 5,
               "createdAt": "2024-04-30T11:00:00.000Z",
+              "isLiked": false,
               "creator": {
                 "id": "4",
                 "name": "Emily Smith",
@@ -256,6 +255,7 @@ const dummyUserById = {
                   "userId": 5,
                   "likeCount": 2,
                   "createdAt": "2024-04-30T12:00:00.000Z",
+                  "isLiked": false,
                   "creator": {
                     "id": "5",
                     "name": "Chris Johnson",

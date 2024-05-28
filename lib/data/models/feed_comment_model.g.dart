@@ -21,6 +21,7 @@ _$CommentModelImpl _$$CommentModelImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => CommentModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      isLiked: json['isLiked'] as bool?,
       likeCount: (json['likeCount'] as num?)?.toInt(),
     );
 
@@ -34,5 +35,6 @@ Map<String, dynamic> _$$CommentModelImplToJson(_$CommentModelImpl instance) =>
       'createdAt': instance.createdAt.toIso8601String(),
       'user': instance.user?.toJson(),
       'comments': instance.comments.map((e) => e.toJson()).toList(),
+      'isLiked': instance.isLiked,
       'likeCount': instance.likeCount,
     };

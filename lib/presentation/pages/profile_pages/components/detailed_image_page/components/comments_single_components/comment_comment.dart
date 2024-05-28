@@ -68,7 +68,7 @@ class CommentAndHeartRow extends StatelessWidget {
             referenceName: referenceName,
           ),
         ),
-        const CasparHeart(),
+        CasparHeart(isLiked: comment.isLiked),
       ],
     );
   }
