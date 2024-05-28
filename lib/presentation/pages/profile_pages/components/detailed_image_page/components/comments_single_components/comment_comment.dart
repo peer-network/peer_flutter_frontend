@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_comment_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/caspar_heart.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/comment_middle_section.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/like_button_component.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/user_image.dart';
 
 /////////////////////////////////////////////////////////////
@@ -68,6 +69,7 @@ class CommentAndHeartRow extends StatelessWidget {
             referenceName: referenceName,
           ),
         ),
+        LikeButtonComponent(comment: comment),
         CasparHeart(isLiked: comment.isLiked),
       ],
     );
