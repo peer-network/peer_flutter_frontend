@@ -4,6 +4,7 @@ import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/data/services/user_service.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/whitelabel/icon_library.dart'; // Make sure to import IconLibrary
 
 class LikeButtonComponent extends StatefulWidget {
   const LikeButtonComponent(
@@ -31,7 +32,7 @@ class _LikeButtonComponentState extends State<LikeButtonComponent> {
   Widget build(BuildContext context) {
     return IconButton(
       icon: Icon(
-        isLiked ? Icons.star : Icons.favorite,
+        isLiked ? IconLibrary.star : IconLibrary.heart,
         color: isLiked
             ? Theme.of(context).brightness == Brightness.light
                 ? LightColors.iconCompany
