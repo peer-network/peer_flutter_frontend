@@ -13,8 +13,21 @@ class FeedContentComponent extends StatelessWidget {
     return Column(
       children: [
         post.when(
-            text: (id, caption, content, creator, comments, createdAt,
-                    amountClicks, amountComments, likeCount, viewCount) =>
+            text: (id,
+                    caption,
+                    content,
+                    creator,
+                    createdAt,
+                    updatedAt,
+                    isLiked,
+                    isViewed,
+                    isReported,
+                    isDisliked,
+                    isSaved,
+                    comments,
+                    amountComments,
+                    likeCount,
+                    viewCount) =>
                 FeedContentTextWidget(
                   text: (post as TextPost).content,
                 ),
@@ -23,9 +36,14 @@ class FeedContentComponent extends StatelessWidget {
                     description,
                     creator,
                     comments,
-                    imageUrls,
                     createdAt,
-                    amountClicks,
+                    updatedAt,
+                    isLiked,
+                    isViewed,
+                    isReported,
+                    isDisliked,
+                    isSaved,
+                    imageUrls,
                     amountComments,
                     likeCount,
                     viewCount) =>
@@ -37,9 +55,14 @@ class FeedContentComponent extends StatelessWidget {
                     caption,
                     description,
                     creator,
-                    comments,
                     createdAt,
-                    amountClicks,
+                    updatedAt,
+                    isLiked,
+                    isViewed,
+                    isReported,
+                    isDisliked,
+                    isSaved,
+                    comments,
                     amountComments,
                     likeCount,
                     viewCount) =>
