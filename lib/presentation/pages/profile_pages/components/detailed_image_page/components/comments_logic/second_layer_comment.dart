@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_comment_model.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_logic/comment_layer_component.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_logic/third_layer_comment.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/comment_comment.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/detailed_image_page.dart';
@@ -20,31 +21,12 @@ class SecondLayerComment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
         children: comments
-            .map((comment) => Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: AppPaddings.tiny),
-                      child: Container(
-                        color: Theme.of(context).brightness == Brightness.light
-                            ? LightColors.backgroundContainer
-                            : DarkColors.backgroundContainer,
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: AppPaddings.extraLargePlus,
-                              top: AppPaddings.tiny,
-                              bottom: AppPaddings.tiny),
-                          child: CommentComment(
-                              comment: comment,
-                              isThirdLayerOrMore: false,
-                              isSecondLayerOrMore: true),
-                        ),
-                      ),
-                    ),
-                    comment.comments.isNotEmpty
-                        ? ThirdLayerComment(comments: comment.comments)
-                        : Container(),
-                  ],
-                ))
+            .map((comment) => CommentLayerComponent(
+                isSecondLayerOrMore: true,
+                comment: comment,
+                nextLayer: comment.comments.isNotEmpty
+                    ? ThirdLayerComment(comments: comment.comments)
+                    : Container()))
             .toList());
   }
 }
