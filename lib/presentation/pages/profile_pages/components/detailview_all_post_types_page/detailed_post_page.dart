@@ -28,10 +28,11 @@ class DetailedPostPage extends StatelessWidget {
           child: Column(
             children: [
               // das wird ein dynamisches widget:
+              SinglePostContentsection(post: post),
 
-              Hero(
-                  tag: 'post-${(post as ImagePost).imageUrls[0]}',
-                  child: Image.network((post as ImagePost).imageUrls[0])),
+              // Hero(
+              //     tag: 'post-${(post as ImagePost).imageUrls[0]}',
+              //     child: Image.network((post as ImagePost).imageUrls[0])),
               const SizedBox(height: AppPaddings.extraLarge),
               FirstLayerComment(comments: post.comments),
             ],
@@ -48,13 +49,44 @@ class SinglePostContentsection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (post.runtimeType.toString() == 'image') {
-      return Hero(
-          tag: 'post-${(post as ImagePost).imageUrls[0]}',
-          child: Image.network((post as ImagePost).imageUrls[0]));
+      return SinglePostImageContent(post: post);
     } else if (post.runtimeType.toString() == 'text') {
-      return Container(); // show text
+      return SinglePostTextContent(post: post); // show text
     } else {
+      // TODO add more post types
       return Container();
     }
+  }
+}
+
+class SinglePostTextContent extends StatelessWidget {
+  const SinglePostTextContent({
+    super.key,
+    required this.post,
+  });
+
+  final PostModel post;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO style text and show more text features (if multiole pages)
+    return Text((post as TextPost).content);
+  }
+}
+
+class SinglePostImageContent extends StatelessWidget {
+  const SinglePostImageContent({
+    super.key,
+    required this.post,
+  });
+
+  final PostModel post;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: for later have all imageUrls shown in a side slider or carousel
+    return Hero(
+        tag: 'post-${(post as ImagePost).imageUrls[0]}',
+        child: Image.network((post as ImagePost).imageUrls[0]));
   }
 }
