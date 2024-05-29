@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_comment_model.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/comment_content.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/comment_footer.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/comment_header.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/detailed_image_page.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments_single_components/comment_content.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments_single_components/comment_footer.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments_single_components/comment_header.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/detailed_image_page.dart';
 
 class CommentMiddleSection extends StatelessWidget {
   const CommentMiddleSection(

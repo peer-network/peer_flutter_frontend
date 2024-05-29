@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_comment_model.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/caspar_heart.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/comment_and_heart_row.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/comment_middle_section.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/like_button_component.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/user_image.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments_single_components/caspar_heart.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments_single_components/comment_and_heart_row.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments_single_components/comment_middle_section.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments_single_components/like_button_component.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments_single_components/user_image.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 /////////////////////////////////////////////////////////////
