@@ -30,7 +30,7 @@ class SecondLayerComment extends StatelessWidget {
                             : DarkColors.backgroundContainer,
                         child: Padding(
                           padding: const EdgeInsets.only(
-                              left: 38.0,
+                              left: AppPaddings.extraLargePlus,
                               top: AppPaddings.tiny,
                               bottom: AppPaddings.tiny),
                           child: CommentComment(
