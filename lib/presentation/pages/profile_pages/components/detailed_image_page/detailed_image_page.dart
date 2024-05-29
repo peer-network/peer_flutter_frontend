@@ -5,6 +5,14 @@ import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_logic/first_layer_comment.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
+// SinglePostContentSection
+// 1. bekommt von comments die wichtigen sachen (type, media/content/whatever)
+// 2. dieses widget schaut nach dem type und zeigt das entsprechende widget an
+// type == text -> zeigt text an, type == image -> zeigt hero image an
+
+// Neuer Name: SinglePostPage
+// 1. Bleibt unverändert, nur die Hero-Image-Section wird dynamisch
+// 2. dummy data machen, damit man auch auf einen Text-Post klicken kann
 class DetailedImagePage extends StatelessWidget {
   final PostModel post;
   final String imageUrl;
