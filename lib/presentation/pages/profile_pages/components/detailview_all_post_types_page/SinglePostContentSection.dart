@@ -21,7 +21,7 @@ class SinglePostContentSection extends StatelessWidget {
 
     // if (post is ImagePost) { // how do i know that this is an ImagePost?
     if (post.runtimeType.toString() == "image") {
-      return DetailedPostPage(post: post, imageUrl: imageUrl);
+      return DetailedPostPage(post: post);
       // return Hero(
       //     tag: 'post-${(post as ImagePost).imageUrls[0]}',
       //     child: Image.network((post as ImagePost).imageUrls[0]));

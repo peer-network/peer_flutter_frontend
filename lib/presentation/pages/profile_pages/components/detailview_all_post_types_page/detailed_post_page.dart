@@ -28,7 +28,7 @@ class DetailedPostPage extends StatelessWidget {
           child: Column(
             children: [
               // das wird ein dynamisches widget:
-              
+
               Hero(
                   tag: 'post-${(post as ImagePost).imageUrls[0]}',
                   child: Image.network((post as ImagePost).imageUrls[0])),
@@ -40,18 +40,21 @@ class DetailedPostPage extends StatelessWidget {
   }
 }
 
-
 class SinglePostContentsection extends StatelessWidget {
-  final String postType;
+  final PostModel post;
 
-  const SinglePostContentsection({super.key, required this.postType});
+  const SinglePostContentsection({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
-    if (postType == 'image') {
+    if (post.runtimeType.toString() == 'image') {
       return Hero(
-                  tag: 'post-${(post as ImagePost).imageUrls[0]}',
-                  child: Image.network((post as ImagePost).imageUrls[0]))
+          tag: 'post-${(post as ImagePost).imageUrls[0]}',
+          child: Image.network((post as ImagePost).imageUrls[0]));
+    } else if (post.runtimeType.toString() == 'text') {
+      return Container(); // show text
+    } else {
+      return Container();
     }
   }
 }

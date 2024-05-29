@@ -106,7 +106,7 @@ class SharePostRoute extends BaseRoute {
 class DetailedImagePageRoute extends BaseRoute {
   DetailedImagePageRoute(PostModel post, String imageUrl)
       : super(
-          DetailedPostPage(post: post, imageUrl: imageUrl),
+          DetailedPostPage(post: post),
           guards: [],
         );
 }
