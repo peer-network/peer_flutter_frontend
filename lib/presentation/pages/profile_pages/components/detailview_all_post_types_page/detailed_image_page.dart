@@ -6,7 +6,7 @@ import 'package:peer_app/presentation/pages/profile_pages/components/detailview_
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 // SinglePostContentSection
-// 1. bekommt von comments die wichtigen sachen (type, media/content/whatever)
+// 1. bekommt von comments (von posts?) die wichtigen sachen (type, media/content/whatever)
 // 2. dieses widget schaut nach dem type und zeigt das entsprechende widget an
 // type == text -> zeigt text an, type == image -> zeigt hero image an
 

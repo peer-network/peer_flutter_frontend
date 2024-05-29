@@ -110,3 +110,12 @@ class DetailedImagePageRoute extends BaseRoute {
           guards: [],
         );
 }
+
+// // muss nochmal überprüft werden
+// class DetailedTextPageRoute extends BaseRoute {
+//   DetailedTextPageRoute(PostModel post)
+//       : super(
+//           DetailedTextPage(post: post),
+//           guards: [],
+//         );
+// }
