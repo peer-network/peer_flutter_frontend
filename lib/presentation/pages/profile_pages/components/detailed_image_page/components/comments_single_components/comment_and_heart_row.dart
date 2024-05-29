@@ -3,6 +3,7 @@ import 'package:peer_app/data/models/feed_comment_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/caspar_heart.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/comment_middle_section.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/components/comments_single_components/like_button_component.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class CommentAndHeartRow extends StatelessWidget {
   const CommentAndHeartRow({
@@ -32,8 +33,14 @@ class CommentAndHeartRow extends StatelessWidget {
             referenceName: referenceName,
           ),
         ),
-        LikeButtonComponent(comment: comment),
-        CasparHeart(isLiked: comment.isLiked),
+
+        Padding(
+          padding: const EdgeInsets.only(
+              right: AppPaddings.small, left: AppPaddings.small),
+          child: LikeCommentButtonComponent(
+              isLiked: comment.isLiked ?? false, commentId: comment.id),
+        ),
+        // CasparHeart(isLiked: comment.isLiked),
       ],
     );
   }

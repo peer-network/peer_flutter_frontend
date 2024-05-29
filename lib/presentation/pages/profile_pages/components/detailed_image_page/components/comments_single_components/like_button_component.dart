@@ -7,48 +7,45 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
 
-class LikeButtonComponent extends StatefulWidget {
-  const LikeButtonComponent(
-      {super.key, required this.comment, this.textStyle, this.textColor});
+class LikeCommentButtonComponent extends StatefulWidget {
+  const LikeCommentButtonComponent(
+      {super.key, required this.isLiked, required this.commentId});
 
-  final CommentModel comment;
-  final TextStyle? textStyle;
-  final Color? textColor;
+  final bool isLiked;
+  final String commentId;
 
   @override
-  State<LikeButtonComponent> createState() => _LikeButtonComponentState();
+  State<LikeCommentButtonComponent> createState() =>
+      _LikeCommentButtonComponentState();
 }
 
-class _LikeButtonComponentState extends State<LikeButtonComponent> {
+class _LikeCommentButtonComponentState
+    extends State<LikeCommentButtonComponent> {
   bool isLoading = false;
-  late bool isLiked;
+  late bool isLikedState;
 
   @override
   void initState() {
     super.initState();
-    isLiked = widget.comment.isLiked ?? false;
+    isLikedState = widget.isLiked;
   }
 
   @override
   Widget build(BuildContext context) {
     return CustomIconButton(
-        icon: isLiked ? IconLibrary.star : IconLibrary.heart,
-        onPressed: () async {
-          setState(() {
-            isLoading = true;
-          });
-          final bool success =
-              await UserService().toggleLike(widget.comment.id);
-          setState(() {
-            isLoading = false;
-            if (success) {
-              isLiked = !isLiked;
-            }
-          });
-        },
-        sizeType: SizeType.small,
-        color: Theme.of(context).brightness == Brightness.light
-            ? LightColors.iconCompany
-            : DarkColors.iconCompany);
+      icon: isLikedState ? IconLibrary.star : IconLibrary.heart,
+      onPressed: () async {
+        setState(() {
+          isLoading = true;
+        });
+        // TODO api call -> like comment by id
+
+        setState(() {
+          isLikedState = !isLikedState;
+          isLoading = false;
+        });
+      },
+      sizeType: SizeType.small,
+    );
   }
 }
