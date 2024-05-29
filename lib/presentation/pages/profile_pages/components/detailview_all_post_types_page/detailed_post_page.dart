@@ -48,13 +48,13 @@ class SinglePostContentsection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (post.runtimeType.toString() == 'image') {
+    if (post is ImagePost) {
       return SinglePostImageContent(post: post);
-    } else if (post.runtimeType.toString() == 'text') {
+    } else if (post is TextPost) {
       return SinglePostTextContent(post: post); // show text
     } else {
       // TODO add more post types
-      return Container();
+      return Text(post.runtimeType.toString());
     }
   }
 }
