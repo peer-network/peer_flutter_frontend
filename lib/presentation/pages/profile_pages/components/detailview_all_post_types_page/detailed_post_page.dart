@@ -13,29 +13,45 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 // Neuer Name: SinglePostPage
 // 1. Bleibt unverändert, nur die Hero-Image-Section wird dynamisch
 // 2. dummy data machen, damit man auch auf einen Text-Post klicken kann
-class DetailedImagePage extends StatelessWidget {
+class DetailedPostPage extends StatelessWidget {
   final PostModel post;
-  final String imageUrl;
 
-  const DetailedImagePage(
-      {super.key, required this.post, required this.imageUrl});
+  const DetailedPostPage({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
     return BasePage(
         appBar: AppBar(
-          title: const Text('Image Details'),
+          title: const Text(''),
         ),
         child: SingleChildScrollView(
           child: Column(
             children: [
+              // das wird ein dynamisches widget:
+              
               Hero(
-                  tag: 'post-$imageUrl',
+                  tag: 'post-${(post as ImagePost).imageUrls[0]}',
                   child: Image.network((post as ImagePost).imageUrls[0])),
               const SizedBox(height: AppPaddings.extraLarge),
               FirstLayerComment(comments: post.comments),
             ],
           ),
         ));
+  }
+}
+
+
+class SinglePostContentsection extends StatelessWidget {
+  final String postType;
+
+  const SinglePostContentsection({super.key, required this.postType});
+
+  @override
+  Widget build(BuildContext context) {
+    if (postType == 'image') {
+      return Hero(
+                  tag: 'post-${(post as ImagePost).imageUrls[0]}',
+                  child: Image.network((post as ImagePost).imageUrls[0]))
+    }
   }
 }

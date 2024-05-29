@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/post_model.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/detailed_image_page.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/detailed_post_page.dart';
 
 class SinglePostContentSection extends StatelessWidget {
   final PostModel post;
@@ -21,7 +21,7 @@ class SinglePostContentSection extends StatelessWidget {
 
     // if (post is ImagePost) { // how do i know that this is an ImagePost?
     if (post.runtimeType.toString() == "image") {
-      return DetailedImagePage(post: post, imageUrl: imageUrl);
+      return DetailedPostPage(post: post, imageUrl: imageUrl);
       // return Hero(
       //     tag: 'post-${(post as ImagePost).imageUrls[0]}',
       //     child: Image.network((post as ImagePost).imageUrls[0]));
