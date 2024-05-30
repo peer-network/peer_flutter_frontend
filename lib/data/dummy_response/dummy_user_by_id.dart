@@ -246,7 +246,7 @@ const dummyUserById = {
                 "https://whyy.org/wp-content/uploads/2022/08/2022-08-15-e-lee-alex-smith-philadelphia-black-gay-comic-book-768x530.jpeg"
           },
           "catId": "2",
-          "comments": [],
+          "comments": comment_alex_post_1,
           "amountClicks": 0,
           "amountComments": 0,
           "imageUrls": [],
