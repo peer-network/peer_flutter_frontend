@@ -57,6 +57,7 @@ _$ImagePostImpl _$$ImagePostImplFromJson(Map<String, dynamic> json) =>
       amountComments: (json['amountComments'] as num?)?.toInt(),
       likeCount: (json['likeCount'] as num?)?.toInt(),
       viewCount: (json['viewCount'] as num?)?.toInt(),
+      aspectRatio: json['aspectRatio'] as String? ?? '4x3',
       $type: json['runtimeType'] as String?,
     );
 
@@ -73,6 +74,7 @@ Map<String, dynamic> _$$ImagePostImplToJson(_$ImagePostImpl instance) =>
       'amountComments': instance.amountComments,
       'likeCount': instance.likeCount,
       'viewCount': instance.viewCount,
+      'aspectRatio': instance.aspectRatio,
       'runtimeType': instance.$type,
     };
 

@@ -38,6 +38,7 @@ class PostModel with _$PostModel {
     int? amountComments,
     int? likeCount,
     int? viewCount,
+    @Default('4x3') String aspectRatio,
   }) = ImagePost;
 
   @JsonSerializable(explicitToJson: true)

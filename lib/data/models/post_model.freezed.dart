@@ -65,7 +65,8 @@ mixin _$PostModel {
             int? amountClicks,
             int? amountComments,
             int? likeCount,
-            int? viewCount)
+            int? viewCount,
+            String aspectRatio)
         image,
     required TResult Function(
             String id,
@@ -107,7 +108,8 @@ mixin _$PostModel {
             int? amountClicks,
             int? amountComments,
             int? likeCount,
-            int? viewCount)?
+            int? viewCount,
+            String aspectRatio)?
         image,
     TResult? Function(
             String id,
@@ -149,7 +151,8 @@ mixin _$PostModel {
             int? amountClicks,
             int? amountComments,
             int? likeCount,
-            int? viewCount)?
+            int? viewCount,
+            String aspectRatio)?
         image,
     TResult Function(
             String id,
@@ -504,7 +507,8 @@ class _$TextPostImpl implements TextPost {
             int? amountClicks,
             int? amountComments,
             int? likeCount,
-            int? viewCount)
+            int? viewCount,
+            String aspectRatio)
         image,
     required TResult Function(
             String id,
@@ -550,7 +554,8 @@ class _$TextPostImpl implements TextPost {
             int? amountClicks,
             int? amountComments,
             int? likeCount,
-            int? viewCount)?
+            int? viewCount,
+            String aspectRatio)?
         image,
     TResult? Function(
             String id,
@@ -596,7 +601,8 @@ class _$TextPostImpl implements TextPost {
             int? amountClicks,
             int? amountComments,
             int? likeCount,
-            int? viewCount)?
+            int? viewCount,
+            String aspectRatio)?
         image,
     TResult Function(
             String id,
@@ -722,7 +728,8 @@ abstract class _$$ImagePostImplCopyWith<$Res>
       int? amountClicks,
       int? amountComments,
       int? likeCount,
-      int? viewCount});
+      int? viewCount,
+      String aspectRatio});
 
   @override
   $UserModelCopyWith<$Res> get creator;
@@ -750,6 +757,7 @@ class __$$ImagePostImplCopyWithImpl<$Res>
     Object? amountComments = freezed,
     Object? likeCount = freezed,
     Object? viewCount = freezed,
+    Object? aspectRatio = null,
   }) {
     return _then(_$ImagePostImpl(
       id: null == id
@@ -796,6 +804,10 @@ class __$$ImagePostImplCopyWithImpl<$Res>
           ? _value.viewCount
           : viewCount // ignore: cast_nullable_to_non_nullable
               as int?,
+      aspectRatio: null == aspectRatio
+          ? _value.aspectRatio
+          : aspectRatio // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -816,6 +828,7 @@ class _$ImagePostImpl implements ImagePost {
       this.amountComments,
       this.likeCount,
       this.viewCount,
+      this.aspectRatio = '4x3',
       final String? $type})
       : _comments = comments,
         _imageUrls = imageUrls,
@@ -859,13 +872,16 @@ class _$ImagePostImpl implements ImagePost {
   final int? likeCount;
   @override
   final int? viewCount;
+  @override
+  @JsonKey()
+  final String aspectRatio;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'PostModel.image(id: $id, caption: $caption, description: $description, creator: $creator, comments: $comments, createdAt: $createdAt, imageUrls: $imageUrls, amountClicks: $amountClicks, amountComments: $amountComments, likeCount: $likeCount, viewCount: $viewCount)';
+    return 'PostModel.image(id: $id, caption: $caption, description: $description, creator: $creator, comments: $comments, createdAt: $createdAt, imageUrls: $imageUrls, amountClicks: $amountClicks, amountComments: $amountComments, likeCount: $likeCount, viewCount: $viewCount, aspectRatio: $aspectRatio)';
   }
 
   @override
@@ -890,7 +906,9 @@ class _$ImagePostImpl implements ImagePost {
             (identical(other.likeCount, likeCount) ||
                 other.likeCount == likeCount) &&
             (identical(other.viewCount, viewCount) ||
-                other.viewCount == viewCount));
+                other.viewCount == viewCount) &&
+            (identical(other.aspectRatio, aspectRatio) ||
+                other.aspectRatio == aspectRatio));
   }
 
   @JsonKey(ignore: true)
@@ -907,7 +925,8 @@ class _$ImagePostImpl implements ImagePost {
       amountClicks,
       amountComments,
       likeCount,
-      viewCount);
+      viewCount,
+      aspectRatio);
 
   @JsonKey(ignore: true)
   @override
@@ -941,7 +960,8 @@ class _$ImagePostImpl implements ImagePost {
             int? amountClicks,
             int? amountComments,
             int? likeCount,
-            int? viewCount)
+            int? viewCount,
+            String aspectRatio)
         image,
     required TResult Function(
             String id,
@@ -957,8 +977,19 @@ class _$ImagePostImpl implements ImagePost {
             int? viewCount)
         video,
   }) {
-    return image(id, caption, description, creator, comments, createdAt,
-        imageUrls, amountClicks, amountComments, likeCount, viewCount);
+    return image(
+        id,
+        caption,
+        description,
+        creator,
+        comments,
+        createdAt,
+        imageUrls,
+        amountClicks,
+        amountComments,
+        likeCount,
+        viewCount,
+        aspectRatio);
   }
 
   @override
@@ -987,7 +1018,8 @@ class _$ImagePostImpl implements ImagePost {
             int? amountClicks,
             int? amountComments,
             int? likeCount,
-            int? viewCount)?
+            int? viewCount,
+            String aspectRatio)?
         image,
     TResult? Function(
             String id,
@@ -1003,8 +1035,19 @@ class _$ImagePostImpl implements ImagePost {
             int? viewCount)?
         video,
   }) {
-    return image?.call(id, caption, description, creator, comments, createdAt,
-        imageUrls, amountClicks, amountComments, likeCount, viewCount);
+    return image?.call(
+        id,
+        caption,
+        description,
+        creator,
+        comments,
+        createdAt,
+        imageUrls,
+        amountClicks,
+        amountComments,
+        likeCount,
+        viewCount,
+        aspectRatio);
   }
 
   @override
@@ -1033,7 +1076,8 @@ class _$ImagePostImpl implements ImagePost {
             int? amountClicks,
             int? amountComments,
             int? likeCount,
-            int? viewCount)?
+            int? viewCount,
+            String aspectRatio)?
         image,
     TResult Function(
             String id,
@@ -1051,8 +1095,19 @@ class _$ImagePostImpl implements ImagePost {
     required TResult orElse(),
   }) {
     if (image != null) {
-      return image(id, caption, description, creator, comments, createdAt,
-          imageUrls, amountClicks, amountComments, likeCount, viewCount);
+      return image(
+          id,
+          caption,
+          description,
+          creator,
+          comments,
+          createdAt,
+          imageUrls,
+          amountClicks,
+          amountComments,
+          likeCount,
+          viewCount,
+          aspectRatio);
     }
     return orElse();
   }
@@ -1111,7 +1166,8 @@ abstract class ImagePost implements PostModel {
       final int? amountClicks,
       final int? amountComments,
       final int? likeCount,
-      final int? viewCount}) = _$ImagePostImpl;
+      final int? viewCount,
+      final String aspectRatio}) = _$ImagePostImpl;
 
   factory ImagePost.fromJson(Map<String, dynamic> json) =
       _$ImagePostImpl.fromJson;
@@ -1136,6 +1192,7 @@ abstract class ImagePost implements PostModel {
   int? get likeCount;
   @override
   int? get viewCount;
+  String get aspectRatio;
   @override
   @JsonKey(ignore: true)
   _$$ImagePostImplCopyWith<_$ImagePostImpl> get copyWith =>
@@ -1373,7 +1430,8 @@ class _$VideoPostImpl implements VideoPost {
             int? amountClicks,
             int? amountComments,
             int? likeCount,
-            int? viewCount)
+            int? viewCount,
+            String aspectRatio)
         image,
     required TResult Function(
             String id,
@@ -1419,7 +1477,8 @@ class _$VideoPostImpl implements VideoPost {
             int? amountClicks,
             int? amountComments,
             int? likeCount,
-            int? viewCount)?
+            int? viewCount,
+            String aspectRatio)?
         image,
     TResult? Function(
             String id,
@@ -1465,7 +1524,8 @@ class _$VideoPostImpl implements VideoPost {
             int? amountClicks,
             int? amountComments,
             int? likeCount,
-            int? viewCount)?
+            int? viewCount,
+            String aspectRatio)?
         image,
     TResult Function(
             String id,
