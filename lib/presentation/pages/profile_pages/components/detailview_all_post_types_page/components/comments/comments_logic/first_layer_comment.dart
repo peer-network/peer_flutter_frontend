@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_comment_model.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments_logic/comment_layer_component.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments_logic/second_layer_comment.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_logic/comment_layer_component.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_logic/second_layer_comment.dart';
 
 class FirstLayerComment extends StatelessWidget {
   const FirstLayerComment({super.key, required this.comments});
