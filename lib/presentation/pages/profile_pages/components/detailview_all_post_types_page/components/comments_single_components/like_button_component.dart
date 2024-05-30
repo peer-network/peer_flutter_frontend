@@ -33,7 +33,7 @@ class _LikeCommentButtonComponentState
   @override
   Widget build(BuildContext context) {
     return CustomIconButton(
-      icon: isLikedState ? IconLibrary.star : IconLibrary.heart,
+      icon: isLikedState ? IconLibrary.heartFilled : IconLibrary.heart,
       onPressed: () async {
         setState(() {
           isLoading = true;
