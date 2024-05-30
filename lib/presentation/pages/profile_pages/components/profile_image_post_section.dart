@@ -23,7 +23,7 @@ class ProfileImagePostSection extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            Navigator.of(context).push(DetailedImagePageRoute(
+            Navigator.of(context).push(DetailedPostPageRoute(
                 posts[index], (posts[index] as ImagePost).imageUrls[0]));
           },
           child: Hero(
