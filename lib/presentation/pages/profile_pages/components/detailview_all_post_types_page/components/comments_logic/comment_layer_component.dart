@@ -24,7 +24,7 @@ class CommentLayerComponent extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.only(top: AppPaddings.tiny),
-          margin: const EdgeInsets.only(top: AppMargins.tiny),
+          margin: const EdgeInsets.only(top: AppPaddings.tiny),
           color: Theme.of(context).brightness == Brightness.light
               ? LightColors.backgroundContainer
               : DarkColors.backgroundContainer,

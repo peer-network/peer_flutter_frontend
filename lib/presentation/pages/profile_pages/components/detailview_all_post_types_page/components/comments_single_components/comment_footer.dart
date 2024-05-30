@@ -27,6 +27,9 @@ class CommentFooter extends StatelessWidget {
           onPressed: () {},
           sizeType: SizeType.tiny,
           icon: IconLibrary.heart,
+          color: Theme.of(context).brightness == Brightness.light
+              ? LightColors.textPrimary
+              : DarkColors.textPrimary,
         ),
         Text(
           '${comment.likeCount}',

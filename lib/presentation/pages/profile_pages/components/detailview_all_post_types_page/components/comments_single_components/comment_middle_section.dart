@@ -4,6 +4,7 @@ import 'package:peer_app/presentation/pages/profile_pages/components/detailview_
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments_single_components/comment_footer.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments_single_components/comment_header.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/detailed_post_page.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class CommentMiddleSection extends StatelessWidget {
   const CommentMiddleSection(
@@ -31,6 +32,7 @@ class CommentMiddleSection extends StatelessWidget {
           referenceName: referenceName,
         ),
         CommentFooter(comment: comment),
+        const SizedBox(height: AppPaddings.tiny),
       ],
     );
   }
