@@ -26,7 +26,7 @@ class CommentComment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: isSecondLayerOrMore
-          ? const EdgeInsets.only(left: AppPaddings.extraLarge)
+          ? const EdgeInsets.only(left: AppPaddings.extraLargePlus)
           : const EdgeInsets.only(left: 0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +41,6 @@ class CommentComment extends StatelessWidget {
                 referenceName:
                     isThirdLayerOrMore ? comment.creator.name : null),
           ),
-          // const Spacer(),
         ],
       ),
     );
