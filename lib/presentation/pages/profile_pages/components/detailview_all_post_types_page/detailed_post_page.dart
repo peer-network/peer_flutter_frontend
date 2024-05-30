@@ -30,9 +30,6 @@ class DetailedPostPage extends StatelessWidget {
               // das wird ein dynamisches widget:
               SinglePostContentsection(post: post),
 
-              // Hero(
-              //     tag: 'post-${(post as ImagePost).imageUrls[0]}',
-              //     child: Image.network((post as ImagePost).imageUrls[0])),
               const SizedBox(height: AppPaddings.extraLarge),
               FirstLayerComment(comments: post.comments),
             ],

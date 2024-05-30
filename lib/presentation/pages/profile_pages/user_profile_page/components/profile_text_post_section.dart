@@ -80,7 +80,7 @@ class ProfileTextPostSection extends StatelessWidget {
           return GestureDetector(
             onTap: () {
               Navigator.of(context).push(
-                DetailedPostPageRoute(post, post.id),
+                DetailedPostPageRoute(post),
               );
             },
             child: SmallTextPostCard(

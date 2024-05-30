@@ -103,19 +103,18 @@ class SharePostRoute extends BaseRoute {
         );
 }
 
+// class DetailedPostPageRoute extends BaseRoute {
+//   DetailedPostPageRoute(PostModel post, String imageUrl)
+//       : super(
+//           DetailedPostPage(post: post),
+//           guards: [],
+//         );
+// }
+
 class DetailedPostPageRoute extends BaseRoute {
-  DetailedPostPageRoute(PostModel post, String imageUrl)
+  DetailedPostPageRoute(PostModel post)
       : super(
           DetailedPostPage(post: post),
           guards: [],
         );
 }
-
-// // muss nochmal überprüft werden
-// class DetailedTextPageRoute extends BaseRoute {
-//   DetailedTextPageRoute(PostModel post)
-//       : super(
-//           DetailedTextPage(post: post),
-//           guards: [],
-//         );
-// }
