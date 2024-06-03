@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 enum IconLibrary {
+  heartFilled,
   horizontalMenu,
   history,
   logOut,
@@ -40,6 +41,8 @@ enum IconLibrary {
 extension IconExtension on IconLibrary {
   AssetImage get icon {
     switch (this) {
+      case IconLibrary.heartFilled:
+        return const AssetImage("assets/icons/heart_filled.png");
       case IconLibrary.arrowDown:
         return const AssetImage("assets/icons/arrow_down.png");
       case IconLibrary.horizontalMenu:

@@ -78,9 +78,11 @@ List<Map<String, dynamic>> dummyFeedData = [
     "isDisliked": false,
     "isSaved": false,
     "comments": [],
-    "imageUrls": ["https://example.com/path/to/image.jpg"],
+    "imageUrls": [
+      "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg"
+    ],
     "amountComments": 0,
-    "likeCount": 50,
+    "likeCount": 69,
     "viewCount": 500
   },
   {

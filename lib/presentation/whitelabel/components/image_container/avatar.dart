@@ -14,7 +14,7 @@ class AvatarComponent extends StatelessWidget {
         width: AppDimensions.avatarSize,
         height: AppDimensions.avatarSize,
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primaryContainer,
+          color: Theme.of(context).colorScheme.primary,
           shape: BoxShape.circle,
         ),
       );

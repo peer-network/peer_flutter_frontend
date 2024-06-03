@@ -7,8 +7,10 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class DetailedImagePage extends StatelessWidget {
   final PostModel post;
+  final String imageUrl;
 
-  const DetailedImagePage({super.key, required this.post});
+  const DetailedImagePage(
+      {super.key, required this.post, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class DetailedImagePage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Image.network((post as ImagePost).imageUrls[0]),
+              Hero(tag: 'post-$imageUrl', child: Image.network(imageUrl)),
               const SizedBox(height: AppPaddings.extraLarge),
               FirstLayerComment(comments: post.comments),
             ],

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/testsz.dart';
-import 'package:peer_app/presentation/whitelabel/components/search_elements/peer_dropdown.dart';
-import 'package:peer_app/presentation/whitelabel/components/search_elements/search_element_container.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/dropdown_bar.dart';
 
 class SelectionBar extends StatefulWidget {
   const SelectionBar({super.key});
