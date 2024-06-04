@@ -16,3 +16,5 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 To regenerate freezed files: dart run build_runner build
+To regenerate freezed files and delete auto generated files first: 
+        dart run build_runner build --delete-conflicting-outputs
