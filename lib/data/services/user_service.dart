@@ -141,7 +141,6 @@ class UserService {
       // Filter the dummy data to find the specific user by ID
       final userData =
           data['data']?.where((user) => user['id'] == userId).toList().first;
-      print('User Data: <<<<<<<<<<<<<<<<<<<<<<<<<<<<< $userData');
       if (userData != null) {
         final user = UserModel.fromJson(userData);
         _users.add(user);
