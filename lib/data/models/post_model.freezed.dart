@@ -35,7 +35,6 @@ mixin _$PostModel {
   String get caption => throw _privateConstructorUsedError;
   UserModel get creator => throw _privateConstructorUsedError; // user in json
   DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime get updatedAt => throw _privateConstructorUsedError;
   bool get isLiked => throw _privateConstructorUsedError;
   bool get isViewed => throw _privateConstructorUsedError;
   bool get isReported => throw _privateConstructorUsedError;
@@ -53,7 +52,6 @@ mixin _$PostModel {
             String content,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -71,7 +69,6 @@ mixin _$PostModel {
             UserModel creator,
             List<CommentModel> comments,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -90,7 +87,6 @@ mixin _$PostModel {
             String description,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -111,7 +107,6 @@ mixin _$PostModel {
             String content,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -129,7 +124,6 @@ mixin _$PostModel {
             UserModel creator,
             List<CommentModel> comments,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -148,7 +142,6 @@ mixin _$PostModel {
             String description,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -169,7 +162,6 @@ mixin _$PostModel {
             String content,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -187,7 +179,6 @@ mixin _$PostModel {
             UserModel creator,
             List<CommentModel> comments,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -206,7 +197,6 @@ mixin _$PostModel {
             String description,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -258,7 +248,6 @@ abstract class $PostModelCopyWith<$Res> {
       String caption,
       UserModel creator,
       DateTime createdAt,
-      DateTime updatedAt,
       bool isLiked,
       bool isViewed,
       bool isReported,
@@ -289,7 +278,6 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
     Object? caption = null,
     Object? creator = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
     Object? isLiked = null,
     Object? isViewed = null,
     Object? isReported = null,
@@ -316,10 +304,6 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       isLiked: null == isLiked
           ? _value.isLiked
@@ -383,7 +367,6 @@ abstract class _$$TextPostImplCopyWith<$Res>
       String content,
       UserModel creator,
       DateTime createdAt,
-      DateTime updatedAt,
       bool isLiked,
       bool isViewed,
       bool isReported,
@@ -414,7 +397,6 @@ class __$$TextPostImplCopyWithImpl<$Res>
     Object? content = null,
     Object? creator = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
     Object? isLiked = null,
     Object? isViewed = null,
     Object? isReported = null,
@@ -445,10 +427,6 @@ class __$$TextPostImplCopyWithImpl<$Res>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       isLiked: null == isLiked
           ? _value.isLiked
@@ -500,7 +478,6 @@ class _$TextPostImpl implements TextPost {
       required this.content,
       required this.creator,
       required this.createdAt,
-      required this.updatedAt,
       required this.isLiked,
       required this.isViewed,
       required this.isReported,
@@ -529,8 +506,6 @@ class _$TextPostImpl implements TextPost {
 // user in json
   @override
   final DateTime createdAt;
-  @override
-  final DateTime updatedAt;
   @override
   final bool isLiked;
   @override
@@ -562,7 +537,7 @@ class _$TextPostImpl implements TextPost {
 
   @override
   String toString() {
-    return 'PostModel.text(id: $id, caption: $caption, content: $content, creator: $creator, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, likeCount: $likeCount, viewCount: $viewCount)';
+    return 'PostModel.text(id: $id, caption: $caption, content: $content, creator: $creator, createdAt: $createdAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, likeCount: $likeCount, viewCount: $viewCount)';
   }
 
   @override
@@ -576,8 +551,6 @@ class _$TextPostImpl implements TextPost {
             (identical(other.creator, creator) || other.creator == creator) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
             (identical(other.isLiked, isLiked) || other.isLiked == isLiked) &&
             (identical(other.isViewed, isViewed) ||
                 other.isViewed == isViewed) &&
@@ -604,7 +577,6 @@ class _$TextPostImpl implements TextPost {
       content,
       creator,
       createdAt,
-      updatedAt,
       isLiked,
       isViewed,
       isReported,
@@ -630,7 +602,6 @@ class _$TextPostImpl implements TextPost {
             String content,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -648,7 +619,6 @@ class _$TextPostImpl implements TextPost {
             UserModel creator,
             List<CommentModel> comments,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -667,7 +637,6 @@ class _$TextPostImpl implements TextPost {
             String description,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -685,7 +654,6 @@ class _$TextPostImpl implements TextPost {
         content,
         creator,
         createdAt,
-        updatedAt,
         isLiked,
         isViewed,
         isReported,
@@ -706,7 +674,6 @@ class _$TextPostImpl implements TextPost {
             String content,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -724,7 +691,6 @@ class _$TextPostImpl implements TextPost {
             UserModel creator,
             List<CommentModel> comments,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -743,7 +709,6 @@ class _$TextPostImpl implements TextPost {
             String description,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -761,7 +726,6 @@ class _$TextPostImpl implements TextPost {
         content,
         creator,
         createdAt,
-        updatedAt,
         isLiked,
         isViewed,
         isReported,
@@ -782,7 +746,6 @@ class _$TextPostImpl implements TextPost {
             String content,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -800,7 +763,6 @@ class _$TextPostImpl implements TextPost {
             UserModel creator,
             List<CommentModel> comments,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -819,7 +781,6 @@ class _$TextPostImpl implements TextPost {
             String description,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -839,7 +800,6 @@ class _$TextPostImpl implements TextPost {
           content,
           creator,
           createdAt,
-          updatedAt,
           isLiked,
           isViewed,
           isReported,
@@ -902,7 +862,6 @@ abstract class TextPost implements PostModel {
       required final String content,
       required final UserModel creator,
       required final DateTime createdAt,
-      required final DateTime updatedAt,
       required final bool isLiked,
       required final bool isViewed,
       required final bool isReported,
@@ -925,8 +884,6 @@ abstract class TextPost implements PostModel {
   UserModel get creator;
   @override // user in json
   DateTime get createdAt;
-  @override
-  DateTime get updatedAt;
   @override
   bool get isLiked;
   @override
@@ -966,7 +923,6 @@ abstract class _$$ImagePostImplCopyWith<$Res>
       UserModel creator,
       List<CommentModel> comments,
       DateTime createdAt,
-      DateTime updatedAt,
       bool isLiked,
       bool isViewed,
       bool isReported,
@@ -999,7 +955,6 @@ class __$$ImagePostImplCopyWithImpl<$Res>
     Object? creator = null,
     Object? comments = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
     Object? isLiked = null,
     Object? isViewed = null,
     Object? isReported = null,
@@ -1035,10 +990,6 @@ class __$$ImagePostImplCopyWithImpl<$Res>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       isLiked: null == isLiked
           ? _value.isLiked
@@ -1095,7 +1046,6 @@ class _$ImagePostImpl implements ImagePost {
       required this.creator,
       required final List<CommentModel> comments,
       required this.createdAt,
-      required this.updatedAt,
       required this.isLiked,
       required this.isViewed,
       required this.isReported,
@@ -1137,8 +1087,6 @@ class _$ImagePostImpl implements ImagePost {
   @override
   final DateTime createdAt;
   @override
-  final DateTime updatedAt;
-  @override
   final bool isLiked;
   @override
   final bool isViewed;
@@ -1175,7 +1123,7 @@ class _$ImagePostImpl implements ImagePost {
 
   @override
   String toString() {
-    return 'PostModel.image(id: $id, caption: $caption, description: $description, creator: $creator, comments: $comments, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, imageUrls: $imageUrls, amountComments: $amountComments, likeCount: $likeCount, viewCount: $viewCount, aspectRatio: $aspectRatio)';
+    return 'PostModel.image(id: $id, caption: $caption, description: $description, creator: $creator, comments: $comments, createdAt: $createdAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, imageUrls: $imageUrls, amountComments: $amountComments, likeCount: $likeCount, viewCount: $viewCount, aspectRatio: $aspectRatio)';
   }
 
   @override
@@ -1191,8 +1139,6 @@ class _$ImagePostImpl implements ImagePost {
             const DeepCollectionEquality().equals(other._comments, _comments) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
             (identical(other.isLiked, isLiked) || other.isLiked == isLiked) &&
             (identical(other.isViewed, isViewed) ||
                 other.isViewed == isViewed) &&
@@ -1223,7 +1169,6 @@ class _$ImagePostImpl implements ImagePost {
       creator,
       const DeepCollectionEquality().hash(_comments),
       createdAt,
-      updatedAt,
       isLiked,
       isViewed,
       isReported,
@@ -1250,7 +1195,6 @@ class _$ImagePostImpl implements ImagePost {
             String content,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1268,7 +1212,6 @@ class _$ImagePostImpl implements ImagePost {
             UserModel creator,
             List<CommentModel> comments,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1287,7 +1230,6 @@ class _$ImagePostImpl implements ImagePost {
             String description,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1306,7 +1248,6 @@ class _$ImagePostImpl implements ImagePost {
         creator,
         comments,
         createdAt,
-        updatedAt,
         isLiked,
         isViewed,
         isReported,
@@ -1328,7 +1269,6 @@ class _$ImagePostImpl implements ImagePost {
             String content,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1346,7 +1286,6 @@ class _$ImagePostImpl implements ImagePost {
             UserModel creator,
             List<CommentModel> comments,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1365,7 +1304,6 @@ class _$ImagePostImpl implements ImagePost {
             String description,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1384,7 +1322,6 @@ class _$ImagePostImpl implements ImagePost {
         creator,
         comments,
         createdAt,
-        updatedAt,
         isLiked,
         isViewed,
         isReported,
@@ -1406,7 +1343,6 @@ class _$ImagePostImpl implements ImagePost {
             String content,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1424,7 +1360,6 @@ class _$ImagePostImpl implements ImagePost {
             UserModel creator,
             List<CommentModel> comments,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1443,7 +1378,6 @@ class _$ImagePostImpl implements ImagePost {
             String description,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1464,7 +1398,6 @@ class _$ImagePostImpl implements ImagePost {
           creator,
           comments,
           createdAt,
-          updatedAt,
           isLiked,
           isViewed,
           isReported,
@@ -1529,7 +1462,6 @@ abstract class ImagePost implements PostModel {
           required final UserModel creator,
           required final List<CommentModel> comments,
           required final DateTime createdAt,
-          required final DateTime updatedAt,
           required final bool isLiked,
           required final bool isViewed,
           required final bool isReported,
@@ -1556,8 +1488,6 @@ abstract class ImagePost implements PostModel {
   List<CommentModel> get comments;
   @override
   DateTime get createdAt;
-  @override
-  DateTime get updatedAt;
   @override
   bool get isLiked;
   @override
@@ -1600,7 +1530,6 @@ abstract class _$$VideoPostImplCopyWith<$Res>
       String description,
       UserModel creator,
       DateTime createdAt,
-      DateTime updatedAt,
       bool isLiked,
       bool isViewed,
       bool isReported,
@@ -1632,7 +1561,6 @@ class __$$VideoPostImplCopyWithImpl<$Res>
     Object? description = null,
     Object? creator = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
     Object? isLiked = null,
     Object? isViewed = null,
     Object? isReported = null,
@@ -1667,10 +1595,6 @@ class __$$VideoPostImplCopyWithImpl<$Res>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       isLiked: null == isLiked
           ? _value.isLiked
@@ -1723,7 +1647,6 @@ class _$VideoPostImpl implements VideoPost {
       required this.description,
       required this.creator,
       required this.createdAt,
-      required this.updatedAt,
       required this.isLiked,
       required this.isViewed,
       required this.isReported,
@@ -1752,8 +1675,6 @@ class _$VideoPostImpl implements VideoPost {
   final UserModel creator;
   @override
   final DateTime createdAt;
-  @override
-  final DateTime updatedAt;
   @override
   final bool isLiked;
   @override
@@ -1785,7 +1706,7 @@ class _$VideoPostImpl implements VideoPost {
 
   @override
   String toString() {
-    return 'PostModel.video(id: $id, videoUrl: $videoUrl, caption: $caption, description: $description, creator: $creator, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, likeCount: $likeCount, viewCount: $viewCount)';
+    return 'PostModel.video(id: $id, videoUrl: $videoUrl, caption: $caption, description: $description, creator: $creator, createdAt: $createdAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, likeCount: $likeCount, viewCount: $viewCount)';
   }
 
   @override
@@ -1802,8 +1723,6 @@ class _$VideoPostImpl implements VideoPost {
             (identical(other.creator, creator) || other.creator == creator) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
             (identical(other.isLiked, isLiked) || other.isLiked == isLiked) &&
             (identical(other.isViewed, isViewed) ||
                 other.isViewed == isViewed) &&
@@ -1831,7 +1750,6 @@ class _$VideoPostImpl implements VideoPost {
       description,
       creator,
       createdAt,
-      updatedAt,
       isLiked,
       isViewed,
       isReported,
@@ -1857,7 +1775,6 @@ class _$VideoPostImpl implements VideoPost {
             String content,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1875,7 +1792,6 @@ class _$VideoPostImpl implements VideoPost {
             UserModel creator,
             List<CommentModel> comments,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1894,7 +1810,6 @@ class _$VideoPostImpl implements VideoPost {
             String description,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1913,7 +1828,6 @@ class _$VideoPostImpl implements VideoPost {
         description,
         creator,
         createdAt,
-        updatedAt,
         isLiked,
         isViewed,
         isReported,
@@ -1934,7 +1848,6 @@ class _$VideoPostImpl implements VideoPost {
             String content,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1952,7 +1865,6 @@ class _$VideoPostImpl implements VideoPost {
             UserModel creator,
             List<CommentModel> comments,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1971,7 +1883,6 @@ class _$VideoPostImpl implements VideoPost {
             String description,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -1990,7 +1901,6 @@ class _$VideoPostImpl implements VideoPost {
         description,
         creator,
         createdAt,
-        updatedAt,
         isLiked,
         isViewed,
         isReported,
@@ -2011,7 +1921,6 @@ class _$VideoPostImpl implements VideoPost {
             String content,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -2029,7 +1938,6 @@ class _$VideoPostImpl implements VideoPost {
             UserModel creator,
             List<CommentModel> comments,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -2048,7 +1956,6 @@ class _$VideoPostImpl implements VideoPost {
             String description,
             UserModel creator,
             DateTime createdAt,
-            DateTime updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
@@ -2069,7 +1976,6 @@ class _$VideoPostImpl implements VideoPost {
           description,
           creator,
           createdAt,
-          updatedAt,
           isLiked,
           isViewed,
           isReported,
@@ -2133,7 +2039,6 @@ abstract class VideoPost implements PostModel {
       required final String description,
       required final UserModel creator,
       required final DateTime createdAt,
-      required final DateTime updatedAt,
       required final bool isLiked,
       required final bool isViewed,
       required final bool isReported,
@@ -2157,8 +2062,6 @@ abstract class VideoPost implements PostModel {
   UserModel get creator;
   @override
   DateTime get createdAt;
-  @override
-  DateTime get updatedAt;
   @override
   bool get isLiked;
   @override

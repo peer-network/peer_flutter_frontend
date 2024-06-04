@@ -19,7 +19,6 @@ class PostModel with _$PostModel {
     required String content,
     required UserModel creator, // user in json
     required DateTime createdAt,
-    required DateTime updatedAt,
     required bool isLiked,
     required bool isViewed,
     required bool isReported,
@@ -39,7 +38,6 @@ class PostModel with _$PostModel {
     required UserModel creator, // user in jsons
     required List<CommentModel> comments,
     required DateTime createdAt,
-    required DateTime updatedAt,
     required bool isLiked,
     required bool isViewed,
     required bool isReported,
@@ -63,7 +61,6 @@ class PostModel with _$PostModel {
     required String description,
     required UserModel creator,
     required DateTime createdAt,
-    required DateTime updatedAt,
     required bool isLiked,
     required bool isViewed,
     required bool isReported,

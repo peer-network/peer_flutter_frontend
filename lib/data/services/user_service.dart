@@ -135,7 +135,7 @@ class UserService {
 
   Future<UserModel?> fetchNewUser(String userId) async {
     await Future.delayed(const Duration(seconds: 1));
-    const data = dummyUserById; // Assuming this constant holds dummy data
+    final data = dummyUserById; // Assuming this constant holds dummy data
 
     try {
       // Filter the dummy data to find the specific user by ID

@@ -14,7 +14,7 @@ const dummyUserById = {
       "amount_followed": 300,
       "amount_posts": 85,
       "created_at": "2021-10-30T14:20:10.000Z",
-      "updated_at": "2024-05-01T10:00:00.000Z",
+      "updatedAt": "2024-05-01T10:00:00.000Z",
       "posts": [
         {
           "runtimeType": "image",
@@ -154,7 +154,7 @@ const dummyUserById = {
       "amount_followed": 430,
       "amount_posts": 120,
       "created_at": "2022-05-20T19:34:20.000Z",
-      "updated_at": "2024-04-29T18:15:00.000Z",
+      "updatedAt": "2024-04-29T18:15:00.000Z",
       "posts": [
         {
           "runtimeType": "image",

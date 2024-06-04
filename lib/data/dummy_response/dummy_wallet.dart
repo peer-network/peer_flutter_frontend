@@ -1,6 +1,6 @@
 import 'package:peer_app/data/dummy_response/dummy_user_by_id.dart';
 
-const dummyWallet = {
+final dummyWallet = {
   "wallet": {
     "user": dummyUserById,
     "totalCredits": 8970,
