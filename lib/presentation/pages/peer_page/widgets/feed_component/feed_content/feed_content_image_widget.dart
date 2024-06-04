@@ -38,9 +38,8 @@ class _FeedContentImageWidgetState extends State<FeedContentImageWidget> {
                     child: GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(
-                          DetailedImagePageRoute(
+                          DetailedPostPageRoute(
                             widget.imagePost,
-                            widget.imagePost.imageUrls[index],
                           ),
                         );
                       },

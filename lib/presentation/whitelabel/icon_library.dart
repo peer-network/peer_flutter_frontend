@@ -36,7 +36,6 @@ enum IconLibrary {
   close,
   trash,
   edit,
-  heartFilled,
 }
 
 extension IconExtension on IconLibrary {
