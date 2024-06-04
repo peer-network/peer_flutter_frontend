@@ -68,7 +68,7 @@ List<Map<String, dynamic>> dummyFeedData = [
       "bio": "Love capturing moments.",
       "amountOfPosts": 5,
       "amountOfFollowers": 200,
-      "isFollowing": true
+      "isFollowing": false
     },
     "createdAt": "2022-02-03T16:00:00Z",
     "updatedAt": "2022-02-03T16:00:00Z",
