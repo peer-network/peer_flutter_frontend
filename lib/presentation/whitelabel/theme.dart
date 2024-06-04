@@ -58,7 +58,8 @@ ThemeData lightTheme = ThemeData(
         color: LightColors.iconDarkPrimary, size: AppDimensions.iconSizeLarge),
     iconTheme: const IconThemeData(
         color: LightColors.iconCompany, size: AppDimensions.iconSizeLarge),
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
+      foregroundColor: LightColors.textDark,
       backgroundColor: LightColors.backgroundContainer,
       elevation: 0,
       iconTheme: IconThemeData(color: LightColors.iconDarkPrimary),
@@ -114,7 +115,8 @@ ThemeData darkTheme = ThemeData(
         color: DarkColors.iconDarkPrimary, size: AppDimensions.iconSizeLarge),
     iconTheme: const IconThemeData(
         color: DarkColors.iconCompany, size: AppDimensions.iconSizeLarge),
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
+      foregroundColor: DarkColors.textBright,
       backgroundColor: DarkColors.backgroundContainer,
       elevation: 0,
       iconTheme: IconThemeData(color: DarkColors.iconDarkPrimary),

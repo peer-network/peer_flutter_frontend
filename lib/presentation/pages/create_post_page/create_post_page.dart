@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:peer_app/core/types/create_post_type.dart';
-import 'package:peer_app/data/provider/news_feed_provider.dart';
+import 'package:peer_app/data/provider/post_provider.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/pages/create_post_page/create_post_bottom_navbar.dart';
 import 'package:peer_app/presentation/pages/create_post_page/image_body_create_post.dart';
@@ -125,8 +125,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
   }
 
   void createPostText(int creatorId) {
-    final newsFeedProvider =
-        Provider.of<NewsFeedProvider>(context, listen: false);
+    final newsFeedProvider = Provider.of<PostProvider>(context, listen: false);
     newsFeedProvider.createPost(
       {"content": textController.text, "userId": creatorId},
     ).then((_) {

@@ -21,7 +21,6 @@ class BaseInputDecoration {
             color: LightColors
                 .activeBorder), //TODO: no access to context -> not theme
       ),
-
       suffixIcon: suffixIcon, // Allows for optional customization
     );
   }

@@ -16,17 +16,13 @@ class SearchElementContainer extends StatelessWidget {
         horizontal: AppPaddings.small,
         vertical: AppPaddings.tiny,
       ),
-      child: SizedBox(
-        width: AppDimensions.searchElementContainerWidth,
-        height: AppDimensions.searchElementContainerHight,
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(
             minHeight: 0, // Minimum height: effectively no constraint
             maxHeight: AppDimensions
                 .searchElementContainerHight, // Maximum height: fixed value
-          ),
-          child: searchElement, // Your flexible width widget
-        ),
+            maxWidth: 100),
+        child: searchElement, // Your flexible width widget
       ),
     );
   }

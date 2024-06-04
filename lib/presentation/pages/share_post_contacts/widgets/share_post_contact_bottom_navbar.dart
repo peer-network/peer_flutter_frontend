@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/navbars/base_bottom_navbar.dart';
@@ -12,7 +12,7 @@ class SharePostContactBottomNavbar extends StatelessWidget {
     required this.activeContacts,
   });
 
-  final FeedModel feed;
+  final PostModel feed;
   final Set<String> activeContacts;
 
   @override

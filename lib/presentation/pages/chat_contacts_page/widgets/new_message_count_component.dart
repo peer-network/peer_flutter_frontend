@@ -64,16 +64,18 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 class NewMessageCountComponent extends StatelessWidget {
   const NewMessageCountComponent({
     super.key,
-    required this.notificationCount,
+    this.notificationCount,
   });
-  final int notificationCount;
+  final int? notificationCount;
 
   @override
   Widget build(BuildContext context) {
     // Determine the text to display based on the notificationCount
-    final String displayText = notificationCount > 99
-        ? "99+" // Currently not working because of the fixed size of the container
-        : notificationCount.toString();
+    final String displayText = notificationCount == null
+        ? "NaN"
+        : notificationCount! > 99
+            ? "99+" // Currently not working because of the fixed size of the container
+            : notificationCount.toString();
 
     // Determine the font size based on the length of displayText
     final double fontSize = _determineFontSize(context, displayText);

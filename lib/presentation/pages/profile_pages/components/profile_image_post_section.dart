@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
+import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/components/image_container/custom_cached_network_image.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ProfileImagePostSection extends StatelessWidget {
   const ProfileImagePostSection({super.key, required this.posts});
 
-  final List<FeedModel> posts;
+  final List<PostModel> posts;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +21,14 @@ class ProfileImagePostSection extends StatelessWidget {
         mainAxisSpacing: AppMargins.tiny,
       ),
       itemBuilder: (context, index) {
-        // return CustomCachedNetworkImage(imageUrl: posts[index].imageUrls[0]);
-        return CustomCachedNetworkImage(imageUrl: posts[index].content);
+        return GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(DetailedImagePageRoute(
+                posts[index], (posts[index] as ImagePost).imageUrls[0]));
+          },
+          child: CustomCachedNetworkImage(
+              imageUrl: (posts[index] as ImagePost).imageUrls[0]),
+        );
       },
     );
   }

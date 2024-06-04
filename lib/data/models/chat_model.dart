@@ -1,35 +1,19 @@
-import 'dart:ffi';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'chat_message_model.dart';
 
-import 'package:peer_app/data/models/chat_message_model.dart';
+part 'chat_model.freezed.dart';
+part 'chat_model.g.dart';
 
-class ChatModel {
-  final String id;
-  final String image; // db entry can be null, handle accordingly
-  final String name;
-  final int amountUnseenMessages;
-  List<ChatMessageModel> messages;
+@freezed
+class ChatModel with _$ChatModel {
+  factory ChatModel({
+    required String id,
+    required String name,
+    required List<ChatMessageModel> messages,
+    String? image,
+    int? amountUnseenMessages,
+  }) = _ChatModel;
 
-  ChatModel({
-    required this.id,
-    required this.image,
-    required this.name,
-    required this.amountUnseenMessages,
-    required this.messages,
-  });
-
-  factory ChatModel.fromJson(Map<String, dynamic> json, String currentUserId) {
-    var messageList = json['chat_messages'] as List<dynamic>;
-    List<ChatMessageModel> messages = messageList
-        .map((messageJson) =>
-            ChatMessageModel.fromJson(messageJson, currentUserId))
-        .toList();
-
-    return ChatModel(
-      id: json['id'],
-      image: json['image'] ?? '', // Added null check for image
-      name: json['name'],
-      amountUnseenMessages: json['amount_unseen_messages'],
-      messages: messages,
-    );
-  }
+  factory ChatModel.fromJson(Map<String, dynamic> json) =>
+      _$ChatModelFromJson(json);
 }

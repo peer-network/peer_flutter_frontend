@@ -38,7 +38,7 @@ class FeedContentTextWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppPaddings.medium),
-          const Divider(),
+          Divider(color: Theme.of(context).dividerColor),
         ],
       ),
     );

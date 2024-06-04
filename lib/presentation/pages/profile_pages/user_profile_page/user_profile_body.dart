@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/core/types/post_types.dart';
+import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/profile_image_post_section.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/profile_image_section.dart';
@@ -22,15 +23,11 @@ class UserProfileBody extends StatelessWidget {
           ProfileInfoSection(user: user),
           const SizedBox(height: AppPaddings.large),
           ProfileImagePostSection(
-            posts: user.posts
-                .where((post) => post.postType == PostType.image)
-                .toList(),
+            posts: user.posts.whereType<ImagePost>().toList(),
           ),
           const SizedBox(height: AppPaddings.large),
           ProfileTextPostSection(
-            posts: user.posts
-                .where((post) => post.postType == PostType.text)
-                .toList(),
+            posts: user.posts.whereType<TextPost>().toList(),
             user: user,
           ),
           // TODO: Add ProfileVideoPostSection
