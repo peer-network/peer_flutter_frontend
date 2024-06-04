@@ -14,11 +14,10 @@ class PostModel with _$PostModel {
   @JsonSerializable(explicitToJson: true)
   const factory PostModel.text({
     required String id,
-    required String caption, //title in json
+    required String title, //title in json
     required String content,
-    required UserModel creator, // user in json
+    required UserModel user, // user in json
     required DateTime createdAt,
-    required DateTime updatedAt,
     required bool isLiked,
     required bool isViewed,
     required bool isReported,
@@ -33,12 +32,11 @@ class PostModel with _$PostModel {
   @JsonSerializable(explicitToJson: true)
   const factory PostModel.image({
     required String id,
-    required String caption, // title in json
-    required String description, // mediaDescription in json
-    required UserModel creator, // user in jsons
+    required String title, // title in json
+    required String mediaDescription, // mediaDescription in json
+    required UserModel user, // user in jsons
     required List<CommentModel> comments,
     required DateTime createdAt,
-    required DateTime updatedAt,
     required bool isLiked,
     required bool isViewed,
     required bool isReported,
@@ -53,10 +51,10 @@ class PostModel with _$PostModel {
   @JsonSerializable(explicitToJson: true)
   const factory PostModel.video({
     required String id,
-    required String videoUrl,
-    required String caption,
+    required String media,
+    required String title,
     required String description,
-    required UserModel creator,
+    required UserModel user,
     required DateTime createdAt,
     required DateTime updatedAt,
     required bool isLiked,

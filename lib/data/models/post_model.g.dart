@@ -9,11 +9,10 @@ part of 'post_model.dart';
 _$TextPostImpl _$$TextPostImplFromJson(Map<String, dynamic> json) =>
     _$TextPostImpl(
       id: json['id'] as String,
-      caption: json['caption'] as String,
+      title: json['title'] as String,
       content: json['content'] as String,
-      creator: UserModel.fromJson(json['creator'] as Map<String, dynamic>),
+      user: UserModel.fromJson(json['user'] as Map<String, dynamic>),
       createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
       isLiked: json['isLiked'] as bool,
       isViewed: json['isViewed'] as bool,
       isReported: json['isReported'] as bool,
@@ -32,11 +31,10 @@ _$TextPostImpl _$$TextPostImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$TextPostImplToJson(_$TextPostImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'caption': instance.caption,
+      'title': instance.title,
       'content': instance.content,
-      'creator': instance.creator.toJson(),
+      'user': instance.user.toJson(),
       'createdAt': instance.createdAt.toIso8601String(),
-      'updatedAt': instance.updatedAt.toIso8601String(),
       'isLiked': instance.isLiked,
       'isViewed': instance.isViewed,
       'isReported': instance.isReported,
@@ -52,14 +50,13 @@ Map<String, dynamic> _$$TextPostImplToJson(_$TextPostImpl instance) =>
 _$ImagePostImpl _$$ImagePostImplFromJson(Map<String, dynamic> json) =>
     _$ImagePostImpl(
       id: json['id'] as String,
-      caption: json['caption'] as String,
-      description: json['description'] as String,
-      creator: UserModel.fromJson(json['creator'] as Map<String, dynamic>),
+      title: json['title'] as String,
+      mediaDescription: json['mediaDescription'] as String,
+      user: UserModel.fromJson(json['user'] as Map<String, dynamic>),
       comments: (json['comments'] as List<dynamic>)
           .map((e) => CommentModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
       isLiked: json['isLiked'] as bool,
       isViewed: json['isViewed'] as bool,
       isReported: json['isReported'] as bool,
@@ -78,12 +75,11 @@ _$ImagePostImpl _$$ImagePostImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$ImagePostImplToJson(_$ImagePostImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'caption': instance.caption,
-      'description': instance.description,
-      'creator': instance.creator.toJson(),
+      'title': instance.title,
+      'mediaDescription': instance.mediaDescription,
+      'user': instance.user.toJson(),
       'comments': instance.comments.map((e) => e.toJson()).toList(),
       'createdAt': instance.createdAt.toIso8601String(),
-      'updatedAt': instance.updatedAt.toIso8601String(),
       'isLiked': instance.isLiked,
       'isViewed': instance.isViewed,
       'isReported': instance.isReported,
@@ -99,10 +95,10 @@ Map<String, dynamic> _$$ImagePostImplToJson(_$ImagePostImpl instance) =>
 _$VideoPostImpl _$$VideoPostImplFromJson(Map<String, dynamic> json) =>
     _$VideoPostImpl(
       id: json['id'] as String,
-      videoUrl: json['videoUrl'] as String,
-      caption: json['caption'] as String,
+      media: json['media'] as String,
+      title: json['title'] as String,
       description: json['description'] as String,
-      creator: UserModel.fromJson(json['creator'] as Map<String, dynamic>),
+      user: UserModel.fromJson(json['user'] as Map<String, dynamic>),
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
       isLiked: json['isLiked'] as bool,
@@ -123,10 +119,10 @@ _$VideoPostImpl _$$VideoPostImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$VideoPostImplToJson(_$VideoPostImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'videoUrl': instance.videoUrl,
-      'caption': instance.caption,
+      'media': instance.media,
+      'title': instance.title,
       'description': instance.description,
-      'creator': instance.creator.toJson(),
+      'user': instance.user.toJson(),
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt.toIso8601String(),
       'isLiked': instance.isLiked,

@@ -3,35 +3,38 @@ import 'package:peer_app/data/graphql/fragments.dart';
 
 class Queries {
   static final posts = gql("""
-query Posts(\$offset: Int, \$limit: Int) {
-  posts(offset: \$offset, limit: \$limit) {
-    ${Fragments.postFragment}
-  }
-}
-""");
-
-  static final chat = gql("""
-query MyQuery(\$userId: uuid!) {
-  peer2_chats(where: {chat_participants: {user_id: {_eq: \$userId }}}) {
-    id
-    image
-    name
-    amount_unseen_messages
-    chat_messages {
-      chat_id
-      content
-      id
-      sender_id
-      created_at
-    }
-    chat_participants {
-      user {
+query GetAllPosts {
+    getAllPosts {
         id
-        name
-      }
+        contentType
+        title
+        content
+        media
+        mediaDescription
+        createdAt
+        updatedAt
+        amountLikes
+        amountViews
+        amountComments
+        amountTrending
+        isLiked
+        isViewed
+        isReported
+        isDisliked
+        isSaved
+        user {
+            id
+            username
+            email
+            img
+            biograph
+            isPrivate
+            amountPosts
+            amountFollowed
+            amountFollower
+            isFollowed
+        }
     }
-
-  }
 }
 """);
 
