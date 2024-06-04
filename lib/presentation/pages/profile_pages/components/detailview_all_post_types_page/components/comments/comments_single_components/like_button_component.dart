@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_comment_model.dart';
-import 'package:peer_app/data/services/user_service.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
-import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
 

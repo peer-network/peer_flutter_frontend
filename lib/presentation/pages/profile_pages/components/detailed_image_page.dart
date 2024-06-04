@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_comment_model.dart';
-import 'package:peer_app/data/models/feed_comment_model.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';

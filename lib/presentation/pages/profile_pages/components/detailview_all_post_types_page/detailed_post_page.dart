@@ -3,9 +3,7 @@ import 'package:peer_app/data/models/post_model.dart';
 
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_logic/first_layer_comment.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
-import 'package:peer_app/presentation/whitelabel/components/extensions/aspect_ratios_extentions.dart';
-import 'package:peer_app/presentation/whitelabel/components/types/aspect_ratios.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/detailed_post_page_content/single_post_contentsection.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 // SinglePostContentSection
@@ -38,113 +36,5 @@ class DetailedPostPage extends StatelessWidget {
             ],
           ),
         ));
-  }
-}
-
-class SinglePostContentsection extends StatelessWidget {
-  final PostModel post;
-
-  const SinglePostContentsection({super.key, required this.post});
-
-  @override
-  Widget build(BuildContext context) {
-    if (post is ImagePost) {
-      // return SinglePostImageContent(post: post);
-      return SinglePostImageContent(post: (post as ImagePost));
-    } else if (post is TextPost) {
-      return SinglePostTextContent(post: post); // show text
-    } else {
-      // TODO add more post types
-      return Text(post.runtimeType.toString());
-    }
-  }
-}
-
-// class SinglePostTextContent extends StatelessWidget {
-//   const SinglePostTextContent({
-//     super.key,
-//     required this.post,
-//   });
-
-//   final PostModel post;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     // TODO style text and show more text features (if multiole pages)
-//     return Text((post as TextPost).content);
-//   }
-// }
-
-class SinglePostTextContent extends StatelessWidget {
-  const SinglePostTextContent({super.key, required this.post});
-
-  final PostModel post;
-
-  @override
-  Widget build(BuildContext context) {
-    return Hero(
-        tag: 'post-${post.id}',
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: AppPaddings.medium),
-          color: Theme.of(context).brightness == Brightness.light
-              ? LightColors
-                  .backgroundContainer // Denke die Farbe für den LightColors.backgroundContainer sollte angepasst werden
-              : DarkColors.backgroundContainer,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                (post as TextPost).caption,
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-              const SizedBox(height: AppPaddings.medium),
-              Text(
-                (post as TextPost).content,
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              const SizedBox(height: AppPaddings.medium),
-            ],
-          ),
-        ));
-  }
-}
-
-// class SinglePostImageContent extends StatelessWidget {
-//   const SinglePostImageContent({
-//     super.key,
-//     required this.post,
-//   });
-
-//   final PostModel post;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     // TODO: for later have all imageUrls shown in a side slider or carousel
-//     return Hero(
-//         tag: 'post-${(post as ImagePost).imageUrls[0]}',
-//         child: Image.network((post as ImagePost).imageUrls[0]));
-//   }
-// }
-
-class SinglePostImageContent extends StatelessWidget {
-  const SinglePostImageContent({
-    super.key,
-    required this.post,
-  });
-
-  final ImagePost post;
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: for later have all imageUrls shown in a side slider or carousel
-    return AspectRatio(
-      aspectRatio: post.aspectRatio?.doubleValue() ?? 1.0,
-      child: FittedBox(
-        fit: BoxFit.cover,
-        child: Hero(
-            tag: 'post-${(post).imageUrls[0]}',
-            child: Image.network((post).imageUrls[0])),
-      ),
-    );
   }
 }
