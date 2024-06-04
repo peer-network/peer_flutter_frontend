@@ -15,12 +15,17 @@ class PostModel with _$PostModel {
   @JsonSerializable(explicitToJson: true)
   const factory PostModel.text({
     required String id,
-    required String caption,
+    required String caption, //title in json
     required String content,
-    required UserModel creator,
+    required UserModel creator, // user in json
     required DateTime createdAt,
+    required DateTime updatedAt,
+    required bool isLiked,
+    required bool isViewed,
+    required bool isReported,
+    required bool isDisliked,
+    required bool isSaved,
     @Default([]) List<CommentModel> comments,
-    int? amountClicks,
     int? amountComments,
     int? likeCount,
     int? viewCount,
@@ -29,13 +34,18 @@ class PostModel with _$PostModel {
   @JsonSerializable(explicitToJson: true)
   const factory PostModel.image({
     required String id,
-    required String caption,
-    required String description,
-    required UserModel creator,
+    required String caption, // title in json
+    required String description, // mediaDescription in json
+    required UserModel creator, // user in jsons
     required List<CommentModel> comments,
     required DateTime createdAt,
+    required DateTime updatedAt,
+    required bool isLiked,
+    required bool isViewed,
+    required bool isReported,
+    required bool isDisliked,
+    required bool isSaved,
     @Default([]) List<String> imageUrls,
-    int? amountClicks,
     int? amountComments,
     int? likeCount,
     int? viewCount,
@@ -53,8 +63,13 @@ class PostModel with _$PostModel {
     required String description,
     required UserModel creator,
     required DateTime createdAt,
+    required DateTime updatedAt,
+    required bool isLiked,
+    required bool isViewed,
+    required bool isReported,
+    required bool isDisliked,
+    required bool isSaved,
     @Default([]) List<CommentModel> comments,
-    int? amountClicks,
     int? amountComments,
     int? likeCount,
     int? viewCount,
