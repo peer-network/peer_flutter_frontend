@@ -4,6 +4,8 @@ import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_logic/first_layer_comment.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
+import 'package:peer_app/presentation/whitelabel/components/extensions/aspect_ratios_extentions.dart';
+import 'package:peer_app/presentation/whitelabel/components/types/aspect_ratios.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 // SinglePostContentSection
@@ -47,7 +49,8 @@ class SinglePostContentsection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (post is ImagePost) {
-      return SinglePostImageContent(post: post);
+      // return SinglePostImageContent(post: post);
+      return SinglePostImageContent(post: (post as ImagePost));
     } else if (post is TextPost) {
       return SinglePostTextContent(post: post); // show text
     } else {
@@ -106,19 +109,42 @@ class SinglePostTextContent extends StatelessWidget {
   }
 }
 
+// class SinglePostImageContent extends StatelessWidget {
+//   const SinglePostImageContent({
+//     super.key,
+//     required this.post,
+//   });
+
+//   final PostModel post;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     // TODO: for later have all imageUrls shown in a side slider or carousel
+//     return Hero(
+//         tag: 'post-${(post as ImagePost).imageUrls[0]}',
+//         child: Image.network((post as ImagePost).imageUrls[0]));
+//   }
+// }
+
 class SinglePostImageContent extends StatelessWidget {
   const SinglePostImageContent({
     super.key,
     required this.post,
   });
 
-  final PostModel post;
+  final ImagePost post;
 
   @override
   Widget build(BuildContext context) {
     // TODO: for later have all imageUrls shown in a side slider or carousel
-    return Hero(
-        tag: 'post-${(post as ImagePost).imageUrls[0]}',
-        child: Image.network((post as ImagePost).imageUrls[0]));
+    return AspectRatio(
+      aspectRatio: post.aspectRatio?.doubleValue() ?? 1.0,
+      child: FittedBox(
+        fit: BoxFit.cover,
+        child: Hero(
+            tag: 'post-${(post).imageUrls[0]}',
+            child: Image.network((post).imageUrls[0])),
+      ),
+    );
   }
 }

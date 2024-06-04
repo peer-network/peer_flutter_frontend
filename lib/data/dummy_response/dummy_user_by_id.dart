@@ -18,7 +18,7 @@ const dummyUserById = {
       "posts": [
         {
           "runtimeType": "image",
-          "aspectRatio": "4x3",
+          "aspectRatio": "Portrait",
           "id": "3",
           "active": true,
           "caption": "Post 3",
@@ -44,7 +44,7 @@ const dummyUserById = {
         },
         {
           "runtimeType": "image",
-          "aspectRatio": "4x3",
+          "aspectRatio": "Landscape",
           "id": "4",
           "active": true,
           "caption": "Post 4",
@@ -70,7 +70,7 @@ const dummyUserById = {
         },
         {
           "runtimeType": "image",
-          "aspectRatio": "4x3",
+          "aspectRatio": "Square",
           "id": "5",
           "active": true,
           "caption": "Post 5",
@@ -158,7 +158,7 @@ const dummyUserById = {
       "posts": [
         {
           "runtimeType": "image",
-          "aspectRatio": "16x9",
+          "aspectRatio": "Portrait",
           "id": "1",
           "active": true,
           "caption": "Post 1",
@@ -185,7 +185,7 @@ const dummyUserById = {
         },
         {
           "runtimeType": "image",
-          "aspectRatio": "4x3",
+          "aspectRatio": "Landscape",
           "id": "2",
           "active": true,
           "caption": "Post 2",
@@ -212,7 +212,7 @@ const dummyUserById = {
         },
         {
           "runtimeType": "image",
-          "aspectRatio": "4x3",
+          "aspectRatio": "Square",
           "id": "3",
           "active": true,
           "caption": "Post 3",
@@ -309,7 +309,7 @@ const dummyUserById = {
         },
         {
           "runtimeType": "image",
-          "aspectRatio": "4x3",
+          "aspectRatio": "Portrait",
           "id": "10",
           "active": true,
           "caption": "Beautiful Landscape",
@@ -335,7 +335,7 @@ const dummyUserById = {
         },
         {
           "runtimeType": "image",
-          "aspectRatio": "4x3",
+          "aspectRatio": "Landscape",
           "id": "11",
           "active": true,
           "caption": "Silent Water",

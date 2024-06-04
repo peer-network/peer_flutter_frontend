@@ -57,7 +57,8 @@ _$ImagePostImpl _$$ImagePostImplFromJson(Map<String, dynamic> json) =>
       amountComments: (json['amountComments'] as num?)?.toInt(),
       likeCount: (json['likeCount'] as num?)?.toInt(),
       viewCount: (json['viewCount'] as num?)?.toInt(),
-      aspectRatio: json['aspectRatio'] as String? ?? '4x3',
+      aspectRatio: _$JsonConverterFromJson<String, ImageAspectRatios>(
+          json['aspectRatio'], const ImageAspectRatioConverter().fromJson),
       $type: json['runtimeType'] as String?,
     );
 
@@ -74,9 +75,22 @@ Map<String, dynamic> _$$ImagePostImplToJson(_$ImagePostImpl instance) =>
       'amountComments': instance.amountComments,
       'likeCount': instance.likeCount,
       'viewCount': instance.viewCount,
-      'aspectRatio': instance.aspectRatio,
+      'aspectRatio': _$JsonConverterToJson<String, ImageAspectRatios>(
+          instance.aspectRatio, const ImageAspectRatioConverter().toJson),
       'runtimeType': instance.$type,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);
 
 _$VideoPostImpl _$$VideoPostImplFromJson(Map<String, dynamic> json) =>
     _$VideoPostImpl(

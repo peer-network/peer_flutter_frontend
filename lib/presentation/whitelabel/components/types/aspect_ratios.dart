@@ -57,3 +57,18 @@ String getImageAspectRatioName(ImageAspectRatios aspectRatio) {
       return "Portrait";
   }
 }
+
+// Eine funktion die von einem String (z.B. "Portrait", Square", "Landscape") zu einem ImageAspectRatio  Typ umwandelt
+// Convert string to ImageAspectRatios
+ImageAspectRatios imageAspectRatioFromString(String ratio) {
+  switch (ratio.toLowerCase()) {
+    case 'portrait':
+      return ImageAspectRatios.portrait;
+    case 'landscape':
+      return ImageAspectRatios.landscape;
+    case 'square':
+      return ImageAspectRatios.square;
+    default:
+      throw ArgumentError('Invalid image aspect ratio string');
+  }
+}

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:peer_app/data/models/feed_comment_model.dart';
 import 'package:peer_app/data/models/user_model.dart';
+import 'package:peer_app/presentation/whitelabel/components/types/aspect_ratios.dart';
 
 part 'post_model.freezed.dart';
 part 'post_model.g.dart'; // This is for JSON serialization
@@ -38,7 +39,10 @@ class PostModel with _$PostModel {
     int? amountComments,
     int? likeCount,
     int? viewCount,
-    @Default('4x3') String aspectRatio,
+    // @Default('4x3') String aspectRatio,
+    // @Default(AspectRatios.ar_1_1) AspectRatios aspectRatio,
+    // @ImageAspectRatioConverter() required ImageAspectRatios aspectRatio,
+    @ImageAspectRatioConverter() ImageAspectRatios? aspectRatio,
   }) = ImagePost;
 
   @JsonSerializable(explicitToJson: true)
@@ -58,4 +62,20 @@ class PostModel with _$PostModel {
 
   factory PostModel.fromJson(Map<String, dynamic> json) =>
       _$PostModelFromJson(json);
+}
+
+// Custom converter for ImageAspectRatios
+class ImageAspectRatioConverter
+    implements JsonConverter<ImageAspectRatios, String> {
+  const ImageAspectRatioConverter();
+
+  @override
+  ImageAspectRatios fromJson(String json) {
+    return imageAspectRatioFromString(json);
+  }
+
+  @override
+  String toJson(ImageAspectRatios object) {
+    return getImageAspectRatioName(object);
+  }
 }
