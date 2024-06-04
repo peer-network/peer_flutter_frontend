@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
 class DropdownBar extends StatefulWidget {
   const DropdownBar({super.key});
@@ -55,7 +56,11 @@ class _DropdownBarState extends State<DropdownBar> {
                   Theme.of(context).inputDecorationTheme.outlineBorder!.color)),
       child: DropdownButton<String>(
         value: value,
-        //icon: ImageIcon(IconLibrary.arrowDown),
+        icon: Padding(
+          padding: const EdgeInsets.only(right: AppPaddings.small),
+          child: ImageIcon(IconLibrary.arrowDown.icon,
+              size: AppDimensions.iconSizeSmall),
+        ),
         iconSize: 24,
         elevation: 16,
         style: Theme.of(context).textTheme.labelSmall,

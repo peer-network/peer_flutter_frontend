@@ -18,7 +18,7 @@ class BaseAppbar extends StatelessWidget implements PreferredSizeWidget {
         actions: actions,
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-        scrolledUnderElevation: 0.0);
+        scrolledUnderElevation: 0.5);
   }
 
   @override

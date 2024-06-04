@@ -49,7 +49,7 @@ class FeedContentComponent extends StatelessWidget {
                     viewCount,
                     aspectRatio) =>
                 FeedContentImageWidget(
-                  imageUrls: (post as ImagePost).imageUrls,
+                  imagePost: post as ImagePost,
                 ),
             video: (id,
                     videoUrl,

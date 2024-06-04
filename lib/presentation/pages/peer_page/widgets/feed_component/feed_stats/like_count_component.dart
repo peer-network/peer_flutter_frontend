@@ -19,7 +19,7 @@ class LikeCountComponent extends StatelessWidget {
         CustomIconButton(
           onPressed: () {},
           sizeType: SizeType.small,
-          icon: IconLibrary.heart,
+          icon: IconLibrary.heartFilled,
         ),
         const SizedBox(width: AppPaddings.small),
         // Text("12", style: Theme.of(context).textTheme.titleLarge),
