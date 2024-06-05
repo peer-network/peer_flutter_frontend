@@ -116,7 +116,7 @@ class ThirdLayerComment extends StatelessWidget {
                         comment: comment,
                         isThirdLayerOrMore: true,
                         isSecondLayerOrMore: true,
-                        referenceName: comment.creator.name),
+                        referenceName: comment.creator.username),
                     comment.comments.isNotEmpty
                         ? ThirdLayerComment(comments: comment.comments)
                         : Container(),
@@ -166,7 +166,7 @@ class CommentComment extends StatelessWidget {
                       children: [
                         CircleAvatar(
                           backgroundImage: NetworkImage(
-                              comment.creator.imageUrl ?? "FALLBACK VALUE"),
+                              comment.creator.img ?? "FALLBACK VALUE"),
                           radius: AppDimensions.iconSizeSmall,
                         ),
                         const SizedBox(width: AppPaddings.small),
@@ -200,7 +200,7 @@ class CommentComment extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  comment.creator.name!,
+                                  comment.creator.username,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodySmall!

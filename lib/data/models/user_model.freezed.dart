@@ -21,16 +21,22 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserModel {
   String get id => throw _privateConstructorUsedError;
-  String? get imageUrl => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
+  String? get img => throw _privateConstructorUsedError;
+  String get username =>
+      throw _privateConstructorUsedError; // made required as per JSON data
   String? get email => throw _privateConstructorUsedError;
-  bool? get verified => throw _privateConstructorUsedError;
+  bool get verified =>
+      throw _privateConstructorUsedError; // default to false if not provided
   String? get createdAt => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
   String? get verificationToken => throw _privateConstructorUsedError;
-  String? get bio => throw _privateConstructorUsedError;
-  int? get amountOfPosts => throw _privateConstructorUsedError;
-  int? get amountOfFollowers => throw _privateConstructorUsedError;
+  String? get biograph => throw _privateConstructorUsedError;
+  int get amountPosts =>
+      throw _privateConstructorUsedError; // corrected field name and default to 0
+  int get amountFollowed =>
+      throw _privateConstructorUsedError; // corrected field name and default to 0
+  int get amountFollower =>
+      throw _privateConstructorUsedError; // corrected field name and default to 0
   List<PostModel> get posts => throw _privateConstructorUsedError;
   bool get isFollowing => throw _privateConstructorUsedError;
 
@@ -47,16 +53,17 @@ abstract class $UserModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String? imageUrl,
-      String? name,
+      String? img,
+      String username,
       String? email,
-      bool? verified,
+      bool verified,
       String? createdAt,
       String? updatedAt,
       String? verificationToken,
-      String? bio,
-      int? amountOfPosts,
-      int? amountOfFollowers,
+      String? biograph,
+      int amountPosts,
+      int amountFollowed,
+      int amountFollower,
       List<PostModel> posts,
       bool isFollowing});
 }
@@ -75,16 +82,17 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   @override
   $Res call({
     Object? id = null,
-    Object? imageUrl = freezed,
-    Object? name = freezed,
+    Object? img = freezed,
+    Object? username = null,
     Object? email = freezed,
-    Object? verified = freezed,
+    Object? verified = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
     Object? verificationToken = freezed,
-    Object? bio = freezed,
-    Object? amountOfPosts = freezed,
-    Object? amountOfFollowers = freezed,
+    Object? biograph = freezed,
+    Object? amountPosts = null,
+    Object? amountFollowed = null,
+    Object? amountFollower = null,
     Object? posts = null,
     Object? isFollowing = null,
   }) {
@@ -93,22 +101,22 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      img: freezed == img
+          ? _value.img
+          : img // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      verified: freezed == verified
+      verified: null == verified
           ? _value.verified
           : verified // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -121,18 +129,22 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.verificationToken
           : verificationToken // ignore: cast_nullable_to_non_nullable
               as String?,
-      bio: freezed == bio
-          ? _value.bio
-          : bio // ignore: cast_nullable_to_non_nullable
+      biograph: freezed == biograph
+          ? _value.biograph
+          : biograph // ignore: cast_nullable_to_non_nullable
               as String?,
-      amountOfPosts: freezed == amountOfPosts
-          ? _value.amountOfPosts
-          : amountOfPosts // ignore: cast_nullable_to_non_nullable
-              as int?,
-      amountOfFollowers: freezed == amountOfFollowers
-          ? _value.amountOfFollowers
-          : amountOfFollowers // ignore: cast_nullable_to_non_nullable
-              as int?,
+      amountPosts: null == amountPosts
+          ? _value.amountPosts
+          : amountPosts // ignore: cast_nullable_to_non_nullable
+              as int,
+      amountFollowed: null == amountFollowed
+          ? _value.amountFollowed
+          : amountFollowed // ignore: cast_nullable_to_non_nullable
+              as int,
+      amountFollower: null == amountFollower
+          ? _value.amountFollower
+          : amountFollower // ignore: cast_nullable_to_non_nullable
+              as int,
       posts: null == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -155,16 +167,17 @@ abstract class _$$UserModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String? imageUrl,
-      String? name,
+      String? img,
+      String username,
       String? email,
-      bool? verified,
+      bool verified,
       String? createdAt,
       String? updatedAt,
       String? verificationToken,
-      String? bio,
-      int? amountOfPosts,
-      int? amountOfFollowers,
+      String? biograph,
+      int amountPosts,
+      int amountFollowed,
+      int amountFollower,
       List<PostModel> posts,
       bool isFollowing});
 }
@@ -181,16 +194,17 @@ class __$$UserModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? imageUrl = freezed,
-    Object? name = freezed,
+    Object? img = freezed,
+    Object? username = null,
     Object? email = freezed,
-    Object? verified = freezed,
+    Object? verified = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
     Object? verificationToken = freezed,
-    Object? bio = freezed,
-    Object? amountOfPosts = freezed,
-    Object? amountOfFollowers = freezed,
+    Object? biograph = freezed,
+    Object? amountPosts = null,
+    Object? amountFollowed = null,
+    Object? amountFollower = null,
     Object? posts = null,
     Object? isFollowing = null,
   }) {
@@ -199,22 +213,22 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      img: freezed == img
+          ? _value.img
+          : img // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      verified: freezed == verified
+      verified: null == verified
           ? _value.verified
           : verified // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -227,18 +241,22 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.verificationToken
           : verificationToken // ignore: cast_nullable_to_non_nullable
               as String?,
-      bio: freezed == bio
-          ? _value.bio
-          : bio // ignore: cast_nullable_to_non_nullable
+      biograph: freezed == biograph
+          ? _value.biograph
+          : biograph // ignore: cast_nullable_to_non_nullable
               as String?,
-      amountOfPosts: freezed == amountOfPosts
-          ? _value.amountOfPosts
-          : amountOfPosts // ignore: cast_nullable_to_non_nullable
-              as int?,
-      amountOfFollowers: freezed == amountOfFollowers
-          ? _value.amountOfFollowers
-          : amountOfFollowers // ignore: cast_nullable_to_non_nullable
-              as int?,
+      amountPosts: null == amountPosts
+          ? _value.amountPosts
+          : amountPosts // ignore: cast_nullable_to_non_nullable
+              as int,
+      amountFollowed: null == amountFollowed
+          ? _value.amountFollowed
+          : amountFollowed // ignore: cast_nullable_to_non_nullable
+              as int,
+      amountFollower: null == amountFollower
+          ? _value.amountFollower
+          : amountFollower // ignore: cast_nullable_to_non_nullable
+              as int,
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -252,20 +270,22 @@ class __$$UserModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true)
 class _$UserModelImpl implements _UserModel {
   const _$UserModelImpl(
       {required this.id,
-      this.imageUrl,
-      this.name,
+      this.img,
+      required this.username,
       this.email,
-      this.verified,
+      this.verified = false,
       this.createdAt,
       this.updatedAt,
       this.verificationToken,
-      this.bio,
-      this.amountOfPosts,
-      this.amountOfFollowers,
+      this.biograph,
+      this.amountPosts = 0,
+      this.amountFollowed = 0,
+      this.amountFollower = 0,
       final List<PostModel> posts = const [],
       this.isFollowing = false})
       : _posts = posts;
@@ -276,13 +296,16 @@ class _$UserModelImpl implements _UserModel {
   @override
   final String id;
   @override
-  final String? imageUrl;
+  final String? img;
   @override
-  final String? name;
+  final String username;
+// made required as per JSON data
   @override
   final String? email;
   @override
-  final bool? verified;
+  @JsonKey()
+  final bool verified;
+// default to false if not provided
   @override
   final String? createdAt;
   @override
@@ -290,12 +313,21 @@ class _$UserModelImpl implements _UserModel {
   @override
   final String? verificationToken;
   @override
-  final String? bio;
+  final String? biograph;
   @override
-  final int? amountOfPosts;
+  @JsonKey()
+  final int amountPosts;
+// corrected field name and default to 0
   @override
-  final int? amountOfFollowers;
+  @JsonKey()
+  final int amountFollowed;
+// corrected field name and default to 0
+  @override
+  @JsonKey()
+  final int amountFollower;
+// corrected field name and default to 0
   final List<PostModel> _posts;
+// corrected field name and default to 0
   @override
   @JsonKey()
   List<PostModel> get posts {
@@ -310,7 +342,7 @@ class _$UserModelImpl implements _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(id: $id, imageUrl: $imageUrl, name: $name, email: $email, verified: $verified, createdAt: $createdAt, updatedAt: $updatedAt, verificationToken: $verificationToken, bio: $bio, amountOfPosts: $amountOfPosts, amountOfFollowers: $amountOfFollowers, posts: $posts, isFollowing: $isFollowing)';
+    return 'UserModel(id: $id, img: $img, username: $username, email: $email, verified: $verified, createdAt: $createdAt, updatedAt: $updatedAt, verificationToken: $verificationToken, biograph: $biograph, amountPosts: $amountPosts, amountFollowed: $amountFollowed, amountFollower: $amountFollower, posts: $posts, isFollowing: $isFollowing)';
   }
 
   @override
@@ -319,9 +351,9 @@ class _$UserModelImpl implements _UserModel {
         (other.runtimeType == runtimeType &&
             other is _$UserModelImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.img, img) || other.img == img) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.verified, verified) ||
                 other.verified == verified) &&
@@ -331,11 +363,14 @@ class _$UserModelImpl implements _UserModel {
                 other.updatedAt == updatedAt) &&
             (identical(other.verificationToken, verificationToken) ||
                 other.verificationToken == verificationToken) &&
-            (identical(other.bio, bio) || other.bio == bio) &&
-            (identical(other.amountOfPosts, amountOfPosts) ||
-                other.amountOfPosts == amountOfPosts) &&
-            (identical(other.amountOfFollowers, amountOfFollowers) ||
-                other.amountOfFollowers == amountOfFollowers) &&
+            (identical(other.biograph, biograph) ||
+                other.biograph == biograph) &&
+            (identical(other.amountPosts, amountPosts) ||
+                other.amountPosts == amountPosts) &&
+            (identical(other.amountFollowed, amountFollowed) ||
+                other.amountFollowed == amountFollowed) &&
+            (identical(other.amountFollower, amountFollower) ||
+                other.amountFollower == amountFollower) &&
             const DeepCollectionEquality().equals(other._posts, _posts) &&
             (identical(other.isFollowing, isFollowing) ||
                 other.isFollowing == isFollowing));
@@ -346,16 +381,17 @@ class _$UserModelImpl implements _UserModel {
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      imageUrl,
-      name,
+      img,
+      username,
       email,
       verified,
       createdAt,
       updatedAt,
       verificationToken,
-      bio,
-      amountOfPosts,
-      amountOfFollowers,
+      biograph,
+      amountPosts,
+      amountFollowed,
+      amountFollower,
       const DeepCollectionEquality().hash(_posts),
       isFollowing);
 
@@ -376,16 +412,17 @@ class _$UserModelImpl implements _UserModel {
 abstract class _UserModel implements UserModel {
   const factory _UserModel(
       {required final String id,
-      final String? imageUrl,
-      final String? name,
+      final String? img,
+      required final String username,
       final String? email,
-      final bool? verified,
+      final bool verified,
       final String? createdAt,
       final String? updatedAt,
       final String? verificationToken,
-      final String? bio,
-      final int? amountOfPosts,
-      final int? amountOfFollowers,
+      final String? biograph,
+      final int amountPosts,
+      final int amountFollowed,
+      final int amountFollower,
       final List<PostModel> posts,
       final bool isFollowing}) = _$UserModelImpl;
 
@@ -395,26 +432,28 @@ abstract class _UserModel implements UserModel {
   @override
   String get id;
   @override
-  String? get imageUrl;
+  String? get img;
   @override
-  String? get name;
-  @override
+  String get username;
+  @override // made required as per JSON data
   String? get email;
   @override
-  bool? get verified;
-  @override
+  bool get verified;
+  @override // default to false if not provided
   String? get createdAt;
   @override
   String? get updatedAt;
   @override
   String? get verificationToken;
   @override
-  String? get bio;
+  String? get biograph;
   @override
-  int? get amountOfPosts;
-  @override
-  int? get amountOfFollowers;
-  @override
+  int get amountPosts;
+  @override // corrected field name and default to 0
+  int get amountFollowed;
+  @override // corrected field name and default to 0
+  int get amountFollower;
+  @override // corrected field name and default to 0
   List<PostModel> get posts;
   @override
   bool get isFollowing;
