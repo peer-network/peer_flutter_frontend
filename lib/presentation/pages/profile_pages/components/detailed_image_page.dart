@@ -1,15 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/feed_comment_model.dart';
-import 'package:peer_app/data/models/feed_comment_model.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
+import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/custom_toast.dart';
 import 'package:peer_app/presentation/whitelabel/components/date/time_passed_since_text_widget.dart';
-import 'package:peer_app/presentation/whitelabel/constants.dart';
-import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
 class DetailedImagePage extends StatelessWidget {
@@ -26,7 +25,7 @@ class DetailedImagePage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Image.network((post as ImagePost).imageUrls[0]),
+              Image.network((post as ImagePost).media),
               const SizedBox(height: AppPaddings.extraLarge),
               FirstLayerComment(comments: post.comments),
             ],

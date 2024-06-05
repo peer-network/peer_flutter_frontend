@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
@@ -24,57 +24,20 @@ class _FeedContentImageWidgetState extends State<FeedContentImageWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.width, // Assuming square images
-      child: PageView.builder(
-        itemCount: widget.imagePost.imageUrls.length,
-        controller: PageController(
-            viewportFraction:
-                1), // Adjust the viewportFraction for partially visible next image
-        itemBuilder: (context, index) {
-          return ValueListenableBuilder(
-              valueListenable: _reloadNotifier,
-              builder: (context, value, child) {
-                return Hero(
-                    tag: 'post-${widget.imagePost.imageUrls[index]}',
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          DetailedImagePageRoute(
-                            widget.imagePost,
-                            widget.imagePost.imageUrls[index],
-                          ),
-                        );
-                      },
-                      child: Image.network(
-                        widget.imagePost.imageUrls[index],
-                        fit: BoxFit.fitWidth,
-                        filterQuality: FilterQuality.medium,
-                        loadingBuilder: (context, child, loadingProgress) {
-                          return loadingProgress == null
-                              ? child
-                              : Center(
-                                  child: CircularProgressIndicator(
-                                    value: loadingProgress.expectedTotalBytes !=
-                                            null
-                                        ? loadingProgress
-                                                .cumulativeBytesLoaded /
-                                            loadingProgress.expectedTotalBytes!
-                                        : null,
-                                  ),
-                                );
-                        },
-                        errorBuilder: (context, error, stackTrace) {
-                          return GestureDetector(
-                            onTap: () => _reloadNotifier.value++,
-                            child: const Center(
-                              child:
-                                  Text('Failed to load image. Tap to retry.'),
-                            ),
-                          );
-                        },
-                      ),
-                    ));
-              });
-        },
+      child: Hero(
+        tag: 'post-${widget.imagePost.media}',
+        child: GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                DetailedImagePageRoute(
+                  widget.imagePost,
+                  widget.imagePost.media,
+                ),
+              );
+            },
+            child: CachedNetworkImage(
+              imageUrl: widget.imagePost.media,
+            )),
       ),
     );
   }

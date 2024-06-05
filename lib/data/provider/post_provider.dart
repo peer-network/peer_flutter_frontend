@@ -52,7 +52,11 @@ class PostProvider with ChangeNotifier {
         _posts.addAll(
           List<PostModel>.from(
             responseFeed["getAllPosts"].map(
-              (x) => PostModel.fromJson(x),
+              (postJson) {
+                postJson["runtimeType"] = postJson["contentType"];
+
+                return PostModel.fromJson(postJson);
+              },
             ),
           ),
         );

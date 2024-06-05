@@ -44,7 +44,7 @@ class SmallTextPostCard extends StatelessWidget {
                 children: [
                   const SizedBox(height: AppPaddings.small),
                   Text(
-                    (post as TextPost).caption,
+                    (post as TextPost).title,
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(height: AppPaddings.small),
