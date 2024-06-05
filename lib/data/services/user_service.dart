@@ -90,12 +90,17 @@ class UserService {
     //   return user;
     // } on StateError {
     //   // If no user is found in cache, fetch new user
-    UserModel? newUser = await fetchNewUser(userId);
-    if (newUser != null) {
-      return newUser;
-    } else {
-      // If no user is fetched, throw an exception
-      throw Exception("User not found with ID: $userId");
+    try {
+      UserModel? newUser = await fetchNewUser(userId);
+      if (newUser != null) {
+        return newUser;
+      } else {
+        // If no user is fetched, throw an exception
+        throw Exception("User not found with ID: $userId");
+      }
+    } catch (e) {
+      CustomException(e.toString(), StackTrace.current).handleError();
+      rethrow;
     }
   }
 
@@ -134,15 +139,20 @@ class UserService {
       }
 
       final responseData = queryResult.data!;
-
-      print(responseData.toString());
-
-      // Filter the dummy data to find the specific user by ID
       final userData = responseData['getUserById'];
+
       if (userData != null) {
+        // Add runtimeType to each post in the user data
+        if (userData['posts'] != null) {
+          userData['posts'] = List<Map<String, dynamic>>.from(userData['posts'])
+              .map((postJson) {
+            postJson["runtimeType"] = postJson["contentType"];
+            return postJson;
+          }).toList();
+        }
+
         final user = UserModel.fromJson(userData);
         _users.add(user);
-        print('User added: $user');
         return user;
       } else {
         throw Exception("User data is not available for ID $userId");

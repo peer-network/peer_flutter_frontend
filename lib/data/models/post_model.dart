@@ -12,7 +12,6 @@ class PostModel with _$PostModel {
     required String id,
     required String title, //title in json
     required String content,
-    required UserModel user, // user in json
     required DateTime createdAt,
     required bool isLiked,
     required bool isViewed,
@@ -23,6 +22,7 @@ class PostModel with _$PostModel {
     int? amountComments,
     int? amountLikes,
     int? amountViews,
+    UserModel? user, // user in json
   }) = TextPost;
 
   @JsonSerializable(explicitToJson: true)
@@ -31,7 +31,6 @@ class PostModel with _$PostModel {
     required String title, // title in json
     required String mediaDescription, // mediaDescription in json
     required String media,
-    required UserModel user, // user in json
     required DateTime createdAt,
     required bool isLiked,
     required bool isViewed,
@@ -42,6 +41,7 @@ class PostModel with _$PostModel {
     int? amountComments,
     int? amountLikes,
     int? amountViews,
+    UserModel? user, // user in json
   }) = ImagePost;
 
   @JsonSerializable(explicitToJson: true)
@@ -50,7 +50,6 @@ class PostModel with _$PostModel {
     required String title,
     required String media,
     required String mediaDescription,
-    required UserModel user,
     required DateTime createdAt,
     required bool isLiked,
     required bool isViewed,
@@ -61,6 +60,7 @@ class PostModel with _$PostModel {
     int? amountComments,
     int? amountLikes,
     int? amountViews,
+    UserModel? user,
   }) = VideoPost;
 
   factory PostModel.fromJson(Map<String, dynamic> json) =>

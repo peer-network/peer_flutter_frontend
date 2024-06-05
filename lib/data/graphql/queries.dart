@@ -66,6 +66,25 @@ query GetUserById(\$id: String!) {
         amountFollowed
         amountFollower
         isFollowed
+        posts {
+            id
+            contentType
+            title
+            content
+            media
+            mediaDescription
+            createdAt
+            updatedAt
+            amountLikes
+            amountViews
+            amountComments
+            amountTrending
+            isLiked
+            isViewed
+            isReported
+            isDisliked
+            isSaved
+        }
     }
 }
 """);

@@ -27,7 +27,7 @@ class _FeedCardComponentState extends State<FeedCardComponent> {
       child: Column(
         children: [
           // Feed header
-          FeedHeaderComponent(user: post.user),
+          FeedHeaderComponent(user: post.user!),
           // Feed content
           FeedContentComponent(post: post),
           // Feed actions

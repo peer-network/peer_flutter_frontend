@@ -11,7 +11,6 @@ _$TextPostImpl _$$TextPostImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       title: json['title'] as String,
       content: json['content'] as String,
-      user: UserModel.fromJson(json['user'] as Map<String, dynamic>),
       createdAt: DateTime.parse(json['createdAt'] as String),
       isLiked: json['isLiked'] as bool,
       isViewed: json['isViewed'] as bool,
@@ -25,6 +24,9 @@ _$TextPostImpl _$$TextPostImplFromJson(Map<String, dynamic> json) =>
       amountComments: (json['amountComments'] as num?)?.toInt(),
       amountLikes: (json['amountLikes'] as num?)?.toInt(),
       amountViews: (json['amountViews'] as num?)?.toInt(),
+      user: json['user'] == null
+          ? null
+          : UserModel.fromJson(json['user'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -33,7 +35,6 @@ Map<String, dynamic> _$$TextPostImplToJson(_$TextPostImpl instance) =>
       'id': instance.id,
       'title': instance.title,
       'content': instance.content,
-      'user': instance.user.toJson(),
       'createdAt': instance.createdAt.toIso8601String(),
       'isLiked': instance.isLiked,
       'isViewed': instance.isViewed,
@@ -44,6 +45,7 @@ Map<String, dynamic> _$$TextPostImplToJson(_$TextPostImpl instance) =>
       'amountComments': instance.amountComments,
       'amountLikes': instance.amountLikes,
       'amountViews': instance.amountViews,
+      'user': instance.user?.toJson(),
       'runtimeType': instance.$type,
     };
 
@@ -53,7 +55,6 @@ _$ImagePostImpl _$$ImagePostImplFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       mediaDescription: json['mediaDescription'] as String,
       media: json['media'] as String,
-      user: UserModel.fromJson(json['user'] as Map<String, dynamic>),
       createdAt: DateTime.parse(json['createdAt'] as String),
       isLiked: json['isLiked'] as bool,
       isViewed: json['isViewed'] as bool,
@@ -67,6 +68,9 @@ _$ImagePostImpl _$$ImagePostImplFromJson(Map<String, dynamic> json) =>
       amountComments: (json['amountComments'] as num?)?.toInt(),
       amountLikes: (json['amountLikes'] as num?)?.toInt(),
       amountViews: (json['amountViews'] as num?)?.toInt(),
+      user: json['user'] == null
+          ? null
+          : UserModel.fromJson(json['user'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -76,7 +80,6 @@ Map<String, dynamic> _$$ImagePostImplToJson(_$ImagePostImpl instance) =>
       'title': instance.title,
       'mediaDescription': instance.mediaDescription,
       'media': instance.media,
-      'user': instance.user.toJson(),
       'createdAt': instance.createdAt.toIso8601String(),
       'isLiked': instance.isLiked,
       'isViewed': instance.isViewed,
@@ -87,6 +90,7 @@ Map<String, dynamic> _$$ImagePostImplToJson(_$ImagePostImpl instance) =>
       'amountComments': instance.amountComments,
       'amountLikes': instance.amountLikes,
       'amountViews': instance.amountViews,
+      'user': instance.user?.toJson(),
       'runtimeType': instance.$type,
     };
 
@@ -96,7 +100,6 @@ _$VideoPostImpl _$$VideoPostImplFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       media: json['media'] as String,
       mediaDescription: json['mediaDescription'] as String,
-      user: UserModel.fromJson(json['user'] as Map<String, dynamic>),
       createdAt: DateTime.parse(json['createdAt'] as String),
       isLiked: json['isLiked'] as bool,
       isViewed: json['isViewed'] as bool,
@@ -110,6 +113,9 @@ _$VideoPostImpl _$$VideoPostImplFromJson(Map<String, dynamic> json) =>
       amountComments: (json['amountComments'] as num?)?.toInt(),
       amountLikes: (json['amountLikes'] as num?)?.toInt(),
       amountViews: (json['amountViews'] as num?)?.toInt(),
+      user: json['user'] == null
+          ? null
+          : UserModel.fromJson(json['user'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -119,7 +125,6 @@ Map<String, dynamic> _$$VideoPostImplToJson(_$VideoPostImpl instance) =>
       'title': instance.title,
       'media': instance.media,
       'mediaDescription': instance.mediaDescription,
-      'user': instance.user.toJson(),
       'createdAt': instance.createdAt.toIso8601String(),
       'isLiked': instance.isLiked,
       'isViewed': instance.isViewed,
@@ -130,5 +135,6 @@ Map<String, dynamic> _$$VideoPostImplToJson(_$VideoPostImpl instance) =>
       'amountComments': instance.amountComments,
       'amountLikes': instance.amountLikes,
       'amountViews': instance.amountViews,
+      'user': instance.user?.toJson(),
       'runtimeType': instance.$type,
     };
