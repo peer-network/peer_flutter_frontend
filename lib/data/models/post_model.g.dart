@@ -66,12 +66,12 @@ _$ImagePostImpl _$$ImagePostImplFromJson(Map<String, dynamic> json) =>
               .toList() ??
           const [],
       amountComments: (json['amountComments'] as num?)?.toInt(),
-      // amountLikes: (json['amountLikes'] as num?)?.toInt(),
-      // amountViews: (json['amountViews'] as num?)?.toInt(),
-      // user: json['user'] == null
-      //     ? null
-      //     : UserModel.fromJson(json['user'] as Map<String, dynamic>),
-      // $type: json['runtimeType'] as String?,
+      amountLikes: (json['amountLikes'] as num?)?.toInt(),
+      amountViews: (json['amountViews'] as num?)?.toInt(),
+      user: json['user'] == null
+          ? null
+          : UserModel.fromJson(json['user'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ImagePostImplToJson(_$ImagePostImpl instance) =>
