@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
@@ -24,8 +24,9 @@ class _FeedContentImageWidgetState extends State<FeedContentImageWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.width, // Assuming square images
+// <<<<<<< HEAD
       child: PageView.builder(
-        itemCount: widget.imagePost.imageUrls.length,
+        itemCount: widget.imagePost.media.length,
         controller: PageController(
             viewportFraction:
                 1), // Adjust the viewportFraction for partially visible next image
@@ -34,7 +35,7 @@ class _FeedContentImageWidgetState extends State<FeedContentImageWidget> {
               valueListenable: _reloadNotifier,
               builder: (context, value, child) {
                 return Hero(
-                    tag: 'post-${widget.imagePost.imageUrls[index]}',
+                    tag: 'post-${widget.imagePost.media[index]}',
                     child: GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(
@@ -44,7 +45,7 @@ class _FeedContentImageWidgetState extends State<FeedContentImageWidget> {
                         );
                       },
                       child: Image.network(
-                        widget.imagePost.imageUrls[index],
+                        widget.imagePost.media[index],
                         fit: BoxFit.fitWidth,
                         filterQuality: FilterQuality.medium,
                         loadingBuilder: (context, child, loadingProgress) {
@@ -74,6 +75,22 @@ class _FeedContentImageWidgetState extends State<FeedContentImageWidget> {
                     ));
               });
         },
+// =======
+//       child: Hero(
+//         tag: 'post-${widget.imagePost.media}',
+//         child: GestureDetector(
+//             onTap: () {
+//               Navigator.of(context).push(
+//                 DetailedImagePageRoute(
+//                   widget.imagePost,
+//                   widget.imagePost.media,
+//                 ),
+//               );
+//             },
+//             child: CachedNetworkImage(
+//               imageUrl: widget.imagePost.media,
+//             )),
+// >>>>>>> dev
       ),
     );
   }

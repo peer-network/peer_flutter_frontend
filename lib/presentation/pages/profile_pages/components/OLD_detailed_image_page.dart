@@ -1,18 +1,14 @@
-//>>>>>>>>>>>> LÖSCHEN (Veraltet) <<<<<<<<<<<<
-
-
-
 // import 'package:flutter/gestures.dart';
 // import 'package:flutter/material.dart';
 // import 'package:peer_app/data/models/feed_comment_model.dart';
 // import 'package:peer_app/data/models/post_model.dart';
 // import 'package:peer_app/presentation/pages/BasePage.dart';
 // import 'package:peer_app/presentation/whitelabel/colors.dart';
+// import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 // import 'package:peer_app/presentation/whitelabel/components/custom_toast.dart';
 // import 'package:peer_app/presentation/whitelabel/components/date/time_passed_since_text_widget.dart';
-// import 'package:peer_app/presentation/whitelabel/constants.dart';
-// import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 // import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
+// import 'package:peer_app/presentation/whitelabel/constants.dart';
 // import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
 // class DetailedImagePage extends StatelessWidget {
@@ -24,12 +20,12 @@
 //   Widget build(BuildContext context) {
 //     return BasePage(
 //         appBar: AppBar(
-//           title: const Text('Image Details ALT'),
+//           title: const Text('Image Details'),
 //         ),
 //         child: SingleChildScrollView(
 //           child: Column(
 //             children: [
-//               Image.network((post as ImagePost).imageUrls[0]),
+//               Image.network((post as ImagePost).media),
 //               const SizedBox(height: AppPaddings.extraLarge),
 //               FirstLayerComment(comments: post.comments),
 //             ],
@@ -120,7 +116,7 @@
 //                         comment: comment,
 //                         isThirdLayerOrMore: true,
 //                         isSecondLayerOrMore: true,
-//                         referenceName: comment.creator.name),
+//                         referenceName: comment.creator.username),
 //                     comment.comments.isNotEmpty
 //                         ? ThirdLayerComment(comments: comment.comments)
 //                         : Container(),
@@ -170,7 +166,7 @@
 //                       children: [
 //                         CircleAvatar(
 //                           backgroundImage: NetworkImage(
-//                               comment.creator.imageUrl ?? "FALLBACK VALUE"),
+//                               comment.creator.img ?? "FALLBACK VALUE"),
 //                           radius: AppDimensions.iconSizeSmall,
 //                         ),
 //                         const SizedBox(width: AppPaddings.small),
@@ -204,7 +200,7 @@
 //                                   ),
 //                                 ),
 //                                 Text(
-//                                   comment.creator.name!,
+//                                   comment.creator.username,
 //                                   style: Theme.of(context)
 //                                       .textTheme
 //                                       .bodySmall!

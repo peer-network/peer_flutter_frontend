@@ -23,12 +23,12 @@ class SmallHeaderPostCard extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            AvatarComponent(imageUrl: creator.imageUrl),
+            AvatarComponent(imageUrl: creator.img),
             const SizedBox(width: AppPaddings.small),
             // Title
             Column(
               children: [
-                Text(creator.name!,
+                Text(creator.username,
                     style: Theme.of(context).textTheme.bodyLarge!),
                 const SizedBox(height: AppPaddings.tiny),
                 // datetime as "23. January" with formatted date

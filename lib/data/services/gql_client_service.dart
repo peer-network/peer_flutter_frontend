@@ -1,5 +1,4 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:peer_app/presentation/whitelabel/endpoints.dart';
 
 // graphql_client_singleton.dart
 
@@ -24,11 +23,8 @@ class GraphQLClientSingleton {
     );
 
     final HttpLink httpLink = HttpLink(
-      //'http://${ApiEndpoints.baseUrl}/v1/graphql',
-      'http://10.0.2.2:8080/v1/graphql',
-    ); // use when on emulator
-
-    print("http://${ApiEndpoints.baseUrl}/v1/graphql");
+      'https://staging.peerapp.de',
+    );
 
     final Link link = authLink.concat(httpLink);
     _client = GraphQLClient(
