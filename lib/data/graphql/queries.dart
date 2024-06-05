@@ -38,6 +38,38 @@ query GetAllPosts {
 }
 """);
 
+// query GetUserById {
+//     getUserById(id: "0c4762a8-0a39-11ef-b7f2-e89c25791d89") {
+//         id
+//         username
+//         email
+//         img
+//         biograph
+//         isPrivate
+//         amountPosts
+//         amountFollowed
+//         amountFollower
+//         isFollowed
+//     }
+// }
+
+  static final getUserById = gql("""
+query GetUserById(\$id: String!) {
+    getUserById(id: \$id) {
+        id
+        username
+        email
+        img
+        biograph
+        isPrivate
+        amountPosts
+        amountFollowed
+        amountFollower
+        isFollowed
+    }
+}
+""");
+
   // erste Zeile: welche Variablen (+ datentyp) brauchst du um zu bekommen was du willst
   // zweite Zeile: was bekommst du zurück (was willst du genau haben aus welchem table)
   static final wallet = gql("""
