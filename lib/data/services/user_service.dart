@@ -65,10 +65,11 @@
 //   }
 // }
 
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:peer_app/core/exceptions/base_exception.dart';
-import 'package:peer_app/data/dummy_response/dummy_user_by_id.dart';
+import 'package:peer_app/data/graphql/queries.dart';
 import 'package:peer_app/data/models/user_model.dart';
-import 'package:peer_app/data/provider/contacts_provider.dart';
+import 'package:peer_app/data/services/gql_client_service.dart';
 
 class UserService {
   static final UserService _instance = UserService._internal();
@@ -83,19 +84,18 @@ class UserService {
   List<UserModel> get users => _users;
 
   Future<UserModel> getUser(String userId) async {
-    try {
-      // Attempts to find the user in the cache
-      UserModel user = _users.firstWhere((user) => user.id == userId);
-      return user;
-    } on StateError {
-      // If no user is found in cache, fetch new user
-      UserModel? newUser = await fetchNewUser(userId);
-      if (newUser != null) {
-        return newUser;
-      } else {
-        // If no user is fetched, throw an exception
-        throw Exception("User not found with ID: $userId");
-      }
+    // try {
+    //   // Attempts to find the user in the cache
+    //   UserModel user = _users.firstWhere((user) => user.id == userId);
+    //   return user;
+    // } on StateError {
+    //   // If no user is found in cache, fetch new user
+    UserModel? newUser = await fetchNewUser(userId);
+    if (newUser != null) {
+      return newUser;
+    } else {
+      // If no user is fetched, throw an exception
+      throw Exception("User not found with ID: $userId");
     }
   }
 
@@ -113,13 +113,32 @@ class UserService {
   }
 
   Future<UserModel?> fetchNewUser(String userId) async {
-    await Future.delayed(const Duration(seconds: 1));
-    const data = dummyUserById; // Assuming this constant holds dummy data
+    final gqlClient = GraphQLClientSingleton();
+    final queryOption = QueryOptions(
+      document: Queries.getUserById,
+      fetchPolicy: FetchPolicy.networkOnly,
+      variables: const {'id': "0c4762a8-0a39-11ef-b7f2-e89c25791d89"},
+    );
 
     try {
+      QueryResult<Object?> queryResult = await gqlClient.query(queryOption);
+
+      if (queryResult.hasException) {
+        CustomException(queryResult.exception.toString(), StackTrace.current)
+            .handleError();
+      }
+
+      if (queryResult.data == null) {
+        CustomException(queryResult.toString(), StackTrace.current)
+            .handleError();
+      }
+
+      final responseData = queryResult.data!;
+
+      print(responseData.toString());
+
       // Filter the dummy data to find the specific user by ID
-      final userData =
-          data['data']?.where((user) => user['id'] == userId).toList().first;
+      final userData = responseData['getUserById'];
       if (userData != null) {
         final user = UserModel.fromJson(userData);
         _users.add(user);
