@@ -14,12 +14,12 @@ class SinglePostImageContent extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: for later have all imageUrls shown in a side slider or carousel
     return AspectRatio(
-      aspectRatio: post.aspectRatio?.doubleValue() ?? 1.0,
+      // aspectRatio: post.aspectRatio?.doubleValue() ?? 1.0,
+      aspectRatio: 16 / 9,
       child: FittedBox(
         fit: BoxFit.cover,
         child: Hero(
-            tag: 'post-${(post).imageUrls[0]}',
-            child: Image.network((post).imageUrls[0])),
+            tag: 'post-${(post).media}', child: Image.network((post).media)),
       ),
     );
   }

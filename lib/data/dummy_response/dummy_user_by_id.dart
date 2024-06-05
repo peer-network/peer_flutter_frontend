@@ -1,6 +1,6 @@
-import 'package:peer_app/data/dummy_response/dummy_feeds.dart';
+// import 'package:peer_app/data/dummy_response/dummy_feeds.dart';
 import 'package:peer_app/data/dummy_response/dummy_post_comments.dart';
-import 'package:peer_app/data/new_dummy_response/new_dummy_feed_data.dart';
+// import 'package:peer_app/data/new_dummy_response/new_dummy_feed_data.dart';
 
 final dummyUserById = {
   "data": [
@@ -18,7 +18,7 @@ final dummyUserById = {
       "created_at": "2021-10-30T14:20:10.000Z",
       "updatedAt": "2024-05-01T10:00:00.000Z",
       "posts": [
-        ...dummyFeedData,
+        // ...dummyFeedData,
         //     {
         //       "runtimeType": "image",
         //       "aspectRatio": "Landscape",
@@ -133,7 +133,7 @@ final dummyUserById = {
       "created_at": "2022-05-20T19:34:20.000Z",
       "updatedAt": "2024-04-29T18:15:00.000Z",
       "posts": [
-        ...dummyFeedData,
+        // ...dummyFeedData,
         //     {
         //       "runtimeType": "image",
         //       "aspectRatio": "Portrait",

@@ -22,7 +22,7 @@ class SinglePostTextContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                (post as TextPost).caption,
+                (post as TextPost).title,
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
               const SizedBox(height: AppPaddings.medium),
