@@ -40,3 +40,14 @@ samples, guidance on mobile development, and a full API reference.
 To regenerate freezed files: dart run build_runner build
 To regenerate freezed files and delete auto generated files first: 
         dart run build_runner build --delete-conflicting-outputs
+
+
+## Deleting Old Branches
+
+0. Make sure your branch is merged into the desired branch (with permission from Caspar)
+1. Delete local branch:      git branch -d <branch-name>
+2. Delete remote branch:     on "Gitea" navigate to branches and click delete 
+                             (beacuse there is a restore option)
+
+If you dont know anymore if your branch is contained in the desired branch, 
+check if your last commit on your branch is also contained in the desired branch.
