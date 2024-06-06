@@ -71,6 +71,10 @@ _$ImagePostImpl _$$ImagePostImplFromJson(Map<String, dynamic> json) =>
       user: json['user'] == null
           ? null
           : UserModel.fromJson(json['user'] as Map<String, dynamic>),
+      aspectRatio: json['aspectRatio'] == null
+          ? ImageAspectRatios.square
+          : const ImageAspectRatioConverter()
+              .fromJson(json['aspectRatio'] as String),
       $type: json['runtimeType'] as String?,
     );
 
@@ -91,6 +95,8 @@ Map<String, dynamic> _$$ImagePostImplToJson(_$ImagePostImpl instance) =>
       'amountLikes': instance.amountLikes,
       'amountViews': instance.amountViews,
       'user': instance.user?.toJson(),
+      'aspectRatio':
+          const ImageAspectRatioConverter().toJson(instance.aspectRatio),
       'runtimeType': instance.$type,
     };
 

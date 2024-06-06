@@ -43,6 +43,9 @@ class PostModel with _$PostModel {
     int? amountLikes,
     int? amountViews,
     UserModel? user, // user in json
+    @ImageAspectRatioConverter()
+    @Default(ImageAspectRatios.square)
+    ImageAspectRatios aspectRatio,
   }) = ImagePost;
 
   @JsonSerializable(explicitToJson: true)
@@ -69,6 +72,21 @@ class PostModel with _$PostModel {
 }
 
 // Custom converter for ImageAspectRatios
+// class ImageAspectRatioConverter
+//     implements JsonConverter<ImageAspectRatios, String> {
+//   const ImageAspectRatioConverter();
+
+//   @override
+//   ImageAspectRatios fromJson(String json) {
+//     return imageAspectRatioFromString(json);
+//   }
+
+//   @override
+//   String toJson(ImageAspectRatios object) {
+//     return getImageAspectRatioName(object);
+//   }
+// }
+
 class ImageAspectRatioConverter
     implements JsonConverter<ImageAspectRatios, String> {
   const ImageAspectRatioConverter();
