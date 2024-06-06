@@ -28,6 +28,7 @@ mixin _$CommentModel {
   DateTime get createdAt => throw _privateConstructorUsedError;
   UserModel? get user => throw _privateConstructorUsedError;
   List<CommentModel> get comments => throw _privateConstructorUsedError;
+  bool? get isLiked => throw _privateConstructorUsedError;
   int? get likeCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,6 +52,7 @@ abstract class $CommentModelCopyWith<$Res> {
       DateTime createdAt,
       UserModel? user,
       List<CommentModel> comments,
+      bool? isLiked,
       int? likeCount});
 
   $UserModelCopyWith<$Res> get creator;
@@ -78,6 +80,7 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
     Object? createdAt = null,
     Object? user = freezed,
     Object? comments = null,
+    Object? isLiked = freezed,
     Object? likeCount = freezed,
   }) {
     return _then(_value.copyWith(
@@ -113,6 +116,10 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
               as List<CommentModel>,
+      isLiked: freezed == isLiked
+          ? _value.isLiked
+          : isLiked // ignore: cast_nullable_to_non_nullable
+              as bool?,
       likeCount: freezed == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
@@ -158,6 +165,7 @@ abstract class _$$CommentModelImplCopyWith<$Res>
       DateTime createdAt,
       UserModel? user,
       List<CommentModel> comments,
+      bool? isLiked,
       int? likeCount});
 
   @override
@@ -185,6 +193,7 @@ class __$$CommentModelImplCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? user = freezed,
     Object? comments = null,
+    Object? isLiked = freezed,
     Object? likeCount = freezed,
   }) {
     return _then(_$CommentModelImpl(
@@ -220,6 +229,10 @@ class __$$CommentModelImplCopyWithImpl<$Res>
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
               as List<CommentModel>,
+      isLiked: freezed == isLiked
+          ? _value.isLiked
+          : isLiked // ignore: cast_nullable_to_non_nullable
+              as bool?,
       likeCount: freezed == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
@@ -241,6 +254,7 @@ class _$CommentModelImpl implements _CommentModel {
       required this.createdAt,
       required this.user,
       final List<CommentModel> comments = const [],
+      this.isLiked,
       this.likeCount})
       : _comments = comments;
 
@@ -271,11 +285,13 @@ class _$CommentModelImpl implements _CommentModel {
   }
 
   @override
+  final bool? isLiked;
+  @override
   final int? likeCount;
 
   @override
   String toString() {
-    return 'CommentModel(id: $id, content: $content, postId: $postId, userId: $userId, creator: $creator, createdAt: $createdAt, user: $user, comments: $comments, likeCount: $likeCount)';
+    return 'CommentModel(id: $id, content: $content, postId: $postId, userId: $userId, creator: $creator, createdAt: $createdAt, user: $user, comments: $comments, isLiked: $isLiked, likeCount: $likeCount)';
   }
 
   @override
@@ -292,6 +308,7 @@ class _$CommentModelImpl implements _CommentModel {
                 other.createdAt == createdAt) &&
             (identical(other.user, user) || other.user == user) &&
             const DeepCollectionEquality().equals(other._comments, _comments) &&
+            (identical(other.isLiked, isLiked) || other.isLiked == isLiked) &&
             (identical(other.likeCount, likeCount) ||
                 other.likeCount == likeCount));
   }
@@ -308,6 +325,7 @@ class _$CommentModelImpl implements _CommentModel {
       createdAt,
       user,
       const DeepCollectionEquality().hash(_comments),
+      isLiked,
       likeCount);
 
   @JsonKey(ignore: true)
@@ -334,6 +352,7 @@ abstract class _CommentModel implements CommentModel {
       required final DateTime createdAt,
       required final UserModel? user,
       final List<CommentModel> comments,
+      final bool? isLiked,
       final int? likeCount}) = _$CommentModelImpl;
 
   factory _CommentModel.fromJson(Map<String, dynamic> json) =
@@ -355,6 +374,8 @@ abstract class _CommentModel implements CommentModel {
   UserModel? get user;
   @override
   List<CommentModel> get comments;
+  @override
+  bool? get isLiked;
   @override
   int? get likeCount;
   @override

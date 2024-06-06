@@ -2,6 +2,28 @@
 
 A new Flutter project.
 
+## Project Guidelines
+
+NIEMAD PUSHT AUF MAIN AUSSER CASPAR — weil main ab jetzt nicht mehr breaken darf
+
+Wichtig:
+NIEMAD PUSHT AUF MAIN AUSSER CASPAR — weil dort ab jetzt nichts mehr kaputt gehen darf
+Widgets:
+1. Ein File sollte nicht mehr als 100 Lines haben
+2. Ein File sollte nicht mehr als ein Widget haben
+3. Ein Widget sollte eine Column/Row haben (maximal 2)
+
+Ordnerstruktur:
+Neue Seite Anlegen:
+- Ordner anlegen für die Page (neue_seite_page)
+Beinhaltet:
+- neue_seite_page.dart
+- neue_seite_body.dart
+- neue_seite_wrapper.dart
+- components (Ordner) (Falls die Components von mehr als einem Widget benutzt werden, sollte der Ordner auf der höchsten Ebene liegen, wo er benutzt wird)
+- section (Ordner) (sobald es mehr als eine Section gibt)
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
@@ -16,3 +38,16 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 To regenerate freezed files: dart run build_runner build
+To regenerate freezed files and delete auto generated files first: 
+        dart run build_runner build --delete-conflicting-outputs
+
+
+## Deleting Old Branches
+
+0. Make sure your branch is merged into the desired branch (with permission from Caspar)
+1. Delete local branch:      git branch -d <branch-name>
+2. Delete remote branch:     on "Gitea" navigate to branches and click delete 
+                             (beacuse there is a restore option)
+
+If you dont know anymore if your branch is contained in the desired branch, 
+check if your last commit on your branch is also contained in the desired branch.

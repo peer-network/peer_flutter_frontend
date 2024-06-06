@@ -117,6 +117,27 @@ class UserService {
     }
   }
 
+  Future<bool> toggleLike(String commentId) async {
+    try {
+      // Assuming the user can have posts with comments
+      for (UserModel user in _users) {
+        for (var post in user.posts) {
+          for (var comment in post.comments) {
+            if (comment.id == commentId) {
+              // comment.isLiked = !comment.isLiked!;
+              // await Future.delayed(const Duration(seconds: 1)); // Simulate delay
+              return true;
+            }
+          }
+        }
+      }
+      throw Exception("Comment not found with ID: $commentId");
+    } catch (e, s) {
+      CustomException(e.toString(), s).handleError();
+      return false;
+    }
+  }
+
   Future<UserModel?> fetchNewUser(String userId) async {
     final gqlClient = GraphQLClientSingleton();
     final queryOption = QueryOptions(
