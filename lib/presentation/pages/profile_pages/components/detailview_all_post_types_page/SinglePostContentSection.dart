@@ -16,15 +16,8 @@ class SinglePostContentSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 1. check the type of the post
-    // 2. show the corresponding widget
-
-    // if (post is ImagePost) { // how do i know that this is an ImagePost?
     if (post.runtimeType.toString() == "image") {
       return DetailedPostPage(post: post);
-      // return Hero(
-      //     tag: 'post-${(post as ImagePost).imageUrls[0]}',
-      //     child: Image.network((post as ImagePost).imageUrls[0]));
     } else if (post is TextPost) {
       return Container(); // show text
     } else {
