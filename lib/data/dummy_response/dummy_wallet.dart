@@ -1,8 +1,10 @@
-import 'package:peer_app/data/dummy_response/dummy_user_by_id.dart';
-
 final dummyWallet = {
   "wallet": {
-    "user": dummyUserById,
+    "user": {
+      "id": 2,
+      "name": "John Doe",
+      "img": "https://randomuser.me/api/portraits/men/1.jpg"
+    },
     "totalCredits": 8970,
     "creditsCollectedToday": 924,
     "percentageOfTotalTokens": 0.03
