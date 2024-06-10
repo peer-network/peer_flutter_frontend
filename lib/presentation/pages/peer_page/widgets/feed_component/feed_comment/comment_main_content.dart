@@ -19,14 +19,14 @@ class CommentMainContent extends StatelessWidget {
     return Row(
       children: [
         // Avatar
-        AvatarComponent(imageUrl: comment.creator.imageUrl),
+        AvatarComponent(imageUrl: comment.creator.img),
         const SizedBox(width: AppPaddings.small),
         // Comment
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(comment.creator.name!,
+              Text(comment.creator.username,
                   style: Theme.of(context).textTheme.headlineMedium),
               Text(comment.content,
                   style: Theme.of(context).textTheme.bodyLarge),

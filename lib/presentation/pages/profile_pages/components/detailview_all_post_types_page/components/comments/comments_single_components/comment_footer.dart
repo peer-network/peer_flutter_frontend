@@ -18,15 +18,15 @@ class CommentFooter extends StatelessWidget {
       children: [
         TimePassedSinceTextWidget(
             dateTime: comment.createdAt,
-            style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                color: Theme.of(context).brightness == Brightness.light
-                    ? LightColors.textPrimary
-                    : DarkColors.textPrimary)),
+            style: Theme.of(context).textTheme.bodySmall!),
         const Spacer(),
         CustomIconButton(
           onPressed: () {},
           sizeType: SizeType.tiny,
           icon: IconLibrary.heart,
+          color: Theme.of(context).brightness == Brightness.light
+              ? LightColors.textPrimary
+              : DarkColors.textPrimary,
         ),
         Text(
           '${comment.likeCount}',

@@ -27,10 +27,10 @@ class FeedHeaderComponent extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                AvatarComponent(imageUrl: user.imageUrl),
+                AvatarComponent(imageUrl: user.img),
                 const SizedBox(width: AppPaddings.small),
                 // Title
-                Text(user.name ?? "",
+                Text(user.username ?? "",
                     style: Theme.of(context).textTheme.titleLarge!),
               ],
             ),

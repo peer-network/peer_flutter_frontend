@@ -1,4 +1,4 @@
-package com.example.peer_app
+package com.peer.peer_app
 
 import io.flutter.embedding.android.FlutterActivity
 
