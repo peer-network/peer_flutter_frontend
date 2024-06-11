@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:http/http.dart';
 import 'package:peer_app/data/models/post_model.dart';
 
 import 'package:peer_app/presentation/pages/BasePage.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_logic/first_layer_comment.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/detail_post_comments_wrapper_id.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/detailed_post_page_content/single_post_contentsection.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
@@ -21,6 +24,7 @@ class DetailedPostPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final client = GraphQLProvider.of(context).value;
     return BasePage(
         appBar: AppBar(
           title: const Text(''),
@@ -32,7 +36,10 @@ class DetailedPostPage extends StatelessWidget {
               SinglePostContentsection(post: post),
 
               const SizedBox(height: AppPaddings.extraLarge),
-              FirstLayerComment(comments: post.comments),
+              // FirstLayerComment(comments: post.comments),
+              FirstLayerCommentWrapper(
+                  client: client,
+                  postId: post.id) // Erst muss ich den Future builder bauen
             ],
           ),
         ));
