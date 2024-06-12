@@ -39,8 +39,11 @@ Future<List<CommentModel>> fetchComments(
   final QueryResult result = await client.query(options);
 
   if (result.hasException) {
+    print('GraphQL Exception: ${result.exception.toString()}');
     throw Exception(result.exception.toString());
   }
+
+  print('GraphQL Response Data: ${result.data}');
 
   final List<dynamic> commentsJson = result.data!['getPost']['comments'];
   return commentsJson.map((json) => CommentModel.fromJson(json)).toList();

@@ -22,8 +22,8 @@ CommentModel _$CommentModelFromJson(Map<String, dynamic> json) {
 mixin _$CommentModel {
   String get id => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
-  int get postId => throw _privateConstructorUsedError;
-  int get userId => throw _privateConstructorUsedError;
+  String get postId => throw _privateConstructorUsedError;
+  String get userId => throw _privateConstructorUsedError;
   UserModel get creator => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   UserModel? get user => throw _privateConstructorUsedError;
@@ -46,8 +46,8 @@ abstract class $CommentModelCopyWith<$Res> {
   $Res call(
       {String id,
       String content,
-      int postId,
-      int userId,
+      String postId,
+      String userId,
       UserModel creator,
       DateTime createdAt,
       UserModel? user,
@@ -95,11 +95,11 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
       postId: null == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
@@ -159,8 +159,8 @@ abstract class _$$CommentModelImplCopyWith<$Res>
   $Res call(
       {String id,
       String content,
-      int postId,
-      int userId,
+      String postId,
+      String userId,
       UserModel creator,
       DateTime createdAt,
       UserModel? user,
@@ -208,11 +208,11 @@ class __$$CommentModelImplCopyWithImpl<$Res>
       postId: null == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
@@ -266,9 +266,9 @@ class _$CommentModelImpl implements _CommentModel {
   @override
   final String content;
   @override
-  final int postId;
+  final String postId;
   @override
-  final int userId;
+  final String userId;
   @override
   final UserModel creator;
   @override
@@ -346,8 +346,8 @@ abstract class _CommentModel implements CommentModel {
   const factory _CommentModel(
       {required final String id,
       required final String content,
-      required final int postId,
-      required final int userId,
+      required final String postId,
+      required final String userId,
       required final UserModel creator,
       required final DateTime createdAt,
       required final UserModel? user,
@@ -363,9 +363,9 @@ abstract class _CommentModel implements CommentModel {
   @override
   String get content;
   @override
-  int get postId;
+  String get postId;
   @override
-  int get userId;
+  String get userId;
   @override
   UserModel get creator;
   @override
