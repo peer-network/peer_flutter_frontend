@@ -22,7 +22,7 @@ CommentModel _$CommentModelFromJson(Map<String, dynamic> json) {
 mixin _$CommentModel {
   String get id => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
-  String get postId => throw _privateConstructorUsedError;
+  int get postId => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
   UserModel get creator => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $CommentModelCopyWith<$Res> {
   $Res call(
       {String id,
       String content,
-      String postId,
+      int postId,
       String userId,
       UserModel creator,
       DateTime createdAt,
@@ -95,7 +95,7 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
       postId: null == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -159,7 +159,7 @@ abstract class _$$CommentModelImplCopyWith<$Res>
   $Res call(
       {String id,
       String content,
-      String postId,
+      int postId,
       String userId,
       UserModel creator,
       DateTime createdAt,
@@ -208,7 +208,7 @@ class __$$CommentModelImplCopyWithImpl<$Res>
       postId: null == postId
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -266,7 +266,7 @@ class _$CommentModelImpl implements _CommentModel {
   @override
   final String content;
   @override
-  final String postId;
+  final int postId;
   @override
   final String userId;
   @override
@@ -346,7 +346,7 @@ abstract class _CommentModel implements CommentModel {
   const factory _CommentModel(
       {required final String id,
       required final String content,
-      required final String postId,
+      required final int postId,
       required final String userId,
       required final UserModel creator,
       required final DateTime createdAt,
@@ -363,7 +363,7 @@ abstract class _CommentModel implements CommentModel {
   @override
   String get content;
   @override
-  String get postId;
+  int get postId;
   @override
   String get userId;
   @override

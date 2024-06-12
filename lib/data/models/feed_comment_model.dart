@@ -10,7 +10,7 @@ class CommentModel with _$CommentModel {
   const factory CommentModel({
     required String id,
     required String content,
-    required String postId,
+    required int postId,
     required String userId,
     required UserModel creator,
     required DateTime createdAt,

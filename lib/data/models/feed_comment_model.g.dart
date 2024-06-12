@@ -10,7 +10,7 @@ _$CommentModelImpl _$$CommentModelImplFromJson(Map<String, dynamic> json) =>
     _$CommentModelImpl(
       id: json['id'] as String,
       content: json['content'] as String,
-      postId: json['postId'] as String,
+      postId: (json['postId'] as num).toInt(),
       userId: json['userId'] as String,
       creator: UserModel.fromJson(json['creator'] as Map<String, dynamic>),
       createdAt: DateTime.parse(json['createdAt'] as String),
