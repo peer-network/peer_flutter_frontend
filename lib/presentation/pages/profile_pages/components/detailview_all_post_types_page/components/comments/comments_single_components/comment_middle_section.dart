@@ -23,7 +23,8 @@ class CommentMiddleSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start, // 4: CrossAxisAlignment
       children: [
-        CommentHeader(user: comment.creator),
+        comment.user != null ? CommentHeader(user: comment.user!) : Container(),
+        // CommentHeader(user: comment.creator),
         CommentContent(
           comment: comment,
           isThirdLayerOrMore: isThirdLayerOrMore,

@@ -23,8 +23,8 @@ mixin _$CommentModel {
   String get id => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   int get postId => throw _privateConstructorUsedError;
-  String get userId => throw _privateConstructorUsedError;
-  UserModel get creator => throw _privateConstructorUsedError;
+  String get userId =>
+      throw _privateConstructorUsedError; // required UserModel creator, // Seems like "creator" and "user" are the same. There is no creator in the api
   DateTime get createdAt => throw _privateConstructorUsedError;
   UserModel? get user => throw _privateConstructorUsedError;
   List<CommentModel> get comments => throw _privateConstructorUsedError;
@@ -48,14 +48,12 @@ abstract class $CommentModelCopyWith<$Res> {
       String content,
       int postId,
       String userId,
-      UserModel creator,
       DateTime createdAt,
       UserModel? user,
       List<CommentModel> comments,
       bool? isLiked,
       int? likeCount});
 
-  $UserModelCopyWith<$Res> get creator;
   $UserModelCopyWith<$Res>? get user;
 }
 
@@ -76,7 +74,6 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
     Object? content = null,
     Object? postId = null,
     Object? userId = null,
-    Object? creator = null,
     Object? createdAt = null,
     Object? user = freezed,
     Object? comments = null,
@@ -100,10 +97,6 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
-      creator: null == creator
-          ? _value.creator
-          : creator // ignore: cast_nullable_to_non_nullable
-              as UserModel,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -125,14 +118,6 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserModelCopyWith<$Res> get creator {
-    return $UserModelCopyWith<$Res>(_value.creator, (value) {
-      return _then(_value.copyWith(creator: value) as $Val);
-    });
   }
 
   @override
@@ -161,15 +146,12 @@ abstract class _$$CommentModelImplCopyWith<$Res>
       String content,
       int postId,
       String userId,
-      UserModel creator,
       DateTime createdAt,
       UserModel? user,
       List<CommentModel> comments,
       bool? isLiked,
       int? likeCount});
 
-  @override
-  $UserModelCopyWith<$Res> get creator;
   @override
   $UserModelCopyWith<$Res>? get user;
 }
@@ -189,7 +171,6 @@ class __$$CommentModelImplCopyWithImpl<$Res>
     Object? content = null,
     Object? postId = null,
     Object? userId = null,
-    Object? creator = null,
     Object? createdAt = null,
     Object? user = freezed,
     Object? comments = null,
@@ -213,10 +194,6 @@ class __$$CommentModelImplCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
-      creator: null == creator
-          ? _value.creator
-          : creator // ignore: cast_nullable_to_non_nullable
-              as UserModel,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -250,7 +227,6 @@ class _$CommentModelImpl implements _CommentModel {
       required this.content,
       required this.postId,
       required this.userId,
-      required this.creator,
       required this.createdAt,
       required this.user,
       final List<CommentModel> comments = const [],
@@ -269,8 +245,7 @@ class _$CommentModelImpl implements _CommentModel {
   final int postId;
   @override
   final String userId;
-  @override
-  final UserModel creator;
+// required UserModel creator, // Seems like "creator" and "user" are the same. There is no creator in the api
   @override
   final DateTime createdAt;
   @override
@@ -291,7 +266,7 @@ class _$CommentModelImpl implements _CommentModel {
 
   @override
   String toString() {
-    return 'CommentModel(id: $id, content: $content, postId: $postId, userId: $userId, creator: $creator, createdAt: $createdAt, user: $user, comments: $comments, isLiked: $isLiked, likeCount: $likeCount)';
+    return 'CommentModel(id: $id, content: $content, postId: $postId, userId: $userId, createdAt: $createdAt, user: $user, comments: $comments, isLiked: $isLiked, likeCount: $likeCount)';
   }
 
   @override
@@ -303,7 +278,6 @@ class _$CommentModelImpl implements _CommentModel {
             (identical(other.content, content) || other.content == content) &&
             (identical(other.postId, postId) || other.postId == postId) &&
             (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.creator, creator) || other.creator == creator) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.user, user) || other.user == user) &&
@@ -321,7 +295,6 @@ class _$CommentModelImpl implements _CommentModel {
       content,
       postId,
       userId,
-      creator,
       createdAt,
       user,
       const DeepCollectionEquality().hash(_comments),
@@ -348,7 +321,6 @@ abstract class _CommentModel implements CommentModel {
       required final String content,
       required final int postId,
       required final String userId,
-      required final UserModel creator,
       required final DateTime createdAt,
       required final UserModel? user,
       final List<CommentModel> comments,
@@ -366,9 +338,7 @@ abstract class _CommentModel implements CommentModel {
   int get postId;
   @override
   String get userId;
-  @override
-  UserModel get creator;
-  @override
+  @override // required UserModel creator, // Seems like "creator" and "user" are the same. There is no creator in the api
   DateTime get createdAt;
   @override
   UserModel? get user;
