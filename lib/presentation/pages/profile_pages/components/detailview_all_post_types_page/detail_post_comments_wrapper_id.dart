@@ -20,7 +20,8 @@ class DetailedPostCommentsWrapperId extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GenericFutureBuilder<List<CommentModel>>(
-      futureFunction: fetchComments(client, "1"), // Das muss dynamisch werden
+      futureFunction:
+          fetchComments(client, postId), // Das muss dynamisch werden
       dataBuilder: (context, comments) {
         return FirstLayerComment(comments: comments);
       },
