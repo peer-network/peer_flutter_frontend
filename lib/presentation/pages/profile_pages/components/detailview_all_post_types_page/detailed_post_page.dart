@@ -39,7 +39,7 @@ class DetailedPostPage extends StatelessWidget {
 
               const SizedBox(height: AppPaddings.extraLarge),
               // FirstLayerComment(comments: post.comments),
-              FirstLayerCommentWrapper(
+              DetailedPostCommentsWrapperId(
                   client: client,
                   postId: post.id) // Erst muss ich den Future builder bauen
             ],

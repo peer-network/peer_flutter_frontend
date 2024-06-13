@@ -5,12 +5,12 @@ import 'package:peer_app/data/models/feed_comment_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_logic/first_layer_comment.dart';
 import 'package:peer_app/presentation/whitelabel/components/wrapper/generic_future_builder.dart';
 
-class FirstLayerCommentWrapper extends StatelessWidget {
+class DetailedPostCommentsWrapperId extends StatelessWidget {
   final GraphQLClient client;
   final String postId;
   final String? name;
 
-  const FirstLayerCommentWrapper({
+  const DetailedPostCommentsWrapperId({
     super.key,
     required this.client,
     required this.postId,
