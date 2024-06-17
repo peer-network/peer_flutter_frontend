@@ -37,6 +37,7 @@ class FeedView extends StatelessWidget {
         child: ListView.builder(
             itemCount: newsFeedProvider.newsFeed.length,
             itemBuilder: (context, index) {
+              // Nur einmal FeedCardComponent mit variablem padding
               if (newsFeedProvider.newsFeed.length - 1 == index) {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: AppPaddings.tiny),

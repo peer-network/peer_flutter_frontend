@@ -62,10 +62,17 @@ class PostProvider with ChangeNotifier {
         );
 
         // Append the dummy post with comments
-        PostModel dummyPost =
-            PostModel.fromJson(postWithComments); // Create dummy post
-        _posts.add(dummyPost); // Append dummy post
-        print(dummyPost); // Print the appended dummy post
+        try {
+          PostModel dummyPost =
+              PostModel.fromJson(postWithComments); // Create dummy post
+
+          print("Dummy post: $dummyPost");
+
+          _posts.add(dummyPost); // Append dummy post
+          print(dummyPost); // Print the appended dummy post}
+        } catch (e) {
+          print("error in new dummy try");
+        }
       } catch (e, s) {
         error = e.toString();
         CustomException(e.toString(), s).handleError();
@@ -104,7 +111,8 @@ final Map<String, dynamic> postWithComments = {
       "user": {
         "id": "user1",
         "username": "John Doe",
-        "img": "https://example.com/user1.jpg"
+        "img":
+            "https://upload.wikimedia.org/wikipedia/en/6/67/Herbert_-_Family_Guy.png"
       },
       "comments": [
         {
@@ -116,7 +124,8 @@ final Map<String, dynamic> postWithComments = {
           "user": {
             "id": "user2",
             "username": "Jane Smith",
-            "img": "https://example.com/user2.jpg"
+            "img":
+                "https://upload.wikimedia.org/wikipedia/commons/9/9f/Gert_Steinb%C3%A4cker_Amadeus_Austrian_Music_Awards_2016.jpg"
           },
           "comments": [
             {
@@ -128,7 +137,8 @@ final Map<String, dynamic> postWithComments = {
               "user": {
                 "id": "user3",
                 "username": "Alice Johnson",
-                "img": "https://example.com/user3.jpg"
+                "img":
+                    "https://de.web.img3.acsta.net/img/9c/3a/9c3a8132f0cb0928d9f033281efb5f93.jpg"
               },
               "comments": [
                 {
@@ -140,7 +150,8 @@ final Map<String, dynamic> postWithComments = {
                   "user": {
                     "id": "user4",
                     "username": "Bob Brown",
-                    "img": "https://example.com/user4.jpg"
+                    "img":
+                        "https://upload.wikimedia.org/wikipedia/commons/a/a1/Ribera_-_Isaac_y_Jacob%2C_P001118_%28cropped%29.jpg"
                   },
                   "comments": [],
                   "isLiked": false,
