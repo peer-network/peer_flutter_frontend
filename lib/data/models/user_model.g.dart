@@ -9,16 +9,17 @@ part of 'user_model.dart';
 _$UserModelImpl _$$UserModelImplFromJson(Map<String, dynamic> json) =>
     _$UserModelImpl(
       id: json['id'] as String,
-      imageUrl: json['imageUrl'] as String?,
-      name: json['name'] as String?,
+      img: json['img'] as String?,
+      username: json['username'] as String,
       email: json['email'] as String?,
-      verified: json['verified'] as bool?,
+      verified: json['verified'] as bool? ?? false,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
       verificationToken: json['verificationToken'] as String?,
-      bio: json['bio'] as String?,
-      amountOfPosts: (json['amountOfPosts'] as num?)?.toInt(),
-      amountOfFollowers: (json['amountOfFollowers'] as num?)?.toInt(),
+      biograph: json['biograph'] as String?,
+      amountPosts: (json['amountPosts'] as num?)?.toInt() ?? 0,
+      amountFollowed: (json['amountFollowed'] as num?)?.toInt() ?? 0,
+      amountFollower: (json['amountFollower'] as num?)?.toInt() ?? 0,
       posts: (json['posts'] as List<dynamic>?)
               ?.map((e) => PostModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -29,16 +30,17 @@ _$UserModelImpl _$$UserModelImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'imageUrl': instance.imageUrl,
-      'name': instance.name,
+      'img': instance.img,
+      'username': instance.username,
       'email': instance.email,
       'verified': instance.verified,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
       'verificationToken': instance.verificationToken,
-      'bio': instance.bio,
-      'amountOfPosts': instance.amountOfPosts,
-      'amountOfFollowers': instance.amountOfFollowers,
-      'posts': instance.posts,
+      'biograph': instance.biograph,
+      'amountPosts': instance.amountPosts,
+      'amountFollowed': instance.amountFollowed,
+      'amountFollower': instance.amountFollower,
+      'posts': instance.posts.map((e) => e.toJson()).toList(),
       'isFollowing': instance.isFollowing,
     };

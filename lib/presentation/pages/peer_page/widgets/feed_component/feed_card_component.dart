@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_actions_component.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_comment/feed_comment_view.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_content/feed_content_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_header_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_image_description_component.dart';
@@ -29,7 +28,7 @@ class _FeedCardComponentState extends State<FeedCardComponent> {
       child: Column(
         children: [
           // Feed header
-          FeedHeaderComponent(user: post.creator),
+          FeedHeaderComponent(user: post.user!),
           // Feed content
           FeedContentComponent(post: post),
           // Feed actions
@@ -37,8 +36,7 @@ class _FeedCardComponentState extends State<FeedCardComponent> {
           FeedActionsComponent(feed: post),
           // Feed image description
           if (post is ImagePost)
-            FeedImageDescriptionComponent(
-                text: (post as ImagePost).description),
+            FeedImageDescriptionComponent(text: post.mediaDescription),
           const SizedBox(height: AppPaddings.small),
           FeedStatsComponent(feed: widget.post),// Feed stats
           const SizedBox(height: AppPaddings.small),

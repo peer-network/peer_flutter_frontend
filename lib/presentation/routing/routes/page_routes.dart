@@ -13,7 +13,7 @@ import 'package:peer_app/presentation/pages/share_post_contacts/share_post_conta
 import 'package:peer_app/presentation/pages/single_chat_page/chat_page.dart';
 import 'package:peer_app/presentation/routing/routes/base_route.dart';
 import 'package:peer_app/presentation/routing/routes/transitions.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailed_image_page/detailed_image_page.dart';
+import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/detailed_post_page.dart';
 
 class LoginPageRoute extends BaseRoute {
   LoginPageRoute()
@@ -103,10 +103,18 @@ class SharePostRoute extends BaseRoute {
         );
 }
 
-class DetailedImagePageRoute extends BaseRoute {
-  DetailedImagePageRoute(PostModel post, String imageUrl)
+// class DetailedPostPageRoute extends BaseRoute {
+//   DetailedPostPageRoute(PostModel post, String imageUrl)
+//       : super(
+//           DetailedPostPage(post: post),
+//           guards: [],
+//         );
+// }
+
+class DetailedPostPageRoute extends BaseRoute {
+  DetailedPostPageRoute(PostModel post)
       : super(
-          DetailedImagePage(post: post, imageUrl: imageUrl),
+          DetailedPostPage(post: post),
           guards: [],
         );
 }

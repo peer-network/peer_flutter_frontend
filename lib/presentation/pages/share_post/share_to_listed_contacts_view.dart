@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/provider/contacts_provider.dart';
 import 'package:peer_app/data/models/contact_model.dart';
+import 'package:peer_app/data/provider/contacts_provider.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
@@ -48,7 +48,7 @@ class _ShareToListedContactsViewState extends State<ShareToListedContactsView> {
       } else {
         for (int i = 0; i < filteredContacts.length; i++) {
           if (i < 2 || _showAllContacts) {
-            contactWidgets.add(Text(filteredContacts[i].contact.name!,
+            contactWidgets.add(Text(filteredContacts[i].contact.username,
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     color: Theme.of(context).brightness == Brightness.light
                         ? LightColors.textPrimary
