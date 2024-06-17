@@ -5,6 +5,7 @@ import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/fee
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_header_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_image_description_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/feed_stats_component.dart';
+import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/components/tiles/feed_tile.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
@@ -29,7 +30,17 @@ class _FeedCardComponentState extends State<FeedCardComponent> {
           // Feed header
           FeedHeaderComponent(user: post.user!),
           // Feed content
-          FeedContentComponent(post: post),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                DetailedPostPageRoute(
+                  post, // Pass the entire imagePost object
+                ),
+              );
+            },
+            child: FeedContentComponent(post: post),
+          ),
+          // FeedContentComponent(post: post),
           // Feed actions
           // Passing feed model to FeedActionsComponent
           FeedActionsComponent(feed: post),
