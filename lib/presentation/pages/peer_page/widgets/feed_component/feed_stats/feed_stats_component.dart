@@ -3,6 +3,7 @@ import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/comment_count_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/like_count_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/view_count_component.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/post_performance_scroll_sheet.dart'; // Importing PostPerformanceScreen
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class FeedStatsComponent extends StatelessWidget {

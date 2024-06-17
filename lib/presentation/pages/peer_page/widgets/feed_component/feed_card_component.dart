@@ -8,6 +8,7 @@ import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/fee
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/feed_stats_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/tiles/feed_tile.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/post_performance_scroll_sheet.dart';
 
 class FeedCardComponent extends StatefulWidget {
   const FeedCardComponent({super.key, required this.post});
@@ -39,9 +40,9 @@ class _FeedCardComponentState extends State<FeedCardComponent> {
             FeedImageDescriptionComponent(
                 text: (post as ImagePost).description),
           const SizedBox(height: AppPaddings.small),
-          FeedStatsComponent(feed: widget.post),
+          FeedStatsComponent(feed: widget.post),// Feed stats
           const SizedBox(height: AppPaddings.small),
-          // Feed stats
+          //post_performance.dart
         ],
       ),
     );

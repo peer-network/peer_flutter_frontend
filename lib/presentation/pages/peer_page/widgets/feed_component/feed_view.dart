@@ -33,7 +33,7 @@ class FeedView extends StatelessWidget {
             kBottomNavigationBarHeight,
         color: Theme.of(context)
             .colorScheme
-            .primaryContainer, // siehe figma muss so sein
+            .primaryContainer, // see figma has to be like this
         child: ListView.builder(
             itemCount: newsFeedProvider.newsFeed.length,
             itemBuilder: (context, index) {
