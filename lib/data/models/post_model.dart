@@ -71,22 +71,6 @@ class PostModel with _$PostModel {
       _$PostModelFromJson(json);
 }
 
-// Custom converter for ImageAspectRatios
-// class ImageAspectRatioConverter
-//     implements JsonConverter<ImageAspectRatios, String> {
-//   const ImageAspectRatioConverter();
-
-//   @override
-//   ImageAspectRatios fromJson(String json) {
-//     return imageAspectRatioFromString(json);
-//   }
-
-//   @override
-//   String toJson(ImageAspectRatios object) {
-//     return getImageAspectRatioName(object);
-//   }
-// }
-
 class ImageAspectRatioConverter
     implements JsonConverter<ImageAspectRatios, String> {
   const ImageAspectRatioConverter();

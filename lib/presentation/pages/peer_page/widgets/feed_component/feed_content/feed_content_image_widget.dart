@@ -24,7 +24,6 @@ class _FeedContentImageWidgetState extends State<FeedContentImageWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.width, // Assuming square images
-// <<<<<<< HEAD
       child: PageView.builder(
         itemCount: widget.imagePost.media.length,
         controller: PageController(
@@ -75,22 +74,6 @@ class _FeedContentImageWidgetState extends State<FeedContentImageWidget> {
                     ));
               });
         },
-// =======
-//       child: Hero(
-//         tag: 'post-${widget.imagePost.media}',
-//         child: GestureDetector(
-//             onTap: () {
-//               Navigator.of(context).push(
-//                 DetailedImagePageRoute(
-//                   widget.imagePost,
-//                   widget.imagePost.media,
-//                 ),
-//               );
-//             },
-//             child: CachedNetworkImage(
-//               imageUrl: widget.imagePost.media,
-//             )),
-// >>>>>>> dev
       ),
     );
   }

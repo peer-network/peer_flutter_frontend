@@ -23,7 +23,6 @@ class ProfileImagePostSection extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-// <<<<<<< HEAD
             Navigator.of(context).push(DetailedPostPageRoute(
                 // posts[index], (posts[index] as ImagePost).imageUrls[0]));
                 posts[index]));
@@ -33,13 +32,6 @@ class ProfileImagePostSection extends StatelessWidget {
             child: CustomCachedNetworkImage(
                 imageUrl: (posts[index] as ImagePost).media),
           ),
-// =======
-//             Navigator.of(context).push(DetailedImagePageRoute(
-//                 posts[index], (posts[index] as ImagePost).media));
-//           },
-//           child: CustomCachedNetworkImage(
-//               imageUrl: (posts[index] as ImagePost).media),
-// >>>>>>> dev
         );
       },
     );

@@ -12,7 +12,6 @@ class ProfileInfoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // print("<<<<<<<<<<<<<<<<<<<<<<<<<<< ${user.id}");
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: AppPaddings.medium),
       child: Column(

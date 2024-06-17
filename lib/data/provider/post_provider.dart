@@ -24,10 +24,6 @@ class PostProvider with ChangeNotifier {
     final queryOption = QueryOptions(
       document: Queries.posts,
       fetchPolicy: FetchPolicy.networkOnly,
-      // variables: {
-      //   'limit': AppValues.defaultLimit,
-      //   'offset': AppValues.defaultLimit * page,
-      // },
     );
 
     try {
@@ -69,7 +65,7 @@ class PostProvider with ChangeNotifier {
           print("Dummy post: $dummyPost");
 
           _posts.add(dummyPost); // Append dummy post
-          print(dummyPost); // Print the appended dummy post}
+          print(dummyPost); // Print the appended dummy post
         } catch (e) {
           print("error in new dummy try");
         }

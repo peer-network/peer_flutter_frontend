@@ -33,8 +33,6 @@ class CommentMainContent extends StatelessWidget {
                   ? Text(comment.user!.username,
                       style: Theme.of(context).textTheme.headlineMedium)
                   : Container(),
-              // Text(comment.creator.username,
-              //     style: Theme.of(context).textTheme.headlineMedium),
               Text(comment.content,
                   style: Theme.of(context).textTheme.bodyLarge),
             ],
