@@ -39,7 +39,7 @@ mixin _$PostModel {
   bool get isReported => throw _privateConstructorUsedError;
   bool get isDisliked => throw _privateConstructorUsedError;
   bool get isSaved => throw _privateConstructorUsedError;
-  List<CommentModel> get comments => throw _privateConstructorUsedError;
+  List<PostCommentModel> get comments => throw _privateConstructorUsedError;
   int? get amountComments => throw _privateConstructorUsedError;
   int? get amountLikes => throw _privateConstructorUsedError;
   int? get amountViews => throw _privateConstructorUsedError;
@@ -56,7 +56,7 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -73,7 +73,7 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -91,7 +91,7 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -111,7 +111,7 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -128,7 +128,7 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -146,7 +146,7 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -166,7 +166,7 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -183,7 +183,7 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -201,7 +201,7 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -252,7 +252,7 @@ abstract class $PostModelCopyWith<$Res> {
       bool isReported,
       bool isDisliked,
       bool isSaved,
-      List<CommentModel> comments,
+      List<PostCommentModel> comments,
       int? amountComments,
       int? amountLikes,
       int? amountViews,
@@ -324,7 +324,7 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
       comments: null == comments
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentModel>,
+              as List<PostCommentModel>,
       amountComments: freezed == amountComments
           ? _value.amountComments
           : amountComments // ignore: cast_nullable_to_non_nullable
@@ -375,7 +375,7 @@ abstract class _$$TextPostImplCopyWith<$Res>
       bool isReported,
       bool isDisliked,
       bool isSaved,
-      List<CommentModel> comments,
+      List<PostCommentModel> comments,
       int? amountComments,
       int? amountLikes,
       int? amountViews,
@@ -451,7 +451,7 @@ class __$$TextPostImplCopyWithImpl<$Res>
       comments: null == comments
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentModel>,
+              as List<PostCommentModel>,
       amountComments: freezed == amountComments
           ? _value.amountComments
           : amountComments // ignore: cast_nullable_to_non_nullable
@@ -486,7 +486,7 @@ class _$TextPostImpl implements TextPost {
       required this.isReported,
       required this.isDisliked,
       required this.isSaved,
-      final List<CommentModel> comments = const [],
+      final List<PostCommentModel> comments = const [],
       this.amountComments,
       this.amountLikes,
       this.amountViews,
@@ -517,10 +517,10 @@ class _$TextPostImpl implements TextPost {
   final bool isDisliked;
   @override
   final bool isSaved;
-  final List<CommentModel> _comments;
+  final List<PostCommentModel> _comments;
   @override
   @JsonKey()
-  List<CommentModel> get comments {
+  List<PostCommentModel> get comments {
     if (_comments is EqualUnmodifiableListView) return _comments;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_comments);
@@ -609,7 +609,7 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -626,7 +626,7 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -644,7 +644,7 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -681,7 +681,7 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -698,7 +698,7 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -716,7 +716,7 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -753,7 +753,7 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -770,7 +770,7 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -788,7 +788,7 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -869,7 +869,7 @@ abstract class TextPost implements PostModel {
       required final bool isReported,
       required final bool isDisliked,
       required final bool isSaved,
-      final List<CommentModel> comments,
+      final List<PostCommentModel> comments,
       final int? amountComments,
       final int? amountLikes,
       final int? amountViews,
@@ -896,7 +896,7 @@ abstract class TextPost implements PostModel {
   @override
   bool get isSaved;
   @override
-  List<CommentModel> get comments;
+  List<PostCommentModel> get comments;
   @override
   int? get amountComments;
   @override
@@ -930,7 +930,7 @@ abstract class _$$ImagePostImplCopyWith<$Res>
       bool isReported,
       bool isDisliked,
       bool isSaved,
-      List<CommentModel> comments,
+      List<PostCommentModel> comments,
       int? amountComments,
       int? amountLikes,
       int? amountViews,
@@ -1013,7 +1013,7 @@ class __$$ImagePostImplCopyWithImpl<$Res>
       comments: null == comments
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentModel>,
+              as List<PostCommentModel>,
       amountComments: freezed == amountComments
           ? _value.amountComments
           : amountComments // ignore: cast_nullable_to_non_nullable
@@ -1053,7 +1053,7 @@ class _$ImagePostImpl implements ImagePost {
       required this.isReported,
       required this.isDisliked,
       required this.isSaved,
-      final List<CommentModel> comments = const [],
+      final List<PostCommentModel> comments = const [],
       this.amountComments,
       this.amountLikes,
       this.amountViews,
@@ -1088,10 +1088,10 @@ class _$ImagePostImpl implements ImagePost {
   final bool isDisliked;
   @override
   final bool isSaved;
-  final List<CommentModel> _comments;
+  final List<PostCommentModel> _comments;
   @override
   @JsonKey()
-  List<CommentModel> get comments {
+  List<PostCommentModel> get comments {
     if (_comments is EqualUnmodifiableListView) return _comments;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_comments);
@@ -1191,7 +1191,7 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1208,7 +1208,7 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1226,7 +1226,7 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1265,7 +1265,7 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1282,7 +1282,7 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1300,7 +1300,7 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1339,7 +1339,7 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1356,7 +1356,7 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1374,7 +1374,7 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1458,7 +1458,7 @@ abstract class ImagePost implements PostModel {
           required final bool isReported,
           required final bool isDisliked,
           required final bool isSaved,
-          final List<CommentModel> comments,
+          final List<PostCommentModel> comments,
           final int? amountComments,
           final int? amountLikes,
           final int? amountViews,
@@ -1488,7 +1488,7 @@ abstract class ImagePost implements PostModel {
   @override
   bool get isSaved;
   @override
-  List<CommentModel> get comments;
+  List<PostCommentModel> get comments;
   @override
   int? get amountComments;
   @override
@@ -1524,7 +1524,7 @@ abstract class _$$VideoPostImplCopyWith<$Res>
       bool isReported,
       bool isDisliked,
       bool isSaved,
-      List<CommentModel> comments,
+      List<PostCommentModel> comments,
       int? amountComments,
       int? amountLikes,
       int? amountViews,
@@ -1605,7 +1605,7 @@ class __$$VideoPostImplCopyWithImpl<$Res>
       comments: null == comments
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentModel>,
+              as List<PostCommentModel>,
       amountComments: freezed == amountComments
           ? _value.amountComments
           : amountComments // ignore: cast_nullable_to_non_nullable
@@ -1641,7 +1641,7 @@ class _$VideoPostImpl implements VideoPost {
       required this.isReported,
       required this.isDisliked,
       required this.isSaved,
-      final List<CommentModel> comments = const [],
+      final List<PostCommentModel> comments = const [],
       this.amountComments,
       this.amountLikes,
       this.amountViews,
@@ -1673,10 +1673,10 @@ class _$VideoPostImpl implements VideoPost {
   final bool isDisliked;
   @override
   final bool isSaved;
-  final List<CommentModel> _comments;
+  final List<PostCommentModel> _comments;
   @override
   @JsonKey()
-  List<CommentModel> get comments {
+  List<PostCommentModel> get comments {
     if (_comments is EqualUnmodifiableListView) return _comments;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_comments);
@@ -1768,7 +1768,7 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1785,7 +1785,7 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1803,7 +1803,7 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1841,7 +1841,7 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1858,7 +1858,7 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1876,7 +1876,7 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1914,7 +1914,7 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1931,7 +1931,7 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1949,7 +1949,7 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -2032,7 +2032,7 @@ abstract class VideoPost implements PostModel {
       required final bool isReported,
       required final bool isDisliked,
       required final bool isSaved,
-      final List<CommentModel> comments,
+      final List<PostCommentModel> comments,
       final int? amountComments,
       final int? amountLikes,
       final int? amountViews,
@@ -2060,7 +2060,7 @@ abstract class VideoPost implements PostModel {
   @override
   bool get isSaved;
   @override
-  List<CommentModel> get comments;
+  List<PostCommentModel> get comments;
   @override
   int? get amountComments;
   @override

@@ -18,7 +18,7 @@ _$TextPostImpl _$$TextPostImplFromJson(Map<String, dynamic> json) =>
       isDisliked: json['isDisliked'] as bool,
       isSaved: json['isSaved'] as bool,
       comments: (json['comments'] as List<dynamic>?)
-              ?.map((e) => CommentModel.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => PostCommentModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
       amountComments: (json['amountComments'] as num?)?.toInt(),
@@ -62,7 +62,7 @@ _$ImagePostImpl _$$ImagePostImplFromJson(Map<String, dynamic> json) =>
       isDisliked: json['isDisliked'] as bool,
       isSaved: json['isSaved'] as bool,
       comments: (json['comments'] as List<dynamic>?)
-              ?.map((e) => CommentModel.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => PostCommentModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
       amountComments: (json['amountComments'] as num?)?.toInt(),
@@ -113,7 +113,7 @@ _$VideoPostImpl _$$VideoPostImplFromJson(Map<String, dynamic> json) =>
       isDisliked: json['isDisliked'] as bool,
       isSaved: json['isSaved'] as bool,
       comments: (json['comments'] as List<dynamic>?)
-              ?.map((e) => CommentModel.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => PostCommentModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
       amountComments: (json['amountComments'] as num?)?.toInt(),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_comment_model.dart';
+import 'package:peer_app/data/models/post_comment_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_single_components/comment_middle_section.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_single_components/like_button_component.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
@@ -13,7 +13,7 @@ class CommentAndHeartRow extends StatelessWidget {
     required this.referenceName,
   });
 
-  final CommentModel comment;
+  final PostCommentModel comment;
   final bool isThirdLayerOrMore;
   final bool isSecondLayerOrMore;
   final String? referenceName;

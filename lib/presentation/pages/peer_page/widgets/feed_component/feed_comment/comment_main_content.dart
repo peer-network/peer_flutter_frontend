@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_comment_model.dart';
+import 'package:peer_app/data/models/post_comment_model.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
@@ -12,7 +12,7 @@ class CommentMainContent extends StatelessWidget {
     required this.comment,
   });
 
-  final CommentModel comment;
+  final PostCommentModel comment;
 
   @override
   Widget build(BuildContext context) {

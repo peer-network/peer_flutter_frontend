@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:peer_app/data/models/feed_comment_model.dart';
+import 'package:peer_app/data/models/post_comment_model.dart';
 import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/aspect_ratios.dart';
 
@@ -19,7 +19,7 @@ class PostModel with _$PostModel {
     required bool isReported,
     required bool isDisliked,
     required bool isSaved,
-    @Default([]) List<CommentModel> comments,
+    @Default([]) List<PostCommentModel> comments,
     int? amountComments,
     int? amountLikes,
     int? amountViews,
@@ -38,7 +38,7 @@ class PostModel with _$PostModel {
     required bool isReported,
     required bool isDisliked,
     required bool isSaved,
-    @Default([]) List<CommentModel> comments,
+    @Default([]) List<PostCommentModel> comments,
     int? amountComments,
     int? amountLikes,
     int? amountViews,
@@ -60,7 +60,7 @@ class PostModel with _$PostModel {
     required bool isReported,
     required bool isDisliked,
     required bool isSaved,
-    @Default([]) List<CommentModel> comments,
+    @Default([]) List<PostCommentModel> comments,
     int? amountComments,
     int? amountLikes,
     int? amountViews,

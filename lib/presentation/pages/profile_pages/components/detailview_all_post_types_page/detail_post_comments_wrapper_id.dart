@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/data/graphql/queries.dart';
-import 'package:peer_app/data/models/feed_comment_model.dart';
+import 'package:peer_app/data/models/post_comment_model.dart';
 import 'package:peer_app/data/provider/post_provider.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_logic/first_layer_comment.dart';
 import 'package:peer_app/presentation/whitelabel/components/wrapper/generic_future_builder.dart';
@@ -21,7 +21,7 @@ class DetailedPostCommentsWrapperId extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GenericFutureBuilder<List<CommentModel>>(
+    return GenericFutureBuilder<List<PostCommentModel>>(
       futureFunction:
           fetchComments(client, postId), // Das muss dynamisch werden
       dataBuilder: (context, comments) {
@@ -32,7 +32,7 @@ class DetailedPostCommentsWrapperId extends StatelessWidget {
   }
 }
 
-Future<List<CommentModel>> fetchComments(
+Future<List<PostCommentModel>> fetchComments(
     GraphQLClient client, String postId) async {
   // TODO delete this dummy code
   final List<dynamic> commentsJson;
@@ -62,5 +62,5 @@ Future<List<CommentModel>> fetchComments(
     commentsJson = postWithComments['comments'];
   }
 
-  return commentsJson.map((json) => CommentModel.fromJson(json)).toList();
+  return commentsJson.map((json) => PostCommentModel.fromJson(json)).toList();
 }

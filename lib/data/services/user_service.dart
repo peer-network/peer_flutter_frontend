@@ -32,83 +32,74 @@ class UserService {
   }
 
   Future<bool> toggleFollow(String userId) async {
-    try {
-      final user = _users.firstWhere((user) => user.id == userId);
-      // user.toggleFollow();
-      // Assuming the follow/unfollow action is simulated with a delay
-      await Future.delayed(const Duration(seconds: 1));
-      return true;
-    } catch (e, s) {
-      CustomException(e.toString(), s).handleError();
-      return false;
-    }
+    print("...");
+    return true;
   }
 
   Future<bool> toggleLike(String commentId) async {
-    try {
-      // Assuming the user can have posts with comments
-      for (UserModel user in _users) {
-        for (var post in user.posts) {
-          for (var comment in post.comments) {
-            if (comment.id == commentId) {
-              // comment.isLiked = !comment.isLiked!;
-              // await Future.delayed(const Duration(seconds: 1)); // Simulate delay
-              return true;
-            }
-          }
-        }
-      }
-      throw Exception("Comment not found with ID: $commentId");
-    } catch (e, s) {
-      CustomException(e.toString(), s).handleError();
-      return false;
-    }
-  }
-
-  Future<UserModel?> fetchNewUser(String userId) async {
-    final gqlClient = GraphQLClientSingleton();
-    final queryOption = QueryOptions(
-      document: Queries.getUserById,
-      fetchPolicy: FetchPolicy.networkOnly,
-      variables: const {'id': "0c4762a8-0a39-11ef-b7f2-e89c25791d89"},
-    );
-
-    try {
-      QueryResult<Object?> queryResult = await gqlClient.query(queryOption);
-
-      if (queryResult.hasException) {
-        CustomException(queryResult.exception.toString(), StackTrace.current)
-            .handleError();
-      }
-
-      if (queryResult.data == null) {
-        CustomException(queryResult.toString(), StackTrace.current)
-            .handleError();
-      }
-
-      final responseData = queryResult.data!;
-      final userData = responseData['getUserById'];
-
-      if (userData != null) {
-        // Add runtimeType to each post in the user data
-        if (userData['posts'] != null) {
-          userData['posts'] = List<Map<String, dynamic>>.from(userData['posts'])
-              .map((postJson) {
-            postJson["runtimeType"] = postJson["contentType"];
-            return postJson;
-          }).toList();
-        }
-
-        final user = UserModel.fromJson(userData);
-        _users.add(user);
-        return user;
-      } else {
-        throw Exception("User data is not available for ID $userId");
-      }
-    } catch (e, s) {
-      CustomException(e.toString(), s).handleError();
-      print('Error in fetching user: $e');
-      return null;
-    }
+    // try {
+    //   // Assuming the user can have posts with comments
+    //   for (UserModel user in _users) {
+    //     for (var post in user.posts) {
+    //       for (var comment in post.comments) {
+    //         if (comment.id == commentId) {
+    //           // comment.isLiked = !comment.isLiked!;
+    //           // await Future.delayed(const Duration(seconds: 1)); // Simulate delay
+    //           return true;
+    //         }
+    //       }
+    //     }
+    //   }
+    //   throw Exception("Comment not found with ID: $commentId");
+    // } catch (e, s) {
+    //   CustomException(e.toString(), s).handleError();
+    return false;
   }
 }
+
+Future<UserModel?> fetchNewUser(String userId) async {
+  final gqlClient = GraphQLClientSingleton();
+  final queryOption = QueryOptions(
+    document: Queries.getUserById,
+    fetchPolicy: FetchPolicy.networkOnly,
+    variables: const {'id': "0c4762a8-0a39-11ef-b7f2-e89c25791d89"},
+  );
+
+  try {
+    QueryResult<Object?> queryResult = await gqlClient.query(queryOption);
+
+    if (queryResult.hasException) {
+      CustomException(queryResult.exception.toString(), StackTrace.current)
+          .handleError();
+    }
+
+    if (queryResult.data == null) {
+      CustomException(queryResult.toString(), StackTrace.current).handleError();
+    }
+
+    final responseData = queryResult.data!;
+    final userData = responseData['getUserById'];
+
+    if (userData != null) {
+      // Add runtimeType to each post in the user data
+      if (userData['posts'] != null) {
+        userData['posts'] =
+            List<Map<String, dynamic>>.from(userData['posts']).map((postJson) {
+          postJson["runtimeType"] = postJson["contentType"];
+          return postJson;
+        }).toList();
+      }
+
+      final user = UserModel.fromJson(userData);
+      // _users.add(user);
+      return user;
+    } else {
+      throw Exception("User data is not available for ID $userId");
+    }
+  } catch (e, s) {
+    CustomException(e.toString(), s).handleError();
+    print('Error in fetching user: $e');
+    return null;
+  }
+}
+// }

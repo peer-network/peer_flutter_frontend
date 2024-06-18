@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'feed_comment_model.dart';
+part of 'post_comment_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -17,7 +17,7 @@ _$CommentModelImpl _$$CommentModelImplFromJson(Map<String, dynamic> json) =>
           ? null
           : UserModel.fromJson(json['user'] as Map<String, dynamic>),
       comments: (json['comments'] as List<dynamic>?)
-              ?.map((e) => CommentModel.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => PostCommentModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
       isLiked: json['isLiked'] as bool?,

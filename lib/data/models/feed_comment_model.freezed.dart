@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'feed_comment_model.dart';
+part of 'post_comment_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-CommentModel _$CommentModelFromJson(Map<String, dynamic> json) {
+PostCommentModel _$CommentModelFromJson(Map<String, dynamic> json) {
   return _CommentModel.fromJson(json);
 }
 
@@ -27,21 +27,21 @@ mixin _$CommentModel {
       throw _privateConstructorUsedError; // required UserModel creator, // Seems like "creator" and "user" are the same. There is no creator in the api
   DateTime get createdAt => throw _privateConstructorUsedError;
   UserModel? get user => throw _privateConstructorUsedError;
-  List<CommentModel> get comments => throw _privateConstructorUsedError;
+  List<PostCommentModel> get comments => throw _privateConstructorUsedError;
   bool? get isLiked => throw _privateConstructorUsedError;
   int? get likeCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CommentModelCopyWith<CommentModel> get copyWith =>
+  $CommentModelCopyWith<PostCommentModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CommentModelCopyWith<$Res> {
   factory $CommentModelCopyWith(
-          CommentModel value, $Res Function(CommentModel) then) =
-      _$CommentModelCopyWithImpl<$Res, CommentModel>;
+          PostCommentModel value, $Res Function(PostCommentModel) then) =
+      _$CommentModelCopyWithImpl<$Res, PostCommentModel>;
   @useResult
   $Res call(
       {String id,
@@ -50,7 +50,7 @@ abstract class $CommentModelCopyWith<$Res> {
       String userId,
       DateTime createdAt,
       UserModel? user,
-      List<CommentModel> comments,
+      List<PostCommentModel> comments,
       bool? isLiked,
       int? likeCount});
 
@@ -58,7 +58,7 @@ abstract class $CommentModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
+class _$CommentModelCopyWithImpl<$Res, $Val extends PostCommentModel>
     implements $CommentModelCopyWith<$Res> {
   _$CommentModelCopyWithImpl(this._value, this._then);
 
@@ -108,7 +108,7 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
       comments: null == comments
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentModel>,
+              as List<PostCommentModel>,
       isLiked: freezed == isLiked
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
@@ -148,7 +148,7 @@ abstract class _$$CommentModelImplCopyWith<$Res>
       String userId,
       DateTime createdAt,
       UserModel? user,
-      List<CommentModel> comments,
+      List<PostCommentModel> comments,
       bool? isLiked,
       int? likeCount});
 
@@ -205,7 +205,7 @@ class __$$CommentModelImplCopyWithImpl<$Res>
       comments: null == comments
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentModel>,
+              as List<PostCommentModel>,
       isLiked: freezed == isLiked
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
@@ -229,7 +229,7 @@ class _$CommentModelImpl implements _CommentModel {
       required this.userId,
       required this.createdAt,
       required this.user,
-      final List<CommentModel> comments = const [],
+      final List<PostCommentModel> comments = const [],
       this.isLiked,
       this.likeCount})
       : _comments = comments;
@@ -250,10 +250,10 @@ class _$CommentModelImpl implements _CommentModel {
   final DateTime createdAt;
   @override
   final UserModel? user;
-  final List<CommentModel> _comments;
+  final List<PostCommentModel> _comments;
   @override
   @JsonKey()
-  List<CommentModel> get comments {
+  List<PostCommentModel> get comments {
     if (_comments is EqualUnmodifiableListView) return _comments;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_comments);
@@ -315,7 +315,7 @@ class _$CommentModelImpl implements _CommentModel {
   }
 }
 
-abstract class _CommentModel implements CommentModel {
+abstract class _CommentModel implements PostCommentModel {
   const factory _CommentModel(
       {required final String id,
       required final String content,
@@ -323,7 +323,7 @@ abstract class _CommentModel implements CommentModel {
       required final String userId,
       required final DateTime createdAt,
       required final UserModel? user,
-      final List<CommentModel> comments,
+      final List<PostCommentModel> comments,
       final bool? isLiked,
       final int? likeCount}) = _$CommentModelImpl;
 
@@ -343,7 +343,7 @@ abstract class _CommentModel implements CommentModel {
   @override
   UserModel? get user;
   @override
-  List<CommentModel> get comments;
+  List<PostCommentModel> get comments;
   @override
   bool? get isLiked;
   @override
