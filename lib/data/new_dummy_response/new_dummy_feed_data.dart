@@ -79,7 +79,11 @@ List<Map<String, dynamic>> dummyFeedData = [
     "isSaved": false,
     "comments": [],
     "imageUrls": [
-      "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg"
+      "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
+      "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
+      "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
+      "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
+      "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
     ],
     "amountComments": 0,
     "likeCount": 69,
@@ -88,7 +92,8 @@ List<Map<String, dynamic>> dummyFeedData = [
   {
     "runtimeType": "video",
     "id": "post003",
-    "videoUrl": "https://example.com/path/to/video.mp4",
+    "videoUrl":
+        "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4",
     "caption": "Quick Tutorial",
     "description": "Here's a quick tutorial on how to start your own blog.",
     "creator": {
@@ -198,5 +203,39 @@ List<Map<String, dynamic>> dummyFeedData = [
     "amountComments": 0,
     "likeCount": 40,
     "viewCount": 300
+  },
+  {
+    "runtimeType": "image",
+    "id": "post006",
+    "caption": "Double Delight",
+    "description": "A glimpse of nature's beauty with two stunning photos.",
+    "creator": {
+      "id": "user004",
+      "name": "Emily Stone",
+      "email": "emily@example.com",
+      "verified": true,
+      "createdAt": "2022-04-01T12:00:00Z",
+      "updatedAt": "2022-04-01T12:00:00Z",
+      "verificationToken": "jkl012",
+      "bio": "Photographer and nature enthusiast.",
+      "amountOfPosts": 7,
+      "amountOfFollowers": 250,
+      "isFollowing": true
+    },
+    "createdAt": "2022-04-02T17:00:00Z",
+    "updatedAt": "2022-04-02T17:00:00Z",
+    "isLiked": false,
+    "isViewed": true,
+    "isReported": false,
+    "isDisliked": false,
+    "isSaved": false,
+    "comments": [],
+    "imageUrls": [
+      "https://plus.unsplash.com/premium_photo-1689177357836-52c9d90d3d6f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1661541158769-79f721cf5343?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "amountComments": 0,
+    "likeCount": 50,
+    "viewCount": 400
   }
 ];

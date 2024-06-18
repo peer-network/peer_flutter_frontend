@@ -1,80 +1,38 @@
-import 'package:flutter/foundation.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/post_model.dart';
-import 'package:peer_app/presentation/routing/routes/page_routes.dart';
+import 'package:peer_app/presentation/whitelabel/components/image_container/custom_cached_network_image.dart';
 
 class FeedContentImageWidget extends StatefulWidget {
   final ImagePost imagePost;
-  const FeedContentImageWidget({super.key, required this.imagePost});
+  final ValueNotifier<int> currentIndex;
+  const FeedContentImageWidget(
+      {super.key, required this.imagePost, required this.currentIndex});
 
   @override
   State<FeedContentImageWidget> createState() => _FeedContentImageWidgetState();
 }
 
 class _FeedContentImageWidgetState extends State<FeedContentImageWidget> {
-  final ValueNotifier<int> _reloadNotifier = ValueNotifier<int>(0);
-
-  @override
-  void dispose() {
-    _reloadNotifier.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.width, // Assuming square images
-      child: PageView.builder(
-        itemCount: widget.imagePost.imageUrls.length,
-        controller: PageController(
-            viewportFraction:
-                1), // Adjust the viewportFraction for partially visible next image
-        itemBuilder: (context, index) {
-          return ValueListenableBuilder(
-              valueListenable: _reloadNotifier,
-              builder: (context, value, child) {
-                return Hero(
-                    tag: 'post-${widget.imagePost.imageUrls[index]}',
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          DetailedImagePageRoute(
-                            widget.imagePost,
-                            widget.imagePost.imageUrls[index],
-                          ),
-                        );
-                      },
-                      child: Image.network(
-                        widget.imagePost.imageUrls[index],
-                        fit: BoxFit.fitWidth,
-                        filterQuality: FilterQuality.medium,
-                        loadingBuilder: (context, child, loadingProgress) {
-                          return loadingProgress == null
-                              ? child
-                              : Center(
-                                  child: CircularProgressIndicator(
-                                    value: loadingProgress.expectedTotalBytes !=
-                                            null
-                                        ? loadingProgress
-                                                .cumulativeBytesLoaded /
-                                            loadingProgress.expectedTotalBytes!
-                                        : null,
-                                  ),
-                                );
-                        },
-                        errorBuilder: (context, error, stackTrace) {
-                          return GestureDetector(
-                            onTap: () => _reloadNotifier.value++,
-                            child: const Center(
-                              child:
-                                  Text('Failed to load image. Tap to retry.'),
-                            ),
-                          );
-                        },
-                      ),
-                    ));
-              });
-        },
+      height: MediaQuery.of(context).size.width,
+      child: CarouselSlider(
+        items: widget.imagePost.imageUrls.map((url) {
+          return CustomCachedNetworkImage(
+              imageUrl: url, width: double.infinity);
+        }).toList(),
+        options: CarouselOptions(
+          enableInfiniteScroll: false,
+          height: 400,
+          viewportFraction: 1.0,
+          onPageChanged: (index, reason) {
+            setState(() {
+              widget.currentIndex.value = index;
+            });
+          },
+        ),
       ),
     );
   }

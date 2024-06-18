@@ -24,20 +24,28 @@ class _FeedCardComponentState extends State<FeedCardComponent> {
   @override
   Widget build(BuildContext context) {
     final PostModel post = widget.post;
+    ValueNotifier<int> currentIndex = ValueNotifier<int>(0);
     return FeedTile(
       child: Column(
         children: [
           // Feed header
           FeedHeaderComponent(user: post.creator),
           // Feed content
-          FeedContentComponent(post: post),
+          if (post is ImagePost) ...[
+            FeedContentComponent(post: post, currentIndex: currentIndex),
+          ] else ...[
+            FeedContentComponent(post: post),
+          ],
           // Feed actions
           // Passing feed model to FeedActionsComponent
-          FeedActionsComponent(feed: post),
+          if (post is ImagePost) ...[
+            FeedActionsComponent(feed: post, currentIndex: currentIndex)
+          ] else ...[
+            FeedActionsComponent(feed: post),
+          ],
           // Feed image description
           if (post is ImagePost)
-            FeedImageDescriptionComponent(
-                text: (post as ImagePost).description),
+            FeedImageDescriptionComponent(text: post.description),
           const SizedBox(height: AppPaddings.small),
           FeedStatsComponent(feed: widget.post),
           const SizedBox(height: AppPaddings.small),

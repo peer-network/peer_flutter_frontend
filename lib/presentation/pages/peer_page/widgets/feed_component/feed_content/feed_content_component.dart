@@ -5,8 +5,10 @@ import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/fee
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_content/feed_content_video_widget.dart';
 
 class FeedContentComponent extends StatelessWidget {
-  const FeedContentComponent({super.key, required this.post});
+  const FeedContentComponent(
+      {super.key, required this.post, this.currentIndex});
   final PostModel post;
+  final ValueNotifier<int>? currentIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +51,7 @@ class FeedContentComponent extends StatelessWidget {
                     viewCount) =>
                 FeedContentImageWidget(
                   imagePost: post as ImagePost,
+                  currentIndex: currentIndex!,
                 ),
             video: (id,
                     videoUrl,
