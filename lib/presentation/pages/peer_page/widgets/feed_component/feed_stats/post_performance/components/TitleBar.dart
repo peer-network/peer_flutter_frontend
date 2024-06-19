@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class TopBar extends StatelessWidget {
+class TitleBar extends StatelessWidget {
   final String title;
 
-  const TopBar({
+  const TitleBar({
     Key? key,
     required this.title,
   }) : super(key: key);
@@ -18,7 +18,6 @@ class TopBar extends StatelessWidget {
         return
         Container(
           height: titleBarHeight,
-          color: Colors.grey,
           child: Center(
             child: Text(
               title,
