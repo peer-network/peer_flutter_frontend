@@ -25,8 +25,6 @@ class DetailedPostPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final client = GraphQLProvider.of(context).value;
-
-    print("client >>>>>>>>>>>>>>>>>>>>>:  $client");
     return BasePage(
         appBar: AppBar(
           title: const Text(''),

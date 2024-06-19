@@ -29,10 +29,7 @@ class CommentComment extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
-          comment.user != null
-              ? UserImage(imageUrl: comment.user!.img)
-              : Container(),
-          // UserImage(imageUrl: comment.creator.img),
+          UserImage(imageUrl: comment.user!.img),
           Expanded(
             child: CommentAndHeartRow(
               comment: comment,
@@ -41,7 +38,6 @@ class CommentComment extends StatelessWidget {
               referenceName: isThirdLayerOrMore
                   ? (comment.user?.username ?? 'NULL in json')
                   : null,
-              // isThirdLayerOrMore ? comment.creator.username : null,
             ),
           ),
         ],

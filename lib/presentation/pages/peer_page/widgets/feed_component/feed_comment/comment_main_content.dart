@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/post_comment_model.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
-import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
+import 'package:peer_app/presentation/whitelabel/components/image_container/avatar_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
@@ -19,10 +19,7 @@ class CommentMainContent extends StatelessWidget {
     return Row(
       children: [
         // Avatar
-        comment.user != null
-            ? AvatarComponent(imageUrl: comment.user!.img)
-            : Container(),
-        // AvatarComponent(imageUrl: comment.user!.img),
+        AvatarComponent(imageUrl: comment.user!.img),
         const SizedBox(width: AppPaddings.small),
         // Comment
         Expanded(
