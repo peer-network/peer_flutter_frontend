@@ -18,7 +18,6 @@ class ThirdLayerComment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("referenceName in ThirdLayerComponent: $referenceName");
     return Column(
         children: comments
             .map((PostCommentModel comment) => CommentLayerComponent(

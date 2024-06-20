@@ -22,7 +22,6 @@ class CommentLayerComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("referenceName in CommentLayerComponent: $referenceName");
     return Column(
       children: [
         Container(
