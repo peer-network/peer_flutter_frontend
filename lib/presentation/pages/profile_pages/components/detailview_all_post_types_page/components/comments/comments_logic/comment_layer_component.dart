@@ -11,15 +11,18 @@ class CommentLayerComponent extends StatelessWidget {
     this.nextLayer,
     this.isThirdLayerOrMore = false,
     this.isSecondLayerOrMore = false,
+    this.referenceName,
   });
 
   final PostCommentModel comment;
   final Widget? nextLayer;
   final bool isThirdLayerOrMore;
   final bool isSecondLayerOrMore;
+  final String? referenceName;
 
   @override
   Widget build(BuildContext context) {
+    print("referenceName in CommentLayerComponent: $referenceName");
     return Column(
       children: [
         Container(
@@ -29,9 +32,11 @@ class CommentLayerComponent extends StatelessWidget {
               ? LightColors.backgroundContainer
               : DarkColors.backgroundContainer,
           child: CommentComment(
-              comment: comment,
-              isThirdLayerOrMore: isThirdLayerOrMore,
-              isSecondLayerOrMore: isSecondLayerOrMore),
+            comment: comment,
+            isThirdLayerOrMore: isThirdLayerOrMore,
+            isSecondLayerOrMore: isSecondLayerOrMore,
+            referenceName: referenceName,
+          ),
         ),
         nextLayer ?? Container()
       ],

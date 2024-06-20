@@ -3,9 +3,11 @@ import 'package:peer_app/data/models/post_comment_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_logic/comment_layer_component.dart';
 
 class ThirdLayerComment extends StatelessWidget {
-  const ThirdLayerComment({super.key, required this.comments});
+  const ThirdLayerComment(
+      {super.key, required this.comments, this.referenceName});
 
   final List<PostCommentModel> comments;
+  final String? referenceName;
 
   // Was tut diese widget?
   // Everything is the same as in the SecondLayerComment widget and
@@ -16,14 +18,18 @@ class ThirdLayerComment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("referenceName in ThirdLayerComponent: $referenceName");
     return Column(
         children: comments
             .map((PostCommentModel comment) => CommentLayerComponent(
                 isThirdLayerOrMore: true,
                 isSecondLayerOrMore: true,
                 comment: comment,
+                referenceName: referenceName,
                 nextLayer: comment.comments.isNotEmpty
-                    ? ThirdLayerComment(comments: comment.comments)
+                    ? ThirdLayerComment(
+                        comments: comment.comments,
+                        referenceName: comment.user!.username)
                     : Container()))
             .toList());
   }

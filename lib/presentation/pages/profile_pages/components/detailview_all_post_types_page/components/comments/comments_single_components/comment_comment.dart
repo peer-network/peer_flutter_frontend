@@ -13,11 +13,13 @@ class CommentComment extends StatelessWidget {
     required this.comment,
     required this.isThirdLayerOrMore,
     required this.isSecondLayerOrMore,
+    this.referenceName,
   });
 
   final PostCommentModel comment;
   final bool isThirdLayerOrMore;
   final bool isSecondLayerOrMore;
+  final String? referenceName;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +37,8 @@ class CommentComment extends StatelessWidget {
               comment: comment,
               isThirdLayerOrMore: isThirdLayerOrMore,
               isSecondLayerOrMore: isSecondLayerOrMore,
-              referenceName: isThirdLayerOrMore
-                  ? (comment.user?.username ?? 'NULL in json')
-                  : null,
+              referenceName:
+                  isThirdLayerOrMore ? (referenceName ?? 'NULL in json') : null,
             ),
           ),
         ],
