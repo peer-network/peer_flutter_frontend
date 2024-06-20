@@ -64,8 +64,6 @@ Future<UserModel?> fetchNewUser(String userId) async {
     fetchPolicy: FetchPolicy.networkOnly,
     variables: {'id': userId},
   );
-  print(
-      "Fetching user with ID: <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< $userId");
 
   try {
     QueryResult<Object?> queryResult = await gqlClient.query(queryOption);
