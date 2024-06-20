@@ -1,41 +1,42 @@
 import 'package:flutter/material.dart';
 
 enum IconLibrary {
-  heartFilled,
-  horizontalMenu,
-  history,
-  logOut,
-  shares,
-  coupon,
-  plus,
-  minus,
-  home,
-  star,
-  bell,
-  support,
-  settings,
-  copy,
-  share,
-  legal,
-  play,
-  megaphone,
+  arrowDown,
   arrowEast,
   arrowWest,
-  arrowDown,
-  peer,
-  search,
-  profile,
-  shop,
-  plusBox,
-  notifications,
-  message,
-  comment,
-  view,
-  heart,
-  forward,
+  bell,
   close,
-  trash,
+  comment,
+  copy,
+  coupon,
+  diamond,
   edit,
+  forward,
+  heart,
+  heartFilled,
+  history,
+  home,
+  horizontalMenu,
+  legal,
+  logOut,
+  megaphone,
+  message,
+  minus,
+  notifications,
+  peer,
+  play,
+  plus,
+  plusBox,
+  profile,
+  search,
+  settings,
+  share,
+  shares,
+  shop,
+  star,
+  support,
+  trash,
+  view,
 }
 
 extension IconExtension on IconLibrary {
@@ -111,8 +112,8 @@ extension IconExtension on IconLibrary {
         return const AssetImage("assets/icons/trash.png");
       case IconLibrary.edit:
         return const AssetImage("assets/icons/edit.png");
-      case IconLibrary.heartFilled:
-        return const AssetImage("assets/icons/heart_filled.png");
+      case IconLibrary.diamond:
+        return const AssetImage("assets/icons/diamond_post_perfomance.png");
 
       default:
         throw Exception("Icon not found");
