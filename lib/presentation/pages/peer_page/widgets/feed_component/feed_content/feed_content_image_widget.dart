@@ -5,7 +5,7 @@ import 'package:peer_app/presentation/whitelabel/components/image_container/cust
 
 class FeedContentImageWidget extends StatefulWidget {
   final ImagePost imagePost;
-  final ValueNotifier<int> currentIndex;
+  final ValueNotifier<double> currentIndex;
   const FeedContentImageWidget(
       {super.key, required this.imagePost, required this.currentIndex});
 
@@ -25,11 +25,16 @@ class _FeedContentImageWidgetState extends State<FeedContentImageWidget> {
         }).toList(),
         options: CarouselOptions(
           enableInfiniteScroll: false,
-          height: 400,
+          height: double.infinity,
           viewportFraction: 1.0,
           onPageChanged: (index, reason) {
             setState(() {
-              widget.currentIndex.value = index;
+              widget.currentIndex.value = index.toDouble();
+            });
+          },
+          onScrolled: (position) {
+            setState(() {
+              widget.currentIndex.value = position!;
             });
           },
         ),

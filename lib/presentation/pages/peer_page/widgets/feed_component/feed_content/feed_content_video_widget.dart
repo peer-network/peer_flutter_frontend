@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
+// WORK IN PROGRESS
+
 class FeedContentVideoWidget extends StatefulWidget {
   final String videoUrl;
   const FeedContentVideoWidget({super.key, required this.videoUrl});
@@ -44,8 +46,6 @@ class _FeedContentVideoWidgetState extends State<FeedContentVideoWidget> {
         child: FutureBuilder(
           future: _initializeVideoPlayerFuture,
           builder: (context, snapshot) {
-            print(widget.videoUrl);
-            print(Uri.parse(widget.videoUrl).toString());
             if (snapshot.connectionState == ConnectionState.done) {
               return AspectRatio(
                 aspectRatio: _controller.value.aspectRatio,

@@ -13,6 +13,6 @@ class _SelectionBarState extends State<SelectionBar> {
   Widget build(BuildContext context) {
     return Container(
         color: Theme.of(context).colorScheme.primaryContainer,
-        child: DropdownBar());
+        child: const CustomDropdownBar());
   }
 }

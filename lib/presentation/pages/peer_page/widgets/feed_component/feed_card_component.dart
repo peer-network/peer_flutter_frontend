@@ -20,11 +20,18 @@ class FeedCardComponent extends StatefulWidget {
 
 class _FeedCardComponentState extends State<FeedCardComponent> {
   bool showComments = true;
+  ValueNotifier<double> currentIndex = ValueNotifier<double>(0.0);
+
+  @override
+  void dispose() {
+    currentIndex.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final PostModel post = widget.post;
-    ValueNotifier<int> currentIndex = ValueNotifier<int>(0);
+
     return FeedTile(
       child: Column(
         children: [

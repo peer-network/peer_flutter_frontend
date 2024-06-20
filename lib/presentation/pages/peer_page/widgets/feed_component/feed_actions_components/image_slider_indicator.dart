@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/whitelabel/colors.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ImageSliderIndicator extends StatelessWidget {
   final int imageCount;
-  final ValueNotifier<int> currentIndex;
+  final ValueNotifier<double> currentIndex;
 
   const ImageSliderIndicator({
     Key? key,
@@ -12,36 +14,43 @@ class ImageSliderIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _barWidth = 75;
-    double _indicatorWidth = _barWidth / imageCount;
+    double indicatorWidth = AppDimensions.imageSliderBarWidth / imageCount;
 
-    return ValueListenableBuilder<int>(
+    return ValueListenableBuilder<double>(
       valueListenable: currentIndex,
       builder: (context, value, child) {
-        double padding = _indicatorWidth * value.toDouble();
+        double padding = indicatorWidth * value.toDouble();
         return Container(
           height: 4,
-          width: _barWidth,
+          width: AppDimensions.imageSliderBarWidth,
           decoration: BoxDecoration(
-            color: Colors.grey[600],
-            borderRadius: BorderRadius.circular(5),
+            color: Theme.of(context).brightness == Brightness.light
+                ? LightColors.barSlider
+                : DarkColors.barSlider,
+            borderRadius: AppBorders.imageSliderRadius,
           ),
           child: Stack(
             children: [
               Container(
-                width: _barWidth,
+                width: AppDimensions.imageSliderBarWidth,
                 decoration: BoxDecoration(
-                  color: Colors.grey[600],
-                  borderRadius: BorderRadius.circular(5),
+                  color: Theme.of(context).brightness == Brightness.light
+                      ? LightColors.barSlider
+                      : DarkColors.barSlider,
+                  borderRadius: AppBorders.imageSliderRadius,
                 ),
               ),
-              Padding(
+              AnimatedPadding(
+                duration: AppDuration.imageSliderDuration,
+                curve: Curves.easeInOut,
                 padding: EdgeInsets.only(left: padding),
                 child: Container(
-                  width: _indicatorWidth,
+                  width: indicatorWidth,
                   decoration: BoxDecoration(
-                    color: Colors.grey[400],
-                    borderRadius: BorderRadius.circular(5),
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? LightColors.barHandle
+                        : DarkColors.barHandle,
+                    borderRadius: AppBorders.imageSliderRadius,
                   ),
                 ),
               ),

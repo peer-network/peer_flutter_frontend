@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/post_model.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_actions_components/hidden_icons.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_actions_components/image_slider_indicator.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_actions_components/visible_icons.dart';
-import 'package:peer_app/presentation/routing/routes/page_routes.dart';
-import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
-import 'package:peer_app/presentation/whitelabel/components/date/formatted_date.dart';
-import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
+import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
+import 'package:peer_app/presentation/whitelabel/components/date/formatted_date.dart';
+import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_actions_components/hidden_icons.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_actions_components/visible_icons.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_actions_components/image_slider_indicator.dart';
 
 class FeedActionsComponent extends StatefulWidget {
   const FeedActionsComponent(
       {super.key, required this.feed, this.currentIndex});
   final PostModel feed;
-  final ValueNotifier<int>? currentIndex;
+  final ValueNotifier<double>? currentIndex;
 
   @override
   State<FeedActionsComponent> createState() => _FeedActionsComponentState();
@@ -29,7 +28,7 @@ class _FeedActionsComponentState extends State<FeedActionsComponent>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 250),
+      duration: AppDuration.imagePostWidgetTransitionDuration,
       vsync: this,
     );
   }
@@ -88,7 +87,7 @@ class _FeedActionsComponentState extends State<FeedActionsComponent>
           ),
           const SizedBox(width: AppPaddings.small),
           AnimatedSwitcher(
-            duration: const Duration(milliseconds: 250),
+            duration: AppDuration.imagePostWidgetTransitionDuration,
             transitionBuilder: (Widget child, Animation<double> animation) {
               return ScaleTransition(scale: animation, child: child);
             },

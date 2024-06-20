@@ -9,6 +9,10 @@ class AppValues {
 
 class AppDuration {
   static const int toastDuration = 2;
+
+  static const Duration imageSliderDuration = Duration(milliseconds: 0);
+  static const Duration imagePostWidgetTransitionDuration =
+      Duration(milliseconds: 250);
 }
 
 class AppBorders {
@@ -17,6 +21,7 @@ class AppBorders {
   static BorderRadius defaultRadius = BorderRadius.circular(20.0);
   static BorderRadius noRadius = BorderRadius.zero;
   static BorderRadius profileTextPostCardRadius = BorderRadius.circular(5);
+  static BorderRadius imageSliderRadius = BorderRadius.circular(5.0);
 }
 
 class AppMargins {
@@ -74,6 +79,12 @@ class AppDimensions {
   static const double dragHandleHeight = 6.0;
 
   static const double dropDownBorderWidth = 2.0;
+  static const double feedDropDownButtonHeight = 40.0;
+
+  static const double imageSliderBarWidth = 75.0;
+
+  static const int dropDownButtonElevation = 16;
+  static const double textPostSpacing = 12.0;
 }
 
 // aspect ratios
