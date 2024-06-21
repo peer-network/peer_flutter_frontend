@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_comment_model.dart';
+import 'package:peer_app/data/models/post_comment_model.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_comment/comment_main_content.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_comment/comment_stats_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_comment/sub_comment_component.dart';
@@ -8,7 +8,7 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 class CommentComponent extends StatelessWidget {
   const CommentComponent({super.key, required this.comment});
 
-  final CommentModel comment;
+  final PostCommentModel comment;
   @override
   Widget build(BuildContext context) {
     return Padding(

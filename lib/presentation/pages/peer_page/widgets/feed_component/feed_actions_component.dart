@@ -51,10 +51,11 @@ class _FeedActionsComponentState extends State<FeedActionsComponent>
   }
 
   Widget buildSlider() {
-    if (widget.feed is ImagePost) {
+    if (widget.feed is ImagePost &&
+        (widget.feed as ImagePost).media.length > 1) {
       return ImageSliderIndicator(
         key: const ValueKey(1),
-        imageCount: (widget.feed as ImagePost).imageUrls.length,
+        imageCount: (widget.feed as ImagePost).media.length,
         currentIndex: widget.currentIndex!,
       );
     } else {
@@ -99,7 +100,11 @@ class _FeedActionsComponentState extends State<FeedActionsComponent>
                     child: buildSlider()),
           ),
           const Spacer(),
-          Text(FormattedDate(widget.feed.createdAt).getFormattedDate(),
+          Text(
+              FormattedDate(widget.feed.createdAt ??
+                      DateTime
+                          .now()) //TODO: quick fix because video does not work
+                  .getFormattedDate(),
               style: Theme.of(context).textTheme.bodySmall),
         ],
       ),

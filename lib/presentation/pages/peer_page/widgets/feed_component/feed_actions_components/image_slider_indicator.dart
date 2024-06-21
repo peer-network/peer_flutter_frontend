@@ -21,7 +21,7 @@ class ImageSliderIndicator extends StatelessWidget {
       builder: (context, value, child) {
         double padding = indicatorWidth * value.toDouble();
         return Container(
-          height: 4,
+          height: AppDimensions.imageSliderBarHeight,
           width: AppDimensions.imageSliderBarWidth,
           decoration: BoxDecoration(
             color: Theme.of(context).brightness == Brightness.light

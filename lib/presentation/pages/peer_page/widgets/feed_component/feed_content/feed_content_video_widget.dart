@@ -33,30 +33,22 @@ class _FeedContentVideoWidgetState extends State<FeedContentVideoWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return VisibilityDetector(
-        key: Key('video-${widget.videoUrl}'),
-        onVisibilityChanged: (visibilityInfo) async {
-          var visiblePercentage = visibilityInfo.visibleFraction * 100;
-          if (visiblePercentage > 50) {
-            await _controller.play();
-          } else {
-            _controller.pause();
-          }
-        },
-        child: FutureBuilder(
-          future: _initializeVideoPlayerFuture,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              return AspectRatio(
-                aspectRatio: _controller.value.aspectRatio,
-                child: VideoPlayer(_controller),
-              );
-            } else {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-          },
-        ));
+    /*return FutureBuilder(
+      future: _initializeVideoPlayerFuture,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          _controller.play();
+          return AspectRatio(
+            aspectRatio: _controller.value.aspectRatio,
+            child: VideoPlayer(_controller),
+          );
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
+    );*/
+    return const Text("Videos are currently not supported.");
   }
 }

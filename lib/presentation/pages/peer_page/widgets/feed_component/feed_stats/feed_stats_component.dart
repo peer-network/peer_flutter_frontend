@@ -21,9 +21,9 @@ class FeedStatsComponent extends StatelessWidget {
           horizontal: AppPaddings.large, vertical: AppPaddings.small),
       child: Row(
         children: [
-          LikeCountComponent(likeCount: feed.likeCount),
+          LikeCountComponent(likeCount: feed.amountLikes),
           const SizedBox(width: AppPaddings.small),
-          ViewCountComponent(viewCount: feed.viewCount),
+          ViewCountComponent(viewCount: feed.amountViews),
           const Spacer(),
           CommentCountComponent(
             commentCount: feed.comments.length,

@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/chat_contact_model.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
-import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
+import 'package:peer_app/presentation/whitelabel/components/image_container/avatar_component.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class SharePostContactCardComponent extends StatelessWidget {
@@ -74,7 +74,7 @@ class SharePostContactCardComponent extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  AvatarComponent(imageUrl: chatContact.contact.imageUrl),
+                  AvatarComponent(imageUrl: chatContact.contact.img),
                   Expanded(
                     flex: 95,
                     child: Padding(
@@ -83,7 +83,9 @@ class SharePostContactCardComponent extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         child: RichText(
                           text: _highlightSearchResult(
-                              chatContact.contact.name!, searchQuery, context),
+                              chatContact.contact.username,
+                              searchQuery,
+                              context),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),

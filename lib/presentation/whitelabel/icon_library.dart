@@ -123,6 +123,8 @@ extension IconExtension on IconLibrary {
         return const AssetImage("assets/icons/trash.png");
       case IconLibrary.edit:
         return const AssetImage("assets/icons/edit.png");
+      case IconLibrary.heartFilled:
+        return const AssetImage("assets/icons/heart_filled.png");
 
       default:
         throw Exception("Icon not found");

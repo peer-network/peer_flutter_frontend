@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/core/types/post_types.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/profile_image_post_section.dart';
@@ -18,7 +17,7 @@ class UserProfileBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          ProfileImageSection(imgUrl: user.imageUrl),
+          ProfileImageSection(imgUrl: user.img),
           const SizedBox(height: AppPaddings.large),
           ProfileInfoSection(user: user),
           const SizedBox(height: AppPaddings.large),

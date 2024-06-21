@@ -47,7 +47,8 @@ class _CustomDropdownBarState extends State<CustomDropdownBar> {
     return Container(
       height: AppDimensions.feedDropDownButtonHeight,
       padding: const EdgeInsets.only(
-          left: AppPaddings.small + AppPaddings.tiny, right: AppPaddings.small),
+          left: AppDimensions.dropDownButtonPaddingLeft,
+          right: AppPaddings.small),
       decoration: BoxDecoration(
           borderRadius: AppBorders.defaultRadius,
           border: Border.all(

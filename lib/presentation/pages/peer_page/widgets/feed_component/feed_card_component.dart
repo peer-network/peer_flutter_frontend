@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_actions_component.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_comment/feed_comment_view.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_content/feed_content_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_header_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_image_description_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/feed_stats_component.dart';
+import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/components/tiles/feed_tile.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
@@ -36,23 +36,26 @@ class _FeedCardComponentState extends State<FeedCardComponent> {
       child: Column(
         children: [
           // Feed header
-          FeedHeaderComponent(user: post.creator),
-          // Feed content
-          if (post is ImagePost) ...[
-            FeedContentComponent(post: post, currentIndex: currentIndex),
-          ] else ...[
-            FeedContentComponent(post: post),
-          ],
+          FeedHeaderComponent(user: post.user!),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                DetailedPostPageRoute(
+                  post, // Pass the entire imagePost object
+                ),
+              );
+            },
+            child: FeedContentComponent(post: post, currentIndex: currentIndex),
+          ),
+
           // Feed actions
           // Passing feed model to FeedActionsComponent
-          if (post is ImagePost) ...[
-            FeedActionsComponent(feed: post, currentIndex: currentIndex)
-          ] else ...[
-            FeedActionsComponent(feed: post),
-          ],
+
+          FeedActionsComponent(feed: post, currentIndex: currentIndex),
           // Feed image description
           if (post is ImagePost)
-            FeedImageDescriptionComponent(text: post.description),
+            FeedImageDescriptionComponent(
+                text: post.mediaDescription, caption: post.title),
           const SizedBox(height: AppPaddings.small),
           FeedStatsComponent(feed: widget.post),
           const SizedBox(height: AppPaddings.small),

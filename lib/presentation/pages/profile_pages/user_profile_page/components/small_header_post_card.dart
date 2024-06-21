@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
-import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
+import 'package:peer_app/presentation/whitelabel/components/image_container/avatar_component.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class SmallHeaderPostCard extends StatelessWidget {
@@ -23,12 +23,12 @@ class SmallHeaderPostCard extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            AvatarComponent(imageUrl: creator.imageUrl),
+            AvatarComponent(imageUrl: creator.img),
             const SizedBox(width: AppPaddings.small),
             // Title
             Column(
               children: [
-                Text(creator.name!,
+                Text(creator.username,
                     style: Theme.of(context).textTheme.bodyLarge!),
                 const SizedBox(height: AppPaddings.tiny),
                 // datetime as "23. January" with formatted date

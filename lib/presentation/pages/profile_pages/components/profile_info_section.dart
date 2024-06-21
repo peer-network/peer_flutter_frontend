@@ -22,7 +22,7 @@ class ProfileInfoSection extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(user.name!,
+                Text(user.username,
                     style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                         color: Theme.of(context).brightness == Brightness.light
                             ? LightColors.textPrimary
@@ -45,12 +45,12 @@ class ProfileInfoSection extends StatelessWidget {
           // Actions Component
           // UserProfileActionsComponent(user: user), // Send Message
           // Bio
-          user.bio != null
+          user.biograph != null
               ? Padding(
                   padding: const EdgeInsets.only(top: AppPaddings.medium),
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(user.bio!,
+                    child: Text(user.biograph!,
                         style: Theme.of(context).textTheme.labelLarge!),
                   ),
                 )

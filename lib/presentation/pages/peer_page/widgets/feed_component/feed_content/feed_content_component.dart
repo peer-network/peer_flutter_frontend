@@ -15,7 +15,7 @@ class FeedContentComponent extends StatelessWidget {
   Widget buildContentWidget(PostModel post) {
     if (post is TextPost) {
       return FeedContentTextWidget(
-        caption: post.caption,
+        caption: post.title,
         text: post.content,
       );
     } else if (post is ImagePost) {
@@ -24,7 +24,7 @@ class FeedContentComponent extends StatelessWidget {
         currentIndex: currentIndex!,
       );
     } else if (post is VideoPost) {
-      return FeedContentVideoWidget(videoUrl: post.videoUrl);
+      return FeedContentVideoWidget(videoUrl: post.media!);
     } else {
       return const Text(
           'Unknown post type (if you see this contact the developer pls thx)');

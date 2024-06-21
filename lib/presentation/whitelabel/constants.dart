@@ -5,6 +5,7 @@ import 'package:peer_app/presentation/whitelabel/components/types/aspect_ratios.
 class AppValues {
   static const int defaultLimit = 50;
   static const int maxLastMessageLength = 20;
+  static const int imageDescriptionMaxLines = 3;
 }
 
 class AppDuration {
@@ -34,6 +35,7 @@ class AppPaddings {
   static const double medium = 16.0;
   static const double large = 24.0;
   static const double extraLarge = 32.0;
+  static const double extraLargePlus = 38.0;
   static const double gigaLarge = 64.0;
 }
 
@@ -78,13 +80,17 @@ class AppDimensions {
 
   static const double dragHandleHeight = 6.0;
 
+  static const int dropDownButtonElevation = 16;
   static const double dropDownBorderWidth = 2.0;
   static const double feedDropDownButtonHeight = 40.0;
 
   static const double imageSliderBarWidth = 75.0;
+  static const double imageSliderBarHeight = 4.0;
 
-  static const int dropDownButtonElevation = 16;
   static const double textPostSpacing = 12.0;
+  static const double imageDescriptionSpacing = 4.0;
+
+  static const double dropDownButtonPaddingLeft = 12.0;
 }
 
 // aspect ratios
