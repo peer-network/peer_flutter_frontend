@@ -22,6 +22,7 @@ class _FeedContentImageWidgetState extends State<FeedContentImageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    print("ID of image post: ${widget.imagePost.id}");
     return SizedBox(
       height: MediaQuery.of(context).size.width, // Assuming square images
       child: PageView.builder(
