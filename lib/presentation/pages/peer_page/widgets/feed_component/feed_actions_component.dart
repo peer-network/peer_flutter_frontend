@@ -8,7 +8,7 @@ import 'package:peer_app/presentation/whitelabel/components/types/size_types.dar
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 //import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/post_performance_scroll_sheet.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/post_performance_sheet.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/post_performance.dart';
 
 class FeedActionsComponent extends StatelessWidget {
   const FeedActionsComponent({super.key, required this.feed});
@@ -51,7 +51,7 @@ class FeedActionsComponent extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => PostPerformanceSheet()),
+                MaterialPageRoute(builder: (context) => PostPerformance()),
               );
             },
             color: Theme.of(context).primaryIconTheme.color,

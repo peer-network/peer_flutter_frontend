@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/post_performance_model/post_preformance_model.dart';
+import 'package:peer_app/data/models/post_performance_model.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
 class RightTopBlocks extends StatelessWidget {
@@ -13,23 +13,27 @@ class RightTopBlocks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start, // Align columns to the start
       children: [
-        GiveItABetterName(
-            title: "Total Gems earned",
-            amount: postPerformance.gemsTotal.toDouble()),
-        GiveItABetterName(
-            title: "Gems earned Today",
-            amount: postPerformance.gemsToday.toDouble()),
-        GiveItABetterName(
-            title: "Performance Highscore",
-            amount: postPerformance.gemsAllTimeHigh.toDouble())
+        PerformanceLabel(
+          title: "Total Gems earned",
+          amount: postPerformance.gemsTotal.toDouble(),
+        ),
+        PerformanceLabel(
+          title: "Gems earned Today",
+          amount: postPerformance.gemsToday.toDouble(),
+        ),
+        PerformanceLabel(
+          title: "Performance Highscore",
+          amount: postPerformance.gemsAllTimeHigh.toDouble(),
+        ),
       ],
     );
   }
 }
 
-class GiveItABetterName extends StatelessWidget {
-  const GiveItABetterName({
+class PerformanceLabel extends StatelessWidget {
+  const PerformanceLabel({
     super.key,
     required this.title,
     required this.amount,
@@ -41,17 +45,20 @@ class GiveItABetterName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start, // Align text and number to the start
       children: [
         SizedBox(
           height: 24,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(amount.toString()),
               const SizedBox(width: 8),
-              ImageIcon(IconLibrary.diamond.icon,
-                  size: 16), // Diamond icon from IconLibrary
+              ImageIcon(
+                IconLibrary.diamond.icon,
+                color: Colors.white,
+                size: 16,
+              ), // Diamond icon from IconLibrary
             ],
           ),
         ),
@@ -60,35 +67,3 @@ class GiveItABetterName extends StatelessWidget {
     );
   }
 }
-
-
-// class RightTopBlocks extends StatelessWidget {
-//   final double height;
-//   final double width;
-
-//   RightTopBlocks({required this.width, required this.height});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-//         Container(
-//           height: height / 3,
-//           width: width,
-//           color: Colors.red,
-//         ),
-//         Container(
-//           height: height / 3,
-//           width: width,
-//           color: Colors.green,
-//         ),
-//         Container(
-//           height: height / 3,
-//           width: width,
-//           color: Colors.yellow,
-//         ),
-//       ],
-//     );
-//   }
-// }
-

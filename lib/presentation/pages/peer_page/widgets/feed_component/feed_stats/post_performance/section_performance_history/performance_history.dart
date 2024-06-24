@@ -1,55 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
-import 'package:peer_app/data/models/post_performance_model/post_preformance_model.dart';
-import 'dart:math';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:peer_app/data/models/post_performance_model.dart';
+import 'package:peer_app/presentation/whitelabel/colors.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_history/fl_spots_generator.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_history/title_widgets.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_history/gradient_colors.dart';
+import 'dart:math';  // Import dart:math to use max
 
 class PerformanceHistory extends StatefulWidget {
   final PostPerformanceModel postPerformance;
 
-  const PerformanceHistory({Key? key, required this.postPerformance}) : super(key: key);
+  const PerformanceHistory({super.key, required this.postPerformance});
 
   @override
   State<PerformanceHistory> createState() => _PerformanceHistoryState();
 }
 
 class _PerformanceHistoryState extends State<PerformanceHistory> {
-  List<Color> gradientColors = const [
-    Color.fromARGB(115, 175, 255, 255),
-    Color.fromARGB(255, 255, 255, 255),
-  ];
-
-  List<FlSpot> generateSpots(PostPerformanceModel postPerformance) {
-    final DateTime? createdAt = postPerformance.createdAt;
-    final DateTime? updatedAt = postPerformance.updatedAt;
-    final gemsTotal = postPerformance.gemsTotal;
-
-    if (createdAt == null || updatedAt == null) {
-      return [FlSpot(0, 0)];
-    }
-
-    final totalDays = updatedAt.difference(createdAt).inDays.toDouble();
-
-    // Generate spots (in a real scenario, you would populate this with actual data points)
-    List<FlSpot> spots = [
-      FlSpot(0, 0),
-      FlSpot(totalDays, gemsTotal.toDouble()),
-    ];
-
-    return spots;
-  }
-
   @override
   Widget build(BuildContext context) {
-    final spots = generateSpots(widget.postPerformance);
-    final createdAt = widget.postPerformance.createdAt;
-    final updatedAt = widget.postPerformance.updatedAt;
-
-    if (createdAt == null || updatedAt == null) {
-      return Center(child: Text('Invalid date range'));
-    }
-
-    final totalDays = updatedAt.difference(createdAt).inDays.toDouble();
+    final spots = generateSpots(widget.postPerformance.likesPerDay, widget.postPerformance.createdAt);
+    final createdAt = widget.postPerformance.createdAt ?? DateTime.now();
+    final totalDays = DateTime.now().difference(createdAt).inDays.toDouble();
+    final maxY = widget.postPerformance.likesPerDay.values.fold(0.0, max);
 
     return Stack(
       children: <Widget>[
@@ -75,47 +48,51 @@ class _PerformanceHistoryState extends State<PerformanceHistory> {
                   rightTitles: const AxisTitles(
                     sideTitles: SideTitles(showTitles: false),
                   ),
-                  topTitles: const AxisTitles(
+                  topTitles: AxisTitles(
+                    axisNameWidget: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text('Zeit', style: Theme.of(context).textTheme.bodyMedium),
+                    ),
                     sideTitles: SideTitles(showTitles: false),
                   ),
                   bottomTitles: AxisTitles(
                     sideTitles: SideTitles(
                       showTitles: true,
                       reservedSize: 30,
-                      interval: totalDays / 2,
-                      getTitlesWidget: (value, meta) => bottomTitleWidgets(value, meta, widget.postPerformance),
+                      getTitlesWidget: (value, meta) => bottomTitleWidgets(context, value, meta, createdAt, totalDays),
                     ),
                   ),
                   leftTitles: AxisTitles(
                     axisNameWidget: Padding(
-                        padding: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width * 0.08),
-                        child: Text('Wert', style: Theme.of(context).textTheme.bodyMedium!)),
+                      padding: EdgeInsets.only(left: 8.0),
+                      child: Text('Gems', style: Theme.of(context).textTheme.bodyMedium!),
+                    ),
                     sideTitles: SideTitles(
-                        showTitles: true,
-                        getTitlesWidget: leftTitleWidgets,
-                        reservedSize: 26,
-                        interval: 1),
+                      showTitles: true,
+                      getTitlesWidget: (value, meta) => leftTitleWidgets(context, value, meta, maxY),
+                      reservedSize: 40,
+                    ),
                   ),
                 ),
                 borderData: FlBorderData(
-                    show: true,
-                    border: const Border(
-                      left: BorderSide(
-                        color: Colors.grey,
-                        width: 1,
-                      ),
-                      bottom: BorderSide(
-                        color: Colors.grey,
-                        width: 1,
-                      ),
-                      right: BorderSide.none,
-                      top: BorderSide.none,
-                    )),
+                  show: true,
+                  border: const Border(
+                    left: BorderSide(
+                      color: Colors.grey,
+                      width: 1,
+                    ),
+                    bottom: BorderSide(
+                      color: Colors.grey,
+                      width: 1,
+                    ),
+                    right: BorderSide.none,
+                    top: BorderSide.none,
+                  ),
+                ),
                 minX: 0,
                 maxX: totalDays,
                 minY: 0,
-                maxY: widget.postPerformance.gemsTotal.toDouble(),
+                maxY: maxY,
                 lineBarsData: [
                   LineChartBarData(
                     spots: spots,
@@ -131,7 +108,9 @@ class _PerformanceHistoryState extends State<PerformanceHistory> {
                     belowBarData: BarAreaData(
                       show: true,
                       gradient: LinearGradient(
-                          stops: const [0.2, 1.0], colors: gradientColors),
+                        stops: const [0.2, 1.0],
+                        colors: gradientColors,
+                      ),
                     ),
                   ),
                 ],
@@ -142,228 +121,4 @@ class _PerformanceHistoryState extends State<PerformanceHistory> {
       ],
     );
   }
-
-  Widget bottomTitleWidgets(double value, TitleMeta meta, PostPerformanceModel postPerformance) {
-    final createdAt = postPerformance.createdAt;
-
-    if (createdAt == null) {
-      return const Text('');
-    }
-
-    final DateTime date = createdAt.add(Duration(days: value.toInt()));
-    final String formattedDate = "${date.day}.${date.month}.${date.year}";
-
-    TextStyle style = TextStyle(
-      color: Theme.of(context).brightness == Brightness.light
-          ? LightColors.textBright
-          : DarkColors.textPrimary,
-    );
-
-    return SideTitleWidget(
-      axisSide: meta.axisSide,
-      child: Text(formattedDate, style: style),
-    );
-  }
-
-  Widget leftTitleWidgets(double value, TitleMeta meta) {
-    TextStyle style = TextStyle(
-      color: Theme.of(context).brightness == Brightness.light
-          ? LightColors.textBright
-          : DarkColors.textPrimary,
-    );
-    String text;
-    switch (value.toInt()) {
-      case 1:
-        text = '5';
-        break;
-      case 3:
-        text = '20';
-        break;
-      case 5:
-        text = '100';
-        break;
-      default:
-        return const Text('');
-    }
-
-    return Transform.rotate(
-        angle: -pi / 2,
-        child: Text(text, style: style, textAlign: TextAlign.left));
-  }
 }
-
-// class PerformanceHistory extends StatefulWidget {
-//   const PerformanceHistory({super.key});
-
-//   @override
-//   State<PerformanceHistory> createState() => _PerformanceHistoryState();
-// }
-
-// class _PerformanceHistoryState extends State<PerformanceHistory> {
-//   List<Color> gradientColors = const [
-//     Color.fromARGB(115, 175, 255, 255),
-//     Color.fromARGB(255, 255, 255, 255),
-//   ];
-//   @override
-//   Widget build(BuildContext context) {
-//     return Stack(
-//       children: <Widget>[
-//         AspectRatio(
-//           aspectRatio: 1.70,
-//           child: Padding(
-//             padding: const EdgeInsets.only(
-//               right: 18,
-//               left: 12,
-//               top: 24,
-//               bottom: 12,
-//             ),
-//             child: LineChart(
-//               mainData(),
-//             ),
-//           ),
-//         ),
-//       ],
-//     );
-//   }
-
-//   Widget bottomTitleWidgets(double value, TitleMeta meta) {
-//     TextStyle style = TextStyle(
-//       color: Theme.of(context).brightness == Brightness.light
-//           ? LightColors.textBright
-//           : DarkColors.textPrimary,
-//     );
-//     Widget text;
-//     switch (value.toInt()) {
-//       case 1:
-//         text = Padding(
-//           padding: EdgeInsets.only(left: 8.0),
-//           child: Text('25.02.02023', style: style),
-//         );
-//         break;
-//       case 10:
-//         text = Text('15.03.2023', style: style);
-//         break;
-//       default:
-//         text = Text('', style: style);
-//         break;
-//     }
-
-//     return SideTitleWidget(
-//       axisSide: meta.axisSide,
-//       child: text,
-//     );
-//   }
-
-//   Widget leftTitleWidgets(double value, TitleMeta meta) {
-//     TextStyle style = TextStyle(
-//       color: Theme.of(context).brightness == Brightness.light
-//           ? LightColors.textBright
-//           : DarkColors.textPrimary,
-//     );
-//     String text;
-//     switch (value.toInt()) {
-//       case 1:
-//         text = '5';
-//         break;
-//       case 3:
-//         text = '20';
-//         break;
-//       case 5:
-//         text = '100';
-//         break;
-//       default:
-//         return Text('');
-//     }
-
-//     return Transform.rotate(
-//         angle: -pi / 2,
-//         child: Text(text, style: style, textAlign: TextAlign.left));
-//   }
-
-//   LineChartData mainData() {
-//     return LineChartData(
-//       gridData: FlGridData(
-//         show: false,
-//         drawVerticalLine: false,
-//         horizontalInterval: 1,
-//         verticalInterval: 1,
-//       ),
-//       titlesData: FlTitlesData(
-//         show: true,
-//         rightTitles: const AxisTitles(
-//           sideTitles: SideTitles(showTitles: false),
-//         ),
-//         topTitles: const AxisTitles(
-//           sideTitles: SideTitles(showTitles: false),
-//         ),
-//         bottomTitles: AxisTitles(
-//           sideTitles: SideTitles(
-//             showTitles: true,
-//             reservedSize: 30,
-//             interval: 1,
-//             getTitlesWidget: bottomTitleWidgets,
-//           ),
-//         ),
-//         leftTitles: AxisTitles(
-//           axisNameWidget: Padding(
-//               padding: EdgeInsets.only(
-//                   left: MediaQuery.of(context).size.width * 0.08),
-//               child:
-//                   Text('Wert', style: Theme.of(context).textTheme.bodyMedium!)),
-//           sideTitles: SideTitles(
-//               showTitles: true,
-//               getTitlesWidget: leftTitleWidgets,
-//               reservedSize: 26,
-//               interval: 1),
-//         ),
-//       ),
-//       borderData: FlBorderData(
-//           show: true,
-//           border: const Border(
-//             left: BorderSide(
-//               color: Colors.grey,
-//               width: 1,
-//             ),
-//             bottom: BorderSide(
-//               color: Colors.grey,
-//               width: 1,
-//             ),
-//             right: BorderSide.none,
-//             top: BorderSide.none,
-//           )),
-//       minX: 0,
-//       maxX: 11,
-//       minY: 0,
-//       maxY: 6,
-//       lineBarsData: [
-//         LineChartBarData(
-//           spots: const [
-//             FlSpot(0, 3),
-//             FlSpot(2.6, 2),
-//             FlSpot(4.9, 5),
-//             FlSpot(6.8, 3.1),
-//             FlSpot(8, 4),
-//             FlSpot(9.5, 3),
-//             FlSpot(11, 4),
-//           ],
-//           isCurved: false,
-//           gradient: LinearGradient(
-//             colors: gradientColors,
-//           ),
-//           barWidth: 0,
-//           isStrokeCapRound: true,
-//           dotData: const FlDotData(
-//             show: false,
-//           ),
-//           belowBarData: BarAreaData(
-//             show: true,
-//             gradient:
-//                 LinearGradient(stops: const [0.2, 1.0], colors: gradientColors),
-//           ),
-//         ),
-//       ],
-//     );
-//   }
-// }
-
-

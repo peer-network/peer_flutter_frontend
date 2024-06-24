@@ -5,7 +5,7 @@ import 'package:peer_app/data/graphql/queries.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
 
-//below 141-269 lines are working post-provider
+
 enum PostPerformanceState { none, loading, loaded, error }
 
 class PostProvider with ChangeNotifier {

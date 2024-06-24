@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:peer_app/data/provider/post_provider.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/credits_source_section.dart/components/source_bar.dart';
-import 'package:peer_app/data/models/post_performance_model/post_preformance_model.dart';
+import 'package:peer_app/data/models/post_performance_model.dart';
 
 class IncomeSources extends StatelessWidget {
   final PostPerformanceModel postPerformance;
