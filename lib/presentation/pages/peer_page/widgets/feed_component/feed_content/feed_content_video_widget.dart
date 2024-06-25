@@ -49,6 +49,8 @@ class _FeedContentVideoWidgetState extends State<FeedContentVideoWidget> {
         }
       },
     );*/
-    return const Text("Videos are currently not supported.");
+    return const Padding(
+        padding: EdgeInsets.symmetric(vertical: 20),
+        child: Text("Videos are currently not supported."));
   }
 }
