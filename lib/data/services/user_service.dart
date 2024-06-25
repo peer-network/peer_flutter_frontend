@@ -62,7 +62,7 @@ Future<UserModel?> fetchNewUser(String userId) async {
   final queryOption = QueryOptions(
     document: Queries.getUserById,
     fetchPolicy: FetchPolicy.networkOnly,
-    variables: const {'id': "0c4762a8-0a39-11ef-b7f2-e89c25791d89"},
+    variables: {'id': userId},
   );
 
   try {
