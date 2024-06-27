@@ -1,22 +1,35 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:peer_app/data/models/post_performance_model.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_of_this_post/image_slider.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_of_this_post/text_box.dart';
 
 class LeftBlock extends StatelessWidget {
-  final String imageUrl;
+  final PostPerformanceModel postPerformance;
 
-  const LeftBlock({Key? key, required this.imageUrl}) : super(key: key);
+  const LeftBlock({Key? key, required this.postPerformance}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // TODO handle other types
+    final double width = (MediaQuery.of(context).size.width / 2) - 30;
+    final double height = MediaQuery.of(context).size.width / 2 - 30;
+
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: CachedNetworkImage(
-        imageUrl: imageUrl,
-        fit: BoxFit.cover,
-        width: (MediaQuery.of(context).size.width / 2) - 30,
-        height: MediaQuery.of(context).size.width / 2 - 30,
+      child: Column(
+        children: [
+          if (postPerformance.imageUrls.isEmpty && postPerformance.text != null)
+            TextContentBox(
+              text: postPerformance.text!,
+              width: width,
+              height: height,
+            ),
+          if (postPerformance.imageUrls.isNotEmpty)
+            ImageSlider(imageUrls: postPerformance.imageUrls, width: width, height: height),
+        ],
       ),
     );
   }
 }
+
+
+

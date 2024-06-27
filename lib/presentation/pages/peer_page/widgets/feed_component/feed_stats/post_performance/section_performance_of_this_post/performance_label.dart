@@ -1,36 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/post_performance_model.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
-
-class RightTopBlocks extends StatelessWidget {
-  final PostPerformanceModel postPerformance;
-
-  const RightTopBlocks({
-    super.key,
-    required this.postPerformance,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start, // Align columns to the start
-      children: [
-        PerformanceLabel(
-          title: "Total Gems earned",
-          amount: postPerformance.gemsTotal.toDouble(),
-        ),
-        PerformanceLabel(
-          title: "Gems earned Today",
-          amount: postPerformance.gemsToday.toDouble(),
-        ),
-        PerformanceLabel(
-          title: "Performance Highscore",
-          amount: postPerformance.gemsAllTimeHigh.toDouble(),
-        ),
-      ],
-    );
-  }
-}
 
 class PerformanceLabel extends StatelessWidget {
   const PerformanceLabel({

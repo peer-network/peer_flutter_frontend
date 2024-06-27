@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 import 'package:peer_app/data/models/post_performance_model.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_income_sources/income_sources.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_history/performance_history.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_of_this_post/left_block.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_of_this_post/right_block.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_history/line_chart.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/three_widgets.dart';
 
 
 class PostPerformanceContent extends StatelessWidget {
@@ -35,7 +31,19 @@ class PostPerformanceContent extends StatelessWidget {
           final postPerformance = PostPerformanceModel(
             postId: 1,
             userId: 1,
-            imageUrl: 'https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg',
+            imageUrls: [
+              "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
+              "https://www.lightstalking.com/wp-content/uploads/stephanie-leblanc-JLMEZxBcXCU-unsplash.jpg",
+              "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
+              "https://www.lightstalking.com/wp-content/uploads/stephanie-leblanc-JLMEZxBcXCU-unsplash.jpg",
+              "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
+              "https://www.lightstalking.com/wp-content/uploads/stephanie-leblanc-JLMEZxBcXCU-unsplash.jpg",
+              "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
+              "https://www.lightstalking.com/wp-content/uploads/stephanie-leblanc-JLMEZxBcXCU-unsplash.jpg",
+              "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg", //if you add more it will cause overflow for the right blocks
+            ],
+            //text: '',
+            text: 'Lorem ipsum lorem ipsum lorem ipsum.Lorem ipsum lorem ipsum lorem ipsum.Lorem ipsum lorem ipsum lorem ipsum.Lorem ipsum lorem ipsum lorem ipsum.Lorem ipsum lorem ipsum lorem ipsum.Lorem ipsum lorem ipsum lorem ipsum.Lorem ipsum lorem ipsum lorem ipsum.Lorem ipsum lorem ipsum lorem ipsum.',
             createdAt: DateTime(2024, 6, 1),
             gemsTotal: 1000,
             gemsToday: 50,
@@ -51,72 +59,6 @@ class PostPerformanceContent extends StatelessWidget {
           );
         }
       },
-    );
-  }
-}
-
-class ThreeWidgets extends StatelessWidget {
-  const ThreeWidgets({
-    super.key,
-    required this.postPerformance,
-  });
-
-  final PostPerformanceModel postPerformance;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Text(
-          "Performance of this Post",
-          style: TextStyle(color: Colors.white, fontSize: 24),
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).size.width * 0.08,
-          ),
-          child: PerformanceOfThisPost(postPerformance: postPerformance),
-        ),
-        const Text(
-          "Performance History",
-          style: TextStyle(color: Colors.white, fontSize: 24),
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).size.width * 0.08,
-          ),
-          //child: PerformanceHistory(postPerformance: postPerformance),
-          child: CustomLineChart(postPerformance: postPerformance),
-        ),
-        const Text(
-          "Income Sources",
-          style: TextStyle(color: Colors.white, fontSize: 24),
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).size.width * 0.08,
-          ),
-          child: IncomeSources(postPerformance: postPerformance),
-        ),
-      ],
-    );
-  }
-}
-
-class PerformanceOfThisPost extends StatelessWidget {
-  final PostPerformanceModel postPerformance;
-
-  const PerformanceOfThisPost({super.key, required this.postPerformance});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        LeftBlock(imageUrl: postPerformance.imageUrl),
-        RightTopBlocks(
-          postPerformance: postPerformance,
-        ),
-      ],
     );
   }
 }

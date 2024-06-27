@@ -1,10 +1,9 @@
 class PostPerformanceModel {
   final dynamic postId;
   final int userId;
-  final String imageUrl;
+  final List<String> imageUrls;
+  final String? text;
   final DateTime? createdAt;
-  //final DateTime? updatedAt;
-
   final int gemsTotal;
   final int gemsToday;
   final int gemsAllTimeHigh;
@@ -16,9 +15,9 @@ class PostPerformanceModel {
   PostPerformanceModel({
     required this.postId,
     required this.userId,
-    required this.imageUrl,
+    required this.imageUrls,
+    required this.text,
     required this.createdAt,
-    //required this.updatedAt,
     required this.gemsTotal,
     required this.gemsToday,
     required this.gemsAllTimeHigh,
@@ -40,13 +39,11 @@ class PostPerformanceModel {
     return PostPerformanceModel(
       postId: json['post_id'],
       userId: json['user_id'],
-      imageUrl: json['image_url'],
+      imageUrls: List<String>.from(json['image_urls']),
+      text: json['text'],
       createdAt: json['created_at'] != null
           ? DateTime.parse(json['created_at'])
           : null,
-      //updatedAt: json['updated_at'] != null
-          //? DateTime.parse(json['updated_at'])
-          //: null,
       gemsTotal: json['gems_total'],
       gemsToday: json['gems_today'],
       gemsAllTimeHigh: json['gems_all_time_high'],
@@ -67,9 +64,9 @@ class PostPerformanceModel {
     return {
       'post_id': postId,
       'user_id': userId,
-      'image_url': imageUrl,
+      'image_urls': imageUrls,
+      'text': text,
       'created_at': createdAt?.toIso8601String(),
-      //'updated_at': updatedAt?.toIso8601String(),
       'gems_total': gemsTotal,
       'gems_today': gemsToday,
       'gems_all_time_high': gemsAllTimeHigh,
