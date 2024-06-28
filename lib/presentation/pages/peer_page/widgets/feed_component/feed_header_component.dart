@@ -30,7 +30,7 @@ class FeedHeaderComponent extends StatelessWidget {
                 AvatarComponent(imageUrl: user.img),
                 const SizedBox(width: AppPaddings.small),
                 // Title
-                Text(user.username ?? "",
+                Text(user.username,
                     style: Theme.of(context).textTheme.titleLarge!),
               ],
             ),
@@ -39,7 +39,7 @@ class FeedHeaderComponent extends StatelessWidget {
           // Follow button
           SecondaryButton(
             text: 'Follow',
-            onPressed: () => print('Follow'),
+            onPressed: () {},
             backgroundColor: Theme.of(context).brightness == Brightness.light
                 ? LightColors.followBackground
                 : DarkColors.followBackground,

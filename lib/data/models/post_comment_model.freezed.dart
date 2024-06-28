@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-PostCommentModel _$CommentModelFromJson(Map<String, dynamic> json) {
-  return _CommentModel.fromJson(json);
+PostCommentModel _$PostCommentModelFromJson(Map<String, dynamic> json) {
+  return _PostCommentModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CommentModel {
+mixin _$PostCommentModel {
   String get id => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   int get postId => throw _privateConstructorUsedError;
@@ -33,15 +33,15 @@ mixin _$CommentModel {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CommentModelCopyWith<PostCommentModel> get copyWith =>
+  $PostCommentModelCopyWith<PostCommentModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CommentModelCopyWith<$Res> {
-  factory $CommentModelCopyWith(
+abstract class $PostCommentModelCopyWith<$Res> {
+  factory $PostCommentModelCopyWith(
           PostCommentModel value, $Res Function(PostCommentModel) then) =
-      _$CommentModelCopyWithImpl<$Res, PostCommentModel>;
+      _$PostCommentModelCopyWithImpl<$Res, PostCommentModel>;
   @useResult
   $Res call(
       {String id,
@@ -58,9 +58,9 @@ abstract class $CommentModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CommentModelCopyWithImpl<$Res, $Val extends PostCommentModel>
-    implements $CommentModelCopyWith<$Res> {
-  _$CommentModelCopyWithImpl(this._value, this._then);
+class _$PostCommentModelCopyWithImpl<$Res, $Val extends PostCommentModel>
+    implements $PostCommentModelCopyWith<$Res> {
+  _$PostCommentModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -134,11 +134,11 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends PostCommentModel>
 }
 
 /// @nodoc
-abstract class _$$CommentModelImplCopyWith<$Res>
-    implements $CommentModelCopyWith<$Res> {
-  factory _$$CommentModelImplCopyWith(
-          _$CommentModelImpl value, $Res Function(_$CommentModelImpl) then) =
-      __$$CommentModelImplCopyWithImpl<$Res>;
+abstract class _$$PostCommentModelImplCopyWith<$Res>
+    implements $PostCommentModelCopyWith<$Res> {
+  factory _$$PostCommentModelImplCopyWith(_$PostCommentModelImpl value,
+          $Res Function(_$PostCommentModelImpl) then) =
+      __$$PostCommentModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -157,11 +157,11 @@ abstract class _$$CommentModelImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CommentModelImplCopyWithImpl<$Res>
-    extends _$CommentModelCopyWithImpl<$Res, _$CommentModelImpl>
-    implements _$$CommentModelImplCopyWith<$Res> {
-  __$$CommentModelImplCopyWithImpl(
-      _$CommentModelImpl _value, $Res Function(_$CommentModelImpl) _then)
+class __$$PostCommentModelImplCopyWithImpl<$Res>
+    extends _$PostCommentModelCopyWithImpl<$Res, _$PostCommentModelImpl>
+    implements _$$PostCommentModelImplCopyWith<$Res> {
+  __$$PostCommentModelImplCopyWithImpl(_$PostCommentModelImpl _value,
+      $Res Function(_$PostCommentModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -177,7 +177,7 @@ class __$$CommentModelImplCopyWithImpl<$Res>
     Object? isLiked = freezed,
     Object? likeCount = freezed,
   }) {
-    return _then(_$CommentModelImpl(
+    return _then(_$PostCommentModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -221,8 +221,8 @@ class __$$CommentModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$CommentModelImpl implements _CommentModel {
-  const _$CommentModelImpl(
+class _$PostCommentModelImpl implements _PostCommentModel {
+  const _$PostCommentModelImpl(
       {required this.id,
       required this.content,
       required this.postId,
@@ -234,8 +234,8 @@ class _$CommentModelImpl implements _CommentModel {
       this.likeCount})
       : _comments = comments;
 
-  factory _$CommentModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CommentModelImplFromJson(json);
+  factory _$PostCommentModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostCommentModelImplFromJson(json);
 
   @override
   final String id;
@@ -266,14 +266,14 @@ class _$CommentModelImpl implements _CommentModel {
 
   @override
   String toString() {
-    return 'CommentModel(id: $id, content: $content, postId: $postId, userId: $userId, createdAt: $createdAt, user: $user, comments: $comments, isLiked: $isLiked, likeCount: $likeCount)';
+    return 'PostCommentModel(id: $id, content: $content, postId: $postId, userId: $userId, createdAt: $createdAt, user: $user, comments: $comments, isLiked: $isLiked, likeCount: $likeCount)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CommentModelImpl &&
+            other is _$PostCommentModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.postId, postId) || other.postId == postId) &&
@@ -304,19 +304,20 @@ class _$CommentModelImpl implements _CommentModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CommentModelImplCopyWith<_$CommentModelImpl> get copyWith =>
-      __$$CommentModelImplCopyWithImpl<_$CommentModelImpl>(this, _$identity);
+  _$$PostCommentModelImplCopyWith<_$PostCommentModelImpl> get copyWith =>
+      __$$PostCommentModelImplCopyWithImpl<_$PostCommentModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CommentModelImplToJson(
+    return _$$PostCommentModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _CommentModel implements PostCommentModel {
-  const factory _CommentModel(
+abstract class _PostCommentModel implements PostCommentModel {
+  const factory _PostCommentModel(
       {required final String id,
       required final String content,
       required final int postId,
@@ -325,10 +326,10 @@ abstract class _CommentModel implements PostCommentModel {
       required final UserModel? user,
       final List<PostCommentModel> comments,
       final bool? isLiked,
-      final int? likeCount}) = _$CommentModelImpl;
+      final int? likeCount}) = _$PostCommentModelImpl;
 
-  factory _CommentModel.fromJson(Map<String, dynamic> json) =
-      _$CommentModelImpl.fromJson;
+  factory _PostCommentModel.fromJson(Map<String, dynamic> json) =
+      _$PostCommentModelImpl.fromJson;
 
   @override
   String get id;
@@ -350,6 +351,6 @@ abstract class _CommentModel implements PostCommentModel {
   int? get likeCount;
   @override
   @JsonKey(ignore: true)
-  _$$CommentModelImplCopyWith<_$CommentModelImpl> get copyWith =>
+  _$$PostCommentModelImplCopyWith<_$PostCommentModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

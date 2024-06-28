@@ -20,16 +20,23 @@ class FeedCardComponent extends StatefulWidget {
 
 class _FeedCardComponentState extends State<FeedCardComponent> {
   bool showComments = true;
+  ValueNotifier<double> currentIndex = ValueNotifier<double>(0.0);
+
+  @override
+  void dispose() {
+    currentIndex.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final PostModel post = widget.post;
+
     return FeedTile(
       child: Column(
         children: [
           // Feed header
           FeedHeaderComponent(user: post.user!),
-          // Feed content
           GestureDetector(
             onTap: () {
               Navigator.of(context).push(
@@ -38,15 +45,17 @@ class _FeedCardComponentState extends State<FeedCardComponent> {
                 ),
               );
             },
-            child: FeedContentComponent(post: post),
+            child: FeedContentComponent(post: post, currentIndex: currentIndex),
           ),
-          // FeedContentComponent(post: post),
+
           // Feed actions
           // Passing feed model to FeedActionsComponent
-          FeedActionsComponent(feed: post),
+
+          FeedActionsComponent(feed: post, currentIndex: currentIndex),
           // Feed image description
           if (post is ImagePost)
-            FeedImageDescriptionComponent(text: post.mediaDescription),
+            FeedImageDescriptionComponent(
+                text: post.mediaDescription, caption: post.title),
           const SizedBox(height: AppPaddings.small),
           FeedStatsComponent(feed: widget.post),
           const SizedBox(height: AppPaddings.small),

@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'user_model.dart'; // Assuming you have a Freezed UserModel
 
-part 'feed_comment_model.freezed.dart';
-part 'feed_comment_model.g.dart';
+part 'post_comment_model.freezed.dart';
+part 'post_comment_model.g.dart';
 
 @freezed
-class PostCommentModel with _$CommentModel {
+class PostCommentModel with _$PostCommentModel {
   @JsonSerializable(explicitToJson: true)
   const factory PostCommentModel({
     required String id,
@@ -18,8 +18,8 @@ class PostCommentModel with _$CommentModel {
     @Default([]) List<PostCommentModel> comments,
     bool? isLiked,
     int? likeCount,
-  }) = _CommentModel;
+  }) = _PostCommentModel;
 
   factory PostCommentModel.fromJson(Map<String, dynamic> json) =>
-      _$CommentModelFromJson(json);
+      _$PostCommentModelFromJson(json);
 }

@@ -30,7 +30,7 @@ class ProfileImagePostSection extends StatelessWidget {
           child: Hero(
             tag: 'post-${(posts[index] as ImagePost).media}',
             child: CustomCachedNetworkImage(
-                imageUrl: (posts[index] as ImagePost).media),
+                imageUrl: (posts[index] as ImagePost).media[0]),
           ),
         );
       },

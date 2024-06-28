@@ -37,20 +37,13 @@ class FeedView extends StatelessWidget {
         child: ListView.builder(
             itemCount: newsFeedProvider.newsFeed.length,
             itemBuilder: (context, index) {
-              // Nur einmal FeedCardComponent mit variablem padding
-              if (newsFeedProvider.newsFeed.length - 1 == index) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: AppPaddings.tiny),
-                  child:
-                      FeedCardComponent(post: newsFeedProvider.newsFeed[index]),
-                );
-              } else {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: AppPaddings.small),
-                  child:
-                      FeedCardComponent(post: newsFeedProvider.newsFeed[index]),
-                );
-              }
+              return Padding(
+                padding: (newsFeedProvider.newsFeed.length - 1 == index)
+                    ? const EdgeInsets.only(bottom: AppPaddings.tiny)
+                    : const EdgeInsets.only(bottom: AppPaddings.small),
+                child:
+                    FeedCardComponent(post: newsFeedProvider.newsFeed[index]),
+              );
             }),
       );
     }

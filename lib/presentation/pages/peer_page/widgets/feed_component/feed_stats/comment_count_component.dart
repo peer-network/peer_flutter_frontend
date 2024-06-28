@@ -12,11 +12,22 @@ class CommentCountComponent extends StatelessWidget {
   final num? commentCount;
 
   final bool isSmallText;
+
+  Widget buildCommentCount(num commentCount, BuildContext context) {
+    if (commentCount > 1) {
+      return Text("Comments...", style: Theme.of(context).textTheme.titleLarge);
+    } else if (commentCount == 0) {
+      return Text("Comments", style: Theme.of(context).textTheme.titleLarge);
+    } else {
+      return Text("Comment", style: Theme.of(context).textTheme.titleLarge);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(commentCount.toString() ?? "0",
+        Text(commentCount.toString(),
             style: Theme.of(context).textTheme.titleLarge),
         const SizedBox(width: AppPaddings.small),
         isSmallText
@@ -24,8 +35,7 @@ class CommentCountComponent extends StatelessWidget {
                 IconLibrary.comment.icon,
                 size: AppDimensions.iconSizeSmall,
               )
-            : Text((commentCount! > 1) ? "Comments" : "Comment",
-                style: Theme.of(context).textTheme.titleLarge),
+            : buildCommentCount(commentCount!, context),
       ],
     );
   }

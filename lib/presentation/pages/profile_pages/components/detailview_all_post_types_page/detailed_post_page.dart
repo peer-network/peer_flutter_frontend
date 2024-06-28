@@ -39,7 +39,9 @@ class DetailedPostPage extends StatelessWidget {
               // FirstLayerComment(comments: post.comments),
               DetailedPostCommentsWrapperId(
                   client: client,
-                  postId: post.id) // Erst muss ich den Future builder bauen
+                  postId:
+                      post.id ?? '') // Erst muss ich den Future builder bauen
+              //TODO: quick fix because video is not working
             ],
           ),
         ));

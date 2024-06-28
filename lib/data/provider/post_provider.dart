@@ -51,6 +51,12 @@ class PostProvider with ChangeNotifier {
               (postJson) {
                 postJson["runtimeType"] = postJson["contentType"];
 
+                if (!(postJson["runtimeType"] == "video")) {
+                  String temp = postJson["media"];
+                  postJson["media"] =
+                      (postJson["media"] == List) ? temp : [temp];
+                }
+
                 return PostModel.fromJson(postJson);
               },
             ),
@@ -89,8 +95,13 @@ final Map<String, dynamic> postWithComments = {
   "id": "post123",
   "title": "Beautiful Sunset",
   "mediaDescription": "A breathtaking view of the sunset at the beach.",
-  "media":
-      "https://t4.ftcdn.net/jpg/00/67/24/59/360_F_67245954_ejVa8C414CwJ9X0UadIFu1QEUjeLuFnO.jpg",
+  "media": [
+    "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
+    "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
+    "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
+    "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
+    "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
+  ],
   "createdAt": "2024-06-16T18:25:43.511Z",
   "isLiked": false,
   "isViewed": true,

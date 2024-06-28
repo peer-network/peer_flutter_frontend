@@ -18,7 +18,9 @@ class SinglePostImageContent extends StatelessWidget {
       child: FittedBox(
         fit: BoxFit.cover,
         child: Hero(
-            tag: 'post-${(post).media}', child: Image.network((post).media)),
+            tag: 'post-${(post).media}',
+            child: Image.network(
+                (post).media[0])), //TODO single post image details
       ),
     );
   }
