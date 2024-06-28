@@ -19,7 +19,6 @@ class IncomeSources extends StatelessWidget {
     ];
     int total = values.fold(0, (sum, value) => sum + value);
 
-    // percentage of each gem field
     for (int i = 0; i < values.length; i++) {
       percentages[i] = (values[i] / total) * 100;
     }

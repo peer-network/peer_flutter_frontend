@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
+import 'package:peer_app/presentation/whitelabel/colors.dart';
 
 class PerformanceLabel extends StatelessWidget {
   const PerformanceLabel({
@@ -13,8 +14,11 @@ class PerformanceLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final iconColor = Theme.of(context).brightness == Brightness.light
+    ? LightColors.iconDarkPrimary
+    : DarkColors.iconBrightPrimary;
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start, // Align text and number to the start
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
           height: 24,
@@ -25,9 +29,9 @@ class PerformanceLabel extends StatelessWidget {
               const SizedBox(width: 8),
               ImageIcon(
                 IconLibrary.diamond.icon,
-                color: Colors.white,
+                color: iconColor,
                 size: 16,
-              ), // Diamond icon from IconLibrary
+              ),
             ],
           ),
         ),

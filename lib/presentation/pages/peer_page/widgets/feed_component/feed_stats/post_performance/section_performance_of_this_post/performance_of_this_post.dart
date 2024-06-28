@@ -13,9 +13,7 @@ class PerformanceOfThisPost extends StatelessWidget {
     return Row(
       children: [
         LeftBlock(postPerformance: postPerformance),
-        RightBlocks(
-          postPerformance: postPerformance,
-        ),
+        RightBlocks(postPerformance: postPerformance),
       ],
     );
   }

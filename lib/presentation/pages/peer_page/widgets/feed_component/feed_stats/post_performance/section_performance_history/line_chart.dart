@@ -14,10 +14,6 @@ class CustomLineChart extends StatefulWidget {
 }
 
 class _CustomLineChartState extends State<CustomLineChart> {
-  List<Color> gradientColors = const [
-    Color.fromARGB(115, 175, 255, 255),
-    Color.fromARGB(255, 255, 255, 255),
-  ];
 
   @override
   Widget build(BuildContext context) {

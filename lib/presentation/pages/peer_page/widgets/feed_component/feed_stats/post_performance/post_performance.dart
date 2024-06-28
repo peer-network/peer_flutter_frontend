@@ -11,8 +11,15 @@ class PostPerformance extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Post Performance"),
-      ),
+            backgroundColor: Theme.of(context).colorScheme.background,
+            leading: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: const Icon(Icons.arrow_left)),
+            title: const Text("Post Performance"),
+            centerTitle: true,
+          ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(

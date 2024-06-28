@@ -14,7 +14,7 @@ class RightBlocks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start, // Align columns to the start
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         PerformanceLabel(
           title: "Total Gems earned",

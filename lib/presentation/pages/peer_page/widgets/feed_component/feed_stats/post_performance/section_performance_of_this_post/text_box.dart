@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/whitelabel/colors.dart';
 
 class TextContentBox extends StatelessWidget {
   final String text;
@@ -14,19 +15,19 @@ class TextContentBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final gradientColor = Theme.of(context).brightness == Brightness.light
+        ? LightColors.backgroundContainer
+        : DarkColors.backgroundContainer;
+
     return Container(
       width: width,
       height: height,
       padding: const EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(8),
-      ),
       child: Stack(
         children: [
           Text(
             text,
-            maxLines: 5,
+            maxLines: 6,
             overflow: TextOverflow.fade,
           ),
           Positioned(
@@ -37,7 +38,10 @@ class TextContentBox extends StatelessWidget {
               height: 20,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.transparent, Colors.white.withOpacity(0.7)],
+                  colors: [
+                    Colors.transparent,
+                    gradientColor.withOpacity(0.7)
+                  ],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                 ),

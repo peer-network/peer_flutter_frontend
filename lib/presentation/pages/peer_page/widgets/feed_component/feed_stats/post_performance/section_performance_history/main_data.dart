@@ -1,11 +1,10 @@
 import 'dart:math';
-
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/post_performance_model.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_history/bottom_title_widgets.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_history/gradient_colors.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_history/left_title_widgets.dart';
+import 'package:peer_app/presentation/whitelabel/colors.dart';
 
 LineChartData lineChartData(
     BuildContext context, PostPerformanceModel postPerformance) {
@@ -39,7 +38,7 @@ LineChartData lineChartData(
       leftTitles: AxisTitles(
         sideTitles: SideTitles(
           showTitles: true,
-          reservedSize: 26,
+          reservedSize: 28,
           interval: maxY / 2,
           getTitlesWidget: (value, meta) =>
               leftTitleWidgets(context, value, meta, postPerformance),
@@ -48,13 +47,13 @@ LineChartData lineChartData(
     ),
     borderData: FlBorderData(
       show: true,
-      border: const Border(
+      border: Border(
         left: BorderSide(
-          color: Colors.grey,
+          color: Theme.of(context).dividerColor,
           width: 1,
         ),
         bottom: BorderSide(
-          color: Colors.grey,
+          color: Theme.of(context).dividerColor,
           width: 1,
         ),
         right: BorderSide.none,
@@ -69,8 +68,10 @@ LineChartData lineChartData(
       LineChartBarData(
         spots: spots,
         isCurved: true,
-        gradient: const LinearGradient(
-          colors: gradientColors,
+        gradient: LinearGradient(
+          colors: Theme.of(context).brightness == Brightness.light
+              ? [LightColors.textCompany, LightColors.textPrimary]
+              : [DarkColors.textCompany, DarkColors.textPrimary],
         ),
         barWidth: 2,
         isStrokeCapRound: true,
@@ -78,11 +79,15 @@ LineChartData lineChartData(
           show: false,
         ),
         belowBarData: BarAreaData(
-          show: false,
-          gradient:
-              const LinearGradient(stops: [0.2, 1.0], colors: gradientColors),
+          show: true,
+          gradient: LinearGradient(
+            colors: Theme.of(context).brightness == Brightness.light
+                ? [LightColors.textCompany.withOpacity(0.2), LightColors.textPrimary.withOpacity(0.2)]
+                : [DarkColors.textCompany.withOpacity(0.2), DarkColors.textPrimary.withOpacity(0.2)],
+          ),
         ),
       ),
     ],
   );
 }
+
