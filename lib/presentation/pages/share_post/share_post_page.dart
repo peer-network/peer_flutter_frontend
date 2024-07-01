@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/post_model.dart';
-import 'package:peer_app/presentation/pages/BasePage.dart';
+import 'package:peer_app/presentation/pages/base_page.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_card_component.dart';
 import 'package:peer_app/presentation/pages/share_post/share_to_listed_contacts_view.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/messaging_bottom_nav_bar.dart';
@@ -21,7 +21,7 @@ class SharePostPage extends StatefulWidget {
   // DONE: Feedmodel object dass geshared wird
 
   @override
-  _SharePostPageState createState() => _SharePostPageState();
+  State<SharePostPage> createState() => _SharePostPageState();
 }
 
 class _SharePostPageState extends State<SharePostPage> {

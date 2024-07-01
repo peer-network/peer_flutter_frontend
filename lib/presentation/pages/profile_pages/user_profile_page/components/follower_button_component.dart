@@ -25,7 +25,7 @@ class _FollowerButtonComponentState extends State<FollowerButtonComponent> {
   @override
   void initState() {
     super.initState();
-    isFollowing = widget.user.isFollowing ?? false;
+    isFollowing = widget.user.isFollowing;
   }
 
   @override

@@ -1,9 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
-import 'package:provider/provider.dart';
-import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/exchange_rate.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/account_development.dart';
 
@@ -12,11 +8,11 @@ class ChartSwitcher extends StatefulWidget {
   const ChartSwitcher({Key? key, required this.maxHeight}) : super(key: key);
 
   @override
-  _ChartSwitcherState createState() => _ChartSwitcherState();
+  State<ChartSwitcher> createState() => _ChartSwitcherState();
 }
 
 class _ChartSwitcherState extends State<ChartSwitcher> {
-  PageController _pageViewController = PageController();
+  final PageController _pageViewController = PageController();
   int _currentPage = 0;
 
   @override
@@ -35,8 +31,6 @@ class _ChartSwitcherState extends State<ChartSwitcher> {
 
   @override
   Widget build(BuildContext context) {
-    WalletSheetProvider walletSheetProvider =
-        Provider.of<WalletSheetProvider>(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [

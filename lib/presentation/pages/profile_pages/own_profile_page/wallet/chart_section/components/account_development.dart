@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/line_chart.dart';
 
@@ -18,7 +17,7 @@ class AccountDevelopment extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineLarge!),
             )),
         const SizedBox(height: AppPaddings.medium),
-        CustomLineChart()
+        const CustomLineChart()
       ],
     );
   }

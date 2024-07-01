@@ -17,7 +17,7 @@ class FormattedDate {
       {DateFormatType formatType = DateFormatType.spelledOut}) {
     DateTime now = DateTime.now();
     DateTime today = DateTime(now.year, now.month, now.day);
-    DateTime aWeekAgo = today.subtract(Duration(days: 7));
+    DateTime aWeekAgo = today.subtract(const Duration(days: 7));
     DateTime startOfThisYear = DateTime(now.year);
     String formattedDate;
 

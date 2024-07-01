@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/chat_model.dart';
-import 'package:peer_app/presentation/pages/BasePage.dart';
+import 'package:peer_app/presentation/pages/base_page.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/chat_history_view_future_builder.dart';
 import 'package:peer_app/presentation/pages/single_chat_page/widgets/messaging_bottom_nav_bar.dart';
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';

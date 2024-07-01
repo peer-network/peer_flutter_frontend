@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/pages/BasePage.dart';
+import 'package:peer_app/presentation/pages/base_page.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/peer_appbar.dart';
 import 'package:peer_app/presentation/pages/profile_pages/user_profile_page/user_profile_body_wrapper_id.dart';
 import 'package:peer_app/presentation/whitelabel/components/navbars/primary_bottom_navbar.dart';

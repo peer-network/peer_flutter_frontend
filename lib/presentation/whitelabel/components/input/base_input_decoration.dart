@@ -17,7 +17,7 @@ class BaseInputDecoration {
       ),
       border: OutlineInputBorder(
         borderRadius: AppBorders.defaultRadius,
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
             color: LightColors
                 .activeBorder), //TODO: no access to context -> not theme
       ),

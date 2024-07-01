@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:provider/provider.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
 
 class TokenStats extends StatelessWidget {

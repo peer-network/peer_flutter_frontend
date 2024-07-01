@@ -14,7 +14,7 @@ class ShareToListedContactsView extends StatefulWidget {
       : super(key: key);
 
   @override
-  _ShareToListedContactsViewState createState() =>
+  State<ShareToListedContactsView> createState() =>
       _ShareToListedContactsViewState();
 }
 

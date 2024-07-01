@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/post_model.dart';
-import 'package:peer_app/presentation/pages/BasePage.dart';
+import 'package:peer_app/presentation/pages/base_page.dart';
 import 'package:peer_app/presentation/pages/share_post_contacts/widgets/share_post_contact_bottom_navbar.dart';
 import 'package:peer_app/presentation/pages/share_post_contacts/widgets/share_post_contacts_view.dart';
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
@@ -14,7 +14,7 @@ class SharePostContactsPage extends StatefulWidget {
   final PostModel feed;
 
   @override
-  _SharePostContactsPageState createState() => _SharePostContactsPageState();
+  State<SharePostContactsPage> createState() => _SharePostContactsPageState();
 }
 
 class _SharePostContactsPageState extends State<SharePostContactsPage> {

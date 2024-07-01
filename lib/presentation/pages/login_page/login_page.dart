@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/pages/BasePage.dart';
+import 'package:peer_app/presentation/pages/base_page.dart';
 import 'package:peer_app/presentation/pages/login_page/widgets/footer_section.dart';
 import 'package:peer_app/presentation/whitelabel/config.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
