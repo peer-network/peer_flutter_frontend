@@ -58,7 +58,8 @@ class _CustomDropdownBarState extends State<CustomDropdownBar> {
       child: DropdownButton<String>(
         value: value,
         icon: Padding(
-          padding: const EdgeInsets.only(right: AppPaddings.small),
+          padding: const EdgeInsets.only(
+              left: AppPaddings.tiny, right: AppPaddings.small),
           child: ImageIcon(IconLibrary.arrowDown.icon,
               size: AppDimensions.iconSizeSmall),
         ),
