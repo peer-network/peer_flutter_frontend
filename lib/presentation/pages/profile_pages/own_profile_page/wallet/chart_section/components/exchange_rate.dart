@@ -59,7 +59,7 @@ class ExchangeRate extends StatelessWidget {
                         child: Text(
                             'Gesamtzahl Credits = ${walletSheetProvider.formatDigits(walletSheetProvider.currencyExchange.totalCreditsInSystem)}',
                             style: Theme.of(context).textTheme.titleSmall!))))),
-        CustomLineChart(),
+        const CustomLineChart(),
       ],
     );
   }

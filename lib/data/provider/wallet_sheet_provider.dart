@@ -8,7 +8,6 @@ import 'package:peer_app/data/models/wallet_model/currency_exchange_model.dart';
 import 'package:peer_app/data/models/wallet_model/wallet_model.dart';
 import 'package:peer_app/data/dummy_response/dummy_wallet.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
-import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 enum WalletState { none, loading, loaded, error }
 

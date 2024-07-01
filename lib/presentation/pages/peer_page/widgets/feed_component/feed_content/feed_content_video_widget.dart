@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 // WORK IN PROGRESS
 
@@ -9,12 +8,13 @@ class FeedContentVideoWidget extends StatefulWidget {
   const FeedContentVideoWidget({super.key, required this.videoUrl});
 
   @override
-  _FeedContentVideoWidgetState createState() => _FeedContentVideoWidgetState();
+  State<FeedContentVideoWidget> createState() => _FeedContentVideoWidgetState();
 }
 
 class _FeedContentVideoWidgetState extends State<FeedContentVideoWidget> {
   late VideoPlayerController _controller;
-  late Future<void> _initializeVideoPlayerFuture;
+  late Future<void>
+      _initializeVideoPlayerFuture; // used when video is a feature in the app
 
   @override
   void initState() {

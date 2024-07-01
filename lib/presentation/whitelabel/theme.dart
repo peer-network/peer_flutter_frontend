@@ -25,7 +25,7 @@ ThemeData lightTheme = ThemeData(
             outlineVariant: LightColors.borderDisabled)),
     dividerColor: LightColors.divider,
     textTheme: textTheme,
-    cardTheme: CardTheme(
+    cardTheme: const CardTheme(
       color: LightColors.backgroundContainer,
       elevation: 0,
     ),
@@ -58,7 +58,7 @@ ThemeData lightTheme = ThemeData(
         color: LightColors.iconDarkPrimary, size: AppDimensions.iconSizeLarge),
     iconTheme: const IconThemeData(
         color: LightColors.iconCompany, size: AppDimensions.iconSizeLarge),
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       foregroundColor: LightColors.textDark,
       backgroundColor: LightColors.backgroundContainer,
       elevation: 0,
@@ -83,7 +83,7 @@ ThemeData darkTheme = ThemeData(
             outlineVariant: DarkColors.borderDisabled)),
     dividerColor: DarkColors.divider,
     textTheme: textTheme,
-    cardTheme: CardTheme(
+    cardTheme: const CardTheme(
       color: DarkColors.backgroundContainer,
       elevation: 0,
     ),
@@ -115,7 +115,7 @@ ThemeData darkTheme = ThemeData(
         color: DarkColors.iconDarkPrimary, size: AppDimensions.iconSizeLarge),
     iconTheme: const IconThemeData(
         color: DarkColors.iconCompany, size: AppDimensions.iconSizeLarge),
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       foregroundColor: DarkColors.textBright,
       backgroundColor: DarkColors.backgroundContainer,
       elevation: 0,

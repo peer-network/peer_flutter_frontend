@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/whitelabel/components/appbars/base_appbar.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
-import 'package:peer_app/presentation/whitelabel/text_constants.dart';
+import 'package:peer_app/presentation/whitelabel/components/appbars/base_appbar.dart';
 
 class SecondaryAppbar extends StatefulWidget implements PreferredSizeWidget {
   // This Appbar has a backbutton ("zurück") and a title and can have actions

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/cash_out_tokens/cash_out_tokens_bottom_sheet.dart';
-import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/custom_button.dart';
-import 'package:peer_app/presentation/routing/routes/page_routes.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/custom_button.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/cash_out_tokens/cash_out_tokens_bottom_sheet.dart';
 
 class CashOutTokens extends StatelessWidget {
   const CashOutTokens({super.key});

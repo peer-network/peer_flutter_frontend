@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:http/http.dart';
 import 'package:peer_app/data/models/post_model.dart';
-
-import 'package:peer_app/presentation/pages/BasePage.dart';
-import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_logic/first_layer_comment.dart';
+import 'package:peer_app/presentation/pages/base_page.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/detail_post_comments_wrapper_id.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/detailed_post_page_content/single_post_contentsection.dart';
-import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 // SinglePostContentSection
 // 1. bekommt von comments (von posts?) die wichtigen sachen (type, media/content/whatever)

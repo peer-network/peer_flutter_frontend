@@ -8,6 +8,6 @@ class CommentHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(user.username ?? 'Anonymous'); // 5: Fallback Value
+    return Text(user.username); // 5: Fallback Value
   }
 }

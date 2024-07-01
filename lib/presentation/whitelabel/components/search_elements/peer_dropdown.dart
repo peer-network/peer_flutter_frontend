@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/whitelabel/components/input/base_input_decoration.dart';
 
 class PeerDropdown extends StatefulWidget {
   const PeerDropdown(
@@ -23,10 +22,10 @@ class _PeerDropdownState extends State<PeerDropdown> {
       width: 100,
       child: DropdownButton<String>(
         value: widget.placeholderText,
-        icon: Icon(Icons.arrow_drop_down, color: Colors.white),
+        icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
         iconSize: 24,
         elevation: 16,
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
         underline: Container(
           height: 2,
           color: Colors.blueAccent,

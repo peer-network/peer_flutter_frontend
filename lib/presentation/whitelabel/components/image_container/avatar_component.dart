@@ -39,7 +39,6 @@ class AvatarComponent extends StatelessWidget {
               ),
             ),
         errorWidget: (context, url, error) {
-          print("Error loading image: $error");
           return Container(
             width: AppDimensions.avatarSize,
             height: AppDimensions.avatarSize,
