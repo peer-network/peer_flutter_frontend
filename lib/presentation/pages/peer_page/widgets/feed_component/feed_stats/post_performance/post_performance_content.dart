@@ -88,7 +88,7 @@ class PostPerformanceContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GenericFutureBuilder<Map<DateTime, double>>(//TODO GREGORY - please use the genericfuturebuilder that we already build (ask jonny if you cannot find it)
+    return GenericFutureBuilder<Map<DateTime, double>>(
       futureFunction: loadLikesData(),
       dataBuilder: (context, likesPerDay) {
         final postPerformance = PostPerformanceModel(
