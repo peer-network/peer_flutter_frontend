@@ -41,8 +41,8 @@ class ChatHistoryView extends StatelessWidget {
                     .getFormattedDate(formatType: DateFormatType.noTime),
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: Theme.of(context).brightness == Brightness.light
-                          ? LightColors.textDarkSubtle
-                          : DarkColors.textDarkSubtle,
+                          ? LightColors.textBrightSubtle
+                          : DarkColors.textBrightSubtle,
                     ),
               ),
             ),

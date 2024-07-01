@@ -54,8 +54,8 @@ class ChatContactCardComponent extends StatelessWidget {
                                 .copyWith(
                                     color: Theme.of(context).brightness ==
                                             Brightness.light
-                                        ? LightColors.textDarkSubtle
-                                        : DarkColors.textDarkSubtle),
+                                        ? LightColors.textBrightSubtle
+                                        : DarkColors.textBrightSubtle),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -81,8 +81,8 @@ class ChatContactCardComponent extends StatelessWidget {
                                     .copyWith(
                                       color: Theme.of(context).brightness ==
                                               Brightness.light
-                                          ? LightColors.textDarkSubtle
-                                          : DarkColors.textDarkSubtle,
+                                          ? LightColors.textBrightSubtle
+                                          : DarkColors.textBrightSubtle,
                                     ),
                               )
                             : Container(),
