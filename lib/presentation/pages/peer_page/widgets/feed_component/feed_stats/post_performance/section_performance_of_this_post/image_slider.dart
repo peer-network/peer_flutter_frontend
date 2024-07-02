@@ -56,7 +56,7 @@ class _ImageSliderState extends State<ImageSlider> {
             },
           ),
         ),
-        SizedBox(height: 10),
+        SizedBox(height: 10), //TODO use correct height
         ImageSliderIndicator(
           currentIndex: currentIndexNotifier,
           imageCount: widget.imageUrls.length,

@@ -18,7 +18,7 @@ class _CustomLineChartState extends State<CustomLineChart> {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1.70,
+      aspectRatio: 1.70, //TODO aspect ratio is the same as used in another graph, should be a constant? 
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: AppPaddings.small)
             .copyWith(right: AppPaddings.extraLarge),

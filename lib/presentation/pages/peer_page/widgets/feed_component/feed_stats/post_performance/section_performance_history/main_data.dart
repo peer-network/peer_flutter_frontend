@@ -38,7 +38,7 @@ LineChartData lineChartData(
       leftTitles: AxisTitles(
         sideTitles: SideTitles(
           showTitles: true,
-          reservedSize: 28,
+          reservedSize: 24,// TODO use correct size
           interval: maxY / 2,
           getTitlesWidget: (value, meta) =>
               leftTitleWidgets(context, value, meta, postPerformance),
@@ -69,7 +69,7 @@ LineChartData lineChartData(
         spots: spots,
         isCurved: true,
         gradient: LinearGradient(
-          colors: Theme.of(context).brightness == Brightness.light
+          colors: Theme.of(context).brightness == Brightness.light //TODO use correct colors
               ? [LightColors.textCompany, LightColors.textPrimary]
               : [DarkColors.textCompany, DarkColors.textPrimary],
         ),
@@ -81,7 +81,7 @@ LineChartData lineChartData(
         belowBarData: BarAreaData(
           show: true,
           gradient: LinearGradient(
-            colors: Theme.of(context).brightness == Brightness.light
+            colors: Theme.of(context).brightness == Brightness.light //TODO use correct colors
                 ? [LightColors.textCompany.withOpacity(0.2), LightColors.textPrimary.withOpacity(0.2)]
                 : [DarkColors.textCompany.withOpacity(0.2), DarkColors.textPrimary.withOpacity(0.2)],
           ),

@@ -15,14 +15,14 @@ class TextContentBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final gradientColor = Theme.of(context).brightness == Brightness.light
+    final gradientColor = Theme.of(context).brightness == Brightness.light //TODO use correct colors
         ? LightColors.backgroundContainer
         : DarkColors.backgroundContainer;
 
     return Container(
       width: width,
       height: height,
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0), //TODO use correct size
       child: Stack(
         children: [
           Text(
@@ -35,11 +35,11 @@ class TextContentBox extends StatelessWidget {
             right: 0,
             left: 0,
             child: Container(
-              height: 20,
+              height: 20, //TODO use correct colors
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Colors.transparent,
+                    Colors.transparent, //TODO use correct colors
                     gradientColor.withOpacity(0.7)
                   ],
                   begin: Alignment.topCenter,

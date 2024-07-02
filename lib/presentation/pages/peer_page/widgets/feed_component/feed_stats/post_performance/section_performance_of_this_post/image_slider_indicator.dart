@@ -25,7 +25,7 @@ class ImageSliderIndicator extends StatelessWidget {
           height: AppDimensions.imageSliderBarHeight,
           width: AppDimensions.imageSliderBarWidth,
           decoration: BoxDecoration(
-            color: Theme.of(context).brightness == Brightness.light
+            color: Theme.of(context).brightness == Brightness.light //TODO use correct colors
                 ? LightColors.barSlider
                 : DarkColors.barSlider,
             borderRadius: AppBorders.imageSliderRadius,
@@ -35,7 +35,7 @@ class ImageSliderIndicator extends StatelessWidget {
               Container(
                 width: AppDimensions.imageSliderBarWidth,
                 decoration: BoxDecoration(
-                  color: Theme.of(context).brightness == Brightness.light
+                  color: Theme.of(context).brightness == Brightness.light //TODO use correct colors
                       ? LightColors.barSlider
                       : DarkColors.barSlider,
                   borderRadius: AppBorders.imageSliderRadius,
@@ -48,7 +48,7 @@ class ImageSliderIndicator extends StatelessWidget {
                 child: Container(
                   width: indicatorWidth,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).brightness == Brightness.light
+                    color: Theme.of(context).brightness == Brightness.light //TODO use correct colors
                         ? LightColors.barHandle
                         : DarkColors.barHandle,
                     borderRadius: AppBorders.imageSliderRadius,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
+
 
 class SectionWidget extends StatelessWidget {
   final String title;
@@ -11,22 +12,19 @@ class SectionWidget extends StatelessWidget {
     required this.content,
   });
 
-  @override
+  @override  
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: Theme.of(context).brightness == Brightness.light
-                    ? LightColors.textBright
-                    : DarkColors.textPrimary,
-              ),
+          style: Theme.of(context).textTheme.displayLarge,
+          textAlign: TextAlign.center,
         ),
         Padding(
           padding: EdgeInsets.only(
-            top: 16.0,
-            bottom: MediaQuery.of(context).size.width * 0.08,
+            top: AppPaddings.medium,
+            bottom: AppPaddings.medium,
           ),
           child: content,
         ),

@@ -14,7 +14,7 @@ class LeftBlock extends StatelessWidget {
     final double height = MediaQuery.of(context).size.width / 2 - 30;
 
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16), //TODO use correct size
       child: Column(
         children: [
           if (postPerformance.imageUrls.isEmpty && postPerformance.text != null)
