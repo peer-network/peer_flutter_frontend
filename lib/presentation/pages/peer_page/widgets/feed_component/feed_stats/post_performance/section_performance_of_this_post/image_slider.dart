@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_of_this_post/image_slider_indicator.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ImageSlider extends StatefulWidget {
   final List<String> imageUrls;
@@ -56,7 +57,7 @@ class _ImageSliderState extends State<ImageSlider> {
             },
           ),
         ),
-        SizedBox(height: 10), //TODO use correct height
+        SizedBox(height: AppDimensions.imageSliderBarHeightBigger),
         ImageSliderIndicator(
           currentIndex: currentIndexNotifier,
           imageCount: widget.imageUrls.length,

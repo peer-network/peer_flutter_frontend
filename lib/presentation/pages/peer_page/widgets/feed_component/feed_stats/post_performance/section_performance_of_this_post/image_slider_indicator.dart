@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/whitelabel/theme.dart';
 
 
 class ImageSliderIndicator extends StatelessWidget {
@@ -24,20 +25,14 @@ class ImageSliderIndicator extends StatelessWidget {
         return Container(
           height: AppDimensions.imageSliderBarHeight,
           width: AppDimensions.imageSliderBarWidth,
-          decoration: BoxDecoration(
-            color: Theme.of(context).brightness == Brightness.light //TODO use correct colors
-                ? LightColors.barSlider
-                : DarkColors.barSlider,
-            borderRadius: AppBorders.imageSliderRadius,
-          ),
           child: Stack(
             children: [
               Container(
                 width: AppDimensions.imageSliderBarWidth,
                 decoration: BoxDecoration(
-                  color: Theme.of(context).brightness == Brightness.light //TODO use correct colors
-                      ? LightColors.barSlider
-                      : DarkColors.barSlider,
+                  color: Theme.of(context).brightness == Brightness.light
+                    ? lightTheme.colorScheme.primaryContainer
+                    : darkTheme.colorScheme.primaryContainer,
                   borderRadius: AppBorders.imageSliderRadius,
                 ),
               ),
@@ -48,9 +43,9 @@ class ImageSliderIndicator extends StatelessWidget {
                 child: Container(
                   width: indicatorWidth,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).brightness == Brightness.light //TODO use correct colors
-                        ? LightColors.barHandle
-                        : DarkColors.barHandle,
+                    color: Theme.of(context).brightness == Brightness.light
+                      ? lightTheme.colorScheme.secondary
+                      : darkTheme.colorScheme.secondary,
                     borderRadius: AppBorders.imageSliderRadius,
                   ),
                 ),

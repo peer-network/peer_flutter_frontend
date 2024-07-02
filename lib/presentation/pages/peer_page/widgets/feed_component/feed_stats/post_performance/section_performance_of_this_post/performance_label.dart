@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
-
-import 'package:peer_app/presentation/whitelabel/theme.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class PerformanceLabel extends StatelessWidget {
@@ -20,7 +18,7 @@ class PerformanceLabel extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: 28,//TODO use correct style
+          height: AppDimensions.labelRowLarge,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -28,11 +26,11 @@ class PerformanceLabel extends StatelessWidget {
                 amount.toString(),
                 style: Theme.of(context).textTheme.displayLarge!,
               ),
-              const SizedBox(width: 8),//TODO use correct style
+              const SizedBox(width: AppPaddings.small),
               ImageIcon(
                 IconLibrary.diamond.icon,
                 color: Theme.of(context).primaryIconTheme.color,
-                size: 24, //TODO use correct style
+                size: AppDimensions.iconSizeMedium,
               ),
             ],
           ),

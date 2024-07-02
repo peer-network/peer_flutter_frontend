@@ -5,7 +5,6 @@ import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/fee
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_of_this_post/performance_of_this_post.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_widget.dart';
 
-
 class ThreeWidgets extends StatelessWidget {
   const ThreeWidgets({
     super.key,

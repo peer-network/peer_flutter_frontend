@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/post_performance_content.dart';
 import 'package:peer_app/presentation/whitelabel/components/appbars/base_appbar.dart';
-import 'package:peer_app/presentation/whitelabel/theme.dart';
+import 'package:peer_app/presentation/whitelabel/colors.dart';
 
 class PostPerformance extends StatelessWidget {
   const PostPerformance({
@@ -26,8 +26,8 @@ class PostPerformance extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Theme.of(context).primaryColorLight.withOpacity(0.7), //TODO use correct colors
-              Theme.of(context).primaryColorDark.withOpacity(0.7),
+              DarkColors.fadeDark,
+              DarkColors.fadeBright,
             ],
           ),
         ),

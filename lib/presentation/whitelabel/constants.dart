@@ -81,11 +81,15 @@ class AppDimensions {
 
   static const double imageSliderBarWidth = 75.0;
   static const double imageSliderBarHeight = 4.0;
+  static const double imageSliderBarHeightBigger = 10.0;
 
-
+  //Label row height
+  static const double labelRowLarge = 28.0;
 }
 
 // aspect ratios
 class AppAspectRatios {
   static double profileImageAspectRatio = AspectRatios.ar_19_9.doubleValue();
+  static double graphAspectRatio = AspectRatios.ar_17_10.doubleValue();
+  
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-
 class SectionWidget extends StatelessWidget {
   final String title;
   final Widget content;

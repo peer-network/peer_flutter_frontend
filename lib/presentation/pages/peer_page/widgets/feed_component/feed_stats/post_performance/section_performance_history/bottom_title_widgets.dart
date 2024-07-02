@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:peer_app/data/models/post_performance_model.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
-//import 'package:peer_app/presentation/whitelabel/colors.dart';
 
 Widget bottomTitleWidgets(BuildContext context, double value, TitleMeta meta,
     PostPerformanceModel postPerformance, DateTime firstMesurementDate) {
@@ -15,7 +14,9 @@ Widget bottomTitleWidgets(BuildContext context, double value, TitleMeta meta,
 
   if (value == 0) {
     formattedDate =
-        "${firstMesurementDate.day} ${DateFormat('MMM').format(firstMesurementDate)} ${firstMesurementDate.year != now.year ? firstMesurementDate.year : ''}";
+        "${firstMesurementDate.day} ${DateFormat('MMM').format(firstMesurementDate)} ${firstMesurementDate.year != now.year
+        ? firstMesurementDate.year
+        : ''}";
   } else if (value == totalDays) {
     if (date.year == now.year) {
       formattedDate = "${date.day} ${DateFormat('MMM').format(date)}";
