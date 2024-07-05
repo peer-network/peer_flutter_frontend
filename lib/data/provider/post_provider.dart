@@ -5,9 +5,6 @@ import 'package:peer_app/data/graphql/queries.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
 
-
-enum PostPerformanceState { none, loading, loaded, error }
-
 class PostProvider with ChangeNotifier {
   final gqlClient = GraphQLClientSingleton();
   final List<PostModel> _posts = [];

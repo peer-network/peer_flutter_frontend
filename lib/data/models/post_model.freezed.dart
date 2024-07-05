@@ -1106,9 +1106,6 @@ class _$ImagePostImpl implements ImagePost {
   @override
   final UserModel? user;
 // user in json
-// @ImageAspectRatioConverter()
-// @Default(AspectRatios.ar_1_1)
-// ImageAspectRatios aspectRatio,
   @override
   @JsonKey()
   @ImageAspectRatioConverter()
@@ -1500,9 +1497,6 @@ abstract class ImagePost implements PostModel {
   int? get amountViews;
   @override
   UserModel? get user; // user in json
-// @ImageAspectRatioConverter()
-// @Default(AspectRatios.ar_1_1)
-// ImageAspectRatios aspectRatio,
   @ImageAspectRatioConverter()
   ImageAspectRatios get aspectRatio;
   @override
