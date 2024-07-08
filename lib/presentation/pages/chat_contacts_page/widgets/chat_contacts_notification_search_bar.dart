@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
+import 'package:peer_app/presentation/whitelabel/components/buttons/base_button.dart';
+import 'package:peer_app/presentation/whitelabel/components/buttons/primary_button.dart';
+import 'package:peer_app/presentation/whitelabel/components/buttons/secondary_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/search_elements/search_element_container.dart';
 import 'package:peer_app/presentation/whitelabel/components/search_elements/text_search.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
@@ -37,12 +40,14 @@ class _ChatContactsSearchBarState extends State<ChatContactsSearchBar> {
       child: Row(
         children: [
           Expanded(
-            child: Text(
-              'neue Nachricht',
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  color: Theme.of(context).brightness == Brightness.light
-                      ? LightColors.textCompany
-                      : DarkColors.textCompany),
+            // child: PrimaryButton(text: "New Chat", onPressed: () {}),
+            child: SecondaryButton(
+              text: 'New Chat',
+              onPressed: () {},
+              backgroundColor: Theme.of(context).brightness == Brightness.light
+                  ? LightColors.buttonPrimary
+                  : DarkColors.buttonPrimary,
+              isFilled: true,
             ),
           ),
           // TODO: Reimplement

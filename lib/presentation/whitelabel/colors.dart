@@ -78,6 +78,9 @@ class LightColors {
 
   // curcular notification indicator
   static const Color notificationIndicator = _primaryBlue;
+
+  // Button colors
+  static const Color buttonPrimary = _primaryBlue;
 }
 
 class DarkColors {
@@ -136,6 +139,9 @@ class DarkColors {
 
   // curcular notification indicator
   static const Color notificationIndicator = _primaryBlue;
+
+  // Button colors
+  static const Color buttonPrimary = _primaryBlue;
 }
 
 /* light theme
