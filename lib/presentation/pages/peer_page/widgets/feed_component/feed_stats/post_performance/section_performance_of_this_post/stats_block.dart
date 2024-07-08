@@ -3,10 +3,10 @@ import 'package:peer_app/data/models/post_performance_model.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_of_this_post/performance_label.dart';
 
 
-class RightBlocks extends StatelessWidget {
+class StatsBlocks extends StatelessWidget {
   final PostPerformanceModel postPerformance;
 
-  const RightBlocks({
+  const StatsBlocks({
     super.key,
     required this.postPerformance,
   });

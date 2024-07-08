@@ -4,10 +4,10 @@ import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/fee
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_of_this_post/text_box.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
-class LeftBlock extends StatelessWidget {
+class ContentBlock extends StatelessWidget {
   final PostPerformanceModel postPerformance;
 
-  const LeftBlock({Key? key, required this.postPerformance}) : super(key: key);
+  const ContentBlock({Key? key, required this.postPerformance}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,9 @@ class LeftBlock extends StatelessWidget {
       padding: const EdgeInsets.all(AppPaddings.medium),
       child: Column(
         children: [
-          if (postPerformance.imageUrls.isEmpty && postPerformance.text != null)
+          if (postPerformance.imageUrls.isEmpty && postPerformance.postText != null)
             TextContentBox(
-              text: postPerformance.text!,
+              text: postPerformance.postText!,
               width: width,
               height: height,
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/post_model.dart';
+import 'package:peer_app/data/provider/post_performance_provider.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
@@ -8,6 +9,7 @@ import 'package:peer_app/presentation/whitelabel/components/types/size_types.dar
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/post_performance.dart';
+import 'package:provider/provider.dart';
 
 class FeedActionsComponent extends StatelessWidget {
   const FeedActionsComponent({super.key, required this.feed});
@@ -50,7 +52,18 @@ class FeedActionsComponent extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => PostPerformance()),
+                MaterialPageRoute(
+                  builder: (context) => 
+                    // MultiProvider(
+                    //   providers: [
+                    //     ChangeNotifierProvider(
+                    //       create: (_) => PostPerformanceProvider()
+                    //     )
+                    //   ],
+                    // child:
+                       PostPerformance()
+                    // )
+                  ),
               );
             },
             color: Theme.of(context).primaryIconTheme.color,

@@ -13,7 +13,7 @@ _$PostPerformanceModelImpl _$$PostPerformanceModelImplFromJson(
       userId: (json['userId'] as num).toInt(),
       imageUrls:
           (json['imageUrls'] as List<dynamic>).map((e) => e as String).toList(),
-      text: json['text'] as String?,
+      postText: json['postText'] as String?,
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
@@ -33,7 +33,7 @@ Map<String, dynamic> _$$PostPerformanceModelImplToJson(
       'postId': instance.postId,
       'userId': instance.userId,
       'imageUrls': instance.imageUrls,
-      'text': instance.text,
+      'postText': instance.postText,
       'createdAt': instance.createdAt?.toIso8601String(),
       'gemsTotal': instance.gemsTotal,
       'gemsToday': instance.gemsToday,

@@ -10,7 +10,7 @@ class PostPerformanceModel with _$PostPerformanceModel {
     required dynamic postId,
     required int userId,
     required List<String> imageUrls,
-    String? text,
+    String? postText,
     DateTime? createdAt,
     required int gemsTotal,
     required int gemsToday,

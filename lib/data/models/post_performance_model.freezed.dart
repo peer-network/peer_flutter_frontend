@@ -23,7 +23,7 @@ mixin _$PostPerformanceModel {
   dynamic get postId => throw _privateConstructorUsedError;
   int get userId => throw _privateConstructorUsedError;
   List<String> get imageUrls => throw _privateConstructorUsedError;
-  String? get text => throw _privateConstructorUsedError;
+  String? get postText => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   int get gemsTotal => throw _privateConstructorUsedError;
   int get gemsToday => throw _privateConstructorUsedError;
@@ -50,7 +50,7 @@ abstract class $PostPerformanceModelCopyWith<$Res> {
       {dynamic postId,
       int userId,
       List<String> imageUrls,
-      String? text,
+      String? postText,
       DateTime? createdAt,
       int gemsTotal,
       int gemsToday,
@@ -79,7 +79,7 @@ class _$PostPerformanceModelCopyWithImpl<$Res,
     Object? postId = freezed,
     Object? userId = null,
     Object? imageUrls = null,
-    Object? text = freezed,
+    Object? postText = freezed,
     Object? createdAt = freezed,
     Object? gemsTotal = null,
     Object? gemsToday = null,
@@ -102,9 +102,9 @@ class _$PostPerformanceModelCopyWithImpl<$Res,
           ? _value.imageUrls
           : imageUrls // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
+      postText: freezed == postText
+          ? _value.postText
+          : postText // ignore: cast_nullable_to_non_nullable
               as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
@@ -154,7 +154,7 @@ abstract class _$$PostPerformanceModelImplCopyWith<$Res>
       {dynamic postId,
       int userId,
       List<String> imageUrls,
-      String? text,
+      String? postText,
       DateTime? createdAt,
       int gemsTotal,
       int gemsToday,
@@ -180,7 +180,7 @@ class __$$PostPerformanceModelImplCopyWithImpl<$Res>
     Object? postId = freezed,
     Object? userId = null,
     Object? imageUrls = null,
-    Object? text = freezed,
+    Object? postText = freezed,
     Object? createdAt = freezed,
     Object? gemsTotal = null,
     Object? gemsToday = null,
@@ -203,9 +203,9 @@ class __$$PostPerformanceModelImplCopyWithImpl<$Res>
           ? _value._imageUrls
           : imageUrls // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
+      postText: freezed == postText
+          ? _value.postText
+          : postText // ignore: cast_nullable_to_non_nullable
               as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
@@ -251,7 +251,7 @@ class _$PostPerformanceModelImpl implements _PostPerformanceModel {
       {required this.postId,
       required this.userId,
       required final List<String> imageUrls,
-      this.text,
+      this.postText,
       this.createdAt,
       required this.gemsTotal,
       required this.gemsToday,
@@ -280,7 +280,7 @@ class _$PostPerformanceModelImpl implements _PostPerformanceModel {
   }
 
   @override
-  final String? text;
+  final String? postText;
   @override
   final DateTime? createdAt;
   @override
@@ -306,7 +306,7 @@ class _$PostPerformanceModelImpl implements _PostPerformanceModel {
 
   @override
   String toString() {
-    return 'PostPerformanceModel(postId: $postId, userId: $userId, imageUrls: $imageUrls, text: $text, createdAt: $createdAt, gemsTotal: $gemsTotal, gemsToday: $gemsToday, gemsAllTimeHigh: $gemsAllTimeHigh, gemsLikes: $gemsLikes, gemsViews: $gemsViews, gemsShares: $gemsShares, likesPerDay: $likesPerDay)';
+    return 'PostPerformanceModel(postId: $postId, userId: $userId, imageUrls: $imageUrls, postText: $postText, createdAt: $createdAt, gemsTotal: $gemsTotal, gemsToday: $gemsToday, gemsAllTimeHigh: $gemsAllTimeHigh, gemsLikes: $gemsLikes, gemsViews: $gemsViews, gemsShares: $gemsShares, likesPerDay: $likesPerDay)';
   }
 
   @override
@@ -318,7 +318,8 @@ class _$PostPerformanceModelImpl implements _PostPerformanceModel {
             (identical(other.userId, userId) || other.userId == userId) &&
             const DeepCollectionEquality()
                 .equals(other._imageUrls, _imageUrls) &&
-            (identical(other.text, text) || other.text == text) &&
+            (identical(other.postText, postText) ||
+                other.postText == postText) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.gemsTotal, gemsTotal) ||
@@ -344,7 +345,7 @@ class _$PostPerformanceModelImpl implements _PostPerformanceModel {
       const DeepCollectionEquality().hash(postId),
       userId,
       const DeepCollectionEquality().hash(_imageUrls),
-      text,
+      postText,
       createdAt,
       gemsTotal,
       gemsToday,
@@ -375,7 +376,7 @@ abstract class _PostPerformanceModel implements PostPerformanceModel {
           {required final dynamic postId,
           required final int userId,
           required final List<String> imageUrls,
-          final String? text,
+          final String? postText,
           final DateTime? createdAt,
           required final int gemsTotal,
           required final int gemsToday,
@@ -397,7 +398,7 @@ abstract class _PostPerformanceModel implements PostPerformanceModel {
   @override
   List<String> get imageUrls;
   @override
-  String? get text;
+  String? get postText;
   @override
   DateTime? get createdAt;
   @override
