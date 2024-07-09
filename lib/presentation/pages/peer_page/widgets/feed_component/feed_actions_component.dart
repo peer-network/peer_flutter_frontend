@@ -54,15 +54,7 @@ class FeedActionsComponent extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => 
-                    // MultiProvider(
-                    //   providers: [
-                    //     ChangeNotifierProvider(
-                    //       create: (_) => PostPerformanceProvider()
-                    //     )
-                    //   ],
-                    // child:
-                       PostPerformance()
-                    // )
+                    PostPerformance()
                   ),
               );
             },
