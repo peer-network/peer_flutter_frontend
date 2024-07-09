@@ -34,6 +34,7 @@ class AppPaddings {
   static const double extraLarge = 32.0;
   static const double extraLargePlus = 38.0;
   static const double gigaLarge = 64.0;
+
 }
 
 class AppDimensions {
