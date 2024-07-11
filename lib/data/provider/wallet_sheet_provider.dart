@@ -36,6 +36,7 @@ class WalletSheetProvider with ChangeNotifier {
     notifyListeners();
 
     try {
+      print("\n\nloading wallet\n\n");
       // final response = await _dioClient.get(ApiEndpoints.wallet);
       // TODO replace with real api call
       // dummy data for currency exchange inside wallet
@@ -51,13 +52,20 @@ class WalletSheetProvider with ChangeNotifier {
 
       _creditsSource = sortItems(_creditsSource);
 
+      Map<String, dynamic> _dummyWallet =
+          dummyWallet["wallet"] as Map<String, dynamic>;
+      _wallet = WalletModel.fromJson(_dummyWallet);
+
       _state = WalletState.loaded;
+      print("\n\nloaded wallet\n\n");
       notifyListeners();
     } catch (e) {
       _state = WalletState.error;
+      print(e);
       notifyListeners();
     }
 
+    /*
     final queryOption = QueryOptions(
         document: Queries.wallet,
         fetchPolicy: FetchPolicy.networkOnly,
@@ -97,6 +105,7 @@ class WalletSheetProvider with ChangeNotifier {
     _state = WalletState.loaded;
 
     notifyListeners();
+    */
   }
 
   CreditsSourceModel sortItems(CreditsSourceModel source) {

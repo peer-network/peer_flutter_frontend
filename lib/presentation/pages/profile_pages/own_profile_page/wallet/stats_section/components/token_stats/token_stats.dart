@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/token_stats/token_label.dart';
+import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 import 'package:provider/provider.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
@@ -12,47 +14,43 @@ class TokenStats extends StatelessWidget {
         Provider.of<WalletSheetProvider>(context);
     return Column(
       children: [
-        Text(
-            walletSheetProvider
-                .formatDigits(walletSheetProvider.wallet.totalCredits),
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: Theme.of(context).colorScheme.secondary)),
+        TokenLabel(
+            isConversion: false,
+            isPercentage: false,
+            value: walletSheetProvider
+                .formatDigits(walletSheetProvider.wallet.totalCredits)),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
-          child: Text('Credits in deiner Wallet',
+          child: Text('Your current Token Count',
               style: Theme.of(context)
                   .textTheme
-                  .bodyLarge!
+                  .titleMedium!
                   .copyWith(color: Theme.of(context).colorScheme.secondary)),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
-          child: Text(
-              walletSheetProvider.formatDigits(
-                  walletSheetProvider.wallet.creditsCollectedToday),
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall!
-                  .copyWith(color: Theme.of(context).colorScheme.secondary)),
+          child: TokenLabel(
+              isConversion: true,
+              isPercentage: false,
+              value: walletSheetProvider.formatDigits(
+                  walletSheetProvider.wallet.creditsCollectedToday)),
         ),
-        Text('Credits heute gesammelt',
+        Text('Gems earned Today',
             style: Theme.of(context)
                 .textTheme
-                .bodyLarge!
+                .titleMedium!
                 .copyWith(color: Theme.of(context).colorScheme.secondary)),
         Padding(
             padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
-            child: Text("gibt's gerade net",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall!
-                    .copyWith(color: Theme.of(context).colorScheme.secondary))),
-        Text('aller tokens gehören dir',
+            child: TokenLabel(
+                isConversion: false,
+                isPercentage: true,
+                value: walletSheetProvider.wallet.percentageOfTotalTokens
+                    .toString())),
+        Text('of all Peer Tokens are currently yours',
             style: Theme.of(context)
                 .textTheme
-                .bodyLarge!
+                .titleMedium!
                 .copyWith(color: Theme.of(context).colorScheme.secondary)),
       ],
     );

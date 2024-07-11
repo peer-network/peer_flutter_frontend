@@ -53,8 +53,8 @@ class PostProvider with ChangeNotifier {
 
                 if (!(postJson["runtimeType"] == "video")) {
                   String temp = postJson["media"];
-                  postJson["media"] =
-                      (postJson["media"] == List) ? temp : [temp];
+                  postJson["media"] = [temp];
+                  //(postJson["media"] == List) ? temp : [temp];
                 }
 
                 return PostModel.fromJson(postJson);

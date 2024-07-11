@@ -6,15 +6,15 @@ import 'package:peer_app/presentation/whitelabel/config.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:provider/provider.dart';
 
-class CashOutTokensBottomSheet extends StatefulWidget {
-  const CashOutTokensBottomSheet({super.key});
+class WithdrawTokensBottomSheet extends StatefulWidget {
+  const WithdrawTokensBottomSheet({super.key});
 
   @override
-  State<CashOutTokensBottomSheet> createState() =>
-      _CashOutTokensBottomSheetState();
+  State<WithdrawTokensBottomSheet> createState() =>
+      _WithdrawTokensBottomSheetState();
 }
 
-class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
+class _WithdrawTokensBottomSheetState extends State<WithdrawTokensBottomSheet> {
   final PageController _horizontalTitlePageViewController = PageController();
   final PageController _verticalTitlePageViewController = PageController();
   final PageController _contentPageController = PageController();

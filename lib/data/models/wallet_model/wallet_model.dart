@@ -4,14 +4,16 @@ class WalletModel {
   final int userId;
   final int totalCredits;
   final int creditsCollectedToday;
+  final double percentageOfTotalTokens;
   final DateTime? createdAt;
   final DateTime? updatedAt;
 
   WalletModel({
+    required this.percentageOfTotalTokens,
     //required this.user,
     required this.userId,
-    required this.createdAt,
-    required this.updatedAt,
+    this.createdAt,
+    this.updatedAt,
     required this.id,
     required this.totalCredits,
     required this.creditsCollectedToday,
@@ -19,10 +21,10 @@ class WalletModel {
 
   factory WalletModel.fromJson(Map<String, dynamic> json) {
     return WalletModel(
-        //user: json['user'],
-        totalCredits: json['total_credits'],
-        creditsCollectedToday: json['credits_collected_today'],
-        userId: json['user_id'],
+        percentageOfTotalTokens: json['percentageOfTotalTokens'],
+        totalCredits: json['totalCredits'],
+        creditsCollectedToday: json['creditsCollectedToday'],
+        userId: json['userId'],
         createdAt: json['created_at'] != null
             ? DateTime.parse(json['created_at'])
             : null,

@@ -1,10 +1,7 @@
 final dummyWallet = {
   "wallet": {
-    "user": {
-      "id": 2,
-      "name": "John Doe",
-      "img": "https://randomuser.me/api/portraits/men/1.jpg"
-    },
+    "id": 2,
+    "userId": 3,
     "totalCredits": 8970,
     "creditsCollectedToday": 924,
     "percentageOfTotalTokens": 0.03
@@ -26,7 +23,7 @@ final dummyWallet = {
     ]
   },
   "currencyExchange": {
-    "creditValue": 0.0215194798,
+    "creditValue": 0.0314159265,
     "totalCreditsInSystem": 381805
   }
 };
