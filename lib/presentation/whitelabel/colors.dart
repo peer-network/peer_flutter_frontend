@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 // Colors
 const Color _blackIsh = Color(0xFF00070F);
 const Color _whiteIsh = Color(0xFFFFFAFA);
-const Color _whiteIshGrey = Color(0xFFF3F6FF);
+const Color _whiteIshGrey = Color(0xFFC1D0FF);
 const Color _lightestGrey = Color(0xFFE2E2E2);
 const Color _lightGrey = Color(0xFFBABABA);
 const Color _grey = Color(0xFF707070);
 const Color _darkGrey = Color(0xFF3B3B3B);
-const Color _darkestGrey = Color(0xFF181818);
+const Color _darkestGrey = Color(0xFF252525);
 const Color _primaryLightBlue = Color(0xFF75DDDD);
 const Color _primaryBlue = Color(0xFF127EFC);
 const Color _primaryDarkBlue = Color(0xFF0B4D99);

@@ -25,8 +25,8 @@ class ChatBubble extends StatelessWidget {
             : DarkColors.theirChatBubble); // Dark theme color for receiver
 
     Color textColor = Theme.of(context).brightness == Brightness.light
-        ? LightColors.textDarkSubtle
-        : DarkColors.textDarkSubtle;
+        ? LightColors.textDark
+        : DarkColors.textDark;
 
     return Align(
       alignment: alignment,
@@ -70,8 +70,8 @@ class ChatBubble extends StatelessWidget {
                     .getFormattedDate(formatType: DateFormatType.onlyTime),
                 style: Theme.of(context).textTheme.labelMedium!.copyWith(
                       color: Theme.of(context).brightness == Brightness.light
-                          ? LightColors.textDarkSubtle
-                          : DarkColors.textDarkSubtle,
+                          ? LightColors.textDark
+                          : DarkColors.textDark,
                     )),
           ],
         ),

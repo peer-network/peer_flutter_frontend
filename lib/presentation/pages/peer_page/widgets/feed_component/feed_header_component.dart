@@ -3,7 +3,7 @@ import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/secondary_button.dart';
-import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
+import 'package:peer_app/presentation/whitelabel/components/image_container/avatar_component.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class FeedHeaderComponent extends StatelessWidget {
@@ -22,15 +22,15 @@ class FeedHeaderComponent extends StatelessWidget {
         children: [
           // Avatar
           InkWell(
-            onTap: () => Navigator.of(context)
-                .push(UserProfilePageRoute(user.id.toString())),
+            onTap: () =>
+                Navigator.of(context).push(UserProfilePageRoute(user.id)),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 AvatarComponent(imageUrl: user.img),
                 const SizedBox(width: AppPaddings.small),
                 // Title
-                Text(user.username ?? "",
+                Text(user.username,
                     style: Theme.of(context).textTheme.titleLarge!),
               ],
             ),
@@ -39,7 +39,7 @@ class FeedHeaderComponent extends StatelessWidget {
           // Follow button
           SecondaryButton(
             text: 'Follow',
-            onPressed: () => print('Follow'),
+            onPressed: () {},
             backgroundColor: Theme.of(context).brightness == Brightness.light
                 ? LightColors.followBackground
                 : DarkColors.followBackground,

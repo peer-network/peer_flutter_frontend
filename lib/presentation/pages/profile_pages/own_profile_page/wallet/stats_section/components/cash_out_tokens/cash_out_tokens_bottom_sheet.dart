@@ -348,7 +348,7 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                             ),
                           ]),
                       // confirm cashout
-                      Column()
+                      const Column()
                     ]),
               )
             ])));

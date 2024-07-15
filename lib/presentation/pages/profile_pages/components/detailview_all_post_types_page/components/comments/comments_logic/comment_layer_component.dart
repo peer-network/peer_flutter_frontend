@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_comment_model.dart';
+import 'package:peer_app/data/models/post_comment_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_single_components/comment_comment.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
@@ -11,12 +11,14 @@ class CommentLayerComponent extends StatelessWidget {
     this.nextLayer,
     this.isThirdLayerOrMore = false,
     this.isSecondLayerOrMore = false,
+    this.referenceName,
   });
 
-  final CommentModel comment;
+  final PostCommentModel comment;
   final Widget? nextLayer;
   final bool isThirdLayerOrMore;
   final bool isSecondLayerOrMore;
+  final String? referenceName;
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +31,11 @@ class CommentLayerComponent extends StatelessWidget {
               ? LightColors.backgroundContainer
               : DarkColors.backgroundContainer,
           child: CommentComment(
-              comment: comment,
-              isThirdLayerOrMore: isThirdLayerOrMore,
-              isSecondLayerOrMore: isSecondLayerOrMore),
+            comment: comment,
+            isThirdLayerOrMore: isThirdLayerOrMore,
+            isSecondLayerOrMore: isSecondLayerOrMore,
+            referenceName: referenceName,
+          ),
         ),
         nextLayer ?? Container()
       ],

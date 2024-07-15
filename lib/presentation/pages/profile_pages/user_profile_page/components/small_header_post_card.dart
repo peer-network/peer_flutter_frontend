@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
-import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
+import 'package:peer_app/presentation/whitelabel/components/image_container/avatar_component.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class SmallHeaderPostCard extends StatelessWidget {

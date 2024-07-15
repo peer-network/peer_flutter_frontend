@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'feed_comment_model.dart';
+part of 'post_comment_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,55 +14,53 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-CommentModel _$CommentModelFromJson(Map<String, dynamic> json) {
-  return _CommentModel.fromJson(json);
+PostCommentModel _$PostCommentModelFromJson(Map<String, dynamic> json) {
+  return _PostCommentModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CommentModel {
+mixin _$PostCommentModel {
   String get id => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   int get postId => throw _privateConstructorUsedError;
-  int get userId => throw _privateConstructorUsedError;
-  UserModel get creator => throw _privateConstructorUsedError;
+  String get userId =>
+      throw _privateConstructorUsedError; // required UserModel creator, // Seems like "creator" and "user" are the same. There is no creator in the api
   DateTime get createdAt => throw _privateConstructorUsedError;
   UserModel? get user => throw _privateConstructorUsedError;
-  List<CommentModel> get comments => throw _privateConstructorUsedError;
+  List<PostCommentModel> get comments => throw _privateConstructorUsedError;
   bool? get isLiked => throw _privateConstructorUsedError;
   int? get likeCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CommentModelCopyWith<CommentModel> get copyWith =>
+  $PostCommentModelCopyWith<PostCommentModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CommentModelCopyWith<$Res> {
-  factory $CommentModelCopyWith(
-          CommentModel value, $Res Function(CommentModel) then) =
-      _$CommentModelCopyWithImpl<$Res, CommentModel>;
+abstract class $PostCommentModelCopyWith<$Res> {
+  factory $PostCommentModelCopyWith(
+          PostCommentModel value, $Res Function(PostCommentModel) then) =
+      _$PostCommentModelCopyWithImpl<$Res, PostCommentModel>;
   @useResult
   $Res call(
       {String id,
       String content,
       int postId,
-      int userId,
-      UserModel creator,
+      String userId,
       DateTime createdAt,
       UserModel? user,
-      List<CommentModel> comments,
+      List<PostCommentModel> comments,
       bool? isLiked,
       int? likeCount});
 
-  $UserModelCopyWith<$Res> get creator;
   $UserModelCopyWith<$Res>? get user;
 }
 
 /// @nodoc
-class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
-    implements $CommentModelCopyWith<$Res> {
-  _$CommentModelCopyWithImpl(this._value, this._then);
+class _$PostCommentModelCopyWithImpl<$Res, $Val extends PostCommentModel>
+    implements $PostCommentModelCopyWith<$Res> {
+  _$PostCommentModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -76,7 +74,6 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
     Object? content = null,
     Object? postId = null,
     Object? userId = null,
-    Object? creator = null,
     Object? createdAt = null,
     Object? user = freezed,
     Object? comments = null,
@@ -99,11 +96,7 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as int,
-      creator: null == creator
-          ? _value.creator
-          : creator // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+              as String,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -115,7 +108,7 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
       comments: null == comments
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentModel>,
+              as List<PostCommentModel>,
       isLiked: freezed == isLiked
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
@@ -125,14 +118,6 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserModelCopyWith<$Res> get creator {
-    return $UserModelCopyWith<$Res>(_value.creator, (value) {
-      return _then(_value.copyWith(creator: value) as $Val);
-    });
   }
 
   @override
@@ -149,37 +134,34 @@ class _$CommentModelCopyWithImpl<$Res, $Val extends CommentModel>
 }
 
 /// @nodoc
-abstract class _$$CommentModelImplCopyWith<$Res>
-    implements $CommentModelCopyWith<$Res> {
-  factory _$$CommentModelImplCopyWith(
-          _$CommentModelImpl value, $Res Function(_$CommentModelImpl) then) =
-      __$$CommentModelImplCopyWithImpl<$Res>;
+abstract class _$$PostCommentModelImplCopyWith<$Res>
+    implements $PostCommentModelCopyWith<$Res> {
+  factory _$$PostCommentModelImplCopyWith(_$PostCommentModelImpl value,
+          $Res Function(_$PostCommentModelImpl) then) =
+      __$$PostCommentModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String id,
       String content,
       int postId,
-      int userId,
-      UserModel creator,
+      String userId,
       DateTime createdAt,
       UserModel? user,
-      List<CommentModel> comments,
+      List<PostCommentModel> comments,
       bool? isLiked,
       int? likeCount});
 
-  @override
-  $UserModelCopyWith<$Res> get creator;
   @override
   $UserModelCopyWith<$Res>? get user;
 }
 
 /// @nodoc
-class __$$CommentModelImplCopyWithImpl<$Res>
-    extends _$CommentModelCopyWithImpl<$Res, _$CommentModelImpl>
-    implements _$$CommentModelImplCopyWith<$Res> {
-  __$$CommentModelImplCopyWithImpl(
-      _$CommentModelImpl _value, $Res Function(_$CommentModelImpl) _then)
+class __$$PostCommentModelImplCopyWithImpl<$Res>
+    extends _$PostCommentModelCopyWithImpl<$Res, _$PostCommentModelImpl>
+    implements _$$PostCommentModelImplCopyWith<$Res> {
+  __$$PostCommentModelImplCopyWithImpl(_$PostCommentModelImpl _value,
+      $Res Function(_$PostCommentModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -189,14 +171,13 @@ class __$$CommentModelImplCopyWithImpl<$Res>
     Object? content = null,
     Object? postId = null,
     Object? userId = null,
-    Object? creator = null,
     Object? createdAt = null,
     Object? user = freezed,
     Object? comments = null,
     Object? isLiked = freezed,
     Object? likeCount = freezed,
   }) {
-    return _then(_$CommentModelImpl(
+    return _then(_$PostCommentModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -212,11 +193,7 @@ class __$$CommentModelImplCopyWithImpl<$Res>
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as int,
-      creator: null == creator
-          ? _value.creator
-          : creator // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+              as String,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -228,7 +205,7 @@ class __$$CommentModelImplCopyWithImpl<$Res>
       comments: null == comments
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentModel>,
+              as List<PostCommentModel>,
       isLiked: freezed == isLiked
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
@@ -244,22 +221,21 @@ class __$$CommentModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$CommentModelImpl implements _CommentModel {
-  const _$CommentModelImpl(
+class _$PostCommentModelImpl implements _PostCommentModel {
+  const _$PostCommentModelImpl(
       {required this.id,
       required this.content,
       required this.postId,
       required this.userId,
-      required this.creator,
       required this.createdAt,
       required this.user,
-      final List<CommentModel> comments = const [],
+      final List<PostCommentModel> comments = const [],
       this.isLiked,
       this.likeCount})
       : _comments = comments;
 
-  factory _$CommentModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CommentModelImplFromJson(json);
+  factory _$PostCommentModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostCommentModelImplFromJson(json);
 
   @override
   final String id;
@@ -268,17 +244,16 @@ class _$CommentModelImpl implements _CommentModel {
   @override
   final int postId;
   @override
-  final int userId;
-  @override
-  final UserModel creator;
+  final String userId;
+// required UserModel creator, // Seems like "creator" and "user" are the same. There is no creator in the api
   @override
   final DateTime createdAt;
   @override
   final UserModel? user;
-  final List<CommentModel> _comments;
+  final List<PostCommentModel> _comments;
   @override
   @JsonKey()
-  List<CommentModel> get comments {
+  List<PostCommentModel> get comments {
     if (_comments is EqualUnmodifiableListView) return _comments;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_comments);
@@ -291,19 +266,18 @@ class _$CommentModelImpl implements _CommentModel {
 
   @override
   String toString() {
-    return 'CommentModel(id: $id, content: $content, postId: $postId, userId: $userId, creator: $creator, createdAt: $createdAt, user: $user, comments: $comments, isLiked: $isLiked, likeCount: $likeCount)';
+    return 'PostCommentModel(id: $id, content: $content, postId: $postId, userId: $userId, createdAt: $createdAt, user: $user, comments: $comments, isLiked: $isLiked, likeCount: $likeCount)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CommentModelImpl &&
+            other is _$PostCommentModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.postId, postId) || other.postId == postId) &&
             (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.creator, creator) || other.creator == creator) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.user, user) || other.user == user) &&
@@ -321,7 +295,6 @@ class _$CommentModelImpl implements _CommentModel {
       content,
       postId,
       userId,
-      creator,
       createdAt,
       user,
       const DeepCollectionEquality().hash(_comments),
@@ -331,32 +304,32 @@ class _$CommentModelImpl implements _CommentModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CommentModelImplCopyWith<_$CommentModelImpl> get copyWith =>
-      __$$CommentModelImplCopyWithImpl<_$CommentModelImpl>(this, _$identity);
+  _$$PostCommentModelImplCopyWith<_$PostCommentModelImpl> get copyWith =>
+      __$$PostCommentModelImplCopyWithImpl<_$PostCommentModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CommentModelImplToJson(
+    return _$$PostCommentModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _CommentModel implements CommentModel {
-  const factory _CommentModel(
+abstract class _PostCommentModel implements PostCommentModel {
+  const factory _PostCommentModel(
       {required final String id,
       required final String content,
       required final int postId,
-      required final int userId,
-      required final UserModel creator,
+      required final String userId,
       required final DateTime createdAt,
       required final UserModel? user,
-      final List<CommentModel> comments,
+      final List<PostCommentModel> comments,
       final bool? isLiked,
-      final int? likeCount}) = _$CommentModelImpl;
+      final int? likeCount}) = _$PostCommentModelImpl;
 
-  factory _CommentModel.fromJson(Map<String, dynamic> json) =
-      _$CommentModelImpl.fromJson;
+  factory _PostCommentModel.fromJson(Map<String, dynamic> json) =
+      _$PostCommentModelImpl.fromJson;
 
   @override
   String get id;
@@ -365,21 +338,19 @@ abstract class _CommentModel implements CommentModel {
   @override
   int get postId;
   @override
-  int get userId;
-  @override
-  UserModel get creator;
-  @override
+  String get userId;
+  @override // required UserModel creator, // Seems like "creator" and "user" are the same. There is no creator in the api
   DateTime get createdAt;
   @override
   UserModel? get user;
   @override
-  List<CommentModel> get comments;
+  List<PostCommentModel> get comments;
   @override
   bool? get isLiked;
   @override
   int? get likeCount;
   @override
   @JsonKey(ignore: true)
-  _$$CommentModelImplCopyWith<_$CommentModelImpl> get copyWith =>
+  _$$PostCommentModelImplCopyWith<_$PostCommentModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

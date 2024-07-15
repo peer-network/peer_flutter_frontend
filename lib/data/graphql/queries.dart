@@ -99,3 +99,23 @@ query Wallet(\$user_id: Int) {
 }
 """);
 }
+
+// query GetPost(\$postId: String!) { ----- changed to "ID!"
+const String getPostById = """
+query GetPost(\$postId: ID!) {
+  getPost(id: \$postId) {
+        comments {
+            id
+            content
+            createdAt
+            user {
+                id
+                username
+                img
+            }
+            postId
+            userId
+        }
+    }
+}
+""";

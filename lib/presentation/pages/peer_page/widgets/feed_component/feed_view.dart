@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:peer_app/data/provider/post_provider.dart';
-import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_card_component.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/error_component.dart';
 import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
-import 'package:peer_app/presentation/whitelabel/constants.dart';
-import 'package:provider/provider.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_card_component.dart';
 
 class FeedView extends StatelessWidget {
   const FeedView({super.key});
@@ -37,19 +36,13 @@ class FeedView extends StatelessWidget {
         child: ListView.builder(
             itemCount: newsFeedProvider.newsFeed.length,
             itemBuilder: (context, index) {
-              if (newsFeedProvider.newsFeed.length - 1 == index) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: AppPaddings.tiny),
-                  child:
-                      FeedCardComponent(post: newsFeedProvider.newsFeed[index]),
-                );
-              } else {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: AppPaddings.small),
-                  child:
-                      FeedCardComponent(post: newsFeedProvider.newsFeed[index]),
-                );
-              }
+              return Padding(
+                padding: (newsFeedProvider.newsFeed.length - 1 == index)
+                    ? const EdgeInsets.only(bottom: AppPaddings.tiny)
+                    : const EdgeInsets.only(bottom: AppPaddings.small),
+                child:
+                    FeedCardComponent(post: newsFeedProvider.newsFeed[index]),
+              );
             }),
       );
     }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class SourceBar extends StatelessWidget {

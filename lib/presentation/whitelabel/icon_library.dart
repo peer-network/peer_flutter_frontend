@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 enum IconLibrary {
+  dislike,
+  bookmark,
+  download,
+  report,
   heartFilled,
   horizontalMenu,
   history,
@@ -41,6 +45,14 @@ enum IconLibrary {
 extension IconExtension on IconLibrary {
   AssetImage get icon {
     switch (this) {
+      case IconLibrary.dislike:
+        return const AssetImage("assets/icons/dislike.png");
+      case IconLibrary.bookmark:
+        return const AssetImage("assets/icons/bookmark.png");
+      case IconLibrary.download:
+        return const AssetImage("assets/icons/download.png");
+      case IconLibrary.report:
+        return const AssetImage("assets/icons/report.png");
       case IconLibrary.heartFilled:
         return const AssetImage("assets/icons/heart_filled.png");
       case IconLibrary.arrowDown:
@@ -111,8 +123,6 @@ extension IconExtension on IconLibrary {
         return const AssetImage("assets/icons/trash.png");
       case IconLibrary.edit:
         return const AssetImage("assets/icons/edit.png");
-      case IconLibrary.heartFilled:
-        return const AssetImage("assets/icons/heart_filled.png");
 
       default:
         throw Exception("Icon not found");

@@ -31,19 +31,20 @@ PostModel _$PostModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostModel {
-  String get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  bool get isLiked => throw _privateConstructorUsedError;
-  bool get isViewed => throw _privateConstructorUsedError;
-  bool get isReported => throw _privateConstructorUsedError;
-  bool get isDisliked => throw _privateConstructorUsedError;
-  bool get isSaved => throw _privateConstructorUsedError;
-  List<CommentModel> get comments => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  bool? get isLiked => throw _privateConstructorUsedError;
+  bool? get isViewed => throw _privateConstructorUsedError;
+  bool? get isReported => throw _privateConstructorUsedError;
+  bool? get isDisliked => throw _privateConstructorUsedError;
+  bool? get isSaved => throw _privateConstructorUsedError;
+  UserModel? get user => throw _privateConstructorUsedError;
+  List<PostCommentModel> get comments => throw _privateConstructorUsedError;
   int? get amountComments => throw _privateConstructorUsedError;
   int? get amountLikes => throw _privateConstructorUsedError;
   int? get amountViews => throw _privateConstructorUsedError;
-  UserModel? get user => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -51,47 +52,50 @@ mixin _$PostModel {
             String title,
             String content,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
-            int? amountViews,
-            UserModel? user)
+            int? amountViews)
         text,
     required TResult Function(
             String id,
             String title,
             String mediaDescription,
-            String media,
+            List<String> media,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            UserModel? user,
             @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)
         image,
     required TResult Function(
-            String id,
-            String title,
-            String media,
-            String mediaDescription,
-            DateTime createdAt,
-            bool isLiked,
-            bool isViewed,
-            bool isReported,
-            bool isDisliked,
-            bool isSaved,
-            List<CommentModel> comments,
+            String? id,
+            String? title,
+            String? media,
+            String? mediaDescription,
+            DateTime? createdAt,
+            DateTime? updatedAt,
+            bool? isLiked,
+            bool? isViewed,
+            bool? isReported,
+            bool? isDisliked,
+            bool? isSaved,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -106,47 +110,50 @@ mixin _$PostModel {
             String title,
             String content,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
-            int? amountViews,
-            UserModel? user)?
+            int? amountViews)?
         text,
     TResult? Function(
             String id,
             String title,
             String mediaDescription,
-            String media,
+            List<String> media,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            UserModel? user,
             @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
         image,
     TResult? Function(
-            String id,
-            String title,
-            String media,
-            String mediaDescription,
-            DateTime createdAt,
-            bool isLiked,
-            bool isViewed,
-            bool isReported,
-            bool isDisliked,
-            bool isSaved,
-            List<CommentModel> comments,
+            String? id,
+            String? title,
+            String? media,
+            String? mediaDescription,
+            DateTime? createdAt,
+            DateTime? updatedAt,
+            bool? isLiked,
+            bool? isViewed,
+            bool? isReported,
+            bool? isDisliked,
+            bool? isSaved,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -161,47 +168,50 @@ mixin _$PostModel {
             String title,
             String content,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
-            int? amountViews,
-            UserModel? user)?
+            int? amountViews)?
         text,
     TResult Function(
             String id,
             String title,
             String mediaDescription,
-            String media,
+            List<String> media,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            UserModel? user,
             @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
         image,
     TResult Function(
-            String id,
-            String title,
-            String media,
-            String mediaDescription,
-            DateTime createdAt,
-            bool isLiked,
-            bool isViewed,
-            bool isReported,
-            bool isDisliked,
-            bool isSaved,
-            List<CommentModel> comments,
+            String? id,
+            String? title,
+            String? media,
+            String? mediaDescription,
+            DateTime? createdAt,
+            DateTime? updatedAt,
+            bool? isLiked,
+            bool? isViewed,
+            bool? isReported,
+            bool? isDisliked,
+            bool? isSaved,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -247,16 +257,17 @@ abstract class $PostModelCopyWith<$Res> {
       {String id,
       String title,
       DateTime createdAt,
+      DateTime? updatedAt,
       bool isLiked,
       bool isViewed,
       bool isReported,
       bool isDisliked,
       bool isSaved,
-      List<CommentModel> comments,
+      UserModel user,
+      List<PostCommentModel> comments,
       int? amountComments,
       int? amountLikes,
-      int? amountViews,
-      UserModel? user});
+      int? amountViews});
 
   $UserModelCopyWith<$Res>? get user;
 }
@@ -277,54 +288,63 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
     Object? id = null,
     Object? title = null,
     Object? createdAt = null,
+    Object? updatedAt = freezed,
     Object? isLiked = null,
     Object? isViewed = null,
     Object? isReported = null,
     Object? isDisliked = null,
     Object? isSaved = null,
+    Object? user = null,
     Object? comments = null,
     Object? amountComments = freezed,
     Object? amountLikes = freezed,
     Object? amountViews = freezed,
-    Object? user = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
-          ? _value.id
+          ? _value.id!
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
-          ? _value.title
+          ? _value.title!
           : title // ignore: cast_nullable_to_non_nullable
               as String,
       createdAt: null == createdAt
-          ? _value.createdAt
+          ? _value.createdAt!
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       isLiked: null == isLiked
-          ? _value.isLiked
+          ? _value.isLiked!
           : isLiked // ignore: cast_nullable_to_non_nullable
               as bool,
       isViewed: null == isViewed
-          ? _value.isViewed
+          ? _value.isViewed!
           : isViewed // ignore: cast_nullable_to_non_nullable
               as bool,
       isReported: null == isReported
-          ? _value.isReported
+          ? _value.isReported!
           : isReported // ignore: cast_nullable_to_non_nullable
               as bool,
       isDisliked: null == isDisliked
-          ? _value.isDisliked
+          ? _value.isDisliked!
           : isDisliked // ignore: cast_nullable_to_non_nullable
               as bool,
       isSaved: null == isSaved
-          ? _value.isSaved
+          ? _value.isSaved!
           : isSaved // ignore: cast_nullable_to_non_nullable
               as bool,
+      user: null == user
+          ? _value.user!
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
       comments: null == comments
           ? _value.comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentModel>,
+              as List<PostCommentModel>,
       amountComments: freezed == amountComments
           ? _value.amountComments
           : amountComments // ignore: cast_nullable_to_non_nullable
@@ -337,10 +357,6 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
           ? _value.amountViews
           : amountViews // ignore: cast_nullable_to_non_nullable
               as int?,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as UserModel?,
     ) as $Val);
   }
 
@@ -370,19 +386,20 @@ abstract class _$$TextPostImplCopyWith<$Res>
       String title,
       String content,
       DateTime createdAt,
+      DateTime? updatedAt,
       bool isLiked,
       bool isViewed,
       bool isReported,
       bool isDisliked,
       bool isSaved,
-      List<CommentModel> comments,
+      UserModel user,
+      List<PostCommentModel> comments,
       int? amountComments,
       int? amountLikes,
-      int? amountViews,
-      UserModel? user});
+      int? amountViews});
 
   @override
-  $UserModelCopyWith<$Res>? get user;
+  $UserModelCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -400,16 +417,17 @@ class __$$TextPostImplCopyWithImpl<$Res>
     Object? title = null,
     Object? content = null,
     Object? createdAt = null,
+    Object? updatedAt = freezed,
     Object? isLiked = null,
     Object? isViewed = null,
     Object? isReported = null,
     Object? isDisliked = null,
     Object? isSaved = null,
+    Object? user = null,
     Object? comments = null,
     Object? amountComments = freezed,
     Object? amountLikes = freezed,
     Object? amountViews = freezed,
-    Object? user = freezed,
   }) {
     return _then(_$TextPostImpl(
       id: null == id
@@ -428,6 +446,10 @@ class __$$TextPostImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       isLiked: null == isLiked
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
@@ -448,10 +470,14 @@ class __$$TextPostImplCopyWithImpl<$Res>
           ? _value.isSaved
           : isSaved // ignore: cast_nullable_to_non_nullable
               as bool,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
       comments: null == comments
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentModel>,
+              as List<PostCommentModel>,
       amountComments: freezed == amountComments
           ? _value.amountComments
           : amountComments // ignore: cast_nullable_to_non_nullable
@@ -464,11 +490,15 @@ class __$$TextPostImplCopyWithImpl<$Res>
           ? _value.amountViews
           : amountViews // ignore: cast_nullable_to_non_nullable
               as int?,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as UserModel?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get user {
+    return $UserModelCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
   }
 }
 
@@ -481,16 +511,17 @@ class _$TextPostImpl implements TextPost {
       required this.title,
       required this.content,
       required this.createdAt,
+      this.updatedAt,
       required this.isLiked,
       required this.isViewed,
       required this.isReported,
       required this.isDisliked,
       required this.isSaved,
-      final List<CommentModel> comments = const [],
+      required this.user,
+      final List<PostCommentModel> comments = const [],
       this.amountComments,
       this.amountLikes,
       this.amountViews,
-      this.user,
       final String? $type})
       : _comments = comments,
         $type = $type ?? 'text';
@@ -502,11 +533,12 @@ class _$TextPostImpl implements TextPost {
   final String id;
   @override
   final String title;
-//title in json
   @override
   final String content;
   @override
   final DateTime createdAt;
+  @override
+  final DateTime? updatedAt;
   @override
   final bool isLiked;
   @override
@@ -517,10 +549,12 @@ class _$TextPostImpl implements TextPost {
   final bool isDisliked;
   @override
   final bool isSaved;
-  final List<CommentModel> _comments;
+  @override
+  final UserModel user;
+  final List<PostCommentModel> _comments;
   @override
   @JsonKey()
-  List<CommentModel> get comments {
+  List<PostCommentModel> get comments {
     if (_comments is EqualUnmodifiableListView) return _comments;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_comments);
@@ -532,15 +566,13 @@ class _$TextPostImpl implements TextPost {
   final int? amountLikes;
   @override
   final int? amountViews;
-  @override
-  final UserModel? user;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'PostModel.text(id: $id, title: $title, content: $content, createdAt: $createdAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, user: $user)';
+    return 'PostModel.text(id: $id, title: $title, content: $content, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, user: $user, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews)';
   }
 
   @override
@@ -553,6 +585,8 @@ class _$TextPostImpl implements TextPost {
             (identical(other.content, content) || other.content == content) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
             (identical(other.isLiked, isLiked) || other.isLiked == isLiked) &&
             (identical(other.isViewed, isViewed) ||
                 other.isViewed == isViewed) &&
@@ -561,14 +595,14 @@ class _$TextPostImpl implements TextPost {
             (identical(other.isDisliked, isDisliked) ||
                 other.isDisliked == isDisliked) &&
             (identical(other.isSaved, isSaved) || other.isSaved == isSaved) &&
+            (identical(other.user, user) || other.user == user) &&
             const DeepCollectionEquality().equals(other._comments, _comments) &&
             (identical(other.amountComments, amountComments) ||
                 other.amountComments == amountComments) &&
             (identical(other.amountLikes, amountLikes) ||
                 other.amountLikes == amountLikes) &&
             (identical(other.amountViews, amountViews) ||
-                other.amountViews == amountViews) &&
-            (identical(other.user, user) || other.user == user));
+                other.amountViews == amountViews));
   }
 
   @JsonKey(ignore: true)
@@ -579,16 +613,17 @@ class _$TextPostImpl implements TextPost {
       title,
       content,
       createdAt,
+      updatedAt,
       isLiked,
       isViewed,
       isReported,
       isDisliked,
       isSaved,
+      user,
       const DeepCollectionEquality().hash(_comments),
       amountComments,
       amountLikes,
-      amountViews,
-      user);
+      amountViews);
 
   @JsonKey(ignore: true)
   @override
@@ -604,47 +639,50 @@ class _$TextPostImpl implements TextPost {
             String title,
             String content,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
-            int? amountViews,
-            UserModel? user)
+            int? amountViews)
         text,
     required TResult Function(
             String id,
             String title,
             String mediaDescription,
-            String media,
+            List<String> media,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            UserModel? user,
             @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)
         image,
     required TResult Function(
-            String id,
-            String title,
-            String media,
-            String mediaDescription,
-            DateTime createdAt,
-            bool isLiked,
-            bool isViewed,
-            bool isReported,
-            bool isDisliked,
-            bool isSaved,
-            List<CommentModel> comments,
+            String? id,
+            String? title,
+            String? media,
+            String? mediaDescription,
+            DateTime? createdAt,
+            DateTime? updatedAt,
+            bool? isLiked,
+            bool? isViewed,
+            bool? isReported,
+            bool? isDisliked,
+            bool? isSaved,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -656,16 +694,17 @@ class _$TextPostImpl implements TextPost {
         title,
         content,
         createdAt,
+        updatedAt,
         isLiked,
         isViewed,
         isReported,
         isDisliked,
         isSaved,
+        user,
         comments,
         amountComments,
         amountLikes,
-        amountViews,
-        user);
+        amountViews);
   }
 
   @override
@@ -676,47 +715,50 @@ class _$TextPostImpl implements TextPost {
             String title,
             String content,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
-            int? amountViews,
-            UserModel? user)?
+            int? amountViews)?
         text,
     TResult? Function(
             String id,
             String title,
             String mediaDescription,
-            String media,
+            List<String> media,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            UserModel? user,
             @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
         image,
     TResult? Function(
-            String id,
-            String title,
-            String media,
-            String mediaDescription,
-            DateTime createdAt,
-            bool isLiked,
-            bool isViewed,
-            bool isReported,
-            bool isDisliked,
-            bool isSaved,
-            List<CommentModel> comments,
+            String? id,
+            String? title,
+            String? media,
+            String? mediaDescription,
+            DateTime? createdAt,
+            DateTime? updatedAt,
+            bool? isLiked,
+            bool? isViewed,
+            bool? isReported,
+            bool? isDisliked,
+            bool? isSaved,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -728,16 +770,17 @@ class _$TextPostImpl implements TextPost {
         title,
         content,
         createdAt,
+        updatedAt,
         isLiked,
         isViewed,
         isReported,
         isDisliked,
         isSaved,
+        user,
         comments,
         amountComments,
         amountLikes,
-        amountViews,
-        user);
+        amountViews);
   }
 
   @override
@@ -748,47 +791,50 @@ class _$TextPostImpl implements TextPost {
             String title,
             String content,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
-            int? amountViews,
-            UserModel? user)?
+            int? amountViews)?
         text,
     TResult Function(
             String id,
             String title,
             String mediaDescription,
-            String media,
+            List<String> media,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            UserModel? user,
             @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
         image,
     TResult Function(
-            String id,
-            String title,
-            String media,
-            String mediaDescription,
-            DateTime createdAt,
-            bool isLiked,
-            bool isViewed,
-            bool isReported,
-            bool isDisliked,
-            bool isSaved,
-            List<CommentModel> comments,
+            String? id,
+            String? title,
+            String? media,
+            String? mediaDescription,
+            DateTime? createdAt,
+            DateTime? updatedAt,
+            bool? isLiked,
+            bool? isViewed,
+            bool? isReported,
+            bool? isDisliked,
+            bool? isSaved,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -802,16 +848,17 @@ class _$TextPostImpl implements TextPost {
           title,
           content,
           createdAt,
+          updatedAt,
           isLiked,
           isViewed,
           isReported,
           isDisliked,
           isSaved,
+          user,
           comments,
           amountComments,
           amountLikes,
-          amountViews,
-          user);
+          amountViews);
     }
     return orElse();
   }
@@ -864,16 +911,17 @@ abstract class TextPost implements PostModel {
       required final String title,
       required final String content,
       required final DateTime createdAt,
+      final DateTime? updatedAt,
       required final bool isLiked,
       required final bool isViewed,
       required final bool isReported,
       required final bool isDisliked,
       required final bool isSaved,
-      final List<CommentModel> comments,
+      required final UserModel user,
+      final List<PostCommentModel> comments,
       final int? amountComments,
       final int? amountLikes,
-      final int? amountViews,
-      final UserModel? user}) = _$TextPostImpl;
+      final int? amountViews}) = _$TextPostImpl;
 
   factory TextPost.fromJson(Map<String, dynamic> json) =
       _$TextPostImpl.fromJson;
@@ -881,10 +929,12 @@ abstract class TextPost implements PostModel {
   @override
   String get id;
   @override
-  String get title; //title in json
+  String get title;
   String get content;
   @override
   DateTime get createdAt;
+  @override
+  DateTime? get updatedAt;
   @override
   bool get isLiked;
   @override
@@ -896,15 +946,15 @@ abstract class TextPost implements PostModel {
   @override
   bool get isSaved;
   @override
-  List<CommentModel> get comments;
+  UserModel get user;
+  @override
+  List<PostCommentModel> get comments;
   @override
   int? get amountComments;
   @override
   int? get amountLikes;
   @override
   int? get amountViews;
-  @override
-  UserModel? get user;
   @override
   @JsonKey(ignore: true)
   _$$TextPostImplCopyWith<_$TextPostImpl> get copyWith =>
@@ -923,22 +973,23 @@ abstract class _$$ImagePostImplCopyWith<$Res>
       {String id,
       String title,
       String mediaDescription,
-      String media,
+      List<String> media,
       DateTime createdAt,
+      DateTime? updatedAt,
       bool isLiked,
       bool isViewed,
       bool isReported,
       bool isDisliked,
       bool isSaved,
-      List<CommentModel> comments,
+      UserModel user,
+      List<PostCommentModel> comments,
       int? amountComments,
       int? amountLikes,
       int? amountViews,
-      UserModel? user,
       @ImageAspectRatioConverter() ImageAspectRatios aspectRatio});
 
   @override
-  $UserModelCopyWith<$Res>? get user;
+  $UserModelCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -957,16 +1008,17 @@ class __$$ImagePostImplCopyWithImpl<$Res>
     Object? mediaDescription = null,
     Object? media = null,
     Object? createdAt = null,
+    Object? updatedAt = freezed,
     Object? isLiked = null,
     Object? isViewed = null,
     Object? isReported = null,
     Object? isDisliked = null,
     Object? isSaved = null,
+    Object? user = null,
     Object? comments = null,
     Object? amountComments = freezed,
     Object? amountLikes = freezed,
     Object? amountViews = freezed,
-    Object? user = freezed,
     Object? aspectRatio = null,
   }) {
     return _then(_$ImagePostImpl(
@@ -983,13 +1035,17 @@ class __$$ImagePostImplCopyWithImpl<$Res>
           : mediaDescription // ignore: cast_nullable_to_non_nullable
               as String,
       media: null == media
-          ? _value.media
+          ? _value._media
           : media // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<String>,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       isLiked: null == isLiked
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
@@ -1010,10 +1066,14 @@ class __$$ImagePostImplCopyWithImpl<$Res>
           ? _value.isSaved
           : isSaved // ignore: cast_nullable_to_non_nullable
               as bool,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
       comments: null == comments
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentModel>,
+              as List<PostCommentModel>,
       amountComments: freezed == amountComments
           ? _value.amountComments
           : amountComments // ignore: cast_nullable_to_non_nullable
@@ -1026,15 +1086,19 @@ class __$$ImagePostImplCopyWithImpl<$Res>
           ? _value.amountViews
           : amountViews // ignore: cast_nullable_to_non_nullable
               as int?,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as UserModel?,
       aspectRatio: null == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
               as ImageAspectRatios,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get user {
+    return $UserModelCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
   }
 }
 
@@ -1046,21 +1110,23 @@ class _$ImagePostImpl implements ImagePost {
       {required this.id,
       required this.title,
       required this.mediaDescription,
-      required this.media,
+      required final List<String> media,
       required this.createdAt,
+      this.updatedAt,
       required this.isLiked,
       required this.isViewed,
       required this.isReported,
       required this.isDisliked,
       required this.isSaved,
-      final List<CommentModel> comments = const [],
+      required this.user,
+      final List<PostCommentModel> comments = const [],
       this.amountComments,
       this.amountLikes,
       this.amountViews,
-      this.user,
       @ImageAspectRatioConverter() this.aspectRatio = ImageAspectRatios.square,
       final String? $type})
-      : _comments = comments,
+      : _media = media,
+        _comments = comments,
         $type = $type ?? 'image';
 
   factory _$ImagePostImpl.fromJson(Map<String, dynamic> json) =>
@@ -1070,14 +1136,20 @@ class _$ImagePostImpl implements ImagePost {
   final String id;
   @override
   final String title;
-// title in json
   @override
   final String mediaDescription;
-// mediaDescription in json
+  final List<String> _media;
   @override
-  final String media;
+  List<String> get media {
+    if (_media is EqualUnmodifiableListView) return _media;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_media);
+  }
+
   @override
   final DateTime createdAt;
+  @override
+  final DateTime? updatedAt;
   @override
   final bool isLiked;
   @override
@@ -1088,10 +1160,12 @@ class _$ImagePostImpl implements ImagePost {
   final bool isDisliked;
   @override
   final bool isSaved;
-  final List<CommentModel> _comments;
+  @override
+  final UserModel user;
+  final List<PostCommentModel> _comments;
   @override
   @JsonKey()
-  List<CommentModel> get comments {
+  List<PostCommentModel> get comments {
     if (_comments is EqualUnmodifiableListView) return _comments;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_comments);
@@ -1104,12 +1178,6 @@ class _$ImagePostImpl implements ImagePost {
   @override
   final int? amountViews;
   @override
-  final UserModel? user;
-// user in json
-// @ImageAspectRatioConverter()
-// @Default(AspectRatios.ar_1_1)
-// ImageAspectRatios aspectRatio,
-  @override
   @JsonKey()
   @ImageAspectRatioConverter()
   final ImageAspectRatios aspectRatio;
@@ -1119,7 +1187,7 @@ class _$ImagePostImpl implements ImagePost {
 
   @override
   String toString() {
-    return 'PostModel.image(id: $id, title: $title, mediaDescription: $mediaDescription, media: $media, createdAt: $createdAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, user: $user, aspectRatio: $aspectRatio)';
+    return 'PostModel.image(id: $id, title: $title, mediaDescription: $mediaDescription, media: $media, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, user: $user, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, aspectRatio: $aspectRatio)';
   }
 
   @override
@@ -1131,9 +1199,11 @@ class _$ImagePostImpl implements ImagePost {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.mediaDescription, mediaDescription) ||
                 other.mediaDescription == mediaDescription) &&
-            (identical(other.media, media) || other.media == media) &&
+            const DeepCollectionEquality().equals(other._media, _media) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
             (identical(other.isLiked, isLiked) || other.isLiked == isLiked) &&
             (identical(other.isViewed, isViewed) ||
                 other.isViewed == isViewed) &&
@@ -1142,6 +1212,7 @@ class _$ImagePostImpl implements ImagePost {
             (identical(other.isDisliked, isDisliked) ||
                 other.isDisliked == isDisliked) &&
             (identical(other.isSaved, isSaved) || other.isSaved == isSaved) &&
+            (identical(other.user, user) || other.user == user) &&
             const DeepCollectionEquality().equals(other._comments, _comments) &&
             (identical(other.amountComments, amountComments) ||
                 other.amountComments == amountComments) &&
@@ -1149,7 +1220,6 @@ class _$ImagePostImpl implements ImagePost {
                 other.amountLikes == amountLikes) &&
             (identical(other.amountViews, amountViews) ||
                 other.amountViews == amountViews) &&
-            (identical(other.user, user) || other.user == user) &&
             (identical(other.aspectRatio, aspectRatio) ||
                 other.aspectRatio == aspectRatio));
   }
@@ -1161,18 +1231,19 @@ class _$ImagePostImpl implements ImagePost {
       id,
       title,
       mediaDescription,
-      media,
+      const DeepCollectionEquality().hash(_media),
       createdAt,
+      updatedAt,
       isLiked,
       isViewed,
       isReported,
       isDisliked,
       isSaved,
+      user,
       const DeepCollectionEquality().hash(_comments),
       amountComments,
       amountLikes,
       amountViews,
-      user,
       aspectRatio);
 
   @JsonKey(ignore: true)
@@ -1189,47 +1260,50 @@ class _$ImagePostImpl implements ImagePost {
             String title,
             String content,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
-            int? amountViews,
-            UserModel? user)
+            int? amountViews)
         text,
     required TResult Function(
             String id,
             String title,
             String mediaDescription,
-            String media,
+            List<String> media,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            UserModel? user,
             @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)
         image,
     required TResult Function(
-            String id,
-            String title,
-            String media,
-            String mediaDescription,
-            DateTime createdAt,
-            bool isLiked,
-            bool isViewed,
-            bool isReported,
-            bool isDisliked,
-            bool isSaved,
-            List<CommentModel> comments,
+            String? id,
+            String? title,
+            String? media,
+            String? mediaDescription,
+            DateTime? createdAt,
+            DateTime? updatedAt,
+            bool? isLiked,
+            bool? isViewed,
+            bool? isReported,
+            bool? isDisliked,
+            bool? isSaved,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1242,16 +1316,17 @@ class _$ImagePostImpl implements ImagePost {
         mediaDescription,
         media,
         createdAt,
+        updatedAt,
         isLiked,
         isViewed,
         isReported,
         isDisliked,
         isSaved,
+        user,
         comments,
         amountComments,
         amountLikes,
         amountViews,
-        user,
         aspectRatio);
   }
 
@@ -1263,47 +1338,50 @@ class _$ImagePostImpl implements ImagePost {
             String title,
             String content,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
-            int? amountViews,
-            UserModel? user)?
+            int? amountViews)?
         text,
     TResult? Function(
             String id,
             String title,
             String mediaDescription,
-            String media,
+            List<String> media,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            UserModel? user,
             @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
         image,
     TResult? Function(
-            String id,
-            String title,
-            String media,
-            String mediaDescription,
-            DateTime createdAt,
-            bool isLiked,
-            bool isViewed,
-            bool isReported,
-            bool isDisliked,
-            bool isSaved,
-            List<CommentModel> comments,
+            String? id,
+            String? title,
+            String? media,
+            String? mediaDescription,
+            DateTime? createdAt,
+            DateTime? updatedAt,
+            bool? isLiked,
+            bool? isViewed,
+            bool? isReported,
+            bool? isDisliked,
+            bool? isSaved,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1316,16 +1394,17 @@ class _$ImagePostImpl implements ImagePost {
         mediaDescription,
         media,
         createdAt,
+        updatedAt,
         isLiked,
         isViewed,
         isReported,
         isDisliked,
         isSaved,
+        user,
         comments,
         amountComments,
         amountLikes,
         amountViews,
-        user,
         aspectRatio);
   }
 
@@ -1337,47 +1416,50 @@ class _$ImagePostImpl implements ImagePost {
             String title,
             String content,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
-            int? amountViews,
-            UserModel? user)?
+            int? amountViews)?
         text,
     TResult Function(
             String id,
             String title,
             String mediaDescription,
-            String media,
+            List<String> media,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            UserModel? user,
             @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
         image,
     TResult Function(
-            String id,
-            String title,
-            String media,
-            String mediaDescription,
-            DateTime createdAt,
-            bool isLiked,
-            bool isViewed,
-            bool isReported,
-            bool isDisliked,
-            bool isSaved,
-            List<CommentModel> comments,
+            String? id,
+            String? title,
+            String? media,
+            String? mediaDescription,
+            DateTime? createdAt,
+            DateTime? updatedAt,
+            bool? isLiked,
+            bool? isViewed,
+            bool? isReported,
+            bool? isDisliked,
+            bool? isSaved,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1392,16 +1474,17 @@ class _$ImagePostImpl implements ImagePost {
           mediaDescription,
           media,
           createdAt,
+          updatedAt,
           isLiked,
           isViewed,
           isReported,
           isDisliked,
           isSaved,
+          user,
           comments,
           amountComments,
           amountLikes,
           amountViews,
-          user,
           aspectRatio);
     }
     return orElse();
@@ -1454,18 +1537,19 @@ abstract class ImagePost implements PostModel {
           {required final String id,
           required final String title,
           required final String mediaDescription,
-          required final String media,
+          required final List<String> media,
           required final DateTime createdAt,
+          final DateTime? updatedAt,
           required final bool isLiked,
           required final bool isViewed,
           required final bool isReported,
           required final bool isDisliked,
           required final bool isSaved,
-          final List<CommentModel> comments,
+          required final UserModel user,
+          final List<PostCommentModel> comments,
           final int? amountComments,
           final int? amountLikes,
           final int? amountViews,
-          final UserModel? user,
           @ImageAspectRatioConverter() final ImageAspectRatios aspectRatio}) =
       _$ImagePostImpl;
 
@@ -1475,11 +1559,13 @@ abstract class ImagePost implements PostModel {
   @override
   String get id;
   @override
-  String get title; // title in json
-  String get mediaDescription; // mediaDescription in json
-  String get media;
+  String get title;
+  String get mediaDescription;
+  List<String> get media;
   @override
   DateTime get createdAt;
+  @override
+  DateTime? get updatedAt;
   @override
   bool get isLiked;
   @override
@@ -1491,18 +1577,15 @@ abstract class ImagePost implements PostModel {
   @override
   bool get isSaved;
   @override
-  List<CommentModel> get comments;
+  UserModel get user;
+  @override
+  List<PostCommentModel> get comments;
   @override
   int? get amountComments;
   @override
   int? get amountLikes;
   @override
   int? get amountViews;
-  @override
-  UserModel? get user; // user in json
-// @ImageAspectRatioConverter()
-// @Default(AspectRatios.ar_1_1)
-// ImageAspectRatios aspectRatio,
   @ImageAspectRatioConverter()
   ImageAspectRatios get aspectRatio;
   @override
@@ -1520,17 +1603,18 @@ abstract class _$$VideoPostImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
-      String title,
-      String media,
-      String mediaDescription,
-      DateTime createdAt,
-      bool isLiked,
-      bool isViewed,
-      bool isReported,
-      bool isDisliked,
-      bool isSaved,
-      List<CommentModel> comments,
+      {String? id,
+      String? title,
+      String? media,
+      String? mediaDescription,
+      DateTime? createdAt,
+      DateTime? updatedAt,
+      bool? isLiked,
+      bool? isViewed,
+      bool? isReported,
+      bool? isDisliked,
+      bool? isSaved,
+      List<PostCommentModel> comments,
       int? amountComments,
       int? amountLikes,
       int? amountViews,
@@ -1551,16 +1635,17 @@ class __$$VideoPostImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? media = null,
-    Object? mediaDescription = null,
-    Object? createdAt = null,
-    Object? isLiked = null,
-    Object? isViewed = null,
-    Object? isReported = null,
-    Object? isDisliked = null,
-    Object? isSaved = null,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? media = freezed,
+    Object? mediaDescription = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? isLiked = freezed,
+    Object? isViewed = freezed,
+    Object? isReported = freezed,
+    Object? isDisliked = freezed,
+    Object? isSaved = freezed,
     Object? comments = null,
     Object? amountComments = freezed,
     Object? amountLikes = freezed,
@@ -1568,50 +1653,54 @@ class __$$VideoPostImplCopyWithImpl<$Res>
     Object? user = freezed,
   }) {
     return _then(_$VideoPostImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
+              as String?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      media: null == media
+              as String?,
+      media: freezed == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as String,
-      mediaDescription: null == mediaDescription
+              as String?,
+      mediaDescription: freezed == mediaDescription
           ? _value.mediaDescription
           : mediaDescription // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      isLiked: null == isLiked
+              as DateTime?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      isLiked: freezed == isLiked
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isViewed: null == isViewed
+              as bool?,
+      isViewed: freezed == isViewed
           ? _value.isViewed
           : isViewed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isReported: null == isReported
+              as bool?,
+      isReported: freezed == isReported
           ? _value.isReported
           : isReported // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDisliked: null == isDisliked
+              as bool?,
+      isDisliked: freezed == isDisliked
           ? _value.isDisliked
           : isDisliked // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSaved: null == isSaved
+              as bool?,
+      isSaved: freezed == isSaved
           ? _value.isSaved
           : isSaved // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       comments: null == comments
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<CommentModel>,
+              as List<PostCommentModel>,
       amountComments: freezed == amountComments
           ? _value.amountComments
           : amountComments // ignore: cast_nullable_to_non_nullable
@@ -1637,17 +1726,18 @@ class __$$VideoPostImplCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true)
 class _$VideoPostImpl implements VideoPost {
   const _$VideoPostImpl(
-      {required this.id,
-      required this.title,
-      required this.media,
-      required this.mediaDescription,
-      required this.createdAt,
-      required this.isLiked,
-      required this.isViewed,
-      required this.isReported,
-      required this.isDisliked,
-      required this.isSaved,
-      final List<CommentModel> comments = const [],
+      {this.id,
+      this.title,
+      this.media,
+      this.mediaDescription,
+      this.createdAt,
+      this.updatedAt,
+      this.isLiked,
+      this.isViewed,
+      this.isReported,
+      this.isDisliked,
+      this.isSaved,
+      final List<PostCommentModel> comments = const [],
       this.amountComments,
       this.amountLikes,
       this.amountViews,
@@ -1660,29 +1750,32 @@ class _$VideoPostImpl implements VideoPost {
       _$$VideoPostImplFromJson(json);
 
   @override
-  final String id;
+  final String? id;
   @override
-  final String title;
+  final String? title;
   @override
-  final String media;
+  final String? media;
+//TODO; change datatype back to only String not List<String> when implementing video
   @override
-  final String mediaDescription;
+  final String? mediaDescription;
   @override
-  final DateTime createdAt;
+  final DateTime? createdAt;
   @override
-  final bool isLiked;
+  final DateTime? updatedAt;
   @override
-  final bool isViewed;
+  final bool? isLiked;
   @override
-  final bool isReported;
+  final bool? isViewed;
   @override
-  final bool isDisliked;
+  final bool? isReported;
   @override
-  final bool isSaved;
-  final List<CommentModel> _comments;
+  final bool? isDisliked;
+  @override
+  final bool? isSaved;
+  final List<PostCommentModel> _comments;
   @override
   @JsonKey()
-  List<CommentModel> get comments {
+  List<PostCommentModel> get comments {
     if (_comments is EqualUnmodifiableListView) return _comments;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_comments);
@@ -1702,7 +1795,7 @@ class _$VideoPostImpl implements VideoPost {
 
   @override
   String toString() {
-    return 'PostModel.video(id: $id, title: $title, media: $media, mediaDescription: $mediaDescription, createdAt: $createdAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, user: $user)';
+    return 'PostModel.video(id: $id, title: $title, media: $media, mediaDescription: $mediaDescription, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, user: $user)';
   }
 
   @override
@@ -1717,6 +1810,8 @@ class _$VideoPostImpl implements VideoPost {
                 other.mediaDescription == mediaDescription) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
             (identical(other.isLiked, isLiked) || other.isLiked == isLiked) &&
             (identical(other.isViewed, isViewed) ||
                 other.isViewed == isViewed) &&
@@ -1744,6 +1839,7 @@ class _$VideoPostImpl implements VideoPost {
       media,
       mediaDescription,
       createdAt,
+      updatedAt,
       isLiked,
       isViewed,
       isReported,
@@ -1769,47 +1865,50 @@ class _$VideoPostImpl implements VideoPost {
             String title,
             String content,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
-            int? amountViews,
-            UserModel? user)
+            int? amountViews)
         text,
     required TResult Function(
             String id,
             String title,
             String mediaDescription,
-            String media,
+            List<String> media,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            UserModel? user,
             @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)
         image,
     required TResult Function(
-            String id,
-            String title,
-            String media,
-            String mediaDescription,
-            DateTime createdAt,
-            bool isLiked,
-            bool isViewed,
-            bool isReported,
-            bool isDisliked,
-            bool isSaved,
-            List<CommentModel> comments,
+            String? id,
+            String? title,
+            String? media,
+            String? mediaDescription,
+            DateTime? createdAt,
+            DateTime? updatedAt,
+            bool? isLiked,
+            bool? isViewed,
+            bool? isReported,
+            bool? isDisliked,
+            bool? isSaved,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1822,6 +1921,7 @@ class _$VideoPostImpl implements VideoPost {
         media,
         mediaDescription,
         createdAt,
+        updatedAt,
         isLiked,
         isViewed,
         isReported,
@@ -1842,47 +1942,50 @@ class _$VideoPostImpl implements VideoPost {
             String title,
             String content,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
-            int? amountViews,
-            UserModel? user)?
+            int? amountViews)?
         text,
     TResult? Function(
             String id,
             String title,
             String mediaDescription,
-            String media,
+            List<String> media,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            UserModel? user,
             @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
         image,
     TResult? Function(
-            String id,
-            String title,
-            String media,
-            String mediaDescription,
-            DateTime createdAt,
-            bool isLiked,
-            bool isViewed,
-            bool isReported,
-            bool isDisliked,
-            bool isSaved,
-            List<CommentModel> comments,
+            String? id,
+            String? title,
+            String? media,
+            String? mediaDescription,
+            DateTime? createdAt,
+            DateTime? updatedAt,
+            bool? isLiked,
+            bool? isViewed,
+            bool? isReported,
+            bool? isDisliked,
+            bool? isSaved,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1895,6 +1998,7 @@ class _$VideoPostImpl implements VideoPost {
         media,
         mediaDescription,
         createdAt,
+        updatedAt,
         isLiked,
         isViewed,
         isReported,
@@ -1915,47 +2019,50 @@ class _$VideoPostImpl implements VideoPost {
             String title,
             String content,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
-            int? amountViews,
-            UserModel? user)?
+            int? amountViews)?
         text,
     TResult Function(
             String id,
             String title,
             String mediaDescription,
-            String media,
+            List<String> media,
             DateTime createdAt,
+            DateTime? updatedAt,
             bool isLiked,
             bool isViewed,
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            List<CommentModel> comments,
+            UserModel user,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            UserModel? user,
             @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
         image,
     TResult Function(
-            String id,
-            String title,
-            String media,
-            String mediaDescription,
-            DateTime createdAt,
-            bool isLiked,
-            bool isViewed,
-            bool isReported,
-            bool isDisliked,
-            bool isSaved,
-            List<CommentModel> comments,
+            String? id,
+            String? title,
+            String? media,
+            String? mediaDescription,
+            DateTime? createdAt,
+            DateTime? updatedAt,
+            bool? isLiked,
+            bool? isViewed,
+            bool? isReported,
+            bool? isDisliked,
+            bool? isSaved,
+            List<PostCommentModel> comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
@@ -1970,6 +2077,7 @@ class _$VideoPostImpl implements VideoPost {
           media,
           mediaDescription,
           createdAt,
+          updatedAt,
           isLiked,
           isViewed,
           isReported,
@@ -2028,17 +2136,18 @@ class _$VideoPostImpl implements VideoPost {
 
 abstract class VideoPost implements PostModel {
   const factory VideoPost(
-      {required final String id,
-      required final String title,
-      required final String media,
-      required final String mediaDescription,
-      required final DateTime createdAt,
-      required final bool isLiked,
-      required final bool isViewed,
-      required final bool isReported,
-      required final bool isDisliked,
-      required final bool isSaved,
-      final List<CommentModel> comments,
+      {final String? id,
+      final String? title,
+      final String? media,
+      final String? mediaDescription,
+      final DateTime? createdAt,
+      final DateTime? updatedAt,
+      final bool? isLiked,
+      final bool? isViewed,
+      final bool? isReported,
+      final bool? isDisliked,
+      final bool? isSaved,
+      final List<PostCommentModel> comments,
       final int? amountComments,
       final int? amountLikes,
       final int? amountViews,
@@ -2048,25 +2157,28 @@ abstract class VideoPost implements PostModel {
       _$VideoPostImpl.fromJson;
 
   @override
-  String get id;
+  String? get id;
   @override
-  String get title;
-  String get media;
-  String get mediaDescription;
+  String? get title;
+  String?
+      get media; //TODO; change datatype back to only String not List<String> when implementing video
+  String? get mediaDescription;
   @override
-  DateTime get createdAt;
+  DateTime? get createdAt;
   @override
-  bool get isLiked;
+  DateTime? get updatedAt;
   @override
-  bool get isViewed;
+  bool? get isLiked;
   @override
-  bool get isReported;
+  bool? get isViewed;
   @override
-  bool get isDisliked;
+  bool? get isReported;
   @override
-  bool get isSaved;
+  bool? get isDisliked;
   @override
-  List<CommentModel> get comments;
+  bool? get isSaved;
+  @override
+  List<PostCommentModel> get comments;
   @override
   int? get amountComments;
   @override

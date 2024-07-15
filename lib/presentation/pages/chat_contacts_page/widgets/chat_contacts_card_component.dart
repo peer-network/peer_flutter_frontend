@@ -4,7 +4,7 @@ import 'package:peer_app/presentation/pages/chat_contacts_page/widgets/new_messa
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/date/formatted_date.dart';
-import 'package:peer_app/presentation/whitelabel/components/image_container/avatar.dart';
+import 'package:peer_app/presentation/whitelabel/components/image_container/avatar_component.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ChatContactCardComponent extends StatelessWidget {
@@ -54,8 +54,8 @@ class ChatContactCardComponent extends StatelessWidget {
                                 .copyWith(
                                     color: Theme.of(context).brightness ==
                                             Brightness.light
-                                        ? LightColors.textDarkSubtle
-                                        : DarkColors.textDarkSubtle),
+                                        ? LightColors.textBrightSubtle
+                                        : DarkColors.textBrightSubtle),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -81,8 +81,8 @@ class ChatContactCardComponent extends StatelessWidget {
                                     .copyWith(
                                       color: Theme.of(context).brightness ==
                                               Brightness.light
-                                          ? LightColors.textDarkSubtle
-                                          : DarkColors.textDarkSubtle,
+                                          ? LightColors.textBrightSubtle
+                                          : DarkColors.textBrightSubtle,
                                     ),
                               )
                             : Container(),

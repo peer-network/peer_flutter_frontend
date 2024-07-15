@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
-class DropdownBar extends StatefulWidget {
-  const DropdownBar({super.key});
+class CustomDropdownBar extends StatefulWidget {
+  const CustomDropdownBar({super.key});
 
   @override
-  _DropdownBarState createState() => _DropdownBarState();
+  State<CustomDropdownBar> createState() => _CustomDropdownBarState();
 }
 
-class _DropdownBarState extends State<DropdownBar> {
+class _CustomDropdownBarState extends State<CustomDropdownBar> {
   String dropdownValue1 = 'All Time';
   String dropdownValue2 = 'All Posts';
   String dropdownValue3 = 'Newest';
@@ -45,9 +45,10 @@ class _DropdownBarState extends State<DropdownBar> {
   Widget dropdownButton(
       String value, List<String> items, ValueChanged<String> onValueChanged) {
     return Container(
-      height: AppDimensions.buttonHeightSmall * 1.25,
+      height: AppDimensions.feedDropDownButtonHeight,
       padding: const EdgeInsets.only(
-          left: AppPaddings.small + AppPaddings.tiny, right: AppPaddings.small),
+          left: AppDimensions.dropDownButtonPaddingLeft,
+          right: AppPaddings.small),
       decoration: BoxDecoration(
           borderRadius: AppBorders.defaultRadius,
           border: Border.all(
@@ -57,15 +58,15 @@ class _DropdownBarState extends State<DropdownBar> {
       child: DropdownButton<String>(
         value: value,
         icon: Padding(
-          padding: const EdgeInsets.only(right: AppPaddings.small),
+          padding: const EdgeInsets.only(
+              left: AppPaddings.tiny, right: AppPaddings.small),
           child: ImageIcon(IconLibrary.arrowDown.icon,
               size: AppDimensions.iconSizeSmall),
         ),
-        iconSize: 24,
-        elevation: 16,
+        iconSize: AppDimensions.iconSizeMedium,
+        elevation: AppDimensions.dropDownButtonElevation,
         style: Theme.of(context).textTheme.labelSmall,
         underline: Container(
-          height: 0,
           color: Colors.transparent,
         ),
         onChanged: (String? newValue) {

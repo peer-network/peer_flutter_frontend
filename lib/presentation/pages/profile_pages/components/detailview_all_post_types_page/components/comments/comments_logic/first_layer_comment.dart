@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_comment_model.dart';
+import 'package:peer_app/data/models/post_comment_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_logic/comment_layer_component.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_logic/second_layer_comment.dart';
 
 class FirstLayerComment extends StatelessWidget {
   const FirstLayerComment({super.key, required this.comments});
 
-  final List<CommentModel> comments;
+  final List<PostCommentModel> comments;
 
   // Was tut diese widget?
   // 1. create a Column and use the spreading operator on the comments list.

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_comment_model.dart';
+import 'package:peer_app/data/models/post_comment_model.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_comment/comment_component.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
@@ -9,7 +9,7 @@ class FeedCommentView extends StatelessWidget {
     required this.comments,
   });
 
-  final List<CommentModel> comments;
+  final List<PostCommentModel> comments;
 
   @override
   Widget build(BuildContext context) {

@@ -5,6 +5,7 @@ import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/fee
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_header_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_image_description_component.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/feed_stats_component.dart';
+import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/components/tiles/feed_tile.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
@@ -19,23 +20,42 @@ class FeedCardComponent extends StatefulWidget {
 
 class _FeedCardComponentState extends State<FeedCardComponent> {
   bool showComments = true;
+  ValueNotifier<double> currentIndex = ValueNotifier<double>(0.0);
+
+  @override
+  void dispose() {
+    currentIndex.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final PostModel post = widget.post;
+
     return FeedTile(
       child: Column(
         children: [
           // Feed header
           FeedHeaderComponent(user: post.user!),
-          // Feed content
-          FeedContentComponent(post: post),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                DetailedPostPageRoute(
+                  post, // Pass the entire imagePost object
+                ),
+              );
+            },
+            child: FeedContentComponent(post: post, currentIndex: currentIndex),
+          ),
+
           // Feed actions
           // Passing feed model to FeedActionsComponent
-          FeedActionsComponent(feed: post),
+
+          FeedActionsComponent(feed: post, currentIndex: currentIndex),
           // Feed image description
           if (post is ImagePost)
-            FeedImageDescriptionComponent(text: post.mediaDescription),
+            FeedImageDescriptionComponent(
+                text: post.mediaDescription, caption: post.title),
           const SizedBox(height: AppPaddings.small),
           FeedStatsComponent(feed: widget.post),
           const SizedBox(height: AppPaddings.small),

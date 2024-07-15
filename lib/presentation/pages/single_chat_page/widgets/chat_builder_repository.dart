@@ -20,11 +20,7 @@ class ChatBuilderRepository {
 
       List<ChatMessageModel> chatHistory =
           chat.messages.map<ChatMessageModel>((x) {
-        if (x is ChatMessageModel) {
-          return x;
-        } else {
-          throw Exception('Invalid message format');
-        }
+        return x;
       }).toList();
 
       return chatHistory;

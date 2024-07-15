@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/feed_comment_model.dart';
+import 'package:peer_app/data/models/post_comment_model.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/custom_toast.dart';
 
@@ -12,7 +12,7 @@ class CommentContent extends StatelessWidget {
       required this.isSecondLayerOrMore,
       this.referenceName});
 
-  final CommentModel comment;
+  final PostCommentModel comment;
   final bool isThirdLayerOrMore;
   final bool isSecondLayerOrMore;
   final String? referenceName;
