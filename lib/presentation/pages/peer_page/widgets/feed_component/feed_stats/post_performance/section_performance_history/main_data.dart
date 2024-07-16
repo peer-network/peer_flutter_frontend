@@ -1,14 +1,14 @@
 import 'dart:math';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/post_performance_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_history/bottom_title_widgets.dart';
 import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/section_performance_history/left_title_widgets.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/theme.dart';
 
 LineChartData lineChartData(
-    BuildContext context, PostPerformanceModel postPerformance) {
+    BuildContext context, PostModel postPerformance) {
   final firstMesurementDate = postPerformance.likesPerDay.keys.last;
   final spots = postPerformance.likesPerDay.entries
       .map((e) => FlSpot(

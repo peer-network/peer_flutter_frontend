@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'dart:math';
-import 'package:peer_app/data/models/post_performance_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 
-Widget leftTitleWidgets(BuildContext context, double value, TitleMeta meta, PostPerformanceModel postPerformance) {
+Widget leftTitleWidgets(BuildContext context, double value, TitleMeta meta, PostModel postPerformance) {
   String text;
   final maxY = postPerformance.likesPerDay.values.fold(0.0, max);
   if (value == 0) {

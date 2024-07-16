@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 
 class FeedActionsComponent extends StatelessWidget {
   const FeedActionsComponent({super.key, required this.feed});
-  // DONE: muss feed model bekommen
+  // DONE: must get feed model
   final PostModel feed;
 
   @override
@@ -39,7 +39,7 @@ class FeedActionsComponent extends StatelessWidget {
           const SizedBox(width: AppPaddings.small),
           CustomIconButton(
             onPressed: () {
-              // DONE: hier auch ubergeben
+              // DONE: also handed over here
               Navigator.of(context).push(SharePostContactsRoute(feed));
             },
             sizeType: SizeType.medium,
@@ -54,7 +54,7 @@ class FeedActionsComponent extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => 
-                    PostPerformance()
+                    PostPerformance(postId: feed.id)
                   ),
               );
             },

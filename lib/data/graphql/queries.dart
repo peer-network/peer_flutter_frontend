@@ -34,9 +34,17 @@ query GetAllPosts {
             amountFollower
             isFollowed
         }
+        postText
+        gemsTotal
+        gemsToday
+        gemsAllTimeHigh
+        gemsLikes
+        gemsViews
+        gemsShares
+        likesPerDay
     }
 }
-""");
+""");//add postPerformance fields in this query
 
 // query GetUserById {
 //     getUserById(id: "0c4762a8-0a39-11ef-b7f2-e89c25791d89") {
@@ -89,13 +97,13 @@ query GetUserById(\$id: String!) {
 }
 """);
 
-  // erste Zeile: welche Variablen (+ datentyp) brauchst du um zu bekommen was du willst
-  // zweite Zeile: was bekommst du zurück (was willst du genau haben aus welchem table)
+  // first line: which variables (+ data type) do you need to get what you want
+  // second line: what do you get back (what exactly do you want from which table)
   static final wallet = gql("""
-query Wallet(\$user_id: Int) {
-  wallet(where: {user_id: {_eq: \$user_id}}) {
-    ${Fragments.walletFragment}
+  query Wallet(\$user_id: Int) {
+    wallet(where: {user_id: {_eq: \$user_id}}) {
+      ${Fragments.walletFragment}
+    }
   }
-}
-""");
+  """);
 }

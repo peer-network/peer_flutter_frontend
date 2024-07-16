@@ -1,11 +1,11 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:peer_app/data/models/post_performance_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 Widget bottomTitleWidgets(BuildContext context, double value, TitleMeta meta,
-    PostPerformanceModel postPerformance, DateTime firstMesurementDate) {
+    PostModel postPerformance, DateTime firstMesurementDate) {
   final totalDays = DateTime.now().difference(firstMesurementDate).inDays.toDouble();
   final DateTime date = firstMesurementDate.add(Duration(days: value.toInt()));
 

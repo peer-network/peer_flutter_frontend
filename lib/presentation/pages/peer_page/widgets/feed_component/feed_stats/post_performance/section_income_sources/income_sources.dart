@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/credits_source_section.dart/components/source_bar.dart';
-import 'package:peer_app/data/models/post_performance_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 
 class IncomeSources extends StatelessWidget {
-  final PostPerformanceModel postPerformance;
+  final PostModel postPerformance;
 
   const IncomeSources({
     Key? key,
     required this.postPerformance,
   }) : super(key: key);
 
-  List<double> calculateGemPercentages(PostPerformanceModel postPerformance) {
+  List<double> calculateGemPercentages(PostModel postPerformance) {
     List<double> percentages = List<double>.filled(3, 0, growable: false);
     List<int> values = [
       postPerformance.gemsLikes,

@@ -4,8 +4,10 @@ import 'package:peer_app/presentation/whitelabel/components/appbars/base_appbar.
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 
 class PostPerformance extends StatelessWidget {
+  final String postId;
   const PostPerformance({
     Key? key,
+    required this.postId
   }) : super(key: key);
 
   @override
@@ -31,7 +33,7 @@ class PostPerformance extends StatelessWidget {
             ],
           ),
         ),
-        child: const PostPerformanceContent(),
+        child: PostPerformanceContent(postId: postId),
       ),
     );
   }
