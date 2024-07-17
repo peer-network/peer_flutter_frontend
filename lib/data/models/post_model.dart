@@ -8,10 +8,9 @@ part 'post_model.g.dart'; // This is for JSON serialization
 
 @freezed
 class PostModel with _$PostModel {
-  @JsonSerializable(explicitToJson: true)
   const factory PostModel.text({
     required String id,
-    @JsonKey(name: 'title') required String title, // title in json
+    required String title,
     required String content,
     required DateTime createdAt,
     required bool isLiked,
@@ -19,82 +18,73 @@ class PostModel with _$PostModel {
     required bool isReported,
     required bool isDisliked,
     required bool isSaved,
-    @Default([]) List<CommentModel> comments,
+    int? gemsTotal,
+    int? gemsToday,
+    int? gemsAllTimeHigh,
+    int? gemsLikes,
+    int? gemsViews,
+    int? gemsShares,
+    Map<DateTime, double>? likesPerDay,
+    required List<CommentModel> comments,
     int? amountComments,
     int? amountLikes,
     int? amountViews,
-    @JsonKey(name: 'user') UserModel? user, // user in json
-    required int gemsTotal,
-    required int gemsToday,
-    required int gemsAllTimeHigh,
-    required int gemsLikes,
-    required int gemsViews,
-    required int gemsShares,
-    @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
-    required Map<DateTime, double> likesPerDay,
+    UserModel? user,
   }) = TextPost;
 
-  @JsonSerializable(explicitToJson: true)
   const factory PostModel.image({
     required String id,
-    @JsonKey(name: 'title') required String title, // title in json
-    @JsonKey(name: 'mediaDescription') required String mediaDescription, // mediaDescription in json
-    required String media,
-    required String content,
+    required String title,
+    required String mediaDescription,
+    required List<String> media,
     required DateTime createdAt,
     required bool isLiked,
     required bool isViewed,
     required bool isReported,
     required bool isDisliked,
     required bool isSaved,
-    @Default([]) List<CommentModel> comments,
+    required List<CommentModel> comments,
     int? amountComments,
     int? amountLikes,
     int? amountViews,
-    @JsonKey(name: 'user') UserModel? user, // user in json
-    @ImageAspectRatioConverter()
-    @Default(ImageAspectRatios.square)
-    ImageAspectRatios aspectRatio,
-    required int gemsTotal,
-    required int gemsToday,
-    required int gemsAllTimeHigh,
-    required int gemsLikes,
-    required int gemsViews,
-    required int gemsShares,
-    @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
-    required Map<DateTime, double> likesPerDay,
+    UserModel? user,
+    required ImageAspectRatios aspectRatio,
+    required List<String> imageUrls,
+    String? postText,
+    int? gemsTotal,
+    int? gemsToday,
+    int? gemsAllTimeHigh,
+    int? gemsLikes,
+    int? gemsViews,
+    int? gemsShares,
+    Map<DateTime, double>? likesPerDay,
   }) = ImagePost;
 
-  @JsonSerializable(explicitToJson: true)
   const factory PostModel.video({
     required String id,
-    @JsonKey(name: 'title') required String title,
+    required String title,
     required String media,
-    @JsonKey(name: 'mediaDescription') required String mediaDescription,
-    required String content,
+    required String mediaDescription,
     required DateTime createdAt,
     required bool isLiked,
     required bool isViewed,
     required bool isReported,
     required bool isDisliked,
     required bool isSaved,
-    @Default([]) List<CommentModel> comments,
+    required List<CommentModel> comments,
     int? amountComments,
     int? amountLikes,
     int? amountViews,
-    @JsonKey(name: 'user') UserModel? user,
-    required int gemsTotal,
-    required int gemsToday,
-    required int gemsAllTimeHigh,
-    required int gemsLikes,
-    required int gemsViews,
-    required int gemsShares,
-    @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
-    required Map<DateTime, double> likesPerDay,
+    UserModel? user,
+    String? postText,
+    int? gemsTotal,
+    int? gemsToday,
+    int? gemsAllTimeHigh,
+    int? gemsLikes,
+    int? gemsViews,
+    int? gemsShares,
+    Map<DateTime, double>? likesPerDay,
   }) = VideoPost;
-
-  factory PostModel.fromJson(Map<String, dynamic> json) =>
-      _$PostModelFromJson(json);
 }
 
 Map<DateTime, double> _likesPerDayFromJson(Map<String, dynamic> json) =>

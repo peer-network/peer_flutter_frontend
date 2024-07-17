@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:peer_app/data/models/post_model.dart'; // Assuming PostModel is also converted to a Freezed model
 
 part 'user_model.freezed.dart';
-part 'user_model.g.dart';
+//part 'user_model.g.dart';
 
 @freezed
 class UserModel with _$UserModel {
