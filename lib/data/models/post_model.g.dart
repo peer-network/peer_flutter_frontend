@@ -17,14 +17,6 @@ _$TextPostImpl _$$TextPostImplFromJson(Map<String, dynamic> json) =>
       isReported: json['isReported'] as bool,
       isDisliked: json['isDisliked'] as bool,
       isSaved: json['isSaved'] as bool,
-      gemsTotal: (json['gemsTotal'] as num).toInt(),
-      gemsToday: (json['gemsToday'] as num).toInt(),
-      gemsAllTimeHigh: (json['gemsAllTimeHigh'] as num).toInt(),
-      gemsLikes: (json['gemsLikes'] as num).toInt(),
-      gemsViews: (json['gemsViews'] as num).toInt(),
-      gemsShares: (json['gemsShares'] as num).toInt(),
-      likesPerDay:
-          _likesPerDayFromJson(json['likesPerDay'] as Map<String, dynamic>),
       comments: (json['comments'] as List<dynamic>?)
               ?.map((e) => CommentModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -35,6 +27,14 @@ _$TextPostImpl _$$TextPostImplFromJson(Map<String, dynamic> json) =>
       user: json['user'] == null
           ? null
           : UserModel.fromJson(json['user'] as Map<String, dynamic>),
+      gemsTotal: (json['gemsTotal'] as num).toInt(),
+      gemsToday: (json['gemsToday'] as num).toInt(),
+      gemsAllTimeHigh: (json['gemsAllTimeHigh'] as num).toInt(),
+      gemsLikes: (json['gemsLikes'] as num).toInt(),
+      gemsViews: (json['gemsViews'] as num).toInt(),
+      gemsShares: (json['gemsShares'] as num).toInt(),
+      likesPerDay:
+          _likesPerDayFromJson(json['likesPerDay'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -49,6 +49,11 @@ Map<String, dynamic> _$$TextPostImplToJson(_$TextPostImpl instance) =>
       'isReported': instance.isReported,
       'isDisliked': instance.isDisliked,
       'isSaved': instance.isSaved,
+      'comments': instance.comments.map((e) => e.toJson()).toList(),
+      'amountComments': instance.amountComments,
+      'amountLikes': instance.amountLikes,
+      'amountViews': instance.amountViews,
+      'user': instance.user?.toJson(),
       'gemsTotal': instance.gemsTotal,
       'gemsToday': instance.gemsToday,
       'gemsAllTimeHigh': instance.gemsAllTimeHigh,
@@ -56,11 +61,6 @@ Map<String, dynamic> _$$TextPostImplToJson(_$TextPostImpl instance) =>
       'gemsViews': instance.gemsViews,
       'gemsShares': instance.gemsShares,
       'likesPerDay': _likesPerDayToJson(instance.likesPerDay),
-      'comments': instance.comments.map((e) => e.toJson()).toList(),
-      'amountComments': instance.amountComments,
-      'amountLikes': instance.amountLikes,
-      'amountViews': instance.amountViews,
-      'user': instance.user?.toJson(),
       'runtimeType': instance.$type,
     };
 
@@ -70,6 +70,7 @@ _$ImagePostImpl _$$ImagePostImplFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       mediaDescription: json['mediaDescription'] as String,
       media: json['media'] as String,
+      content: json['content'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
       isLiked: json['isLiked'] as bool,
       isViewed: json['isViewed'] as bool,
@@ -90,9 +91,6 @@ _$ImagePostImpl _$$ImagePostImplFromJson(Map<String, dynamic> json) =>
           ? ImageAspectRatios.square
           : const ImageAspectRatioConverter()
               .fromJson(json['aspectRatio'] as String),
-      imageUrls:
-          (json['imageUrls'] as List<dynamic>).map((e) => e as String).toList(),
-      postText: json['postText'] as String?,
       gemsTotal: (json['gemsTotal'] as num).toInt(),
       gemsToday: (json['gemsToday'] as num).toInt(),
       gemsAllTimeHigh: (json['gemsAllTimeHigh'] as num).toInt(),
@@ -110,6 +108,7 @@ Map<String, dynamic> _$$ImagePostImplToJson(_$ImagePostImpl instance) =>
       'title': instance.title,
       'mediaDescription': instance.mediaDescription,
       'media': instance.media,
+      'content': instance.content,
       'createdAt': instance.createdAt.toIso8601String(),
       'isLiked': instance.isLiked,
       'isViewed': instance.isViewed,
@@ -123,8 +122,6 @@ Map<String, dynamic> _$$ImagePostImplToJson(_$ImagePostImpl instance) =>
       'user': instance.user?.toJson(),
       'aspectRatio':
           const ImageAspectRatioConverter().toJson(instance.aspectRatio),
-      'imageUrls': instance.imageUrls,
-      'postText': instance.postText,
       'gemsTotal': instance.gemsTotal,
       'gemsToday': instance.gemsToday,
       'gemsAllTimeHigh': instance.gemsAllTimeHigh,
@@ -141,6 +138,7 @@ _$VideoPostImpl _$$VideoPostImplFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       media: json['media'] as String,
       mediaDescription: json['mediaDescription'] as String,
+      content: json['content'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
       isLiked: json['isLiked'] as bool,
       isViewed: json['isViewed'] as bool,
@@ -157,7 +155,6 @@ _$VideoPostImpl _$$VideoPostImplFromJson(Map<String, dynamic> json) =>
       user: json['user'] == null
           ? null
           : UserModel.fromJson(json['user'] as Map<String, dynamic>),
-      postText: json['postText'] as String?,
       gemsTotal: (json['gemsTotal'] as num).toInt(),
       gemsToday: (json['gemsToday'] as num).toInt(),
       gemsAllTimeHigh: (json['gemsAllTimeHigh'] as num).toInt(),
@@ -175,6 +172,7 @@ Map<String, dynamic> _$$VideoPostImplToJson(_$VideoPostImpl instance) =>
       'title': instance.title,
       'media': instance.media,
       'mediaDescription': instance.mediaDescription,
+      'content': instance.content,
       'createdAt': instance.createdAt.toIso8601String(),
       'isLiked': instance.isLiked,
       'isViewed': instance.isViewed,
@@ -186,7 +184,6 @@ Map<String, dynamic> _$$VideoPostImplToJson(_$VideoPostImpl instance) =>
       'amountLikes': instance.amountLikes,
       'amountViews': instance.amountViews,
       'user': instance.user?.toJson(),
-      'postText': instance.postText,
       'gemsTotal': instance.gemsTotal,
       'gemsToday': instance.gemsToday,
       'gemsAllTimeHigh': instance.gemsAllTimeHigh,

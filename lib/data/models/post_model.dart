@@ -10,7 +10,7 @@ part 'post_model.g.dart'; // This is for JSON serialization
 class PostModel with _$PostModel {
   @JsonSerializable(explicitToJson: true)
   const factory PostModel.text({
-    required String id, // TODO rename to post_id
+    required String id,
     @JsonKey(name: 'title') required String title, // title in json
     required String content,
     required DateTime createdAt,
@@ -19,8 +19,12 @@ class PostModel with _$PostModel {
     required bool isReported,
     required bool isDisliked,
     required bool isSaved,
-
-    required int gemsTotal, // block of fields for post performance extension of post model
+    @Default([]) List<CommentModel> comments,
+    int? amountComments,
+    int? amountLikes,
+    int? amountViews,
+    @JsonKey(name: 'user') UserModel? user, // user in json
+    required int gemsTotal,
     required int gemsToday,
     required int gemsAllTimeHigh,
     required int gemsLikes,
@@ -28,12 +32,6 @@ class PostModel with _$PostModel {
     required int gemsShares,
     @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
     required Map<DateTime, double> likesPerDay,
-
-    @Default([]) List<CommentModel> comments,
-    int? amountComments,
-    int? amountLikes,
-    int? amountViews,
-    @JsonKey(name: 'user') UserModel? user, // user in json
   }) = TextPost;
 
   @JsonSerializable(explicitToJson: true)
@@ -42,6 +40,7 @@ class PostModel with _$PostModel {
     @JsonKey(name: 'title') required String title, // title in json
     @JsonKey(name: 'mediaDescription') required String mediaDescription, // mediaDescription in json
     required String media,
+    required String content,
     required DateTime createdAt,
     required bool isLiked,
     required bool isViewed,
@@ -56,9 +55,6 @@ class PostModel with _$PostModel {
     @ImageAspectRatioConverter()
     @Default(ImageAspectRatios.square)
     ImageAspectRatios aspectRatio,
-
-    required List<String> imageUrls,
-    String? postText,
     required int gemsTotal,
     required int gemsToday,
     required int gemsAllTimeHigh,
@@ -75,6 +71,7 @@ class PostModel with _$PostModel {
     @JsonKey(name: 'title') required String title,
     required String media,
     @JsonKey(name: 'mediaDescription') required String mediaDescription,
+    required String content,
     required DateTime createdAt,
     required bool isLiked,
     required bool isViewed,
@@ -86,8 +83,6 @@ class PostModel with _$PostModel {
     int? amountLikes,
     int? amountViews,
     @JsonKey(name: 'user') UserModel? user,
-
-    String? postText,
     required int gemsTotal,
     required int gemsToday,
     required int gemsAllTimeHigh,

@@ -34,14 +34,17 @@ query GetAllPosts {
             amountFollower
             isFollowed
         }
-        postText
         gemsTotal
         gemsToday
         gemsAllTimeHigh
         gemsLikes
         gemsViews
         gemsShares
-        likesPerDay
+        likesPerDay{
+          Date
+          amount
+        }
+        
     }
 }
 """);//add postPerformance fields in this query
