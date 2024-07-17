@@ -8,93 +8,112 @@ part 'post_model.g.dart'; // This is for JSON serialization
 
 @freezed
 class PostModel with _$PostModel {
+  @JsonSerializable(explicitToJson: true)
   const factory PostModel.text({
     required String id,
     required String title,
     required String content,
     required DateTime createdAt,
+    DateTime? updatedAt,
     required bool isLiked,
     required bool isViewed,
     required bool isReported,
     required bool isDisliked,
     required bool isSaved,
+    required UserModel user,
+    @Default([]) List<CommentModel> comments,
+    int? amountComments,
+    int? amountLikes,
+    int? amountViews,
     int? gemsTotal,
     int? gemsToday,
     int? gemsAllTimeHigh,
     int? gemsLikes,
-    int? gemsViews,
     int? gemsShares,
+    int? gemsViews,
+    @JsonKey(fromJson: likesPerDayFromJson, toJson: likesPerDayToJson)
     Map<DateTime, double>? likesPerDay,
-    required List<CommentModel> comments,
-    int? amountComments,
-    int? amountLikes,
-    int? amountViews,
-    UserModel? user,
   }) = TextPost;
 
+  @JsonSerializable(explicitToJson: true)
   const factory PostModel.image({
     required String id,
     required String title,
     required String mediaDescription,
     required List<String> media,
     required DateTime createdAt,
+    DateTime? updatedAt,
     required bool isLiked,
     required bool isViewed,
     required bool isReported,
     required bool isDisliked,
     required bool isSaved,
-    required List<CommentModel> comments,
+    required UserModel user,
+    @Default([]) List<CommentModel> comments,
     int? amountComments,
     int? amountLikes,
     int? amountViews,
-    UserModel? user,
-    required ImageAspectRatios aspectRatio,
-    required List<String> imageUrls,
-    String? postText,
+    @ImageAspectRatioConverter()
+    @Default(ImageAspectRatios.square)
+    ImageAspectRatios aspectRatio,
     int? gemsTotal,
     int? gemsToday,
     int? gemsAllTimeHigh,
     int? gemsLikes,
-    int? gemsViews,
     int? gemsShares,
+    int? gemsViews,
+    @JsonKey(fromJson: likesPerDayFromJson, toJson: likesPerDayToJson)
     Map<DateTime, double>? likesPerDay,
   }) = ImagePost;
 
+  //! this is not in use!!!
+  @JsonSerializable(explicitToJson: true)
   const factory PostModel.video({
-    required String id,
-    required String title,
-    required String media,
-    required String mediaDescription,
-    required DateTime createdAt,
-    required bool isLiked,
-    required bool isViewed,
-    required bool isReported,
-    required bool isDisliked,
-    required bool isSaved,
-    required List<CommentModel> comments,
+    String? id,
+    String? title,
+    String?
+        media, //TODO; change datatype back to only String not List<String> when implementing video
+    String? mediaDescription,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    bool? isLiked,
+    bool? isViewed,
+    bool? isReported,
+    bool? isDisliked,
+    bool? isSaved,
+    @Default([]) List<CommentModel> comments,
     int? amountComments,
     int? amountLikes,
     int? amountViews,
     UserModel? user,
-    String? postText,
     int? gemsTotal,
     int? gemsToday,
     int? gemsAllTimeHigh,
     int? gemsLikes,
-    int? gemsViews,
     int? gemsShares,
+    int? gemsViews,
+    @JsonKey(fromJson: likesPerDayFromJson, toJson: likesPerDayToJson)
     Map<DateTime, double>? likesPerDay,
   }) = VideoPost;
+
+  factory PostModel.fromJson(Map<String, dynamic> json) => _$PostModelFromJson(json);
 }
 
-Map<DateTime, double> _likesPerDayFromJson(Map<String, dynamic> json) =>
-    json.map((key, value) => MapEntry(DateTime.parse(key), (value as num).toDouble()));
+Map<DateTime, double>? likesPerDayFromJson(Map<String, dynamic>? json) {
+  if (json == null) {
+    return null;
+  }
+  return json.map((key, value) => MapEntry(DateTime.parse(key), (value as num).toDouble()));
+}
 
-Map<String, double> _likesPerDayToJson(Map<DateTime, double> map) =>
-    map.map((key, value) => MapEntry(key.toIso8601String(), value));
+Map<String, double>? likesPerDayToJson(Map<DateTime, double>? map) {
+  if (map == null) {
+    return null;
+  }
+  return map.map((key, value) => MapEntry(key.toIso8601String(), value));
+}
 
-class ImageAspectRatioConverter
-    implements JsonConverter<ImageAspectRatios, String> {
+class ImageAspectRatioConverter implements JsonConverter<ImageAspectRatios, String> {
   const ImageAspectRatioConverter();
 
   @override

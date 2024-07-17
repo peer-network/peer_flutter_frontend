@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/post_model.dart';
-import 'package:peer_app/data/provider/post_performance_provider.dart';
+import 'package:peer_app/data/provider/post_provider.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
@@ -54,14 +54,14 @@ class FeedActionsComponent extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => 
-                    PostPerformance(postId: feed.id)
+                    PostPerformance(postId: feed.id!)
                   ),
               );
             },
             color: Theme.of(context).primaryIconTheme.color,
           ),
           const Spacer(),
-          Text(FormattedDate(feed.createdAt).getFormattedDate(),
+          Text(FormattedDate(feed.createdAt!).getFormattedDate(),
               style: Theme.of(context).textTheme.bodySmall),
         ],
       ),

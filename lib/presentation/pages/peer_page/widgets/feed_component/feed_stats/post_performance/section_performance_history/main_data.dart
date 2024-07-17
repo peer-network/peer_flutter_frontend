@@ -7,14 +7,28 @@ import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/fee
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/theme.dart';
 
-LineChartData lineChartData(
-    BuildContext context, PostModel postPerformance) {
-  final firstMesurementDate = postPerformance.likesPerDay.keys.last;
-  final spots = postPerformance.likesPerDay.entries
+LineChartData lineChartData(BuildContext context, PostModel postPerformance) {
+  final likesPerDay = postPerformance.likesPerDay ?? {};
+
+  if (likesPerDay.isEmpty) {
+    return LineChartData(
+      gridData: const FlGridData(show: false, drawVerticalLine: false),
+      titlesData: FlTitlesData(show: false),
+      borderData: FlBorderData(show: false),
+      minX: 0,
+      maxX: 1,
+      minY: 0,
+      maxY: 1,
+      lineBarsData: [],
+    );
+  }
+
+  final firstMeasurementDate = likesPerDay.keys.last;
+  final spots = likesPerDay.entries
       .map((e) => FlSpot(
-          e.key.difference(firstMesurementDate).inDays.toDouble(), e.value))
+          e.key.difference(firstMeasurementDate).inDays.toDouble(), e.value))
       .toList();
-  final maxY = postPerformance.likesPerDay.values.fold(0.0, max);
+  final maxY = likesPerDay.values.fold(0.0, max);
 
   return LineChartData(
     gridData: const FlGridData(
@@ -33,7 +47,7 @@ LineChartData lineChartData(
         sideTitles: SideTitles(
           showTitles: true,
           getTitlesWidget: (value, meta) => bottomTitleWidgets(
-              context, value, meta, postPerformance, firstMesurementDate),
+              context, value, meta, postPerformance, firstMeasurementDate),
         ),
       ),
       leftTitles: AxisTitles(
@@ -62,7 +76,7 @@ LineChartData lineChartData(
       ),
     ),
     minX: 0,
-    maxX: DateTime.now().difference(firstMesurementDate).inDays.toDouble(),
+    maxX: DateTime.now().difference(firstMeasurementDate).inDays.toDouble(),
     minY: 0,
     maxY: maxY,
     lineBarsData: [
@@ -83,4 +97,3 @@ LineChartData lineChartData(
     ],
   );
 }
-

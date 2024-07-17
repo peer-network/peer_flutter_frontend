@@ -18,17 +18,17 @@ class StatsBlocks extends StatelessWidget {
       children: [
         PerformanceLabel(
           title: "Total Gems earned",
-          amount: postPerformance.gemsTotal.toDouble(),
+          amount: postPerformance.gemsTotal!.toDouble(),
         ),
         const SizedBox(height: AppPaddings.small),
         PerformanceLabel(
           title: "Gems earned Today",
-          amount: postPerformance.gemsToday.toDouble(),
+          amount: postPerformance.gemsToday!.toDouble(),
         ),
         const SizedBox(height: AppPaddings.small),
         PerformanceLabel(
           title: "Performance Highscore",
-          amount: postPerformance.gemsAllTimeHigh.toDouble(),
+          amount: postPerformance.gemsAllTimeHigh!.toDouble(),
         ),
       ],
     );

@@ -1,29 +1,31 @@
 import 'package:flutter/foundation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/data/graphql/queries.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
 
+enum PostProviderState { none, loading, loaded, error }
+
 class PostProvider with ChangeNotifier {
   final gqlClient = GraphQLClientSingleton();
-  final List<PostModel> _posts = [];
-  bool isLoading = false;
+  late PostModel _postModel;
+  PostProviderState _state = PostProviderState.none;
   String? error;
+
+  PostModel get post => _postModel;
+  PostProviderState get state => _state;
 
   List<PostModel> get newsFeed => List.unmodifiable(_posts);
 
-  PostProvider() {
-    fetchPosts();
-  }
-
-  Future<void> fetchPosts() async {
-    isLoading = true;
+  Future<void> fetchPostById(String postId) async {
+    _state = PostProviderState.loading;
+    error = null;
     notifyListeners();
 
     final queryOption = QueryOptions(
       document: Queries.posts,
       fetchPolicy: FetchPolicy.networkOnly,
+      variables: {'postId': postId},
     );
 
     try {
@@ -31,67 +33,34 @@ class PostProvider with ChangeNotifier {
 
       if (queryResult.hasException) {
         error = queryResult.exception.toString();
-        CustomException(queryResult.exception.toString(), StackTrace.current).handleError();
-        isLoading = false;
+        _state = PostProviderState.error;
         notifyListeners();
         return;
       }
 
       if (queryResult.data == null) {
         error = "No data found";
-        CustomException(queryResult.toString(), StackTrace.current).handleError();
-        isLoading = false;
+        _state = PostProviderState.error;
         notifyListeners();
         return;
       }
 
-      final responseFeed = queryResult.data!;
-
-      print(responseFeed.toString());
-      try {
-        _posts.addAll(
-          List<PostModel>.from(
-            responseFeed["getAllPosts"].map(
-              (postJson) {
-                postJson["runtimeType"] = postJson["contentType"];
-
-                if (!(postJson["runtimeType"] == "video")) {
-                  String temp = postJson["media"];
-                  postJson["media"] = (postJson["media"] == List) ? temp : [temp];
-                }
-
-                return PostModel.fromJson(postJson);
-              },
-            ),
-          ),
-        );
-
-        // Adding dummy post
-        try {
-          PostModel dummyPost = PostModel.fromJson(postWithComments);
-          print("Dummy post: $dummyPost");
-          _posts.add(dummyPost);
-        } catch (e) {
-          print("Error creating dummy post: $e");
-        }
-
-      } catch (e, s) {
-        error = e.toString();
-        CustomException(e.toString(), s).handleError();
-      }
+      final postData = queryResult.data!['post'];
+      _postModel = PostModel.fromJson(postData);
+      _state = PostProviderState.loaded;
+      notifyListeners();
     } catch (e) {
       error = e.toString();
-      CustomException(e.toString(), StackTrace.current).handleError();
+      _state = PostProviderState.error;
+      notifyListeners();
     }
-
-    isLoading = false;
-    notifyListeners();
   }
-
+  
   Future<void> createPost(Map<String, dynamic> newPost) async {}
+  
+}
 
-  // Dummy post data removed for brevity
-    final Map<String, dynamic> postWithComments = {
+Map<String, dynamic> postWithComments = {
     "id": "post123",
     "title": "Beautiful Sunset",
     "mediaDescription": "A breathtaking view of the sunset at the beach.",
@@ -260,6 +229,4 @@ class PostProvider with ChangeNotifier {
       DateTime(2024,04,22,00,00,00): 111.00
       },
   };
-
-}
 

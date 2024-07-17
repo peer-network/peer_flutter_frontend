@@ -20,7 +20,7 @@ class FeedView extends StatelessWidget {
     // If the news feed provider has data, show the feed;
     if (newsFeedProvider.isLoading) {
       return LoadingComponent(
-        onRefresh: () => newsFeedProvider.fetchPosts(),
+        onRefresh: () => newsFeedProvider.fetchPostById(),
       );
     } else if (newsFeedProvider.error != null) {
       return ErrorComponent(error: newsFeedProvider.error!);
