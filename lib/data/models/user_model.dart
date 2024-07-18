@@ -10,6 +10,7 @@ class UserModel with _$UserModel {
   const factory UserModel({
     required String id,
     required String username,
+    String? img,
     String? email,
     @Default(false) bool verified, // default to false if not provided
     String? createdAt,

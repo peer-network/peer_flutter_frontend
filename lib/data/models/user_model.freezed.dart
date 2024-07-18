@@ -22,6 +22,7 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 mixin _$UserModel {
   String get id => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
+  String? get img => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   bool get verified =>
       throw _privateConstructorUsedError; // default to false if not provided
@@ -52,6 +53,7 @@ abstract class $UserModelCopyWith<$Res> {
   $Res call(
       {String id,
       String username,
+      String? img,
       String? email,
       bool verified,
       String? createdAt,
@@ -80,6 +82,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   $Res call({
     Object? id = null,
     Object? username = null,
+    Object? img = freezed,
     Object? email = freezed,
     Object? verified = null,
     Object? createdAt = freezed,
@@ -101,6 +104,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
+      img: freezed == img
+          ? _value.img
+          : img // ignore: cast_nullable_to_non_nullable
+              as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -160,6 +167,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
   $Res call(
       {String id,
       String username,
+      String? img,
       String? email,
       bool verified,
       String? createdAt,
@@ -186,6 +194,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? username = null,
+    Object? img = freezed,
     Object? email = freezed,
     Object? verified = null,
     Object? createdAt = freezed,
@@ -207,6 +216,10 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
+      img: freezed == img
+          ? _value.img
+          : img // ignore: cast_nullable_to_non_nullable
+              as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -262,6 +275,7 @@ class _$UserModelImpl implements _UserModel {
   const _$UserModelImpl(
       {required this.id,
       required this.username,
+      this.img,
       this.email,
       this.verified = false,
       this.createdAt,
@@ -282,6 +296,8 @@ class _$UserModelImpl implements _UserModel {
   final String id;
   @override
   final String username;
+  @override
+  final String? img;
   @override
   final String? email;
   @override
@@ -324,7 +340,7 @@ class _$UserModelImpl implements _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(id: $id, username: $username, email: $email, verified: $verified, createdAt: $createdAt, updatedAt: $updatedAt, verificationToken: $verificationToken, biograph: $biograph, amountPosts: $amountPosts, amountFollowed: $amountFollowed, amountFollower: $amountFollower, posts: $posts, isFollowing: $isFollowing)';
+    return 'UserModel(id: $id, username: $username, img: $img, email: $email, verified: $verified, createdAt: $createdAt, updatedAt: $updatedAt, verificationToken: $verificationToken, biograph: $biograph, amountPosts: $amountPosts, amountFollowed: $amountFollowed, amountFollower: $amountFollower, posts: $posts, isFollowing: $isFollowing)';
   }
 
   @override
@@ -335,6 +351,7 @@ class _$UserModelImpl implements _UserModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.username, username) ||
                 other.username == username) &&
+            (identical(other.img, img) || other.img == img) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.verified, verified) ||
                 other.verified == verified) &&
@@ -363,6 +380,7 @@ class _$UserModelImpl implements _UserModel {
       runtimeType,
       id,
       username,
+      img,
       email,
       verified,
       createdAt,
@@ -393,6 +411,7 @@ abstract class _UserModel implements UserModel {
   const factory _UserModel(
       {required final String id,
       required final String username,
+      final String? img,
       final String? email,
       final bool verified,
       final String? createdAt,
@@ -412,6 +431,8 @@ abstract class _UserModel implements UserModel {
   String get id;
   @override
   String get username;
+  @override
+  String? get img;
   @override
   String? get email;
   @override
