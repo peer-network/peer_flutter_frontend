@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'dart:math';
-import 'package:peer_app/data/models/post_performance_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 
-Widget leftTitleWidgets(BuildContext context, double value, TitleMeta meta, PostPerformanceModel postPerformance) {
+Widget leftTitleWidgets(BuildContext context, double value, TitleMeta meta, PostModel postPerformance) {
   String text;
-  final maxY = postPerformance.likesPerDay.values.fold(0.0, max);
+  final maxY = postPerformance.likesPerDay?.values.fold(0.0, max) ?? 0.0;
+  
   if (value == 0) {
     text = '';
   } else if (value == maxY / 2) {
@@ -21,6 +22,7 @@ Widget leftTitleWidgets(BuildContext context, double value, TitleMeta meta, Post
     child: Text(
       text,
       style: Theme.of(context).textTheme.labelSmall,
-      textAlign: TextAlign.left),
+      textAlign: TextAlign.left,
+    ),
   );
 }

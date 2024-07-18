@@ -4,9 +4,8 @@ import 'package:peer_app/data/provider/auth_provider.dart';
 import 'package:peer_app/data/provider/chat_contacts_provider.dart';
 import 'package:peer_app/data/provider/chat_provider.dart';
 import 'package:peer_app/data/provider/contacts_provider.dart';
-import 'package:peer_app/data/provider/post_performance_provider.dart';
-// import 'package:peer_app/data/provider/chat_provider.dart'; // ChatProvider is now ChatCpntactsProvider (is assume so)
 import 'package:peer_app/data/provider/post_provider.dart';
+// import 'package:peer_app/data/provider/chat_provider.dart'; // ChatProvider is now ChatCpntactsProvider (is assume so)
 import 'package:peer_app/data/provider/theme_provider.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
@@ -38,7 +37,6 @@ class MainApp extends StatelessWidget {
                 "c05a6e6e-5365-40ca-b2d5-29af9f1cb1c6")), // Simulating the CurrentUserId
         ChangeNotifierProvider(create: (_) => WalletSheetProvider()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
-        ChangeNotifierProvider(create: (_) => PostPerformanceProvider()),
       ],
       child: GraphQLProvider(
           client: ValueNotifier(GraphQLClientSingleton().client),

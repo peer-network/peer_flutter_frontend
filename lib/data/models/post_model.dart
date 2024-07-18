@@ -1,3 +1,4 @@
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:peer_app/data/models/feed_comment_model.dart';
 import 'package:peer_app/data/models/user_model.dart';
@@ -11,10 +12,11 @@ class PostModel with _$PostModel {
   @JsonSerializable(explicitToJson: true)
   const factory PostModel.text({
     required String id,
-    required String title, //title in json
+    required String title,
     required String content,
     required UserModel user, // user in json
     required DateTime createdAt,
+    DateTime? updatedAt,
     required bool isLiked,
     required bool isViewed,
     required bool isReported,
@@ -37,10 +39,11 @@ class PostModel with _$PostModel {
   @JsonSerializable(explicitToJson: true)
   const factory PostModel.image({
     required String id,
-    required String title, // title in json
-    required String mediaDescription, // mediaDescription in json
-    required String media,
+    required String title,
+    required String mediaDescription,
+    required List<String> media,
     required DateTime createdAt,
+    DateTime? updatedAt,
     required bool isLiked,
     required bool isViewed,
     required bool isReported,
@@ -50,7 +53,6 @@ class PostModel with _$PostModel {
     int? amountComments,
     int? amountLikes,
     int? amountViews,
-    UserModel? user, // user in json
     @ImageAspectRatioConverter()
     @Default(ImageAspectRatios.square)
     ImageAspectRatios aspectRatio,
@@ -64,6 +66,7 @@ class PostModel with _$PostModel {
     Map<DateTime, double>? likesPerDay,
   }) = ImagePost;
 
+  //! this is not in use!!!
   @JsonSerializable(explicitToJson: true)
   const factory PostModel.video({
     required String id,
@@ -91,8 +94,7 @@ class PostModel with _$PostModel {
     Map<DateTime, double>? likesPerDay,
   }) = VideoPost;
 
-  factory PostModel.fromJson(Map<String, dynamic> json) =>
-      _$PostModelFromJson(json);
+  factory PostModel.fromJson(Map<String, dynamic> json) => _$PostModelFromJson(json);
 }
 
 Map<DateTime, double>? _likesPerDayFromJson(Map<String, dynamic> json) =>
@@ -102,8 +104,7 @@ Map<DateTime, double>? _likesPerDayFromJson(Map<String, dynamic> json) =>
 Map<String, double> _likesPerDayToJson(Map<DateTime, double>? map) =>
     map!.map((key, value) => MapEntry(key.toIso8601String(), value));
 
-class ImageAspectRatioConverter
-    implements JsonConverter<ImageAspectRatios, String> {
+class ImageAspectRatioConverter implements JsonConverter<ImageAspectRatios, String> {
   const ImageAspectRatioConverter();
 
   @override

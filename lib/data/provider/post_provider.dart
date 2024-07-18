@@ -2,20 +2,24 @@ import 'package:flutter/foundation.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
 
+enum PostProviderState { none, loading, loaded, error }
+
 class PostProvider with ChangeNotifier {
   final gqlClient = GraphQLClientSingleton();
-  final List<PostModel> _posts = [];
-  bool isLoading = false;
+  late PostModel _postModel;
+
+  PostProviderState _state = PostProviderState.none;
   String? error;
 
+  PostModel get post => _postModel;
+  PostProviderState get state => _state;
+
+  final List<PostModel> _posts = [];
   List<PostModel> get newsFeed => List.unmodifiable(_posts);
 
-  PostProvider() {
-    fetchPosts();
-  }
-
   Future<void> fetchPosts() async {
-    isLoading = true;
+    _state = PostProviderState.loading;
+    error = null;
     notifyListeners();
 
     /*
@@ -29,38 +33,37 @@ class PostProvider with ChangeNotifier {
 
       if (queryResult.hasException) {
         error = queryResult.exception.toString();
-        CustomException(queryResult.exception.toString(), StackTrace.current)
-            .handleError();
+        _state = PostProviderState.error;
+        notifyListeners();
+        return;
       }
 
       if (queryResult.data == null) {
         error = "No data found";
-        CustomException(queryResult.toString(), StackTrace.current)
-            .handleError();
+        _state = PostProviderState.error;
+        notifyListeners();
+        return;
       }
 
-      final responseFeed = queryResult.data!;
-
-      print(responseFeed.toString());
-      try {
-        _posts.addAll(
-          List<PostModel>.from(
-            responseFeed["getAllPosts"].map(
-              (postJson) {
-                postJson["runtimeType"] = postJson["contentType"];
-
-                return PostModel.fromJson(postJson);
-              },
-            ),
+      final responseFeed = queryResult.data!['getAllPosts'];
+      _posts.clear(); // Clear the list before adding new data
+      _posts.addAll(
+        List<PostModel>.from(
+          responseFeed.map(
+            (postJson) {
+              postJson["runtimeType"] = postJson["contentType"];
+              return PostModel.fromJson(postJson);
+            },
           ),
-        );
-      } catch (e, s) {
-        error = e.toString();
-        CustomException(e.toString(), s).handleError();
-      }
+        ),
+      );
+
+      _state = PostProviderState.loaded;
+      notifyListeners();
     } catch (e) {
       error = e.toString();
-      CustomException(e.toString(), StackTrace.current).handleError();
+      _state = PostProviderState.error;
+      notifyListeners();
     }
     isLoading = false;
 

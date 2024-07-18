@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:peer_app/data/models/post_model.dart'; // Assuming PostModel is also converted to a Freezed model
+import 'post_model.dart'; // Import the PostModel here
 
 part 'user_model.freezed.dart';
 part 'user_model.g.dart';
@@ -9,8 +9,8 @@ class UserModel with _$UserModel {
   @JsonSerializable(explicitToJson: true)
   const factory UserModel({
     required String id,
+    required String username,
     String? img,
-    required String username, // made required as per JSON data
     String? email,
     @Default(false) bool verified, // default to false if not provided
     String? createdAt,
@@ -23,6 +23,7 @@ class UserModel with _$UserModel {
     @Default([]) List<PostModel> posts,
     @Default(false) bool isFollowing, // corrected field name
   }) = _UserModel;
+
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
