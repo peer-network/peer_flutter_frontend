@@ -10,9 +10,19 @@ class UserModel with _$UserModel {
   const factory UserModel({
     required String id,
     required String username,
-    String? img,
+    String? email,
+    @Default(false) bool verified, // default to false if not provided
+    String? createdAt,
+    String? updatedAt,
+    String? verificationToken,
+    String? biograph,
+    @Default(0) int amountPosts, // corrected field name and default to 0
+    @Default(0) int amountFollowed, // corrected field name and default to 0
+    @Default(0) int amountFollower, // corrected field name and default to 0
     @Default([]) List<PostModel> posts,
+    @Default(false) bool isFollowing, // corrected field name
   }) = _UserModel;
+
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);

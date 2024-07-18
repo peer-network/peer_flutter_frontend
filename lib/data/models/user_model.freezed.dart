@@ -22,8 +22,21 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 mixin _$UserModel {
   String get id => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
-  String? get img => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  bool get verified =>
+      throw _privateConstructorUsedError; // default to false if not provided
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
+  String? get verificationToken => throw _privateConstructorUsedError;
+  String? get biograph => throw _privateConstructorUsedError;
+  int get amountPosts =>
+      throw _privateConstructorUsedError; // corrected field name and default to 0
+  int get amountFollowed =>
+      throw _privateConstructorUsedError; // corrected field name and default to 0
+  int get amountFollower =>
+      throw _privateConstructorUsedError; // corrected field name and default to 0
   List<PostModel> get posts => throw _privateConstructorUsedError;
+  bool get isFollowing => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +49,20 @@ abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
-  $Res call({String id, String username, String? img, List<PostModel> posts});
+  $Res call(
+      {String id,
+      String username,
+      String? email,
+      bool verified,
+      String? createdAt,
+      String? updatedAt,
+      String? verificationToken,
+      String? biograph,
+      int amountPosts,
+      int amountFollowed,
+      int amountFollower,
+      List<PostModel> posts,
+      bool isFollowing});
 }
 
 /// @nodoc
@@ -54,8 +80,17 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   $Res call({
     Object? id = null,
     Object? username = null,
-    Object? img = freezed,
+    Object? email = freezed,
+    Object? verified = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? verificationToken = freezed,
+    Object? biograph = freezed,
+    Object? amountPosts = null,
+    Object? amountFollowed = null,
+    Object? amountFollower = null,
     Object? posts = null,
+    Object? isFollowing = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -66,14 +101,50 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      img: freezed == img
-          ? _value.img
-          : img // ignore: cast_nullable_to_non_nullable
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String?,
+      verified: null == verified
+          ? _value.verified
+          : verified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      verificationToken: freezed == verificationToken
+          ? _value.verificationToken
+          : verificationToken // ignore: cast_nullable_to_non_nullable
+              as String?,
+      biograph: freezed == biograph
+          ? _value.biograph
+          : biograph // ignore: cast_nullable_to_non_nullable
+              as String?,
+      amountPosts: null == amountPosts
+          ? _value.amountPosts
+          : amountPosts // ignore: cast_nullable_to_non_nullable
+              as int,
+      amountFollowed: null == amountFollowed
+          ? _value.amountFollowed
+          : amountFollowed // ignore: cast_nullable_to_non_nullable
+              as int,
+      amountFollower: null == amountFollower
+          ? _value.amountFollower
+          : amountFollower // ignore: cast_nullable_to_non_nullable
+              as int,
       posts: null == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
               as List<PostModel>,
+      isFollowing: null == isFollowing
+          ? _value.isFollowing
+          : isFollowing // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -86,7 +157,20 @@ abstract class _$$UserModelImplCopyWith<$Res>
       __$$UserModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String username, String? img, List<PostModel> posts});
+  $Res call(
+      {String id,
+      String username,
+      String? email,
+      bool verified,
+      String? createdAt,
+      String? updatedAt,
+      String? verificationToken,
+      String? biograph,
+      int amountPosts,
+      int amountFollowed,
+      int amountFollower,
+      List<PostModel> posts,
+      bool isFollowing});
 }
 
 /// @nodoc
@@ -102,8 +186,17 @@ class __$$UserModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? username = null,
-    Object? img = freezed,
+    Object? email = freezed,
+    Object? verified = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? verificationToken = freezed,
+    Object? biograph = freezed,
+    Object? amountPosts = null,
+    Object? amountFollowed = null,
+    Object? amountFollower = null,
     Object? posts = null,
+    Object? isFollowing = null,
   }) {
     return _then(_$UserModelImpl(
       id: null == id
@@ -114,14 +207,50 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      img: freezed == img
-          ? _value.img
-          : img // ignore: cast_nullable_to_non_nullable
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String?,
+      verified: null == verified
+          ? _value.verified
+          : verified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      verificationToken: freezed == verificationToken
+          ? _value.verificationToken
+          : verificationToken // ignore: cast_nullable_to_non_nullable
+              as String?,
+      biograph: freezed == biograph
+          ? _value.biograph
+          : biograph // ignore: cast_nullable_to_non_nullable
+              as String?,
+      amountPosts: null == amountPosts
+          ? _value.amountPosts
+          : amountPosts // ignore: cast_nullable_to_non_nullable
+              as int,
+      amountFollowed: null == amountFollowed
+          ? _value.amountFollowed
+          : amountFollowed // ignore: cast_nullable_to_non_nullable
+              as int,
+      amountFollower: null == amountFollower
+          ? _value.amountFollower
+          : amountFollower // ignore: cast_nullable_to_non_nullable
+              as int,
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
               as List<PostModel>,
+      isFollowing: null == isFollowing
+          ? _value.isFollowing
+          : isFollowing // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -133,8 +262,17 @@ class _$UserModelImpl implements _UserModel {
   const _$UserModelImpl(
       {required this.id,
       required this.username,
-      this.img,
-      final List<PostModel> posts = const []})
+      this.email,
+      this.verified = false,
+      this.createdAt,
+      this.updatedAt,
+      this.verificationToken,
+      this.biograph,
+      this.amountPosts = 0,
+      this.amountFollowed = 0,
+      this.amountFollower = 0,
+      final List<PostModel> posts = const [],
+      this.isFollowing = false})
       : _posts = posts;
 
   factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -145,8 +283,33 @@ class _$UserModelImpl implements _UserModel {
   @override
   final String username;
   @override
-  final String? img;
+  final String? email;
+  @override
+  @JsonKey()
+  final bool verified;
+// default to false if not provided
+  @override
+  final String? createdAt;
+  @override
+  final String? updatedAt;
+  @override
+  final String? verificationToken;
+  @override
+  final String? biograph;
+  @override
+  @JsonKey()
+  final int amountPosts;
+// corrected field name and default to 0
+  @override
+  @JsonKey()
+  final int amountFollowed;
+// corrected field name and default to 0
+  @override
+  @JsonKey()
+  final int amountFollower;
+// corrected field name and default to 0
   final List<PostModel> _posts;
+// corrected field name and default to 0
   @override
   @JsonKey()
   List<PostModel> get posts {
@@ -156,8 +319,12 @@ class _$UserModelImpl implements _UserModel {
   }
 
   @override
+  @JsonKey()
+  final bool isFollowing;
+
+  @override
   String toString() {
-    return 'UserModel(id: $id, username: $username, img: $img, posts: $posts)';
+    return 'UserModel(id: $id, username: $username, email: $email, verified: $verified, createdAt: $createdAt, updatedAt: $updatedAt, verificationToken: $verificationToken, biograph: $biograph, amountPosts: $amountPosts, amountFollowed: $amountFollowed, amountFollower: $amountFollower, posts: $posts, isFollowing: $isFollowing)';
   }
 
   @override
@@ -168,14 +335,45 @@ class _$UserModelImpl implements _UserModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.username, username) ||
                 other.username == username) &&
-            (identical(other.img, img) || other.img == img) &&
-            const DeepCollectionEquality().equals(other._posts, _posts));
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.verified, verified) ||
+                other.verified == verified) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.verificationToken, verificationToken) ||
+                other.verificationToken == verificationToken) &&
+            (identical(other.biograph, biograph) ||
+                other.biograph == biograph) &&
+            (identical(other.amountPosts, amountPosts) ||
+                other.amountPosts == amountPosts) &&
+            (identical(other.amountFollowed, amountFollowed) ||
+                other.amountFollowed == amountFollowed) &&
+            (identical(other.amountFollower, amountFollower) ||
+                other.amountFollower == amountFollower) &&
+            const DeepCollectionEquality().equals(other._posts, _posts) &&
+            (identical(other.isFollowing, isFollowing) ||
+                other.isFollowing == isFollowing));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, username, img,
-      const DeepCollectionEquality().hash(_posts));
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      username,
+      email,
+      verified,
+      createdAt,
+      updatedAt,
+      verificationToken,
+      biograph,
+      amountPosts,
+      amountFollowed,
+      amountFollower,
+      const DeepCollectionEquality().hash(_posts),
+      isFollowing);
 
   @JsonKey(ignore: true)
   @override
@@ -195,8 +393,17 @@ abstract class _UserModel implements UserModel {
   const factory _UserModel(
       {required final String id,
       required final String username,
-      final String? img,
-      final List<PostModel> posts}) = _$UserModelImpl;
+      final String? email,
+      final bool verified,
+      final String? createdAt,
+      final String? updatedAt,
+      final String? verificationToken,
+      final String? biograph,
+      final int amountPosts,
+      final int amountFollowed,
+      final int amountFollower,
+      final List<PostModel> posts,
+      final bool isFollowing}) = _$UserModelImpl;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$UserModelImpl.fromJson;
@@ -206,9 +413,27 @@ abstract class _UserModel implements UserModel {
   @override
   String get username;
   @override
-  String? get img;
+  String? get email;
   @override
+  bool get verified;
+  @override // default to false if not provided
+  String? get createdAt;
+  @override
+  String? get updatedAt;
+  @override
+  String? get verificationToken;
+  @override
+  String? get biograph;
+  @override
+  int get amountPosts;
+  @override // corrected field name and default to 0
+  int get amountFollowed;
+  @override // corrected field name and default to 0
+  int get amountFollower;
+  @override // corrected field name and default to 0
   List<PostModel> get posts;
+  @override
+  bool get isFollowing;
   @override
   @JsonKey(ignore: true)
   _$$UserModelImplCopyWith<_$UserModelImpl> get copyWith =>

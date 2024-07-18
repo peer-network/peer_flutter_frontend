@@ -19,7 +19,7 @@ class CommentMainContent extends StatelessWidget {
     return Row(
       children: [
         // Avatar
-        AvatarComponent(imageUrl: comment.creator.img),
+        AvatarComponent(imageUrl: comment.user!.img),
         const SizedBox(width: AppPaddings.small),
         // Comment
         Expanded(
