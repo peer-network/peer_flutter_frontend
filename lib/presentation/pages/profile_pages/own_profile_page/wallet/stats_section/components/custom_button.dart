@@ -15,7 +15,7 @@ class CustomButton extends StatelessWidget {
   final Color? customBackgroundColor;
 
   const CustomButton(
-      {Key? key,
+      {key,
       this.text,
       required this.onPressed,
       this.textColor,
@@ -34,6 +34,7 @@ class CustomButton extends StatelessWidget {
     return TextButton(
         style: ButtonStyle(
             side: MaterialStateProperty.all(BorderSide(
+                width: 2,
                 color: Theme.of(context).buttonTheme.colorScheme!.outline)),
             fixedSize: (height == null && width == null)
                 ? null

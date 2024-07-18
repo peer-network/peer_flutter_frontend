@@ -23,6 +23,7 @@ class AppBorders {
   static BorderRadius noRadius = BorderRadius.zero;
   static BorderRadius profileTextPostCardRadius = BorderRadius.circular(5);
   static BorderRadius imageSliderRadius = BorderRadius.circular(5.0);
+  static BorderRadius exchangeRateLabelRadius = BorderRadius.circular(5.0);
 }
 
 class AppMargins {
@@ -91,6 +92,8 @@ class AppDimensions {
   static const double imageDescriptionSpacing = 4.0;
 
   static const double dropDownButtonPaddingLeft = 12.0;
+
+  static const double exchangeRateLabelBorderWith = 2.0;
 }
 
 // aspect ratios

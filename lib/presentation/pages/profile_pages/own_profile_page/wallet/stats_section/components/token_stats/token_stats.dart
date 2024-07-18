@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/token_stats/token_label.dart';
-import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 import 'package:provider/provider.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';

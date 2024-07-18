@@ -28,8 +28,6 @@ class WalletScrollSheet extends StatelessWidget {
         builder: (BuildContext context, ScrollController scrollController) {
           return Consumer<WalletSheetProvider>(
             builder: (context, walletProvider, child) {
-              WalletState state = walletProvider.state;
-              print(state);
               return Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -56,10 +54,10 @@ class WalletScrollSheet extends StatelessWidget {
                   controller: scrollController,
                   slivers: [
                     SliverList(
-                      delegate: SliverChildListDelegate((state ==
+                      delegate: SliverChildListDelegate((walletProvider.state ==
                                   WalletState.none ||
-                              state == WalletState.loading ||
-                              state == WalletState.error)
+                              walletProvider.state == WalletState.loading ||
+                              walletProvider.state == WalletState.error)
                           ? [
                               DragHandle(width: dragHandleWidth),
                             ]

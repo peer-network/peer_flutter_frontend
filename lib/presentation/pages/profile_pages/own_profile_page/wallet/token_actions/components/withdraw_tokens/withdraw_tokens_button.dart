@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/token_actions/components/withdraw_tokens/withdraw_tokens_bottom_sheet.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/custom_button.dart';
-import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/withdraw_tokens/withdraw_tokens_bottom_sheet.dart';
 
-class BuyTokensButton extends StatelessWidget {
-  const BuyTokensButton({super.key});
+class WithdrawTokensButton extends StatelessWidget {
+  const WithdrawTokensButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class BuyTokensButton extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.4,
           isIcon: false,
           overrideDefaultColor: false,
-          text: 'Buy Tokens',
+          text: 'Withdraw Tokens',
           onPressed: () => showModalBottomSheet(
               context: context,
               builder: (BuildContext context) {

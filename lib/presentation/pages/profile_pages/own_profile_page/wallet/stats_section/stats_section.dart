@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/token_actions.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/token_actions/token_actions.dart';
 import 'package:peer_app/presentation/whitelabel/config.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/gem_icon.dart';

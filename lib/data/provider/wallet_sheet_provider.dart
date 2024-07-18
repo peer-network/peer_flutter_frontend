@@ -1,8 +1,5 @@
-import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'package:peer_app/core/exceptions/base_exception.dart';
-import 'package:peer_app/data/graphql/queries.dart';
 import 'package:peer_app/data/models/wallet_model/credits_source_model.dart';
 import 'package:peer_app/data/models/wallet_model/currency_exchange_model.dart';
 import 'package:peer_app/data/models/wallet_model/wallet_model.dart';
@@ -36,28 +33,25 @@ class WalletSheetProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      print("\n\nloading wallet\n\n");
       // final response = await _dioClient.get(ApiEndpoints.wallet);
       // TODO replace with real api call
       // dummy data for currency exchange inside wallet
-      Map<String, dynamic> _dummyCurrencyExchange =
+      Map<String, dynamic> dummyCurrencyExchange =
           dummyWallet["currencyExchange"] as Map<String, dynamic>;
-      _currencyExchange =
-          CurrencyExchangeModel.fromJson(_dummyCurrencyExchange);
+      _currencyExchange = CurrencyExchangeModel.fromJson(dummyCurrencyExchange);
 
       // dummy data for source items inside wallet
-      Map<String, dynamic> _dummySourceItems =
+      Map<String, dynamic> dummySourceItems =
           dummyWallet["creditsSource"] as Map<String, dynamic>;
-      _creditsSource = CreditsSourceModel.fromJson(_dummySourceItems);
+      _creditsSource = CreditsSourceModel.fromJson(dummySourceItems);
 
       _creditsSource = sortItems(_creditsSource);
 
-      Map<String, dynamic> _dummyWallet =
+      Map<String, dynamic> tempDummyWallet =
           dummyWallet["wallet"] as Map<String, dynamic>;
-      _wallet = WalletModel.fromJson(_dummyWallet);
+      _wallet = WalletModel.fromJson(tempDummyWallet);
 
       _state = WalletState.loaded;
-      print("\n\nloaded wallet\n\n");
       notifyListeners();
     } catch (e) {
       _state = WalletState.error;
