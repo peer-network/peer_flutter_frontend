@@ -100,7 +100,9 @@ class _WithdrawTokensBottomSheetState extends State<WithdrawTokensBottomSheet> {
     if (text.endsWith('Tokens')) {
       text = text.substring(0, text.length - 7).trim();
     }
-    if (text.isEmpty || double.tryParse(text) == null) {
+    if (text.isEmpty ||
+        double.tryParse(text) == null ||
+        double.parse(text) <= 0) {
       setState(() {
         _cashOutAmountError = 'Please enter a valid number of tokens';
       });
@@ -165,7 +167,7 @@ class _WithdrawTokensBottomSheetState extends State<WithdrawTokensBottomSheet> {
                 ? MediaQuery.of(context).size.height * 0.7
                 : MediaQuery.of(context).size.height * 0.25,
         decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.secondary,
+            color: Theme.of(context).colorScheme.primaryContainer,
             borderRadius: BorderRadius.only(
               topLeft: AppBorders.defaultRadius.topLeft,
               topRight: AppBorders.defaultRadius.topRight,
@@ -188,9 +190,15 @@ class _WithdrawTokensBottomSheetState extends State<WithdrawTokensBottomSheet> {
                           PageView(
                             controller: _horizontalTitlePageViewController,
                             physics: const NeverScrollableScrollPhysics(),
-                            children: const [
-                              Text('Enter amount'),
-                              Text('Select payout method')
+                            children: [
+                              Text('Enter amount',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall!),
+                              Text('Select payout method',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall!)
                             ],
                           ),
                           Text(_bottomSheetTitle)
@@ -214,6 +222,7 @@ class _WithdrawTokensBottomSheetState extends State<WithdrawTokensBottomSheet> {
                       Column(
                         children: [
                           TextField(
+                            style: Theme.of(context).textTheme.headlineSmall!,
                             textAlign: TextAlign.center,
                             controller: _cashOutAmountController,
                             focusNode: _cashOutAmountFocusNode,
@@ -225,7 +234,10 @@ class _WithdrawTokensBottomSheetState extends State<WithdrawTokensBottomSheet> {
                                 errorText: _cashOutAmountError,
                                 prefixIcon: TextButton(
                                     onPressed: _onMaxAmountTapped,
-                                    child: const Text('MAX')),
+                                    child: Text('MAX',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineSmall!)),
                                 suffixIcon: IconButton(
                                     onPressed: _onAmountEnteredCompleted,
                                     icon: const Icon(Icons.arrow_forward))),
@@ -242,7 +254,10 @@ class _WithdrawTokensBottomSheetState extends State<WithdrawTokensBottomSheet> {
                                     padding: const EdgeInsets.only(
                                         left: AppPaddings.small),
                                     child: Text(
-                                        '1 Token = ${provider.currencyExchange.creditValue}'));
+                                        '1 Token = ${provider.currencyExchange.creditValue}',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineSmall!));
                               },
                             ),
                           )
