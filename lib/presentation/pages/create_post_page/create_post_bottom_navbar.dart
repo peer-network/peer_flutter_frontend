@@ -21,7 +21,7 @@ class CreatePostBottomNavbar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ...CreatePostType.values.map((type) {
+            ...CreatePostType.values.reversed.map((type) {
               return Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: AppPaddings.small),

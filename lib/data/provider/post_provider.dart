@@ -1,9 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:http/http.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:peer_app/core/exceptions/base_exception.dart';
+import 'package:peer_app/core/types/create_post_type.dart';
 import 'package:peer_app/data/graphql/queries.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
+import 'package:peer_app/data/services/user_service.dart';
 
 class PostProvider with ChangeNotifier {
   final gqlClient = GraphQLClientSingleton();
@@ -21,11 +27,14 @@ class PostProvider with ChangeNotifier {
     isLoading = true;
     notifyListeners();
 
+    //TODO: write dummy query for fetching posts, using dummy data until api is ready
+
     final queryOption = QueryOptions(
       document: Queries.posts,
       fetchPolicy: FetchPolicy.networkOnly,
     );
 
+    /*
     try {
       QueryResult<Object?> queryResult = await gqlClient.query(queryOption);
 
@@ -86,9 +95,58 @@ class PostProvider with ChangeNotifier {
     isLoading = false;
 
     notifyListeners();
+    */
+
+    // new dummy data posts
   }
 
-  Future<void> createPost(Map<String, dynamic> newPost) async {}
+  Future<void> createPost({
+    required int userId,
+    required CreatePostType postType,
+    required String title,
+    List<XFile>? imageFiles,
+    XFile? textFile,
+    String? text,
+    String? mediaDescription,
+  }) async {
+    await Future.delayed(const Duration(seconds: 3));
+    //TODO: get userId from userService in order to obtain bearer token
+    Map<String, dynamic> post = {
+      "header": {"user_token": userId},
+      "body": {
+        "content_type": "",
+        "title": "",
+        "media": [],
+        "media_description": "",
+      }
+    };
+    switch (postType) {
+      case CreatePostType.image:
+        post["body"]["content_type"] = "1";
+        post["body"]["title"] = title;
+        post["body"]["media_description"] = mediaDescription;
+        break;
+      case CreatePostType.textFile:
+        post["body"]["content_type"] = "0";
+        post["body"]["title"] = title;
+
+        final textFromFile = await textFile!.readAsString();
+        final base64File = base64Encode(utf8.encode(textFromFile));
+
+        post["body"]["media"] = [base64File];
+        break;
+      case CreatePostType.text:
+        post["body"]["content_type"] = "0";
+        post["body"]["title"] = title;
+
+        final base64Text = base64Encode(utf8.encode(text!));
+
+        post["body"]["media"] = [base64Text];
+        break;
+      default:
+        break;
+    }
+  }
 }
 
 final Map<String, dynamic> postWithComments = {

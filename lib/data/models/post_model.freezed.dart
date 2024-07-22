@@ -33,6 +33,7 @@ PostModel _$PostModelFromJson(Map<String, dynamic> json) {
 mixin _$PostModel {
   String? get id => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
+  UserModel? get user => throw _privateConstructorUsedError; // user in json
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   bool? get isLiked => throw _privateConstructorUsedError;
@@ -40,8 +41,7 @@ mixin _$PostModel {
   bool? get isReported => throw _privateConstructorUsedError;
   bool? get isDisliked => throw _privateConstructorUsedError;
   bool? get isSaved => throw _privateConstructorUsedError;
-  UserModel? get user => throw _privateConstructorUsedError;
-  List<PostCommentModel> get comments => throw _privateConstructorUsedError;
+  List<PostCommentModel>? get comments => throw _privateConstructorUsedError;
   int? get amountComments => throw _privateConstructorUsedError;
   int? get amountLikes => throw _privateConstructorUsedError;
   int? get amountViews => throw _privateConstructorUsedError;
@@ -51,6 +51,7 @@ mixin _$PostModel {
             String id,
             String title,
             String content,
+            UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
             bool isLiked,
@@ -58,15 +59,23 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
-            int? amountComments,
-            int? amountLikes,
-            int? amountViews)
+            List<PostCommentModel>? comments,
+            int amountComments,
+            int amountLikes,
+            int amountViews,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)
         text,
     required TResult Function(
             String id,
             String title,
+            UserModel user,
             String mediaDescription,
             List<String> media,
             DateTime createdAt,
@@ -76,12 +85,19 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
+            List<PostCommentModel>? comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)
+            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)
         image,
     required TResult Function(
             String? id,
@@ -109,6 +125,7 @@ mixin _$PostModel {
             String id,
             String title,
             String content,
+            UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
             bool isLiked,
@@ -116,15 +133,23 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
-            int? amountComments,
-            int? amountLikes,
-            int? amountViews)?
+            List<PostCommentModel>? comments,
+            int amountComments,
+            int amountLikes,
+            int amountViews,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         text,
     TResult? Function(
             String id,
             String title,
+            UserModel user,
             String mediaDescription,
             List<String> media,
             DateTime createdAt,
@@ -134,12 +159,19 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
+            List<PostCommentModel>? comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
+            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         image,
     TResult? Function(
             String? id,
@@ -167,6 +199,7 @@ mixin _$PostModel {
             String id,
             String title,
             String content,
+            UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
             bool isLiked,
@@ -174,15 +207,23 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
-            int? amountComments,
-            int? amountLikes,
-            int? amountViews)?
+            List<PostCommentModel>? comments,
+            int amountComments,
+            int amountLikes,
+            int amountViews,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         text,
     TResult Function(
             String id,
             String title,
+            UserModel user,
             String mediaDescription,
             List<String> media,
             DateTime createdAt,
@@ -192,12 +233,19 @@ mixin _$PostModel {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
+            List<PostCommentModel>? comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
+            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         image,
     TResult Function(
             String? id,
@@ -256,6 +304,7 @@ abstract class $PostModelCopyWith<$Res> {
   $Res call(
       {String id,
       String title,
+      UserModel user,
       DateTime createdAt,
       DateTime? updatedAt,
       bool isLiked,
@@ -263,11 +312,10 @@ abstract class $PostModelCopyWith<$Res> {
       bool isReported,
       bool isDisliked,
       bool isSaved,
-      UserModel user,
       List<PostCommentModel> comments,
-      int? amountComments,
-      int? amountLikes,
-      int? amountViews});
+      int amountComments,
+      int amountLikes,
+      int amountViews});
 
   $UserModelCopyWith<$Res>? get user;
 }
@@ -287,6 +335,7 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? user = null,
     Object? createdAt = null,
     Object? updatedAt = freezed,
     Object? isLiked = null,
@@ -294,11 +343,10 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
     Object? isReported = null,
     Object? isDisliked = null,
     Object? isSaved = null,
-    Object? user = null,
     Object? comments = null,
-    Object? amountComments = freezed,
-    Object? amountLikes = freezed,
-    Object? amountViews = freezed,
+    Object? amountComments = null,
+    Object? amountLikes = null,
+    Object? amountViews = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -309,6 +357,10 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
           ? _value.title!
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      user: null == user
+          ? _value.user!
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
       createdAt: null == createdAt
           ? _value.createdAt!
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -337,26 +389,22 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
           ? _value.isSaved!
           : isSaved // ignore: cast_nullable_to_non_nullable
               as bool,
-      user: null == user
-          ? _value.user!
-          : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
       comments: null == comments
-          ? _value.comments
+          ? _value.comments!
           : comments // ignore: cast_nullable_to_non_nullable
               as List<PostCommentModel>,
-      amountComments: freezed == amountComments
-          ? _value.amountComments
+      amountComments: null == amountComments
+          ? _value.amountComments!
           : amountComments // ignore: cast_nullable_to_non_nullable
-              as int?,
-      amountLikes: freezed == amountLikes
-          ? _value.amountLikes
+              as int,
+      amountLikes: null == amountLikes
+          ? _value.amountLikes!
           : amountLikes // ignore: cast_nullable_to_non_nullable
-              as int?,
-      amountViews: freezed == amountViews
-          ? _value.amountViews
+              as int,
+      amountViews: null == amountViews
+          ? _value.amountViews!
           : amountViews // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 
@@ -385,6 +433,7 @@ abstract class _$$TextPostImplCopyWith<$Res>
       {String id,
       String title,
       String content,
+      UserModel user,
       DateTime createdAt,
       DateTime? updatedAt,
       bool isLiked,
@@ -392,11 +441,18 @@ abstract class _$$TextPostImplCopyWith<$Res>
       bool isReported,
       bool isDisliked,
       bool isSaved,
-      UserModel user,
-      List<PostCommentModel> comments,
-      int? amountComments,
-      int? amountLikes,
-      int? amountViews});
+      List<PostCommentModel>? comments,
+      int amountComments,
+      int amountLikes,
+      int amountViews,
+      int? gemsTotal,
+      int? gemsToday,
+      int? gemsAllTimeHigh,
+      int? gemsLikes,
+      int? gemsViews,
+      int? gemsShares,
+      @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+      Map<DateTime, double>? likesPerDay});
 
   @override
   $UserModelCopyWith<$Res> get user;
@@ -416,6 +472,7 @@ class __$$TextPostImplCopyWithImpl<$Res>
     Object? id = null,
     Object? title = null,
     Object? content = null,
+    Object? user = null,
     Object? createdAt = null,
     Object? updatedAt = freezed,
     Object? isLiked = null,
@@ -423,11 +480,17 @@ class __$$TextPostImplCopyWithImpl<$Res>
     Object? isReported = null,
     Object? isDisliked = null,
     Object? isSaved = null,
-    Object? user = null,
-    Object? comments = null,
-    Object? amountComments = freezed,
-    Object? amountLikes = freezed,
-    Object? amountViews = freezed,
+    Object? comments = freezed,
+    Object? amountComments = null,
+    Object? amountLikes = null,
+    Object? amountViews = null,
+    Object? gemsTotal = freezed,
+    Object? gemsToday = freezed,
+    Object? gemsAllTimeHigh = freezed,
+    Object? gemsLikes = freezed,
+    Object? gemsViews = freezed,
+    Object? gemsShares = freezed,
+    Object? likesPerDay = freezed,
   }) {
     return _then(_$TextPostImpl(
       id: null == id
@@ -442,6 +505,10 @@ class __$$TextPostImplCopyWithImpl<$Res>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -470,26 +537,50 @@ class __$$TextPostImplCopyWithImpl<$Res>
           ? _value.isSaved
           : isSaved // ignore: cast_nullable_to_non_nullable
               as bool,
-      user: null == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
-      comments: null == comments
+      comments: freezed == comments
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<PostCommentModel>,
-      amountComments: freezed == amountComments
+              as List<PostCommentModel>?,
+      amountComments: null == amountComments
           ? _value.amountComments
           : amountComments // ignore: cast_nullable_to_non_nullable
-              as int?,
-      amountLikes: freezed == amountLikes
+              as int,
+      amountLikes: null == amountLikes
           ? _value.amountLikes
           : amountLikes // ignore: cast_nullable_to_non_nullable
-              as int?,
-      amountViews: freezed == amountViews
+              as int,
+      amountViews: null == amountViews
           ? _value.amountViews
           : amountViews // ignore: cast_nullable_to_non_nullable
+              as int,
+      gemsTotal: freezed == gemsTotal
+          ? _value.gemsTotal
+          : gemsTotal // ignore: cast_nullable_to_non_nullable
               as int?,
+      gemsToday: freezed == gemsToday
+          ? _value.gemsToday
+          : gemsToday // ignore: cast_nullable_to_non_nullable
+              as int?,
+      gemsAllTimeHigh: freezed == gemsAllTimeHigh
+          ? _value.gemsAllTimeHigh
+          : gemsAllTimeHigh // ignore: cast_nullable_to_non_nullable
+              as int?,
+      gemsLikes: freezed == gemsLikes
+          ? _value.gemsLikes
+          : gemsLikes // ignore: cast_nullable_to_non_nullable
+              as int?,
+      gemsViews: freezed == gemsViews
+          ? _value.gemsViews
+          : gemsViews // ignore: cast_nullable_to_non_nullable
+              as int?,
+      gemsShares: freezed == gemsShares
+          ? _value.gemsShares
+          : gemsShares // ignore: cast_nullable_to_non_nullable
+              as int?,
+      likesPerDay: freezed == likesPerDay
+          ? _value._likesPerDay
+          : likesPerDay // ignore: cast_nullable_to_non_nullable
+              as Map<DateTime, double>?,
     ));
   }
 
@@ -510,6 +601,7 @@ class _$TextPostImpl implements TextPost {
       {required this.id,
       required this.title,
       required this.content,
+      required this.user,
       required this.createdAt,
       this.updatedAt,
       required this.isLiked,
@@ -517,13 +609,21 @@ class _$TextPostImpl implements TextPost {
       required this.isReported,
       required this.isDisliked,
       required this.isSaved,
-      required this.user,
-      final List<PostCommentModel> comments = const [],
-      this.amountComments,
-      this.amountLikes,
-      this.amountViews,
+      final List<PostCommentModel>? comments,
+      required this.amountComments,
+      required this.amountLikes,
+      required this.amountViews,
+      this.gemsTotal,
+      this.gemsToday,
+      this.gemsAllTimeHigh,
+      this.gemsLikes,
+      this.gemsViews,
+      this.gemsShares,
+      @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+      final Map<DateTime, double>? likesPerDay,
       final String? $type})
       : _comments = comments,
+        _likesPerDay = likesPerDay,
         $type = $type ?? 'text';
 
   factory _$TextPostImpl.fromJson(Map<String, dynamic> json) =>
@@ -535,6 +635,9 @@ class _$TextPostImpl implements TextPost {
   final String title;
   @override
   final String content;
+  @override
+  final UserModel user;
+// user in json
   @override
   final DateTime createdAt;
   @override
@@ -549,30 +652,51 @@ class _$TextPostImpl implements TextPost {
   final bool isDisliked;
   @override
   final bool isSaved;
+  final List<PostCommentModel>? _comments;
   @override
-  final UserModel user;
-  final List<PostCommentModel> _comments;
-  @override
-  @JsonKey()
-  List<PostCommentModel> get comments {
+  List<PostCommentModel>? get comments {
+    final value = _comments;
+    if (value == null) return null;
     if (_comments is EqualUnmodifiableListView) return _comments;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_comments);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
-  final int? amountComments;
+  final int amountComments;
   @override
-  final int? amountLikes;
+  final int amountLikes;
   @override
-  final int? amountViews;
+  final int amountViews;
+  @override
+  final int? gemsTotal;
+  @override
+  final int? gemsToday;
+  @override
+  final int? gemsAllTimeHigh;
+  @override
+  final int? gemsLikes;
+  @override
+  final int? gemsViews;
+  @override
+  final int? gemsShares;
+  final Map<DateTime, double>? _likesPerDay;
+  @override
+  @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+  Map<DateTime, double>? get likesPerDay {
+    final value = _likesPerDay;
+    if (value == null) return null;
+    if (_likesPerDay is EqualUnmodifiableMapView) return _likesPerDay;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'PostModel.text(id: $id, title: $title, content: $content, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, user: $user, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews)';
+    return 'PostModel.text(id: $id, title: $title, content: $content, user: $user, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, gemsTotal: $gemsTotal, gemsToday: $gemsToday, gemsAllTimeHigh: $gemsAllTimeHigh, gemsLikes: $gemsLikes, gemsViews: $gemsViews, gemsShares: $gemsShares, likesPerDay: $likesPerDay)';
   }
 
   @override
@@ -583,6 +707,7 @@ class _$TextPostImpl implements TextPost {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.content, content) || other.content == content) &&
+            (identical(other.user, user) || other.user == user) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -595,35 +720,56 @@ class _$TextPostImpl implements TextPost {
             (identical(other.isDisliked, isDisliked) ||
                 other.isDisliked == isDisliked) &&
             (identical(other.isSaved, isSaved) || other.isSaved == isSaved) &&
-            (identical(other.user, user) || other.user == user) &&
             const DeepCollectionEquality().equals(other._comments, _comments) &&
             (identical(other.amountComments, amountComments) ||
                 other.amountComments == amountComments) &&
             (identical(other.amountLikes, amountLikes) ||
                 other.amountLikes == amountLikes) &&
             (identical(other.amountViews, amountViews) ||
-                other.amountViews == amountViews));
+                other.amountViews == amountViews) &&
+            (identical(other.gemsTotal, gemsTotal) ||
+                other.gemsTotal == gemsTotal) &&
+            (identical(other.gemsToday, gemsToday) ||
+                other.gemsToday == gemsToday) &&
+            (identical(other.gemsAllTimeHigh, gemsAllTimeHigh) ||
+                other.gemsAllTimeHigh == gemsAllTimeHigh) &&
+            (identical(other.gemsLikes, gemsLikes) ||
+                other.gemsLikes == gemsLikes) &&
+            (identical(other.gemsViews, gemsViews) ||
+                other.gemsViews == gemsViews) &&
+            (identical(other.gemsShares, gemsShares) ||
+                other.gemsShares == gemsShares) &&
+            const DeepCollectionEquality()
+                .equals(other._likesPerDay, _likesPerDay));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      content,
-      createdAt,
-      updatedAt,
-      isLiked,
-      isViewed,
-      isReported,
-      isDisliked,
-      isSaved,
-      user,
-      const DeepCollectionEquality().hash(_comments),
-      amountComments,
-      amountLikes,
-      amountViews);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        title,
+        content,
+        user,
+        createdAt,
+        updatedAt,
+        isLiked,
+        isViewed,
+        isReported,
+        isDisliked,
+        isSaved,
+        const DeepCollectionEquality().hash(_comments),
+        amountComments,
+        amountLikes,
+        amountViews,
+        gemsTotal,
+        gemsToday,
+        gemsAllTimeHigh,
+        gemsLikes,
+        gemsViews,
+        gemsShares,
+        const DeepCollectionEquality().hash(_likesPerDay)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -638,6 +784,7 @@ class _$TextPostImpl implements TextPost {
             String id,
             String title,
             String content,
+            UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
             bool isLiked,
@@ -645,15 +792,23 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
-            int? amountComments,
-            int? amountLikes,
-            int? amountViews)
+            List<PostCommentModel>? comments,
+            int amountComments,
+            int amountLikes,
+            int amountViews,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)
         text,
     required TResult Function(
             String id,
             String title,
+            UserModel user,
             String mediaDescription,
             List<String> media,
             DateTime createdAt,
@@ -663,12 +818,19 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
+            List<PostCommentModel>? comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)
+            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)
         image,
     required TResult Function(
             String? id,
@@ -693,6 +855,7 @@ class _$TextPostImpl implements TextPost {
         id,
         title,
         content,
+        user,
         createdAt,
         updatedAt,
         isLiked,
@@ -700,11 +863,17 @@ class _$TextPostImpl implements TextPost {
         isReported,
         isDisliked,
         isSaved,
-        user,
         comments,
         amountComments,
         amountLikes,
-        amountViews);
+        amountViews,
+        gemsTotal,
+        gemsToday,
+        gemsAllTimeHigh,
+        gemsLikes,
+        gemsViews,
+        gemsShares,
+        likesPerDay);
   }
 
   @override
@@ -714,6 +883,7 @@ class _$TextPostImpl implements TextPost {
             String id,
             String title,
             String content,
+            UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
             bool isLiked,
@@ -721,15 +891,23 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
-            int? amountComments,
-            int? amountLikes,
-            int? amountViews)?
+            List<PostCommentModel>? comments,
+            int amountComments,
+            int amountLikes,
+            int amountViews,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         text,
     TResult? Function(
             String id,
             String title,
+            UserModel user,
             String mediaDescription,
             List<String> media,
             DateTime createdAt,
@@ -739,12 +917,19 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
+            List<PostCommentModel>? comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
+            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         image,
     TResult? Function(
             String? id,
@@ -769,6 +954,7 @@ class _$TextPostImpl implements TextPost {
         id,
         title,
         content,
+        user,
         createdAt,
         updatedAt,
         isLiked,
@@ -776,11 +962,17 @@ class _$TextPostImpl implements TextPost {
         isReported,
         isDisliked,
         isSaved,
-        user,
         comments,
         amountComments,
         amountLikes,
-        amountViews);
+        amountViews,
+        gemsTotal,
+        gemsToday,
+        gemsAllTimeHigh,
+        gemsLikes,
+        gemsViews,
+        gemsShares,
+        likesPerDay);
   }
 
   @override
@@ -790,6 +982,7 @@ class _$TextPostImpl implements TextPost {
             String id,
             String title,
             String content,
+            UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
             bool isLiked,
@@ -797,15 +990,23 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
-            int? amountComments,
-            int? amountLikes,
-            int? amountViews)?
+            List<PostCommentModel>? comments,
+            int amountComments,
+            int amountLikes,
+            int amountViews,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         text,
     TResult Function(
             String id,
             String title,
+            UserModel user,
             String mediaDescription,
             List<String> media,
             DateTime createdAt,
@@ -815,12 +1016,19 @@ class _$TextPostImpl implements TextPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
+            List<PostCommentModel>? comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
+            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         image,
     TResult Function(
             String? id,
@@ -847,6 +1055,7 @@ class _$TextPostImpl implements TextPost {
           id,
           title,
           content,
+          user,
           createdAt,
           updatedAt,
           isLiked,
@@ -854,11 +1063,17 @@ class _$TextPostImpl implements TextPost {
           isReported,
           isDisliked,
           isSaved,
-          user,
           comments,
           amountComments,
           amountLikes,
-          amountViews);
+          amountViews,
+          gemsTotal,
+          gemsToday,
+          gemsAllTimeHigh,
+          gemsLikes,
+          gemsViews,
+          gemsShares,
+          likesPerDay);
     }
     return orElse();
   }
@@ -910,6 +1125,7 @@ abstract class TextPost implements PostModel {
       {required final String id,
       required final String title,
       required final String content,
+      required final UserModel user,
       required final DateTime createdAt,
       final DateTime? updatedAt,
       required final bool isLiked,
@@ -917,11 +1133,18 @@ abstract class TextPost implements PostModel {
       required final bool isReported,
       required final bool isDisliked,
       required final bool isSaved,
-      required final UserModel user,
-      final List<PostCommentModel> comments,
-      final int? amountComments,
-      final int? amountLikes,
-      final int? amountViews}) = _$TextPostImpl;
+      final List<PostCommentModel>? comments,
+      required final int amountComments,
+      required final int amountLikes,
+      required final int amountViews,
+      final int? gemsTotal,
+      final int? gemsToday,
+      final int? gemsAllTimeHigh,
+      final int? gemsLikes,
+      final int? gemsViews,
+      final int? gemsShares,
+      @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+      final Map<DateTime, double>? likesPerDay}) = _$TextPostImpl;
 
   factory TextPost.fromJson(Map<String, dynamic> json) =
       _$TextPostImpl.fromJson;
@@ -932,6 +1155,8 @@ abstract class TextPost implements PostModel {
   String get title;
   String get content;
   @override
+  UserModel get user;
+  @override // user in json
   DateTime get createdAt;
   @override
   DateTime? get updatedAt;
@@ -946,15 +1171,21 @@ abstract class TextPost implements PostModel {
   @override
   bool get isSaved;
   @override
-  UserModel get user;
+  List<PostCommentModel>? get comments;
   @override
-  List<PostCommentModel> get comments;
+  int get amountComments;
   @override
-  int? get amountComments;
+  int get amountLikes;
   @override
-  int? get amountLikes;
-  @override
-  int? get amountViews;
+  int get amountViews;
+  int? get gemsTotal;
+  int? get gemsToday;
+  int? get gemsAllTimeHigh;
+  int? get gemsLikes;
+  int? get gemsViews;
+  int? get gemsShares;
+  @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+  Map<DateTime, double>? get likesPerDay;
   @override
   @JsonKey(ignore: true)
   _$$TextPostImplCopyWith<_$TextPostImpl> get copyWith =>
@@ -972,6 +1203,7 @@ abstract class _$$ImagePostImplCopyWith<$Res>
   $Res call(
       {String id,
       String title,
+      UserModel user,
       String mediaDescription,
       List<String> media,
       DateTime createdAt,
@@ -981,12 +1213,19 @@ abstract class _$$ImagePostImplCopyWith<$Res>
       bool isReported,
       bool isDisliked,
       bool isSaved,
-      UserModel user,
-      List<PostCommentModel> comments,
+      List<PostCommentModel>? comments,
       int? amountComments,
       int? amountLikes,
       int? amountViews,
-      @ImageAspectRatioConverter() ImageAspectRatios aspectRatio});
+      @ImageAspectRatioConverter() ImageAspectRatios aspectRatio,
+      int? gemsTotal,
+      int? gemsToday,
+      int? gemsAllTimeHigh,
+      int? gemsLikes,
+      int? gemsViews,
+      int? gemsShares,
+      @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+      Map<DateTime, double>? likesPerDay});
 
   @override
   $UserModelCopyWith<$Res> get user;
@@ -1005,6 +1244,7 @@ class __$$ImagePostImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = null,
+    Object? user = null,
     Object? mediaDescription = null,
     Object? media = null,
     Object? createdAt = null,
@@ -1014,12 +1254,18 @@ class __$$ImagePostImplCopyWithImpl<$Res>
     Object? isReported = null,
     Object? isDisliked = null,
     Object? isSaved = null,
-    Object? user = null,
-    Object? comments = null,
+    Object? comments = freezed,
     Object? amountComments = freezed,
     Object? amountLikes = freezed,
     Object? amountViews = freezed,
     Object? aspectRatio = null,
+    Object? gemsTotal = freezed,
+    Object? gemsToday = freezed,
+    Object? gemsAllTimeHigh = freezed,
+    Object? gemsLikes = freezed,
+    Object? gemsViews = freezed,
+    Object? gemsShares = freezed,
+    Object? likesPerDay = freezed,
   }) {
     return _then(_$ImagePostImpl(
       id: null == id
@@ -1030,6 +1276,10 @@ class __$$ImagePostImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
       mediaDescription: null == mediaDescription
           ? _value.mediaDescription
           : mediaDescription // ignore: cast_nullable_to_non_nullable
@@ -1066,14 +1316,10 @@ class __$$ImagePostImplCopyWithImpl<$Res>
           ? _value.isSaved
           : isSaved // ignore: cast_nullable_to_non_nullable
               as bool,
-      user: null == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
-      comments: null == comments
+      comments: freezed == comments
           ? _value._comments
           : comments // ignore: cast_nullable_to_non_nullable
-              as List<PostCommentModel>,
+              as List<PostCommentModel>?,
       amountComments: freezed == amountComments
           ? _value.amountComments
           : amountComments // ignore: cast_nullable_to_non_nullable
@@ -1090,6 +1336,34 @@ class __$$ImagePostImplCopyWithImpl<$Res>
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
               as ImageAspectRatios,
+      gemsTotal: freezed == gemsTotal
+          ? _value.gemsTotal
+          : gemsTotal // ignore: cast_nullable_to_non_nullable
+              as int?,
+      gemsToday: freezed == gemsToday
+          ? _value.gemsToday
+          : gemsToday // ignore: cast_nullable_to_non_nullable
+              as int?,
+      gemsAllTimeHigh: freezed == gemsAllTimeHigh
+          ? _value.gemsAllTimeHigh
+          : gemsAllTimeHigh // ignore: cast_nullable_to_non_nullable
+              as int?,
+      gemsLikes: freezed == gemsLikes
+          ? _value.gemsLikes
+          : gemsLikes // ignore: cast_nullable_to_non_nullable
+              as int?,
+      gemsViews: freezed == gemsViews
+          ? _value.gemsViews
+          : gemsViews // ignore: cast_nullable_to_non_nullable
+              as int?,
+      gemsShares: freezed == gemsShares
+          ? _value.gemsShares
+          : gemsShares // ignore: cast_nullable_to_non_nullable
+              as int?,
+      likesPerDay: freezed == likesPerDay
+          ? _value._likesPerDay
+          : likesPerDay // ignore: cast_nullable_to_non_nullable
+              as Map<DateTime, double>?,
     ));
   }
 
@@ -1109,6 +1383,7 @@ class _$ImagePostImpl implements ImagePost {
   const _$ImagePostImpl(
       {required this.id,
       required this.title,
+      required this.user,
       required this.mediaDescription,
       required final List<String> media,
       required this.createdAt,
@@ -1118,15 +1393,23 @@ class _$ImagePostImpl implements ImagePost {
       required this.isReported,
       required this.isDisliked,
       required this.isSaved,
-      required this.user,
-      final List<PostCommentModel> comments = const [],
+      final List<PostCommentModel>? comments,
       this.amountComments,
       this.amountLikes,
       this.amountViews,
       @ImageAspectRatioConverter() this.aspectRatio = ImageAspectRatios.square,
+      this.gemsTotal,
+      this.gemsToday,
+      this.gemsAllTimeHigh,
+      this.gemsLikes,
+      this.gemsViews,
+      this.gemsShares,
+      @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+      final Map<DateTime, double>? likesPerDay,
       final String? $type})
       : _media = media,
         _comments = comments,
+        _likesPerDay = likesPerDay,
         $type = $type ?? 'image';
 
   factory _$ImagePostImpl.fromJson(Map<String, dynamic> json) =>
@@ -1136,6 +1419,8 @@ class _$ImagePostImpl implements ImagePost {
   final String id;
   @override
   final String title;
+  @override
+  final UserModel user;
   @override
   final String mediaDescription;
   final List<String> _media;
@@ -1160,15 +1445,14 @@ class _$ImagePostImpl implements ImagePost {
   final bool isDisliked;
   @override
   final bool isSaved;
+  final List<PostCommentModel>? _comments;
   @override
-  final UserModel user;
-  final List<PostCommentModel> _comments;
-  @override
-  @JsonKey()
-  List<PostCommentModel> get comments {
+  List<PostCommentModel>? get comments {
+    final value = _comments;
+    if (value == null) return null;
     if (_comments is EqualUnmodifiableListView) return _comments;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_comments);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -1181,13 +1465,35 @@ class _$ImagePostImpl implements ImagePost {
   @JsonKey()
   @ImageAspectRatioConverter()
   final ImageAspectRatios aspectRatio;
+  @override
+  final int? gemsTotal;
+  @override
+  final int? gemsToday;
+  @override
+  final int? gemsAllTimeHigh;
+  @override
+  final int? gemsLikes;
+  @override
+  final int? gemsViews;
+  @override
+  final int? gemsShares;
+  final Map<DateTime, double>? _likesPerDay;
+  @override
+  @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+  Map<DateTime, double>? get likesPerDay {
+    final value = _likesPerDay;
+    if (value == null) return null;
+    if (_likesPerDay is EqualUnmodifiableMapView) return _likesPerDay;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'PostModel.image(id: $id, title: $title, mediaDescription: $mediaDescription, media: $media, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, user: $user, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, aspectRatio: $aspectRatio)';
+    return 'PostModel.image(id: $id, title: $title, user: $user, mediaDescription: $mediaDescription, media: $media, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, aspectRatio: $aspectRatio, gemsTotal: $gemsTotal, gemsToday: $gemsToday, gemsAllTimeHigh: $gemsAllTimeHigh, gemsLikes: $gemsLikes, gemsViews: $gemsViews, gemsShares: $gemsShares, likesPerDay: $likesPerDay)';
   }
 
   @override
@@ -1197,6 +1503,7 @@ class _$ImagePostImpl implements ImagePost {
             other is _$ImagePostImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.user, user) || other.user == user) &&
             (identical(other.mediaDescription, mediaDescription) ||
                 other.mediaDescription == mediaDescription) &&
             const DeepCollectionEquality().equals(other._media, _media) &&
@@ -1212,7 +1519,6 @@ class _$ImagePostImpl implements ImagePost {
             (identical(other.isDisliked, isDisliked) ||
                 other.isDisliked == isDisliked) &&
             (identical(other.isSaved, isSaved) || other.isSaved == isSaved) &&
-            (identical(other.user, user) || other.user == user) &&
             const DeepCollectionEquality().equals(other._comments, _comments) &&
             (identical(other.amountComments, amountComments) ||
                 other.amountComments == amountComments) &&
@@ -1221,30 +1527,52 @@ class _$ImagePostImpl implements ImagePost {
             (identical(other.amountViews, amountViews) ||
                 other.amountViews == amountViews) &&
             (identical(other.aspectRatio, aspectRatio) ||
-                other.aspectRatio == aspectRatio));
+                other.aspectRatio == aspectRatio) &&
+            (identical(other.gemsTotal, gemsTotal) ||
+                other.gemsTotal == gemsTotal) &&
+            (identical(other.gemsToday, gemsToday) ||
+                other.gemsToday == gemsToday) &&
+            (identical(other.gemsAllTimeHigh, gemsAllTimeHigh) ||
+                other.gemsAllTimeHigh == gemsAllTimeHigh) &&
+            (identical(other.gemsLikes, gemsLikes) ||
+                other.gemsLikes == gemsLikes) &&
+            (identical(other.gemsViews, gemsViews) ||
+                other.gemsViews == gemsViews) &&
+            (identical(other.gemsShares, gemsShares) ||
+                other.gemsShares == gemsShares) &&
+            const DeepCollectionEquality()
+                .equals(other._likesPerDay, _likesPerDay));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      mediaDescription,
-      const DeepCollectionEquality().hash(_media),
-      createdAt,
-      updatedAt,
-      isLiked,
-      isViewed,
-      isReported,
-      isDisliked,
-      isSaved,
-      user,
-      const DeepCollectionEquality().hash(_comments),
-      amountComments,
-      amountLikes,
-      amountViews,
-      aspectRatio);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        title,
+        user,
+        mediaDescription,
+        const DeepCollectionEquality().hash(_media),
+        createdAt,
+        updatedAt,
+        isLiked,
+        isViewed,
+        isReported,
+        isDisliked,
+        isSaved,
+        const DeepCollectionEquality().hash(_comments),
+        amountComments,
+        amountLikes,
+        amountViews,
+        aspectRatio,
+        gemsTotal,
+        gemsToday,
+        gemsAllTimeHigh,
+        gemsLikes,
+        gemsViews,
+        gemsShares,
+        const DeepCollectionEquality().hash(_likesPerDay)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1259,6 +1587,7 @@ class _$ImagePostImpl implements ImagePost {
             String id,
             String title,
             String content,
+            UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
             bool isLiked,
@@ -1266,15 +1595,23 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
-            int? amountComments,
-            int? amountLikes,
-            int? amountViews)
+            List<PostCommentModel>? comments,
+            int amountComments,
+            int amountLikes,
+            int amountViews,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)
         text,
     required TResult Function(
             String id,
             String title,
+            UserModel user,
             String mediaDescription,
             List<String> media,
             DateTime createdAt,
@@ -1284,12 +1621,19 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
+            List<PostCommentModel>? comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)
+            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)
         image,
     required TResult Function(
             String? id,
@@ -1313,6 +1657,7 @@ class _$ImagePostImpl implements ImagePost {
     return image(
         id,
         title,
+        user,
         mediaDescription,
         media,
         createdAt,
@@ -1322,12 +1667,18 @@ class _$ImagePostImpl implements ImagePost {
         isReported,
         isDisliked,
         isSaved,
-        user,
         comments,
         amountComments,
         amountLikes,
         amountViews,
-        aspectRatio);
+        aspectRatio,
+        gemsTotal,
+        gemsToday,
+        gemsAllTimeHigh,
+        gemsLikes,
+        gemsViews,
+        gemsShares,
+        likesPerDay);
   }
 
   @override
@@ -1337,6 +1688,7 @@ class _$ImagePostImpl implements ImagePost {
             String id,
             String title,
             String content,
+            UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
             bool isLiked,
@@ -1344,15 +1696,23 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
-            int? amountComments,
-            int? amountLikes,
-            int? amountViews)?
+            List<PostCommentModel>? comments,
+            int amountComments,
+            int amountLikes,
+            int amountViews,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         text,
     TResult? Function(
             String id,
             String title,
+            UserModel user,
             String mediaDescription,
             List<String> media,
             DateTime createdAt,
@@ -1362,12 +1722,19 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
+            List<PostCommentModel>? comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
+            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         image,
     TResult? Function(
             String? id,
@@ -1391,6 +1758,7 @@ class _$ImagePostImpl implements ImagePost {
     return image?.call(
         id,
         title,
+        user,
         mediaDescription,
         media,
         createdAt,
@@ -1400,12 +1768,18 @@ class _$ImagePostImpl implements ImagePost {
         isReported,
         isDisliked,
         isSaved,
-        user,
         comments,
         amountComments,
         amountLikes,
         amountViews,
-        aspectRatio);
+        aspectRatio,
+        gemsTotal,
+        gemsToday,
+        gemsAllTimeHigh,
+        gemsLikes,
+        gemsViews,
+        gemsShares,
+        likesPerDay);
   }
 
   @override
@@ -1415,6 +1789,7 @@ class _$ImagePostImpl implements ImagePost {
             String id,
             String title,
             String content,
+            UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
             bool isLiked,
@@ -1422,15 +1797,23 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
-            int? amountComments,
-            int? amountLikes,
-            int? amountViews)?
+            List<PostCommentModel>? comments,
+            int amountComments,
+            int amountLikes,
+            int amountViews,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         text,
     TResult Function(
             String id,
             String title,
+            UserModel user,
             String mediaDescription,
             List<String> media,
             DateTime createdAt,
@@ -1440,12 +1823,19 @@ class _$ImagePostImpl implements ImagePost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
+            List<PostCommentModel>? comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
+            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         image,
     TResult Function(
             String? id,
@@ -1471,6 +1861,7 @@ class _$ImagePostImpl implements ImagePost {
       return image(
           id,
           title,
+          user,
           mediaDescription,
           media,
           createdAt,
@@ -1480,12 +1871,18 @@ class _$ImagePostImpl implements ImagePost {
           isReported,
           isDisliked,
           isSaved,
-          user,
           comments,
           amountComments,
           amountLikes,
           amountViews,
-          aspectRatio);
+          aspectRatio,
+          gemsTotal,
+          gemsToday,
+          gemsAllTimeHigh,
+          gemsLikes,
+          gemsViews,
+          gemsShares,
+          likesPerDay);
     }
     return orElse();
   }
@@ -1534,24 +1931,31 @@ class _$ImagePostImpl implements ImagePost {
 
 abstract class ImagePost implements PostModel {
   const factory ImagePost(
-          {required final String id,
-          required final String title,
-          required final String mediaDescription,
-          required final List<String> media,
-          required final DateTime createdAt,
-          final DateTime? updatedAt,
-          required final bool isLiked,
-          required final bool isViewed,
-          required final bool isReported,
-          required final bool isDisliked,
-          required final bool isSaved,
-          required final UserModel user,
-          final List<PostCommentModel> comments,
-          final int? amountComments,
-          final int? amountLikes,
-          final int? amountViews,
-          @ImageAspectRatioConverter() final ImageAspectRatios aspectRatio}) =
-      _$ImagePostImpl;
+      {required final String id,
+      required final String title,
+      required final UserModel user,
+      required final String mediaDescription,
+      required final List<String> media,
+      required final DateTime createdAt,
+      final DateTime? updatedAt,
+      required final bool isLiked,
+      required final bool isViewed,
+      required final bool isReported,
+      required final bool isDisliked,
+      required final bool isSaved,
+      final List<PostCommentModel>? comments,
+      final int? amountComments,
+      final int? amountLikes,
+      final int? amountViews,
+      @ImageAspectRatioConverter() final ImageAspectRatios aspectRatio,
+      final int? gemsTotal,
+      final int? gemsToday,
+      final int? gemsAllTimeHigh,
+      final int? gemsLikes,
+      final int? gemsViews,
+      final int? gemsShares,
+      @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+      final Map<DateTime, double>? likesPerDay}) = _$ImagePostImpl;
 
   factory ImagePost.fromJson(Map<String, dynamic> json) =
       _$ImagePostImpl.fromJson;
@@ -1560,6 +1964,8 @@ abstract class ImagePost implements PostModel {
   String get id;
   @override
   String get title;
+  @override
+  UserModel get user;
   String get mediaDescription;
   List<String> get media;
   @override
@@ -1577,9 +1983,7 @@ abstract class ImagePost implements PostModel {
   @override
   bool get isSaved;
   @override
-  UserModel get user;
-  @override
-  List<PostCommentModel> get comments;
+  List<PostCommentModel>? get comments;
   @override
   int? get amountComments;
   @override
@@ -1588,6 +1992,14 @@ abstract class ImagePost implements PostModel {
   int? get amountViews;
   @ImageAspectRatioConverter()
   ImageAspectRatios get aspectRatio;
+  int? get gemsTotal;
+  int? get gemsToday;
+  int? get gemsAllTimeHigh;
+  int? get gemsLikes;
+  int? get gemsViews;
+  int? get gemsShares;
+  @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+  Map<DateTime, double>? get likesPerDay;
   @override
   @JsonKey(ignore: true)
   _$$ImagePostImplCopyWith<_$ImagePostImpl> get copyWith =>
@@ -1723,6 +2135,7 @@ class __$$VideoPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
+@Deprecated('This is not in use')
 @JsonSerializable(explicitToJson: true)
 class _$VideoPostImpl implements VideoPost {
   const _$VideoPostImpl(
@@ -1864,6 +2277,7 @@ class _$VideoPostImpl implements VideoPost {
             String id,
             String title,
             String content,
+            UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
             bool isLiked,
@@ -1871,15 +2285,23 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
-            int? amountComments,
-            int? amountLikes,
-            int? amountViews)
+            List<PostCommentModel>? comments,
+            int amountComments,
+            int amountLikes,
+            int amountViews,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)
         text,
     required TResult Function(
             String id,
             String title,
+            UserModel user,
             String mediaDescription,
             List<String> media,
             DateTime createdAt,
@@ -1889,12 +2311,19 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
+            List<PostCommentModel>? comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)
+            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)
         image,
     required TResult Function(
             String? id,
@@ -1941,6 +2370,7 @@ class _$VideoPostImpl implements VideoPost {
             String id,
             String title,
             String content,
+            UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
             bool isLiked,
@@ -1948,15 +2378,23 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
-            int? amountComments,
-            int? amountLikes,
-            int? amountViews)?
+            List<PostCommentModel>? comments,
+            int amountComments,
+            int amountLikes,
+            int amountViews,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         text,
     TResult? Function(
             String id,
             String title,
+            UserModel user,
             String mediaDescription,
             List<String> media,
             DateTime createdAt,
@@ -1966,12 +2404,19 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
+            List<PostCommentModel>? comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
+            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         image,
     TResult? Function(
             String? id,
@@ -2018,6 +2463,7 @@ class _$VideoPostImpl implements VideoPost {
             String id,
             String title,
             String content,
+            UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
             bool isLiked,
@@ -2025,15 +2471,23 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
-            int? amountComments,
-            int? amountLikes,
-            int? amountViews)?
+            List<PostCommentModel>? comments,
+            int amountComments,
+            int amountLikes,
+            int amountViews,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         text,
     TResult Function(
             String id,
             String title,
+            UserModel user,
             String mediaDescription,
             List<String> media,
             DateTime createdAt,
@@ -2043,12 +2497,19 @@ class _$VideoPostImpl implements VideoPost {
             bool isReported,
             bool isDisliked,
             bool isSaved,
-            UserModel user,
-            List<PostCommentModel> comments,
+            List<PostCommentModel>? comments,
             int? amountComments,
             int? amountLikes,
             int? amountViews,
-            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio)?
+            @ImageAspectRatioConverter() ImageAspectRatios aspectRatio,
+            int? gemsTotal,
+            int? gemsToday,
+            int? gemsAllTimeHigh,
+            int? gemsLikes,
+            int? gemsViews,
+            int? gemsShares,
+            @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+            Map<DateTime, double>? likesPerDay)?
         image,
     TResult Function(
             String? id,

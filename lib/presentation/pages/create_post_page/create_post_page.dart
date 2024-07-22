@@ -60,7 +60,6 @@ class _CreatePostPageState extends State<CreatePostPage> {
         onTypeChanged: (type) {
           setState(() {
             activeCreatePostType = type;
-            print("activeCreatePostType: $activeCreatePostType");
           });
         },
       ),
@@ -104,6 +103,8 @@ class _CreatePostPageState extends State<CreatePostPage> {
 
       case CreatePostType.text:
         return TextBodyCreatePost(controller: textController);
+      case CreatePostType.textFile:
+        return SizedBox.shrink();
     }
   }
 
@@ -117,6 +118,8 @@ class _CreatePostPageState extends State<CreatePostPage> {
       case CreatePostType.text:
         createPostText(creatorId);
         break;
+      case CreatePostType.textFile:
+      // TODO: Handle this case.
     }
   }
 
@@ -126,9 +129,14 @@ class _CreatePostPageState extends State<CreatePostPage> {
 
   void createPostText(int creatorId) {
     final newsFeedProvider = Provider.of<PostProvider>(context, listen: false);
-    newsFeedProvider.createPost(
-      {"content": textController.text, "userId": creatorId},
-    ).then((_) {
+    newsFeedProvider
+        .createPost(
+      userId: creatorId,
+      postType: CreatePostType.text,
+      title: "Title",
+      text: textController.text,
+    )
+        .then((_) {
       if (newsFeedProvider.error != null) {
         CustomToast.showErrorToast(newsFeedProvider.error!);
       } else {

@@ -13,6 +13,7 @@ class PostModel with _$PostModel {
     required String id,
     required String title,
     required String content,
+    required UserModel user, // user in json
     required DateTime createdAt,
     DateTime? updatedAt,
     required bool isLiked,
@@ -20,17 +21,25 @@ class PostModel with _$PostModel {
     required bool isReported,
     required bool isDisliked,
     required bool isSaved,
-    required UserModel user,
-    @Default([]) List<PostCommentModel> comments,
-    int? amountComments,
-    int? amountLikes,
-    int? amountViews,
+    List<PostCommentModel>? comments,
+    required int amountComments,
+    required int amountLikes,
+    required int amountViews,
+    int? gemsTotal,
+    int? gemsToday,
+    int? gemsAllTimeHigh,
+    int? gemsLikes,
+    int? gemsViews,
+    int? gemsShares,
+    @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+    Map<DateTime, double>? likesPerDay,
   }) = TextPost;
 
   @JsonSerializable(explicitToJson: true)
   const factory PostModel.image({
     required String id,
     required String title,
+    required UserModel user,
     required String mediaDescription,
     required List<String> media,
     required DateTime createdAt,
@@ -40,17 +49,25 @@ class PostModel with _$PostModel {
     required bool isReported,
     required bool isDisliked,
     required bool isSaved,
-    required UserModel user,
-    @Default([]) List<PostCommentModel> comments,
+    List<PostCommentModel>? comments,
     int? amountComments,
     int? amountLikes,
     int? amountViews,
     @ImageAspectRatioConverter()
     @Default(ImageAspectRatios.square)
     ImageAspectRatios aspectRatio,
+    int? gemsTotal,
+    int? gemsToday,
+    int? gemsAllTimeHigh,
+    int? gemsLikes,
+    int? gemsViews,
+    int? gemsShares,
+    @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
+    Map<DateTime, double>? likesPerDay,
   }) = ImagePost;
 
   //! this is not in use!!!
+  @Deprecated('This is not in use')
   @JsonSerializable(explicitToJson: true)
   const factory PostModel.video({
     String? id,
@@ -75,6 +92,13 @@ class PostModel with _$PostModel {
   factory PostModel.fromJson(Map<String, dynamic> json) =>
       _$PostModelFromJson(json);
 }
+
+Map<DateTime, double>? _likesPerDayFromJson(Map<String, dynamic> json) =>
+    json.map((key, value) =>
+        MapEntry(DateTime.parse(key), (value as num).toDouble()));
+
+Map<String, double> _likesPerDayToJson(Map<DateTime, double>? map) =>
+    map!.map((key, value) => MapEntry(key.toIso8601String(), value));
 
 class ImageAspectRatioConverter
     implements JsonConverter<ImageAspectRatios, String> {

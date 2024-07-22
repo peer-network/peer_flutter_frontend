@@ -1,5 +1,6 @@
 enum CreatePostType {
   image,
+  textFile,
   text,
 }
 
@@ -7,6 +8,8 @@ enum CreatePostType {
 extension CreatePostTypeExtension on CreatePostType {
   String get name {
     switch (this) {
+      case CreatePostType.textFile:
+        return "Textdatei";
       case CreatePostType.text:
         return "Text";
       case CreatePostType.image:
