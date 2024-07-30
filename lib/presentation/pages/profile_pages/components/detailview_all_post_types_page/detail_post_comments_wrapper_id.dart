@@ -3,9 +3,11 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/data/graphql/queries.dart';
 import 'package:peer_app/data/models/post_comment_model.dart';
+import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/data/provider/post_provider.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/components/comments/comments_logic/first_layer_comment.dart';
 import 'package:peer_app/presentation/whitelabel/components/wrapper/generic_future_builder.dart';
+import 'package:provider/provider.dart';
 
 class DetailedPostCommentsWrapperId extends StatelessWidget {
   final GraphQLClient client;
@@ -21,11 +23,11 @@ class DetailedPostCommentsWrapperId extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GenericFutureBuilder<List<PostCommentModel>>(
+    return GenericFutureBuilder<List<PostCommentModel>?>(
       futureFunction:
-          fetchComments(client, postId), // Das muss dynamisch werden
+          fetchComments(postId, context), // Das muss dynamisch werden
       dataBuilder: (context, comments) {
-        return FirstLayerComment(comments: comments);
+        return FirstLayerComment(comments: comments!);
       },
       name: name ?? "comments",
     );
@@ -33,10 +35,17 @@ class DetailedPostCommentsWrapperId extends StatelessWidget {
 }
 
 Future<List<PostCommentModel>> fetchComments(
-    GraphQLClient client, String postId) async {
+    /*GraphQLClient client,*/ String postId, BuildContext context) async {
   // TODO delete this dummy code
   final List<dynamic> commentsJson;
 
+  PostProvider postProvider = Provider.of<PostProvider>(context, listen: false);
+
+  PostModel? post = postProvider.getPostById(postId);
+
+  return (post != null && post.comments != null) ? post.comments! : [];
+
+  /*
   if (postId != "post123") {
     try {
       final QueryOptions options = QueryOptions(
@@ -63,4 +72,5 @@ Future<List<PostCommentModel>> fetchComments(
   }
 
   return commentsJson.map((json) => PostCommentModel.fromJson(json)).toList();
+  */
 }
