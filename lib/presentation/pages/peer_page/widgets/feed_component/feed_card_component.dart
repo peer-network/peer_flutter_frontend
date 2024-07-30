@@ -36,7 +36,7 @@ class _FeedCardComponentState extends State<FeedCardComponent> {
       child: Column(
         children: [
           // Feed header
-          FeedHeaderComponent(user: post.user!),
+          FeedHeaderComponent(user: post.user),
           GestureDetector(
             onTap: () {
               Navigator.of(context).push(

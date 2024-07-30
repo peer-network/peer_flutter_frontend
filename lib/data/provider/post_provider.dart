@@ -8,12 +8,13 @@ import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/core/types/create_post_type.dart';
 import 'package:peer_app/data/graphql/queries.dart';
 import 'package:peer_app/data/models/post_model.dart';
+import 'package:peer_app/data/new_dummy_response/post_with_performance_dummy_data.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
 import 'package:peer_app/data/services/user_service.dart';
 
 class PostProvider with ChangeNotifier {
   final gqlClient = GraphQLClientSingleton();
-  final List<PostModel> _posts = [];
+  List<PostModel> _posts = [];
   bool isLoading = false;
   String? error;
 
@@ -98,6 +99,21 @@ class PostProvider with ChangeNotifier {
     */
 
     // new dummy data posts
+
+    _posts = postWithPerformanceDummyData
+        .map((post) => PostModel.fromJson(post))
+        .toList();
+
+    isLoading = false;
+    notifyListeners();
+  }
+
+  PostModel? getPostById(String id) {
+    try {
+      return _posts.firstWhere((post) => post.id == id);
+    } catch (e) {
+      return null;
+    }
   }
 
   Future<void> createPost({

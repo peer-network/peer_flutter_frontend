@@ -89,11 +89,15 @@ class AppDimensions {
 
   static const double textPostSpacing = 12.0;
   static const double imageDescriptionSpacing = 4.0;
+  static const double imageSliderBarHeightBigger = 10.0;
 
   static const double dropDownButtonPaddingLeft = 12.0;
+
+  static const double labelRowLarge = 28.0;
 }
 
 // aspect ratios
 class AppAspectRatios {
   static double profileImageAspectRatio = AspectRatios.ar_19_9.doubleValue();
+  static double graphAspectRatio = AspectRatios.ar_17_10.doubleValue();
 }

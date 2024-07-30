@@ -10,15 +10,29 @@ class TextBodyCreatePost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppPaddings.medium,
-        vertical: AppPaddings.large,
-      ),
-      child: InputFieldComponent(
-        controller: controller,
-        maxLines: 8,
-        minLines: 8,
-        hintText: "Schreibe deinen Text...",
+      padding: EdgeInsets.symmetric(
+          horizontal: AppPaddings.medium, vertical: AppPaddings.large),
+      child: Column(
+        children: [
+          InputFieldComponent(controller: controller, hintText: "Title.."),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.005),
+          const Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Provide a title for other to find your content')),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+          InputFieldComponent(
+            controller: controller,
+            maxLines: 8,
+            minLines: 8,
+            hintText: "Type your text...",
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+          InputFieldComponent(controller: controller, hintText: "Tags.."),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.005),
+          const Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Tags will not show up in')),
+        ],
       ),
     );
   }

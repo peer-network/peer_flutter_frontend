@@ -27,7 +27,7 @@ class FeedHeaderComponent extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                AvatarComponent(imageUrl: user.img),
+                AvatarComponent(imageUrl: user.imgUrl),
                 const SizedBox(width: AppPaddings.small),
                 // Title
                 Text(user.username,

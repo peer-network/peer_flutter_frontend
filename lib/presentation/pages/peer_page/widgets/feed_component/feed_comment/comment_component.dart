@@ -17,7 +17,9 @@ class CommentComponent extends StatelessWidget {
         children: [
           CommentMainContent(comment: comment),
           CommentStatsComponent(comment: comment),
-          SubCommentComponent(comments: comment.comments),
+          (comment.subComments == null)
+              ? const SizedBox.shrink()
+              : SubCommentComponent(comments: comment.subComments!),
         ],
       ),
     );

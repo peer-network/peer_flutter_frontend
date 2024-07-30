@@ -2,13 +2,16 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:peer_app/data/graphql/fragments.dart';
 
 class Queries {
+  //! posts are not fetched in user in getAllPosts
+  //? should comments be pulled when fetching posts? comments {} are excluded for now
+  //? verficationToken - is this necessary in the user model whne pulling posts?
+
   static final posts = gql("""
 query GetAllPosts {
     getAllPosts {
         id
         contentType
         title
-        content
         media
         mediaDescription
         createdAt
@@ -26,14 +29,26 @@ query GetAllPosts {
             id
             username
             email
-            img
+            imgUrl
             biograph
-            isPrivate
+            verified
+            verificationToken
             amountPosts
             amountFollowed
             amountFollower
-            isFollowed
+            isFollowing
         }
+        gemsTotal
+        gemsToday
+        gemsAllTimeHigh
+        gemsLikes
+        gemsViews
+        gemsShares
+        likesPerDay{
+          date
+          amount
+        }
+        
     }
 }
 """);
@@ -53,24 +68,30 @@ query GetAllPosts {
 //     }
 // }
 
+  //? verificationToken - is this necessary in the user model?
+  //? should comments be pulled when fetching posts when pulling user? comments {} in posts {}, comments {} are excluded for now
+
   static final getUserById = gql("""
 query GetUserById(\$id: String!) {
     getUserById(id: \$id) {
         id
         username
         email
-        img
+        imgUrl
+        verified
         biograph
         isPrivate
         amountPosts
         amountFollowed
         amountFollower
-        isFollowed
+        isFollowing
+        createdAt
+        updatedAt
+        verificationToken
         posts {
             id
             contentType
             title
-            content
             media
             mediaDescription
             createdAt

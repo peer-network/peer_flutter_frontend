@@ -40,11 +40,14 @@ enum IconLibrary {
   close,
   trash,
   edit,
+  diamond
 }
 
 extension IconExtension on IconLibrary {
   AssetImage get icon {
     switch (this) {
+      case IconLibrary.diamond:
+        return const AssetImage("assets/icons/diamond_post_performance.png");
       case IconLibrary.dislike:
         return const AssetImage("assets/icons/dislike.png");
       case IconLibrary.bookmark:

@@ -11,11 +11,9 @@ class PostCommentModel with _$PostCommentModel {
     required String id,
     required String content,
     required int postId,
-    required String userId,
-    // required UserModel creator, // Seems like "creator" and "user" are the same. There is no creator in the api
     required DateTime createdAt,
-    required UserModel? user,
-    @Default([]) List<PostCommentModel> comments,
+    required UserModel user,
+    List<PostCommentModel>? subComments,
     bool? isLiked,
     int? likeCount,
   }) = _PostCommentModel;

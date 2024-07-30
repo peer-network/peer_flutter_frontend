@@ -1,9 +1,4 @@
-enum AspectRatios {
-  ar_21_9,
-  ar_1_1,
-  ar_9_16,
-  ar_19_9,
-}
+enum AspectRatios { ar_21_9, ar_1_1, ar_9_16, ar_19_9, ar_17_10 }
 
 // extension
 extension AspectRatiosExtension on AspectRatios {
@@ -17,6 +12,8 @@ extension AspectRatiosExtension on AspectRatios {
         return 9 / 16;
       case AspectRatios.ar_19_9:
         return 19 / 9;
+      case AspectRatios.ar_17_10:
+        return 17 / 10;
       default:
         return 16 / 9;
     }

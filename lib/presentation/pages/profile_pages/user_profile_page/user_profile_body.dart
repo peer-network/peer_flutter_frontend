@@ -17,16 +17,16 @@ class UserProfileBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          ProfileImageSection(imgUrl: user.img),
+          ProfileImageSection(imgUrl: user.imgUrl),
           const SizedBox(height: AppPaddings.large),
           ProfileInfoSection(user: user),
           const SizedBox(height: AppPaddings.large),
           ProfileImagePostSection(
-            posts: user.posts.whereType<ImagePost>().toList(),
+            posts: user.posts!.whereType<ImagePost>().toList(),
           ),
           const SizedBox(height: AppPaddings.large),
           ProfileTextPostSection(
-            posts: user.posts.whereType<TextPost>().toList(),
+            posts: user.posts!.whereType<TextPost>().toList(),
             user: user,
           ),
           // TODO: Add ProfileVideoPostSection

@@ -31,7 +31,7 @@ class CommentComment extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
-          UserImage(imageUrl: comment.user!.img),
+          UserImage(imageUrl: comment.user!.imgUrl),
           Expanded(
             child: CommentAndHeartRow(
               comment: comment,

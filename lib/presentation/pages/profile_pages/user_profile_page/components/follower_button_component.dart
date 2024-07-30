@@ -20,7 +20,7 @@ class FollowerButtonComponent extends StatefulWidget {
 
 class _FollowerButtonComponentState extends State<FollowerButtonComponent> {
   bool isLoading = false;
-  late bool isFollowing;
+  bool? isFollowing;
 
   @override
   void initState() {
@@ -33,6 +33,9 @@ class _FollowerButtonComponentState extends State<FollowerButtonComponent> {
     return PrimaryButton(
       height: AppDimensions.buttonHeightSmall,
       onPressed: () async {
+        if (isFollowing == null) {
+          return;
+        }
         setState(() {
           isLoading = true;
         });
@@ -41,22 +44,30 @@ class _FollowerButtonComponentState extends State<FollowerButtonComponent> {
           () {
             isLoading = false;
             if (success) {
-              isFollowing = !isFollowing;
+              isFollowing = !isFollowing!;
             }
           },
         );
       },
-      text: isFollowing ? 'Unfollow' : 'Follow',
+      text: (isFollowing != null)
+          ? (isFollowing!)
+              ? 'Unfollow'
+              : 'Follow'
+          : 'N/A',
       textColor: widget.textColor,
       textStyle: widget.textStyle,
       isFilled: true,
-      backgroundColor: isFollowing
-          ? Theme.of(context).brightness == Brightness.light
-              ? LightColors.unfollowBackground
-              : DarkColors.unfollowBackground
+      backgroundColor: (isFollowing == null)
+          ? isFollowing!
+              ? Theme.of(context).brightness == Brightness.light
+                  ? LightColors.unfollowBackground
+                  : DarkColors.unfollowBackground
+              : Theme.of(context).brightness == Brightness.light
+                  ? LightColors.followBackground
+                  : DarkColors.followBackground
           : Theme.of(context).brightness == Brightness.light
-              ? LightColors.followBackground
-              : DarkColors.followBackground,
+              ? LightColors.borderDisabled
+              : DarkColors.borderDisabled,
       isLoading: isLoading,
     );
   }

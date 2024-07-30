@@ -21,8 +21,10 @@ class FirstLayerComment extends StatelessWidget {
         children: comments
             .map((comment) => CommentLayerComponent(
                   comment: comment,
-                  nextLayer: comment.comments.isNotEmpty
-                      ? SecondLayerComment(comments: comment.comments)
+                  nextLayer: (comment.subComments != null)
+                      ? comment.subComments!.isNotEmpty
+                          ? SecondLayerComment(comments: comment.subComments!)
+                          : Container()
                       : Container(),
                 ))
             .toList());

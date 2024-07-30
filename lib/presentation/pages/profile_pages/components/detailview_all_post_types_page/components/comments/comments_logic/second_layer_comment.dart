@@ -20,11 +20,13 @@ class SecondLayerComment extends StatelessWidget {
             .map((comment) => CommentLayerComponent(
                 isSecondLayerOrMore: true,
                 comment: comment,
-                nextLayer: comment.comments.isNotEmpty
-                    ? ThirdLayerComment(
-                        comments: comment.comments,
-                        referenceName: comment.user!.username,
-                      ) // von hier namen NUR eine ebene runter geben
+                nextLayer: (comment.subComments != null)
+                    ? comment.subComments!.isNotEmpty
+                        ? ThirdLayerComment(
+                            comments: comment.subComments!,
+                            referenceName: comment.user!.username,
+                          ) // von hier namen NUR eine ebene runter geben
+                        : Container()
                     : Container()))
             .toList());
   }
