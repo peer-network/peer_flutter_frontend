@@ -56,6 +56,7 @@ class _CustomDropdownBarState extends State<CustomDropdownBar> {
               color:
                   Theme.of(context).inputDecorationTheme.outlineBorder!.color)),
       child: DropdownButton<String>(
+        borderRadius: AppBorders.defaultRadius,
         value: value,
         icon: Padding(
           padding: const EdgeInsets.only(
