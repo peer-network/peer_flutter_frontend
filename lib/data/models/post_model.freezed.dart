@@ -50,6 +50,7 @@ mixin _$PostModel {
   int? get gemsLikes => throw _privateConstructorUsedError;
   int? get gemsViews => throw _privateConstructorUsedError;
   int? get gemsShares => throw _privateConstructorUsedError;
+  int? get gemsComments => throw _privateConstructorUsedError;
   @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
   Map<DateTime, double>? get likesPerDay => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +77,7 @@ mixin _$PostModel {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)
         text,
@@ -103,6 +105,7 @@ mixin _$PostModel {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)
         image,
@@ -128,6 +131,7 @@ mixin _$PostModel {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)
         video,
@@ -157,6 +161,7 @@ mixin _$PostModel {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         text,
@@ -184,6 +189,7 @@ mixin _$PostModel {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         image,
@@ -209,6 +215,7 @@ mixin _$PostModel {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         video,
@@ -238,6 +245,7 @@ mixin _$PostModel {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         text,
@@ -265,6 +273,7 @@ mixin _$PostModel {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         image,
@@ -290,6 +299,7 @@ mixin _$PostModel {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         video,
@@ -349,6 +359,7 @@ abstract class $PostModelCopyWith<$Res> {
       int? gemsLikes,
       int? gemsViews,
       int? gemsShares,
+      int? gemsComments,
       @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
       Map<DateTime, double>? likesPerDay});
 
@@ -387,6 +398,7 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
     Object? gemsLikes = freezed,
     Object? gemsViews = freezed,
     Object? gemsShares = freezed,
+    Object? gemsComments = freezed,
     Object? likesPerDay = freezed,
   }) {
     return _then(_value.copyWith(
@@ -466,6 +478,10 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
           ? _value.gemsShares
           : gemsShares // ignore: cast_nullable_to_non_nullable
               as int?,
+      gemsComments: freezed == gemsComments
+          ? _value.gemsComments
+          : gemsComments // ignore: cast_nullable_to_non_nullable
+              as int?,
       likesPerDay: freezed == likesPerDay
           ? _value.likesPerDay
           : likesPerDay // ignore: cast_nullable_to_non_nullable
@@ -512,6 +528,7 @@ abstract class _$$TextPostImplCopyWith<$Res>
       int? gemsLikes,
       int? gemsViews,
       int? gemsShares,
+      int? gemsComments,
       @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
       Map<DateTime, double>? likesPerDay});
 
@@ -551,6 +568,7 @@ class __$$TextPostImplCopyWithImpl<$Res>
     Object? gemsLikes = freezed,
     Object? gemsViews = freezed,
     Object? gemsShares = freezed,
+    Object? gemsComments = freezed,
     Object? likesPerDay = freezed,
   }) {
     return _then(_$TextPostImpl(
@@ -638,6 +656,10 @@ class __$$TextPostImplCopyWithImpl<$Res>
           ? _value.gemsShares
           : gemsShares // ignore: cast_nullable_to_non_nullable
               as int?,
+      gemsComments: freezed == gemsComments
+          ? _value.gemsComments
+          : gemsComments // ignore: cast_nullable_to_non_nullable
+              as int?,
       likesPerDay: freezed == likesPerDay
           ? _value._likesPerDay
           : likesPerDay // ignore: cast_nullable_to_non_nullable
@@ -672,6 +694,7 @@ class _$TextPostImpl implements TextPost {
       this.gemsLikes,
       this.gemsViews,
       this.gemsShares,
+      this.gemsComments,
       @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
       final Map<DateTime, double>? likesPerDay,
       final String? $type})
@@ -733,6 +756,8 @@ class _$TextPostImpl implements TextPost {
   final int? gemsViews;
   @override
   final int? gemsShares;
+  @override
+  final int? gemsComments;
   final Map<DateTime, double>? _likesPerDay;
   @override
   @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
@@ -749,7 +774,7 @@ class _$TextPostImpl implements TextPost {
 
   @override
   String toString() {
-    return 'PostModel.text(id: $id, title: $title, content: $content, user: $user, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, gemsTotal: $gemsTotal, gemsToday: $gemsToday, gemsAllTimeHigh: $gemsAllTimeHigh, gemsLikes: $gemsLikes, gemsViews: $gemsViews, gemsShares: $gemsShares, likesPerDay: $likesPerDay)';
+    return 'PostModel.text(id: $id, title: $title, content: $content, user: $user, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, gemsTotal: $gemsTotal, gemsToday: $gemsToday, gemsAllTimeHigh: $gemsAllTimeHigh, gemsLikes: $gemsLikes, gemsViews: $gemsViews, gemsShares: $gemsShares, gemsComments: $gemsComments, likesPerDay: $likesPerDay)';
   }
 
   @override
@@ -792,6 +817,8 @@ class _$TextPostImpl implements TextPost {
                 other.gemsViews == gemsViews) &&
             (identical(other.gemsShares, gemsShares) ||
                 other.gemsShares == gemsShares) &&
+            (identical(other.gemsComments, gemsComments) ||
+                other.gemsComments == gemsComments) &&
             const DeepCollectionEquality()
                 .equals(other._likesPerDay, _likesPerDay));
   }
@@ -821,6 +848,7 @@ class _$TextPostImpl implements TextPost {
         gemsLikes,
         gemsViews,
         gemsShares,
+        gemsComments,
         const DeepCollectionEquality().hash(_likesPerDay)
       ]);
 
@@ -855,6 +883,7 @@ class _$TextPostImpl implements TextPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)
         text,
@@ -882,6 +911,7 @@ class _$TextPostImpl implements TextPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)
         image,
@@ -907,6 +937,7 @@ class _$TextPostImpl implements TextPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)
         video,
@@ -933,6 +964,7 @@ class _$TextPostImpl implements TextPost {
         gemsLikes,
         gemsViews,
         gemsShares,
+        gemsComments,
         likesPerDay);
   }
 
@@ -961,6 +993,7 @@ class _$TextPostImpl implements TextPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         text,
@@ -988,6 +1021,7 @@ class _$TextPostImpl implements TextPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         image,
@@ -1013,6 +1047,7 @@ class _$TextPostImpl implements TextPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         video,
@@ -1039,6 +1074,7 @@ class _$TextPostImpl implements TextPost {
         gemsLikes,
         gemsViews,
         gemsShares,
+        gemsComments,
         likesPerDay);
   }
 
@@ -1067,6 +1103,7 @@ class _$TextPostImpl implements TextPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         text,
@@ -1094,6 +1131,7 @@ class _$TextPostImpl implements TextPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         image,
@@ -1119,6 +1157,7 @@ class _$TextPostImpl implements TextPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         video,
@@ -1147,6 +1186,7 @@ class _$TextPostImpl implements TextPost {
           gemsLikes,
           gemsViews,
           gemsShares,
+          gemsComments,
           likesPerDay);
     }
     return orElse();
@@ -1217,6 +1257,7 @@ abstract class TextPost implements PostModel {
       final int? gemsLikes,
       final int? gemsViews,
       final int? gemsShares,
+      final int? gemsComments,
       @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
       final Map<DateTime, double>? likesPerDay}) = _$TextPostImpl;
 
@@ -1264,6 +1305,8 @@ abstract class TextPost implements PostModel {
   @override
   int? get gemsShares;
   @override
+  int? get gemsComments;
+  @override
   @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
   Map<DateTime, double>? get likesPerDay;
   @override
@@ -1304,6 +1347,7 @@ abstract class _$$ImagePostImplCopyWith<$Res>
       int? gemsLikes,
       int? gemsViews,
       int? gemsShares,
+      int? gemsComments,
       @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
       Map<DateTime, double>? likesPerDay});
 
@@ -1345,6 +1389,7 @@ class __$$ImagePostImplCopyWithImpl<$Res>
     Object? gemsLikes = freezed,
     Object? gemsViews = freezed,
     Object? gemsShares = freezed,
+    Object? gemsComments = freezed,
     Object? likesPerDay = freezed,
   }) {
     return _then(_$ImagePostImpl(
@@ -1440,6 +1485,10 @@ class __$$ImagePostImplCopyWithImpl<$Res>
           ? _value.gemsShares
           : gemsShares // ignore: cast_nullable_to_non_nullable
               as int?,
+      gemsComments: freezed == gemsComments
+          ? _value.gemsComments
+          : gemsComments // ignore: cast_nullable_to_non_nullable
+              as int?,
       likesPerDay: freezed == likesPerDay
           ? _value._likesPerDay
           : likesPerDay // ignore: cast_nullable_to_non_nullable
@@ -1476,6 +1525,7 @@ class _$ImagePostImpl implements ImagePost {
       this.gemsLikes,
       this.gemsViews,
       this.gemsShares,
+      this.gemsComments,
       @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
       final Map<DateTime, double>? likesPerDay,
       final String? $type})
@@ -1549,6 +1599,8 @@ class _$ImagePostImpl implements ImagePost {
   final int? gemsViews;
   @override
   final int? gemsShares;
+  @override
+  final int? gemsComments;
   final Map<DateTime, double>? _likesPerDay;
   @override
   @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
@@ -1565,7 +1617,7 @@ class _$ImagePostImpl implements ImagePost {
 
   @override
   String toString() {
-    return 'PostModel.image(id: $id, title: $title, user: $user, mediaDescription: $mediaDescription, media: $media, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, aspectRatio: $aspectRatio, gemsTotal: $gemsTotal, gemsToday: $gemsToday, gemsAllTimeHigh: $gemsAllTimeHigh, gemsLikes: $gemsLikes, gemsViews: $gemsViews, gemsShares: $gemsShares, likesPerDay: $likesPerDay)';
+    return 'PostModel.image(id: $id, title: $title, user: $user, mediaDescription: $mediaDescription, media: $media, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, aspectRatio: $aspectRatio, gemsTotal: $gemsTotal, gemsToday: $gemsToday, gemsAllTimeHigh: $gemsAllTimeHigh, gemsLikes: $gemsLikes, gemsViews: $gemsViews, gemsShares: $gemsShares, gemsComments: $gemsComments, likesPerDay: $likesPerDay)';
   }
 
   @override
@@ -1612,6 +1664,8 @@ class _$ImagePostImpl implements ImagePost {
                 other.gemsViews == gemsViews) &&
             (identical(other.gemsShares, gemsShares) ||
                 other.gemsShares == gemsShares) &&
+            (identical(other.gemsComments, gemsComments) ||
+                other.gemsComments == gemsComments) &&
             const DeepCollectionEquality()
                 .equals(other._likesPerDay, _likesPerDay));
   }
@@ -1643,6 +1697,7 @@ class _$ImagePostImpl implements ImagePost {
         gemsLikes,
         gemsViews,
         gemsShares,
+        gemsComments,
         const DeepCollectionEquality().hash(_likesPerDay)
       ]);
 
@@ -1677,6 +1732,7 @@ class _$ImagePostImpl implements ImagePost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)
         text,
@@ -1704,6 +1760,7 @@ class _$ImagePostImpl implements ImagePost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)
         image,
@@ -1729,6 +1786,7 @@ class _$ImagePostImpl implements ImagePost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)
         video,
@@ -1757,6 +1815,7 @@ class _$ImagePostImpl implements ImagePost {
         gemsLikes,
         gemsViews,
         gemsShares,
+        gemsComments,
         likesPerDay);
   }
 
@@ -1785,6 +1844,7 @@ class _$ImagePostImpl implements ImagePost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         text,
@@ -1812,6 +1872,7 @@ class _$ImagePostImpl implements ImagePost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         image,
@@ -1837,6 +1898,7 @@ class _$ImagePostImpl implements ImagePost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         video,
@@ -1865,6 +1927,7 @@ class _$ImagePostImpl implements ImagePost {
         gemsLikes,
         gemsViews,
         gemsShares,
+        gemsComments,
         likesPerDay);
   }
 
@@ -1893,6 +1956,7 @@ class _$ImagePostImpl implements ImagePost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         text,
@@ -1920,6 +1984,7 @@ class _$ImagePostImpl implements ImagePost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         image,
@@ -1945,6 +2010,7 @@ class _$ImagePostImpl implements ImagePost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         video,
@@ -1975,6 +2041,7 @@ class _$ImagePostImpl implements ImagePost {
           gemsLikes,
           gemsViews,
           gemsShares,
+          gemsComments,
           likesPerDay);
     }
     return orElse();
@@ -2047,6 +2114,7 @@ abstract class ImagePost implements PostModel {
       final int? gemsLikes,
       final int? gemsViews,
       final int? gemsShares,
+      final int? gemsComments,
       @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
       final Map<DateTime, double>? likesPerDay}) = _$ImagePostImpl;
 
@@ -2097,6 +2165,8 @@ abstract class ImagePost implements PostModel {
   @override
   int? get gemsShares;
   @override
+  int? get gemsComments;
+  @override
   @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
   Map<DateTime, double>? get likesPerDay;
   @override
@@ -2135,6 +2205,7 @@ abstract class _$$VideoPostImplCopyWith<$Res>
       int? gemsLikes,
       int? gemsViews,
       int? gemsShares,
+      int? gemsComments,
       @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
       Map<DateTime, double>? likesPerDay});
 
@@ -2174,6 +2245,7 @@ class __$$VideoPostImplCopyWithImpl<$Res>
     Object? gemsLikes = freezed,
     Object? gemsViews = freezed,
     Object? gemsShares = freezed,
+    Object? gemsComments = freezed,
     Object? likesPerDay = freezed,
   }) {
     return _then(_$VideoPostImpl(
@@ -2261,6 +2333,10 @@ class __$$VideoPostImplCopyWithImpl<$Res>
           ? _value.gemsShares
           : gemsShares // ignore: cast_nullable_to_non_nullable
               as int?,
+      gemsComments: freezed == gemsComments
+          ? _value.gemsComments
+          : gemsComments // ignore: cast_nullable_to_non_nullable
+              as int?,
       likesPerDay: freezed == likesPerDay
           ? _value._likesPerDay
           : likesPerDay // ignore: cast_nullable_to_non_nullable
@@ -2295,6 +2371,7 @@ class _$VideoPostImpl implements VideoPost {
       this.gemsLikes,
       this.gemsViews,
       this.gemsShares,
+      this.gemsComments,
       @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
       final Map<DateTime, double>? likesPerDay,
       final String? $type})
@@ -2355,6 +2432,8 @@ class _$VideoPostImpl implements VideoPost {
   final int? gemsViews;
   @override
   final int? gemsShares;
+  @override
+  final int? gemsComments;
   final Map<DateTime, double>? _likesPerDay;
   @override
   @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
@@ -2371,7 +2450,7 @@ class _$VideoPostImpl implements VideoPost {
 
   @override
   String toString() {
-    return 'PostModel.video(id: $id, title: $title, media: $media, mediaDescription: $mediaDescription, createdAt: $createdAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, user: $user, gemsTotal: $gemsTotal, gemsToday: $gemsToday, gemsAllTimeHigh: $gemsAllTimeHigh, gemsLikes: $gemsLikes, gemsViews: $gemsViews, gemsShares: $gemsShares, likesPerDay: $likesPerDay)';
+    return 'PostModel.video(id: $id, title: $title, media: $media, mediaDescription: $mediaDescription, createdAt: $createdAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, user: $user, gemsTotal: $gemsTotal, gemsToday: $gemsToday, gemsAllTimeHigh: $gemsAllTimeHigh, gemsLikes: $gemsLikes, gemsViews: $gemsViews, gemsShares: $gemsShares, gemsComments: $gemsComments, likesPerDay: $likesPerDay)';
   }
 
   @override
@@ -2414,6 +2493,8 @@ class _$VideoPostImpl implements VideoPost {
                 other.gemsViews == gemsViews) &&
             (identical(other.gemsShares, gemsShares) ||
                 other.gemsShares == gemsShares) &&
+            (identical(other.gemsComments, gemsComments) ||
+                other.gemsComments == gemsComments) &&
             const DeepCollectionEquality()
                 .equals(other._likesPerDay, _likesPerDay));
   }
@@ -2443,6 +2524,7 @@ class _$VideoPostImpl implements VideoPost {
         gemsLikes,
         gemsViews,
         gemsShares,
+        gemsComments,
         const DeepCollectionEquality().hash(_likesPerDay)
       ]);
 
@@ -2477,6 +2559,7 @@ class _$VideoPostImpl implements VideoPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)
         text,
@@ -2504,6 +2587,7 @@ class _$VideoPostImpl implements VideoPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)
         image,
@@ -2529,6 +2613,7 @@ class _$VideoPostImpl implements VideoPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)
         video,
@@ -2555,6 +2640,7 @@ class _$VideoPostImpl implements VideoPost {
         gemsLikes,
         gemsViews,
         gemsShares,
+        gemsComments,
         likesPerDay);
   }
 
@@ -2583,6 +2669,7 @@ class _$VideoPostImpl implements VideoPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         text,
@@ -2610,6 +2697,7 @@ class _$VideoPostImpl implements VideoPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         image,
@@ -2635,6 +2723,7 @@ class _$VideoPostImpl implements VideoPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         video,
@@ -2661,6 +2750,7 @@ class _$VideoPostImpl implements VideoPost {
         gemsLikes,
         gemsViews,
         gemsShares,
+        gemsComments,
         likesPerDay);
   }
 
@@ -2689,6 +2779,7 @@ class _$VideoPostImpl implements VideoPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         text,
@@ -2716,6 +2807,7 @@ class _$VideoPostImpl implements VideoPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         image,
@@ -2741,6 +2833,7 @@ class _$VideoPostImpl implements VideoPost {
             int? gemsLikes,
             int? gemsViews,
             int? gemsShares,
+            int? gemsComments,
             @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
             Map<DateTime, double>? likesPerDay)?
         video,
@@ -2769,6 +2862,7 @@ class _$VideoPostImpl implements VideoPost {
           gemsLikes,
           gemsViews,
           gemsShares,
+          gemsComments,
           likesPerDay);
     }
     return orElse();
@@ -2839,6 +2933,7 @@ abstract class VideoPost implements PostModel {
       final int? gemsLikes,
       final int? gemsViews,
       final int? gemsShares,
+      final int? gemsComments,
       @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
       final Map<DateTime, double>? likesPerDay}) = _$VideoPostImpl;
 
@@ -2885,6 +2980,8 @@ abstract class VideoPost implements PostModel {
   int? get gemsViews;
   @override
   int? get gemsShares;
+  @override
+  int? get gemsComments;
   @override
   @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
   Map<DateTime, double>? get likesPerDay;

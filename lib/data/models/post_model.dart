@@ -31,6 +31,7 @@ class PostModel with _$PostModel {
     int? gemsLikes,
     int? gemsViews,
     int? gemsShares,
+    int? gemsComments,
     @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
     Map<DateTime, double>? likesPerDay,
   }) = TextPost;
@@ -62,6 +63,7 @@ class PostModel with _$PostModel {
     int? gemsLikes,
     int? gemsViews,
     int? gemsShares,
+    int? gemsComments,
     @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
     Map<DateTime, double>? likesPerDay,
   }) = ImagePost;
@@ -90,6 +92,7 @@ class PostModel with _$PostModel {
     int? gemsLikes,
     int? gemsViews,
     int? gemsShares,
+    int? gemsComments,
     @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
     Map<DateTime, double>? likesPerDay,
   }) = VideoPost;

@@ -56,6 +56,7 @@ List<Map<String, dynamic>> postWithPerformanceDummyData = [
     "gemsLikes": 1797,
     "gemsViews": 2565,
     "gemsShares": 857,
+    "gemsComments": 120,
     "likesPerDay": {
       "2024-06-21T00:00:00.000": 117.40,
       "2024-06-20T00:00:00.000": 117.40,
@@ -162,6 +163,7 @@ List<Map<String, dynamic>> postWithPerformanceDummyData = [
     "gemsLikes": 1797,
     "gemsViews": 2565,
     "gemsShares": 857,
+    "gemsComments": 120,
     "likesPerDay": {
       "2024-06-21T00:00:00.000": 117.40,
       "2024-06-20T00:00:00.000": 117.40,
@@ -264,6 +266,7 @@ List<Map<String, dynamic>> postWithPerformanceDummyData = [
     "gemsLikes": 1797,
     "gemsViews": 2565,
     "gemsShares": 857,
+    "gemsComments": 120,
     "likesPerDay": {
       "2024-06-21T00:00:00.000": 117.40,
       "2024-06-20T00:00:00.000": 117.40,
@@ -384,6 +387,7 @@ List<Map<String, dynamic>> postWithPerformanceDummyData = [
     "gemsLikes": 1797,
     "gemsViews": 2565,
     "gemsShares": 857,
+    "gemsComments": 120,
     "likesPerDay": {
       "2024-06-21T00:00:00.000": 117.40,
       "2024-06-20T00:00:00.000": 117.40,
@@ -484,6 +488,7 @@ List<Map<String, dynamic>> postWithPerformanceDummyData = [
     "gemsLikes": 1797,
     "gemsViews": 2565,
     "gemsShares": 857,
+    "gemsComments": 120,
     "likesPerDay": {
       "2024-06-21T00:00:00.000": 117.40,
       "2024-06-20T00:00:00.000": 117.40,
@@ -588,6 +593,7 @@ List<Map<String, dynamic>> postWithPerformanceDummyData = [
     "gemsLikes": 1797,
     "gemsViews": 2565,
     "gemsShares": 857,
+    "gemsComments": 120,
     "likesPerDay": {
       "2024-06-21T00:00:00.000": 117.40,
       "2024-06-20T00:00:00.000": 117.40,

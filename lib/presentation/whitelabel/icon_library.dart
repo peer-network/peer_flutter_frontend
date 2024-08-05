@@ -28,6 +28,7 @@ enum IconLibrary {
   arrowWest,
   arrowDown,
   peer,
+  stats_post_performance,
   search,
   profile,
   shop,
@@ -129,6 +130,8 @@ extension IconExtension on IconLibrary {
         return const AssetImage("assets/icons/trash.png");
       case IconLibrary.edit:
         return const AssetImage("assets/icons/edit.png");
+      case IconLibrary.stats_post_performance:
+        return const AssetImage("assets/icons/post_performance-stats.png");
 
       default:
         throw Exception("Icon not found");
