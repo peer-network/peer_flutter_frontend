@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
-import 'package:peer_app/data/models/wallet_model/credits_source_model.dart';
+//import 'package:peer_app/data/models/wallet_model/credits_source_model.dart';
+import 'package:peer_app/data/models/wallet_model.dart';
+
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/credits_source_section.dart/components/source_bar.dart';
 
 class SourceList extends StatelessWidget {
