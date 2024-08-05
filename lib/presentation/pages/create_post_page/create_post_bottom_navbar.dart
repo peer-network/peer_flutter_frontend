@@ -21,7 +21,7 @@ class CreatePostBottomNavbar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ...CreatePostType.values.reversed.map((type) {
+            ...CreatePostType.values.map((type) {
               return Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: AppPaddings.small),
@@ -30,7 +30,7 @@ class CreatePostBottomNavbar extends StatelessWidget {
                   onPressed: () {
                     onTypeChanged(type);
                   },
-                  isFilled: activeCreatePostType == type,
+                  isFilled: activeCreatePostType != type,
                 ),
               );
             }).toList(),

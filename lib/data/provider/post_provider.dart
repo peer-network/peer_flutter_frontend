@@ -141,8 +141,14 @@ class PostProvider with ChangeNotifier {
         post["body"]["content_type"] = "1";
         post["body"]["title"] = title;
         post["body"]["media_description"] = mediaDescription;
+
+        for (var imageFile in imageFiles!) {
+          final base64Image = base64Encode(await imageFile.readAsBytes());
+          post["body"]["media"].add(base64Image);
+        }
+
         break;
-      case CreatePostType.textFile:
+      /*case CreatePostType.textFile:
         post["body"]["content_type"] = "0";
         post["body"]["title"] = title;
 
@@ -150,7 +156,7 @@ class PostProvider with ChangeNotifier {
         final base64File = base64Encode(utf8.encode(textFromFile));
 
         post["body"]["media"] = [base64File];
-        break;
+        break;*/
       case CreatePostType.text:
         post["body"]["content_type"] = "0";
         post["body"]["title"] = title;

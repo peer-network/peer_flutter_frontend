@@ -50,7 +50,7 @@ class ImageBodyCreatePost extends StatelessWidget {
                   controller: controller,
                   maxLines: 8,
                   minLines: 8,
-                  hintText: "Schreibe deinen Text...",
+                  hintText: "Type your text...",
                 ),
               )
             : Container(),
@@ -72,21 +72,21 @@ class ImageBodyCreatePost extends StatelessWidget {
                 ChooseImageAspectRatioButton(
                     imageAspectRatio: ImageAspectRatios.square,
                     isActive:
-                        activeImageAspectRatio == ImageAspectRatios.square,
+                        activeImageAspectRatio != ImageAspectRatios.square,
                     onPressed: (iar) =>
                         onAspectRatioChanged(ImageAspectRatios.square)),
                 const SizedBox(width: AppPaddings.medium),
                 ChooseImageAspectRatioButton(
                     imageAspectRatio: ImageAspectRatios.portrait,
                     isActive:
-                        activeImageAspectRatio == ImageAspectRatios.portrait,
+                        activeImageAspectRatio != ImageAspectRatios.portrait,
                     onPressed: (iar) =>
                         onAspectRatioChanged(ImageAspectRatios.portrait)),
                 const SizedBox(width: AppPaddings.medium),
                 ChooseImageAspectRatioButton(
                     imageAspectRatio: ImageAspectRatios.landscape,
                     isActive:
-                        activeImageAspectRatio == ImageAspectRatios.landscape,
+                        activeImageAspectRatio != ImageAspectRatios.landscape,
                     onPressed: (iar) =>
                         onAspectRatioChanged(ImageAspectRatios.landscape)),
               ],
@@ -156,6 +156,7 @@ class ImageBodyCreatePost extends StatelessWidget {
                             right: 5,
                             bottom: 5,
                             child: CustomIconButton(
+                              color: Theme.of(context).primaryIconTheme.color,
                               icon: IconLibrary.plus,
                               onPressed: () => addImages(),
                               sizeType: SizeType.extraLarge,

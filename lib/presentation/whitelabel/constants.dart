@@ -14,6 +14,8 @@ class AppDuration {
   static const Duration imageSliderDuration = Duration(milliseconds: 0);
   static const Duration imagePostWidgetTransitionDuration =
       Duration(milliseconds: 250);
+  static const Duration postCreationTransitionDuration =
+      Duration(milliseconds: 300);
 }
 
 class AppBorders {

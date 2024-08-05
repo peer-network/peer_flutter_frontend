@@ -24,7 +24,9 @@ class _CreatePostPageState extends State<CreatePostPage> {
   ImageAspectRatios activeImageAspectRatio = ImageAspectRatios.square;
 
   // TEXT SECTION
-  final TextEditingController textController = TextEditingController();
+  final TextEditingController textTitleController = TextEditingController();
+  final TextEditingController textContentController = TextEditingController();
+  final TextEditingController textTagController = TextEditingController();
 
   // IMAGE SECTION
   final ImagePicker _picker = ImagePicker();
@@ -54,7 +56,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
 
   @override
   void dispose() {
-    textController.dispose();
+    textTitleController.dispose();
     imageDescriptionController.dispose();
     super.dispose();
   }
@@ -71,10 +73,13 @@ class _CreatePostPageState extends State<CreatePostPage> {
         },
       ),
       appBar: SecondaryAppbar(
-        title: "Beitrag teilen",
+        title: "Create Post",
         actions: [
           LinkButtonComponent(
-            text: "Posten",
+            text: "Post",
+            textColor: Theme.of(context)
+                .colorScheme
+                .secondary, //TODO: check if looks correct in light theme
             onPressed: () => createPost(),
             isUnderlined: false,
           )
@@ -109,9 +114,10 @@ class _CreatePostPageState extends State<CreatePostPage> {
         );
 
       case CreatePostType.text:
-        return TextBodyCreatePost(controller: textController);
-      case CreatePostType.textFile:
-        return SizedBox.shrink();
+        return TextBodyCreatePost(
+            titleController: textTitleController,
+            textContentController: textContentController,
+            tagController: textTagController);
     }
   }
 
@@ -120,18 +126,30 @@ class _CreatePostPageState extends State<CreatePostPage> {
     int creatorId = 1;
     switch (activeCreatePostType) {
       case CreatePostType.image:
-        createPostImage();
+        createPostImage(creatorId);
         break;
       case CreatePostType.text:
         createPostText(creatorId);
         break;
-      case CreatePostType.textFile:
-      // TODO: Handle this case.
     }
   }
 
-  void createPostImage() {
-    CustomToast.showErrorToast("Not implemented yet");
+  void createPostImage(int creatorId) {
+    final newsFeedProvider = Provider.of<PostProvider>(context, listen: false);
+    newsFeedProvider
+        .createPost(
+            userId: creatorId,
+            postType: CreatePostType.image,
+            title: "Title",
+            mediaDescription: "Media Description",
+            imageFiles: images)
+        .then((_) {
+      if (newsFeedProvider.error != null) {
+        CustomToast.showErrorToast(newsFeedProvider.error!);
+      } else {
+        CustomToast.showSuccessToast("Post erfolgreich erstellt");
+      }
+    });
   }
 
   void createPostText(int creatorId) {
@@ -140,8 +158,8 @@ class _CreatePostPageState extends State<CreatePostPage> {
         .createPost(
       userId: creatorId,
       postType: CreatePostType.text,
-      title: "Title",
-      text: textController.text,
+      title: textTitleController.text,
+      text: textContentController.text,
     )
         .then((_) {
       if (newsFeedProvider.error != null) {

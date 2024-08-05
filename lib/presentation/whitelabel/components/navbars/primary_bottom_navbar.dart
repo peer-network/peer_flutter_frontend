@@ -54,7 +54,9 @@ class PrimaryBottomNavbar extends StatelessWidget {
           color: Theme.of(context).primaryIconTheme.color,
           size: AppDimensions.iconSizeLarge,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(NewCreatePostPageRoute());
+        },
       ),
     ];
     return BaseBottomNavigationBar(

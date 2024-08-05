@@ -36,9 +36,6 @@ class DetailedPostCommentsWrapperId extends StatelessWidget {
 
 Future<List<PostCommentModel>> fetchComments(
     /*GraphQLClient client,*/ String postId, BuildContext context) async {
-  // TODO delete this dummy code
-  final List<dynamic> commentsJson;
-
   PostProvider postProvider = Provider.of<PostProvider>(context, listen: false);
 
   PostModel? post = postProvider.getPostById(postId);
