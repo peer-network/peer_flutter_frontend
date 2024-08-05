@@ -33,6 +33,7 @@ _$TextPostImpl _$$TextPostImplFromJson(Map<String, dynamic> json) =>
       gemsLikes: (json['gemsLikes'] as num?)?.toInt(),
       gemsViews: (json['gemsViews'] as num?)?.toInt(),
       gemsShares: (json['gemsShares'] as num?)?.toInt(),
+      gemsComments: (json['gemsComments'] as num?)?.toInt(),
       likesPerDay:
           _likesPerDayFromJson(json['likesPerDay'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
@@ -61,6 +62,7 @@ Map<String, dynamic> _$$TextPostImplToJson(_$TextPostImpl instance) =>
       'gemsLikes': instance.gemsLikes,
       'gemsViews': instance.gemsViews,
       'gemsShares': instance.gemsShares,
+      'gemsComments': instance.gemsComments,
       'likesPerDay': _likesPerDayToJson(instance.likesPerDay),
       'runtimeType': instance.$type,
     };
@@ -97,6 +99,7 @@ _$ImagePostImpl _$$ImagePostImplFromJson(Map<String, dynamic> json) =>
       gemsLikes: (json['gemsLikes'] as num?)?.toInt(),
       gemsViews: (json['gemsViews'] as num?)?.toInt(),
       gemsShares: (json['gemsShares'] as num?)?.toInt(),
+      gemsComments: (json['gemsComments'] as num?)?.toInt(),
       likesPerDay:
           _likesPerDayFromJson(json['likesPerDay'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
@@ -128,6 +131,7 @@ Map<String, dynamic> _$$ImagePostImplToJson(_$ImagePostImpl instance) =>
       'gemsLikes': instance.gemsLikes,
       'gemsViews': instance.gemsViews,
       'gemsShares': instance.gemsShares,
+      'gemsComments': instance.gemsComments,
       'likesPerDay': _likesPerDayToJson(instance.likesPerDay),
       'runtimeType': instance.$type,
     };
@@ -157,6 +161,7 @@ _$VideoPostImpl _$$VideoPostImplFromJson(Map<String, dynamic> json) =>
       gemsLikes: (json['gemsLikes'] as num?)?.toInt(),
       gemsViews: (json['gemsViews'] as num?)?.toInt(),
       gemsShares: (json['gemsShares'] as num?)?.toInt(),
+      gemsComments: (json['gemsComments'] as num?)?.toInt(),
       likesPerDay:
           _likesPerDayFromJson(json['likesPerDay'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
@@ -185,6 +190,7 @@ Map<String, dynamic> _$$VideoPostImplToJson(_$VideoPostImpl instance) =>
       'gemsLikes': instance.gemsLikes,
       'gemsViews': instance.gemsViews,
       'gemsShares': instance.gemsShares,
+      'gemsComments': instance.gemsComments,
       'likesPerDay': _likesPerDayToJson(instance.likesPerDay),
       'runtimeType': instance.$type,
     };

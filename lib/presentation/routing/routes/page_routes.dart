@@ -15,6 +15,7 @@ import 'package:peer_app/presentation/pages/single_chat_page/chat_page.dart';
 import 'package:peer_app/presentation/routing/routes/base_route.dart';
 import 'package:peer_app/presentation/routing/routes/transitions.dart';
 import 'package:peer_app/presentation/pages/profile_pages/components/detailview_all_post_types_page/detailed_post_page.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/post_performance_page.dart';
 
 class LoginPageRoute extends BaseRoute {
   LoginPageRoute()
@@ -116,6 +117,14 @@ class DetailedPostPageRoute extends BaseRoute {
   DetailedPostPageRoute(PostModel post)
       : super(
           DetailedPostPage(post: post),
+          guards: [],
+        );
+}
+
+class PostPerformancePageRoute extends BaseRoute {
+  PostPerformancePageRoute(String postId)
+      : super(
+          PostPerformancePage(postId: postId),
           guards: [],
         );
 }

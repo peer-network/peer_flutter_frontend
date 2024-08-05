@@ -16,11 +16,16 @@ class PostPerformanceContent extends StatelessWidget {
         if (provider.isLoading) {
           return const Center(child: CircularProgressIndicator());
         } else {
-          return SingleChildScrollView(
-            child: SectionWidgetHolder(
-                postPerformance: provider.getPostById(
-                    postId)), // this might return null -> handle in your entire code
-          );
+          final postPerformance = provider.getPostById(postId);
+          if (postPerformance == null) {
+            return const Center(
+              child: Text('Post performance data not found'),
+            );
+          } else {
+            return SingleChildScrollView(
+              child: SectionWidgetHolder(postPerformance: postPerformance),
+            );
+          }
         }
       },
     );

@@ -11,16 +11,22 @@ class IncomeSources extends StatelessWidget {
   }) : super(key: key);
 
   List<double> calculateGemPercentages(PostModel postPerformance) {
-    List<double> percentages = List<double>.filled(3, 0, growable: false);
+    List<double> percentages = List<double>.filled(4, 0, growable: false);
     List<int?> values = [
       postPerformance.gemsLikes,
       postPerformance.gemsViews,
-      postPerformance.gemsShares
+      postPerformance.gemsShares,
+      postPerformance.gemsComments
     ];
-    int total = values.fold(0, (sum, value) => sum + value!);
+    
+    int total = values.fold(0, (sum, value) => sum + (value ?? 0));
+
+    if (total == 0) {
+      return percentages;
+    }
 
     for (int i = 0; i < values.length; i++) {
-      percentages[i] = (values[i]! / total) * 100;
+      percentages[i] = ((values[i] ?? 0) / total) * 100;
     }
 
     return percentages;
@@ -29,11 +35,12 @@ class IncomeSources extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<double> widthValues = calculateGemPercentages(postPerformance);
-    List<String> labels = ['Gems through Likes', 'Gems through Views', 'Gems through Shares'];
+    List<String> labels = ['Gems through Likes', 'Gems through Views', 'Gems through Shares', 'Gems through Comments'];
     List<int?> amounts = [
       postPerformance.gemsLikes,
       postPerformance.gemsViews,
-      postPerformance.gemsShares
+      postPerformance.gemsShares,
+      postPerformance.gemsComments
     ];
 
     return Column(
@@ -47,7 +54,7 @@ class IncomeSources extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: SourceBar(
                 label: labels[index],
-                amount: amounts[index]!,
+                amount: amounts[index] ?? 0,
                 width: widthValues[index] * 5 + 50,
               ),
             );
