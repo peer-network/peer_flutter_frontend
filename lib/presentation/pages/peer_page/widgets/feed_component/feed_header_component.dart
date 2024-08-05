@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/user_model.dart';
+import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/feed_stats/post_performance/post_performance_page.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/secondary_button.dart';
@@ -57,12 +58,7 @@ class FeedHeaderComponent extends StatelessWidget {
                 sizeType: SizeType.small,
                 color: Theme.of(context).primaryIconTheme.color,
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PostPerformanceContent(postId: postId!),
-                    ),
-                  );
+                  Navigator.of(context).push(PostPerformancePageRoute(postId));
                 },
               ),
             ],

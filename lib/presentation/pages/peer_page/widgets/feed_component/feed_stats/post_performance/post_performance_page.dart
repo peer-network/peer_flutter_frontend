@@ -3,12 +3,10 @@ import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/fee
 import 'package:peer_app/presentation/whitelabel/components/appbars/base_appbar.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 
-class PostPerformance extends StatelessWidget {
+class PostPerformancePage extends StatelessWidget {
   final String postId;
-  const PostPerformance({
-    Key? key,
-    required this.postId
-  }) : super(key: key);
+  
+  const PostPerformancePage({Key? key, required this.postId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
