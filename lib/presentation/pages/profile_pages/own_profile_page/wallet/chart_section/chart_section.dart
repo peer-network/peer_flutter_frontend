@@ -17,7 +17,7 @@ class ChartSection extends StatelessWidget {
         const SizedBox(height: AppPaddings.large),
         Padding(
           padding: const EdgeInsets.only(left: 25.0),
-          child: Text('Woher kommen deine Credits?',
+          child: Text('Woher kommen deine Credits?', //Where do your credits come from?
               style: Theme.of(context)
                   .textTheme
                   .headlineLarge!
