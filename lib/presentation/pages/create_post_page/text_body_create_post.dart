@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/pages/create_post_page/new/file_upload_field.dart';
 import 'package:peer_app/presentation/whitelabel/components/input/input_field_component.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
@@ -55,6 +56,7 @@ class TextBodyCreatePost extends StatelessWidget {
             ],
           ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+          FileUploadField(),
           SizedBox(height: MediaQuery.of(context).size.height * 0.02),
           InputFieldComponent(controller: tagController, hintText: "Tags.."),
           SizedBox(height: MediaQuery.of(context).size.height * 0.005),
