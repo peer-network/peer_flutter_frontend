@@ -26,6 +26,9 @@ mixin _$WalletModel {
   int get creditsCollectedToday => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
+  CreditsSourceModel get creditsSource => throw _privateConstructorUsedError;
+  AccountDevelopmentModel get accountDevelopment =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +48,12 @@ abstract class $WalletModelCopyWith<$Res> {
       int totalCredits,
       int creditsCollectedToday,
       DateTime? createdAt,
-      DateTime? updatedAt});
+      DateTime? updatedAt,
+      CreditsSourceModel creditsSource,
+      AccountDevelopmentModel accountDevelopment});
+
+  $CreditsSourceModelCopyWith<$Res> get creditsSource;
+  $AccountDevelopmentModelCopyWith<$Res> get accountDevelopment;
 }
 
 /// @nodoc
@@ -67,6 +75,8 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
     Object? creditsCollectedToday = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? creditsSource = null,
+    Object? accountDevelopment = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -93,7 +103,32 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      creditsSource: null == creditsSource
+          ? _value.creditsSource
+          : creditsSource // ignore: cast_nullable_to_non_nullable
+              as CreditsSourceModel,
+      accountDevelopment: null == accountDevelopment
+          ? _value.accountDevelopment
+          : accountDevelopment // ignore: cast_nullable_to_non_nullable
+              as AccountDevelopmentModel,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreditsSourceModelCopyWith<$Res> get creditsSource {
+    return $CreditsSourceModelCopyWith<$Res>(_value.creditsSource, (value) {
+      return _then(_value.copyWith(creditsSource: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AccountDevelopmentModelCopyWith<$Res> get accountDevelopment {
+    return $AccountDevelopmentModelCopyWith<$Res>(_value.accountDevelopment,
+        (value) {
+      return _then(_value.copyWith(accountDevelopment: value) as $Val);
+    });
   }
 }
 
@@ -111,7 +146,14 @@ abstract class _$$WalletModelImplCopyWith<$Res>
       int totalCredits,
       int creditsCollectedToday,
       DateTime? createdAt,
-      DateTime? updatedAt});
+      DateTime? updatedAt,
+      CreditsSourceModel creditsSource,
+      AccountDevelopmentModel accountDevelopment});
+
+  @override
+  $CreditsSourceModelCopyWith<$Res> get creditsSource;
+  @override
+  $AccountDevelopmentModelCopyWith<$Res> get accountDevelopment;
 }
 
 /// @nodoc
@@ -131,6 +173,8 @@ class __$$WalletModelImplCopyWithImpl<$Res>
     Object? creditsCollectedToday = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? creditsSource = null,
+    Object? accountDevelopment = null,
   }) {
     return _then(_$WalletModelImpl(
       id: null == id
@@ -157,6 +201,14 @@ class __$$WalletModelImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      creditsSource: null == creditsSource
+          ? _value.creditsSource
+          : creditsSource // ignore: cast_nullable_to_non_nullable
+              as CreditsSourceModel,
+      accountDevelopment: null == accountDevelopment
+          ? _value.accountDevelopment
+          : accountDevelopment // ignore: cast_nullable_to_non_nullable
+              as AccountDevelopmentModel,
     ));
   }
 }
@@ -170,7 +222,9 @@ class _$WalletModelImpl with DiagnosticableTreeMixin implements _WalletModel {
       required this.totalCredits,
       required this.creditsCollectedToday,
       this.createdAt,
-      this.updatedAt});
+      this.updatedAt,
+      required this.creditsSource,
+      required this.accountDevelopment});
 
   factory _$WalletModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$WalletModelImplFromJson(json);
@@ -187,10 +241,14 @@ class _$WalletModelImpl with DiagnosticableTreeMixin implements _WalletModel {
   final DateTime? createdAt;
   @override
   final DateTime? updatedAt;
+  @override
+  final CreditsSourceModel creditsSource;
+  @override
+  final AccountDevelopmentModel accountDevelopment;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'WalletModel(id: $id, userId: $userId, totalCredits: $totalCredits, creditsCollectedToday: $creditsCollectedToday, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'WalletModel(id: $id, userId: $userId, totalCredits: $totalCredits, creditsCollectedToday: $creditsCollectedToday, createdAt: $createdAt, updatedAt: $updatedAt, creditsSource: $creditsSource, accountDevelopment: $accountDevelopment)';
   }
 
   @override
@@ -203,7 +261,9 @@ class _$WalletModelImpl with DiagnosticableTreeMixin implements _WalletModel {
       ..add(DiagnosticsProperty('totalCredits', totalCredits))
       ..add(DiagnosticsProperty('creditsCollectedToday', creditsCollectedToday))
       ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt));
+      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('creditsSource', creditsSource))
+      ..add(DiagnosticsProperty('accountDevelopment', accountDevelopment));
   }
 
   @override
@@ -220,13 +280,25 @@ class _$WalletModelImpl with DiagnosticableTreeMixin implements _WalletModel {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.creditsSource, creditsSource) ||
+                other.creditsSource == creditsSource) &&
+            (identical(other.accountDevelopment, accountDevelopment) ||
+                other.accountDevelopment == accountDevelopment));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, userId, totalCredits,
-      creditsCollectedToday, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      userId,
+      totalCredits,
+      creditsCollectedToday,
+      createdAt,
+      updatedAt,
+      creditsSource,
+      accountDevelopment);
 
   @JsonKey(ignore: true)
   @override
@@ -244,12 +316,15 @@ class _$WalletModelImpl with DiagnosticableTreeMixin implements _WalletModel {
 
 abstract class _WalletModel implements WalletModel {
   const factory _WalletModel(
-      {required final int id,
-      required final int userId,
-      required final int totalCredits,
-      required final int creditsCollectedToday,
-      final DateTime? createdAt,
-      final DateTime? updatedAt}) = _$WalletModelImpl;
+          {required final int id,
+          required final int userId,
+          required final int totalCredits,
+          required final int creditsCollectedToday,
+          final DateTime? createdAt,
+          final DateTime? updatedAt,
+          required final CreditsSourceModel creditsSource,
+          required final AccountDevelopmentModel accountDevelopment}) =
+      _$WalletModelImpl;
 
   factory _WalletModel.fromJson(Map<String, dynamic> json) =
       _$WalletModelImpl.fromJson;
@@ -266,6 +341,10 @@ abstract class _WalletModel implements WalletModel {
   DateTime? get createdAt;
   @override
   DateTime? get updatedAt;
+  @override
+  CreditsSourceModel get creditsSource;
+  @override
+  AccountDevelopmentModel get accountDevelopment;
   @override
   @JsonKey(ignore: true)
   _$$WalletModelImplCopyWith<_$WalletModelImpl> get copyWith =>
@@ -443,524 +522,5 @@ abstract class _CurrencyExchangeModel implements CurrencyExchangeModel {
   @override
   @JsonKey(ignore: true)
   _$$CurrencyExchangeModelImplCopyWith<_$CurrencyExchangeModelImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-CreditsSourceModel _$CreditsSourceModelFromJson(Map<String, dynamic> json) {
-  return _CreditsSourceModel.fromJson(json);
-}
-
-/// @nodoc
-mixin _$CreditsSourceModel {
-  List<CreditSourceItemModel> get items => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CreditsSourceModelCopyWith<CreditsSourceModel> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CreditsSourceModelCopyWith<$Res> {
-  factory $CreditsSourceModelCopyWith(
-          CreditsSourceModel value, $Res Function(CreditsSourceModel) then) =
-      _$CreditsSourceModelCopyWithImpl<$Res, CreditsSourceModel>;
-  @useResult
-  $Res call({List<CreditSourceItemModel> items});
-}
-
-/// @nodoc
-class _$CreditsSourceModelCopyWithImpl<$Res, $Val extends CreditsSourceModel>
-    implements $CreditsSourceModelCopyWith<$Res> {
-  _$CreditsSourceModelCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? items = null,
-  }) {
-    return _then(_value.copyWith(
-      items: null == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List<CreditSourceItemModel>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$CreditsSourceModelImplCopyWith<$Res>
-    implements $CreditsSourceModelCopyWith<$Res> {
-  factory _$$CreditsSourceModelImplCopyWith(_$CreditsSourceModelImpl value,
-          $Res Function(_$CreditsSourceModelImpl) then) =
-      __$$CreditsSourceModelImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<CreditSourceItemModel> items});
-}
-
-/// @nodoc
-class __$$CreditsSourceModelImplCopyWithImpl<$Res>
-    extends _$CreditsSourceModelCopyWithImpl<$Res, _$CreditsSourceModelImpl>
-    implements _$$CreditsSourceModelImplCopyWith<$Res> {
-  __$$CreditsSourceModelImplCopyWithImpl(_$CreditsSourceModelImpl _value,
-      $Res Function(_$CreditsSourceModelImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? items = null,
-  }) {
-    return _then(_$CreditsSourceModelImpl(
-      items: null == items
-          ? _value._items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List<CreditSourceItemModel>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$CreditsSourceModelImpl
-    with DiagnosticableTreeMixin
-    implements _CreditsSourceModel {
-  const _$CreditsSourceModelImpl(
-      {required final List<CreditSourceItemModel> items})
-      : _items = items;
-
-  factory _$CreditsSourceModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreditsSourceModelImplFromJson(json);
-
-  final List<CreditSourceItemModel> _items;
-  @override
-  List<CreditSourceItemModel> get items {
-    if (_items is EqualUnmodifiableListView) return _items;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_items);
-  }
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CreditsSourceModel(items: $items)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CreditsSourceModel'))
-      ..add(DiagnosticsProperty('items', items));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CreditsSourceModelImpl &&
-            const DeepCollectionEquality().equals(other._items, _items));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_items));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CreditsSourceModelImplCopyWith<_$CreditsSourceModelImpl> get copyWith =>
-      __$$CreditsSourceModelImplCopyWithImpl<_$CreditsSourceModelImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CreditsSourceModelImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _CreditsSourceModel implements CreditsSourceModel {
-  const factory _CreditsSourceModel(
-          {required final List<CreditSourceItemModel> items}) =
-      _$CreditsSourceModelImpl;
-
-  factory _CreditsSourceModel.fromJson(Map<String, dynamic> json) =
-      _$CreditsSourceModelImpl.fromJson;
-
-  @override
-  List<CreditSourceItemModel> get items;
-  @override
-  @JsonKey(ignore: true)
-  _$$CreditsSourceModelImplCopyWith<_$CreditsSourceModelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-CreditSourceItemModel _$CreditSourceItemModelFromJson(
-    Map<String, dynamic> json) {
-  return _CreditSourceItemModel.fromJson(json);
-}
-
-/// @nodoc
-mixin _$CreditSourceItemModel {
-  String get label => throw _privateConstructorUsedError;
-  int get amount => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CreditSourceItemModelCopyWith<CreditSourceItemModel> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CreditSourceItemModelCopyWith<$Res> {
-  factory $CreditSourceItemModelCopyWith(CreditSourceItemModel value,
-          $Res Function(CreditSourceItemModel) then) =
-      _$CreditSourceItemModelCopyWithImpl<$Res, CreditSourceItemModel>;
-  @useResult
-  $Res call({String label, int amount});
-}
-
-/// @nodoc
-class _$CreditSourceItemModelCopyWithImpl<$Res,
-        $Val extends CreditSourceItemModel>
-    implements $CreditSourceItemModelCopyWith<$Res> {
-  _$CreditSourceItemModelCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? label = null,
-    Object? amount = null,
-  }) {
-    return _then(_value.copyWith(
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$CreditSourceItemModelImplCopyWith<$Res>
-    implements $CreditSourceItemModelCopyWith<$Res> {
-  factory _$$CreditSourceItemModelImplCopyWith(
-          _$CreditSourceItemModelImpl value,
-          $Res Function(_$CreditSourceItemModelImpl) then) =
-      __$$CreditSourceItemModelImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String label, int amount});
-}
-
-/// @nodoc
-class __$$CreditSourceItemModelImplCopyWithImpl<$Res>
-    extends _$CreditSourceItemModelCopyWithImpl<$Res,
-        _$CreditSourceItemModelImpl>
-    implements _$$CreditSourceItemModelImplCopyWith<$Res> {
-  __$$CreditSourceItemModelImplCopyWithImpl(_$CreditSourceItemModelImpl _value,
-      $Res Function(_$CreditSourceItemModelImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? label = null,
-    Object? amount = null,
-  }) {
-    return _then(_$CreditSourceItemModelImpl(
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$CreditSourceItemModelImpl
-    with DiagnosticableTreeMixin
-    implements _CreditSourceItemModel {
-  const _$CreditSourceItemModelImpl(
-      {required this.label, required this.amount});
-
-  factory _$CreditSourceItemModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreditSourceItemModelImplFromJson(json);
-
-  @override
-  final String label;
-  @override
-  final int amount;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CreditSourceItemModel(label: $label, amount: $amount)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CreditSourceItemModel'))
-      ..add(DiagnosticsProperty('label', label))
-      ..add(DiagnosticsProperty('amount', amount));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CreditSourceItemModelImpl &&
-            (identical(other.label, label) || other.label == label) &&
-            (identical(other.amount, amount) || other.amount == amount));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, label, amount);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CreditSourceItemModelImplCopyWith<_$CreditSourceItemModelImpl>
-      get copyWith => __$$CreditSourceItemModelImplCopyWithImpl<
-          _$CreditSourceItemModelImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CreditSourceItemModelImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _CreditSourceItemModel implements CreditSourceItemModel {
-  const factory _CreditSourceItemModel(
-      {required final String label,
-      required final int amount}) = _$CreditSourceItemModelImpl;
-
-  factory _CreditSourceItemModel.fromJson(Map<String, dynamic> json) =
-      _$CreditSourceItemModelImpl.fromJson;
-
-  @override
-  String get label;
-  @override
-  int get amount;
-  @override
-  @JsonKey(ignore: true)
-  _$$CreditSourceItemModelImplCopyWith<_$CreditSourceItemModelImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-AccountDevelopmentModel _$AccountDevelopmentModelFromJson(
-    Map<String, dynamic> json) {
-  return _AccountDevelopmentModel.fromJson(json);
-}
-
-/// @nodoc
-mixin _$AccountDevelopmentModel {
-  List<double> get values => throw _privateConstructorUsedError;
-  List<DateTime> get timestamps => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AccountDevelopmentModelCopyWith<AccountDevelopmentModel> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AccountDevelopmentModelCopyWith<$Res> {
-  factory $AccountDevelopmentModelCopyWith(AccountDevelopmentModel value,
-          $Res Function(AccountDevelopmentModel) then) =
-      _$AccountDevelopmentModelCopyWithImpl<$Res, AccountDevelopmentModel>;
-  @useResult
-  $Res call({List<double> values, List<DateTime> timestamps});
-}
-
-/// @nodoc
-class _$AccountDevelopmentModelCopyWithImpl<$Res,
-        $Val extends AccountDevelopmentModel>
-    implements $AccountDevelopmentModelCopyWith<$Res> {
-  _$AccountDevelopmentModelCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? values = null,
-    Object? timestamps = null,
-  }) {
-    return _then(_value.copyWith(
-      values: null == values
-          ? _value.values
-          : values // ignore: cast_nullable_to_non_nullable
-              as List<double>,
-      timestamps: null == timestamps
-          ? _value.timestamps
-          : timestamps // ignore: cast_nullable_to_non_nullable
-              as List<DateTime>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$AccountDevelopmentModelImplCopyWith<$Res>
-    implements $AccountDevelopmentModelCopyWith<$Res> {
-  factory _$$AccountDevelopmentModelImplCopyWith(
-          _$AccountDevelopmentModelImpl value,
-          $Res Function(_$AccountDevelopmentModelImpl) then) =
-      __$$AccountDevelopmentModelImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<double> values, List<DateTime> timestamps});
-}
-
-/// @nodoc
-class __$$AccountDevelopmentModelImplCopyWithImpl<$Res>
-    extends _$AccountDevelopmentModelCopyWithImpl<$Res,
-        _$AccountDevelopmentModelImpl>
-    implements _$$AccountDevelopmentModelImplCopyWith<$Res> {
-  __$$AccountDevelopmentModelImplCopyWithImpl(
-      _$AccountDevelopmentModelImpl _value,
-      $Res Function(_$AccountDevelopmentModelImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? values = null,
-    Object? timestamps = null,
-  }) {
-    return _then(_$AccountDevelopmentModelImpl(
-      values: null == values
-          ? _value._values
-          : values // ignore: cast_nullable_to_non_nullable
-              as List<double>,
-      timestamps: null == timestamps
-          ? _value._timestamps
-          : timestamps // ignore: cast_nullable_to_non_nullable
-              as List<DateTime>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$AccountDevelopmentModelImpl
-    with DiagnosticableTreeMixin
-    implements _AccountDevelopmentModel {
-  const _$AccountDevelopmentModelImpl(
-      {required final List<double> values,
-      required final List<DateTime> timestamps})
-      : _values = values,
-        _timestamps = timestamps;
-
-  factory _$AccountDevelopmentModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AccountDevelopmentModelImplFromJson(json);
-
-  final List<double> _values;
-  @override
-  List<double> get values {
-    if (_values is EqualUnmodifiableListView) return _values;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_values);
-  }
-
-  final List<DateTime> _timestamps;
-  @override
-  List<DateTime> get timestamps {
-    if (_timestamps is EqualUnmodifiableListView) return _timestamps;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_timestamps);
-  }
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AccountDevelopmentModel(values: $values, timestamps: $timestamps)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AccountDevelopmentModel'))
-      ..add(DiagnosticsProperty('values', values))
-      ..add(DiagnosticsProperty('timestamps', timestamps));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AccountDevelopmentModelImpl &&
-            const DeepCollectionEquality().equals(other._values, _values) &&
-            const DeepCollectionEquality()
-                .equals(other._timestamps, _timestamps));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_values),
-      const DeepCollectionEquality().hash(_timestamps));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AccountDevelopmentModelImplCopyWith<_$AccountDevelopmentModelImpl>
-      get copyWith => __$$AccountDevelopmentModelImplCopyWithImpl<
-          _$AccountDevelopmentModelImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AccountDevelopmentModelImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _AccountDevelopmentModel implements AccountDevelopmentModel {
-  const factory _AccountDevelopmentModel(
-          {required final List<double> values,
-          required final List<DateTime> timestamps}) =
-      _$AccountDevelopmentModelImpl;
-
-  factory _AccountDevelopmentModel.fromJson(Map<String, dynamic> json) =
-      _$AccountDevelopmentModelImpl.fromJson;
-
-  @override
-  List<double> get values;
-  @override
-  List<DateTime> get timestamps;
-  @override
-  @JsonKey(ignore: true)
-  _$$AccountDevelopmentModelImplCopyWith<_$AccountDevelopmentModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

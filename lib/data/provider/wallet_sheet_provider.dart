@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/data/graphql/queries.dart';
+import 'package:peer_app/data/models/credit_source_model.dart';
 // import 'package:peer_app/data/models/wallet_model/credits_source_model.dart';
 // import 'package:peer_app/data/models/wallet_model/currency_exchange_model.dart';
 // import 'package:peer_app/data/models/wallet_model/wallet_model.dart';
@@ -57,9 +58,10 @@ class WalletSheetProvider with ChangeNotifier {
       notifyListeners();
     } catch (e) {
       _state = WalletState.error;
+      print(e);
       notifyListeners();
     }
-
+    /*
     final queryOption = QueryOptions(
         document: Queries.wallet,
         fetchPolicy: FetchPolicy.networkOnly,
@@ -67,6 +69,7 @@ class WalletSheetProvider with ChangeNotifier {
           'user_id': 2, //TODO fetch real user id
         });
 
+    
     try {
       QueryResult<Object?> queryResult = await gqlClient.query(queryOption);
 
@@ -96,6 +99,7 @@ class WalletSheetProvider with ChangeNotifier {
       error = e.toString();
       CustomException(e.toString(), StackTrace.current).handleError();
     }
+    */
     _state = WalletState.loaded;
 
     notifyListeners();

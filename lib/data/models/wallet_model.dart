@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:peer_app/data/models/credit_source_model.dart';
+import 'package:peer_app/data/models/account_development_model.dart';
 
 part 'wallet_model.freezed.dart';
 part 'wallet_model.g.dart';
@@ -13,6 +15,8 @@ class WalletModel with _$WalletModel {
     required int creditsCollectedToday,
     DateTime? createdAt,
     DateTime? updatedAt,
+    required CreditsSourceModel creditsSource,
+    required AccountDevelopmentModel accountDevelopment,
   }) = _WalletModel;
 
   factory WalletModel.fromJson(Map<String, dynamic> json) => _$WalletModelFromJson(json);
@@ -26,33 +30,4 @@ class CurrencyExchangeModel with _$CurrencyExchangeModel {
   }) = _CurrencyExchangeModel;
 
   factory CurrencyExchangeModel.fromJson(Map<String, dynamic> json) => _$CurrencyExchangeModelFromJson(json);
-}
-
-@freezed
-class CreditsSourceModel with _$CreditsSourceModel {
-  const factory CreditsSourceModel({
-    required List<CreditSourceItemModel> items,
-  }) = _CreditsSourceModel;
-
-  factory CreditsSourceModel.fromJson(Map<String, dynamic> json) => _$CreditsSourceModelFromJson(json);
-}
-
-@freezed
-class CreditSourceItemModel with _$CreditSourceItemModel {
-  const factory CreditSourceItemModel({
-    required String label,
-    required int amount,
-  }) = _CreditSourceItemModel;
-
-  factory CreditSourceItemModel.fromJson(Map<String, dynamic> json) => _$CreditSourceItemModelFromJson(json);
-}
-
-@freezed
-class AccountDevelopmentModel with _$AccountDevelopmentModel {
-  const factory AccountDevelopmentModel({
-    required List<double> values,
-    required List<DateTime> timestamps,
-  }) = _AccountDevelopmentModel;
-
-  factory AccountDevelopmentModel.fromJson(Map<String, dynamic> json) => _$AccountDevelopmentModelFromJson(json);
 }

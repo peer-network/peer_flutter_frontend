@@ -18,6 +18,10 @@ _$WalletModelImpl _$$WalletModelImplFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updatedAt'] == null
           ? null
           : DateTime.parse(json['updatedAt'] as String),
+      creditsSource: CreditsSourceModel.fromJson(
+          json['creditsSource'] as Map<String, dynamic>),
+      accountDevelopment: AccountDevelopmentModel.fromJson(
+          json['accountDevelopment'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$WalletModelImplToJson(_$WalletModelImpl instance) =>
@@ -28,6 +32,8 @@ Map<String, dynamic> _$$WalletModelImplToJson(_$WalletModelImpl instance) =>
       'creditsCollectedToday': instance.creditsCollectedToday,
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
+      'creditsSource': instance.creditsSource,
+      'accountDevelopment': instance.accountDevelopment,
     };
 
 _$CurrencyExchangeModelImpl _$$CurrencyExchangeModelImplFromJson(
@@ -42,51 +48,4 @@ Map<String, dynamic> _$$CurrencyExchangeModelImplToJson(
     <String, dynamic>{
       'creditValue': instance.creditValue,
       'totalCreditsInSystem': instance.totalCreditsInSystem,
-    };
-
-_$CreditsSourceModelImpl _$$CreditsSourceModelImplFromJson(
-        Map<String, dynamic> json) =>
-    _$CreditsSourceModelImpl(
-      items: (json['items'] as List<dynamic>)
-          .map((e) => CreditSourceItemModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$$CreditsSourceModelImplToJson(
-        _$CreditsSourceModelImpl instance) =>
-    <String, dynamic>{
-      'items': instance.items,
-    };
-
-_$CreditSourceItemModelImpl _$$CreditSourceItemModelImplFromJson(
-        Map<String, dynamic> json) =>
-    _$CreditSourceItemModelImpl(
-      label: json['label'] as String,
-      amount: (json['amount'] as num).toInt(),
-    );
-
-Map<String, dynamic> _$$CreditSourceItemModelImplToJson(
-        _$CreditSourceItemModelImpl instance) =>
-    <String, dynamic>{
-      'label': instance.label,
-      'amount': instance.amount,
-    };
-
-_$AccountDevelopmentModelImpl _$$AccountDevelopmentModelImplFromJson(
-        Map<String, dynamic> json) =>
-    _$AccountDevelopmentModelImpl(
-      values: (json['values'] as List<dynamic>)
-          .map((e) => (e as num).toDouble())
-          .toList(),
-      timestamps: (json['timestamps'] as List<dynamic>)
-          .map((e) => DateTime.parse(e as String))
-          .toList(),
-    );
-
-Map<String, dynamic> _$$AccountDevelopmentModelImplToJson(
-        _$AccountDevelopmentModelImpl instance) =>
-    <String, dynamic>{
-      'values': instance.values,
-      'timestamps':
-          instance.timestamps.map((e) => e.toIso8601String()).toList(),
     };
