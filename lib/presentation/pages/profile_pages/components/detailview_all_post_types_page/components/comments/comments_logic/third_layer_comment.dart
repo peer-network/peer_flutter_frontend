@@ -29,7 +29,7 @@ class ThirdLayerComment extends StatelessWidget {
                     ? comment.subComments!.isNotEmpty
                         ? ThirdLayerComment(
                             comments: comment.subComments!,
-                            referenceName: comment.user!.username)
+                            referenceName: comment.user.username)
                         : Container()
                     : Container()))
             .toList());

@@ -21,7 +21,7 @@ class ImageSliderIndicator extends StatelessWidget {
       valueListenable: currentIndex,
       builder: (context, value, child) {
         double padding = indicatorWidth * value.toDouble();
-        return Container(
+        return SizedBox(
           height: AppDimensions.imageSliderBarHeight,
           width: AppDimensions.imageSliderBarWidth,
           child: Stack(

@@ -2,15 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:http/http.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/core/types/create_post_type.dart';
 import 'package:peer_app/data/graphql/queries.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/data/new_dummy_response/post_with_performance_dummy_data.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
-import 'package:peer_app/data/services/user_service.dart';
 
 class PostProvider with ChangeNotifier {
   final gqlClient = GraphQLClientSingleton();

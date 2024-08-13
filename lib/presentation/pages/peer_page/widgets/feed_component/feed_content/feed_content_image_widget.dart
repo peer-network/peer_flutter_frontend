@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
+
+
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/components/image_container/custom_cached_network_image.dart';

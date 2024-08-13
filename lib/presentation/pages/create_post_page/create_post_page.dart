@@ -111,7 +111,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
       case CreatePostType.text:
         return TextBodyCreatePost(controller: textController);
       case CreatePostType.textFile:
-        return SizedBox.shrink();
+        return const SizedBox.shrink();
     }
   }
 

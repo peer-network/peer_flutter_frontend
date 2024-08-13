@@ -13,7 +13,7 @@ LineChartData lineChartData(BuildContext context, PostModel postPerformance) {
   if (likesPerDay.isEmpty) {
     return LineChartData(
       gridData: const FlGridData(show: false, drawVerticalLine: false),
-      titlesData: FlTitlesData(show: false),
+      titlesData: const FlTitlesData(show: false),
       borderData: FlBorderData(show: false),
       minX: 0,
       maxX: 1,

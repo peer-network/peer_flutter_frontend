@@ -10,7 +10,7 @@ class TextBodyCreatePost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
           horizontal: AppPaddings.medium, vertical: AppPaddings.large),
       child: Column(
         children: [

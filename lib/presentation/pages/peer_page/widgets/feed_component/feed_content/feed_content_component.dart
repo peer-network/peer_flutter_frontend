@@ -22,7 +22,7 @@ class FeedContentComponent extends StatelessWidget {
         currentIndex: currentIndex!,
       );
     } else if (post is VideoPost) {
-      return FeedContentVideoWidget(videoUrl: post.media!);
+      return FeedContentVideoWidget(videoUrl: post.media);
     } else {
       return const Text(
           'Unknown post type (if you see this contact the developer pls thx)');
