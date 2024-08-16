@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-import 'credit_source_model.dart'; // Ensure this is correctly imported
+import '/data/models/credit_source_model.dart'; // Ensure this is correctly imported
 import 'currency_exchange_model.dart'; // Ensure this is correctly imported
-import 'account_development_model.dart'; // Ensure this is correctly imported
+import '/data/models/account_development_model.dart'; // Ensure this is correctly imported
 
 part 'wallet_model.freezed.dart';
 part 'wallet_model.g.dart';
@@ -17,7 +17,7 @@ class WalletModel with _$WalletModel {
     DateTime? createdAt,
     DateTime? updatedAt,
     required CreditsSourceModel creditsSource,
-    required CurrencyExchangeModel currencyExchange, // Ensure this is here
+    required CurrencyExchangeModel currencyExchange,
     required AccountDevelopmentModel accountDevelopment,
   }) = _WalletModel;
 

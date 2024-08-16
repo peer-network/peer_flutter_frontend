@@ -26,8 +26,12 @@ mixin _$ChatModel {
   String? get image => throw _privateConstructorUsedError;
   int? get amountUnseenMessages => throw _privateConstructorUsedError;
 
+  /// Serializes this ChatModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ChatModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ChatModelCopyWith<ChatModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$ChatModelCopyWithImpl<$Res, $Val extends ChatModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ChatModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -113,6 +119,8 @@ class __$$ChatModelImplCopyWithImpl<$Res>
       _$ChatModelImpl _value, $Res Function(_$ChatModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ChatModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -196,7 +204,7 @@ class _$ChatModelImpl implements _ChatModel {
                 other.amountUnseenMessages == amountUnseenMessages));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -206,7 +214,9 @@ class _$ChatModelImpl implements _ChatModel {
       image,
       amountUnseenMessages);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ChatModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChatModelImplCopyWith<_$ChatModelImpl> get copyWith =>
@@ -241,8 +251,11 @@ abstract class _ChatModel implements ChatModel {
   String? get image;
   @override
   int? get amountUnseenMessages;
+
+  /// Create a copy of ChatModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChatModelImplCopyWith<_$ChatModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

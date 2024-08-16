@@ -22,8 +22,12 @@ CreditsSourceModel _$CreditsSourceModelFromJson(Map<String, dynamic> json) {
 mixin _$CreditsSourceModel {
   List<CreditSourceItemModel> get items => throw _privateConstructorUsedError;
 
+  /// Serializes this CreditsSourceModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreditsSourceModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreditsSourceModelCopyWith<CreditsSourceModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$CreditsSourceModelCopyWithImpl<$Res, $Val extends CreditsSourceModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreditsSourceModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$CreditsSourceModelImplCopyWithImpl<$Res>
       $Res Function(_$CreditsSourceModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreditsSourceModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -135,12 +143,14 @@ class _$CreditsSourceModelImpl
             const DeepCollectionEquality().equals(other._items, _items));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_items));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreditsSourceModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreditsSourceModelImplCopyWith<_$CreditsSourceModelImpl> get copyWith =>
@@ -165,8 +175,11 @@ abstract class _CreditsSourceModel implements CreditsSourceModel {
 
   @override
   List<CreditSourceItemModel> get items;
+
+  /// Create a copy of CreditsSourceModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreditsSourceModelImplCopyWith<_$CreditsSourceModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -181,8 +194,12 @@ mixin _$CreditSourceItemModel {
   String get label => throw _privateConstructorUsedError;
   int get amount => throw _privateConstructorUsedError;
 
+  /// Serializes this CreditSourceItemModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreditSourceItemModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreditSourceItemModelCopyWith<CreditSourceItemModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -207,6 +224,8 @@ class _$CreditSourceItemModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreditSourceItemModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -247,6 +266,8 @@ class __$$CreditSourceItemModelImplCopyWithImpl<$Res>
       $Res Function(_$CreditSourceItemModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreditSourceItemModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -305,11 +326,13 @@ class _$CreditSourceItemModelImpl
             (identical(other.amount, amount) || other.amount == amount));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, label, amount);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreditSourceItemModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreditSourceItemModelImplCopyWith<_$CreditSourceItemModelImpl>
@@ -336,8 +359,11 @@ abstract class _CreditSourceItemModel implements CreditSourceItemModel {
   String get label;
   @override
   int get amount;
+
+  /// Create a copy of CreditSourceItemModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreditSourceItemModelImplCopyWith<_$CreditSourceItemModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

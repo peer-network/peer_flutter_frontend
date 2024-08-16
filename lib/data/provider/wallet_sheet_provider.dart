@@ -1,7 +1,11 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import '/data/models/wallet_model.dart'; // Import WalletModel which now includes currencyExchange
-import '/data/dummy_response/dummy_wallet.dart'; // Ensure this contains all relevant data
+import '/data/models/wallet_model.dart';
+import '/data/dummy_response/dummy_wallet.dart';
+import 'package:peer_app/data/services/gql_client_service.dart';
+import 'package:peer_app/data/models/credit_source_model.dart';
+
+
 
 enum WalletState { none, loading, loaded, error }
 
