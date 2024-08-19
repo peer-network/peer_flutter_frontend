@@ -5,13 +5,20 @@ import '/data/dummy_response/dummy_wallet.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
 import 'package:peer_app/data/models/credit_source_model.dart';
 import 'package:peer_app/data/models/account_development_model.dart';
-import 'package:peer_app/data/models/wallet_model.dart';
 
 enum WalletState { none, loading, loaded, error }
 
 class WalletSheetProvider with ChangeNotifier {
   final gqlClient = GraphQLClientSingleton();
-  late WalletModel _wallet;
+  WalletModel _wallet = WalletModel(
+    id: 0,
+    userId: 0,
+    totalCredits: 0,
+    creditsCollectedToday: 0,
+    creditsSource: CreditsSourceModel(items: []),
+    currencyExchange: CurrencyExchangeModel(creditValue: 0.0, totalCreditsInSystem: 0),
+    accountDevelopment: AccountDevelopmentModel(values: [], timestamps: []),
+  ); // Provide a default initial value
   WalletState _state = WalletState.none;
   String? error;
 

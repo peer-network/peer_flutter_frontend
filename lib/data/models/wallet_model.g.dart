@@ -35,7 +35,6 @@ Map<String, dynamic> _$$WalletModelImplToJson(_$WalletModelImpl instance) =>
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       'creditsSource': instance.creditsSource,
-      'currencyExchange':
-          CurrencyExchangeModel.toJsonStatic(instance.currencyExchange),
+      'currencyExchange': instance.currencyExchange,
       'accountDevelopment': instance.accountDevelopment,
     };

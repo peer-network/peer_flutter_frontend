@@ -15,7 +15,7 @@ class WalletModel with _$WalletModel {
     DateTime? createdAt,
     DateTime? updatedAt,
     required CreditsSourceModel creditsSource,
-    @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic, toJson: CurrencyExchangeModel.toJsonStatic)
+    @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)//, toJson: CurrencyExchangeModel.toJsonStatic)
     required CurrencyExchangeModel currencyExchange,
     required AccountDevelopmentModel accountDevelopment,
   }) = _WalletModel;
@@ -23,5 +23,5 @@ class WalletModel with _$WalletModel {
   factory WalletModel.fromJson(Map<String, dynamic> json) =>
       _$WalletModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$WalletModelToJson(this);
+  //Map<String, dynamic> toJson() => _$WalletModelToJson(this);
 }
