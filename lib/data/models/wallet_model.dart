@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter/foundation.dart';
 import '/data/models/credit_source_model.dart';
-import '/data/models/account_development_model.dart'; // Import for combined models (CurrencyExchangeModel and AccountDevelopmentModel)
+import '/data/models/account_development_model.dart';
 
 part 'wallet_model.freezed.dart';
 part 'wallet_model.g.dart';
@@ -16,10 +15,13 @@ class WalletModel with _$WalletModel {
     DateTime? createdAt,
     DateTime? updatedAt,
     required CreditsSourceModel creditsSource,
-    required CurrencyExchangeModel currencyExchange, // CurrencyExchangeModel from the combined models file
-    required AccountDevelopmentModel accountDevelopment, // AccountDevelopmentModel from the combined models file
+    @JsonKey(fromJson: CurrencyExchangeModel.fromJson, toJson: CurrencyExchangeModel.toJson)
+    required CurrencyExchangeModel currencyExchange,
+    required AccountDevelopmentModel accountDevelopment,
   }) = _WalletModel;
 
   factory WalletModel.fromJson(Map<String, dynamic> json) =>
       _$WalletModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$WalletModelToJson(this);
 }

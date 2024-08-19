@@ -1,49 +1,36 @@
-class CreditSourceItemModel {
-  final String label;
-  final int amount;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  CreditSourceItemModel({
-    required this.label,
-    required this.amount,
-  });
+part 'credit_source_model.freezed.dart';
+part 'credit_source_model.g.dart';
 
-  factory CreditSourceItemModel.fromJson(String label, int amount) {
-    return CreditSourceItemModel(
-      label: label,
-      amount: amount,
-    );
-  }
+@freezed
+class CreditSourceItemModel with _$CreditSourceItemModel {
+  const factory CreditSourceItemModel({
+    required String label,
+    required int amount,
+  }) = _CreditSourceItemModel;
 
-  Map<String, dynamic> toJson() {
-    return {
-      'source': label,
-      'amount': amount,
-    };
-  }
+  factory CreditSourceItemModel.fromJson(Map<String, dynamic> json) =>
+      _$CreditSourceItemModelFromJson(json);
 }
 
-class CreditsSourceModel {
-  final List<CreditSourceItemModel> items;
+@freezed
+class CreditsSourceModel with _$CreditsSourceModel {
+  const factory CreditsSourceModel({
+    required List<CreditSourceItemModel> items,
+  }) = _CreditsSourceModel;
 
-  CreditsSourceModel({required this.items});
+  factory CreditsSourceModel.fromJson(Map<String, dynamic> json) =>
+      _$CreditsSourceModelFromJson(json);
 
-  factory CreditsSourceModel.fromJson(Map<String, dynamic> json) {
+  factory CreditsSourceModel.fromJsonWithLabels(Map<String, dynamic> json) {
     return CreditsSourceModel(
       items: <CreditSourceItemModel>[
-        CreditSourceItemModel.fromJson('Comments', json['comments']),
-        CreditSourceItemModel.fromJson('Views', json['views']),
-        CreditSourceItemModel.fromJson('Shares', json['shares']),
-        CreditSourceItemModel.fromJson('Likes', json['likes']),
+        CreditSourceItemModel(label: 'Comments', amount: json['comments']),
+        CreditSourceItemModel(label: 'Views', amount: json['views']),
+        CreditSourceItemModel(label: 'Shares', amount: json['shares']),
+        CreditSourceItemModel(label: 'Likes', amount: json['likes']),
       ],
     );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'comments': items[0].toJson(),
-      'views': items[1].toJson(),
-      'shares': items[2].toJson(),
-      'likes': items[3].toJson(),
-    };
   }
 }

@@ -27,8 +27,11 @@ mixin _$WalletModel {
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   CreditsSourceModel get creditsSource => throw _privateConstructorUsedError;
+  @JsonKey(
+      fromJson: CurrencyExchangeModel.fromJson,
+      toJson: CurrencyExchangeModel.toJson)
   CurrencyExchangeModel get currencyExchange =>
-      throw _privateConstructorUsedError; // CurrencyExchangeModel from the combined models file
+      throw _privateConstructorUsedError;
   AccountDevelopmentModel get accountDevelopment =>
       throw _privateConstructorUsedError;
 
@@ -56,8 +59,15 @@ abstract class $WalletModelCopyWith<$Res> {
       DateTime? createdAt,
       DateTime? updatedAt,
       CreditsSourceModel creditsSource,
+      @JsonKey(
+          fromJson: CurrencyExchangeModel.fromJson,
+          toJson: CurrencyExchangeModel.toJson)
       CurrencyExchangeModel currencyExchange,
       AccountDevelopmentModel accountDevelopment});
+
+  $CreditsSourceModelCopyWith<$Res> get creditsSource;
+  $CurrencyExchangeModelCopyWith<$Res> get currencyExchange;
+  $AccountDevelopmentModelCopyWith<$Res> get accountDevelopment;
 }
 
 /// @nodoc
@@ -124,6 +134,38 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
               as AccountDevelopmentModel,
     ) as $Val);
   }
+
+  /// Create a copy of WalletModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CreditsSourceModelCopyWith<$Res> get creditsSource {
+    return $CreditsSourceModelCopyWith<$Res>(_value.creditsSource, (value) {
+      return _then(_value.copyWith(creditsSource: value) as $Val);
+    });
+  }
+
+  /// Create a copy of WalletModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CurrencyExchangeModelCopyWith<$Res> get currencyExchange {
+    return $CurrencyExchangeModelCopyWith<$Res>(_value.currencyExchange,
+        (value) {
+      return _then(_value.copyWith(currencyExchange: value) as $Val);
+    });
+  }
+
+  /// Create a copy of WalletModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AccountDevelopmentModelCopyWith<$Res> get accountDevelopment {
+    return $AccountDevelopmentModelCopyWith<$Res>(_value.accountDevelopment,
+        (value) {
+      return _then(_value.copyWith(accountDevelopment: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -142,8 +184,18 @@ abstract class _$$WalletModelImplCopyWith<$Res>
       DateTime? createdAt,
       DateTime? updatedAt,
       CreditsSourceModel creditsSource,
+      @JsonKey(
+          fromJson: CurrencyExchangeModel.fromJson,
+          toJson: CurrencyExchangeModel.toJson)
       CurrencyExchangeModel currencyExchange,
       AccountDevelopmentModel accountDevelopment});
+
+  @override
+  $CreditsSourceModelCopyWith<$Res> get creditsSource;
+  @override
+  $CurrencyExchangeModelCopyWith<$Res> get currencyExchange;
+  @override
+  $AccountDevelopmentModelCopyWith<$Res> get accountDevelopment;
 }
 
 /// @nodoc
@@ -212,7 +264,7 @@ class __$$WalletModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$WalletModelImpl with DiagnosticableTreeMixin implements _WalletModel {
+class _$WalletModelImpl implements _WalletModel {
   const _$WalletModelImpl(
       {required this.id,
       required this.userId,
@@ -221,6 +273,9 @@ class _$WalletModelImpl with DiagnosticableTreeMixin implements _WalletModel {
       this.createdAt,
       this.updatedAt,
       required this.creditsSource,
+      @JsonKey(
+          fromJson: CurrencyExchangeModel.fromJson,
+          toJson: CurrencyExchangeModel.toJson)
       required this.currencyExchange,
       required this.accountDevelopment});
 
@@ -242,30 +297,16 @@ class _$WalletModelImpl with DiagnosticableTreeMixin implements _WalletModel {
   @override
   final CreditsSourceModel creditsSource;
   @override
+  @JsonKey(
+      fromJson: CurrencyExchangeModel.fromJson,
+      toJson: CurrencyExchangeModel.toJson)
   final CurrencyExchangeModel currencyExchange;
-// CurrencyExchangeModel from the combined models file
   @override
   final AccountDevelopmentModel accountDevelopment;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'WalletModel(id: $id, userId: $userId, totalCredits: $totalCredits, creditsCollectedToday: $creditsCollectedToday, createdAt: $createdAt, updatedAt: $updatedAt, creditsSource: $creditsSource, currencyExchange: $currencyExchange, accountDevelopment: $accountDevelopment)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'WalletModel'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('userId', userId))
-      ..add(DiagnosticsProperty('totalCredits', totalCredits))
-      ..add(DiagnosticsProperty('creditsCollectedToday', creditsCollectedToday))
-      ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
-      ..add(DiagnosticsProperty('creditsSource', creditsSource))
-      ..add(DiagnosticsProperty('currencyExchange', currencyExchange))
-      ..add(DiagnosticsProperty('accountDevelopment', accountDevelopment));
   }
 
   @override
@@ -330,6 +371,9 @@ abstract class _WalletModel implements WalletModel {
           final DateTime? createdAt,
           final DateTime? updatedAt,
           required final CreditsSourceModel creditsSource,
+          @JsonKey(
+              fromJson: CurrencyExchangeModel.fromJson,
+              toJson: CurrencyExchangeModel.toJson)
           required final CurrencyExchangeModel currencyExchange,
           required final AccountDevelopmentModel accountDevelopment}) =
       _$WalletModelImpl;
@@ -352,8 +396,10 @@ abstract class _WalletModel implements WalletModel {
   @override
   CreditsSourceModel get creditsSource;
   @override
-  CurrencyExchangeModel
-      get currencyExchange; // CurrencyExchangeModel from the combined models file
+  @JsonKey(
+      fromJson: CurrencyExchangeModel.fromJson,
+      toJson: CurrencyExchangeModel.toJson)
+  CurrencyExchangeModel get currencyExchange;
   @override
   AccountDevelopmentModel get accountDevelopment;
 

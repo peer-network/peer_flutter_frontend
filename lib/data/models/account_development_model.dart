@@ -1,52 +1,35 @@
-class AccountDevelopmentModel {
-  final List<double> values;
-  final List<DateTime> timestamps;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  AccountDevelopmentModel({
-    required this.values,
-    required this.timestamps,
-  });
+part 'account_development_model.freezed.dart';
+part 'account_development_model.g.dart';
 
-  factory AccountDevelopmentModel.fromJson(Map<String, dynamic> json) {
-    var valuesList = List<double>.from(json['values']);
-    var timestampList = List<String>.from(json['timestamps']);
+@freezed
+class AccountDevelopmentModel with _$AccountDevelopmentModel {
+  const factory AccountDevelopmentModel({
+    required List<double> values,
+    required List<DateTime> timestamps,
+  }) = _AccountDevelopmentModel;
 
-    return AccountDevelopmentModel(
-      values: valuesList,
-      timestamps:
-          timestampList.map((timestamp) => DateTime.parse(timestamp)).toList(),
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'values': values,
-      'timestamps':
-          timestamps.map((timestamp) => timestamp.toIso8601String()).toList(),
-    };
-  }
+  factory AccountDevelopmentModel.fromJson(Map<String, dynamic> json) =>
+      _$AccountDevelopmentModelFromJson(json);
 }
 
-class CurrencyExchangeModel {
-  final double creditValue;
-  final int totalCreditsInSystem;
+@freezed
+class CurrencyExchangeModel with _$CurrencyExchangeModel {
+  const factory CurrencyExchangeModel({
+    required double creditValue,
+    required int totalCreditsInSystem,
+  }) = _CurrencyExchangeModel;
 
-  CurrencyExchangeModel({
-    required this.creditValue,
-    required this.totalCreditsInSystem,
-  });
+  factory CurrencyExchangeModel.fromJson(Map<String, dynamic> json) =>
+      _$CurrencyExchangeModelFromJson(json);
 
-  factory CurrencyExchangeModel.fromJson(Map<String, dynamic> json) {
-    return CurrencyExchangeModel(
-      creditValue: json['creditValue'],
-      totalCreditsInSystem: json['totalCreditsInSystem'],
-    );
-  }
+  Map<String, dynamic> toJson() => _$CurrencyExchangeModelToJson(this);
+}
 
-  Map<String, dynamic> toJson() {
-    return {
-      'creditValue': creditValue,
-      'totalCreditsInSystem': totalCreditsInSystem,
-    };
-  }
+Map<String, dynamic> _$CurrencyExchangeModelToJson(CurrencyExchangeModel instance) {
+  return <String, dynamic>{
+    'creditValue': instance.creditValue,
+    'totalCreditsInSystem': instance.totalCreditsInSystem,
+  };
 }
