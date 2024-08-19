@@ -15,7 +15,7 @@ class WalletModel with _$WalletModel {
     DateTime? createdAt,
     DateTime? updatedAt,
     required CreditsSourceModel creditsSource,
-    @JsonKey(fromJson: CurrencyExchangeModel.fromJson, toJson: CurrencyExchangeModel.toJson)
+    @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic, toJson: CurrencyExchangeModel.toJsonStatic)
     required CurrencyExchangeModel currencyExchange,
     required AccountDevelopmentModel accountDevelopment,
   }) = _WalletModel;

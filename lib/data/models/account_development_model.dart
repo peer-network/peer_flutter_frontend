@@ -25,11 +25,13 @@ class CurrencyExchangeModel with _$CurrencyExchangeModel {
       _$CurrencyExchangeModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CurrencyExchangeModelToJson(this);
-}
 
-Map<String, dynamic> _$CurrencyExchangeModelToJson(CurrencyExchangeModel instance) {
-  return <String, dynamic>{
-    'creditValue': instance.creditValue,
-    'totalCreditsInSystem': instance.totalCreditsInSystem,
-  };
+  // Static methods for serialization
+  static CurrencyExchangeModel fromJsonStatic(Map<String, dynamic> json) {
+    return CurrencyExchangeModel.fromJson(json);
+  }
+
+  static Map<String, dynamic> toJsonStatic(CurrencyExchangeModel instance) {
+    return instance.toJson();
+  }
 }

@@ -20,7 +20,7 @@ _$WalletModelImpl _$$WalletModelImplFromJson(Map<String, dynamic> json) =>
           : DateTime.parse(json['updatedAt'] as String),
       creditsSource: CreditsSourceModel.fromJson(
           json['creditsSource'] as Map<String, dynamic>),
-      currencyExchange: CurrencyExchangeModel.fromJson(
+      currencyExchange: CurrencyExchangeModel.fromJsonStatic(
           json['currencyExchange'] as Map<String, dynamic>),
       accountDevelopment: AccountDevelopmentModel.fromJson(
           json['accountDevelopment'] as Map<String, dynamic>),
@@ -35,6 +35,7 @@ Map<String, dynamic> _$$WalletModelImplToJson(_$WalletModelImpl instance) =>
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       'creditsSource': instance.creditsSource,
-      'currencyExchange': instance.currencyExchange,
+      'currencyExchange':
+          CurrencyExchangeModel.toJsonStatic(instance.currencyExchange),
       'accountDevelopment': instance.accountDevelopment,
     };

@@ -28,8 +28,8 @@ mixin _$WalletModel {
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   CreditsSourceModel get creditsSource => throw _privateConstructorUsedError;
   @JsonKey(
-      fromJson: CurrencyExchangeModel.fromJson,
-      toJson: CurrencyExchangeModel.toJson)
+      fromJson: CurrencyExchangeModel.fromJsonStatic,
+      toJson: CurrencyExchangeModel.toJsonStatic)
   CurrencyExchangeModel get currencyExchange =>
       throw _privateConstructorUsedError;
   AccountDevelopmentModel get accountDevelopment =>
@@ -60,8 +60,8 @@ abstract class $WalletModelCopyWith<$Res> {
       DateTime? updatedAt,
       CreditsSourceModel creditsSource,
       @JsonKey(
-          fromJson: CurrencyExchangeModel.fromJson,
-          toJson: CurrencyExchangeModel.toJson)
+          fromJson: CurrencyExchangeModel.fromJsonStatic,
+          toJson: CurrencyExchangeModel.toJsonStatic)
       CurrencyExchangeModel currencyExchange,
       AccountDevelopmentModel accountDevelopment});
 
@@ -185,8 +185,8 @@ abstract class _$$WalletModelImplCopyWith<$Res>
       DateTime? updatedAt,
       CreditsSourceModel creditsSource,
       @JsonKey(
-          fromJson: CurrencyExchangeModel.fromJson,
-          toJson: CurrencyExchangeModel.toJson)
+          fromJson: CurrencyExchangeModel.fromJsonStatic,
+          toJson: CurrencyExchangeModel.toJsonStatic)
       CurrencyExchangeModel currencyExchange,
       AccountDevelopmentModel accountDevelopment});
 
@@ -274,8 +274,8 @@ class _$WalletModelImpl implements _WalletModel {
       this.updatedAt,
       required this.creditsSource,
       @JsonKey(
-          fromJson: CurrencyExchangeModel.fromJson,
-          toJson: CurrencyExchangeModel.toJson)
+          fromJson: CurrencyExchangeModel.fromJsonStatic,
+          toJson: CurrencyExchangeModel.toJsonStatic)
       required this.currencyExchange,
       required this.accountDevelopment});
 
@@ -298,8 +298,8 @@ class _$WalletModelImpl implements _WalletModel {
   final CreditsSourceModel creditsSource;
   @override
   @JsonKey(
-      fromJson: CurrencyExchangeModel.fromJson,
-      toJson: CurrencyExchangeModel.toJson)
+      fromJson: CurrencyExchangeModel.fromJsonStatic,
+      toJson: CurrencyExchangeModel.toJsonStatic)
   final CurrencyExchangeModel currencyExchange;
   @override
   final AccountDevelopmentModel accountDevelopment;
@@ -372,8 +372,8 @@ abstract class _WalletModel implements WalletModel {
           final DateTime? updatedAt,
           required final CreditsSourceModel creditsSource,
           @JsonKey(
-              fromJson: CurrencyExchangeModel.fromJson,
-              toJson: CurrencyExchangeModel.toJson)
+              fromJson: CurrencyExchangeModel.fromJsonStatic,
+              toJson: CurrencyExchangeModel.toJsonStatic)
           required final CurrencyExchangeModel currencyExchange,
           required final AccountDevelopmentModel accountDevelopment}) =
       _$WalletModelImpl;
@@ -397,8 +397,8 @@ abstract class _WalletModel implements WalletModel {
   CreditsSourceModel get creditsSource;
   @override
   @JsonKey(
-      fromJson: CurrencyExchangeModel.fromJson,
-      toJson: CurrencyExchangeModel.toJson)
+      fromJson: CurrencyExchangeModel.fromJsonStatic,
+      toJson: CurrencyExchangeModel.toJsonStatic)
   CurrencyExchangeModel get currencyExchange;
   @override
   AccountDevelopmentModel get accountDevelopment;
