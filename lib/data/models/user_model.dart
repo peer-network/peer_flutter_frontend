@@ -22,8 +22,18 @@ class UserModel with _$UserModel {
     int? amountFollower, // corrected field name and default to 0
     List<PostModel>? posts,
     bool? isFollowing, // corrected field name
+    @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
+    Map<DateTime, double>? tokensPerDay, // added field
   }) = _UserModel;
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
 }
+
+// Custom JSON serialization functions for tokensPerDay
+Map<DateTime, double>? _tokensPerDayFromJson(Map<String, dynamic> json) =>
+    json.map((key, value) =>
+        MapEntry(DateTime.parse(key), (value as num).toDouble()));
+
+Map<String, double> _tokensPerDayToJson(Map<DateTime, double>? map) =>
+    map!.map((key, value) => MapEntry(key.toIso8601String(), value));
