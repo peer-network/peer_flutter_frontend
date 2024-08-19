@@ -1,10 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
-part 'currency_exchange_model.freezed.dart';
-part 'currency_exchange_model.g.dart';
-
-// CurrencyExchangeModel Class
+part 'account_development_models.freezed.dart';  // Updated to match the new filename
+part 'account_development_models.g.dart';        // Updated to match the new filename
 
 @freezed
 @JsonSerializable()
@@ -14,14 +12,13 @@ class CurrencyExchangeModel with _$CurrencyExchangeModel {
     required int totalCreditsInSystem,
   }) = _CurrencyExchangeModel;
 
-    CurrencyExchangeModel();
-
-  factory CurrencyExchangeModel.fromJson(Map<String, dynamic> json) => _$CurrencyExchangeModelFromJson(json);
+  factory CurrencyExchangeModel.fromJson(Map<String, dynamic> json) =>
+      _$CurrencyExchangeModelFromJson(json);
   Map<String, dynamic> toJson() => _$CurrencyExchangeModelToJson(this);
 }
 
-// AccountDevelopmentModel Class
 @freezed
+@JsonSerializable()
 class AccountDevelopmentModel with _$AccountDevelopmentModel {
   const factory AccountDevelopmentModel({
     required List<double> values,
@@ -30,4 +27,5 @@ class AccountDevelopmentModel with _$AccountDevelopmentModel {
 
   factory AccountDevelopmentModel.fromJson(Map<String, dynamic> json) =>
       _$AccountDevelopmentModelFromJson(json);
+  Map<String, dynamic> toJson() => _$AccountDevelopmentModelToJson(this);
 }

@@ -58,10 +58,6 @@ abstract class $WalletModelCopyWith<$Res> {
       CreditsSourceModel creditsSource,
       CurrencyExchangeModel currencyExchange,
       AccountDevelopmentModel accountDevelopment});
-
-  $CreditsSourceModelCopyWith<$Res> get creditsSource;
-  $CurrencyExchangeModelCopyWith<$Res> get currencyExchange;
-  $AccountDevelopmentModelCopyWith<$Res> get accountDevelopment;
 }
 
 /// @nodoc
@@ -85,9 +81,9 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
     Object? creditsCollectedToday = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? creditsSource = null,
-    Object? currencyExchange = null,
-    Object? accountDevelopment = null,
+    Object? creditsSource = freezed,
+    Object? currencyExchange = freezed,
+    Object? accountDevelopment = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -114,51 +110,19 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      creditsSource: null == creditsSource
+      creditsSource: freezed == creditsSource
           ? _value.creditsSource
           : creditsSource // ignore: cast_nullable_to_non_nullable
               as CreditsSourceModel,
-      currencyExchange: null == currencyExchange
+      currencyExchange: freezed == currencyExchange
           ? _value.currencyExchange
           : currencyExchange // ignore: cast_nullable_to_non_nullable
               as CurrencyExchangeModel,
-      accountDevelopment: null == accountDevelopment
+      accountDevelopment: freezed == accountDevelopment
           ? _value.accountDevelopment
           : accountDevelopment // ignore: cast_nullable_to_non_nullable
               as AccountDevelopmentModel,
     ) as $Val);
-  }
-
-  /// Create a copy of WalletModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $CreditsSourceModelCopyWith<$Res> get creditsSource {
-    return $CreditsSourceModelCopyWith<$Res>(_value.creditsSource, (value) {
-      return _then(_value.copyWith(creditsSource: value) as $Val);
-    });
-  }
-
-  /// Create a copy of WalletModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $CurrencyExchangeModelCopyWith<$Res> get currencyExchange {
-    return $CurrencyExchangeModelCopyWith<$Res>(_value.currencyExchange,
-        (value) {
-      return _then(_value.copyWith(currencyExchange: value) as $Val);
-    });
-  }
-
-  /// Create a copy of WalletModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AccountDevelopmentModelCopyWith<$Res> get accountDevelopment {
-    return $AccountDevelopmentModelCopyWith<$Res>(_value.accountDevelopment,
-        (value) {
-      return _then(_value.copyWith(accountDevelopment: value) as $Val);
-    });
   }
 }
 
@@ -180,13 +144,6 @@ abstract class _$$WalletModelImplCopyWith<$Res>
       CreditsSourceModel creditsSource,
       CurrencyExchangeModel currencyExchange,
       AccountDevelopmentModel accountDevelopment});
-
-  @override
-  $CreditsSourceModelCopyWith<$Res> get creditsSource;
-  @override
-  $CurrencyExchangeModelCopyWith<$Res> get currencyExchange;
-  @override
-  $AccountDevelopmentModelCopyWith<$Res> get accountDevelopment;
 }
 
 /// @nodoc
@@ -208,9 +165,9 @@ class __$$WalletModelImplCopyWithImpl<$Res>
     Object? creditsCollectedToday = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? creditsSource = null,
-    Object? currencyExchange = null,
-    Object? accountDevelopment = null,
+    Object? creditsSource = freezed,
+    Object? currencyExchange = freezed,
+    Object? accountDevelopment = freezed,
   }) {
     return _then(_$WalletModelImpl(
       id: null == id
@@ -237,15 +194,15 @@ class __$$WalletModelImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      creditsSource: null == creditsSource
+      creditsSource: freezed == creditsSource
           ? _value.creditsSource
           : creditsSource // ignore: cast_nullable_to_non_nullable
               as CreditsSourceModel,
-      currencyExchange: null == currencyExchange
+      currencyExchange: freezed == currencyExchange
           ? _value.currencyExchange
           : currencyExchange // ignore: cast_nullable_to_non_nullable
               as CurrencyExchangeModel,
-      accountDevelopment: null == accountDevelopment
+      accountDevelopment: freezed == accountDevelopment
           ? _value.accountDevelopment
           : accountDevelopment // ignore: cast_nullable_to_non_nullable
               as AccountDevelopmentModel,
@@ -325,12 +282,12 @@ class _$WalletModelImpl with DiagnosticableTreeMixin implements _WalletModel {
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
-            (identical(other.creditsSource, creditsSource) ||
-                other.creditsSource == creditsSource) &&
-            (identical(other.currencyExchange, currencyExchange) ||
-                other.currencyExchange == currencyExchange) &&
-            (identical(other.accountDevelopment, accountDevelopment) ||
-                other.accountDevelopment == accountDevelopment));
+            const DeepCollectionEquality()
+                .equals(other.creditsSource, creditsSource) &&
+            const DeepCollectionEquality()
+                .equals(other.currencyExchange, currencyExchange) &&
+            const DeepCollectionEquality()
+                .equals(other.accountDevelopment, accountDevelopment));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -343,9 +300,9 @@ class _$WalletModelImpl with DiagnosticableTreeMixin implements _WalletModel {
       creditsCollectedToday,
       createdAt,
       updatedAt,
-      creditsSource,
-      currencyExchange,
-      accountDevelopment);
+      const DeepCollectionEquality().hash(creditsSource),
+      const DeepCollectionEquality().hash(currencyExchange),
+      const DeepCollectionEquality().hash(accountDevelopment));
 
   /// Create a copy of WalletModel
   /// with the given fields replaced by the non-null parameter values.

@@ -1,8 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-import '/data/models/credit_source_model.dart'; // Ensure this is correctly imported
-import 'currency_exchange_model.dart'; // Ensure this is correctly imported
-import '/data/models/account_development_model.dart'; // Ensure this is correctly imported
+import '/data/models/account_development_models.dart';  // Updated to the new filename
 
 part 'wallet_model.freezed.dart';
 part 'wallet_model.g.dart';
