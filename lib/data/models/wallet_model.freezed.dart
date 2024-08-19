@@ -28,7 +28,7 @@ mixin _$WalletModel {
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   CreditsSourceModel get creditsSource => throw _privateConstructorUsedError;
   CurrencyExchangeModel get currencyExchange =>
-      throw _privateConstructorUsedError;
+      throw _privateConstructorUsedError; // CurrencyExchangeModel from the combined models file
   AccountDevelopmentModel get accountDevelopment =>
       throw _privateConstructorUsedError;
 
@@ -81,9 +81,9 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
     Object? creditsCollectedToday = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? creditsSource = freezed,
-    Object? currencyExchange = freezed,
-    Object? accountDevelopment = freezed,
+    Object? creditsSource = null,
+    Object? currencyExchange = null,
+    Object? accountDevelopment = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -110,15 +110,15 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      creditsSource: freezed == creditsSource
+      creditsSource: null == creditsSource
           ? _value.creditsSource
           : creditsSource // ignore: cast_nullable_to_non_nullable
               as CreditsSourceModel,
-      currencyExchange: freezed == currencyExchange
+      currencyExchange: null == currencyExchange
           ? _value.currencyExchange
           : currencyExchange // ignore: cast_nullable_to_non_nullable
               as CurrencyExchangeModel,
-      accountDevelopment: freezed == accountDevelopment
+      accountDevelopment: null == accountDevelopment
           ? _value.accountDevelopment
           : accountDevelopment // ignore: cast_nullable_to_non_nullable
               as AccountDevelopmentModel,
@@ -165,9 +165,9 @@ class __$$WalletModelImplCopyWithImpl<$Res>
     Object? creditsCollectedToday = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? creditsSource = freezed,
-    Object? currencyExchange = freezed,
-    Object? accountDevelopment = freezed,
+    Object? creditsSource = null,
+    Object? currencyExchange = null,
+    Object? accountDevelopment = null,
   }) {
     return _then(_$WalletModelImpl(
       id: null == id
@@ -194,15 +194,15 @@ class __$$WalletModelImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      creditsSource: freezed == creditsSource
+      creditsSource: null == creditsSource
           ? _value.creditsSource
           : creditsSource // ignore: cast_nullable_to_non_nullable
               as CreditsSourceModel,
-      currencyExchange: freezed == currencyExchange
+      currencyExchange: null == currencyExchange
           ? _value.currencyExchange
           : currencyExchange // ignore: cast_nullable_to_non_nullable
               as CurrencyExchangeModel,
-      accountDevelopment: freezed == accountDevelopment
+      accountDevelopment: null == accountDevelopment
           ? _value.accountDevelopment
           : accountDevelopment // ignore: cast_nullable_to_non_nullable
               as AccountDevelopmentModel,
@@ -243,6 +243,7 @@ class _$WalletModelImpl with DiagnosticableTreeMixin implements _WalletModel {
   final CreditsSourceModel creditsSource;
   @override
   final CurrencyExchangeModel currencyExchange;
+// CurrencyExchangeModel from the combined models file
   @override
   final AccountDevelopmentModel accountDevelopment;
 
@@ -282,12 +283,12 @@ class _$WalletModelImpl with DiagnosticableTreeMixin implements _WalletModel {
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
-            const DeepCollectionEquality()
-                .equals(other.creditsSource, creditsSource) &&
-            const DeepCollectionEquality()
-                .equals(other.currencyExchange, currencyExchange) &&
-            const DeepCollectionEquality()
-                .equals(other.accountDevelopment, accountDevelopment));
+            (identical(other.creditsSource, creditsSource) ||
+                other.creditsSource == creditsSource) &&
+            (identical(other.currencyExchange, currencyExchange) ||
+                other.currencyExchange == currencyExchange) &&
+            (identical(other.accountDevelopment, accountDevelopment) ||
+                other.accountDevelopment == accountDevelopment));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -300,9 +301,9 @@ class _$WalletModelImpl with DiagnosticableTreeMixin implements _WalletModel {
       creditsCollectedToday,
       createdAt,
       updatedAt,
-      const DeepCollectionEquality().hash(creditsSource),
-      const DeepCollectionEquality().hash(currencyExchange),
-      const DeepCollectionEquality().hash(accountDevelopment));
+      creditsSource,
+      currencyExchange,
+      accountDevelopment);
 
   /// Create a copy of WalletModel
   /// with the given fields replaced by the non-null parameter values.
@@ -351,7 +352,8 @@ abstract class _WalletModel implements WalletModel {
   @override
   CreditsSourceModel get creditsSource;
   @override
-  CurrencyExchangeModel get currencyExchange;
+  CurrencyExchangeModel
+      get currencyExchange; // CurrencyExchangeModel from the combined models file
   @override
   AccountDevelopmentModel get accountDevelopment;
 

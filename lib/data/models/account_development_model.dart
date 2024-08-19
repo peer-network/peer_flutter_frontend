@@ -1,31 +1,52 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter/foundation.dart';
+class AccountDevelopmentModel {
+  final List<double> values;
+  final List<DateTime> timestamps;
 
-part 'account_development_models.freezed.dart';  // Updated to match the new filename
-part 'account_development_models.g.dart';        // Updated to match the new filename
+  AccountDevelopmentModel({
+    required this.values,
+    required this.timestamps,
+  });
 
-@freezed
-@JsonSerializable()
-class CurrencyExchangeModel with _$CurrencyExchangeModel {
-  const factory CurrencyExchangeModel({
-    required double creditValue,
-    required int totalCreditsInSystem,
-  }) = _CurrencyExchangeModel;
+  factory AccountDevelopmentModel.fromJson(Map<String, dynamic> json) {
+    var valuesList = List<double>.from(json['values']);
+    var timestampList = List<String>.from(json['timestamps']);
 
-  factory CurrencyExchangeModel.fromJson(Map<String, dynamic> json) =>
-      _$CurrencyExchangeModelFromJson(json);
-  Map<String, dynamic> toJson() => _$CurrencyExchangeModelToJson(this);
+    return AccountDevelopmentModel(
+      values: valuesList,
+      timestamps:
+          timestampList.map((timestamp) => DateTime.parse(timestamp)).toList(),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'values': values,
+      'timestamps':
+          timestamps.map((timestamp) => timestamp.toIso8601String()).toList(),
+    };
+  }
 }
 
-@freezed
-@JsonSerializable()
-class AccountDevelopmentModel with _$AccountDevelopmentModel {
-  const factory AccountDevelopmentModel({
-    required List<double> values,
-    required List<DateTime> timestamps,
-  }) = _AccountDevelopmentModel;
+class CurrencyExchangeModel {
+  final double creditValue;
+  final int totalCreditsInSystem;
 
-  factory AccountDevelopmentModel.fromJson(Map<String, dynamic> json) =>
-      _$AccountDevelopmentModelFromJson(json);
-  Map<String, dynamic> toJson() => _$AccountDevelopmentModelToJson(this);
+  CurrencyExchangeModel({
+    required this.creditValue,
+    required this.totalCreditsInSystem,
+  });
+
+  factory CurrencyExchangeModel.fromJson(Map<String, dynamic> json) {
+    return CurrencyExchangeModel(
+      creditValue: json['creditValue'],
+      totalCreditsInSystem: json['totalCreditsInSystem'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'creditValue': creditValue,
+      'totalCreditsInSystem': totalCreditsInSystem,
+    };
+  }
 }

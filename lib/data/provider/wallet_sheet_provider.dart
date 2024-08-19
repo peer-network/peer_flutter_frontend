@@ -5,8 +5,7 @@ import '/data/dummy_response/dummy_wallet.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
 import 'package:peer_app/data/models/credit_source_model.dart';
 import 'package:peer_app/data/models/account_development_model.dart';
-
-
+import 'package:peer_app/data/models/wallet_model.dart';
 
 enum WalletState { none, loading, loaded, error }
 
@@ -21,6 +20,7 @@ class WalletSheetProvider with ChangeNotifier {
 
   CurrencyExchangeModel get currencyExchange => _wallet.currencyExchange; // Access currencyExchange
   CreditsSourceModel get creditsSource => _wallet.creditsSource; // Access creditsSource
+  AccountDevelopmentModel get accountDevelopment => _wallet.accountDevelopment; // Access accountDevelopment
 
   WalletSheetProvider() {
     fetchWallet();
