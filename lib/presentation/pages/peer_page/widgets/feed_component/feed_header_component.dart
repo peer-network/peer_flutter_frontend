@@ -12,7 +12,8 @@ import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/fee
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 
 class FeedHeaderComponent extends StatelessWidget {
-  const FeedHeaderComponent({super.key, required this.user, required this.postId});
+  const FeedHeaderComponent(
+      {super.key, required this.user, required this.postId});
 
   final UserModel user;
   final String postId;
@@ -45,14 +46,6 @@ class FeedHeaderComponent extends StatelessWidget {
           // Follow button and new icon button
           Row(
             children: [
-              SecondaryButton(
-                text: 'Follow',
-                onPressed: () {},
-                backgroundColor: Theme.of(context).brightness == Brightness.light
-                    ? LightColors.followBackground
-                    : DarkColors.followBackground,
-                isFilled: true,
-              ),
               CustomIconButton(
                 icon: IconLibrary.stats_post_performance,
                 sizeType: SizeType.small,
@@ -60,6 +53,16 @@ class FeedHeaderComponent extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).push(PostPerformancePageRoute(postId));
                 },
+              ),
+              const SizedBox(width: AppPaddings.small),
+              SecondaryButton(
+                text: 'Follow',
+                onPressed: () {},
+                backgroundColor:
+                    Theme.of(context).brightness == Brightness.light
+                        ? LightColors.followBackground
+                        : DarkColors.followBackground,
+                isFilled: true,
               ),
             ],
           ),

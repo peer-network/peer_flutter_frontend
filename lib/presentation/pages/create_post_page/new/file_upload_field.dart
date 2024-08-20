@@ -1,30 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
+import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
 class FileUploadField extends StatefulWidget {
-  const FileUploadField({super.key});
+  /// Callback function that is called when a file is picked.
+  final ValueChanged<PlatformFile?> onFilePicked;
+
+  const FileUploadField({super.key, required this.onFilePicked});
 
   @override
   State<FileUploadField> createState() => _FileUploadFieldState();
 }
 
 class _FileUploadFieldState extends State<FileUploadField> {
-  String? _fileName;
+  FilePickerStatus? _status;
+  FilePickerResult? _result;
 
   Future<void> _pickFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['txt'],
+      onFileLoading: (FilePickerStatus status) {
+        _status = status;
+      },
     );
 
     if (result != null && result.files.single.path != null) {
       setState(() {
-        _fileName = result.files.single.name;
+        _result = result;
       });
-      // Handle the selected file
-      print("Selected file: ${result.files.single.path}");
+      widget.onFilePicked(result.files.single);
     } else {
-      // User canceled the picker
+      widget.onFilePicked(null);
+      return;
     }
   }
 
@@ -33,24 +44,28 @@ class _FileUploadFieldState extends State<FileUploadField> {
     return GestureDetector(
       onTap: _pickFile,
       child: Container(
-        height: 200,
-        width: 200,
+        height: AppDimensions.fileInputFieldHeight,
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: Theme.of(context).inputDecorationTheme.fillColor,
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.grey, width: 2),
+          border: Border.all(
+              color:
+                  Theme.of(context).inputDecorationTheme.outlineBorder!.color,
+              width: 2),
         ),
         child: Center(
-          child: _fileName == null
-              ? Icon(
-                  Icons.add,
-                  size: 50,
-                  color: Colors.grey,
-                )
+          child: _result == null && _result?.files.single.path == null
+              ? (_status == FilePickerStatus.picking)
+                  ? const CircularProgressIndicator()
+                  : CustomIconButton(
+                      sizeType: SizeType.medium,
+                      color: Theme.of(context).primaryIconTheme.color,
+                      icon: IconLibrary.plus,
+                      onPressed: _pickFile)
               : Text(
-                  _fileName!,
+                  'File selected: ${_result!.files.single.name}',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16, color: Colors.black),
+                  style: Theme.of(context).textTheme.titleSmall,
                 ),
         ),
       ),

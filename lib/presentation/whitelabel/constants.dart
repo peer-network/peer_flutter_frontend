@@ -13,9 +13,9 @@ class AppDuration {
 
   static const Duration imageSliderDuration = Duration(milliseconds: 0);
   static const Duration imagePostWidgetTransitionDuration =
-      Duration(milliseconds: 250);
+      Duration(milliseconds: 150);
   static const Duration postCreationTransitionDuration =
-      Duration(milliseconds: 300);
+      Duration(milliseconds: 150);
 }
 
 class AppBorders {
@@ -96,6 +96,8 @@ class AppDimensions {
   static const double dropDownButtonPaddingLeft = 12.0;
 
   static const double labelRowLarge = 28.0;
+
+  static const double fileInputFieldHeight = 60.0;
 }
 
 // aspect ratios

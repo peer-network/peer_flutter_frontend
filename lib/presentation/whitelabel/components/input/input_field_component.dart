@@ -10,10 +10,12 @@ class InputFieldComponent extends StatelessWidget {
   final String? labelText;
   final String? hintText;
   final TextEditingController controller;
+  final FocusNode? focusNode;
   final String? Function(String?)? validator;
   final void Function(String?)? onFieldSubmitted;
   final int? minLines;
   final int? maxLines;
+  final bool? autoFocus;
 
   const InputFieldComponent(
       {super.key,
@@ -28,7 +30,9 @@ class InputFieldComponent extends StatelessWidget {
       this.hintText,
       required this.controller,
       this.minLines,
-      this.maxLines})
+      this.maxLines,
+      this.focusNode,
+      this.autoFocus})
       : super();
 
   @override
@@ -37,9 +41,10 @@ class InputFieldComponent extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         TextFormField(
+          focusNode: focusNode,
           controller: controller,
           obscureText: obscureText,
-          autofocus: true,
+          autofocus: (autoFocus == null) ? true : autoFocus!,
           autofillHints: autofillHints,
           keyboardType: keyboardType,
           textInputAction: textInputAction,

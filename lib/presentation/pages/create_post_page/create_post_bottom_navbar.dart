@@ -4,13 +4,16 @@ import 'package:peer_app/presentation/whitelabel/components/buttons/secondary_bu
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class CreatePostBottomNavbar extends StatelessWidget {
-  const CreatePostBottomNavbar(
-      {super.key,
-      required this.onTypeChanged,
-      required this.activeCreatePostType});
+  const CreatePostBottomNavbar({
+    Key? key,
+    required this.onTypeChanged,
+    required this.activeCreatePostType,
+    required this.isPostBeingCreated,
+  }) : super(key: key);
 
   final CreatePostType activeCreatePostType;
   final Function(CreatePostType) onTypeChanged;
+  final ValueNotifier<bool> isPostBeingCreated;
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +21,30 @@ class CreatePostBottomNavbar extends StatelessWidget {
       child: Container(
         color: Theme.of(context).scaffoldBackgroundColor,
         padding: const EdgeInsets.all(AppPaddings.medium),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ...CreatePostType.values.map((type) {
-              return Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: AppPaddings.small),
-                child: SecondaryButton(
-                  text: type.name,
-                  onPressed: () {
-                    onTypeChanged(type);
-                  },
-                  isFilled: activeCreatePostType != type,
-                ),
-              );
-            }).toList(),
-          ],
+        child: ValueListenableBuilder<bool>(
+          valueListenable: isPostBeingCreated,
+          builder: (context, isBeingCreated, child) {
+            return isBeingCreated
+                ? const SizedBox.shrink()
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ...CreatePostType.values.map((type) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: AppPaddings.small),
+                          child: SecondaryButton(
+                            text: type.name,
+                            onPressed: () {
+                              onTypeChanged(type);
+                            },
+                            isFilled: activeCreatePostType != type,
+                          ),
+                        );
+                      }).toList(),
+                    ],
+                  );
+          },
         ),
       ),
     );

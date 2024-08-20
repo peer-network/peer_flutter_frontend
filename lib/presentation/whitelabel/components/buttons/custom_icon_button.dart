@@ -8,16 +8,19 @@ class CustomIconButton extends StatelessWidget {
       required this.icon,
       required this.onPressed,
       this.sizeType = SizeType.medium,
+      this.isSplash,
       this.color});
 
   final IconLibrary icon;
   final Function() onPressed;
   final SizeType sizeType;
   final Color? color;
+  final bool? isSplash;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      splashColor: isSplash == true ? null : Colors.transparent,
       onTap: onPressed,
       child: Image(
         image: icon.icon,

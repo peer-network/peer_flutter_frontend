@@ -64,14 +64,14 @@ class _CreatePostPageState extends State<CreatePostPage> {
   @override
   Widget build(BuildContext context) {
     return BasePage(
-      bottomNavigationBar: CreatePostBottomNavbar(
+      /*bottomNavigationBar: CreatePostBottomNavbar(
         activeCreatePostType: activeCreatePostType,
         onTypeChanged: (type) {
           setState(() {
             activeCreatePostType = type;
           });
         },
-      ),
+      ),*/
       appBar: SecondaryAppbar(
         title: "Create Post",
         actions: [
@@ -114,10 +114,16 @@ class _CreatePostPageState extends State<CreatePostPage> {
         );
 
       case CreatePostType.text:
-        return TextBodyCreatePost(
+        /*return TextBodyCreatePost(
+            isPostComplete: null,
+            titleFocusNode: null,
+            textContentFocusNode: null,
+            tagFocusNode: null,
+            pageViewController: null,
             titleController: textTitleController,
             textContentController: textContentController,
-            tagController: textTagController);
+            tagController: textTagController);*/
+        return SizedBox();
     }
   }
 
