@@ -31,6 +31,11 @@ class AppMargins {
   static const double tiny = 4.0;
 }
 
+class AppRestorationIDs {
+  static const String createTextPostPageControllerRestorationID =
+      'createTextPostPageController';
+}
+
 class AppPaddings {
   static const double tiny = 4.0;
   static const double small = 8.0;

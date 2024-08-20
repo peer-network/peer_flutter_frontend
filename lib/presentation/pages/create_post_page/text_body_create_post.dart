@@ -1,6 +1,6 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
+import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/pages/create_post_page/new/file_upload_field.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/custom_button.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
@@ -17,7 +17,6 @@ class TextBodyCreatePost extends StatefulWidget {
     required this.tagController,
     this.pageViewController,
     this.titleFocusNode,
-    this.textContentFocusNode,
     this.tagFocusNode,
     required this.isPostComplete,
     required this.onPostCreationStarted,
@@ -28,7 +27,6 @@ class TextBodyCreatePost extends StatefulWidget {
   final TextEditingController textContentController;
   final TextEditingController tagController;
   final FocusNode? titleFocusNode;
-  final FocusNode? textContentFocusNode;
   final FocusNode? tagFocusNode;
   final ValueNotifier<bool> isPostComplete;
   final ValueChanged<bool> onPostCreationStarted;
@@ -44,15 +42,7 @@ class _TextBodyCreatePostState extends State<TextBodyCreatePost> {
   @override
   void initState() {
     super.initState();
-    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      _onWidgetBuild();
-    });
     widget.textContentController.addListener(onTextContentChanged);
-  }
-
-  void _onWidgetBuild() async {
-    await Future.delayed(Durations.short3);
-    widget.textContentFocusNode!.requestFocus();
   }
 
   void onTextContentChanged() {
@@ -70,9 +60,8 @@ class _TextBodyCreatePostState extends State<TextBodyCreatePost> {
   void validateTextContent() {
     if (widget.textContentController.text.trim().isNotEmpty ||
         textFile != null) {
-      widget.pageViewController!.animateToPage(1,
-          duration: AppDuration.postCreationTransitionDuration,
-          curve: Curves.linear);
+      widget.pageViewController!
+          .animateToPage(1, duration: Durations.long4, curve: Curves.easeInOut);
     } else {
       setState(() {
         isContentError = true;
@@ -85,8 +74,11 @@ class _TextBodyCreatePostState extends State<TextBodyCreatePost> {
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
-      physics: const NeverScrollableScrollPhysics(),
+      scrollDirection: Axis.vertical,
       controller: widget.pageViewController,
+      physics: const NeverScrollableScrollPhysics(),
+      //itemCount: 2,
+
       itemBuilder: (BuildContext context, int index) {
         if (index == 0) {
           return Padding(
@@ -106,7 +98,6 @@ class _TextBodyCreatePostState extends State<TextBodyCreatePost> {
                     widget.tagFocusNode!.requestFocus();
                   },
                   autoFocus: false,
-                  focusNode: widget.textContentFocusNode,
                   controller: widget.textContentController,
                   maxLines: 8,
                   minLines: 8,
@@ -159,12 +150,11 @@ class _TextBodyCreatePostState extends State<TextBodyCreatePost> {
                           style: Theme.of(context).textTheme.titleLarge)),
                   CustomIconButton(
                     isSplash: false,
-                    icon: IconLibrary.arrowEast,
+                    icon: IconLibrary.arrowDownBlue,
                     onPressed: () {
                       validateTextContent();
                     },
-                    sizeType: SizeType.small,
-                    color: Theme.of(context).primaryIconTheme.color,
+                    sizeType: SizeType.large,
                   )
                 ]),
                 AnimatedOpacity(
@@ -188,9 +178,19 @@ class _TextBodyCreatePostState extends State<TextBodyCreatePost> {
         }
         if (index == 1) {
           return Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: AppPaddings.medium, vertical: AppPaddings.large),
+            padding: const EdgeInsets.all(AppPaddings.medium),
             child: Column(children: [
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: CustomIconButton(
+                    isSplash: false,
+                    icon: IconLibrary.arrowUpBlue,
+                    onPressed: () {
+                      widget.pageViewController!.animateToPage(0,
+                          duration: Durations.long4, curve: Curves.easeInOut);
+                    },
+                    sizeType: SizeType.large,
+                  )),
               SizedBox(height: MediaQuery.of(context).size.height * 0.01),
               const Align(
                   alignment: Alignment.centerLeft,
