@@ -27,6 +27,8 @@ enum IconLibrary {
   arrowEast,
   arrowWest,
   arrowDown,
+  arrowUpBlue,
+  arrowDownBlue,
   peer,
   stats_post_performance,
   search,
@@ -48,6 +50,10 @@ enum IconLibrary {
 extension IconExtension on IconLibrary {
   AssetImage get icon {
     switch (this) {
+      case IconLibrary.arrowUpBlue:
+        return const AssetImage("assets/icons/arrow_up_blue.png");
+      case IconLibrary.arrowDownBlue:
+        return const AssetImage("assets/icons/arrow_down_blue.png");
       case IconLibrary.send:
         return const AssetImage("assets/icons/send.png");
       case IconLibrary.diamond:
