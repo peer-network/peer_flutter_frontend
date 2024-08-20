@@ -328,13 +328,8 @@ mixin _$PostModel {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  /// Serializes this PostModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $PostModelCopyWith<PostModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -381,8 +376,6 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -496,8 +489,6 @@ class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
     ) as $Val);
   }
 
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UserModelCopyWith<$Res> get user {
@@ -553,8 +544,6 @@ class __$$TextPostImplCopyWithImpl<$Res>
       _$TextPostImpl _value, $Res Function(_$TextPostImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -834,7 +823,7 @@ class _$TextPostImpl implements TextPost {
                 .equals(other._likesPerDay, _likesPerDay));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -863,9 +852,7 @@ class _$TextPostImpl implements TextPost {
         const DeepCollectionEquality().hash(_likesPerDay)
       ]);
 
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TextPostImplCopyWith<_$TextPostImpl> get copyWith =>
@@ -1283,8 +1270,8 @@ abstract class TextPost implements PostModel {
   String get title;
   String get content;
   @override
-  UserModel get user; // user in json
-  @override
+  UserModel get user;
+  @override // user in json
   DateTime get createdAt;
   DateTime? get updatedAt;
   @override
@@ -1322,11 +1309,8 @@ abstract class TextPost implements PostModel {
   @override
   @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
   Map<DateTime, double>? get likesPerDay;
-
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TextPostImplCopyWith<_$TextPostImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1379,8 +1363,6 @@ class __$$ImagePostImplCopyWithImpl<$Res>
       _$ImagePostImpl _value, $Res Function(_$ImagePostImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1688,7 +1670,7 @@ class _$ImagePostImpl implements ImagePost {
                 .equals(other._likesPerDay, _likesPerDay));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -1719,9 +1701,7 @@ class _$ImagePostImpl implements ImagePost {
         const DeepCollectionEquality().hash(_likesPerDay)
       ]);
 
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ImagePostImplCopyWith<_$ImagePostImpl> get copyWith =>
@@ -2189,11 +2169,8 @@ abstract class ImagePost implements PostModel {
   @override
   @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
   Map<DateTime, double>? get likesPerDay;
-
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ImagePostImplCopyWith<_$ImagePostImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2244,8 +2221,6 @@ class __$$VideoPostImplCopyWithImpl<$Res>
       _$VideoPostImpl _value, $Res Function(_$VideoPostImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2524,7 +2499,7 @@ class _$VideoPostImpl implements VideoPost {
                 .equals(other._likesPerDay, _likesPerDay));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -2553,9 +2528,7 @@ class _$VideoPostImpl implements VideoPost {
         const DeepCollectionEquality().hash(_likesPerDay)
       ]);
 
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$VideoPostImplCopyWith<_$VideoPostImpl> get copyWith =>
@@ -3012,11 +2985,8 @@ abstract class VideoPost implements PostModel {
   @override
   @JsonKey(fromJson: _likesPerDayFromJson, toJson: _likesPerDayToJson)
   Map<DateTime, double>? get likesPerDay;
-
-  /// Create a copy of PostModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$VideoPostImplCopyWith<_$VideoPostImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

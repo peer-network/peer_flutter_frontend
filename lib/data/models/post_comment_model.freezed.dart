@@ -29,12 +29,8 @@ mixin _$PostCommentModel {
   bool? get isLiked => throw _privateConstructorUsedError;
   int? get likeCount => throw _privateConstructorUsedError;
 
-  /// Serializes this PostCommentModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of PostCommentModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $PostCommentModelCopyWith<PostCommentModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -68,8 +64,6 @@ class _$PostCommentModelCopyWithImpl<$Res, $Val extends PostCommentModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of PostCommentModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,8 +112,6 @@ class _$PostCommentModelCopyWithImpl<$Res, $Val extends PostCommentModel>
     ) as $Val);
   }
 
-  /// Create a copy of PostCommentModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UserModelCopyWith<$Res> get user {
@@ -159,8 +151,6 @@ class __$$PostCommentModelImplCopyWithImpl<$Res>
       $Res Function(_$PostCommentModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of PostCommentModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -276,7 +266,7 @@ class _$PostCommentModelImpl implements _PostCommentModel {
                 other.likeCount == likeCount));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -289,9 +279,7 @@ class _$PostCommentModelImpl implements _PostCommentModel {
       isLiked,
       likeCount);
 
-  /// Create a copy of PostCommentModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$PostCommentModelImplCopyWith<_$PostCommentModelImpl> get copyWith =>
@@ -336,11 +324,8 @@ abstract class _PostCommentModel implements PostCommentModel {
   bool? get isLiked;
   @override
   int? get likeCount;
-
-  /// Create a copy of PostCommentModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$PostCommentModelImplCopyWith<_$PostCommentModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

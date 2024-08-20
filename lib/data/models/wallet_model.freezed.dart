@@ -24,8 +24,8 @@ mixin _$WalletModel {
   int get userId => throw _privateConstructorUsedError;
   int get totalCredits => throw _privateConstructorUsedError;
   int get creditsCollectedToday => throw _privateConstructorUsedError;
-  DateTime? get createdAt => throw _privateConstructorUsedError;
-  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
   CreditsSourceModel get creditsSource => throw _privateConstructorUsedError;
   @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)
   CurrencyExchangeModel get currencyExchange =>
@@ -35,12 +35,8 @@ mixin _$WalletModel {
   @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
   Map<DateTime, double>? get tokensPerDay => throw _privateConstructorUsedError;
 
-  /// Serializes this WalletModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of WalletModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $WalletModelCopyWith<WalletModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,8 +52,8 @@ abstract class $WalletModelCopyWith<$Res> {
       int userId,
       int totalCredits,
       int creditsCollectedToday,
-      DateTime? createdAt,
-      DateTime? updatedAt,
+      DateTime createdAt,
+      DateTime updatedAt,
       CreditsSourceModel creditsSource,
       @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)
       CurrencyExchangeModel currencyExchange,
@@ -80,8 +76,6 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of WalletModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -89,8 +83,8 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
     Object? userId = null,
     Object? totalCredits = null,
     Object? creditsCollectedToday = null,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? createdAt = null,
+    Object? updatedAt = null,
     Object? creditsSource = null,
     Object? currencyExchange = null,
     Object? accountDevelopment = null,
@@ -113,14 +107,14 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
           ? _value.creditsCollectedToday
           : creditsCollectedToday // ignore: cast_nullable_to_non_nullable
               as int,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: freezed == updatedAt
+              as DateTime,
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       creditsSource: null == creditsSource
           ? _value.creditsSource
           : creditsSource // ignore: cast_nullable_to_non_nullable
@@ -140,8 +134,6 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
     ) as $Val);
   }
 
-  /// Create a copy of WalletModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CreditsSourceModelCopyWith<$Res> get creditsSource {
@@ -150,8 +142,6 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
     });
   }
 
-  /// Create a copy of WalletModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CurrencyExchangeModelCopyWith<$Res> get currencyExchange {
@@ -161,8 +151,6 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
     });
   }
 
-  /// Create a copy of WalletModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AccountDevelopmentModelCopyWith<$Res> get accountDevelopment {
@@ -186,8 +174,8 @@ abstract class _$$WalletModelImplCopyWith<$Res>
       int userId,
       int totalCredits,
       int creditsCollectedToday,
-      DateTime? createdAt,
-      DateTime? updatedAt,
+      DateTime createdAt,
+      DateTime updatedAt,
       CreditsSourceModel creditsSource,
       @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)
       CurrencyExchangeModel currencyExchange,
@@ -211,8 +199,6 @@ class __$$WalletModelImplCopyWithImpl<$Res>
       _$WalletModelImpl _value, $Res Function(_$WalletModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of WalletModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -220,8 +206,8 @@ class __$$WalletModelImplCopyWithImpl<$Res>
     Object? userId = null,
     Object? totalCredits = null,
     Object? creditsCollectedToday = null,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? createdAt = null,
+    Object? updatedAt = null,
     Object? creditsSource = null,
     Object? currencyExchange = null,
     Object? accountDevelopment = null,
@@ -244,14 +230,14 @@ class __$$WalletModelImplCopyWithImpl<$Res>
           ? _value.creditsCollectedToday
           : creditsCollectedToday // ignore: cast_nullable_to_non_nullable
               as int,
-      createdAt: freezed == createdAt
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: freezed == updatedAt
+              as DateTime,
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       creditsSource: null == creditsSource
           ? _value.creditsSource
           : creditsSource // ignore: cast_nullable_to_non_nullable
@@ -280,8 +266,8 @@ class _$WalletModelImpl implements _WalletModel {
       required this.userId,
       required this.totalCredits,
       required this.creditsCollectedToday,
-      this.createdAt,
-      this.updatedAt,
+      required this.createdAt,
+      required this.updatedAt,
       required this.creditsSource,
       @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)
       required this.currencyExchange,
@@ -302,9 +288,9 @@ class _$WalletModelImpl implements _WalletModel {
   @override
   final int creditsCollectedToday;
   @override
-  final DateTime? createdAt;
+  final DateTime createdAt;
   @override
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
   @override
   final CreditsSourceModel creditsSource;
   @override
@@ -353,7 +339,7 @@ class _$WalletModelImpl implements _WalletModel {
                 .equals(other._tokensPerDay, _tokensPerDay));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -368,9 +354,7 @@ class _$WalletModelImpl implements _WalletModel {
       accountDevelopment,
       const DeepCollectionEquality().hash(_tokensPerDay));
 
-  /// Create a copy of WalletModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$WalletModelImplCopyWith<_$WalletModelImpl> get copyWith =>
@@ -390,8 +374,8 @@ abstract class _WalletModel implements WalletModel {
       required final int userId,
       required final int totalCredits,
       required final int creditsCollectedToday,
-      final DateTime? createdAt,
-      final DateTime? updatedAt,
+      required final DateTime createdAt,
+      required final DateTime updatedAt,
       required final CreditsSourceModel creditsSource,
       @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)
       required final CurrencyExchangeModel currencyExchange,
@@ -411,9 +395,9 @@ abstract class _WalletModel implements WalletModel {
   @override
   int get creditsCollectedToday;
   @override
-  DateTime? get createdAt;
+  DateTime get createdAt;
   @override
-  DateTime? get updatedAt;
+  DateTime get updatedAt;
   @override
   CreditsSourceModel get creditsSource;
   @override
@@ -424,11 +408,8 @@ abstract class _WalletModel implements WalletModel {
   @override
   @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
   Map<DateTime, double>? get tokensPerDay;
-
-  /// Create a copy of WalletModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$WalletModelImplCopyWith<_$WalletModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

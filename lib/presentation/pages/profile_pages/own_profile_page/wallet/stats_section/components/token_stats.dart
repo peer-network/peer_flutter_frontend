@@ -12,48 +12,62 @@ class TokenStats extends StatelessWidget {
         Provider.of<WalletSheetProvider>(context);
     return Column(
       children: [
+        // Handling nullable totalCredits
         Text(
-            walletSheetProvider
-                .formatDigits(walletSheetProvider.wallet!.totalCredits),
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: Theme.of(context).colorScheme.secondary)),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
-          child: Text('Credits in deiner Wallet',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyLarge!
-                  .copyWith(color: Theme.of(context).colorScheme.secondary)),
+          walletSheetProvider.formatDigits(
+            walletSheetProvider.wallet?.totalCredits ?? 0, // Provide a default value of 0
+          ),
+          style: Theme.of(context)
+              .textTheme
+              .bodySmall!
+              .copyWith(color: Theme.of(context).colorScheme.secondary),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
           child: Text(
-              walletSheetProvider.formatDigits(
-                  walletSheetProvider.wallet!.creditsCollectedToday),
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall!
-                  .copyWith(color: Theme.of(context).colorScheme.secondary)),
+            'Credits in deiner Wallet',
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge!
+                .copyWith(color: Theme.of(context).colorScheme.secondary),
+          ),
         ),
-        Text('Credits heute gesammelt',
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge!
-                .copyWith(color: Theme.of(context).colorScheme.secondary)),
         Padding(
-            padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
-            child: Text("gibt's gerade net",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall!
-                    .copyWith(color: Theme.of(context).colorScheme.secondary))),
-        Text('aller tokens gehören dir',
+          padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
+          child: Text(
+            walletSheetProvider.formatDigits(
+              walletSheetProvider.wallet?.creditsCollectedToday ?? 0, // Provide a default value of 0
+            ),
             style: Theme.of(context)
                 .textTheme
-                .bodyLarge!
-                .copyWith(color: Theme.of(context).colorScheme.secondary)),
+                .bodySmall!
+                .copyWith(color: Theme.of(context).colorScheme.secondary),
+          ),
+        ),
+        Text(
+          'Credits heute gesammelt',
+          style: Theme.of(context)
+              .textTheme
+              .bodyLarge!
+              .copyWith(color: Theme.of(context).colorScheme.secondary),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
+          child: Text(
+            "gibt's gerade net",
+            style: Theme.of(context)
+                .textTheme
+                .bodySmall!
+                .copyWith(color: Theme.of(context).colorScheme.secondary),
+          ),
+        ),
+        Text(
+          'aller tokens gehören dir',
+          style: Theme.of(context)
+              .textTheme
+              .bodyLarge!
+              .copyWith(color: Theme.of(context).colorScheme.secondary),
+        ),
       ],
     );
   }

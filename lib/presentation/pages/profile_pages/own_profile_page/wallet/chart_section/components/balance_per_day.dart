@@ -43,7 +43,7 @@ class BalancePerDay extends StatelessWidget {
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  '1 Credit = ${walletSheetProvider.currencyExchange?.creditValue}€',
+                  '1 Credit = ${walletSheetProvider.currencyExchange!.creditValue}€',
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
               ),

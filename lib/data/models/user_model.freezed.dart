@@ -39,12 +39,8 @@ mixin _$UserModel {
   List<PostModel>? get posts => throw _privateConstructorUsedError;
   bool? get isFollowing => throw _privateConstructorUsedError;
 
-  /// Serializes this UserModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of UserModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $UserModelCopyWith<UserModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -81,8 +77,6 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of UserModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -195,8 +189,6 @@ class __$$UserModelImplCopyWithImpl<$Res>
       _$UserModelImpl _value, $Res Function(_$UserModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of UserModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -379,7 +371,7 @@ class _$UserModelImpl implements _UserModel {
                 other.isFollowing == isFollowing));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -398,9 +390,7 @@ class _$UserModelImpl implements _UserModel {
       const DeepCollectionEquality().hash(_posts),
       isFollowing);
 
-  /// Create a copy of UserModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$UserModelImplCopyWith<_$UserModelImpl> get copyWith =>
@@ -443,8 +433,8 @@ abstract class _UserModel implements UserModel {
   @override
   String? get email;
   @override
-  bool get verified; // default to false if not provided
-  @override
+  bool get verified;
+  @override // default to false if not provided
   String? get createdAt;
   @override
   String? get updatedAt;
@@ -453,20 +443,17 @@ abstract class _UserModel implements UserModel {
   @override
   String? get biograph;
   @override
-  int? get amountPosts; // corrected field name and default to 0
-  @override
-  int? get amountFollowed; // corrected field name and default to 0
-  @override
-  int? get amountFollower; // corrected field name and default to 0
-  @override
+  int? get amountPosts;
+  @override // corrected field name and default to 0
+  int? get amountFollowed;
+  @override // corrected field name and default to 0
+  int? get amountFollower;
+  @override // corrected field name and default to 0
   List<PostModel>? get posts;
   @override
   bool? get isFollowing;
-
-  /// Create a copy of UserModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$UserModelImplCopyWith<_$UserModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

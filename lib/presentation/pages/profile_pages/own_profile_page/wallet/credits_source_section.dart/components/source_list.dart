@@ -5,9 +5,7 @@ import 'package:peer_app/data/models/credit_source_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/credits_source_section.dart/components/source_bar.dart';
 
 class SourceList extends StatelessWidget {
-  const SourceList({
-    Key? key,
-  }) : super(key: key);
+  const SourceList({Key? key}) : super(key: key);
 
   /// Calculates the percentage of each source item based on the total amount of credits
   List<double> calculateCreditSourcePercentage(CreditsSourceModel source) {
@@ -28,8 +26,13 @@ class SourceList extends StatelessWidget {
     // Get the provider instance
     WalletSheetProvider walletSheetProvider = Provider.of<WalletSheetProvider>(context);
     
-    // Fetch the creditsSource data
-    CreditsSourceModel creditsSource = walletSheetProvider.wallet!.creditsSource;
+    // Safely fetch the creditsSource data, handling possible null values
+    CreditsSourceModel? creditsSource = walletSheetProvider.wallet?.creditsSource;
+
+    // If creditsSource is null, return an empty container or handle it accordingly
+    if (creditsSource == null) {
+      return Container(); // You can return an empty Container or display a message
+    }
 
     // Calculate the width values for each source
     List<double> widthValues = calculateCreditSourcePercentage(creditsSource);

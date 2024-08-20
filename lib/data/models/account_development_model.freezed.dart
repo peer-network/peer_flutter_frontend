@@ -24,12 +24,8 @@ mixin _$AccountDevelopmentModel {
   List<double> get values => throw _privateConstructorUsedError;
   List<DateTime> get timestamps => throw _privateConstructorUsedError;
 
-  /// Serializes this AccountDevelopmentModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of AccountDevelopmentModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $AccountDevelopmentModelCopyWith<AccountDevelopmentModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,8 +50,6 @@ class _$AccountDevelopmentModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of AccountDevelopmentModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -97,8 +91,6 @@ class __$$AccountDevelopmentModelImplCopyWithImpl<$Res>
       $Res Function(_$AccountDevelopmentModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AccountDevelopmentModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -161,16 +153,14 @@ class _$AccountDevelopmentModelImpl implements _AccountDevelopmentModel {
                 .equals(other._timestamps, _timestamps));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_values),
       const DeepCollectionEquality().hash(_timestamps));
 
-  /// Create a copy of AccountDevelopmentModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AccountDevelopmentModelImplCopyWith<_$AccountDevelopmentModelImpl>
@@ -198,11 +188,8 @@ abstract class _AccountDevelopmentModel implements AccountDevelopmentModel {
   List<double> get values;
   @override
   List<DateTime> get timestamps;
-
-  /// Create a copy of AccountDevelopmentModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AccountDevelopmentModelImplCopyWith<_$AccountDevelopmentModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -217,12 +204,8 @@ mixin _$CurrencyExchangeModel {
   double get creditValue => throw _privateConstructorUsedError;
   int get totalCreditsInSystem => throw _privateConstructorUsedError;
 
-  /// Serializes this CurrencyExchangeModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of CurrencyExchangeModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $CurrencyExchangeModelCopyWith<CurrencyExchangeModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -247,8 +230,6 @@ class _$CurrencyExchangeModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CurrencyExchangeModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -289,8 +270,6 @@ class __$$CurrencyExchangeModelImplCopyWithImpl<$Res>
       $Res Function(_$CurrencyExchangeModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CurrencyExchangeModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -340,14 +319,12 @@ class _$CurrencyExchangeModelImpl implements _CurrencyExchangeModel {
                 other.totalCreditsInSystem == totalCreditsInSystem));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, creditValue, totalCreditsInSystem);
 
-  /// Create a copy of CurrencyExchangeModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CurrencyExchangeModelImplCopyWith<_$CurrencyExchangeModelImpl>
@@ -374,11 +351,8 @@ abstract class _CurrencyExchangeModel implements CurrencyExchangeModel {
   double get creditValue;
   @override
   int get totalCreditsInSystem;
-
-  /// Create a copy of CurrencyExchangeModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$CurrencyExchangeModelImplCopyWith<_$CurrencyExchangeModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

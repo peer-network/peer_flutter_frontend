@@ -12,26 +12,28 @@ class WalletModel with _$WalletModel {
     required int userId,
     required int totalCredits,
     required int creditsCollectedToday,
-    DateTime? createdAt,
-    DateTime? updatedAt,
+    required DateTime createdAt,
+    required DateTime updatedAt,
     required CreditsSourceModel creditsSource,
-    @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)//, toJson: CurrencyExchangeModel.toJsonStatic)
+    @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)
     required CurrencyExchangeModel currencyExchange,
     required AccountDevelopmentModel accountDevelopment,
     @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
-    Map<DateTime, double>? tokensPerDay, // added field
+    Map<DateTime, double>? tokensPerDay,
   }) = _WalletModel;
 
   factory WalletModel.fromJson(Map<String, dynamic> json) =>
       _$WalletModelFromJson(json);
-
-  //Map<String, dynamic> toJson() => _$WalletModelToJson(this);
 }
 
-// Custom JSON serialization functions for tokensPerDay
-Map<DateTime, double>? _tokensPerDayFromJson(Map<String, dynamic> json) =>
-    json.map((key, value) =>
-        MapEntry(DateTime.parse(key), (value as num).toDouble()));
+// Custom fromJson method to handle nullable Map<DateTime, double>
+Map<DateTime, double>? _tokensPerDayFromJson(Map<String, dynamic>? json) {
+  if (json == null) return null;
+  return json.map((key, value) =>
+      MapEntry(DateTime.parse(key), (value as num).toDouble()));
+}
 
-Map<String, double> _tokensPerDayToJson(Map<DateTime, double>? map) =>
-    map!.map((key, value) => MapEntry(key.toIso8601String(), value));
+// Custom toJson method to handle nullable Map<DateTime, double>
+Map<String, double>? _tokensPerDayToJson(Map<DateTime, double>? map) {
+  return map?.map((key, value) => MapEntry(key.toIso8601String(), value));
+}

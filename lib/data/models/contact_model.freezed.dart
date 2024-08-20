@@ -23,12 +23,8 @@ mixin _$ContactModel {
   String get id => throw _privateConstructorUsedError;
   UserModel get contact => throw _privateConstructorUsedError;
 
-  /// Serializes this ContactModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ContactModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ContactModelCopyWith<ContactModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,8 +50,6 @@ class _$ContactModelCopyWithImpl<$Res, $Val extends ContactModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ContactModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -74,8 +68,6 @@ class _$ContactModelCopyWithImpl<$Res, $Val extends ContactModel>
     ) as $Val);
   }
 
-  /// Create a copy of ContactModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UserModelCopyWith<$Res> get contact {
@@ -107,8 +99,6 @@ class __$$ContactModelImplCopyWithImpl<$Res>
       _$ContactModelImpl _value, $Res Function(_$ContactModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ContactModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -155,13 +145,11 @@ class _$ContactModelImpl implements _ContactModel {
             (identical(other.contact, contact) || other.contact == contact));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, contact);
 
-  /// Create a copy of ContactModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ContactModelImplCopyWith<_$ContactModelImpl> get copyWith =>
@@ -187,11 +175,8 @@ abstract class _ContactModel implements ContactModel {
   String get id;
   @override
   UserModel get contact;
-
-  /// Create a copy of ContactModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ContactModelImplCopyWith<_$ContactModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

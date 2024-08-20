@@ -30,8 +30,4 @@ class CurrencyExchangeModel with _$CurrencyExchangeModel {
   static CurrencyExchangeModel fromJsonStatic(Map<String, dynamic> json) {
     return CurrencyExchangeModel.fromJson(json);
   }
-
-  // static Map<String, dynamic> toJsonStatic(CurrencyExchangeModel instance) {
-  //   return instance.toJson();
-  // }
 }
