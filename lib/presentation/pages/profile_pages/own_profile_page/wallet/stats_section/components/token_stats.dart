@@ -10,18 +10,33 @@ class TokenStats extends StatelessWidget {
   Widget build(BuildContext context) {
     WalletSheetProvider walletSheetProvider =
         Provider.of<WalletSheetProvider>(context);
+    
+    // Function to display error message if data is null
+    Widget _buildErrorText(String errorText) {
+      return Text(
+        errorText,
+        style: Theme.of(context)
+            .textTheme
+            .bodySmall!
+            .copyWith(color: Colors.red),
+      );
+    }
+
     return Column(
       children: [
         // Handling nullable totalCredits
-        Text(
-          walletSheetProvider.formatDigits(
-            walletSheetProvider.wallet?.totalCredits ?? 0, // Provide a default value of 0
-          ),
-          style: Theme.of(context)
-              .textTheme
-              .bodySmall!
-              .copyWith(color: Theme.of(context).colorScheme.secondary),
-        ),
+        walletSheetProvider.wallet?.totalCredits != null
+            ? Text(
+                walletSheetProvider.formatDigits(
+                  walletSheetProvider.wallet!.totalCredits,
+                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(color: Theme.of(context).colorScheme.secondary),
+              )
+            : _buildErrorText('Error: totalCredits is null'),
+
         Padding(
           padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
           child: Text(
@@ -32,18 +47,20 @@ class TokenStats extends StatelessWidget {
                 .copyWith(color: Theme.of(context).colorScheme.secondary),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
-          child: Text(
-            walletSheetProvider.formatDigits(
-              walletSheetProvider.wallet?.creditsCollectedToday ?? 0, // Provide a default value of 0
-            ),
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: Theme.of(context).colorScheme.secondary),
-          ),
-        ),
+
+        // Handling nullable creditsCollectedToday
+        walletSheetProvider.wallet?.creditsCollectedToday != null
+            ? Text(
+                walletSheetProvider.formatDigits(
+                  walletSheetProvider.wallet!.creditsCollectedToday,
+                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(color: Theme.of(context).colorScheme.secondary),
+              )
+            : _buildErrorText('Error: creditsCollectedToday is null'),
+
         Text(
           'Credits heute gesammelt',
           style: Theme.of(context)
@@ -51,6 +68,7 @@ class TokenStats extends StatelessWidget {
               .bodyLarge!
               .copyWith(color: Theme.of(context).colorScheme.secondary),
         ),
+
         Padding(
           padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
           child: Text(
