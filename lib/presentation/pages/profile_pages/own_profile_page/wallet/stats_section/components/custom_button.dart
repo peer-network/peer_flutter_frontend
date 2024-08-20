@@ -33,16 +33,16 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         style: ButtonStyle(
-            side: WidgetStateProperty.all(BorderSide(
+            side: MaterialStateProperty.all(BorderSide(
                 color: Theme.of(context).buttonTheme.colorScheme!.outline)),
             fixedSize: (height == null && width == null)
                 ? null
-                : WidgetStatePropertyAll<Size>(Size(width!, height!)),
+                : MaterialStateProperty.all<Size>(Size(width!, height!)),
             backgroundColor: overrideDefaultColor ?? false
-                ? WidgetStatePropertyAll<Color>(customBackgroundColor!)
-                : WidgetStatePropertyAll<Color>(
+                ? MaterialStateProperty.all<Color>(customBackgroundColor!)
+                : MaterialStateProperty.all<Color>(
                     Theme.of(context).buttonTheme.colorScheme!.surface),
-            shape: WidgetStateProperty.all(RoundedRectangleBorder(
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8)))),
         onPressed: onPressed,
         child: (isIcon)

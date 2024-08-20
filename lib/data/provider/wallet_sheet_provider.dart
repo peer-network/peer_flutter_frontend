@@ -17,9 +17,12 @@ class WalletSheetProvider with ChangeNotifier {
   WalletModel? get wallet => _wallet; // Getter for wallet
   WalletState get state => _state; // Getter for state
 
-  CurrencyExchangeModel? get currencyExchange => _wallet?.currencyExchange; // Safely access currencyExchange
-  CreditsSourceModel? get creditsSource => _wallet?.creditsSource; // Safely access creditsSource
-  AccountDevelopmentModel? get accountDevelopment => _wallet?.accountDevelopment; // Safely access accountDevelopment
+  CurrencyExchangeModel? get currencyExchange =>
+      _wallet?.currencyExchange; // Safely access currencyExchange
+  CreditsSourceModel? get creditsSource =>
+      _wallet?.creditsSource; // Safely access creditsSource
+  AccountDevelopmentModel? get accountDevelopment =>
+      _wallet?.accountDevelopment; // Safely access accountDevelopment
 
   // Constructor no longer calls fetchWallet(), this should be done explicitly by the UI
   WalletSheetProvider();
@@ -45,6 +48,7 @@ class WalletSheetProvider with ChangeNotifier {
       );
 
       _state = WalletState.loaded;
+      notifyListeners();
     } catch (e) {
       _wallet = null; // Set _wallet to null in case of error
       _state = WalletState.error;
@@ -66,12 +70,14 @@ class WalletSheetProvider with ChangeNotifier {
   }
 
   CreditsSourceModel sortItems(CreditsSourceModel source) {
-    source.items.sort((a, b) => b.amount.compareTo(a.amount)); // Sort items by amount
+    source.items
+        .sort((a, b) => b.amount.compareTo(a.amount)); // Sort items by amount
     return source;
   }
 
   String formatDigits(num digits) {
-    final formatter = NumberFormat("#,###", "de_DE"); // Format numbers with German locale
+    final formatter =
+        NumberFormat("#,###", "de_DE"); // Format numbers with German locale
     return formatter.format(digits);
   }
 }
