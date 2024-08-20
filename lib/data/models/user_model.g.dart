@@ -24,8 +24,6 @@ _$UserModelImpl _$$UserModelImplFromJson(Map<String, dynamic> json) =>
           ?.map((e) => PostModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       isFollowing: json['isFollowing'] as bool?,
-      tokensPerDay:
-          _tokensPerDayFromJson(json['tokensPerDay'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
@@ -44,5 +42,4 @@ Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
       'amountFollower': instance.amountFollower,
       'posts': instance.posts?.map((e) => e.toJson()).toList(),
       'isFollowing': instance.isFollowing,
-      'tokensPerDay': _tokensPerDayToJson(instance.tokensPerDay),
     };

@@ -43,7 +43,7 @@ class ExchangeRate extends StatelessWidget {
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  '1 Credit = ${walletSheetProvider.currencyExchange.creditValue}€',
+                  '1 Credit = ${walletSheetProvider.currencyExchange?.creditValue}€',
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
               ),
@@ -65,7 +65,7 @@ class ExchangeRate extends StatelessWidget {
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  'Gesamtzahl Credits = ${walletSheetProvider.formatDigits(walletSheetProvider.currencyExchange.totalCreditsInSystem)}',
+                  'Gesamtzahl Credits = ${walletSheetProvider.formatDigits(walletSheetProvider.currencyExchange!.totalCreditsInSystem)}',
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
               ),

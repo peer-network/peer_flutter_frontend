@@ -91,7 +91,7 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
   }
 
   void _onMaxAmountTapped() {
-    final tokenAmount = context.read<WalletSheetProvider>().wallet.totalCredits;
+    final tokenAmount = context.read<WalletSheetProvider>().wallet?.totalCredits;
     _cashOutAmountController.text = '$tokenAmount Tokens';
   }
 
@@ -242,7 +242,7 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                                     padding: const EdgeInsets.only(
                                         left: AppPaddings.small),
                                     child: Text(
-                                        '1 Token = ${provider.currencyExchange.creditValue}'));
+                                        '1 Token = ${provider.currencyExchange?.creditValue}'));
                               },
                             ),
                           )

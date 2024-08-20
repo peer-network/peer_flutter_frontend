@@ -1,10 +1,10 @@
 final dummyWallet = {
-  "id": 1, // Assuming you want to include an ID for the wallet
-  "userId": 2, // Mapping the user ID from the user object in the original dummy data
+  "id": 1,
+  "userId": 2,
   "totalCredits": 8970,
   "creditsCollectedToday": 924,
-  "createdAt": "2023-02-25T00:00:00Z", // Example creation date
-  "updatedAt": "2023-03-15T00:00:00Z", // Example update date
+  "createdAt": "2023-02-25T00:00:00Z",
+  "updatedAt": "2023-03-15T00:00:00Z",
   "creditsSource": {
     "comments": 2890,
     "views": 1797,
@@ -24,5 +24,12 @@ final dummyWallet = {
       "2023-03-10T00:00:00Z",
       "2023-03-15T00:00:00Z"
     ]
+  },
+  "tokensPerDay": {
+    "2023-02-25T00:00:00Z": 0.5,
+    "2023-03-01T00:00:00Z": 0.75,
+    "2023-03-05T00:00:00Z": 0.6,
+    "2023-03-10T00:00:00Z": 0.7,
+    "2023-03-15T00:00:00Z": 0.8
   }
 };

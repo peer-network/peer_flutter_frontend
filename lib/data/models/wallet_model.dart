@@ -18,6 +18,8 @@ class WalletModel with _$WalletModel {
     @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)//, toJson: CurrencyExchangeModel.toJsonStatic)
     required CurrencyExchangeModel currencyExchange,
     required AccountDevelopmentModel accountDevelopment,
+    @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
+    Map<DateTime, double>? tokensPerDay, // added field
   }) = _WalletModel;
 
   factory WalletModel.fromJson(Map<String, dynamic> json) =>
@@ -25,3 +27,11 @@ class WalletModel with _$WalletModel {
 
   //Map<String, dynamic> toJson() => _$WalletModelToJson(this);
 }
+
+// Custom JSON serialization functions for tokensPerDay
+Map<DateTime, double>? _tokensPerDayFromJson(Map<String, dynamic> json) =>
+    json.map((key, value) =>
+        MapEntry(DateTime.parse(key), (value as num).toDouble()));
+
+Map<String, double> _tokensPerDayToJson(Map<DateTime, double>? map) =>
+    map!.map((key, value) => MapEntry(key.toIso8601String(), value));

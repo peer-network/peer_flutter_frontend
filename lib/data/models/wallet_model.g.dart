@@ -24,6 +24,8 @@ _$WalletModelImpl _$$WalletModelImplFromJson(Map<String, dynamic> json) =>
           json['currencyExchange'] as Map<String, dynamic>),
       accountDevelopment: AccountDevelopmentModel.fromJson(
           json['accountDevelopment'] as Map<String, dynamic>),
+      tokensPerDay:
+          _tokensPerDayFromJson(json['tokensPerDay'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$WalletModelImplToJson(_$WalletModelImpl instance) =>
@@ -37,4 +39,5 @@ Map<String, dynamic> _$$WalletModelImplToJson(_$WalletModelImpl instance) =>
       'creditsSource': instance.creditsSource,
       'currencyExchange': instance.currencyExchange,
       'accountDevelopment': instance.accountDevelopment,
+      'tokensPerDay': _tokensPerDayToJson(instance.tokensPerDay),
     };

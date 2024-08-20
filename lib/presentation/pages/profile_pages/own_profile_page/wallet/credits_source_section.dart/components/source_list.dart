@@ -29,7 +29,7 @@ class SourceList extends StatelessWidget {
     WalletSheetProvider walletSheetProvider = Provider.of<WalletSheetProvider>(context);
     
     // Fetch the creditsSource data
-    CreditsSourceModel creditsSource = walletSheetProvider.wallet.creditsSource;
+    CreditsSourceModel creditsSource = walletSheetProvider.wallet!.creditsSource;
 
     // Calculate the width values for each source
     List<double> widthValues = calculateCreditSourcePercentage(creditsSource);

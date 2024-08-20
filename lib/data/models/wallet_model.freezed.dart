@@ -32,6 +32,8 @@ mixin _$WalletModel {
       throw _privateConstructorUsedError;
   AccountDevelopmentModel get accountDevelopment =>
       throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
+  Map<DateTime, double>? get tokensPerDay => throw _privateConstructorUsedError;
 
   /// Serializes this WalletModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -59,7 +61,9 @@ abstract class $WalletModelCopyWith<$Res> {
       CreditsSourceModel creditsSource,
       @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)
       CurrencyExchangeModel currencyExchange,
-      AccountDevelopmentModel accountDevelopment});
+      AccountDevelopmentModel accountDevelopment,
+      @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
+      Map<DateTime, double>? tokensPerDay});
 
   $CreditsSourceModelCopyWith<$Res> get creditsSource;
   $CurrencyExchangeModelCopyWith<$Res> get currencyExchange;
@@ -90,6 +94,7 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
     Object? creditsSource = null,
     Object? currencyExchange = null,
     Object? accountDevelopment = null,
+    Object? tokensPerDay = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -128,6 +133,10 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
           ? _value.accountDevelopment
           : accountDevelopment // ignore: cast_nullable_to_non_nullable
               as AccountDevelopmentModel,
+      tokensPerDay: freezed == tokensPerDay
+          ? _value.tokensPerDay
+          : tokensPerDay // ignore: cast_nullable_to_non_nullable
+              as Map<DateTime, double>?,
     ) as $Val);
   }
 
@@ -182,7 +191,9 @@ abstract class _$$WalletModelImplCopyWith<$Res>
       CreditsSourceModel creditsSource,
       @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)
       CurrencyExchangeModel currencyExchange,
-      AccountDevelopmentModel accountDevelopment});
+      AccountDevelopmentModel accountDevelopment,
+      @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
+      Map<DateTime, double>? tokensPerDay});
 
   @override
   $CreditsSourceModelCopyWith<$Res> get creditsSource;
@@ -214,6 +225,7 @@ class __$$WalletModelImplCopyWithImpl<$Res>
     Object? creditsSource = null,
     Object? currencyExchange = null,
     Object? accountDevelopment = null,
+    Object? tokensPerDay = freezed,
   }) {
     return _then(_$WalletModelImpl(
       id: null == id
@@ -252,6 +264,10 @@ class __$$WalletModelImplCopyWithImpl<$Res>
           ? _value.accountDevelopment
           : accountDevelopment // ignore: cast_nullable_to_non_nullable
               as AccountDevelopmentModel,
+      tokensPerDay: freezed == tokensPerDay
+          ? _value._tokensPerDay
+          : tokensPerDay // ignore: cast_nullable_to_non_nullable
+              as Map<DateTime, double>?,
     ));
   }
 }
@@ -269,7 +285,10 @@ class _$WalletModelImpl implements _WalletModel {
       required this.creditsSource,
       @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)
       required this.currencyExchange,
-      required this.accountDevelopment});
+      required this.accountDevelopment,
+      @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
+      final Map<DateTime, double>? tokensPerDay})
+      : _tokensPerDay = tokensPerDay;
 
   factory _$WalletModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$WalletModelImplFromJson(json);
@@ -293,10 +312,20 @@ class _$WalletModelImpl implements _WalletModel {
   final CurrencyExchangeModel currencyExchange;
   @override
   final AccountDevelopmentModel accountDevelopment;
+  final Map<DateTime, double>? _tokensPerDay;
+  @override
+  @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
+  Map<DateTime, double>? get tokensPerDay {
+    final value = _tokensPerDay;
+    if (value == null) return null;
+    if (_tokensPerDay is EqualUnmodifiableMapView) return _tokensPerDay;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   @override
   String toString() {
-    return 'WalletModel(id: $id, userId: $userId, totalCredits: $totalCredits, creditsCollectedToday: $creditsCollectedToday, createdAt: $createdAt, updatedAt: $updatedAt, creditsSource: $creditsSource, currencyExchange: $currencyExchange, accountDevelopment: $accountDevelopment)';
+    return 'WalletModel(id: $id, userId: $userId, totalCredits: $totalCredits, creditsCollectedToday: $creditsCollectedToday, createdAt: $createdAt, updatedAt: $updatedAt, creditsSource: $creditsSource, currencyExchange: $currencyExchange, accountDevelopment: $accountDevelopment, tokensPerDay: $tokensPerDay)';
   }
 
   @override
@@ -319,7 +348,9 @@ class _$WalletModelImpl implements _WalletModel {
             (identical(other.currencyExchange, currencyExchange) ||
                 other.currencyExchange == currencyExchange) &&
             (identical(other.accountDevelopment, accountDevelopment) ||
-                other.accountDevelopment == accountDevelopment));
+                other.accountDevelopment == accountDevelopment) &&
+            const DeepCollectionEquality()
+                .equals(other._tokensPerDay, _tokensPerDay));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -334,7 +365,8 @@ class _$WalletModelImpl implements _WalletModel {
       updatedAt,
       creditsSource,
       currencyExchange,
-      accountDevelopment);
+      accountDevelopment,
+      const DeepCollectionEquality().hash(_tokensPerDay));
 
   /// Create a copy of WalletModel
   /// with the given fields replaced by the non-null parameter values.
@@ -354,17 +386,18 @@ class _$WalletModelImpl implements _WalletModel {
 
 abstract class _WalletModel implements WalletModel {
   const factory _WalletModel(
-          {required final int id,
-          required final int userId,
-          required final int totalCredits,
-          required final int creditsCollectedToday,
-          final DateTime? createdAt,
-          final DateTime? updatedAt,
-          required final CreditsSourceModel creditsSource,
-          @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)
-          required final CurrencyExchangeModel currencyExchange,
-          required final AccountDevelopmentModel accountDevelopment}) =
-      _$WalletModelImpl;
+      {required final int id,
+      required final int userId,
+      required final int totalCredits,
+      required final int creditsCollectedToday,
+      final DateTime? createdAt,
+      final DateTime? updatedAt,
+      required final CreditsSourceModel creditsSource,
+      @JsonKey(fromJson: CurrencyExchangeModel.fromJsonStatic)
+      required final CurrencyExchangeModel currencyExchange,
+      required final AccountDevelopmentModel accountDevelopment,
+      @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
+      final Map<DateTime, double>? tokensPerDay}) = _$WalletModelImpl;
 
   factory _WalletModel.fromJson(Map<String, dynamic> json) =
       _$WalletModelImpl.fromJson;
@@ -388,6 +421,9 @@ abstract class _WalletModel implements WalletModel {
   CurrencyExchangeModel get currencyExchange;
   @override
   AccountDevelopmentModel get accountDevelopment;
+  @override
+  @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
+  Map<DateTime, double>? get tokensPerDay;
 
   /// Create a copy of WalletModel
   /// with the given fields replaced by the non-null parameter values.

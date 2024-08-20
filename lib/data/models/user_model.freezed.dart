@@ -37,10 +37,7 @@ mixin _$UserModel {
   int? get amountFollower =>
       throw _privateConstructorUsedError; // corrected field name and default to 0
   List<PostModel>? get posts => throw _privateConstructorUsedError;
-  bool? get isFollowing =>
-      throw _privateConstructorUsedError; // corrected field name
-  @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
-  Map<DateTime, double>? get tokensPerDay => throw _privateConstructorUsedError;
+  bool? get isFollowing => throw _privateConstructorUsedError;
 
   /// Serializes this UserModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -71,9 +68,7 @@ abstract class $UserModelCopyWith<$Res> {
       int? amountFollowed,
       int? amountFollower,
       List<PostModel>? posts,
-      bool? isFollowing,
-      @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
-      Map<DateTime, double>? tokensPerDay});
+      bool? isFollowing});
 }
 
 /// @nodoc
@@ -105,7 +100,6 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? amountFollower = freezed,
     Object? posts = freezed,
     Object? isFollowing = freezed,
-    Object? tokensPerDay = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -164,10 +158,6 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.isFollowing
           : isFollowing // ignore: cast_nullable_to_non_nullable
               as bool?,
-      tokensPerDay: freezed == tokensPerDay
-          ? _value.tokensPerDay
-          : tokensPerDay // ignore: cast_nullable_to_non_nullable
-              as Map<DateTime, double>?,
     ) as $Val);
   }
 }
@@ -194,9 +184,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
       int? amountFollowed,
       int? amountFollower,
       List<PostModel>? posts,
-      bool? isFollowing,
-      @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
-      Map<DateTime, double>? tokensPerDay});
+      bool? isFollowing});
 }
 
 /// @nodoc
@@ -226,7 +214,6 @@ class __$$UserModelImplCopyWithImpl<$Res>
     Object? amountFollower = freezed,
     Object? posts = freezed,
     Object? isFollowing = freezed,
-    Object? tokensPerDay = freezed,
   }) {
     return _then(_$UserModelImpl(
       id: null == id
@@ -285,10 +272,6 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.isFollowing
           : isFollowing // ignore: cast_nullable_to_non_nullable
               as bool?,
-      tokensPerDay: freezed == tokensPerDay
-          ? _value._tokensPerDay
-          : tokensPerDay // ignore: cast_nullable_to_non_nullable
-              as Map<DateTime, double>?,
     ));
   }
 }
@@ -311,11 +294,8 @@ class _$UserModelImpl implements _UserModel {
       this.amountFollowed,
       this.amountFollower,
       final List<PostModel>? posts,
-      this.isFollowing,
-      @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
-      final Map<DateTime, double>? tokensPerDay})
-      : _posts = posts,
-        _tokensPerDay = tokensPerDay;
+      this.isFollowing})
+      : _posts = posts;
 
   factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserModelImplFromJson(json);
@@ -362,22 +342,10 @@ class _$UserModelImpl implements _UserModel {
 
   @override
   final bool? isFollowing;
-// corrected field name
-  final Map<DateTime, double>? _tokensPerDay;
-// corrected field name
-  @override
-  @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
-  Map<DateTime, double>? get tokensPerDay {
-    final value = _tokensPerDay;
-    if (value == null) return null;
-    if (_tokensPerDay is EqualUnmodifiableMapView) return _tokensPerDay;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
 
   @override
   String toString() {
-    return 'UserModel(id: $id, username: $username, imgUrl: $imgUrl, email: $email, verified: $verified, createdAt: $createdAt, updatedAt: $updatedAt, verificationToken: $verificationToken, biograph: $biograph, amountPosts: $amountPosts, amountFollowed: $amountFollowed, amountFollower: $amountFollower, posts: $posts, isFollowing: $isFollowing, tokensPerDay: $tokensPerDay)';
+    return 'UserModel(id: $id, username: $username, imgUrl: $imgUrl, email: $email, verified: $verified, createdAt: $createdAt, updatedAt: $updatedAt, verificationToken: $verificationToken, biograph: $biograph, amountPosts: $amountPosts, amountFollowed: $amountFollowed, amountFollower: $amountFollower, posts: $posts, isFollowing: $isFollowing)';
   }
 
   @override
@@ -408,9 +376,7 @@ class _$UserModelImpl implements _UserModel {
                 other.amountFollower == amountFollower) &&
             const DeepCollectionEquality().equals(other._posts, _posts) &&
             (identical(other.isFollowing, isFollowing) ||
-                other.isFollowing == isFollowing) &&
-            const DeepCollectionEquality()
-                .equals(other._tokensPerDay, _tokensPerDay));
+                other.isFollowing == isFollowing));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -430,8 +396,7 @@ class _$UserModelImpl implements _UserModel {
       amountFollowed,
       amountFollower,
       const DeepCollectionEquality().hash(_posts),
-      isFollowing,
-      const DeepCollectionEquality().hash(_tokensPerDay));
+      isFollowing);
 
   /// Create a copy of UserModel
   /// with the given fields replaced by the non-null parameter values.
@@ -464,9 +429,7 @@ abstract class _UserModel implements UserModel {
       final int? amountFollowed,
       final int? amountFollower,
       final List<PostModel>? posts,
-      final bool? isFollowing,
-      @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
-      final Map<DateTime, double>? tokensPerDay}) = _$UserModelImpl;
+      final bool? isFollowing}) = _$UserModelImpl;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$UserModelImpl.fromJson;
@@ -498,10 +461,7 @@ abstract class _UserModel implements UserModel {
   @override
   List<PostModel>? get posts;
   @override
-  bool? get isFollowing; // corrected field name
-  @override
-  @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
-  Map<DateTime, double>? get tokensPerDay;
+  bool? get isFollowing;
 
   /// Create a copy of UserModel
   /// with the given fields replaced by the non-null parameter values.

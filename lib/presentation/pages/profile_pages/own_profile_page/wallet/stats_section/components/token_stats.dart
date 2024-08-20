@@ -14,7 +14,7 @@ class TokenStats extends StatelessWidget {
       children: [
         Text(
             walletSheetProvider
-                .formatDigits(walletSheetProvider.wallet.totalCredits),
+                .formatDigits(walletSheetProvider.wallet!.totalCredits),
             style: Theme.of(context)
                 .textTheme
                 .bodySmall!
@@ -31,7 +31,7 @@ class TokenStats extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
           child: Text(
               walletSheetProvider.formatDigits(
-                  walletSheetProvider.wallet.creditsCollectedToday),
+                  walletSheetProvider.wallet!.creditsCollectedToday),
               style: Theme.of(context)
                   .textTheme
                   .bodySmall!
