@@ -91,7 +91,8 @@ class _WithdrawTokensBottomSheetState extends State<WithdrawTokensBottomSheet> {
   }
 
   void _onMaxAmountTapped() {
-    final tokenAmount = context.read<WalletSheetProvider>().wallet.totalCredits;
+    final tokenAmount =
+        context.read<WalletSheetProvider>().wallet!.totalCredits;
     _cashOutAmountController.text = '$tokenAmount Tokens';
   }
 
@@ -254,7 +255,7 @@ class _WithdrawTokensBottomSheetState extends State<WithdrawTokensBottomSheet> {
                                     padding: const EdgeInsets.only(
                                         left: AppPaddings.small),
                                     child: Text(
-                                        '1 Token = ${provider.currencyExchange.creditValue}',
+                                        '1 Token = ${provider.wallet!.currencyExchange.creditValue}',
                                         style: Theme.of(context)
                                             .textTheme
                                             .headlineSmall!));

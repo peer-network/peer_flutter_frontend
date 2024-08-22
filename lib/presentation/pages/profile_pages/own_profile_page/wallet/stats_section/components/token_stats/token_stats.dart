@@ -17,7 +17,7 @@ class TokenStats extends StatelessWidget {
             isConversion: false,
             isPercentage: false,
             value: walletSheetProvider
-                .formatDigits(walletSheetProvider.wallet.totalCredits)),
+                .formatDigits(walletSheetProvider.wallet!.totalCredits)),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: AppPaddings.tiny),
           child: Text('Your current Token Count',
@@ -32,7 +32,7 @@ class TokenStats extends StatelessWidget {
               isConversion: true,
               isPercentage: false,
               value: walletSheetProvider.formatDigits(
-                  walletSheetProvider.wallet.creditsCollectedToday)),
+                  walletSheetProvider.wallet!.creditsCollectedToday)),
         ),
         Text('Gems earned Today',
             style: Theme.of(context)
@@ -44,8 +44,9 @@ class TokenStats extends StatelessWidget {
             child: TokenLabel(
                 isConversion: false,
                 isPercentage: true,
-                value: walletSheetProvider.wallet.percentageOfTotalTokens
-                    .toString())),
+                value: //walletSheetProvider.wallet.percentageOfTotalTokens
+                    //.toString()
+                    '0.0')),
         Text('of all Peer Tokens are currently yours',
             style: Theme.of(context)
                 .textTheme

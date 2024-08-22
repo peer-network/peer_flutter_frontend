@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/data/models/credit_source_model.dart';
 import 'package:provider/provider.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
-import 'package:peer_app/data/models/wallet_model/credits_source_model.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/credits_source_section.dart/components/source_bar.dart';
 
 class SourceList extends StatelessWidget {
@@ -48,18 +48,20 @@ class SourceList extends StatelessWidget {
   Widget build(BuildContext context) {
     WalletSheetProvider walletSheetProvider =
         Provider.of<WalletSheetProvider>(context);
-    List<double> widthValues =
-        calculateCreditSourcePercentage(walletSheetProvider.creditsSource);
+    List<double> widthValues = calculateCreditSourcePercentage(
+        walletSheetProvider.wallet!.creditsSource);
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: walletSheetProvider.creditsSource.items.length,
+        itemCount: walletSheetProvider.wallet!.creditsSource.items.length,
         itemBuilder: (context, index) {
           return Align(
             alignment: Alignment.centerLeft,
             child: SourceBar(
-                label: walletSheetProvider.creditsSource.items[index].label,
-                amount: walletSheetProvider.creditsSource.items[index].amount,
+                label: walletSheetProvider
+                    .wallet!.creditsSource.items[index].label,
+                amount: walletSheetProvider
+                    .wallet!.creditsSource.items[index].amount,
                 // TODO: Idk this ain't it tbh there has to be another formula
                 width: widthValues[index] * 5 + 50),
           );

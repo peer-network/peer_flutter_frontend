@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/chart_data/line_chart.dart';
 import 'package:provider/provider.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
-import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/line_chart.dart';
 
 class BalancePerDay extends StatelessWidget {
   const BalancePerDay({super.key});
@@ -33,7 +33,8 @@ class BalancePerDay extends StatelessWidget {
           child: Align(
             alignment: Alignment.centerLeft,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: AppPaddings.small),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: AppPaddings.small),
               decoration: BoxDecoration(
                 color: Theme.of(context).brightness == Brightness.light
                     ? LightColors.textBright
@@ -43,7 +44,7 @@ class BalancePerDay extends StatelessWidget {
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  '1 Credit = ${walletSheetProvider.currencyExchange!.creditValue}€',
+                  '1 Credit = ${walletSheetProvider.wallet!.currencyExchange.creditValue}€',
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
               ),
@@ -51,11 +52,13 @@ class BalancePerDay extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: AppPaddings.large, top: AppPaddings.small),
+          padding: const EdgeInsets.only(
+              left: AppPaddings.large, top: AppPaddings.small),
           child: Align(
             alignment: Alignment.centerLeft,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: AppPaddings.small),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: AppPaddings.small),
               decoration: BoxDecoration(
                 color: Theme.of(context).brightness == Brightness.light
                     ? LightColors.textBright
@@ -65,7 +68,7 @@ class BalancePerDay extends StatelessWidget {
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  'Gesamtzahl Credits = ${walletSheetProvider.formatDigits(walletSheetProvider.currencyExchange!.totalCreditsInSystem)}',
+                  'Gesamtzahl Credits = ${walletSheetProvider.formatDigits(walletSheetProvider.wallet!.currencyExchange.totalCreditsInSystem)}',
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
               ),

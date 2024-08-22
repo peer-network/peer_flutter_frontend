@@ -25,11 +25,11 @@ class ExchangeRate extends StatelessWidget {
         const SizedBox(height: AppPaddings.small),
         ExchangeRateLabel(
             labelText:
-                '1 Peer Token ≈ ${walletSheetProvider.currencyExchange.creditValue.toString()}€'),
+                '1 Peer Token ≈ ${walletSheetProvider.wallet!.currencyExchange.creditValue.toString()}€'),
         const SizedBox(height: AppPaddings.small),
         ExchangeRateLabel(
             labelText:
-                'Peer Token total = ${walletSheetProvider.formatDigits(walletSheetProvider.currencyExchange.totalCreditsInSystem)}'),
+                'Peer Token total = ${walletSheetProvider.formatDigits(walletSheetProvider.wallet!.currencyExchange.totalCreditsInSystem)}'),
         const CustomLineChart(),
       ],
     );

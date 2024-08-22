@@ -41,7 +41,7 @@ class TokenLabel extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: AppPaddings.small),
                 child: Text(
-                    '~${calculateGemToTokenConversion(int.parse(value), walletSheetProvider.currencyExchange.creditValue)}',
+                    '~${calculateGemToTokenConversion(int.parse(value), walletSheetProvider.wallet!.currencyExchange.creditValue)}',
                     style: Theme.of(context).textTheme.displayLarge!.copyWith(
                         color: Theme.of(context).colorScheme.secondary)),
               )
