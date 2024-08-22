@@ -1,9 +1,13 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:peer_app/core/types/create_post_type.dart';
 import 'package:peer_app/presentation/pages/create_post_page/create_post_bottom_navbar.dart';
+import 'package:peer_app/presentation/pages/create_post_page/empty_image_body_create_post.dart';
+import 'package:peer_app/presentation/pages/create_post_page/image_body_create_post.dart';
 import 'package:peer_app/presentation/pages/create_post_page/new/tab_item.dart';
 import 'package:peer_app/presentation/pages/create_post_page/text_body_create_post.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
+import 'package:peer_app/presentation/whitelabel/components/types/aspect_ratios.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
@@ -17,6 +21,7 @@ class CreatePost extends StatefulWidget {
 
 class _CreatePostState extends State<CreatePost> {
   CreatePostType activeCreatePostType = CreatePostType.image;
+  ImageAspectRatios activeImageAspectRatio = ImageAspectRatios.square;
   PageController postTypeController = PageController();
   PageController textPostController = PageController();
   ValueNotifier<bool> isPostComplete = ValueNotifier<bool>(false);
@@ -28,6 +33,9 @@ class _CreatePostState extends State<CreatePost> {
   final FocusNode tagFocusNode = FocusNode();
   ValueNotifier<bool> isPostBeingCreated = ValueNotifier<bool>(false);
   bool isTextPostControllerInitialized = false; // Flag to track initialization
+  List<PlatformFile> images = [];
+  final TextEditingController imageDescriptionController =
+      TextEditingController();
 
   @override
   void initState() {
@@ -133,7 +141,8 @@ class _CreatePostState extends State<CreatePost> {
           Expanded(
             child: TabBarView(
               children: [
-                Text('image'),
+                Text('ima'),
+                //ImageBodyCreatePost(pickImages: pickImages, images: images, controller: controller, activeImageAspectRatio: activeImageAspectRatio, onAspectRatioChanged: onAspectRatioChanged, removeImage: removeImage, addImages: addImages)
                 TextBodyCreatePost(
                     isPostComplete: isPostComplete,
                     pageViewController: textPostController,
