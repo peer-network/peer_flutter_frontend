@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:peer_app/data/models/currency_exchange_model.dart';
 import '/data/models/credit_source_model.dart';
 import '/data/models/account_development_model.dart';
 
@@ -29,8 +30,8 @@ class WalletModel with _$WalletModel {
 // Custom fromJson method to handle nullable Map<DateTime, double>
 Map<DateTime, double>? _tokensPerDayFromJson(Map<String, dynamic>? json) {
   if (json == null) return null;
-  return json.map((key, value) =>
-      MapEntry(DateTime.parse(key), (value as num).toDouble()));
+  return json.map(
+      (key, value) => MapEntry(DateTime.parse(key), (value as num).toDouble()));
 }
 
 // Custom toJson method to handle nullable Map<DateTime, double>
