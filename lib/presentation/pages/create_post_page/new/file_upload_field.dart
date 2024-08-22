@@ -49,9 +49,8 @@ class _FileUploadFieldState extends State<FileUploadField> {
           color: Theme.of(context).inputDecorationTheme.fillColor,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-              color:
-                  Theme.of(context).inputDecorationTheme.outlineBorder!.color,
-              width: 2),
+            color: Theme.of(context).inputDecorationTheme.outlineBorder!.color,
+          ),
         ),
         child: Center(
           child: _result == null && _result?.files.single.path == null
