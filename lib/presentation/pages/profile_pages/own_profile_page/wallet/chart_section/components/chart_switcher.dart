@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/account_development.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/balance_per_day.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/data/dummy_response/dummy_wallet.dart';
 import 'package:peer_app/data/models/wallet_model.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/labels/exchange_rate.dart'; 
 
 class ChartSwitcher extends StatefulWidget {
   final double maxHeight;
@@ -43,6 +45,7 @@ class _ChartSwitcherState extends State<ChartSwitcher> {
           child: PageView(
             controller: _pageViewController,
             children: [
+              ExchangeRate(),
               BalancePerDay(tokensPerDay: tokensPerDay),
             ],
             onPageChanged: (page) {
@@ -55,7 +58,7 @@ class _ChartSwitcherState extends State<ChartSwitcher> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(
-            1,
+            2,
             (index) => GestureDetector(
               onTap: () => changePage(index),
               child: AnimatedContainer(

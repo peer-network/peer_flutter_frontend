@@ -30,9 +30,8 @@ class ExchangeRate extends StatelessWidget {
         ExchangeRateLabel(
             labelText:
                 'Peer Token total = ${walletSheetProvider.formatDigits(walletSheetProvider.wallet!.currencyExchange.totalCreditsInSystem)}'),
-        const CustomLineChart(),
+        //const CustomLineChart(),
       ],
     );
   }
 }
-// 
