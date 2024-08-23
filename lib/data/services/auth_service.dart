@@ -1,14 +1,10 @@
 // auth_service.dart
 
-import 'package:peer_app/presentation/whitelabel/endpoints.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:peer_app/core/exceptions/base_exception.dart';
 
-import 'dio_client.dart';
-
 class AuthService {
-  final DioClient _dioClient = DioClient();
-  String? error;
+  /*String? error;
 
   Future<bool> loginWithCredentials(String email, String password) async {
     try {
@@ -65,5 +61,5 @@ class AuthService {
   Future<String?> _getToken() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('auth_token');
-  }
+  }*/
 }

@@ -13,6 +13,7 @@ class AuthProvider extends ChangeNotifier {
 
   AuthStates get authState => _authState;
 
+  /*
   loginWithCredentials(String email, String password) async {
     _authState = AuthStates.loading;
     notifyListeners();
@@ -42,5 +43,5 @@ class AuthProvider extends ChangeNotifier {
   logout() {
     _authState = AuthStates.unauthenticated;
     notifyListeners();
-  }
+  }*/
 }

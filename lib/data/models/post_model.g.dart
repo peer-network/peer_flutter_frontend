@@ -10,7 +10,7 @@ _$TextPostImpl _$$TextPostImplFromJson(Map<String, dynamic> json) =>
     _$TextPostImpl(
       id: json['id'] as String,
       title: json['title'] as String,
-      content: json['content'] as String,
+      media: json['media'] as String,
       user: UserModel.fromJson(json['user'] as Map<String, dynamic>),
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: json['updatedAt'] == null
@@ -35,7 +35,7 @@ _$TextPostImpl _$$TextPostImplFromJson(Map<String, dynamic> json) =>
       gemsShares: (json['gemsShares'] as num?)?.toInt(),
       gemsComments: (json['gemsComments'] as num?)?.toInt(),
       likesPerDay:
-          _likesPerDayFromJson(json['likesPerDay'] as Map<String, dynamic>),
+          _likesPerDayFromJson(json['likesPerDay'] as Map<String, dynamic>?),
       $type: json['runtimeType'] as String?,
     );
 
@@ -43,7 +43,7 @@ Map<String, dynamic> _$$TextPostImplToJson(_$TextPostImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
-      'content': instance.content,
+      'media': instance.media,
       'user': instance.user.toJson(),
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
@@ -101,7 +101,7 @@ _$ImagePostImpl _$$ImagePostImplFromJson(Map<String, dynamic> json) =>
       gemsShares: (json['gemsShares'] as num?)?.toInt(),
       gemsComments: (json['gemsComments'] as num?)?.toInt(),
       likesPerDay:
-          _likesPerDayFromJson(json['likesPerDay'] as Map<String, dynamic>),
+          _likesPerDayFromJson(json['likesPerDay'] as Map<String, dynamic>?),
       $type: json['runtimeType'] as String?,
     );
 
@@ -163,7 +163,7 @@ _$VideoPostImpl _$$VideoPostImplFromJson(Map<String, dynamic> json) =>
       gemsShares: (json['gemsShares'] as num?)?.toInt(),
       gemsComments: (json['gemsComments'] as num?)?.toInt(),
       likesPerDay:
-          _likesPerDayFromJson(json['likesPerDay'] as Map<String, dynamic>),
+          _likesPerDayFromJson(json['likesPerDay'] as Map<String, dynamic>?),
       $type: json['runtimeType'] as String?,
     );
 

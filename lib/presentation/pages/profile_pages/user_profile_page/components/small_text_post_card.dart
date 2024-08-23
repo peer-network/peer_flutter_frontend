@@ -51,7 +51,7 @@ class SmallTextPostCard extends StatelessWidget {
                   LayoutBuilder(
                     builder: (context, constraints) {
                       final textSpan = TextSpan(
-                        text: (post as TextPost).content,
+                        text: (post as TextPost).media,
                         style: Theme.of(context).textTheme.bodyMedium,
                       );
                       final textPainter = TextPainter(
@@ -68,7 +68,7 @@ class SmallTextPostCard extends StatelessWidget {
                         children: [
                           RichText(
                             text: TextSpan(
-                              text: (post as TextPost).content,
+                              text: (post as TextPost).media,
                               style: Theme.of(context).textTheme.bodyMedium,
                             ),
                             maxLines: 5,

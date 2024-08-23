@@ -82,22 +82,23 @@ class _LoginSectionState extends State<LoginSection> {
                 text: 'Login',
                 textColor: Theme.of(context).colorScheme.secondary,
                 onPressed: () {
-                  final authProvider =
+                  /*final authProvider =
                       Provider.of<AuthProvider>(context, listen: false);
-                  authProvider
+                   authProvider
                       .loginWithCredentials(
                     emailController.text,
                     passwordController.text,
                   )
                       .then((value) {
                     if (authProvider.authState == AuthStates.authenticated) {
-                      Navigator.of(context).push(PeerPageRoute());
+                      
                     } else {
                       setState(() {
                         error = 'Invalid email or password';
                       });
                     }
-                  });
+                  });*/
+                  Navigator.of(context).push(PeerPageRoute());
                 },
               ),
             ),

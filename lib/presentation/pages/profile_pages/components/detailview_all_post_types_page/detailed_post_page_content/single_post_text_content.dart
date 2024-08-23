@@ -27,7 +27,7 @@ class SinglePostTextContent extends StatelessWidget {
               ),
               const SizedBox(height: AppPaddings.medium),
               Text(
-                (post as TextPost).content,
+                (post as TextPost).media,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               const SizedBox(height: AppPaddings.medium),

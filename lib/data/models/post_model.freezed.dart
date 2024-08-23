@@ -33,6 +33,7 @@ PostModel _$PostModelFromJson(Map<String, dynamic> json) {
 mixin _$PostModel {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  Object get media => throw _privateConstructorUsedError;
   UserModel get user => throw _privateConstructorUsedError; // user in json
   DateTime get createdAt => throw _privateConstructorUsedError;
   bool get isLiked => throw _privateConstructorUsedError;
@@ -58,7 +59,7 @@ mixin _$PostModel {
     required TResult Function(
             String id,
             String title,
-            String content,
+            String media,
             UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
@@ -142,7 +143,7 @@ mixin _$PostModel {
     TResult? Function(
             String id,
             String title,
-            String content,
+            String media,
             UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
@@ -226,7 +227,7 @@ mixin _$PostModel {
     TResult Function(
             String id,
             String title,
-            String content,
+            String media,
             UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
@@ -509,7 +510,7 @@ abstract class _$$TextPostImplCopyWith<$Res>
   $Res call(
       {String id,
       String title,
-      String content,
+      String media,
       UserModel user,
       DateTime createdAt,
       DateTime? updatedAt,
@@ -549,7 +550,7 @@ class __$$TextPostImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? content = null,
+    Object? media = null,
     Object? user = null,
     Object? createdAt = null,
     Object? updatedAt = freezed,
@@ -580,9 +581,9 @@ class __$$TextPostImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      content: null == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
+      media: null == media
+          ? _value.media
+          : media // ignore: cast_nullable_to_non_nullable
               as String,
       user: null == user
           ? _value.user
@@ -675,7 +676,7 @@ class _$TextPostImpl implements TextPost {
   const _$TextPostImpl(
       {required this.id,
       required this.title,
-      required this.content,
+      required this.media,
       required this.user,
       required this.createdAt,
       this.updatedAt,
@@ -710,7 +711,7 @@ class _$TextPostImpl implements TextPost {
   @override
   final String title;
   @override
-  final String content;
+  final String media;
   @override
   final UserModel user;
 // user in json
@@ -774,7 +775,7 @@ class _$TextPostImpl implements TextPost {
 
   @override
   String toString() {
-    return 'PostModel.text(id: $id, title: $title, content: $content, user: $user, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, gemsTotal: $gemsTotal, gemsToday: $gemsToday, gemsAllTimeHigh: $gemsAllTimeHigh, gemsLikes: $gemsLikes, gemsViews: $gemsViews, gemsShares: $gemsShares, gemsComments: $gemsComments, likesPerDay: $likesPerDay)';
+    return 'PostModel.text(id: $id, title: $title, media: $media, user: $user, createdAt: $createdAt, updatedAt: $updatedAt, isLiked: $isLiked, isViewed: $isViewed, isReported: $isReported, isDisliked: $isDisliked, isSaved: $isSaved, comments: $comments, amountComments: $amountComments, amountLikes: $amountLikes, amountViews: $amountViews, gemsTotal: $gemsTotal, gemsToday: $gemsToday, gemsAllTimeHigh: $gemsAllTimeHigh, gemsLikes: $gemsLikes, gemsViews: $gemsViews, gemsShares: $gemsShares, gemsComments: $gemsComments, likesPerDay: $likesPerDay)';
   }
 
   @override
@@ -784,7 +785,7 @@ class _$TextPostImpl implements TextPost {
             other is _$TextPostImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.content, content) || other.content == content) &&
+            (identical(other.media, media) || other.media == media) &&
             (identical(other.user, user) || other.user == user) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -829,7 +830,7 @@ class _$TextPostImpl implements TextPost {
         runtimeType,
         id,
         title,
-        content,
+        media,
         user,
         createdAt,
         updatedAt,
@@ -864,7 +865,7 @@ class _$TextPostImpl implements TextPost {
     required TResult Function(
             String id,
             String title,
-            String content,
+            String media,
             UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
@@ -945,7 +946,7 @@ class _$TextPostImpl implements TextPost {
     return text(
         id,
         title,
-        content,
+        media,
         user,
         createdAt,
         updatedAt,
@@ -974,7 +975,7 @@ class _$TextPostImpl implements TextPost {
     TResult? Function(
             String id,
             String title,
-            String content,
+            String media,
             UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
@@ -1055,7 +1056,7 @@ class _$TextPostImpl implements TextPost {
     return text?.call(
         id,
         title,
-        content,
+        media,
         user,
         createdAt,
         updatedAt,
@@ -1084,7 +1085,7 @@ class _$TextPostImpl implements TextPost {
     TResult Function(
             String id,
             String title,
-            String content,
+            String media,
             UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
@@ -1167,7 +1168,7 @@ class _$TextPostImpl implements TextPost {
       return text(
           id,
           title,
-          content,
+          media,
           user,
           createdAt,
           updatedAt,
@@ -1238,7 +1239,7 @@ abstract class TextPost implements PostModel {
   const factory TextPost(
       {required final String id,
       required final String title,
-      required final String content,
+      required final String media,
       required final UserModel user,
       required final DateTime createdAt,
       final DateTime? updatedAt,
@@ -1268,7 +1269,8 @@ abstract class TextPost implements PostModel {
   String get id;
   @override
   String get title;
-  String get content;
+  @override
+  String get media;
   @override
   UserModel get user;
   @override // user in json
@@ -1713,7 +1715,7 @@ class _$ImagePostImpl implements ImagePost {
     required TResult Function(
             String id,
             String title,
-            String content,
+            String media,
             UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
@@ -1825,7 +1827,7 @@ class _$ImagePostImpl implements ImagePost {
     TResult? Function(
             String id,
             String title,
-            String content,
+            String media,
             UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
@@ -1937,7 +1939,7 @@ class _$ImagePostImpl implements ImagePost {
     TResult Function(
             String id,
             String title,
-            String content,
+            String media,
             UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
@@ -2128,6 +2130,7 @@ abstract class ImagePost implements PostModel {
   @override
   UserModel get user;
   String get mediaDescription;
+  @override
   List<String> get media;
   @override
   DateTime get createdAt;
@@ -2540,7 +2543,7 @@ class _$VideoPostImpl implements VideoPost {
     required TResult Function(
             String id,
             String title,
-            String content,
+            String media,
             UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
@@ -2650,7 +2653,7 @@ class _$VideoPostImpl implements VideoPost {
     TResult? Function(
             String id,
             String title,
-            String content,
+            String media,
             UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
@@ -2760,7 +2763,7 @@ class _$VideoPostImpl implements VideoPost {
     TResult Function(
             String id,
             String title,
-            String content,
+            String media,
             UserModel user,
             DateTime createdAt,
             DateTime? updatedAt,
@@ -2944,6 +2947,7 @@ abstract class VideoPost implements PostModel {
   String get id;
   @override
   String get title;
+  @override
   String get media;
   String get mediaDescription;
   @override

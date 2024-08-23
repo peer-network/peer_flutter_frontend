@@ -11,7 +11,7 @@ class AuthWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthProvider authProvider =
+    /* AuthProvider authProvider =
         Provider.of<AuthProvider>(context, listen: false);
     Future<void> validateAuthToken() async {
       await authProvider.loginWithToken();
@@ -32,6 +32,7 @@ class AuthWrapper extends StatelessWidget {
           }
         }
       },
-    );
+    );*/
+    return const LoginPage(); // User is not logged in
   }
 }

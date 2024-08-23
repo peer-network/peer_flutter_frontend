@@ -18,12 +18,12 @@ class GraphQLClientSingleton {
   void _initClient() {
     final AuthLink authLink = AuthLink(
       getToken: () async {
-        return null;
+        return 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJwZWVyYXBwLmRlIiwiYXVkIjoicGVlcmFwcC5kZSIsInVpZCI6IjBjZjYzZTFlLTM5NzItNGU2MS04Yjg1LThkNWZiOGZiYTcwYyIsImlhdCI6MTcyNDQxMDgwOCwiZXhwIjoxNzI1MDE1NjA4fQ.R2fkAxe0TFauhOwaCtxqA4LueNXG65n3HBrV-xqdh4YhEn9lBtUQ9hiheEiNqWYZXugGORU6u1i0wgJZAYZvB-dmy_uK_WLV5UtvhnSvISHCIHkHS4PknlieCpm0b5ouDgley2ij7hHhUmID-HMCFFIGlT5nhfLlUAK4D-Q88Qq3zPTRHWQ1k6Y9Aj63tO8NkOtbjhKWRBTlJz7xPUHitUbWhZ73r6sP7VSk92uG92wVXWcJlSYiQpEHMDzcuOjTjE-W6X8kAjmu5M7sWVoZDU7Y2ybE8j4HnVLV4wIhhayxAymnhc8RBbrXn5_VdcLo89hBceMj9rvqvrHNIIOEtw';
       },
     );
 
     final HttpLink httpLink = HttpLink(
-      'https://staging.peerapp.de',
+      'http://10.10.121.78:8888/graphql',
     );
 
     final Link link = authLink.concat(httpLink);

@@ -6,7 +6,8 @@ class Queries {
   //? should comments be pulled when fetching posts? comments {} are excluded for now
   //? verficationToken - is this necessary in the user model when pulling posts?
 
-  static final posts = gql("""
+  // old query
+  /*static final posts = gql("""
 query GetAllPosts {
     getAllPosts {
         id
@@ -49,6 +50,33 @@ query GetAllPosts {
           amount
         }
         
+    }
+}
+""");*/
+
+  static final posts = gql("""
+query Getallposts {
+    getallposts {
+        id
+        contenttype
+        title
+        media
+        mediadescription
+        createdat
+        amountlikes
+        amountviews
+        amountcomments
+        isliked
+        isviewed
+        isreported
+        isdisliked
+        issaved
+        user {
+            id
+            username
+            img
+            isfollowed
+        }
     }
 }
 """);

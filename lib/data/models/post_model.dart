@@ -12,7 +12,7 @@ class PostModel with _$PostModel {
   const factory PostModel.text({
     required String id,
     required String title,
-    required String content,
+    required String media,
     required UserModel user, // user in json
     required DateTime createdAt,
     DateTime? updatedAt,
@@ -101,12 +101,12 @@ class PostModel with _$PostModel {
       _$PostModelFromJson(json);
 }
 
-Map<DateTime, double>? _likesPerDayFromJson(Map<String, dynamic> json) =>
-    json.map((key, value) =>
+Map<DateTime, double>? _likesPerDayFromJson(Map<String, dynamic>? json) =>
+    json?.map((key, value) =>
         MapEntry(DateTime.parse(key), (value as num).toDouble()));
 
-Map<String, double> _likesPerDayToJson(Map<DateTime, double>? map) =>
-    map!.map((key, value) => MapEntry(key.toIso8601String(), value));
+Map<String, double>? _likesPerDayToJson(Map<DateTime, double>? map) =>
+    map?.map((key, value) => MapEntry(key.toIso8601String(), value));
 
 class ImageAspectRatioConverter
     implements JsonConverter<ImageAspectRatios, String> {

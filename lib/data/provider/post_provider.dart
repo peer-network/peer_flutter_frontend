@@ -28,14 +28,11 @@ class PostProvider with ChangeNotifier {
     isLoading = true;
     notifyListeners();
 
-    //TODO: write dummy query for fetching posts, using dummy data until api is ready
-
     final queryOption = QueryOptions(
       document: Queries.posts,
       fetchPolicy: FetchPolicy.networkOnly,
     );
 
-    /*
     try {
       QueryResult<Object?> queryResult = await gqlClient.query(queryOption);
 
@@ -55,36 +52,67 @@ class PostProvider with ChangeNotifier {
 
       print(responseFeed.toString());
       try {
-        _posts.addAll(
-          List<PostModel>.from(
-            responseFeed["getAllPosts"].map(
-              (postJson) {
-                postJson["runtimeType"] = postJson["contentType"];
+        final responseFeedJson = responseFeed["getallposts"] as List<dynamic>;
 
-                if (!(postJson["runtimeType"] == "video")) {
-                  String temp = postJson["media"];
-                  postJson["media"] = [temp];
-                  //(postJson["media"] == List) ? temp : [temp];
+        _posts = responseFeedJson
+            .map((post) {
+              // Handle nested user object first
+              final user = Map<String, dynamic>.from(
+                  post['user'] as Map<String, dynamic>)
+                ..['imgUrl'] = post['user']['img']
+                ..['isFollowing'] = post['user']['isfollowed']
+                ..remove('img')
+                ..remove('isfollowed');
+
+              // Clone the main post map and rename fields
+              final modifiedPost = Map<String, dynamic>.from(post)
+                ..['runtimeType'] = post['contenttype']
+                ..['createdAt'] = post['createdat']
+                ..['isLiked'] = post['isliked']
+                ..['isViewed'] = post['isviewed']
+                ..['isReported'] = post['isreported']
+                ..['isSaved'] = post['issaved']
+                ..['amountComments'] = post['amountcomments']
+                ..['amountLikes'] = post['amountlikes']
+                ..['amountViews'] = post['amountviews']
+                ..['isDisliked'] = post['isdisliked']
+                ..remove('contenttype')
+                ..remove('createdat')
+                ..remove('isliked')
+                ..remove('isviewed')
+                ..remove('isreported')
+                ..remove('issaved')
+                ..remove('amountcomments')
+                ..remove('amountlikes')
+                ..remove('amountviews')
+                ..remove('isdisliked');
+
+              if (post['contenttype'] == "text") {
+                modifiedPost['media'] = post['media'];
+              } else {
+                modifiedPost['mediaDescription'] = post['mediadescription'];
+
+                modifiedPost['media'] = post['media']
+                    .toString()
+                    .replaceAll('[', '')
+                    .replaceAll(']', '')
+                    .replaceAll('\\', '')
+                    .replaceAll('"', '')
+                    .split(",");
+
+                List<String> urls = modifiedPost["media"];
+
+                for (int i = 0; i < urls.length; i++) {
+                  modifiedPost['media'][i] =
+                      "http://10.10.121.78:8888/runtime-data${urls[i]}";
                 }
+              }
 
-                return PostModel.fromJson(postJson);
-              },
-            ),
-          ),
-        );
-
-        // Append the dummy post with comments
-        try {
-          PostModel dummyPost =
-              PostModel.fromJson(postWithComments); // Create dummy post
-
-          print("Dummy post: $dummyPost");
-
-          _posts.add(dummyPost); // Append dummy post
-          print(dummyPost); // Print the appended dummy post
-        } catch (e) {
-          print("error in new dummy try");
-        }
+              // Convert the modified json to PostModel
+              return PostModel.fromJson(modifiedPost);
+            })
+            .where((post) => post.runtimeType != VideoPost)
+            .toList();
       } catch (e, s) {
         error = e.toString();
         CustomException(e.toString(), s).handleError();
@@ -96,16 +124,21 @@ class PostProvider with ChangeNotifier {
     isLoading = false;
 
     notifyListeners();
-    */
+  }
 
-    // new dummy data posts
+  List<String> _processTextMedia(dynamic media) {
+    // Use json.decode to decode the media string into a List<String>
+    return List<String>.from(json.decode(media));
+  }
 
-    _posts = postWithPerformanceDummyData
-        .map((post) => PostModel.fromJson(post))
+  List<String> _processImageMedia(dynamic media) {
+    // Decode the JSON-encoded media string
+    List<String> urls = List<String>.from(json.decode(media));
+
+    // Prefix each URL with the base URL
+    return urls
+        .map((url) => "http://10.10.121.78:8888/runtime-data$url")
         .toList();
-
-    isLoading = false;
-    notifyListeners();
   }
 
   PostModel? getPostById(String id) {
@@ -170,103 +203,3 @@ class PostProvider with ChangeNotifier {
     }
   }
 }
-
-final Map<String, dynamic> postWithComments = {
-  "id": "post123",
-  "title": "Beautiful Sunset",
-  "mediaDescription": "A breathtaking view of the sunset at the beach.",
-  "media": [
-    "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
-    "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
-    "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
-    "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
-    "https://as2.ftcdn.net/v2/jpg/02/85/89/71/1000_F_285897164_Jj30xWSzaWVDktLZ2vqYU5fhu7HYWTrg.jpg",
-  ],
-  "createdAt": "2024-06-16T18:25:43.511Z",
-  "isLiked": false,
-  "isViewed": true,
-  "isReported": false,
-  "isDisliked": false,
-  "isSaved": false,
-  "comments": [
-    {
-      "id": "comment1",
-      "content": "Amazing view!",
-      "postId": 123,
-      "userId": "user1",
-      "createdAt": "2024-06-16T19:00:00.511Z",
-      "user": {
-        "id": "user1",
-        "username": "John Doe",
-        "img":
-            "https://upload.wikimedia.org/wikipedia/en/6/67/Herbert_-_Family_Guy.png"
-      },
-      "comments": [
-        {
-          "id": "comment2",
-          "content": "I wish I was there!",
-          "postId": 123,
-          "userId": "user2",
-          "createdAt": "2024-06-16T19:30:00.511Z",
-          "user": {
-            "id": "user2",
-            "username": "Jane Smith",
-            "img":
-                "https://upload.wikimedia.org/wikipedia/commons/9/9f/Gert_Steinb%C3%A4cker_Amadeus_Austrian_Music_Awards_2016.jpg"
-          },
-          "comments": [
-            {
-              "id": "comment3",
-              "content": "Same here, looks so peaceful.",
-              "postId": 123,
-              "userId": "user3",
-              "createdAt": "2024-06-16T20:00:00.511Z",
-              "user": {
-                "id": "user3",
-                "username": "Alice Johnson",
-                "img":
-                    "https://de.web.img3.acsta.net/img/9c/3a/9c3a8132f0cb0928d9f033281efb5f93.jpg"
-              },
-              "comments": [
-                {
-                  "id": "comment4",
-                  "content": "I love sunsets at the beach!",
-                  "postId": 123,
-                  "userId": "user4",
-                  "createdAt": "2024-06-16T20:30:00.511Z",
-                  "user": {
-                    "id": "user4",
-                    "username": "Bob Brown",
-                    "img":
-                        "https://upload.wikimedia.org/wikipedia/commons/a/a1/Ribera_-_Isaac_y_Jacob%2C_P001118_%28cropped%29.jpg"
-                  },
-                  "comments": [],
-                  "isLiked": false,
-                  "likeCount": 0
-                }
-              ],
-              "isLiked": false,
-              "likeCount": 0
-            }
-          ],
-          "isLiked": false,
-          "likeCount": 0
-        }
-      ],
-      "isLiked": true,
-      "likeCount": 2
-    }
-  ],
-  "amountComments": 4,
-  "amountLikes": 10,
-  "amountViews": 100,
-  "user": {
-    "id": "0c4762a8-0a39-11ef-b7f2-e89c25791d89",
-    "username": "Chris Evans",
-    "img":
-        "https://welcometotwinpeaks.com/wp-content/uploads/Frank-Silva-aka-Killer-BOB.jpg"
-  },
-  "aspectRatio": "square",
-  "runtimeType": "image",
-  "amountTrending": 0,
-};

@@ -14,7 +14,7 @@ class FeedContentComponent extends StatelessWidget {
     if (post is TextPost) {
       return FeedContentTextWidget(
         caption: post.title,
-        text: post.content,
+        text: post.media,
       );
     } else if (post is ImagePost) {
       return FeedContentImageWidget(

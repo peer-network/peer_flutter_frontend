@@ -17,7 +17,7 @@ class ContentBlock extends StatelessWidget {
     Widget buildContentWidget(PostModel post) {
       if (post is TextPost) {
         return TextContentBox(
-          text: post.content,
+          text: post.media,
           width: width,
           height: height,
         );
