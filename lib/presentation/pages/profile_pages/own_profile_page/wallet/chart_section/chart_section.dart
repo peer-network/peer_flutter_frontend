@@ -17,11 +17,14 @@ class ChartSection extends StatelessWidget {
         // Adding ExchangeRate widget above the "Account Performance" text
         const ExchangeRate(),
         const SizedBox(height: AppPaddings.large),
-        Text(
-          "Account Performance",
-          style: Theme.of(context).textTheme.displayLarge,
-          textAlign: TextAlign.center,
-        ),
+        Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(left: AppPaddings.large),
+              child: Text('Account Performance',
+                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                      color: Theme.of(context).colorScheme.secondary)),
+            )),
         const SizedBox(height: AppPaddings.large),
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.425,
