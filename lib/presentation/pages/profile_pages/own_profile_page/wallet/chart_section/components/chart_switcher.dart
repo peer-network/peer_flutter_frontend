@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/whitelabel/constants.dart';
-import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/labels/exchange_rate.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/account_development.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/balance_per_day.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/data/dummy_response/dummy_wallet.dart';
+import 'package:peer_app/data/models/wallet_model.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/labels/exchange_rate.dart'; 
 
 class ChartSwitcher extends StatefulWidget {
   final double maxHeight;
@@ -25,12 +28,15 @@ class _ChartSwitcherState extends State<ChartSwitcher> {
     _currentPage = page;
     _pageViewController.animateToPage(page,
         duration: Durations.medium2,
-        curve: Curves.easeIn); //TODO: fix animation ya seleme (looks ass atm)
+        curve: Curves.easeIn);
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
+    // Extract the tokensPerDay data from the dummy wallet
+    final tokensPerDay = WalletModel.fromJson(gregorDummyWallet).tokensPerDay ?? {};
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -38,7 +44,10 @@ class _ChartSwitcherState extends State<ChartSwitcher> {
           height: widget.maxHeight,
           child: PageView(
             controller: _pageViewController,
-            children: const [ExchangeRate(), AccountDevelopment()],
+            children: [
+              ExchangeRate(),
+              BalancePerDay(tokensPerDay: tokensPerDay),
+            ],
             onPageChanged: (page) {
               setState(() {
                 _currentPage = page;

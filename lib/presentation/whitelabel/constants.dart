@@ -99,6 +99,8 @@ class AppDimensions {
   static const double labelRowLarge = 28.0;
 
   static const double exchangeRateLabelBorderWith = 2.0;
+
+  static const double labelRowLarge = 28.0;
 }
 
 // aspect ratios

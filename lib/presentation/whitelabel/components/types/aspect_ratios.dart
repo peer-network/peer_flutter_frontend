@@ -1,4 +1,5 @@
-enum AspectRatios { ar_21_9, ar_1_1, ar_9_16, ar_19_9, ar_17_10 }
+enum AspectRatios { ar_21_9, ar_1_1, ar_9_16, ar_19_9, ar_17_10   ar_17_10
+}
 
 // extension
 extension AspectRatiosExtension on AspectRatios {
