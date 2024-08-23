@@ -5,7 +5,6 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/labels/balance_per_day_labels_left.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/labels/balance_per_day_labels_bottom.dart';
 import 'package:peer_app/presentation/whitelabel/theme.dart';
-import 'package:peer_app/data/models/wallet_model.dart';
 
 LineChartData lineChartData(BuildContext context, Map<DateTime, double> tokensPerDay) {
   // If tokensPerDay is empty, return an empty chart configuration
