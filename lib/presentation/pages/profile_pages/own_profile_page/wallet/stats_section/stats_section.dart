@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/transfer_tokens.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/token_actions/token_actions.dart';
 import 'package:peer_app/presentation/whitelabel/config.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/gem_icon.dart';
-import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/token_stats.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/token_stats/token_stats.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/stats_section/components/drag_handle.dart';
 
 class StatsSection extends StatelessWidget {
@@ -19,7 +19,7 @@ class StatsSection extends StatelessWidget {
         const GemIcon(assetPath: Config.gemIcon),
         const SizedBox(height: AppPaddings.medium),
         const TokenStats(),
-        const TransferTokens()
+        const TokenActions()
       ],
     );
   }

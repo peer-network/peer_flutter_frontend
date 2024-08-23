@@ -7,23 +7,13 @@ class ChartSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(height: AppPaddings.large),
-        SizedBox(
-            height: MediaQuery.of(context).size.height * 0.425,
-            child: ChartSwitcher(
-                maxHeight: MediaQuery.of(context).size.height * 0.4)),
-        const SizedBox(height: AppPaddings.large),
-        Padding(
-          padding: const EdgeInsets.only(left: 25.0),
-          child: Text('Woher kommen deine Credits?',
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineLarge!
-                  .copyWith(color: Theme.of(context).colorScheme.secondary)),
-        ),
-      ],
-    );
+    return Column(children: [
+      const SizedBox(height: AppPaddings.large),
+      SizedBox(
+          height: MediaQuery.of(context).size.height * 0.425,
+          child: ChartSwitcher(
+              maxHeight: MediaQuery.of(context).size.height * 0.4)),
+      const SizedBox(height: AppPaddings.large),
+    ]);
   }
 }

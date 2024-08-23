@@ -90,9 +90,19 @@ Future<UserModel?> fetchNewUser(String userId) async {
         }).toList();
       }
 
-      final user = UserModel.fromJson(userData);
+      print(userData.toString());
+
+      try {
+        final user = UserModel.fromJson(userData); //! hier fehler
+        print(user.toString());
+        return user;
+      } catch (e) {
+        print("error");
+        return null;
+      }
+
       // _users.add(user);
-      return user;
+      //return user;
     } else {
       throw Exception("User data is not available for ID $userId");
     }

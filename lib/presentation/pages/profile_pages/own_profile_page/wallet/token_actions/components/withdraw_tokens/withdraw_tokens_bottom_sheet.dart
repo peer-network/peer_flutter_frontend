@@ -6,15 +6,15 @@ import 'package:peer_app/presentation/whitelabel/config.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:provider/provider.dart';
 
-class CashOutTokensBottomSheet extends StatefulWidget {
-  const CashOutTokensBottomSheet({super.key});
+class WithdrawTokensBottomSheet extends StatefulWidget {
+  const WithdrawTokensBottomSheet({super.key});
 
   @override
-  State<CashOutTokensBottomSheet> createState() =>
-      _CashOutTokensBottomSheetState();
+  State<WithdrawTokensBottomSheet> createState() =>
+      _WithdrawTokensBottomSheetState();
 }
 
-class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
+class _WithdrawTokensBottomSheetState extends State<WithdrawTokensBottomSheet> {
   final PageController _horizontalTitlePageViewController = PageController();
   final PageController _verticalTitlePageViewController = PageController();
   final PageController _contentPageController = PageController();
@@ -91,7 +91,8 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
   }
 
   void _onMaxAmountTapped() {
-    final tokenAmount = context.read<WalletSheetProvider>().wallet.totalCredits;
+    final tokenAmount =
+        context.read<WalletSheetProvider>().wallet!.totalCredits;
     _cashOutAmountController.text = '$tokenAmount Tokens';
   }
 
@@ -100,7 +101,9 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
     if (text.endsWith('Tokens')) {
       text = text.substring(0, text.length - 7).trim();
     }
-    if (text.isEmpty || double.tryParse(text) == null) {
+    if (text.isEmpty ||
+        double.tryParse(text) == null ||
+        double.parse(text) <= 0) {
       setState(() {
         _cashOutAmountError = 'Please enter a valid number of tokens';
       });
@@ -165,7 +168,7 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                 ? MediaQuery.of(context).size.height * 0.7
                 : MediaQuery.of(context).size.height * 0.25,
         decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.secondary,
+            color: Theme.of(context).colorScheme.primaryContainer,
             borderRadius: BorderRadius.only(
               topLeft: AppBorders.defaultRadius.topLeft,
               topRight: AppBorders.defaultRadius.topRight,
@@ -188,9 +191,15 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                           PageView(
                             controller: _horizontalTitlePageViewController,
                             physics: const NeverScrollableScrollPhysics(),
-                            children: const [
-                              Text('Enter amount'),
-                              Text('Select payout method')
+                            children: [
+                              Text('Enter amount',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall!),
+                              Text('Select payout method',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall!)
                             ],
                           ),
                           Text(_bottomSheetTitle)
@@ -214,6 +223,7 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                       Column(
                         children: [
                           TextField(
+                            style: Theme.of(context).textTheme.headlineSmall!,
                             textAlign: TextAlign.center,
                             controller: _cashOutAmountController,
                             focusNode: _cashOutAmountFocusNode,
@@ -225,7 +235,10 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                                 errorText: _cashOutAmountError,
                                 prefixIcon: TextButton(
                                     onPressed: _onMaxAmountTapped,
-                                    child: const Text('MAX')),
+                                    child: Text('MAX',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineSmall!)),
                                 suffixIcon: IconButton(
                                     onPressed: _onAmountEnteredCompleted,
                                     icon: const Icon(Icons.arrow_forward))),
@@ -242,7 +255,10 @@ class _CashOutTokensBottomSheetState extends State<CashOutTokensBottomSheet> {
                                     padding: const EdgeInsets.only(
                                         left: AppPaddings.small),
                                     child: Text(
-                                        '1 Token = ${provider.currencyExchange.creditValue}'));
+                                        '1 Token = ${provider.wallet!.currencyExchange.creditValue}',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineSmall!));
                               },
                             ),
                           )

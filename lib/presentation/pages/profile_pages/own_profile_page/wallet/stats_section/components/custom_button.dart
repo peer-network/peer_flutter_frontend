@@ -15,7 +15,7 @@ class CustomButton extends StatelessWidget {
   final Color? customBackgroundColor;
 
   const CustomButton(
-      {Key? key,
+      {key,
       this.text,
       required this.onPressed,
       this.textColor,
@@ -34,6 +34,7 @@ class CustomButton extends StatelessWidget {
     return TextButton(
         style: ButtonStyle(
             side: MaterialStateProperty.all(BorderSide(
+                width: 2,
                 color: Theme.of(context).buttonTheme.colorScheme!.outline)),
             fixedSize: (height == null && width == null)
                 ? null
@@ -43,7 +44,7 @@ class CustomButton extends StatelessWidget {
                 : MaterialStatePropertyAll<Color>(
                     Theme.of(context).buttonTheme.colorScheme!.background),
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8)))),
+                borderRadius: BorderRadius.circular(20)))),
         onPressed: onPressed,
         child: (isIcon)
             ? icon as Widget
@@ -56,6 +57,8 @@ class CustomButton extends StatelessWidget {
                     image: AssetImage(
                       assetPath!,
                     ))
-                : Text(text!, style: Theme.of(context).textTheme.bodyLarge));
+                : Text(text!,
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: Theme.of(context).colorScheme.tertiary)));
   }
 }

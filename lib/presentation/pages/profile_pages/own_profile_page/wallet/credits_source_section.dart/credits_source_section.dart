@@ -7,11 +7,18 @@ class CreditsSourceSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        SizedBox(height: AppPaddings.large),
-        SizedBox(height: 200, child: SourceList()),
-        SizedBox(height: AppPaddings.large),
+        Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20.0, bottom: 10),
+              child: Text('Your Wallet\ncomposition',
+                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                      color: Theme.of(context).colorScheme.secondary)),
+            )),
+        const SizedBox(height: 200, child: SourceList()),
+        const SizedBox(height: AppPaddings.large),
       ],
     );
   }

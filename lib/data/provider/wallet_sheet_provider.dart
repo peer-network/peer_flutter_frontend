@@ -1,31 +1,21 @@
-import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'package:peer_app/core/exceptions/base_exception.dart';
-import 'package:peer_app/data/graphql/queries.dart';
-import 'package:peer_app/data/models/wallet_model/credits_source_model.dart';
-import 'package:peer_app/data/models/wallet_model/currency_exchange_model.dart';
-import 'package:peer_app/data/models/wallet_model/wallet_model.dart';
+import 'package:peer_app/data/models/credit_source_model.dart';
+import 'package:peer_app/data/models/credits_source_item_model.dart';
+import 'package:peer_app/data/models/currency_exchange_model.dart';
+import 'package:peer_app/data/models/wallet_model.dart';
 import 'package:peer_app/data/dummy_response/dummy_wallet.dart';
-import 'package:peer_app/data/services/gql_client_service.dart';
 
 enum WalletState { none, loading, loaded, error }
 
 class WalletSheetProvider with ChangeNotifier {
-  final gqlClient = GraphQLClientSingleton();
-  late WalletModel _wallet;
-  late CurrencyExchangeModel _currencyExchange;
-  late CreditsSourceModel _creditsSource;
+  late WalletModel? _wallet;
   WalletState _state = WalletState.none;
   String? error;
 
-  WalletModel get wallet => _wallet;
+  WalletModel? get wallet => _wallet;
   WalletState get state =>
       _state; // same state for all data like currencyexchange and creditsource
-
-  CurrencyExchangeModel get currencyExchange => _currencyExchange;
-  CreditsSourceModel get creditsSource => _creditsSource;
-
   WalletSheetProvider() {
     fetchWallet();
   }
@@ -36,72 +26,40 @@ class WalletSheetProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      // final response = await _dioClient.get(ApiEndpoints.wallet);
-      // TODO replace with real api call
-      // dummy data for currency exchange inside wallet
-      Map<String, dynamic> _dummyCurrencyExchange =
-          dummyWallet["currencyExchange"] as Map<String, dynamic>;
-      _currencyExchange =
-          CurrencyExchangeModel.fromJson(_dummyCurrencyExchange);
+      await Future.delayed(
+          const Duration(seconds: 2)); // Simulate network delay
 
-      // dummy data for source items inside wallet
-      Map<String, dynamic> _dummySourceItems =
-          dummyWallet["creditsSource"] as Map<String, dynamic>;
-      _creditsSource = CreditsSourceModel.fromJson(_dummySourceItems);
-
-      _creditsSource = sortItems(_creditsSource);
-
-      _state = WalletState.loaded;
-      notifyListeners();
-    } catch (e) {
-      _state = WalletState.error;
-      notifyListeners();
-    }
-
-    final queryOption = QueryOptions(
-        document: Queries.wallet,
-        fetchPolicy: FetchPolicy.networkOnly,
-        variables: {
-          'user_id': 2, //TODO fetch real user id
-        });
-
-    try {
-      QueryResult<Object?> queryResult = await gqlClient.query(queryOption);
-
-      if (queryResult.hasException) {
-        error = queryResult.exception.toString();
-        CustomException(queryResult.exception.toString(), StackTrace.current)
-            .handleError();
-      }
-
-      if (queryResult.data == null) {
-        error = "No data found";
-        CustomException(queryResult.toString(), StackTrace.current)
-            .handleError();
-      }
-
-      final wallet = queryResult.data!;
       try {
-        _wallet = WalletModel.fromJson(wallet["wallet"][0]);
-        //_wallet = wallet["wallet"].map((x) => WalletModel.fromJson(x)).first;
-      } catch (e, s) {
-        _state = WalletState.error;
-        error = e.toString();
-        CustomException(e.toString(), s).handleError();
+        _wallet = WalletModel.fromJson(gregorDummyWallet);
+
+        // Ensure creditsSource is not null before sorting
+        if (_wallet?.creditsSource.items.isEmpty ?? true) {
+          throw Exception('CreditsSource items are missing or empty.');
+        }
+
+        _wallet = _wallet!.copyWith(
+          creditsSource: sortItems(_wallet!.creditsSource),
+        );
+
+        _state = WalletState.loaded;
+        print('Wallet data loaded successfully');
+      } catch (e) {
+        throw Exception('Failed to construct WalletModel: $e');
       }
     } catch (e) {
+      _wallet = null;
       _state = WalletState.error;
       error = e.toString();
-      CustomException(e.toString(), StackTrace.current).handleError();
+      print('Error fetching wallet data: $error');
     }
-    _state = WalletState.loaded;
 
     notifyListeners();
   }
 
   CreditsSourceModel sortItems(CreditsSourceModel source) {
-    source.items.sort((a, b) => b.amount.compareTo(a.amount));
-    return source;
+    List<CreditSourceItemModel> modifiableItems = List.from(source.items);
+    modifiableItems.sort((a, b) => b.amount.compareTo(a.amount));
+    return source.copyWith(items: modifiableItems);
   }
 
   String formatDigits(num digits) {

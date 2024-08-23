@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
-import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/exchange_rate.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/labels/exchange_rate.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/chart_section/components/account_development.dart';
 
 class ChartSwitcher extends StatefulWidget {
@@ -25,7 +25,7 @@ class _ChartSwitcherState extends State<ChartSwitcher> {
     _currentPage = page;
     _pageViewController.animateToPage(page,
         duration: Durations.medium2,
-        curve: Curves.linear); //TODO: fix animation ya seleme (looks ass atm)
+        curve: Curves.easeIn); //TODO: fix animation ya seleme (looks ass atm)
     setState(() {});
   }
 
@@ -40,7 +40,9 @@ class _ChartSwitcherState extends State<ChartSwitcher> {
             controller: _pageViewController,
             children: const [ExchangeRate(), AccountDevelopment()],
             onPageChanged: (page) {
-              changePage(page);
+              setState(() {
+                _currentPage = page;
+              });
             },
           ),
         ),
