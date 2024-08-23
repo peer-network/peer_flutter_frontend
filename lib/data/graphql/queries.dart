@@ -4,7 +4,7 @@ import 'package:peer_app/data/graphql/fragments.dart';
 class Queries {
   //! posts are not fetched in user in getAllPosts
   //? should comments be pulled when fetching posts? comments {} are excluded for now
-  //? verficationToken - is this necessary in the user model whne pulling posts?
+  //? verficationToken - is this necessary in the user model when pulling posts?
 
   static final posts = gql("""
 query GetAllPosts {
