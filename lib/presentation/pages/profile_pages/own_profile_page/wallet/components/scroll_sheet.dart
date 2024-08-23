@@ -30,7 +30,19 @@ class WalletScrollSheet extends StatelessWidget {
       case WalletState.loaded:
         return [
           StatsSection(dragHandleWidth: dragHandleWidth),
+          Padding(
+            padding: EdgeInsets.only(
+            top: AppPaddings.medium,
+            bottom: AppPaddings.medium,
+            ),
+          ),
           ChartSection(),
+          Padding(
+            padding: EdgeInsets.only(
+            top: AppPaddings.medium,
+            bottom: AppPaddings.medium,
+            ),
+          ),
           const CreditsSourceSection(),
         ];
       case WalletState.error:

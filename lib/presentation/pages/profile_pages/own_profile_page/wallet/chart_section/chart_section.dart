@@ -11,13 +11,19 @@ class ChartSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      const SizedBox(height: AppPaddings.large),
-      SizedBox(
-        height: MediaQuery.of(context).size.height * 0.425,
-        child: BalancePerDay(tokensPerDay: tokensPerDay)
-      )
-    ]
+    return Column(
+      children: [
+        Text(
+          "Account Performance",
+          style: Theme.of(context).textTheme.displayLarge,
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: AppPaddings.large),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.425,
+          child: BalancePerDay(tokensPerDay: tokensPerDay),
+        ),
+      ],
     );
   }
 }
