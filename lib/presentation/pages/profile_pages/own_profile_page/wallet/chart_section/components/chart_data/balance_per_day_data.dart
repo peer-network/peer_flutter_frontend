@@ -9,16 +9,7 @@ import 'package:peer_app/presentation/whitelabel/theme.dart';
 LineChartData lineChartData(BuildContext context, Map<DateTime, double> tokensPerDay) {
   // If tokensPerDay is empty, return an empty chart configuration
   if (tokensPerDay.isEmpty) {
-    return LineChartData(
-      gridData: const FlGridData(show: false, drawVerticalLine: false),
-      titlesData: FlTitlesData(show: false),
-      borderData: FlBorderData(show: false),
-      minX: 0,
-      maxX: 1,
-      minY: 0,
-      maxY: 1,
-      lineBarsData: [],
-    );
+    throw Exception("Error: Unable to load data. Tokens per day data is empty or invalid.");
   }
 
   // Get the date of the first measurement
