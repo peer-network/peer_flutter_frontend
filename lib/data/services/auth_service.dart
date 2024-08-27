@@ -44,6 +44,7 @@ class AuthService {
         //await _saveTokens(accessToken, refreshToken);
         return true;
       }
+      error = result.data?['login']['errorMessage'];
       return false;
     } catch (e, s) {
       error = e.toString();

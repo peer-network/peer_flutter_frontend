@@ -16,13 +16,9 @@ class LoginSection extends StatefulWidget {
 
 class _LoginSectionState extends State<LoginSection> {
   final _formKey = GlobalKey<FormState>();
-  String error = '';
-  String errorEmail = "";
-  String errorPassword = "";
-
   bool loading = false;
-
   bool isObscure = true;
+  String? error;
 
   late TextEditingController emailController;
   late TextEditingController passwordController;
@@ -40,6 +36,16 @@ class _LoginSectionState extends State<LoginSection> {
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
+  }
+
+  void onAPIError(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(error ?? 'An error occurred'),
+        backgroundColor: Theme.of(context).colorScheme.error,
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
   }
 
   @override
@@ -82,6 +88,8 @@ class _LoginSectionState extends State<LoginSection> {
                 text: 'Login',
                 textColor: Theme.of(context).colorScheme.secondary,
                 onPressed: () async {
+                  if (!(_formKey.currentState?.validate() ?? false)) return;
+
                   final authProvider =
                       Provider.of<AuthProvider>(context, listen: false);
 
@@ -98,8 +106,9 @@ class _LoginSectionState extends State<LoginSection> {
                     Navigator.of(context).push(PeerPageRoute());
                   } else {
                     setState(() {
-                      error = 'Invalid email or password';
+                      error = authProvider.error;
                     });
+                    onAPIError(context);
                   }
                 },
               ),

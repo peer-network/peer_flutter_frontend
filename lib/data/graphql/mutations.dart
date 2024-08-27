@@ -26,6 +26,7 @@ mutation createChatMessage(\$chatId: uuid!, \$content: String!, \$senderId: uuid
   static final loginWithCredentials = gql("""
 mutation Login(\$email: String!, \$password: String!) {
   login(email: \$email, password: \$password) {
+    errorMessage
     accessToken
     refreshToken
   }
