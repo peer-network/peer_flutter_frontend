@@ -81,24 +81,26 @@ class _LoginSectionState extends State<LoginSection> {
                     Theme.of(context).buttonTheme.colorScheme!.outline,
                 text: 'Login',
                 textColor: Theme.of(context).colorScheme.secondary,
-                onPressed: () {
-                  /*final authProvider =
+                onPressed: () async {
+                  final authProvider =
                       Provider.of<AuthProvider>(context, listen: false);
-                   authProvider
-                      .loginWithCredentials(
-                    emailController.text,
-                    passwordController.text,
-                  )
-                      .then((value) {
-                    if (authProvider.authState == AuthStates.authenticated) {
-                      
-                    } else {
-                      setState(() {
-                        error = 'Invalid email or password';
-                      });
-                    }
-                  });*/
-                  Navigator.of(context).push(PeerPageRoute());
+
+                  final email = emailController.text;
+                  final password = passwordController.text;
+                  await authProvider.loginWithCredentials(
+                    email,
+                    password,
+                  );
+
+                  if (!mounted) return;
+
+                  if (authProvider.authState == AuthStates.authenticated) {
+                    Navigator.of(context).push(PeerPageRoute());
+                  } else {
+                    setState(() {
+                      error = 'Invalid email or password';
+                    });
+                  }
                 },
               ),
             ),

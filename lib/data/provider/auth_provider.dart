@@ -9,39 +9,29 @@ enum AuthStates {
 }
 
 class AuthProvider extends ChangeNotifier {
+  final AuthService _authService = AuthService();
   AuthStates _authState = AuthStates.unauthenticated;
+  String? _error;
 
   AuthStates get authState => _authState;
+  String? get error => _error;
 
-  /*
-  loginWithCredentials(String email, String password) async {
-    _authState = AuthStates.loading;
-    notifyListeners();
-
-    // bool authSucces = await AuthService().loginWithCredentials(email, password);
-    //wait 2 seconds to simulate a real login
-    await Future.delayed(const Duration(seconds: 2));
-    bool authSucces = true;
-    if (authSucces) {
+  Future<void> loginWithCredentials(String email, String password) async {
+    bool success = await _authService.loginWithCredentials(email, password);
+    if (success) {
       _authState = AuthStates.authenticated;
+      _error = null;
+      notifyListeners();
     } else {
       _authState = AuthStates.unauthenticated;
+      _error = _authService.error;
+      notifyListeners();
     }
   }
 
-  Future<void> loginWithToken() async {
-    await AuthService().loginWithToken().then((value) {
-      if (value) {
-        _authState = AuthStates.authenticated;
-      } else {
-        _authState = AuthStates.unauthenticated;
-      }
-      notifyListeners();
-    });
-  }
-
-  logout() {
+  Future<void> logout() async {
+    await _authService.logout();
     _authState = AuthStates.unauthenticated;
     notifyListeners();
-  }*/
+  }
 }

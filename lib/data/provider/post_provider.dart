@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter/foundation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:http/http.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:peer_app/core/exceptions/base_exception.dart';
 import 'package:peer_app/core/types/create_post_type.dart';

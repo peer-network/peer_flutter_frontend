@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:hive/hive.dart';
 import 'package:peer_app/data/provider/auth_provider.dart';
 import 'package:peer_app/data/provider/chat_contacts_provider.dart';
 import 'package:peer_app/data/provider/chat_provider.dart';
@@ -17,6 +18,7 @@ void main() async {
   // ensure initialized
   WidgetsFlutterBinding.ensureInitialized();
   await initHiveForFlutter();
+  await Hive.openBox('authBox');
   GraphQLClientSingleton();
   runApp(const MainApp());
 }
