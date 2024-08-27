@@ -61,7 +61,7 @@ class _RegisterSectionState extends State<RegisterSection> {
               autofillHints: const [AutofillHints.name],
               keyboardType: TextInputType.name,
               textInputAction: TextInputAction.next,
-              labelText: 'Username ...',
+              labelText: 'Username',
               validator: (val) =>
                   (val == null || val.isEmpty) ? 'Enter a Username' : null,
               // footnoteText: 'footnoteText',
@@ -73,7 +73,7 @@ class _RegisterSectionState extends State<RegisterSection> {
               autofillHints: const [AutofillHints.email],
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
-              labelText: 'E-Mail ...',
+              labelText: 'E-Mail',
               validator: (val) => (val == null || val.isEmpty)
                   ? 'Enter an E-Mail Adress'
                   : null,
@@ -86,7 +86,7 @@ class _RegisterSectionState extends State<RegisterSection> {
               autofillHints: const [AutofillHints.password],
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
-              labelText: 'E-Mail bestätigen ...',
+              labelText: 'E-Mail bestätigen',
               validator: (val) => (val == null || val.isEmpty)
                   ? 'Enter E-Mail Adress again to confirm'
                   : null,
@@ -99,7 +99,7 @@ class _RegisterSectionState extends State<RegisterSection> {
               autofillHints: const [AutofillHints.password],
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.next,
-              labelText: 'Passwort ...',
+              labelText: 'Passwort',
               validator: (val) =>
                   (val == null || val.isEmpty) ? 'Enter a Password' : null,
               // footnoteText: 'footnoteText',
@@ -111,7 +111,7 @@ class _RegisterSectionState extends State<RegisterSection> {
               autofillHints: const [AutofillHints.password],
               keyboardType: TextInputType.text,
               textInputAction: TextInputAction.done,
-              labelText: 'Passwort bestätigen ...',
+              labelText: 'Passwort bestätigen',
               validator: (val) => (val == null || val.isEmpty)
                   ? 'Enter a Password again to confirm'
                   : null,
