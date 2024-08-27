@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 import 'package:flutter/foundation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -50,69 +51,8 @@ class PostProvider with ChangeNotifier {
 
       final responseFeed = queryResult.data!;
 
-      print(responseFeed.toString());
       try {
-        final responseFeedJson = responseFeed["getallposts"] as List<dynamic>;
-
-        _posts = responseFeedJson
-            .map((post) {
-              // Handle nested user object first
-              final user = Map<String, dynamic>.from(
-                  post['user'] as Map<String, dynamic>)
-                ..['imgUrl'] = post['user']['img']
-                ..['isFollowing'] = post['user']['isfollowed']
-                ..remove('img')
-                ..remove('isfollowed');
-
-              // Clone the main post map and rename fields
-              final modifiedPost = Map<String, dynamic>.from(post)
-                ..['runtimeType'] = post['contenttype']
-                ..['createdAt'] = post['createdat']
-                ..['isLiked'] = post['isliked']
-                ..['isViewed'] = post['isviewed']
-                ..['isReported'] = post['isreported']
-                ..['isSaved'] = post['issaved']
-                ..['amountComments'] = post['amountcomments']
-                ..['amountLikes'] = post['amountlikes']
-                ..['amountViews'] = post['amountviews']
-                ..['isDisliked'] = post['isdisliked']
-                ..remove('contenttype')
-                ..remove('createdat')
-                ..remove('isliked')
-                ..remove('isviewed')
-                ..remove('isreported')
-                ..remove('issaved')
-                ..remove('amountcomments')
-                ..remove('amountlikes')
-                ..remove('amountviews')
-                ..remove('isdisliked');
-
-              if (post['contenttype'] == "text") {
-                modifiedPost['media'] = post['media'];
-              } else {
-                modifiedPost['mediaDescription'] = post['mediadescription'];
-
-                modifiedPost['media'] = post['media']
-                    .toString()
-                    .replaceAll('[', '')
-                    .replaceAll(']', '')
-                    .replaceAll('\\', '')
-                    .replaceAll('"', '')
-                    .split(",");
-
-                List<String> urls = modifiedPost["media"];
-
-                for (int i = 0; i < urls.length; i++) {
-                  modifiedPost['media'][i] =
-                      "http://10.10.121.78:8888/runtime-data${urls[i]}";
-                }
-              }
-
-              // Convert the modified json to PostModel
-              return PostModel.fromJson(modifiedPost);
-            })
-            .where((post) => post.runtimeType != VideoPost)
-            .toList();
+        _posts = await parsePosts(responseFeed)!;
       } catch (e, s) {
         error = e.toString();
         CustomException(e.toString(), s).handleError();
@@ -126,19 +66,74 @@ class PostProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<String> _processTextMedia(dynamic media) {
-    // Use json.decode to decode the media string into a List<String>
-    return List<String>.from(json.decode(media));
-  }
+  /// Parses the json response from the server and returns a list of PostModel. May return null due to the post being video but only text and image are possible, this will be resolved soon.
+  Future<List<PostModel>>? parsePosts(Map<String, dynamic> jsonResponse) async {
+    final List<dynamic> postsJson = jsonResponse['getallposts'];
 
-  List<String> _processImageMedia(dynamic media) {
-    // Decode the JSON-encoded media string
-    List<String> urls = List<String>.from(json.decode(media));
+    final List<Future<PostModel>> futures =
+        postsJson.map<Future<PostModel>>((postJson) async {
+      postJson['runtimeType'] = postJson['contenttype'];
+      postJson['createdAt'] = postJson['createdat'];
+      postJson['isLiked'] = postJson['isliked'];
+      postJson['isViewed'] = postJson['isviewed'];
+      postJson['isReported'] = postJson['isreported'];
+      postJson['isSaved'] = postJson['issaved'];
+      postJson['amountComments'] = postJson['amountcomments'];
+      postJson['amountLikes'] = postJson['amountlikes'];
+      postJson['amountViews'] = postJson['amountviews'];
+      postJson['isDisliked'] = postJson['isdisliked'];
 
-    // Prefix each URL with the base URL
-    return urls
-        .map((url) => "http://10.10.121.78:8888/runtime-data$url")
-        .toList();
+      postJson.remove('contenttype');
+      postJson.remove('createdat');
+      postJson.remove('isliked');
+      postJson.remove('isviewed');
+      postJson.remove('isreported');
+      postJson.remove('issaved');
+      postJson.remove('amountcomments');
+      postJson.remove('amountlikes');
+      postJson.remove('amountviews');
+      postJson.remove('isdisliked');
+      postJson.remove('__typename');
+
+      if (postJson['runtimeType'] == 'image') {
+        // image post parsing
+
+        postJson['mediaDescription'] = postJson['mediadescription'];
+        postJson.remove('mediadescription');
+
+        // Decode media field from JSON string to List
+        List<dynamic> mediaList = json.decode(postJson['media']);
+        postJson['media'] = mediaList
+            .map((mediaPath) =>
+                'http://10.10.121.78:8888/runtime-data$mediaPath')
+            .toList();
+
+        return PostModel.fromJson(postJson);
+      } else {
+        // text post parsing
+        postJson.remove('mediadescription');
+
+        Uri textPostUri = Uri.parse(
+            'http://10.10.121.78:8888/runtime-data${json.decode(postJson['media'])[0]}');
+
+        try {
+          final response = await http.get(textPostUri);
+          if (response.statusCode == 200) {
+            print(response.body);
+            postJson['media'] = response.body;
+          } else {
+            throw Exception('Failed to load text file');
+          }
+        } catch (e) {
+          print('Error loading text file: $e');
+        }
+
+        return PostModel.fromJson(postJson);
+      }
+    }).toList();
+
+    // Wait for all futures to complete
+    return await Future.wait(futures);
   }
 
   PostModel? getPostById(String id) {
