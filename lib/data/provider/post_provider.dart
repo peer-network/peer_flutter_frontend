@@ -89,6 +89,15 @@ class PostProvider with ChangeNotifier {
   }
 
   Future<void> createPost(Map<String, dynamic> newPost) async {}
+
+    PostModel? getPostById(String id) {
+    try {
+      return _posts.firstWhere((post) => post.id == id);
+    } catch (e) {
+      return null;
+    }
+  }
+
 }
 
 final Map<String, dynamic> postWithComments = {

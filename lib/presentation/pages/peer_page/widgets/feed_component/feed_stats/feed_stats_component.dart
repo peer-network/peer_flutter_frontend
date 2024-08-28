@@ -26,7 +26,7 @@ class FeedStatsComponent extends StatelessWidget {
           ViewCountComponent(viewCount: feed.amountViews),
           const Spacer(),
           CommentCountComponent(
-            commentCount: feed.comments.length,
+            commentCount: feed.comments!.length,
           ),
         ],
       ),

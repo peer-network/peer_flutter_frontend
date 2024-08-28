@@ -42,11 +42,14 @@ enum IconLibrary {
   close,
   trash,
   edit,
+  diamond,
 }
 
 extension IconExtension on IconLibrary {
   AssetImage get icon {
     switch (this) {
+      case IconLibrary.diamond:
+        return const AssetImage("assets/icons/diamond_post_performance.png");
       case IconLibrary.gem:
         return const AssetImage("assets/icons/gem.png");
       case IconLibrary.peerSignet:

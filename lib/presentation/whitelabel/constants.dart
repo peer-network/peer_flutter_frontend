@@ -90,6 +90,7 @@ class AppDimensions {
 
   static const double textPostSpacing = 12.0;
   static const double imageDescriptionSpacing = 4.0;
+  static const double imageSliderBarHeightBigger = 10.0;
 
   static const double dropDownButtonPaddingLeft = 12.0;
 
