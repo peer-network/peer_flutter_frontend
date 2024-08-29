@@ -10,6 +10,8 @@ import 'package:peer_app/data/provider/post_provider.dart';
 import 'package:peer_app/data/provider/theme_provider.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
+import 'package:peer_app/presentation/pages/login_page/login_page.dart';
+import 'package:peer_app/presentation/pages/peer_page/peer_page.dart';
 import 'package:peer_app/presentation/whitelabel/theme.dart';
 import 'package:peer_app/presentation/wrapper/auth_wrapper.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +20,6 @@ void main() async {
   // ensure initialized
   WidgetsFlutterBinding.ensureInitialized();
   await initHiveForFlutter();
-  await Hive.openBox('authBox');
   GraphQLClientSingleton();
   runApp(const MainApp());
 }
@@ -59,7 +60,10 @@ class ThemedApp extends StatelessWidget {
       theme: lightTheme, // light theme
       darkTheme: darkTheme, // dark theme
       themeMode: themeProvider.themeMode, // theme observer
-      home: const AuthWrapper(),
+      home: const AuthWrapper(
+        authenticatedChild: PeerPage(),
+        unauthenticatedChild: LoginPage(),
+      ),
     );
   }
 }

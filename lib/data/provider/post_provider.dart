@@ -118,7 +118,6 @@ class PostProvider with ChangeNotifier {
         try {
           final response = await http.get(textPostUri);
           if (response.statusCode == 200) {
-            print(response.body);
             postJson['media'] = response.body;
           } else {
             throw Exception('Failed to load text file');

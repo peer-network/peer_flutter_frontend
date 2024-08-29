@@ -32,4 +32,13 @@ mutation Login(\$email: String!, \$password: String!) {
   }
 }
   """);
+
+  static final refreshToken = gql('''
+    mutation RefreshToken(\$refreshToken: String!) {
+      refresh(refreshToken: \$refreshToken) {
+        accessToken
+        refreshToken
+      }
+    }
+  ''');
 }

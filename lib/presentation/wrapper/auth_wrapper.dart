@@ -1,38 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/provider/auth_provider.dart';
-import 'package:peer_app/presentation/pages/base_page.dart';
-import 'package:peer_app/presentation/pages/login_page/login_page.dart';
-import 'package:peer_app/presentation/pages/peer_page/peer_page.dart';
-import 'package:peer_app/presentation/whitelabel/components/loading_and_error/loading_component.dart';
 import 'package:provider/provider.dart';
+import 'package:peer_app/data/provider/auth_provider.dart';
 
 class AuthWrapper extends StatelessWidget {
-  const AuthWrapper({super.key});
+  final Widget authenticatedChild;
+  final Widget unauthenticatedChild;
+
+  const AuthWrapper({
+    super.key,
+    required this.authenticatedChild,
+    required this.unauthenticatedChild,
+  });
 
   @override
   Widget build(BuildContext context) {
-    /* AuthProvider authProvider =
-        Provider.of<AuthProvider>(context, listen: false);
-    Future<void> validateAuthToken() async {
-      await authProvider.loginWithToken();
-    }
-
-    return FutureBuilder<void>(
-      future: validateAuthToken(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const BasePage(
-              child:
-                  LoadingComponent()); // Show loading indicator while checking login status
-        } else {
-          if (authProvider.authState == AuthStates.authenticated) {
-            return const PeerPage(); // User is logged in
-          } else {
-            return const LoginPage(); // User is not logged in
-          }
+    return Consumer<AuthProvider>(
+      builder: (context, authProvider, _) {
+        switch (authProvider.authState) {
+          case AuthStates.loading:
+            return const Center(child: CircularProgressIndicator());
+          case AuthStates.authenticated:
+            return authenticatedChild;
+          case AuthStates.unauthenticated:
+          default:
+            return unauthenticatedChild;
         }
       },
-    );*/
-    return const LoginPage(); // User is not logged in
+    );
   }
 }

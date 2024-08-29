@@ -103,7 +103,7 @@ class _LoginSectionState extends State<LoginSection> {
                   if (!mounted) return;
 
                   if (authProvider.authState == AuthStates.authenticated) {
-                    Navigator.of(context).push(PeerPageRoute());
+                    // Navigator.of(context).push(PeerPageRoute());
                   } else {
                     setState(() {
                       error = authProvider.error;
