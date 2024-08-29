@@ -1,8 +1,6 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:peer_app/data/services/auth_service.dart';
 
-// graphql_client_singleton.dart
-
 class GraphQLClientSingleton {
   static final GraphQLClientSingleton _instance =
       GraphQLClientSingleton._internal();
@@ -21,10 +19,6 @@ class GraphQLClientSingleton {
       getToken: () async {
         return 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJwZWVyYXBwLmRlIiwiYXVkIjoicGVlcmFwcC5kZSIsInVpZCI6IjBjZjYzZTFlLTM5NzItNGU2MS04Yjg1LThkNWZiOGZiYTcwYyIsImlhdCI6MTcyNDQxMDgwOCwiZXhwIjoxNzI1MDE1NjA4fQ.R2fkAxe0TFauhOwaCtxqA4LueNXG65n3HBrV-xqdh4YhEn9lBtUQ9hiheEiNqWYZXugGORU6u1i0wgJZAYZvB-dmy_uK_WLV5UtvhnSvISHCIHkHS4PknlieCpm0b5ouDgley2ij7hHhUmID-HMCFFIGlT5nhfLlUAK4D-Q88Qq3zPTRHWQ1k6Y9Aj63tO8NkOtbjhKWRBTlJz7xPUHitUbWhZ73r6sP7VSk92uG92wVXWcJlSYiQpEHMDzcuOjTjE-W6X8kAjmu5M7sWVoZDU7Y2ybE8j4HnVLV4wIhhayxAymnhc8RBbrXn5_VdcLo89hBceMj9rvqvrHNIIOEtw';
       },
-      /* getToken: () async {
-      return 'Bearer ${await AuthService().getAccessToken()}';
-      }
-      */
     );
 
     final HttpLink httpLink = HttpLink(

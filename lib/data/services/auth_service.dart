@@ -40,82 +40,9 @@ class AuthService {
           refreshToken != null &&
           accessToken.isNotEmpty &&
           refreshToken.isNotEmpty) {
-        //_setTokenHeader(accessToken);
-        //await _saveTokens(accessToken, refreshToken);
         return true;
       }
       error = result.data?['login']['errorMessage'];
-      return false;
-    } catch (e, s) {
-      error = e.toString();
-      CustomException(e.toString(), s).handleError();
-      return false;
-    }
-  }
-
-  Future<void> _saveTokens(String accessToken, String refreshToken) async {
-    var box = await Hive.openBox('authBox');
-    await box.put('auth_access_token', accessToken);
-    await box.put('auth_refresh_token', refreshToken);
-  }
-
-  Future<String?> getAccessToken() async {
-    var box = await Hive.openBox('authBox');
-    return box.get('auth_access_token');
-  }
-
-  Future<String?> _getRefreshToken() async {
-    var box = await Hive.openBox('authBox');
-    return box.get('auth_refresh_token');
-  }
-
-  void _setTokenHeader(String token) {
-    gqlClient.client.cache.writeQuery(
-      Request(
-        operation: Operation(document: gql('')),
-        variables: {},
-      ),
-      data: {'Authorization': 'Bearer $token'},
-    );
-  }
-
-  Future<bool> refreshAccessToken() async {
-    const String refreshMutation = r'''
-      mutation RefreshToken($refreshToken: String!) {
-        refreshToken(refreshToken: $refreshToken) {
-          accessToken
-        }
-      }
-    ''';
-
-    final String? refreshToken = await _getRefreshToken();
-    if (refreshToken == null) {
-      return false;
-    }
-
-    final MutationOptions options = MutationOptions(
-      document: gql(refreshMutation),
-      variables: <String, dynamic>{
-        'refreshToken': refreshToken,
-      },
-    );
-
-    try {
-      final QueryResult result = await gqlClient.mutate(options);
-
-      if (result.hasException) {
-        error = result.exception.toString();
-        CustomException(error!, StackTrace.current).handleError();
-        return false;
-      }
-
-      final String? newAccessToken =
-          result.data?['refreshToken']['accessToken'];
-      if (newAccessToken != null) {
-        _setTokenHeader(newAccessToken);
-        await _saveTokens(newAccessToken, refreshToken);
-        return true;
-      }
       return false;
     } catch (e, s) {
       error = e.toString();
