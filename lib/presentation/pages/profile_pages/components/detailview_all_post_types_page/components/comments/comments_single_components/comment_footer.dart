@@ -38,7 +38,7 @@ class CommentFooter extends StatelessWidget {
         const Spacer(),
         GestureDetector(
           onTap: () {
-            CustomToast.showSuccessToast("Write a comment");
+            // CustomToast.showSuccessToast("Write a comment");
           },
           child: Text(
             "Comment",

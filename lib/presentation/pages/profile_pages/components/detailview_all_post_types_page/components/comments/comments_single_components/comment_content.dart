@@ -39,7 +39,7 @@ class CommentContent extends StatelessWidget {
               ),
               recognizer: TapGestureRecognizer() // 7: TapGestureRecognizer
                 ..onTap = () {
-                  CustomToast.showSuccessToast("jump to post");
+                  //CustomToast.showSuccessToast("jump to post");
                   // navigate to the profile page
                 },
             ),

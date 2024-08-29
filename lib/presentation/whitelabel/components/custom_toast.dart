@@ -1,3 +1,4 @@
+/*
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:peer_app/presentation/whitelabel/colors.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
@@ -29,3 +30,4 @@ class CustomToast {
         fontSize: bodyLargeTextStyle(LightColors.textCompany).fontSize);
   }
 }
+*/

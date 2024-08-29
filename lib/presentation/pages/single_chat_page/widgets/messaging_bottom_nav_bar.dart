@@ -80,9 +80,9 @@ class _MessagingBottomNavBarState extends State<MessagingBottomNavBar> {
       {"content": _controller.text, "chatId": chatId, "senderId": creatorId},
     ).then((_) {
       if (chatProvider.error != null) {
-        CustomToast.showErrorToast(chatProvider.error!);
+        //CustomToast.showErrorToast(chatProvider.error!);
       } else {
-        CustomToast.showSuccessToast("Chat Message erfolgreich erstellt");
+        //CustomToast.showSuccessToast("Chat Message erfolgreich erstellt");
       }
     });
   }

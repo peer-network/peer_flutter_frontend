@@ -145,9 +145,9 @@ class _CreatePostPageState extends State<CreatePostPage> {
             imageFiles: images)
         .then((_) {
       if (newsFeedProvider.error != null) {
-        CustomToast.showErrorToast(newsFeedProvider.error!);
+        //CustomToast.showErrorToast(newsFeedProvider.error!);
       } else {
-        CustomToast.showSuccessToast("Post erfolgreich erstellt");
+        //CustomToast.showSuccessToast("Post erfolgreich erstellt");
       }
     });
   }
@@ -163,9 +163,9 @@ class _CreatePostPageState extends State<CreatePostPage> {
     )
         .then((_) {
       if (newsFeedProvider.error != null) {
-        CustomToast.showErrorToast(newsFeedProvider.error!);
+        //CustomToast.showErrorToast(newsFeedProvider.error!);
       } else {
-        CustomToast.showSuccessToast("Post erfolgreich erstellt");
+        //CustomToast.showSuccessToast("Post erfolgreich erstellt");
       }
     });
   }
