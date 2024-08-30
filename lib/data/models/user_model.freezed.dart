@@ -22,7 +22,7 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 mixin _$UserModel {
   String get id => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
-  String? get imgUrl => throw _privateConstructorUsedError;
+  String? get img => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   bool get verified =>
       throw _privateConstructorUsedError; // default to false if not provided
@@ -39,8 +39,12 @@ mixin _$UserModel {
   List<PostModel>? get posts => throw _privateConstructorUsedError;
   bool? get isFollowing => throw _privateConstructorUsedError;
 
+  /// Serializes this UserModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserModelCopyWith<UserModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,7 +57,7 @@ abstract class $UserModelCopyWith<$Res> {
   $Res call(
       {String id,
       String username,
-      String? imgUrl,
+      String? img,
       String? email,
       bool verified,
       String? createdAt,
@@ -77,12 +81,14 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = null,
     Object? username = null,
-    Object? imgUrl = freezed,
+    Object? img = freezed,
     Object? email = freezed,
     Object? verified = null,
     Object? createdAt = freezed,
@@ -104,9 +110,9 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      imgUrl: freezed == imgUrl
-          ? _value.imgUrl
-          : imgUrl // ignore: cast_nullable_to_non_nullable
+      img: freezed == img
+          ? _value.img
+          : img // ignore: cast_nullable_to_non_nullable
               as String?,
       email: freezed == email
           ? _value.email
@@ -167,7 +173,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
   $Res call(
       {String id,
       String username,
-      String? imgUrl,
+      String? img,
       String? email,
       bool verified,
       String? createdAt,
@@ -189,12 +195,14 @@ class __$$UserModelImplCopyWithImpl<$Res>
       _$UserModelImpl _value, $Res Function(_$UserModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = null,
     Object? username = null,
-    Object? imgUrl = freezed,
+    Object? img = freezed,
     Object? email = freezed,
     Object? verified = null,
     Object? createdAt = freezed,
@@ -216,9 +224,9 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      imgUrl: freezed == imgUrl
-          ? _value.imgUrl
-          : imgUrl // ignore: cast_nullable_to_non_nullable
+      img: freezed == img
+          ? _value.img
+          : img // ignore: cast_nullable_to_non_nullable
               as String?,
       email: freezed == email
           ? _value.email
@@ -275,7 +283,7 @@ class _$UserModelImpl implements _UserModel {
   const _$UserModelImpl(
       {required this.id,
       required this.username,
-      this.imgUrl,
+      this.img,
       this.email,
       this.verified = false,
       this.createdAt,
@@ -297,7 +305,7 @@ class _$UserModelImpl implements _UserModel {
   @override
   final String username;
   @override
-  final String? imgUrl;
+  final String? img;
   @override
   final String? email;
   @override
@@ -337,7 +345,7 @@ class _$UserModelImpl implements _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(id: $id, username: $username, imgUrl: $imgUrl, email: $email, verified: $verified, createdAt: $createdAt, updatedAt: $updatedAt, verificationToken: $verificationToken, biograph: $biograph, amountPosts: $amountPosts, amountFollowed: $amountFollowed, amountFollower: $amountFollower, posts: $posts, isFollowing: $isFollowing)';
+    return 'UserModel(id: $id, username: $username, img: $img, email: $email, verified: $verified, createdAt: $createdAt, updatedAt: $updatedAt, verificationToken: $verificationToken, biograph: $biograph, amountPosts: $amountPosts, amountFollowed: $amountFollowed, amountFollower: $amountFollower, posts: $posts, isFollowing: $isFollowing)';
   }
 
   @override
@@ -348,7 +356,7 @@ class _$UserModelImpl implements _UserModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.username, username) ||
                 other.username == username) &&
-            (identical(other.imgUrl, imgUrl) || other.imgUrl == imgUrl) &&
+            (identical(other.img, img) || other.img == img) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.verified, verified) ||
                 other.verified == verified) &&
@@ -371,13 +379,13 @@ class _$UserModelImpl implements _UserModel {
                 other.isFollowing == isFollowing));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       id,
       username,
-      imgUrl,
+      img,
       email,
       verified,
       createdAt,
@@ -390,7 +398,9 @@ class _$UserModelImpl implements _UserModel {
       const DeepCollectionEquality().hash(_posts),
       isFollowing);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserModelImplCopyWith<_$UserModelImpl> get copyWith =>
@@ -408,7 +418,7 @@ abstract class _UserModel implements UserModel {
   const factory _UserModel(
       {required final String id,
       required final String username,
-      final String? imgUrl,
+      final String? img,
       final String? email,
       final bool verified,
       final String? createdAt,
@@ -429,12 +439,12 @@ abstract class _UserModel implements UserModel {
   @override
   String get username;
   @override
-  String? get imgUrl;
+  String? get img;
   @override
   String? get email;
   @override
-  bool get verified;
-  @override // default to false if not provided
+  bool get verified; // default to false if not provided
+  @override
   String? get createdAt;
   @override
   String? get updatedAt;
@@ -443,17 +453,20 @@ abstract class _UserModel implements UserModel {
   @override
   String? get biograph;
   @override
-  int? get amountPosts;
-  @override // corrected field name and default to 0
-  int? get amountFollowed;
-  @override // corrected field name and default to 0
-  int? get amountFollower;
-  @override // corrected field name and default to 0
+  int? get amountPosts; // corrected field name and default to 0
+  @override
+  int? get amountFollowed; // corrected field name and default to 0
+  @override
+  int? get amountFollower; // corrected field name and default to 0
+  @override
   List<PostModel>? get posts;
   @override
   bool? get isFollowing;
+
+  /// Create a copy of UserModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserModelImplCopyWith<_$UserModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

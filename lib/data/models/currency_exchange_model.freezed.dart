@@ -24,8 +24,12 @@ mixin _$CurrencyExchangeModel {
   double get creditValue => throw _privateConstructorUsedError;
   int get totalCreditsInSystem => throw _privateConstructorUsedError;
 
+  /// Serializes this CurrencyExchangeModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CurrencyExchangeModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CurrencyExchangeModelCopyWith<CurrencyExchangeModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$CurrencyExchangeModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CurrencyExchangeModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -90,6 +96,8 @@ class __$$CurrencyExchangeModelImplCopyWithImpl<$Res>
       $Res Function(_$CurrencyExchangeModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CurrencyExchangeModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,12 +147,14 @@ class _$CurrencyExchangeModelImpl implements _CurrencyExchangeModel {
                 other.totalCreditsInSystem == totalCreditsInSystem));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, creditValue, totalCreditsInSystem);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CurrencyExchangeModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CurrencyExchangeModelImplCopyWith<_$CurrencyExchangeModelImpl>
@@ -171,8 +181,11 @@ abstract class _CurrencyExchangeModel implements CurrencyExchangeModel {
   double get creditValue;
   @override
   int get totalCreditsInSystem;
+
+  /// Create a copy of CurrencyExchangeModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CurrencyExchangeModelImplCopyWith<_$CurrencyExchangeModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

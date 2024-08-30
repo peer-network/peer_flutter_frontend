@@ -12,14 +12,14 @@ import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/fee
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 
 class FeedHeaderComponent extends StatelessWidget {
-  const FeedHeaderComponent({super.key, required this.user, required this.postId});
+  const FeedHeaderComponent(
+      {super.key, required this.user, required this.postId});
 
   final UserModel user;
   final String postId;
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement user profile page navigation
     return Padding(
       padding: const EdgeInsets.symmetric(
           horizontal: AppPaddings.large, vertical: AppPaddings.small),
@@ -33,7 +33,7 @@ class FeedHeaderComponent extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                AvatarComponent(imageUrl: user.imgUrl),
+                AvatarComponent(imageUrl: user.img),
                 const SizedBox(width: AppPaddings.small),
                 // Title
                 Text(user.username,
@@ -48,9 +48,10 @@ class FeedHeaderComponent extends StatelessWidget {
               SecondaryButton(
                 text: 'Follow',
                 onPressed: () {},
-                backgroundColor: Theme.of(context).brightness == Brightness.light
-                    ? LightColors.followBackground
-                    : DarkColors.followBackground,
+                backgroundColor:
+                    Theme.of(context).brightness == Brightness.light
+                        ? LightColors.followBackground
+                        : DarkColors.followBackground,
                 isFilled: true,
               ),
               CustomIconButton(

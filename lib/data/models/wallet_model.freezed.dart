@@ -35,8 +35,12 @@ mixin _$WalletModel {
   @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
   Map<DateTime, double>? get tokensPerDay => throw _privateConstructorUsedError;
 
+  /// Serializes this WalletModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of WalletModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $WalletModelCopyWith<WalletModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -76,6 +80,8 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of WalletModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -134,6 +140,8 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
     ) as $Val);
   }
 
+  /// Create a copy of WalletModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CreditsSourceModelCopyWith<$Res> get creditsSource {
@@ -142,6 +150,8 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
     });
   }
 
+  /// Create a copy of WalletModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CurrencyExchangeModelCopyWith<$Res> get currencyExchange {
@@ -151,6 +161,8 @@ class _$WalletModelCopyWithImpl<$Res, $Val extends WalletModel>
     });
   }
 
+  /// Create a copy of WalletModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AccountDevelopmentModelCopyWith<$Res> get accountDevelopment {
@@ -199,6 +211,8 @@ class __$$WalletModelImplCopyWithImpl<$Res>
       _$WalletModelImpl _value, $Res Function(_$WalletModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of WalletModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -339,7 +353,7 @@ class _$WalletModelImpl implements _WalletModel {
                 .equals(other._tokensPerDay, _tokensPerDay));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -354,7 +368,9 @@ class _$WalletModelImpl implements _WalletModel {
       accountDevelopment,
       const DeepCollectionEquality().hash(_tokensPerDay));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of WalletModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$WalletModelImplCopyWith<_$WalletModelImpl> get copyWith =>
@@ -408,8 +424,11 @@ abstract class _WalletModel implements WalletModel {
   @override
   @JsonKey(fromJson: _tokensPerDayFromJson, toJson: _tokensPerDayToJson)
   Map<DateTime, double>? get tokensPerDay;
+
+  /// Create a copy of WalletModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$WalletModelImplCopyWith<_$WalletModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

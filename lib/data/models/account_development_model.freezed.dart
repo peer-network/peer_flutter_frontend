@@ -24,8 +24,12 @@ mixin _$AccountDevelopmentModel {
   List<double> get values => throw _privateConstructorUsedError;
   List<DateTime> get timestamps => throw _privateConstructorUsedError;
 
+  /// Serializes this AccountDevelopmentModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AccountDevelopmentModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AccountDevelopmentModelCopyWith<AccountDevelopmentModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$AccountDevelopmentModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AccountDevelopmentModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$AccountDevelopmentModelImplCopyWithImpl<$Res>
       $Res Function(_$AccountDevelopmentModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AccountDevelopmentModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -153,14 +161,16 @@ class _$AccountDevelopmentModelImpl implements _AccountDevelopmentModel {
                 .equals(other._timestamps, _timestamps));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_values),
       const DeepCollectionEquality().hash(_timestamps));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AccountDevelopmentModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AccountDevelopmentModelImplCopyWith<_$AccountDevelopmentModelImpl>
@@ -188,8 +198,11 @@ abstract class _AccountDevelopmentModel implements AccountDevelopmentModel {
   List<double> get values;
   @override
   List<DateTime> get timestamps;
+
+  /// Create a copy of AccountDevelopmentModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AccountDevelopmentModelImplCopyWith<_$AccountDevelopmentModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

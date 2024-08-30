@@ -10,7 +10,8 @@ class UserModel with _$UserModel {
   const factory UserModel({
     required String id,
     required String username,
-    String? imgUrl,
+    String?
+        img, //TODO: this is usually called imgUrl this was changed to work with the api
     String? email,
     @Default(false) bool verified, // default to false if not provided
     String? createdAt,
