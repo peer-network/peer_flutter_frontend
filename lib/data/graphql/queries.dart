@@ -28,6 +28,26 @@ query Getallposts {
     }
 }
 """);
+  static final getPostById = gql("""
+query Post(\$id: ID!) {
+    getallposts(where: { id: \$id }) {
+      id
+      contenttype
+      title
+      media
+      mediadescription
+      createdat
+      amountlikes
+      amountviews
+      amountcomments
+      isliked
+      isviewed
+      isreported
+      isdisliked
+      issaved
+    }
+  }
+""");
 
   // erste Zeile: welche Variablen (+ datentyp) brauchst du um zu bekommen was du willst
   // zweite Zeile: was bekommst du zurück (was willst du genau haben aus welchem table)
@@ -43,9 +63,25 @@ query Wallet(\$user_id: Int) {
   static final hello = gql("""
 query Hello {
     hello {
-        context
         currentuserid
     }
 }
 """);
+
+  static final getUsers = gql("""
+  query Users {
+    users {
+      id
+      username
+      email
+      biography
+      img
+      isprivate
+      isfollowed
+      isfollowing
+      createdat
+      updatedat
+    }
+  }
+  """);
 }

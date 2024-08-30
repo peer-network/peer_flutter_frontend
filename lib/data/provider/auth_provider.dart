@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/services/auth_service.dart';
-import 'package:jwt_decoder/jwt_decoder.dart';
+import 'package:peer_app/data/services/user_service.dart';
 
 enum AuthStates {
   loading,
@@ -8,8 +8,10 @@ enum AuthStates {
   unauthenticated,
 }
 
-class AuthProvider extends ChangeNotifier {
+class AuthProvider with ChangeNotifier {
   final AuthService _authService = AuthService();
+  final UserService _userService = UserService();
+
   AuthStates _authState = AuthStates.loading;
   String? _error;
 
@@ -31,6 +33,8 @@ class AuthProvider extends ChangeNotifier {
 
     bool success = await _authService.loginWithCredentials(email, password);
     if (success) {
+      await _userService.initializeUser();
+
       _authState = AuthStates.authenticated;
       _error = null;
     } else {
@@ -56,8 +60,9 @@ class AuthProvider extends ChangeNotifier {
 
     final token = await _authService.getAccessToken();
     if (token != null && token.isNotEmpty) {
-      if (JwtDecoder.isExpired(token)) {
-        bool isRefreshTokenExpired = await _authService.isRefreshTokenExpired();
+      if (_authService.isAnyTokenExpired(token)) {
+        bool isRefreshTokenExpired = _authService
+            .isAnyTokenExpired(await _authService.getRefreshToken());
         if (isRefreshTokenExpired) {
           _authState = AuthStates.unauthenticated;
         } else {
@@ -66,6 +71,7 @@ class AuthProvider extends ChangeNotifier {
             final newToken = await _authService.getAccessToken();
             _authState = AuthStates.authenticated;
             await setTokenInGraphQL(newToken!);
+            await _userService.initializeUser();
           } else {
             _authState = AuthStates.unauthenticated;
           }
@@ -73,6 +79,7 @@ class AuthProvider extends ChangeNotifier {
       } else {
         _authState = AuthStates.authenticated;
         await setTokenInGraphQL(token);
+        await _userService.initializeUser();
       }
     } else {
       _authState = AuthStates.unauthenticated;

@@ -84,6 +84,9 @@ class AuthService {
     var box = await Hive.openBox('authBox');
     final String? refreshToken = box.get('refreshToken');
 
+    /// this check may not be necessary as the refresh token should be checked beforehand
+    /// but if this method is called from somewhere else then [AuthProvider] it may lead to an error
+    /// hence I'll leave this in
     if (refreshToken == null ||
         refreshToken.isEmpty ||
         JwtDecoder.isExpired(refreshToken)) {
@@ -123,11 +126,10 @@ class AuthService {
     }
   }
 
-  Future<bool> isRefreshTokenExpired() async {
-    final refreshToken = await getRefreshToken();
-    if (refreshToken == null || refreshToken.isEmpty) {
+  bool isAnyTokenExpired(String? token) {
+    if (token == null || token.isEmpty) {
       return true;
     }
-    return JwtDecoder.isExpired(refreshToken);
+    return JwtDecoder.isExpired(token);
   }
 }

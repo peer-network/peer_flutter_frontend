@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:hive/hive.dart';
 import 'package:peer_app/data/provider/auth_provider.dart';
 import 'package:peer_app/data/provider/chat_contacts_provider.dart';
 import 'package:peer_app/data/provider/chat_provider.dart';
@@ -8,6 +7,7 @@ import 'package:peer_app/data/provider/contacts_provider.dart';
 // import 'package:peer_app/data/provider/chat_provider.dart'; // ChatProvider is now ChatCpntactsProvider (is assume so)
 import 'package:peer_app/data/provider/post_provider.dart';
 import 'package:peer_app/data/provider/theme_provider.dart';
+import 'package:peer_app/data/provider/user_provider.dart';
 import 'package:peer_app/data/provider/wallet_sheet_provider.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
 import 'package:peer_app/presentation/pages/login_page/login_page.dart';
@@ -39,7 +39,8 @@ class MainApp extends StatelessWidget {
             create: (_) => ChatProvider(
                 "c05a6e6e-5365-40ca-b2d5-29af9f1cb1c6")), // Simulating the CurrentUserId
         ChangeNotifierProvider(create: (_) => WalletSheetProvider()),
-        ChangeNotifierProvider(create: (_) => ThemeProvider())
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => UserProvider())
       ],
       child: GraphQLProvider(
           client: ValueNotifier(GraphQLClientSingleton().client),
