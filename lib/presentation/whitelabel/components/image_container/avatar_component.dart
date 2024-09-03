@@ -30,20 +30,12 @@ class AvatarComponent extends StatelessWidget {
                 image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
               ),
             ),
-        placeholder: (context, url) => Container(
-              width: AppDimensions.avatarSize,
-              height: AppDimensions.avatarSize,
-              decoration: const BoxDecoration(
-                color: Colors.black12,
-                shape: BoxShape.circle,
-              ),
-            ),
         errorWidget: (context, url, error) {
           return Container(
             width: AppDimensions.avatarSize,
             height: AppDimensions.avatarSize,
             decoration: const BoxDecoration(
-              color: Colors.black12,
+              color: Colors.white,
               shape: BoxShape.circle,
             ),
             child: const Icon(

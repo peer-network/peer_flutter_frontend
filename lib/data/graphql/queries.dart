@@ -84,4 +84,21 @@ query Hello {
     }
   }
   """);
+
+  static final getProfile = gql("""
+query Profile(\$userid: String!) {
+    profile(userid: \$userid) {
+        id
+        username
+        img
+        biography
+        isprivate
+        amountfollower
+        amountfollowed
+        amountposts
+        isfollowed
+        isfollowing
+    }
+}
+""");
 }

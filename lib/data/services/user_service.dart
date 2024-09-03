@@ -38,7 +38,8 @@ class UserService {
 
       final userDetailsResult = await gqlClient.query(
         QueryOptions(
-          document: Queries.getUsers,
+          document: Queries.getProfile,
+          variables: {'userid': userId},
         ),
       );
 
@@ -47,14 +48,12 @@ class UserService {
             userDetailsResult.exception.toString(), StackTrace.current);
       }
 
-      final List<dynamic> users = userDetailsResult.data?['users'];
-      if (users.isEmpty) {
+      final dynamic user = userDetailsResult.data?['profile'];
+      if (user.isEmpty) {
         throw CustomException(
             "No user found with the given ID", StackTrace.current);
       }
-
-      final userData = users.firstWhere((user) => user['id'] == userId);
-      _user = UserModel.fromJson(userData);
+      _appUser = UserModel.fromJson(user);
     } catch (e) {
       throw CustomException(e.toString(), StackTrace.current);
     }

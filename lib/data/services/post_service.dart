@@ -119,14 +119,13 @@ class PostService {
       postJson.remove('__typename');
 
       String imgUrl = postJson['user']['img'];
-      postJson['user']['img'] =
-          'http://10.10.121.78:8888/runtime-data${imgUrl}';
+      postJson['user']['img'] = 'http://10.10.121.78:8888/runtime-data$imgUrl';
 
       if (postJson['runtimeType'] == 'image') {
         postJson['mediaDescription'] = postJson['mediadescription'];
         postJson.remove('mediadescription');
 
-        List<dynamic> mediaList = json.decode(postJson['media']);
+        List<dynamic> mediaList = json.decode(postJson['media']).split(',');
         postJson['media'] = mediaList
             .map((mediaPath) =>
                 'http://10.10.121.78:8888/runtime-data$mediaPath')
@@ -137,7 +136,7 @@ class PostService {
         postJson.remove('mediadescription');
 
         Uri textPostUri = Uri.parse(
-            'http://10.10.121.78:8888/runtime-data${json.decode(postJson['media'])[0]}');
+            'http://10.10.121.78:8888/runtime-data${json.decode(postJson['media'])}');
 
         try {
           final response = await http.get(textPostUri);
