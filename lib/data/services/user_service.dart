@@ -6,7 +6,7 @@ import 'package:peer_app/data/services/gql_client_service.dart';
 
 class UserService {
   final gqlClient = GraphQLClientSingleton();
-  late UserModel _user;
+  late UserModel _appUser;
 
   static final UserService _instance = UserService._internal();
 
@@ -16,7 +16,7 @@ class UserService {
 
   UserService._internal();
 
-  UserModel get user => _user;
+  UserModel get appUser => _appUser;
 
   Future<void> initializeUser() async {
     try {

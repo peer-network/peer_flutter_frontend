@@ -23,7 +23,7 @@ class SmallHeaderPostCard extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            AvatarComponent(imageUrl: creator.imgUrl),
+            AvatarComponent(imageUrl: creator.img),
             const SizedBox(width: AppPaddings.small),
             // Title
             Column(

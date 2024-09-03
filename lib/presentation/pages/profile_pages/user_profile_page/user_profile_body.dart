@@ -17,7 +17,7 @@ class UserProfileBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          ProfileImageSection(imgUrl: user.imgUrl),
+          ProfileImageSection(imgUrl: user.img),
           const SizedBox(height: AppPaddings.large),
           ProfileInfoSection(user: user),
           const SizedBox(height: AppPaddings.large),

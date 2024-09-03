@@ -16,7 +16,7 @@ class PostPerformanceContent extends StatelessWidget {
         if (provider.isLoading) {
           return const Center(child: CircularProgressIndicator());
         } else {
-          final postPerformance = provider.getPostById(postId);
+          final postPerformance = provider.getPostByIdFromCache(postId);
           if (postPerformance == null) {
             return const Center(
               child: Text('Post performance data not found'),

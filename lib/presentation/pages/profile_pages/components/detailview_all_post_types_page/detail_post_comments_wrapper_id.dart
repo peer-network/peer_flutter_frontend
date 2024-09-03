@@ -38,7 +38,7 @@ Future<List<PostCommentModel>> fetchComments(
     /*GraphQLClient client,*/ String postId, BuildContext context) async {
   PostProvider postProvider = Provider.of<PostProvider>(context, listen: false);
 
-  PostModel? post = postProvider.getPostById(postId);
+  PostModel? post = postProvider.getPostByIdFromCache(postId);
 
   return (post != null && post.comments != null) ? post.comments! : [];
 

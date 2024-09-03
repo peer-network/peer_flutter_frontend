@@ -39,7 +39,8 @@ class _FollowerButtonComponentState extends State<FollowerButtonComponent> {
         setState(() {
           isLoading = true;
         });
-        final bool success = await UserService().toggleFollow(widget.user.id);
+        final bool success = false;
+        //await UserService().toggleFollow(widget.user.id);
         setState(
           () {
             isLoading = false;

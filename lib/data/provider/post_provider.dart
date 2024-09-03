@@ -10,7 +10,7 @@ class PostProvider with ChangeNotifier {
   bool isLoading = false;
   String? error;
 
-  List<PostModel> get newsFeed => List.unmodifiable(_posts);
+  List<PostModel> get post => List.unmodifiable(_posts);
 
   PostProvider() {
     fetchPosts();

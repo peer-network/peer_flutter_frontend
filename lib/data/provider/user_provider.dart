@@ -19,7 +19,7 @@ class UserProvider with ChangeNotifier {
 
     try {
       await _userService.initializeUser();
-      _user = _userService.user;
+      _user = _userService.appUser;
     } catch (e) {
       _error = e.toString();
     } finally {
