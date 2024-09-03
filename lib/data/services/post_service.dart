@@ -36,6 +36,20 @@ class PostService {
       throw CustomException(e.toString(), StackTrace.current);
     }
   }
+  Future<void> viewPost(String postId) async {
+    final MutationOptions options = MutationOptions(
+      document: Mutations.viewPost,
+      variables: {
+        'postid': postId,
+      },
+    );
+
+    final QueryResult result = await gqlClient.mutate(options);
+
+    if (result.hasException) {
+      throw CustomException(result.exception.toString(), StackTrace.current);
+    }
+  }
 
   Future<List<PostModel>> parsePosts(Map<String, dynamic> jsonResponse) async {
     final List<dynamic> postsJson = jsonResponse['getallposts'];

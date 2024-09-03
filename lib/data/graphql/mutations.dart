@@ -41,4 +41,12 @@ mutation Login(\$email: String!, \$password: String!) {
       }
     }
   ''');
+  static final viewPost = gql('''
+   mutation ViewPost(\$postid: String!) {
+      viewPost(input: { postid: \$postid }) {
+        status
+        errorMessage
+      }
+    }
+  ''');
 }

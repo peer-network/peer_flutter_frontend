@@ -38,6 +38,23 @@ class PostProvider with ChangeNotifier {
       return null;
     }
   }
+  Future<void> viewPost(String postId) async {
+    int postIndex = _posts.indexWhere((post) => post.id == postId);
+
+    if (postIndex != -1 && !_posts[postIndex].isViewed) {
+      try {
+        await _postService.viewPost(postId);
+        _posts[postIndex] = _posts[postIndex].copyWith(
+          isViewed: true,
+          amountViews: _posts[postIndex].amountViews! + 1,
+        );
+        notifyListeners();
+      } catch (e) {
+        error = e.toString();
+        notifyListeners();
+      }
+    }
+  }
 
   Future<void> createPost({
     required int userId,
