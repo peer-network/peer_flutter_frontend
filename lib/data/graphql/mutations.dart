@@ -41,6 +41,14 @@ mutation Login(\$email: String!, \$password: String!) {
       }
     }
   ''');
+  static final dislikePost = gql('''
+   mutation dislikePost(\$postid: String!) {
+  dislikePost(input: {postid: \$postid}) {
+    errorMessage
+  }
+}
+  ''');
+
   static final viewPost = gql('''
    mutation ViewPost(\$postid: String!) {
       viewPost(input: { postid: \$postid }) {

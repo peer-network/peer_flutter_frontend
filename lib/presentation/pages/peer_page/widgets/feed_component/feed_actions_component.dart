@@ -93,7 +93,7 @@ class _FeedActionsComponentState extends State<FeedActionsComponent>
               return ScaleTransition(scale: animation, child: child);
             },
             child: _showIcons
-                ? buildHiddenIcons(context, const ValueKey(2))
+                ? buildHiddenIcons(context, const ValueKey(2), widget.feed)
                 : Padding(
                     key: const ValueKey(2),
                     padding: const EdgeInsets.only(left: AppPaddings.large),

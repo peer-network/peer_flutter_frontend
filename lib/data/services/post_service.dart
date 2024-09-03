@@ -36,6 +36,24 @@ class PostService {
       throw CustomException(e.toString(), StackTrace.current);
     }
   }
+  Future<void> dislikePost(String postId) async {
+    try {
+      final MutationOptions options = MutationOptions(
+        document: Mutations.dislikePost,
+        variables: {
+          'postid': postId,
+        },
+      );
+
+      final QueryResult result = await gqlClient.mutate(options);
+
+      if (result.hasException) {
+        throw CustomException(result.exception.toString(), StackTrace.current);
+      }
+    } catch (e) {
+      throw CustomException(e.toString(), StackTrace.current);
+    }
+  }
   Future<void> viewPost(String postId) async {
     final MutationOptions options = MutationOptions(
       document: Mutations.viewPost,

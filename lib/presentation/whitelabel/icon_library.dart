@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 enum IconLibrary {
+  dislikeActive,
   gem,
   peerSignet,
   send,
@@ -50,6 +51,8 @@ enum IconLibrary {
 extension IconExtension on IconLibrary {
   AssetImage get icon {
     switch (this) {
+      case IconLibrary.dislikeActive:
+        return const AssetImage("assets/icons/dislike_active.png");
       case IconLibrary.gem:
         return const AssetImage("assets/icons/gem.png");
       case IconLibrary.peerSignet:

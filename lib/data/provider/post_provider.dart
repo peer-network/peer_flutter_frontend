@@ -38,6 +38,21 @@ class PostProvider with ChangeNotifier {
       return null;
     }
   }
+  Future<void> dislikePost(String postId) async {
+    int postIndex = _posts.indexWhere((post) => post.id == postId);
+    try {
+      if (postIndex != -1) {
+        await _postService.dislikePost(postId);
+        _posts[postIndex] = _posts[postIndex].copyWith(
+          isDisliked: true,
+        );
+        notifyListeners();
+      }
+    } catch (e) {
+      error = e.toString();
+      notifyListeners();
+    }
+  }
   Future<void> viewPost(String postId) async {
     int postIndex = _posts.indexWhere((post) => post.id == postId);
 
