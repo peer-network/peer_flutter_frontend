@@ -41,6 +41,15 @@ mutation Login(\$email: String!, \$password: String!) {
       }
     }
   ''');
+
+  static final likePost = gql('''
+   mutation LikePost(\$postid: String!) {
+  likePost(input: {postid: \$postid}) {
+    errorMessage
+  }
+}
+  ''');
+
   static final dislikePost = gql('''
    mutation dislikePost(\$postid: String!) {
   dislikePost(input: {postid: \$postid}) {

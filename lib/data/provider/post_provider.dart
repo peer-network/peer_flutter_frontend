@@ -38,6 +38,24 @@ class PostProvider with ChangeNotifier {
       return null;
     }
   }
+
+  Future<void> likePost(String postId) async {
+    int postIndex = _posts.indexWhere((post) => post.id == postId);
+    try {
+      if (postIndex != -1) {
+        await _postService.likePost(postId);
+        _posts[postIndex] = _posts[postIndex].copyWith(
+          isLiked: true,
+          amountLikes: _posts[postIndex].amountLikes! + 1,
+        );
+        notifyListeners();
+      }
+    } catch (e) {
+      error = e.toString();
+      notifyListeners();
+    }
+  }
+
   Future<void> dislikePost(String postId) async {
     int postIndex = _posts.indexWhere((post) => post.id == postId);
     try {
@@ -53,6 +71,7 @@ class PostProvider with ChangeNotifier {
       notifyListeners();
     }
   }
+
   Future<void> viewPost(String postId) async {
     int postIndex = _posts.indexWhere((post) => post.id == postId);
 
