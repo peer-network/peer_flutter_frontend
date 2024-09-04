@@ -42,12 +42,15 @@ enum IconLibrary {
   close,
   trash,
   edit,
-  diamond
+  diamond,
+  check_filled
 }
 
 extension IconExtension on IconLibrary {
   AssetImage get icon {
     switch (this) {
+      case IconLibrary.check_filled:
+        return const AssetImage("assets/icons/check_filled.png");
       case IconLibrary.send:
         return const AssetImage("assets/icons/send.png");
       case IconLibrary.diamond:

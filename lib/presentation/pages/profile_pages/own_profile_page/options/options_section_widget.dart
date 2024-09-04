@@ -18,7 +18,7 @@ class OptionsSectionWidget extends StatelessWidget {
         Text(
           title,
           style: Theme.of(context).textTheme.displayLarge,
-          textAlign: TextAlign.center,
+          textAlign: TextAlign.left,
         ),
         Padding(
           padding: EdgeInsets.only(

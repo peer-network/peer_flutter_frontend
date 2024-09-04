@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/data/models/user_model.dart';
 import 'package:peer_app/presentation/routing/routes/page_routes.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/whitelabel/theme.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/options/section_blocked_users/blocked_users_list.dart';
 
 class BlockedUsersSection extends StatelessWidget {
   //final UserModel user;
@@ -22,19 +25,21 @@ class BlockedUsersSection extends StatelessWidget {
         );
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+        padding: const EdgeInsets.symmetric(horizontal: AppPaddings.medium, vertical: AppPaddings.medium),//12?),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: AppBorders.creditsSourceBarRadius,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               'Blocked Users',
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: Colors.white,
-                  ),
+              style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                    color: Theme.of(context).brightness == Brightness.light
+                            ? lightTheme.colorScheme.primary
+                            : darkTheme.colorScheme.primary,
+              ),  
             ),
             Row(
               children: [
@@ -43,14 +48,18 @@ class BlockedUsersSection extends StatelessWidget {
                   //user.amountFollowed.toString(),
                   "12",
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: Colors.white,
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? lightTheme.colorScheme.primary
+                            : darkTheme.colorScheme.primary,
                       ),
                 ),
-                const SizedBox(width: 8.0),
-                const Icon(
+                const SizedBox(width: AppPaddings.small),
+                Icon(
                   Icons.arrow_forward_ios,
-                  color: Colors.white,
-                  size: 16.0,
+                  color: Theme.of(context).brightness == Brightness.light
+                            ? lightTheme.iconTheme.color
+                            : darkTheme.iconTheme.color,
+                  size: AppDimensions.iconSizeSmall,
                 ),
               ],
             ),
@@ -61,19 +70,4 @@ class BlockedUsersSection extends StatelessWidget {
   }
 }
 
-class BlockedUsersPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Blocked Users'),
-      ),
-      body: Center(
-        child: Text(
-          'List of Blocked Users',
-          style: Theme.of(context).textTheme.headlineSmall,
-        ),
-      ),
-    );
-  }
-}
+

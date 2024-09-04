@@ -19,7 +19,8 @@ class OptionsPage extends StatelessWidget {
           },
         ),
         centerTitle: true,
-        title: const Text('Options'),
+        title: const Text('Options',
+        ),
       ),
       body: Container(
         child: OptionsContent(),

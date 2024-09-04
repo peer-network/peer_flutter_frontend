@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/whitelabel/theme.dart';
+
 
 class ExcludeContentTypes extends StatefulWidget {
   @override
@@ -13,42 +16,34 @@ class _ExcludeContentTypesState extends State<ExcludeContentTypes> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(AppPaddings.medium),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Title
-          Text(
-            'Exclude Content-Types',
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
-          const SizedBox(height: 8),
-
           // Description
           Text(
             'You can exclude Content-Types to alter your feed.',
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Colors.white60,
-                ),
+              color: Theme.of(context).brightness == Brightness.light
+                ? lightTheme.colorScheme.primary
+                : darkTheme.colorScheme.primary,
+            ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppPaddings.medium),
 
           // Text Posts Toggle
           _buildToggleRow('Text Posts', _textPosts, (value) {
             _onToggleSwitch(value, 'text');
           }),
 
-          const SizedBox(height: 16),
+          const SizedBox(height: AppPaddings.medium),
 
           // Image Posts Toggle
           _buildToggleRow('Image Posts', _imagePosts, (value) {
             _onToggleSwitch(value, 'image');
           }),
 
-          const SizedBox(height: 16),
+          const SizedBox(height: AppPaddings.medium),
 
           // Video Posts Toggle
           _buildToggleRow('Video Posts', _videoPosts, (value) {
@@ -97,8 +92,8 @@ class _ExcludeContentTypesState extends State<ExcludeContentTypes> {
         Switch(
           value: value,
           onChanged: onChanged,
-          activeColor: Colors.blue,
-          inactiveTrackColor: Colors.grey,
+          activeColor: Theme.of(context).buttonTheme.colorScheme?.outline,
+          inactiveTrackColor: Theme.of(context).buttonTheme.colorScheme?.outlineVariant
         ),
       ],
     );
