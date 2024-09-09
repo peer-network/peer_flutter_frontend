@@ -8,10 +8,14 @@ class ImageSlider extends StatefulWidget {
   final double width;
   final double height;
 
-  const ImageSlider({super.key, required this.imageUrls, required this.width, required this.height});
+  const ImageSlider(
+      {super.key,
+      required this.imageUrls,
+      required this.width,
+      required this.height});
 
   @override
-  _ImageSliderState createState() => _ImageSliderState();
+  State<ImageSlider> createState() => _ImageSliderState();
 }
 
 class _ImageSliderState extends State<ImageSlider> {

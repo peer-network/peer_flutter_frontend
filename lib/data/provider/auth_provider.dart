@@ -28,16 +28,7 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  Future<void> loginWithToken() async {
-    await AuthService().loginWithToken().then((value) {
-      if (value) {
-        _authState = AuthStates.authenticated;
-      } else {
-        _authState = AuthStates.unauthenticated;
-      }
-      notifyListeners();
-    });
-  }
+  Future<void> loginWithToken() async {}
 
   logout() {
     _authState = AuthStates.unauthenticated;
