@@ -39,15 +39,15 @@ class WalletSheetProvider with ChangeNotifier {
       // final response = await _dioClient.get(ApiEndpoints.wallet);
       // TODO replace with real api call
       // dummy data for currency exchange inside wallet
-      Map<String, dynamic> _dummyCurrencyExchange =
+      Map<String, dynamic> dummyCurrencyExchange =
           dummyWallet["currencyExchange"] as Map<String, dynamic>;
       _currencyExchange =
-          CurrencyExchangeModel.fromJson(_dummyCurrencyExchange);
+          CurrencyExchangeModel.fromJson(dummyCurrencyExchange);
 
       // dummy data for source items inside wallet
-      Map<String, dynamic> _dummySourceItems =
+      Map<String, dynamic> dummySourceItems =
           dummyWallet["creditsSource"] as Map<String, dynamic>;
-      _creditsSource = CreditsSourceModel.fromJson(_dummySourceItems);
+      _creditsSource = CreditsSourceModel.fromJson(dummySourceItems);
 
       _creditsSource = sortItems(_creditsSource);
 
@@ -61,7 +61,7 @@ class WalletSheetProvider with ChangeNotifier {
     final queryOption = QueryOptions(
         document: Queries.wallet,
         fetchPolicy: FetchPolicy.networkOnly,
-        variables: {
+        variables: const {
           'user_id': 2, //TODO fetch real user id
         });
 

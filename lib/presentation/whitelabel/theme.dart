@@ -69,7 +69,7 @@ ThemeData lightTheme = ThemeData(
       secondary: LightColors.textBright,
       tertiary: LightColors.textCompany,
       onError: LightColors.textError,
-      background: LightColors.backgroundScreen,
+      surface: LightColors.backgroundScreen,
       primaryContainer: LightColors.backgroundContainer,
     ),
     disabledColor: LightColors.borderDisabled);
@@ -78,7 +78,7 @@ ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     buttonTheme: const ButtonThemeData(
         colorScheme: ColorScheme.dark(
-            background: DarkColors.backgroundContainer,
+            surface: DarkColors.backgroundContainer,
             outline: DarkColors.activeBorder,
             outlineVariant: DarkColors.borderDisabled)),
     dividerColor: DarkColors.divider,
@@ -126,7 +126,7 @@ ThemeData darkTheme = ThemeData(
       secondary: DarkColors.textBright,
       tertiary: DarkColors.textCompany,
       onError: DarkColors.textError,
-      background: DarkColors.backgroundScreen,
+      surface: DarkColors.backgroundScreen,
       primaryContainer: DarkColors.backgroundContainer,
     ),
     disabledColor: DarkColors.borderDisabled);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/wallet/components/scroll_sheet.dart';
 
 class WalletSheet extends StatelessWidget {
-  const WalletSheet({Key? key}) : super(key: key);
+  const WalletSheet({super.key});
 
   @override
   Widget build(BuildContext context) {

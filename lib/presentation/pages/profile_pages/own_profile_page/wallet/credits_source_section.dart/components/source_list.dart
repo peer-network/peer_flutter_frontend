@@ -6,8 +6,8 @@ import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/walle
 
 class SourceList extends StatelessWidget {
   const SourceList({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   //TODO: save in var which updates on every change => notifyListeners
   /// calculates the percentage of each source item based on the total amount of credits

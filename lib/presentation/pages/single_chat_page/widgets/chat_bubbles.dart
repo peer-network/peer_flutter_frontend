@@ -5,7 +5,7 @@ import 'package:peer_app/presentation/whitelabel/components/date/formatted_date.
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class ChatBubble extends StatelessWidget {
-  const ChatBubble({Key? key, required this.chatData}) : super(key: key);
+  const ChatBubble({super.key, required this.chatData});
 
   final ChatMessageModel chatData;
 

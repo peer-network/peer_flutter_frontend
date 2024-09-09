@@ -5,7 +5,7 @@ import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/walle
 
 class ChartSwitcher extends StatefulWidget {
   final double maxHeight;
-  const ChartSwitcher({Key? key, required this.maxHeight}) : super(key: key);
+  const ChartSwitcher({super.key, required this.maxHeight});
 
   @override
   State<ChartSwitcher> createState() => _ChartSwitcherState();

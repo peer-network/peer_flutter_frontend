@@ -15,7 +15,7 @@ class CustomButton extends StatelessWidget {
   final Color? customBackgroundColor;
 
   const CustomButton(
-      {Key? key,
+      {super.key,
       this.text,
       required this.onPressed,
       this.textColor,
@@ -26,23 +26,22 @@ class CustomButton extends StatelessWidget {
       this.hasImage,
       this.assetPath,
       this.overrideDefaultColor,
-      this.customBackgroundColor})
-      : super(key: key);
+      this.customBackgroundColor});
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
         style: ButtonStyle(
-            side: MaterialStateProperty.all(BorderSide(
+            side: WidgetStateProperty.all(BorderSide(
                 color: Theme.of(context).buttonTheme.colorScheme!.outline)),
             fixedSize: (height == null && width == null)
                 ? null
-                : MaterialStatePropertyAll<Size>(Size(width!, height!)),
+                : WidgetStatePropertyAll<Size>(Size(width!, height!)),
             backgroundColor: overrideDefaultColor ?? false
-                ? MaterialStatePropertyAll<Color>(customBackgroundColor!)
-                : MaterialStatePropertyAll<Color>(
-                    Theme.of(context).buttonTheme.colorScheme!.background),
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                ? WidgetStatePropertyAll<Color>(customBackgroundColor!)
+                : WidgetStatePropertyAll<Color>(
+                    Theme.of(context).buttonTheme.colorScheme!.surface),
+            shape: WidgetStateProperty.all(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8)))),
         onPressed: onPressed,
         child: (isIcon)

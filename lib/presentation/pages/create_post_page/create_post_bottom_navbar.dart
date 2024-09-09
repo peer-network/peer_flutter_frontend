@@ -5,11 +5,11 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class CreatePostBottomNavbar extends StatelessWidget {
   const CreatePostBottomNavbar({
-    Key? key,
+    super.key,
     required this.onTypeChanged,
     required this.activeCreatePostType,
     required this.isPostBeingCreated,
-  }) : super(key: key);
+  });
 
   final CreatePostType activeCreatePostType;
   final Function(CreatePostType) onTypeChanged;
@@ -41,7 +41,7 @@ class CreatePostBottomNavbar extends StatelessWidget {
                             isFilled: activeCreatePostType != type,
                           ),
                         );
-                      }).toList(),
+                      }),
                     ],
                   );
           },

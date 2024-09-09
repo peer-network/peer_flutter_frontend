@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class BaseModal extends StatelessWidget {
-  const BaseModal({Key? key, required this.children, required this.title})
-      : super(key: key);
+  const BaseModal({super.key, required this.children, required this.title});
 
   final List<Widget> children;
   final String title;

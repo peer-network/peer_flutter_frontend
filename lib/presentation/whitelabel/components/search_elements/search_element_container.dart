@@ -1,5 +1,5 @@
-/// A container that wraps around small search or dropdpwn-button widgets
-/// -> so far used in the "peer_page_extended" directory
+// A container that wraps around small search or dropdpwn-button widgets
+// -> so far used in the "peer_page_extended" directory
 
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';

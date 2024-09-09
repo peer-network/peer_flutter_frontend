@@ -6,9 +6,9 @@ class IncomeSources extends StatelessWidget {
   final PostModel postPerformance;
 
   const IncomeSources({
-    Key? key,
+    super.key,
     required this.postPerformance,
-  }) : super(key: key);
+  });
 
   List<double> calculateGemPercentages(PostModel postPerformance) {
     List<double> percentages = List<double>.filled(4, 0, growable: false);

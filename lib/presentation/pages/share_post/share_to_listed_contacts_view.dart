@@ -10,8 +10,7 @@ import 'package:provider/provider.dart';
 class ShareToListedContactsView extends StatefulWidget {
   final Set<String> activeContacts;
 
-  const ShareToListedContactsView({Key? key, required this.activeContacts})
-      : super(key: key);
+  const ShareToListedContactsView({super.key, required this.activeContacts});
 
   @override
   State<ShareToListedContactsView> createState() =>

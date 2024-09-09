@@ -7,11 +7,11 @@ class TextContentBox extends StatelessWidget {
   final double height;
 
   const TextContentBox({
-    Key? key,
+    super.key,
     required this.text,
     required this.width,
     required this.height,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

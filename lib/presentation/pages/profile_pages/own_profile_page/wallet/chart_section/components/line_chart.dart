@@ -47,7 +47,7 @@ class _CustomLineChartState extends State<CustomLineChart> {
     switch (value.toInt()) {
       case 1:
         text = Padding(
-          padding: EdgeInsets.only(left: 8.0),
+          padding: const EdgeInsets.only(left: 8.0),
           child: Text('25.02.02023', style: style),
         );
         break;
@@ -83,7 +83,7 @@ class _CustomLineChartState extends State<CustomLineChart> {
         text = '100';
         break;
       default:
-        return Text('');
+        return const Text('');
     }
 
     return Transform.rotate(
@@ -93,7 +93,7 @@ class _CustomLineChartState extends State<CustomLineChart> {
 
   LineChartData mainData() {
     return LineChartData(
-      gridData: FlGridData(
+      gridData: const FlGridData(
         show: false,
         drawVerticalLine: false,
         horizontalInterval: 1,

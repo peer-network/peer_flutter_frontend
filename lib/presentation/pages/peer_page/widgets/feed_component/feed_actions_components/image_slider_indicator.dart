@@ -7,10 +7,10 @@ class ImageSliderIndicator extends StatelessWidget {
   final ValueNotifier<double> currentIndex;
 
   const ImageSliderIndicator({
-    Key? key,
+    super.key,
     required this.currentIndex,
     required this.imageCount,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

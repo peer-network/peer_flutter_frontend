@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:peer_app/core/exceptions/base_exception.dart';
-import 'package:peer_app/data/graphql/queries.dart';
 import 'package:peer_app/data/models/post_comment_model.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/data/provider/post_provider.dart';

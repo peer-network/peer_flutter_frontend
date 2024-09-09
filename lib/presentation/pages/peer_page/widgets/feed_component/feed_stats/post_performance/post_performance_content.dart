@@ -6,8 +6,7 @@ import 'package:peer_app/presentation/pages/peer_page/widgets/feed_component/fee
 class PostPerformanceContent extends StatelessWidget {
   final String postId;
 
-  const PostPerformanceContent({Key? key, required this.postId})
-      : super(key: key);
+  const PostPerformanceContent({super.key, required this.postId});
 
   @override
   Widget build(BuildContext context) {

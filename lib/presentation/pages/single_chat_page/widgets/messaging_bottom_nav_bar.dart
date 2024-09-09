@@ -13,8 +13,7 @@ import 'package:provider/provider.dart';
 class MessagingBottomNavBar extends StatefulWidget {
   final ChatModel? chat;
 
-  const MessagingBottomNavBar.messagingBottomNavBar({Key? key, this.chat})
-      : super(key: key);
+  const MessagingBottomNavBar.messagingBottomNavBar({super.key, this.chat});
 
   @override
   State<MessagingBottomNavBar> createState() => _MessagingBottomNavBarState();

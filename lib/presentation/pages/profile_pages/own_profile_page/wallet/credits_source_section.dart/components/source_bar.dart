@@ -7,11 +7,11 @@ class SourceBar extends StatelessWidget {
   final double width;
 
   const SourceBar({
-    Key? key,
+    super.key,
     required this.label,
     required this.amount,
     required this.width,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

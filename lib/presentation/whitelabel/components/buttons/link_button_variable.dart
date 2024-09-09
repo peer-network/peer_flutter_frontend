@@ -7,12 +7,12 @@ class LinkButtonVariableComponent extends StatelessWidget {
   final bool underline;
 
   const LinkButtonVariableComponent({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
     this.textColor,
     this.underline = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

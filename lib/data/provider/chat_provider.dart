@@ -1,14 +1,8 @@
-import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:peer_app/core/exceptions/base_exception.dart';
-import 'package:peer_app/data/graphql/mutations.dart';
-import 'package:peer_app/data/models/chat_message_model.dart';
 import 'package:peer_app/data/models/chat_model.dart';
 import 'package:peer_app/data/new_dummy_response/new_dummy_chat_data.dart';
 import 'package:peer_app/data/services/gql_client_service.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:peer_app/data/graphql/queries.dart';
 
 class ChatProvider with ChangeNotifier {
   final gqlClient = GraphQLClientSingleton();

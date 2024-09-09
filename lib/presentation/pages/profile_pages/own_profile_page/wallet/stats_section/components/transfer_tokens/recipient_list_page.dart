@@ -27,7 +27,7 @@ class _RecipientListPageState extends State<RecipientListPage> {
         ),
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Theme.of(context).colorScheme.background,
+            backgroundColor: Theme.of(context).colorScheme.surface,
             leading: IconButton(
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -53,7 +53,9 @@ class _RecipientListPageState extends State<RecipientListPage> {
                   ),
                 ),
                 Expanded(
-                    child: ListView.builder(itemBuilder: (context, index) {})),
+                    child: ListView.builder(itemBuilder: (context, index) {
+                      return null;
+                    })),
               ],
             ),
           ),

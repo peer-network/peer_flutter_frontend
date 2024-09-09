@@ -8,10 +8,10 @@ class ImageSliderIndicator extends StatelessWidget {
   final ValueNotifier<double> currentIndex;
 
   const ImageSliderIndicator({
-    Key? key,
+    super.key,
     required this.currentIndex,
     required this.imageCount,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class ImageSliderIndicator extends StatelessWidget {
       valueListenable: currentIndex,
       builder: (context, value, child) {
         double padding = indicatorWidth * value.toDouble();
-        return Container(
+        return SizedBox(
           height: AppDimensions.imageSliderBarHeight,
           width: AppDimensions.imageSliderBarWidth,
           child: Stack(

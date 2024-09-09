@@ -5,8 +5,7 @@ class TimePassedSinceTextWidget extends StatelessWidget {
   final TextStyle? style;
 
   const TimePassedSinceTextWidget(
-      {Key? key, required this.dateTime, this.style})
-      : super(key: key);
+      {super.key, required this.dateTime, this.style});
 
   String _formatDuration(DateTime dateTime) {
     final now = DateTime.now();

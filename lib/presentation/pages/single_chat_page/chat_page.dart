@@ -6,7 +6,7 @@ import 'package:peer_app/presentation/pages/single_chat_page/widgets/messaging_b
 import 'package:peer_app/presentation/whitelabel/components/appbars/secondary_appbar.dart';
 
 class ChatPage extends StatelessWidget {
-  const ChatPage({Key? key, required this.chat}) : super(key: key);
+  const ChatPage({super.key, required this.chat});
 
   final ChatModel chat;
 

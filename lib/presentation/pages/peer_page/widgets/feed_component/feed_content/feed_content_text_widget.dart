@@ -5,8 +5,7 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 
 class FeedContentTextWidget extends StatelessWidget {
   const FeedContentTextWidget(
-      {Key? key, required this.text, required this.caption})
-      : super(key: key);
+      {super.key, required this.text, required this.caption});
 
   final String caption;
   final String text;

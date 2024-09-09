@@ -57,7 +57,7 @@ class _ImageSliderState extends State<ImageSlider> {
             },
           ),
         ),
-        SizedBox(height: AppDimensions.imageSliderBarHeightBigger),
+        const SizedBox(height: AppDimensions.imageSliderBarHeightBigger),
         ImageSliderIndicator(
           currentIndex: currentIndexNotifier,
           imageCount: widget.imageUrls.length,

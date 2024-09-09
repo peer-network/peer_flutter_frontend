@@ -5,8 +5,7 @@ class AspectRatioTile extends StatelessWidget {
   final double aspectRatio;
 
   const AspectRatioTile(
-      {Key? key, required this.child, required this.aspectRatio})
-      : super(key: key);
+      {super.key, required this.child, required this.aspectRatio});
 
   @override
   Widget build(BuildContext context) {

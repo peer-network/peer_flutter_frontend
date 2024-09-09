@@ -7,7 +7,7 @@ import 'package:peer_app/presentation/whitelabel/constants.dart';
 class ContentBlock extends StatelessWidget {
   final PostModel post;
 
-  const ContentBlock({Key? key, required this.post}) : super(key: key);
+  const ContentBlock({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {

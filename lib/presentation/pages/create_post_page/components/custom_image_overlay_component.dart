@@ -7,8 +7,7 @@ import 'package:image_picker/image_picker.dart';
 class CustomImageOverlayComponent extends StatefulWidget {
   final XFile image;
 
-  const CustomImageOverlayComponent({Key? key, required this.image})
-      : super(key: key);
+  const CustomImageOverlayComponent({super.key, required this.image});
 
   @override
   State<CustomImageOverlayComponent> createState() =>

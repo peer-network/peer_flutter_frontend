@@ -23,7 +23,7 @@ class SectionWidgetHolder extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: AppPaddings.medium,
             bottom: AppPaddings.medium,
           ),
@@ -35,7 +35,7 @@ class SectionWidgetHolder extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: AppPaddings.medium,
             bottom: AppPaddings.medium,
           ),
@@ -47,7 +47,7 @@ class SectionWidgetHolder extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: AppPaddings.medium,
             bottom: AppPaddings.medium,
           ),
