@@ -54,7 +54,7 @@ class _CreatePostState extends State<CreatePost> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 2,
+        length: AppValues.createPostTabBarItemCount,
         child: Scaffold(
             resizeToAvoidBottomInset: false,
             appBar: AppBar(
