@@ -107,6 +107,8 @@ class AppDimensions {
   static const double labelRowLarge = 28.0;
 
   static const double fileInputFieldHeight = 60.0;
+
+  static const double createPostTabBarHeight = 40.0;
 }
 
 // aspect ratios

@@ -9,9 +9,9 @@ class CreatePostTabBar extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.only(top: AppPaddings.medium),
         child: ClipRRect(
-            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            borderRadius: AppBorders.createPostTabBarRadius,
             child: Container(
-                height: 40,
+                height: AppDimensions.createPostTabBarHeight,
                 margin:
                     const EdgeInsets.symmetric(horizontal: AppPaddings.medium),
                 decoration: BoxDecoration(
