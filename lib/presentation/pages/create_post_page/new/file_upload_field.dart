@@ -47,7 +47,7 @@ class _FileUploadFieldState extends State<FileUploadField> {
         height: AppDimensions.fileInputFieldHeight,
         decoration: BoxDecoration(
           color: Theme.of(context).inputDecorationTheme.fillColor,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: AppBorders.defaultRadius,
           border: Border.all(
             color: Theme.of(context).inputDecorationTheme.outlineBorder!.color,
           ),
