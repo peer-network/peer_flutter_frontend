@@ -24,7 +24,8 @@ class _FilteredTagsListState extends State<FilteredTagsList> {
         builder: (context, filteredTags, child) {
           if (widget.tagController.text.isNotEmpty && filteredTags.isNotEmpty) {
             return SizedBox(
-              height: filteredTags.length * 50,
+              height:
+                  filteredTags.length * AppDimensions.searchTagListTileHeight,
               child: Scrollbar(
                 interactive: true,
                 child: ListView.builder(
@@ -33,7 +34,7 @@ class _FilteredTagsListState extends State<FilteredTagsList> {
                   itemBuilder: (context, index) {
                     final tag = filteredTags[index];
                     return SizedBox(
-                      height: 50, //TODO: move hardcoded values to constants
+                      height: AppDimensions.searchTagListTileHeight,
                       child: ListTile(
                         title: Text(tag),
                         onTap: () {

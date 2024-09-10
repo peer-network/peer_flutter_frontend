@@ -109,6 +109,8 @@ class AppDimensions {
   static const double fileInputFieldHeight = 60.0;
 
   static const double createPostTabBarHeight = 40.0;
+
+  static const double searchTagListTileHeight = 50;
 }
 
 // aspect ratios
