@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/pages/base_page.dart';
 import 'package:peer_app/presentation/pages/login_page/widgets/footer_section.dart';
-import 'package:peer_app/presentation/whitelabel/config.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 
 import 'widgets/login_section.dart';
 
@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 //Logo
-                Image.asset(Config.logo, height: Config.logoHeight),
+                Image.asset(IconLibrary.peer.icon.assetName),
 
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: AppPaddings.large),
