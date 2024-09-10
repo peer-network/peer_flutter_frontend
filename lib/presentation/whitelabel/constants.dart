@@ -16,6 +16,8 @@ class AppDuration {
       Duration(milliseconds: 150);
   static const Duration postCreationTransitionDuration =
       Duration(milliseconds: 150);
+  static const Duration postCreationTagAnimationTransitionDuration =
+      Duration(milliseconds: 300);
 }
 
 class AppBorders {
@@ -25,6 +27,8 @@ class AppBorders {
   static BorderRadius noRadius = BorderRadius.zero;
   static BorderRadius profileTextPostCardRadius = BorderRadius.circular(5);
   static BorderRadius imageSliderRadius = BorderRadius.circular(5.0);
+  static BorderRadius selectedTagRadius = BorderRadius.circular(30.0);
+  static BorderRadius createPostTabBarRadius = BorderRadius.circular(10.0);
 }
 
 class AppMargins {

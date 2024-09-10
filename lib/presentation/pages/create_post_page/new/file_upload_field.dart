@@ -57,8 +57,8 @@ class _FileUploadFieldState extends State<FileUploadField> {
               ? (_status == FilePickerStatus.picking)
                   ? const CircularProgressIndicator()
                   : CustomIconButton(
+                      isDefaultColorDisabled: true,
                       sizeType: SizeType.medium,
-                      color: Theme.of(context).primaryIconTheme.color,
                       icon: IconLibrary.plus,
                       onPressed: _pickFile)
               : Text(
