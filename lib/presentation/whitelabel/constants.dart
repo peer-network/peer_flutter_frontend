@@ -6,7 +6,6 @@ class AppValues {
   static const int defaultLimit = 50;
   static const int maxLastMessageLength = 20;
   static const int imageDescriptionMaxLines = 3;
-  static const int 
 }
 
 class AppDuration {
