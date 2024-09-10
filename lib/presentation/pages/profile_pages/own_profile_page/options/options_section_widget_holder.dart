@@ -25,13 +25,29 @@ class OptionsSectionWidgetHolder extends StatelessWidget {
     return Column(
     children: [
       const SizedBox(height: AppPaddings.medium),
-      OptionsSectionWidget(title: "Exclude Content-Types", content: ExcludeContentTypes()),
-      OptionsSectionWidget(title: "", content: BlockedUsersSection()),
-      OptionsSectionWidget(title: "Exclude Tags", content: ExcludeTagsSection()),
-      OptionsSectionWidget(title: "Change E-Mail Address", content: ChangeEmailSection()),
-      OptionsSectionWidget(title: "Change Password", content: ChangePasswordSection()),
-      OptionsSectionWidget(title: "Log Out", content: LogoutSection()),
-      OptionsSectionWidget(title: "Delete Account", content: DeleteAccountSection()),
+      ExcludeContentTypes(),
+      OptionsSectionWidget(title: "", content: BlockedUsersSection(
+        blockedUsers: [
+          'Ender',
+          'Jakob',
+          'Manfred',
+          'Thorsten',
+          'Jürgen',
+          'Thorben',
+          'Ahmed',
+          'Carsten',
+          'Keanu',
+          'Kim',
+          'Paul',
+          'Jeri'
+          ],
+        )
+      ),
+      ExcludeTagsSection(),
+      ChangeEmailSection(),
+      ChangePasswordSection(),
+      LogoutSection(),
+      DeleteAccountSection(),
       ]
     );
   }

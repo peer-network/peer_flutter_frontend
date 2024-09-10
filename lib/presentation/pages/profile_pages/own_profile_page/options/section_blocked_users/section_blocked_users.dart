@@ -1,31 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/data/models/user_model.dart';
-import 'package:peer_app/presentation/routing/routes/page_routes.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/theme.dart';
-import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/options/section_blocked_users/blocked_users_list.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/options/section_excluded_tags/lists_screen.dart';
+import 'package:peer_app/presentation/whitelabel/text_themes.dart';
 
 class BlockedUsersSection extends StatelessWidget {
-  //final UserModel user;
+  final List<String> blockedUsers;
 
   const BlockedUsersSection({
     Key? key,
-    //required this.user,
+    required this.blockedUsers, // Dynamically passed list of blocked users
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Navigate to the blocked users page
+        // Navigate to the ListsScreen with blocked users
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => BlockedUsersPage(), // Replace with actual route
+            builder: (context) => ListsScreen(
+              title: 'Blocked Users',
+              description: 'You can find Users to remove them from your Blacklist.',
+              items: blockedUsers, // Pass the list of blocked users
+            ),
           ),
         );
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: AppPaddings.medium, vertical: AppPaddings.medium),//12?),
+        padding: const EdgeInsets.symmetric(
+            horizontal: AppPaddings.medium, vertical: AppPaddings.medium),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
           borderRadius: AppBorders.creditsSourceBarRadius,
@@ -35,30 +39,29 @@ class BlockedUsersSection extends StatelessWidget {
           children: [
             Text(
               'Blocked Users',
-              style: Theme.of(context).textTheme.displayLarge?.copyWith(
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     color: Theme.of(context).brightness == Brightness.light
-                            ? lightTheme.colorScheme.primary
-                            : darkTheme.colorScheme.primary,
-              ),  
+                        ? lightTheme.colorScheme.secondary
+                        : darkTheme.colorScheme.secondary,
+                    fontSize: titleLargeTextStyle.fontSize
+                  ),
             ),
             Row(
               children: [
                 Text(
-                  //there are no blocked users amount and list in userModel, so for now --> amountFollowed
-                  //user.amountFollowed.toString(),
-                  "12",
+                  blockedUsers.length.toString(), // Display the number of blocked users
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         color: Theme.of(context).brightness == Brightness.light
-                            ? lightTheme.colorScheme.primary
-                            : darkTheme.colorScheme.primary,
+                            ? lightTheme.colorScheme.secondary
+                            : darkTheme.colorScheme.secondary,                           
                       ),
                 ),
                 const SizedBox(width: AppPaddings.small),
                 Icon(
                   Icons.arrow_forward_ios,
                   color: Theme.of(context).brightness == Brightness.light
-                            ? lightTheme.iconTheme.color
-                            : darkTheme.iconTheme.color,
+                      ? lightTheme.iconTheme.color
+                      : darkTheme.iconTheme.color,
                   size: AppDimensions.iconSizeSmall,
                 ),
               ],
@@ -69,5 +72,3 @@ class BlockedUsersSection extends StatelessWidget {
     );
   }
 }
-
-

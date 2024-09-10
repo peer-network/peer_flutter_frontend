@@ -19,7 +19,7 @@ class _DeleteAccountSectionState extends State<DeleteAccountSection> {
         children: [
           Text(
             'Delete account',
-            style: Theme.of(context).textTheme.headlineSmall,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: AppPaddings.small),
           Text(
@@ -39,8 +39,7 @@ class _DeleteAccountSectionState extends State<DeleteAccountSection> {
                   });
                 },
                 activeColor: Theme.of(context).buttonTheme.colorScheme?.outline,
-                inactiveTrackColor:
-                    Theme.of(context).buttonTheme.colorScheme?.outlineVariant,
+                inactiveTrackColor: Theme.of(context).buttonTheme.colorScheme?.outlineVariant
               ),
             ],
           ),
@@ -56,8 +55,8 @@ class _DeleteAccountSectionState extends State<DeleteAccountSection> {
             ),
           ),
           const SizedBox(height: AppPaddings.medium),
-          // Centering the button
-          Center(
+          SizedBox(
+            width: double.infinity, // Full-width button
             child: ElevatedButton(
               onPressed: _isSwitchOn && _passwordController.text.isNotEmpty
                   ? () {
@@ -65,8 +64,7 @@ class _DeleteAccountSectionState extends State<DeleteAccountSection> {
                     }
                   : null,
               style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    Theme.of(context).buttonTheme.colorScheme?.outline, // Button background color
+                backgroundColor: Theme.of(context).buttonTheme.colorScheme?.outline, // Button background color
                 foregroundColor: Theme.of(context).colorScheme.secondary, // Text color
               ),
               child: const Text('Delete Account'),

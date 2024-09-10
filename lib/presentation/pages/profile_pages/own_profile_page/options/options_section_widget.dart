@@ -14,14 +14,18 @@ class OptionsSectionWidget extends StatelessWidget {
   @override  
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start, // Ensures alignment to the left
       children: [
-        Text(
-          title,
-          style: Theme.of(context).textTheme.displayLarge,
-          textAlign: TextAlign.left,
+        Align(
+          //alignment: Alignment.centerLeft, // Aligns the title to the leftmost point
+          child: Text(
+            title,
+            style: Theme.of(context).textTheme.titleLarge,
+            textAlign: TextAlign.start,
+          ),
         ),
         Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: AppPaddings.medium,
             bottom: AppPaddings.medium,
           ),

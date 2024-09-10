@@ -2,7 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 import 'package:peer_app/presentation/whitelabel/theme.dart';
-import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/options/section_excluded_tags/excluded_tags_list.dart';
+import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/options/section_excluded_tags/lists_screen.dart';
+import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
+import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
+import 'package:flutter/material.dart';
+import 'package:peer_app/core/types/create_post_type.dart';
+import 'package:peer_app/presentation/pages/create_post_page/create_post_bottom_navbar.dart';
+import 'package:peer_app/presentation/pages/create_post_page/text_body_create_post.dart';
+import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
+import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
+import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/whitelabel/icon_library.dart';
+import 'package:provider/provider.dart';
+
 
 class ExcludeTagsSection extends StatefulWidget {
   @override
@@ -35,8 +47,6 @@ class _ExcludeTagsSectionState extends State<ExcludeTagsSection> {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return Container(
       padding: const EdgeInsets.all(AppPaddings.medium),
       child: Column(
@@ -44,7 +54,11 @@ class _ExcludeTagsSectionState extends State<ExcludeTagsSection> {
         children: [
           Text(
             'Exclude Tags',
-            style: Theme.of(context).textTheme.headlineSmall,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? lightTheme.colorScheme.secondary
+                        : darkTheme.colorScheme.secondary,
+                  ),
           ),
           const SizedBox(height: AppPaddings.small),
           Text(
@@ -66,39 +80,36 @@ class _ExcludeTagsSectionState extends State<ExcludeTagsSection> {
                 ),
               ),
               IconButton(
-                icon: ImageIcon(
-                  IconLibrary.check_filled.icon,
+                icon: Icon(
+                  Icons.check,
                   color: Theme.of(context).brightness == Brightness.light
-                      ? lightTheme.iconTheme.color
-                      : darkTheme.iconTheme.color,
+                            ? lightTheme.iconTheme.color
+                            : darkTheme.iconTheme.color,
                 ),
                 onPressed: _isButtonEnabled ? _addTag : null,
               ),
             ],
           ),
           const SizedBox(height: AppPaddings.medium),
-          SizedBox(
-            height: screenHeight * 2 / 3, // 2/3 of the screen height
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: _excludedTags.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(_excludedTags[index]),
-                  trailing: IconButton(
-                    icon: ImageIcon(
-                      IconLibrary.trash.icon,
-                      color: Theme.of(context).colorScheme.error,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _excludedTags.removeAt(index);
-                      });
-                    },
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: _excludedTags.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(_excludedTags[index],
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).brightness == Brightness.light
+                    ? lightTheme.colorScheme.secondary
+                    : darkTheme.colorScheme.secondary,
                   ),
-                );
-              },
-            ),
+                ),
+                trailing: CustomIconButton(
+                icon: IconLibrary.trash,
+                onPressed: () {},
+                color: Theme.of(context).colorScheme.error,
+                sizeType: SizeType.medium),
+              );
+            },
           ),
           const SizedBox(height: AppPaddings.medium),
           Center(
@@ -106,17 +117,20 @@ class _ExcludeTagsSectionState extends State<ExcludeTagsSection> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => AllExcludedTagsScreen(),
+                    builder: (context) => ListsScreen(
+                      title: "All my excluded tags",
+                      description: "You can add Tags yo your Blacklist to filter out your feed.",
+                      items: ["Crypto", "Blockchain", "NSFW", "AFD"],),
                   ),
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).buttonTheme.colorScheme?.outline, // Button background color
-                foregroundColor: Theme.of(context).colorScheme.secondary, // Text color
+                backgroundColor: Theme.of(context).buttonTheme.colorScheme?.outline,  
+                foregroundColor: Theme.of(context).colorScheme.secondary,
               ),
               child: const Text('All my excluded Tags'),
             ),
-          ),
+          )
         ],
       ),
     );

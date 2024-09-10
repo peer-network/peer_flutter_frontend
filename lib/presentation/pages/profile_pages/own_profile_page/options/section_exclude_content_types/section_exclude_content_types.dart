@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/presentation/whitelabel/constants.dart';
+import 'package:peer_app/presentation/whitelabel/text_themes.dart';
 import 'package:peer_app/presentation/whitelabel/theme.dart';
 
 
@@ -20,13 +21,20 @@ class _ExcludeContentTypesState extends State<ExcludeContentTypes> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Description
+          Text(
+            'Exclude Content-Types',
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              color: Theme.of(context).brightness == Brightness.light
+                ? lightTheme.colorScheme.secondary
+                : darkTheme.colorScheme.secondary,
+            ),
+          ),
           Text(
             'You can exclude Content-Types to alter your feed.',
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: Theme.of(context).brightness == Brightness.light
-                ? lightTheme.colorScheme.primary
-                : darkTheme.colorScheme.primary,
+                ? lightTheme.colorScheme.secondary
+                : darkTheme.colorScheme.secondary,
             ),
           ),
           const SizedBox(height: AppPaddings.medium),
@@ -85,8 +93,10 @@ class _ExcludeContentTypesState extends State<ExcludeContentTypes> {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: Colors.white,
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                color: Theme.of(context).brightness == Brightness.light
+                ? lightTheme.colorScheme.secondary
+                : darkTheme.colorScheme.secondary,
               ),
         ),
         Switch(
