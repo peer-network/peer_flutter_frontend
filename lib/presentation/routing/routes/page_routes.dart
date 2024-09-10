@@ -1,8 +1,7 @@
 import 'package:peer_app/data/models/chat_model.dart';
 import 'package:peer_app/data/models/post_model.dart';
 import 'package:peer_app/presentation/pages/chat_contacts_page/chat_contacts_page.dart';
-import 'package:peer_app/presentation/pages/create_post_page/create_post_page.dart';
-import 'package:peer_app/presentation/pages/create_post_page/new/new_create_post.dart';
+import 'package:peer_app/presentation/pages/create_post_page/new/create_post_page.dart';
 import 'package:peer_app/presentation/pages/login_page/login_page.dart';
 import 'package:peer_app/presentation/pages/peer_page/peer_page.dart';
 import 'package:peer_app/presentation/pages/profile_pages/own_profile_page/own_profile_page.dart';
@@ -92,7 +91,7 @@ class CreatePostPageRoute extends BaseRoute {
 class NewCreatePostPageRoute extends BaseRoute {
   NewCreatePostPageRoute()
       : super(
-          const CreatePost(),
+          const CreatePostPage(),
           guards: [],
         );
 }

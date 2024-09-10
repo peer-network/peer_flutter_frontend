@@ -5,18 +5,18 @@ import 'package:peer_app/presentation/pages/create_post_page/new/create_post_tab
 import 'package:peer_app/presentation/whitelabel/constants.dart';
 import 'package:peer_app/presentation/whitelabel/icon_library.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/size_types.dart';
-import 'package:peer_app/presentation/pages/create_post_page/create_text_post.dart';
+import 'package:peer_app/presentation/pages/create_post_page/new/create_text_post.dart';
 import 'package:peer_app/presentation/whitelabel/components/types/aspect_ratios.dart';
 import 'package:peer_app/presentation/whitelabel/components/buttons/custom_icon_button.dart';
 
-class CreatePost extends StatefulWidget {
-  const CreatePost({super.key});
+class CreatePostPage extends StatefulWidget {
+  const CreatePostPage({super.key});
 
   @override
-  State<CreatePost> createState() => _CreatePostState();
+  State<CreatePostPage> createState() => _CreatePostPageState();
 }
 
-class _CreatePostState extends State<CreatePost> {
+class _CreatePostPageState extends State<CreatePostPage> {
   // image/text post
   CreatePostType activeCreatePostType = CreatePostType.image;
   final TextEditingController titleController = TextEditingController();
