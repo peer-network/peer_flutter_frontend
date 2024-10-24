@@ -22,7 +22,7 @@ class GraphQLClientSingleton {
     );
 
     final HttpLink httpLink = HttpLink(
-      'http://10.10.121.78:8888/graphql',
+      'https://getpeer.eu/graphql',
     );
 
     final Link link = authLink.concat(httpLink);

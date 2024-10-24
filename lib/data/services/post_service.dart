@@ -119,7 +119,8 @@ class PostService {
       postJson.remove('__typename');
 
       String imgUrl = postJson['user']['img'];
-      postJson['user']['img'] = 'http://10.10.121.78:8888/runtime-data$imgUrl';
+      postJson['user']['img'] =
+          'https://getpeer.eu/graphql/runtime-data$imgUrl';
 
       if (postJson['runtimeType'] == 'image') {
         postJson['mediaDescription'] = postJson['mediadescription'];
@@ -128,15 +129,19 @@ class PostService {
         List<dynamic> mediaList = json.decode(postJson['media']).split(',');
         postJson['media'] = mediaList
             .map((mediaPath) =>
-                'http://10.10.121.78:8888/runtime-data$mediaPath')
+                'https://getpeer.eu/graphql/runtime-data$mediaPath')
             .toList();
 
         return PostModel.fromJson(postJson);
       } else {
         postJson.remove('mediadescription');
 
+        print(postJson['media']);
+
+        print(json.decode(postJson['media']));
+
         Uri textPostUri = Uri.parse(
-            'http://10.10.121.78:8888/runtime-data${json.decode(postJson['media'])}');
+            'https://getpeer.eu/graphql/runtime-data${json.decode(postJson['media'])}');
 
         try {
           final response = await http.get(textPostUri);
